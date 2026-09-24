@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-09-18",
+  "updated_on": "2026-09-24",
   "project_stage": "scaffold",
   "components": [
     {
@@ -11,7 +11,7 @@
         "tools/check_repository.py",
         "tests/test_repository_checks.py"
       ],
-      "note": "Documentation and repository checks only; not FPGA verification."
+      "note": "Public documentation, repository checker, unit tests and CI configuration; not FPGA verification."
     },
     {
       "id": "board_bringup",
