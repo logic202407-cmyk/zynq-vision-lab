@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-09-18",
+  "project_stage": "scaffold",
+  "components": [
+    {
+      "id": "repository_foundation",
+      "status": "implemented",
+      "evidence": [
+        "README.md",
+        "tools/check_repository.py",
+        "tests/test_repository_checks.py"
+      ],
+      "note": "Documentation and repository checks only; not FPGA verification."
+    },
+    {
+      "id": "board_bringup",
+      "status": "planned",
+      "evidence": [],
+      "note": "Not implemented or verified."
+    },
+    {
+      "id": "video_baseline",
+      "status": "planned",
+      "evidence": [],
+      "note": "Not implemented or verified."
+    },
+    {
+      "id": "rtl_hls_core",
+      "status": "planned",
+      "evidence": [],
+      "note": "Not implemented or verified."
+    },
+    {
+      "id": "ps_application",
+      "status": "planned",
+      "evidence": [],
+      "note": "Not implemented or verified."
+    },
+    {
+      "id": "golden_reference",
+      "status": "planned",
+      "evidence": [],
+      "note": "Not implemented or verified."
+    },
+    {
+      "id": "multi_marker_measurement",
+      "status": "planned",
+      "evidence": [],
+      "note": "Not implemented or verified."
+    },
+    {
+      "id": "interference_experiments",
+      "status": "planned",
+      "evidence": [],
+      "note": "Not implemented or verified."
+    },
+    {
+      "id": "board_reproduction",
+      "status": "planned",
+      "evidence": [],
+      "note": "Not implemented or verified."
+    },
+    {
+      "id": "device_ai",
+      "status": "planned",
+      "evidence": [],
+      "note": "Not implemented or verified."
+    }
+  ]
+}

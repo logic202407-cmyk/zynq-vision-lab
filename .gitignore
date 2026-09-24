@@ -1,0 +1,44 @@
+# Credentials and private records
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.lic
+private/
+board/photos/private/
+data/raw/
+
+# Generated FPGA projects and binary outputs
+.Xil/
+*.cache/
+*.runs/
+*.sim/
+*.hw/
+*.ip_user_files/
+*.jou
+*.log
+*.str
+*.wdb
+*.dcp
+*.bit
+*.bin
+*.xsa
+*.zip
+*.tar.gz
+build/generated/
+
+# Python and editor caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Keep reviewed reports, RTL, Tcl, XDC and dependency definitions.
+# Do not blanket-ignore build/ or *.rpt: reproducibility metadata belongs in Git.

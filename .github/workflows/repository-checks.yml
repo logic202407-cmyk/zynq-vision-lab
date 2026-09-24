@@ -1,0 +1,25 @@
+name: Repository foundations (not FPGA verification)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  repository-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout pinned action
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Check repository structure and claims
+        run: python3 tools/check_repository.py
+      - name: Test repository tooling
+        run: python3 -m unittest discover -s tests -v
+      - name: Clarify verification boundary
+        run: echo 'Repository checks only. No FPGA simulation, implementation or board test has run.'
