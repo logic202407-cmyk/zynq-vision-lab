@@ -9,7 +9,8 @@
       "evidence": [
         "README.md",
         "tools/check_repository.py",
-        "tests/test_repository_checks.py"
+        "tests/test_repository_checks.py",
+        "report/experiments/2026-09-24-foundation.md"
       ],
       "note": "Public documentation, repository checker, unit tests and CI configuration; not FPGA verification."
     },

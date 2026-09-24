@@ -28,3 +28,5 @@ Reported version: `2024.2`
 `get_parts -quiet` counts: `xc7z035ffg900-2 = 1`, `xc7z045ffg900-2 = 1`, `xc7z100ffg900-2 = 1`.
 
 The process also reported a local Tcl store write-access warning and used the installation area. This query only confirms the installed tool catalog contains the three candidate part names. It does not identify the actual board, prove license/IP availability, or establish that an implementation can generate a bitstream. No project was created.
+
+`vitis.bat -version` was also attempted on 2026-09-24. It printed `Unsupported option -version` and usage text, although the process returned exit code 0. This does not verify the Vitis version or PS software flow; a supported version query or actual build remains necessary.
