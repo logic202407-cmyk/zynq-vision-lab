@@ -111,6 +111,36 @@ https://www.nuedc-training.com.cn/index/news/details/new_id/310
 
 待澄清项：指南正文要求路径使用小写英文、数字、下划线或连字符，但同一指南的推荐结构使用 `README.md`，官方仓库自身也使用大写文件名。当前仓库先保证 ASCII 路径，不据此立即批量重命名；最终提交前向赛道支持渠道确认大小写口径。
 
+## 2026-09-26 方案讨论补充来源
+
+以下来源用于判断实现复杂度与接口约束，不构成目标板卡可用性或实际性能证明。
+
+### S14｜AMD Vitis Vision：颜色检测示例与函数范围
+
+颜色检测示例：https://docs.amd.com/r/2023.2-English/Vitis_Libraries/vision/overview.html_3_2
+
+2024.2 函数说明：https://docs.amd.com/r/2024.2-English/Vitis_Libraries/vision/api-reference.html_1
+
+用途：颜色分割和形态学处理作为可参考的 FPGA 视觉路径；2024.2 函数说明明确 `Bounding box` 为内存映射实现之一，不能假设直接调用就是本项目所需的全流式区域统计。实际函数适配、资源和性能待目标工程验证。
+
+### S15｜AMD UG934：AXI4-Stream Video 信号
+
+https://docs.amd.com/r/en-US/ug934_axi_videoIP/AXI4-Stream-Signaling-Interface
+
+用途：若后续封装 AXI4-Stream Video 接口，按文档区分 `VALID/READY` 握手、`TUSER` 帧首与 `TLAST` 行末。本地原厂例程可能采用其他同步信号，是否转换须按选定版本实查。
+
+### S16｜Mori 等：FPGA 视觉传感器案例
+
+https://onlinelibrary.wiley.com/doi/10.1155/2012/148190
+
+用途：参考可解释图像处理硬件与处理器分工的研究案例；研究对象和硬件与本项目不同，不能照搬其性能结论。
+
+### S17｜Kowalczyk 等：4K 视频流连通域实现
+
+https://link.springer.com/article/10.1007/s11265-021-01636-4
+
+用途：流式连通域是同色多目标的后续研究方向，也体现相对单一颜色矩累加更高的设计复杂度。本项目 V1 不需要实现 CCL。
+
 ## 本次没有完成的事项
 
 没有上板；没有运行 Vivado/HLS；没有下载位流；没有安装 GitHub Skill；没有验证目标板卡的 PYNQ 镜像；没有获得采购报价；没有确认赛事主站是否另有最新调整；没有为光学装置出具安全结论。S13 的读取是指南核对，不是赛事仓库身份的独立组织方认证；具体日期及后续评分细则仍以大赛官方公告为准。

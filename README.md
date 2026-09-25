@@ -2,7 +2,7 @@
 
 **基于 Zynq 的几何靶标视觉感知与动态干扰实验平台**
 
-面向 2026 年全国大学生嵌入式芯片与系统设计竞赛 FPGA 创新设计赛道 AMD 自主选题初级组。本仓库包含项目[规划](docs/project_plan.md)、[Gate 执行方案](docs/execution_plan_2026-09-24.md)、[参赛仓库交付计划](docs/repository_submission.md)、[资料来源](docs/sources.md)及基础检查工具；这不是 AMD 官方示例。
+面向 2026 年全国大学生嵌入式芯片与系统设计竞赛 FPGA 创新设计赛道 AMD 自主选题初级组。本仓库包含项目[规划](docs/project_plan.md)、[近期方案与备赛决策](docs/decisions_2026-09-26.md)、[Gate 执行方案](docs/execution_plan_2026-09-24.md)、[参赛仓库交付计划](docs/repository_submission.md)、[资料来源](docs/sources.md)及基础检查工具；这不是 AMD 官方示例。
 
 ## 当前状态
 
