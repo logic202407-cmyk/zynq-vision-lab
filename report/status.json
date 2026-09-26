@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-09-24",
+  "updated_on": "2026-09-27",
   "project_stage": "scaffold",
   "components": [
     {
@@ -17,14 +17,14 @@
     {
       "id": "board_bringup",
       "status": "planned",
-      "evidence": [],
-      "note": "Not implemented or verified."
+      "evidence": ["board/bringup_log.md"],
+      "note": "XC7Z100 JTAG, a vendor LED smoke test, and diagnostic GE ARP receive/reply were observed. Physical package/speed grade, full board bring-up and independent reproduction remain open."
     },
     {
       "id": "video_baseline",
       "status": "planned",
-      "evidence": [],
-      "note": "Not implemented or verified."
+      "evidence": ["board/bringup_log.md", "src/pc/README.md"],
+      "note": "A vendor OV5640 bitstream produced short live 640x480 UDP video after a diagnostic bitstream seeded host ARP. Cold-start ARP, continuous five-minute acceptance and independent reproduction remain open."
     },
     {
       "id": "rtl_hls_core",
