@@ -7,9 +7,12 @@ import socket
 import threading
 import time
 import tkinter as tk
+from collections import deque
+from dataclasses import dataclass, replace
+from statistics import median_low
 from tkinter import filedialog, messagebox, ttk
 
-from PIL import Image, ImageTk
+from PIL import Image, ImageDraw, ImageTk
 
 from .vendor_udp import (
     BOARD_IP,
@@ -23,6 +26,7 @@ from .vendor_udp import (
     WIDTH,
     Frame,
     FrameAssembler,
+    PLMeasurement,
 )
 
 
@@ -32,7 +36,7 @@ TEXT = "#e8f0ef"
 MUTED = "#a6b9b7"
 ACCENT = "#65d6bd"
 WARN = "#f0bd75"
-UI_POLL_MS = 33
+UI_POLL_MS = 16
 
 
 def rgb565_be_to_image(frame: Frame) -> Image.Image:
@@ -47,12 +51,78 @@ def rgb565_be_to_image(frame: Frame) -> Image.Image:
     )
 
 
+@dataclass(frozen=True)
+class DisplayResult:
+    frame_seq: int
+    count: int
+    bbox: tuple[int, int, int, int]
+    centroid: tuple[int, int]
+    target_valid: bool = True
+
+
+class BoxStabilizer:
+    """Median of seven matched results for display only; raw PL data is kept."""
+
+    def __init__(self) -> None:
+        self.history: deque[PLMeasurement] = deque(maxlen=7)
+
+    def update(self, result: PLMeasurement | None) -> DisplayResult | None:
+        if result is None or not result.target_valid or result.bbox is None:
+            self.history.clear()
+            return None
+        self.history.append(result)
+        box = tuple(median_low(item.bbox[i] for item in self.history)
+                    for i in range(4))
+        center = tuple(median_low(item.centroid[i] for item in self.history)
+                       for i in range(2))
+        return DisplayResult(result.frame_seq, result.count, box, center)
+
+
+def draw_pl_result(
+    image: Image.Image, result: PLMeasurement | DisplayResult | None
+) -> Image.Image:
+    """Draw the matched PL result on a copy, leaving saved raw pixels intact."""
+    if result is None or not result.target_valid or result.bbox is None:
+        return image
+    shown = image.copy()
+    draw = ImageDraw.Draw(shown)
+    x0, y0, x1, y1 = result.bbox
+    cx, cy = result.centroid
+    draw.rectangle((x0, y0, x1, y1), outline="#45e3bc", width=3)
+    draw.line((max(0, cx - 8), cy, min(image.width - 1, cx + 8), cy),
+              fill="#fff16a", width=2)
+    draw.line((cx, max(0, cy - 8), cx, min(image.height - 1, cy + 8)),
+              fill="#fff16a", width=2)
+    return shown
+
+
+class FramePairer:
+    """Attach a PL result from frame N+1 to the stored image of frame N."""
+
+    def __init__(self) -> None:
+        self.previous: Frame | None = None
+
+    def feed(self, frame: Frame) -> Frame | None:
+        if frame.frame_seq is None:
+            self.previous = None
+            return frame
+        previous = self.previous
+        self.previous = frame
+        if previous is None:
+            return None
+        result = frame.previous_measurement
+        if result is not None and previous.frame_seq == result.frame_seq:
+            return replace(previous, pl_measurement=result)
+        return previous
+
+
 class CameraReceiver(threading.Thread):
     def __init__(self, bind_ip: str, packets: queue.Queue[Frame]) -> None:
         super().__init__(name="camera-udp-receiver", daemon=True)
         self.packets = packets
         self.stop_event = threading.Event()
         self.assembler = FrameAssembler()
+        self.pairer = FramePairer()
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 8 * 1024 * 1024)
         self.socket.settimeout(0.25)
@@ -88,6 +158,8 @@ class CameraReceiver(threading.Thread):
                 if peer[0] != BOARD_IP:
                     continue
                 frame = self.assembler.feed(packet)
+                if frame is not None:
+                    frame = self.pairer.feed(frame)
                 if frame is not None:
                     try:
                         self.packets.put_nowait(frame)
@@ -144,6 +216,7 @@ class Viewer(tk.Tk):
         self.worker: CameraReceiver | DemoSource | None = None
         self.mode = "idle"
         self.last_image: Image.Image | None = None
+        self.box_stabilizer = BoxStabilizer()
         self.last_arrival = 0.0
         self.render_times: list[float] = []
         self.bind_ip = tk.StringVar(value=PC_IP)
@@ -164,7 +237,7 @@ class Viewer(tk.Tk):
         body = tk.Frame(self, bg=BG)
         body.pack(fill="both", expand=True, padx=28)
         left = tk.Frame(body, bg=SURFACE, width=664, height=526)
-        left.pack(side="left", fill="both", expand=True)
+        left.pack(side="left", fill="y")
         left.pack_propagate(False)
         self.canvas = tk.Canvas(left, width=WIDTH, height=HEIGHT, bg="#0b1113",
                                 highlightthickness=0)
@@ -284,6 +357,7 @@ class Viewer(tk.Tk):
         self.photo = None
         self.last_arrival = 0.0
         self.render_times = []
+        self.box_stabilizer = BoxStabilizer()
 
     def _poll(self) -> None:
         now = time.monotonic()
@@ -295,7 +369,10 @@ class Viewer(tk.Tk):
                 frame = None
             if frame is not None:
                 self.last_image = rgb565_be_to_image(frame)
-                self.photo = ImageTk.PhotoImage(self.last_image)
+                overlay = self.box_stabilizer.update(frame.pl_measurement)
+                self.photo = ImageTk.PhotoImage(
+                    draw_pl_result(self.last_image, overlay)
+                )
                 self.canvas.itemconfigure(self.image_item, image=self.photo)
                 self.canvas.itemconfigure(self.empty_item, state="hidden")
                 self.canvas.itemconfigure(self.demo_item,
@@ -305,6 +382,15 @@ class Viewer(tk.Tk):
                 self.render_times = [t for t in self.render_times if now - t < 2.0]
                 if self.mode == "live":
                     self.connection.set("接收中 · 实时画面")
+                    if frame.pl_measurement is not None:
+                        result = frame.pl_measurement
+                        if result.target_valid and overlay is not None:
+                            self.detail.set(
+                                f"PL 帧 {result.frame_seq} · 原始红色像素 {result.count} · "
+                                f"显示平滑中心 {overlay.centroid} · 边框 {overlay.bbox}"
+                            )
+                        else:
+                            self.detail.set(f"PL 帧 {result.frame_seq} · 未检出红色目标")
             a = worker.assembler
             fps = len(self.render_times) / 2 if len(self.render_times) > 1 else 0
             self.stats.set(

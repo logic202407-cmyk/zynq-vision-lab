@@ -27,6 +27,7 @@ class Frame:
     height: int = HEIGHT
     frame_seq: int | None = None
     previous_measurement: "PLMeasurement | None" = None
+    pl_measurement: "PLMeasurement | None" = None
 
 
 @dataclass(frozen=True)

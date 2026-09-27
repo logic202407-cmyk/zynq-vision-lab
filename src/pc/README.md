@@ -59,10 +59,12 @@ The viewer keeps only the latest queued frame for display and does not record
 the full stream to disk. On the current live setup, reducing the Tk polling
 interval from 100 ms to 33 ms raised the observed display rate from about
 9.5 to 26.5 FPS; incoming complete-frame counts are tracked separately from
-display FPS. Other hosts may render at different rates. A separate temporary
-vendor-camera timing trial later delivered 8999 complete frames in 300 seconds
-(29.997 incoming FPS), but the live viewer's display FPS under that trial has
-not yet been visually read; see `../../report/experiments/2026-09-27-ov5640-fps30.md`.
+display FPS. A later 16 ms polling interval showed 30.0 display FPS in a
+single live window screenshot with the PL overlay; this is a spot observation,
+not a sustained display-rate measurement. Other hosts may render at different
+rates. A separate temporary vendor-camera timing trial delivered 8999 complete
+frames in 300 seconds (29.997 incoming FPS); see
+`../../report/experiments/2026-09-27-ov5640-fps30.md`.
 
 ## Wire format inspected from local vendor reference
 
@@ -112,4 +114,13 @@ The trial bitstream described in [`../../report/experiments/2026-09-27-pl-red-ca
 python -m src.pc.pl_compare --seconds 30 --frames 100
 ```
 
-Stop the viewer before running this command because both bind UDP port 1234, then restart the viewer afterward. In the local board trial, 100 pairwise comparisons matched and a separate 30-second receive-only run assembled 899 complete frames. The viewer's actual rendered FPS remains unmeasured.
+Stop the viewer before running this command because both bind UDP port 1234, then restart the viewer afterward. In the local board trial, 100 pairwise comparisons matched and a separate 30-second receive-only run assembled 899 complete frames.
+
+The viewer pairs the previous-frame PL result with the matching video frame.
+It draws a green box and yellow centroid on a copy of the image; saving a PNG
+still saves unmodified camera pixels. A seven-result median is applied only to
+the displayed box and centroid to suppress isolated false-pixel jumps. The
+raw PL count, box and sums remain available unchanged in the packet and
+software comparison path. The median can delay a genuinely moving target by
+up to about three received frames; a PL spatial filter is still needed for
+robust raw measurements.
