@@ -59,7 +59,10 @@ The viewer keeps only the latest queued frame for display and does not record
 the full stream to disk. On the current live setup, reducing the Tk polling
 interval from 100 ms to 33 ms raised the observed display rate from about
 9.5 to 26.5 FPS; incoming complete-frame counts are tracked separately from
-display FPS. Other hosts may render at different rates.
+display FPS. Other hosts may render at different rates. A separate temporary
+vendor-camera timing trial later delivered 8999 complete frames in 300 seconds
+(29.997 incoming FPS), but the live viewer's display FPS under that trial has
+not yet been visually read; see `../../report/experiments/2026-09-27-ov5640-fps30.md`.
 
 ## Wire format inspected from local vendor reference
 

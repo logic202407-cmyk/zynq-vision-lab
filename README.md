@@ -30,6 +30,8 @@ python -m unittest discover -s tests -v
 
 项目只处理无生命几何靶标，输出屏幕标记、位置测量和实验日志。不开发真人或真实飞行器自主指向、弹丸发射或移动发射系统。原厂工程、第三方图像和个人资料不会直接复制到公开仓库。
 
+原厂 640×480 UDP 视频的单独时序试验在临时 JTAG 位流下完成了 300 秒接收：8999 个完整帧，平均约 30.0 FPS；这是[原厂链路参数试验](report/experiments/2026-09-27-ov5640-fps30.md)，不代表自编 PL 算法的帧率或最终画质验收。
+
 无 HDMI 显示器时，可使用 [OV5640 电脑端 UDP 预览工具](src/pc/README.md)做原厂视频链路基线；它需要单独的有线网口连接，JTAG 不能替代传图。测试条件、复现步骤、统计和限制见[原厂视频基线](board/video_baseline.md)，上板过程见[上板日志](board/bringup_log.md)。
 
 仓库原创材料采用 [MIT License](LICENSE)。资料来源及适用限制见[来源清单](docs/sources.md)。
