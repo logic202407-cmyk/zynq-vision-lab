@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-27",
-  "project_stage": "scaffold",
+  "project_stage": "pl_camera_prototype",
   "components": [
     {
       "id": "repository_foundation",
@@ -28,9 +28,12 @@
     },
     {
       "id": "rtl_hls_core",
-      "status": "implemented",
-      "evidence": ["src/rtl/red_pixel_mask.v", "sim/red_pixel_mask_tb.v", "report/experiments/2026-09-27-red-pixel-mask-xsim.md"],
-      "note": "An original combinational RGB565 red-pixel predicate passed selected-color and boundary tests in Vivado 2024.2 xsim. It has not been synthesized, integrated with the camera stream or tested on the board."
+      "status": "board_verified",
+      "evidence": ["src/rtl/red_pixel_mask.v", "src/rtl/camera_rgb565_stream.v", "src/rtl/red_frame_stats.v", "src/rtl/red_result_header.v", "sim/red_frame_stats_tb.v", "sim/camera_rgb565_stream_tb.v", "sim/red_result_header_tb.v", "report/experiments/2026-09-27-pl-red-camera-trial.md"],
+      "verified_commit": "2bfef119a46d1f1e6604d945a58e3896e539113d",
+      "tool_version": "Vivado 2024.2; Python 3.12",
+      "reviewer": "Codex automated local bench comparison",
+      "note": "Original PL DVP adapter and frame red-statistics path passed targeted xsim tests, full synthesis/implementation, 100 same-frame board/software comparisons with zero mismatches, and a separate 30-second 899-frame receive run. The color rule is scene-dependent; inherited I/O timing gaps and independent reproduction remain open."
     },
     {
       "id": "ps_application",
@@ -41,8 +44,8 @@
     {
       "id": "golden_reference",
       "status": "implemented",
-      "evidence": ["sim/reference/red_mask.py", "tests/test_red_mask_reference.py", "data/test_manifest.md", "src/interface_contract.md"],
-      "note": "A candidate RGB565 red-pixel count, box and centroid reference is implemented and checked on six synthetic scenes plus boundaries. A red-square live-preview sample informed provisional thresholds, but no raw-frame calibration, PL comparison or board validation has been done."
+      "evidence": ["sim/reference/red_mask.py", "tests/test_red_mask_reference.py", "data/test_manifest.md", "src/interface_contract.md", "report/experiments/2026-09-27-pl-red-camera-trial.md"],
+      "note": "Candidate RGB565 count, box and centroid reference checked on synthetic cases, two private raw camera frames at different exposures, and 100 same-frame board PL outputs. Broader lighting/background calibration remains open."
     },
     {
       "id": "multi_marker_measurement",
