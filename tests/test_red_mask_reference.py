@@ -63,10 +63,10 @@ class RedMaskReferenceTests(unittest.TestCase):
         )
 
     def test_threshold_edges_and_big_endian_bytes(self):
-        accepted = (24 << 11) | (30 << 5) | 22
-        red_too_low = (23 << 11) | (30 << 5) | 22
-        green_too_high = (24 << 11) | (31 << 5) | 22
-        blue_too_high = (24 << 11) | (30 << 5) | 23
+        accepted = (22 << 11) | (30 << 5) | 22
+        red_too_low = (14 << 11) | (10 << 5) | 22
+        green_too_high = (22 << 11) | (31 << 5) | 22
+        blue_too_high = (22 << 11) | (30 << 5) | 23
         payload = b"".join(
             value.to_bytes(2, "big")
             for value in (accepted, red_too_low, green_too_high, blue_too_high)

@@ -14,6 +14,15 @@ class Measurement:
     centroid: tuple[int, int] | None
 
 
+def is_red_rgb565(pixel: int) -> bool:
+    """Candidate red predicate shared by the software and RTL comparisons."""
+    red = (pixel >> 11) & 0x1F
+    green = (pixel >> 5) & 0x3F
+    blue = pixel & 0x1F
+    return (red >= 15 and green <= 30 and blue <= 22 and
+            2 * red >= green + 13 and (blue >= 6 or green <= 12))
+
+
 def measure_red_pixels(
     rgb565_be: bytes, width: int, height: int, frame_index: int = 0
 ) -> Measurement:
@@ -40,10 +49,7 @@ def measure_red_pixels(
     for pixel_index in range(width * height):
         byte_index = pixel_index * 2
         pixel = (rgb565_be[byte_index] << 8) | rgb565_be[byte_index + 1]
-        red = (pixel >> 11) & 0x1F
-        green = (pixel >> 5) & 0x3F
-        blue = pixel & 0x1F
-        if red < 24 or green > 30 or blue > 22:
+        if not is_red_rgb565(pixel):
             continue
         y, x = divmod(pixel_index, width)
         count += 1

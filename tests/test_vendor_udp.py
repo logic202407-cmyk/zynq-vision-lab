@@ -51,6 +51,27 @@ class FrameAssemblerTests(unittest.TestCase):
         self.assertEqual(self.assembler.rows_received, 2)
         self.assertEqual(self.assembler.malformed, 0)
 
+    def test_pl_extension_attaches_previous_frame_measurement(self):
+        extension = (2).to_bytes(4, "big") + (1).to_bytes(4, "big")
+        extension += bytes((3, 1, 0, 0))
+        extension += (2).to_bytes(4, "big")
+        extension += (9).to_bytes(4, "big") + (7).to_bytes(4, "big")
+        extension += b"".join(n.to_bytes(2, "big") for n in (3, 2, 6, 5))
+        self.assertEqual(len(extension), 32)
+        self.assembler.feed(FRAME_HEADER + extension + self.row)
+        frame = None
+        for _ in range(HEIGHT - 1):
+            frame = self.assembler.feed(self.row)
+        self.assertEqual(frame.frame_seq, 2)
+        self.assertEqual(frame.previous_measurement.frame_seq, 1)
+        self.assertEqual(frame.previous_measurement.count, 2)
+        self.assertEqual(frame.previous_measurement.bbox, (3, 2, 6, 5))
+        self.assertEqual(frame.previous_measurement.centroid, (4, 3))
+
+    def test_bad_pl_extension_is_rejected(self):
+        self.assertIsNone(self.assembler.feed(FRAME_HEADER + bytes(32) + self.row))
+        self.assertEqual(self.assembler.malformed, 1)
+
 
 if __name__ == "__main__":
     unittest.main()

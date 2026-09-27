@@ -103,3 +103,13 @@ configured FPGA or live camera. The separate live packet/frame counts above
 provide a physical observation, with the startup and duration limits stated
 explicitly. No independent team reproduction or formal image quality
 comparison has been completed.
+
+## Original PL result extension trial
+
+The trial bitstream described in [`../../report/experiments/2026-09-27-pl-red-camera-trial.md`](../../report/experiments/2026-09-27-pl-red-camera-trial.md) adds 32 measurement bytes after the original eight-byte first-row header. `vendor_udp.py` accepts either format, so the normal viewer can still show video. The extension carries a sequence number and the result for the preceding camera frame; it does not add per-row integrity checks. `pl_compare.py` buffers a bounded number of frames in RAM and compares the board result to `sim/reference/red_mask.py` on the corresponding raw frame:
+
+```text
+python -m src.pc.pl_compare --seconds 30 --frames 100
+```
+
+Stop the viewer before running this command because both bind UDP port 1234, then restart the viewer afterward. In the local board trial, 100 pairwise comparisons matched and a separate 30-second receive-only run assembled 899 complete frames. The viewer's actual rendered FPS remains unmeasured.

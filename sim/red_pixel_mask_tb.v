@@ -32,10 +32,15 @@ module red_pixel_mask_tb;
         check(16'hffff, 1'b0);                 // white
         check(16'hfc00, 1'b0);                 // orange-like background
         check({5'd28, 6'd26, 5'd17}, 1'b1);   // screen-derived red square
-        check({5'd24, 6'd30, 5'd22}, 1'b1);   // all inclusive limits
-        check({5'd23, 6'd30, 5'd22}, 1'b0);   // red below limit
-        check({5'd24, 6'd31, 5'd22}, 1'b0);   // green above limit
-        check({5'd24, 6'd30, 5'd23}, 1'b0);   // blue above limit
+        check({5'd22, 6'd25, 5'd14}, 1'b1);   // retained raw-frame square median
+        check({5'd15, 6'd17, 5'd6}, 1'b1);    // inclusive red and ratio limits
+        check({5'd14, 6'd10, 5'd6}, 1'b0);   // red below limit
+        check({5'd15, 6'd18, 5'd6}, 1'b0);   // red/green ratio below limit
+        check({5'd22, 6'd30, 5'd22}, 1'b1);  // inclusive green limit
+        check({5'd22, 6'd31, 5'd22}, 1'b0);  // green above limit
+        check({5'd22, 6'd30, 5'd23}, 1'b0);  // blue above limit
+        check({5'd20, 6'd20, 5'd5}, 1'b0);   // low-blue orange guard
+        check({5'd20, 6'd12, 5'd0}, 1'b1);   // saturated red branch
 
         if (failures == 0)
             $display("RED_PIXEL_MASK_TB_PASS");

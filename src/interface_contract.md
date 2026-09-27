@@ -1,6 +1,6 @@
 # Candidate RGB565 measurement contract
 
-Status: **draft for software reference and first PL operator**. The vendor UDP frame format has been observed on the live board; the future internal PL integration point and result transport have not been verified or frozen.
+Status: **board-tested candidate**. The original vendor UDP video format is board-observed. The original camera-stream adapter, frame statistics and 32-byte result extension passed targeted Vivado simulation and a 100-pair same-frame board/software comparison. The color rule is not frozen for other lighting or backgrounds.
 
 ## Confirmed vendor baseline input
 
@@ -11,7 +11,11 @@ Status: **draft for software reference and first PL operator**. The vendor UDP f
 
 ## Candidate first measurement
 
-This deliberately narrow first operator identifies pixels meeting a fixed red predicate: `R5 >= 24`, `G6 <= 30`, `B5 <= 22`, where RGB565 fields are unsigned 5/6/5-bit integers. The original synthetic-only `G6 <= 20`, `B5 <= 12` rejected the red square shown in the live PC preview. The revised limits are a **screen-derived candidate** from that setup, not a calibration against retained raw camera bytes or changing light.
+The first operator identifies pixels meeting all of these conditions, using unsigned RGB565 fields:
+
+`R5 >= 15`, `G6 <= 30`, `B5 <= 22`, `2×R5 >= G6 + 13`, and `(B5 >= 6 or G6 <= 12)`.
+
+The earlier screen-derived predicate (`R5 >= 24`, `G6 <= 30`, `B5 <= 22`) recognized only 20 pixels on one retained raw camera frame despite a visible red paper square. An intermediate `R5 >= 20` candidate recognized 20,375 pixels there, but only 108 after automatic exposure made the square darker. The current candidate recognized 20,434 and 19,799 pixels within the approximate paper region on those two frames, with no matching pixels outside that region in either frame. This is a two-frame local lighting check, not a general color calibration. The low-blue branch retains saturated pure red while excluding the existing reddish-orange synthetic fixture.
 
 For each complete input frame, produce:
 
@@ -25,12 +29,13 @@ For each complete input frame, produce:
 
 Coordinates and count are exact for the bytes provided to this reference. Multiple red regions are combined; this operator does not label or track separate targets. A red-like background may cause false positives on real scenes. Invalid results do not retain a prior frame's box or center.
 
-## Timing and future PL boundary
+## PL boundary and result transport candidate
 
 - Software processing time, if reported, starts immediately before calling the reference and ends immediately after it returns. Network reception, frame assembly, display and file I/O are excluded and must be timed separately.
-- A future PL stream adapter must define pixel `valid`, start-of-frame, end-of-frame, reset polarity, backpressure and the clock domain before this candidate can become a hardware interface. The candidate result should become visible atomically only after the final pixel of a frame; no partial-frame output is valid.
-- The first original RTL file, `rtl/red_pixel_mask.v`, implements only the combinational per-pixel predicate. It does not count pixels, determine a box or centroid, consume the camera stream, or produce a frame result.
-- A board integration must compare the PL result against this reference for the **same frame bytes or controlled test pattern**. Similar-looking live scenes at different times are not an exact comparison.
-- The implementation must bound counters and coordinate sums for 640×480: `count <= 307200`, `sum_x <= 196300800`, `sum_y <= 147148800`. The reference uses Python integers; RTL widths and overflow behavior remain to be specified and verified.
+- `rtl/camera_rgb565_stream.v` monitors the 8-bit camera DVP bus on `cam_pclk`. Active-high VSYNC resets the row index, HREF qualifies bytes, and each high-byte/low-byte pair emits one RGB565 pixel with `(x,y)`, `pixel_valid`, first-pixel `frame_start` and last-pixel `frame_end`. There is no backpressure; the monitor does not delay the vendor video path. Reset is active low.
+- `rtl/red_frame_stats.v` publishes count, coordinate sums, inclusive box, `frame_complete` and `target_valid` together with a one-cycle `result_strobe` after the final accepted pixel. A premature frame end returns `frame_complete=0` and zeroed fields; a new frame start discards partial accumulation. The host computes centroid with integer floor division.
+- In the experimental integration, the first video datagram of frame N retains the original 8-byte magic/size header and adds 32 bytes. Big-endian offsets 8–11 give the current video frame sequence, 12–15 the preceding result sequence, 16 flags (`bit0=complete`, `bit1=target`), 17 protocol version `1`, 18–19 zero, 20–23 count, 24–27 sum X, 28–31 sum Y, and 32–39 four 16-bit box coordinates. The sequence starts at 1 after reset; result sequence 0 means no previous measurement. This header reports frame N−1, so the PC compares it with the previously assembled raw video frame **only when the sequence numbers match**. The extension and its host parser are original project code. The private local vendor packetizer copy is changed to transmit 40 header bytes instead of 8; the public repository does not contain vendor HDL.
+- The first board integration compared the PL result against this reference for 100 **same-frame** video/result pairs with no count, box or centroid mismatch. Similar-looking live scenes at different times are not an exact comparison; the UDP protocol still cannot rule out silent row duplication or reordering.
+- Counters and sums are bounded for 640×480: `count <= 307200`, `sum_x <= 98150400`, `sum_y <= 73574400`. The RTL uses 19-bit count, 28-bit sums, 10-bit X and 9-bit Y. A 640×480 all-red frame and one retained raw camera frame matched the Python reference in xsim, including exact sums; this is simulation evidence, not PL board evidence.
 
 The source of truth for the live vendor link and its timing limitations is [`../board/video_baseline.md`](../board/video_baseline.md). Synthetic case definitions and test provenance are in [`../data/test_manifest.md`](../data/test_manifest.md).
