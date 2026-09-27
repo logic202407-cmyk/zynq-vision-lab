@@ -63,10 +63,10 @@ class RedMaskReferenceTests(unittest.TestCase):
         )
 
     def test_threshold_edges_and_big_endian_bytes(self):
-        accepted = (24 << 11) | (20 << 5) | 12
-        red_too_low = (23 << 11) | (20 << 5) | 12
-        green_too_high = (24 << 11) | (21 << 5) | 12
-        blue_too_high = (24 << 11) | (20 << 5) | 13
+        accepted = (24 << 11) | (30 << 5) | 22
+        red_too_low = (23 << 11) | (30 << 5) | 22
+        green_too_high = (24 << 11) | (31 << 5) | 22
+        blue_too_high = (24 << 11) | (30 << 5) | 23
         payload = b"".join(
             value.to_bytes(2, "big")
             for value in (accepted, red_too_low, green_too_high, blue_too_high)
@@ -74,6 +74,20 @@ class RedMaskReferenceTests(unittest.TestCase):
         self.assertEqual(
             measure_red_pixels(payload, 2, 2),
             Measurement(0, True, 1, (0, 0, 0, 0), (0, 0)),
+        )
+
+    def test_quantized_live_preview_color_candidate(self):
+        # Screen-derived representative colors; not raw sensor-frame evidence.
+        square = (28 << 11) | (26 << 5) | 17
+        dark_background = (12 << 11) | (18 << 5) | 12
+        bright_background = (31 << 11) | (59 << 5) | 31
+        payload = b"".join(
+            value.to_bytes(2, "big")
+            for value in (dark_background, square, bright_background)
+        )
+        self.assertEqual(
+            measure_red_pixels(payload, 3, 1),
+            Measurement(0, True, 1, (1, 0, 1, 0), (1, 0)),
         )
 
     def test_full_resolution_all_red_frame(self):

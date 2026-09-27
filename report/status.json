@@ -28,9 +28,9 @@
     },
     {
       "id": "rtl_hls_core",
-      "status": "planned",
-      "evidence": [],
-      "note": "Not implemented or verified."
+      "status": "implemented",
+      "evidence": ["src/rtl/red_pixel_mask.v", "sim/red_pixel_mask_tb.v", "report/experiments/2026-09-27-red-pixel-mask-xsim.md"],
+      "note": "An original combinational RGB565 red-pixel predicate passed selected-color and boundary tests in Vivado 2024.2 xsim. It has not been synthesized, integrated with the camera stream or tested on the board."
     },
     {
       "id": "ps_application",
@@ -42,7 +42,7 @@
       "id": "golden_reference",
       "status": "implemented",
       "evidence": ["sim/reference/red_mask.py", "tests/test_red_mask_reference.py", "data/test_manifest.md", "src/interface_contract.md"],
-      "note": "A candidate RGB565 red-pixel count, box and centroid reference is implemented and checked on six synthetic scenes plus boundaries. Thresholds are not camera-calibrated; no PL comparison or board validation has been done."
+      "note": "A candidate RGB565 red-pixel count, box and centroid reference is implemented and checked on six synthetic scenes plus boundaries. A red-square live-preview sample informed provisional thresholds, but no raw-frame calibration, PL comparison or board validation has been done."
     },
     {
       "id": "multi_marker_measurement",

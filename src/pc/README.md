@@ -55,6 +55,11 @@ marked **not camera footage**. `开始接收` binds the entered PC address, then
 sends a one-byte ASCII `1` start command to the board. `停止` sends ASCII `0`.
 The preview remains blank until a complete frame arrives. A snapshot saves
 only the currently displayed frame as PNG; it does not alter the FPGA.
+The viewer keeps only the latest queued frame for display and does not record
+the full stream to disk. On the current live setup, reducing the Tk polling
+interval from 100 ms to 33 ms raised the observed display rate from about
+9.5 to 26.5 FPS; incoming complete-frame counts are tracked separately from
+display FPS. Other hosts may render at different rates.
 
 ## Wire format inspected from local vendor reference
 

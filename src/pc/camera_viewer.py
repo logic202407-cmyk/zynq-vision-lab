@@ -32,6 +32,7 @@ TEXT = "#e8f0ef"
 MUTED = "#a6b9b7"
 ACCENT = "#65d6bd"
 WARN = "#f0bd75"
+UI_POLL_MS = 33
 
 
 def rgb565_be_to_image(frame: Frame) -> Image.Image:
@@ -150,7 +151,7 @@ class Viewer(tk.Tk):
         self.detail = tk.StringVar(value="JTAG 不传输视频。实机请用网线连接板卡网口与电脑网口。")
         self.stats = tk.StringVar(value="收到帧 0   ·   未完整帧 0   ·   异常包 0   ·   显示 FPS —")
         self._build_ui()
-        self.after(100, self._poll)
+        self.after(UI_POLL_MS, self._poll)
 
     def _build_ui(self) -> None:
         top = tk.Frame(self, bg=BG)
@@ -317,7 +318,7 @@ class Viewer(tk.Tk):
             elif self.mode == "live" and a.completed and now - self.last_arrival > 3:
                 self.connection.set("画面中断")
                 self.detail.set("超过 3 秒无完整帧；检查网线、板卡配置及丢包计数。")
-        self.after(100, self._poll)
+        self.after(UI_POLL_MS, self._poll)
 
     def save_frame(self) -> None:
         if self.last_image is None:

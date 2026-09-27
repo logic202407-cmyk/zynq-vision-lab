@@ -43,7 +43,7 @@ def measure_red_pixels(
         red = (pixel >> 11) & 0x1F
         green = (pixel >> 5) & 0x3F
         blue = pixel & 0x1F
-        if red < 24 or green > 20 or blue > 12:
+        if red < 24 or green > 30 or blue > 22:
             continue
         y, x = divmod(pixel_index, width)
         count += 1

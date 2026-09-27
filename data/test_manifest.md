@@ -19,3 +19,5 @@ All six fixtures are generated in `tests/test_red_mask_reference.py` as original
 | Partial occlusion | Red 4×4 region at `x=2..5, y=1..4`; black 2×2 occluder at `x=3..4, y=2..3` | Count 12; box `(2,1,5,4)`; floored centroid `(3,2)` |
 
 Additional boundary tests check the exact threshold values, big-endian byte decoding, a full 640×480 all-red frame, invalid dimensions, short buffers and negative frame indices. Run `py -3 -m unittest discover -s tests -v` from the repository root. This manifest defines controlled reference expectations before any PL result comparison.
+
+The live red-square screen-sampling trial is logged separately in [`../report/experiments/2026-09-27-red-square-preview-trial.md`](../report/experiments/2026-09-27-red-square-preview-trial.md). It supplied representative quantized colors for an additional synthetic boundary case, but it is not a retained raw-frame fixture or pixel-accurate ground truth.

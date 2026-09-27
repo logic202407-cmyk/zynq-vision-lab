@@ -11,7 +11,7 @@ Status: **draft for software reference and first PL operator**. The vendor UDP f
 
 ## Candidate first measurement
 
-This deliberately narrow first operator identifies pixels meeting a fixed red predicate: `R5 >= 24`, `G6 <= 20`, `B5 <= 12`, where RGB565 fields are unsigned 5/6/5-bit integers. These thresholds are deterministic test values, not calibrated camera thresholds or final target-recognition settings.
+This deliberately narrow first operator identifies pixels meeting a fixed red predicate: `R5 >= 24`, `G6 <= 30`, `B5 <= 22`, where RGB565 fields are unsigned 5/6/5-bit integers. The original synthetic-only `G6 <= 20`, `B5 <= 12` rejected the red square shown in the live PC preview. The revised limits are a **screen-derived candidate** from that setup, not a calibration against retained raw camera bytes or changing light.
 
 For each complete input frame, produce:
 
@@ -29,6 +29,7 @@ Coordinates and count are exact for the bytes provided to this reference. Multip
 
 - Software processing time, if reported, starts immediately before calling the reference and ends immediately after it returns. Network reception, frame assembly, display and file I/O are excluded and must be timed separately.
 - A future PL stream adapter must define pixel `valid`, start-of-frame, end-of-frame, reset polarity, backpressure and the clock domain before this candidate can become a hardware interface. The candidate result should become visible atomically only after the final pixel of a frame; no partial-frame output is valid.
+- The first original RTL file, `rtl/red_pixel_mask.v`, implements only the combinational per-pixel predicate. It does not count pixels, determine a box or centroid, consume the camera stream, or produce a frame result.
 - A board integration must compare the PL result against this reference for the **same frame bytes or controlled test pattern**. Similar-looking live scenes at different times are not an exact comparison.
 - The implementation must bound counters and coordinate sums for 640×480: `count <= 307200`, `sum_x <= 196300800`, `sum_y <= 147148800`. The reference uses Python integers; RTL widths and overflow behavior remain to be specified and verified.
 
