@@ -40,9 +40,9 @@
     },
     {
       "id": "golden_reference",
-      "status": "planned",
-      "evidence": [],
-      "note": "Not implemented or verified."
+      "status": "implemented",
+      "evidence": ["sim/reference/red_mask.py", "tests/test_red_mask_reference.py", "data/test_manifest.md", "src/interface_contract.md"],
+      "note": "A candidate RGB565 red-pixel count, box and centroid reference is implemented and checked on six synthetic scenes plus boundaries. Thresholds are not camera-calibrated; no PL comparison or board validation has been done."
     },
     {
       "id": "multi_marker_measurement",
