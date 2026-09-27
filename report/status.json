@@ -23,7 +23,7 @@
     {
       "id": "video_baseline",
       "status": "planned",
-      "evidence": ["board/bringup_log.md", "src/pc/README.md"],
+      "evidence": ["board/bringup_log.md", "board/video_baseline.md", "src/pc/README.md"],
       "note": "A vendor OV5640 bitstream replied to ARP directly after two power cycles. One 300-second run assembled 7884 complete 640x480 frames; a second 10-second run assembled 262. Earlier ARP startup failure remains unexplained. Formal frame quality, own PL processing and independent reproduction remain open."
     },
     {

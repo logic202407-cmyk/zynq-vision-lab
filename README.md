@@ -30,6 +30,6 @@ python -m unittest discover -s tests -v
 
 项目只处理无生命几何靶标，输出屏幕标记、位置测量和实验日志。不开发真人或真实飞行器自主指向、弹丸发射或移动发射系统。原厂工程、第三方图像和个人资料不会直接复制到公开仓库。
 
-无 HDMI 显示器时，可使用 [OV5640 电脑端 UDP 预览工具](src/pc/README.md)做原厂视频链路基线；它需要单独的有线网口连接，JTAG 不能替代传图。上板条件、连续接收结果和未通过的验收项见[上板日志](board/bringup_log.md)。
+无 HDMI 显示器时，可使用 [OV5640 电脑端 UDP 预览工具](src/pc/README.md)做原厂视频链路基线；它需要单独的有线网口连接，JTAG 不能替代传图。测试条件、复现步骤、统计和限制见[原厂视频基线](board/video_baseline.md)，上板过程见[上板日志](board/bringup_log.md)。
 
 仓库原创材料采用 [MIT License](LICENSE)。资料来源及适用限制见[来源清单](docs/sources.md)。
