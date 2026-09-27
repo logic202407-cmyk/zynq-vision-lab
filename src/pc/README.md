@@ -20,14 +20,13 @@ our own PL image processing works. No vendor source or bitstream is committed.
   changing host network settings if this is a managed computer.
 
 The tested setup uses an ASIX AX88179 USB Gigabit Ethernet adapter at
-`192.168.1.102/24` with a 1 Gbps link to the board's GE/PL port. On
-2026-09-27 a separate temporary ARP-reply diagnostic bitstream first let the
-host learn the board's MAC address. After the vendor camera bitstream was
-reloaded by JTAG, the host received live camera UDP packets and assembled
-complete 640×480 frames. The vendor bitstream had previously failed to make
-its own ARP address resolvable after initial configuration and a board power
-cycle. **A cold-start, standalone camera workflow is not yet established.**
-This viewer cannot load a bitstream or repair that unresolved ARP condition.
+`192.168.1.102/24` with a 1 Gbps link to the board's GE/PL port. Initial
+camera bring-up needed a separate temporary ARP-reply diagnostic to seed the
+host neighbor table. On 2026-09-27, two later board power-cycle runs let the
+vendor camera bitstream answer ARP itself, without that diagnostic. The first
+run received video continuously for 300 seconds; the second received video
+for 10 seconds. The earlier failure remains unexplained, so startup is not
+yet proven reliable across many cycles. This viewer cannot load a bitstream.
 
 ## Run
 
@@ -40,6 +39,16 @@ py -3 -m src.pc.camera_viewer
 
 Pillow is the only extra runtime dependency. This host already had Pillow
 12.1.1, so no package installation was needed for the initial UI tests.
+
+For a headless, standard-library-only count without saving image content:
+
+```powershell
+py -3 -m src.pc.bench_probe --seconds 300 --interval 30 --output D:\camera_probe.json
+```
+
+The probe sends the same start/stop commands and records packet and assembled
+frame counts. Keep JSON output outside this repository if it contains local
+paths or identifying host details.
 
 In the window, `模拟画面自测` shows synthetic color bars and is explicitly
 marked **not camera footage**. `开始接收` binds the entered PC address, then
@@ -68,9 +77,14 @@ The format was read from the local vendor archive's
 `rtl/udp/udp_tx.v`, then checked against received datagrams. In one 5-second
 live probe, 132 valid frame headers produced 131 complete frames, with no
 malformed or incomplete frame. One decoded frame was visually checked and
-retained outside this public repository. This is a short vendor baseline
-observation; the planned continuous 5-minute run and power-cycle repeat remain
-open. Vendor comments and HDL are not copied into this repo.
+retained outside this public repository. A later 300-second run produced 7884
+complete frames with 0 incomplete frames; a further board power cycle followed
+by a direct vendor-bitstream ARP reply produced another 262 complete frames in
+10 seconds. Each later run recorded one malformed datagram and orphan rows near
+receiver startup; the cause of the malformed datagrams was not isolated. The
+orphan rows are consistent with attaching mid-frame. Neither receiver can
+detect silent row duplication or reordering, since the format has no row index. Vendor comments
+and HDL are not copied into this repo.
 
 ## Verification boundary
 
@@ -78,5 +92,6 @@ open. Vendor comments and HDL are not copied into this repo.
 packets, and RGB565 conversion. Synthetic UI playback checks that the window
 can display a complete frame. Those software checks alone do not establish a
 configured FPGA or live camera. The separate live packet/frame counts above
-provide a short physical observation, with the startup and duration limits
-stated explicitly.
+provide a physical observation, with the startup and duration limits stated
+explicitly. No independent team reproduction or formal image quality
+comparison has been completed.
