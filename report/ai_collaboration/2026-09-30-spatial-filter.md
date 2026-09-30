@@ -28,7 +28,17 @@
   license selection initially failed; an explicit process-local selection
   of the existing working license allowed bitgen to finish. Configuration
   was not retried because the final approved USB restart returned 3010,
-  explicitly requiring a Windows computer restart. The computer has not
-  been rebooted; USB-restart authorization does not authorize closing all
-  host applications or interrupting the remote desktop. See the
+  explicitly requiring a Windows computer restart. At this stage the computer
+  had not been rebooted; the user subsequently saved other work and explicitly
+  authorized that restart. See the
   [recovery record](../experiments/2026-09-30-jtag-recovery.md).
+- The host restart was verified, but a compressed previous camera download
+  still failed with startup LOW. A guarded PCAP_MODE change read back correctly;
+  later attempts failed before programming and cable discovery became empty.
+  These different failure stages must not be combined into one diagnosed cause.
+- An XSDB launcher returned process exit code 0 while the script printed a
+  configuration-request error. Acceptance therefore requires explicit success
+  markers and readable EOS/DONE status, followed by real camera reception.
+  USB code 0 and an internal voltage snapshot do not meet that gate. The
+  [post-reboot record](../experiments/2026-09-30-jtag-post-reboot.md) preserves
+  the sequence and the pending physical power-cycle boundary.

@@ -94,9 +94,25 @@
   copy of the previous routed design was generated for a final transfer
   check. The last approved USB restart returned 3010 and Windows explicitly
   required a computer restart, so that transfer check was not attempted.
-  The computer has not been rebooted; separate user authorization is needed.
+  At this stage the computer had not been rebooted; the user later saved
+  other work and separately authorized that restart.
 - The five-second video probe received no datagrams. Live video has not
   recovered, and the spatial filter has not been board verified. No Flash,
   boot media or driver EEPROM was written. Exact hashes, register sample,
   failed attempts and evidence limits are in the
   [remote recovery record](../report/experiments/2026-09-30-jtag-recovery.md).
+
+### Recovery after the authorized Windows restart
+
+- Windows restart was verified at 18:17:14. The compressed previous camera
+  download still failed with startup LOW. One internal sensor read succeeded;
+  it did not measure external supply quality or configuration reliability.
+- A guarded DEVCFG_CTRL change cleared PCAP_MODE bit 26 and read back as
+  `0x4a00e07f`. Later attempts failed before downloading, and verbose cable
+  discovery eventually reported no cables. Targeted USB restart and a precise
+  disable/enable operation restored Windows problem code 0 without recovering
+  JTAG discovery.
+- Manual board power cycling is pending. Live video and spatial-filter board
+  acceptance remain unverified. The hardware server was stopped while awaiting
+  the physical operation. See the detailed
+  [post-reboot record](../report/experiments/2026-09-30-jtag-post-reboot.md).

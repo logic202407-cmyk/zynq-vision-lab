@@ -4,7 +4,9 @@ Date: 2026-09-30 (China Standard Time). The user was away from the board and
 authorized remote Windows administrator approval. Scope: restart the specific
 JTAG USB device, inspect the connection, and attempt volatile camera
 configuration. No configuration Flash, boot media, or driver EEPROM was written.
-The Windows computer was not rebooted.
+This section records the attempts before the host restart. The user later
+authorized that restart; subsequent observations are in the
+[post-reboot record](2026-09-30-jtag-post-reboot.md).
 
 ## Observed results
 
@@ -50,30 +52,32 @@ The Windows computer was not rebooted.
    license selection. Size: 2,190,907 bytes, versus 17,416,457 bytes for the
    original file. Compressed SHA-256:
    `2a380055b3fd93049a5a174c0f3e1e7b140117b0df77fb5825b6b2ab6011fdc5`.
-   The compressed file has not been configured on the board.
+   At this stage the compressed file had not been attempted on the board.
 8. The final user-approved USB restart returned exit code **3010** and the
    explicit Windows message that a system restart is required to complete
    the operation. Windows still showed USB `OK`/code 0, while the stalled
    hardware-server process remained present. The compressed download was
-   therefore not attempted. No Windows reboot has been executed.
+   therefore not attempted at this stage. The Windows reboot occurred later,
+   after separate user authorization.
 
 The wired adapter still reported a 1 Gbps link and `192.168.1.102/24`; the
 bound route to `192.168.1.10` used that adapter. A five-second camera
 start/stop probe after the initial USB recovery received zero datagrams and
 zero frames. A link-up indication does not establish live camera transport.
 
-## Current boundary and next step
+## Boundary at the end of the initial attempt
 
 USB device status has recovered, but stable JTAG communication and successful
 FPGA configuration have not. Live video and the new spatial filter remain
 unverified in this session. Windows now explicitly requires a computer
-restart to complete the USB restart operation; a reboot needs separate user
-authorization because it closes applications and interrupts the remote
-session. Save other work first. After restart, recheck USB/JTAG and try the
+restart to complete the USB restart operation. The user subsequently saved
+other work and authorized that reboot. After restart, recheck USB/JTAG and try the
 prepared camera bitstream, then confirm startup completion and video.
 This is not a guarantee of board recovery. The user currently cannot remotely
 control board power; a person at the equipment may still be needed if board
 or cable power must be restored after host communication is repaired.
+The later attempts and current recovery boundary are recorded separately in
+the [post-reboot record](2026-09-30-jtag-post-reboot.md).
 
 Once configuration succeeds, run 100 same-frame software/PL comparisons,
 record raw and filtered box variations on a stationary paper target, and
