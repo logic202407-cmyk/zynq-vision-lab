@@ -42,3 +42,14 @@
   USB code 0 and an internal voltage snapshot do not meet that gate. The
   [post-reboot record](../experiments/2026-09-30-jtag-post-reboot.md) preserves
   the sequence and the pending physical power-cycle boundary.
+- After equipment readiness was confirmed, the candidate configured and
+  passed 100 exact version-2 comparisons. All filtered results were no-target:
+  this must not be reported as successful paper-target detection or resolved
+  flicker. An inspected image and sampled paper ROI supported dim illumination.
+  The thresholds were preserved; a positive-target check was requested.
+- A real, visible viewer recorded 1800 complete frames in one minute, about
+  30 FPS, with one incomplete frame and one malformed datagram. Those measured
+  transport results are separate from the still-open detection gate. Actual
+  verifier source hashes were retained because the shared checkout contains
+  concurrent uncommitted host changes. See the
+  [limited board comparison](../experiments/2026-09-30-spatial-board-recovery.md).

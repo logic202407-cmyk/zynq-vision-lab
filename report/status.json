@@ -38,11 +38,11 @@
     {
       "id": "rtl_spatial_filter",
       "status": "simulated",
-      "evidence": ["src/rtl/red_mask_majority3x3.v", "src/rtl/red_frame_stats.v", "sim/red_spatial_stats_tb.v", "tests/test_red_spatial_filter.py", "src/interface_contract.md", "report/experiments/2026-09-30-red-spatial-filter.md", "report/experiments/2026-09-30-jtag-recovery.md", "report/experiments/2026-09-30-jtag-post-reboot.md"],
+      "evidence": ["src/rtl/red_mask_majority3x3.v", "src/rtl/red_frame_stats.v", "sim/red_spatial_stats_tb.v", "tests/test_red_spatial_filter.py", "src/interface_contract.md", "report/experiments/2026-09-30-red-spatial-filter.md", "report/experiments/2026-09-30-jtag-recovery.md", "report/experiments/2026-09-30-jtag-post-reboot.md", "report/experiments/2026-09-30-spatial-board-recovery.md"],
       "verified_commit": "a9842abe55cf2d7460fa9c09b0ce188a0bd37f14",
       "tool_version": "Vivado 2024.2; Python 3.12",
       "reviewer": "Codex automated xsim and software comparisons",
-      "note": "Optional 5-of-9 majority passed small-scene, reset/gap, header-version and exact full-frame xsim comparisons, including a rejected six-vote mutation. A private bitstream was generated. The authorized Windows restart was verified; compressed previous camera programming still failed with startup LOW. A guarded PCAP_MODE change read back correctly, but later attempts failed before programming and cable discovery became empty. Targeted USB restart and disable/enable returned Windows code 0 without restoring JTAG discovery. Direct FTDI open by the confirmed serial failed; no port-cycle command was executed. Physical downloader USB reconnection and board power cycling are pending. Live video and this filter's board behavior remain unverified in this session."
+      "note": "Optional 5-of-9 majority has small-scene and exact full-frame xsim evidence. After the user's later physical-ready confirmation and guarded controller selection, previous-camera and candidate configuration succeeded with EOS and both DONE fields 1. Candidate version 2 passed 100 exact same-frame statistics comparisons, all with no valid filtered target. The visible viewer received 1800 complete frames in 60.078 seconds at about 30 FPS, with 1 incomplete frame and 1 malformed datagram. Positive-target and interference acceptance remain open because the red paper was dim. Simulation status is retained until that broader board gate is met. Independent reproduction requires matching the recorded verifier source hashes."
     },
     {
       "id": "ps_application",

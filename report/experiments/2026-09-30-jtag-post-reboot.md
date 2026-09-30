@@ -70,3 +70,12 @@ Local checks on the shared working checkout: the repository checker passed,
 93 Python tests passed, and `git diff --check` passed. The checkout also
 contained concurrent acceptance/reference changes; this recovery update
 preserves them and does not treat their local tests as board evidence.
+
+## Later physical-ready continuation
+
+The user subsequently confirmed equipment readiness. Temporary configuration
+of both camera files succeeded and live video resumed. The full sequence,
+100 version-2 no-target comparisons, one-minute visible-viewer measurements
+and remaining positive-target gate are in the
+[camera recovery trial](2026-09-30-spatial-board-recovery.md). The pending
+physical-action text above describes the earlier stopping point.

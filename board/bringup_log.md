@@ -116,3 +116,17 @@
   acceptance remain unverified. The hardware server was stopped while awaiting
   the physical operation. See the detailed
   [post-reboot record](../report/experiments/2026-09-30-jtag-post-reboot.md).
+
+### Physical-ready camera recovery
+
+- The user later confirmed that the equipment was ready. Guarded controller
+  selection succeeded, then both the compressed previous camera and spatial
+  candidate configured at 1 MHz with startup HIGH, EOS and both DONE fields 1.
+- The previous camera received 149 complete frames in five seconds. The
+  candidate's 100 version-2 same-frame statistical comparisons matched,
+  but all filtered results were invalid/no-target in the dim paper scene.
+- The visible live viewer received 1800 complete frames in 60.078 seconds;
+  sampled display FPS was 29.5-30.5. It recorded 1 incomplete frame and 1
+  malformed datagram. Positive-target accuracy, interference behavior and
+  repeated cold-start reliability remain open. See the
+  [measured recovery trial](../report/experiments/2026-09-30-spatial-board-recovery.md).
