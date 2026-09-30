@@ -78,3 +78,23 @@
 - Five source-bound ping requests again timed out, but the wired adapter received one 60-byte ARP reply and learned `00-11-22-33-44-55` as `Reachable`. A new 10.0-second receiver run sent ASCII `1` and `0`, collected 126,091 datagrams / 161,398,592 payload bytes, and assembled 262 complete frames (131 in each five-second interval), with 0 incomplete frames, 1 malformed datagram, 121 orphan rows and 0.047-second maximum completed-frame gap. Its local JSON is `D:/fpga-jtag-camera-test/video_repeat_2026-09-27.json`, SHA-256 `1170e9c20f67fb42920b1a580c0d2ddc8e1277cbf453e7fe53b01779a103d3f3`.
 - **Interpretation:** two separate power-on runs established that the original camera bitstream can reply to ARP and start UDP video without an ARP diagnostic. This corrects the earlier inference that it necessarily needs a seeded neighbor table. The original ARP failure remains unexplained and reliability over many cold starts is not proven. No Flash was written; all tests used volatile PL configuration. The vendor project has not been cleanly rebuilt in this repo; a self-written PL image-processing core and independent reproduction remain open.
 - Later in the same volatile camera configuration, Windows held a stale/probing neighbor entry for the known MAC. Three source-bound ICMP probes received no adapter bytes, but a fresh five-second UDP start/stop still produced 130 complete frames. Windows PktMon packet capture was denied in this non-admin session, so the outgoing ARP frame itself was not observed; this is not evidence of a fresh board ARP failure. The exact-bitstream archived implementation report also has incomplete timing coverage. Conditions, counts and open risks are collected in `video_baseline.md`.
+
+## 2026-09-30: remote USB recovery and configuration failure
+
+- The user was away from the equipment and authorized remote Windows
+  administrator approval. Targeted FTDI USB restarts returned exit code 0,
+  changing the device from problem code 10 to `OK`/code 0. This did not power
+  cycle the board.
+- A 1 MHz JTAG scan identified `arm_dap_0` and `xc7z100_1`, but temporary
+  downloads of both the new spatial-filter candidate and the unchanged
+  previous camera bitstream failed with startup `LOW`. A configuration read
+  after the candidate failure found internal/pin DONE = 0 and EOS = 0.
+- Discovery later became intermittent. The 250 kHz trial did not reach
+  programming; the XSDB probe did not execute a system reset. A compressed
+  copy of the previous routed design was generated for a final transfer
+  check, currently awaiting administrator approval for cleanup/retry.
+- The five-second video probe received no datagrams. Live video has not
+  recovered, and the spatial filter has not been board verified. No Flash,
+  boot media or driver EEPROM was written. Exact hashes, register sample,
+  failed attempts and evidence limits are in the
+  [remote recovery record](../report/experiments/2026-09-30-jtag-recovery.md).

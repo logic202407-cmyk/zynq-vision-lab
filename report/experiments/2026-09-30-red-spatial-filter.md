@@ -45,15 +45,21 @@ inputs do not capture the later 300-frame flicker episode.
   distributed RAM. These totals include the vendor transport and camera logic.
 - Local bitstream SHA-256:
   `4b42c32436a0b9ac7e089ed15777536709839eab8b58314c8e3b37031ce7e121`.
-  This bitstream has **not** been downloaded in this session.
+  Temporary programming was attempted but failed with startup `LOW`;
+  successful configuration has **not** been verified in this session.
 - Wired NIC: `192.168.1.102/24`, 1 Gbps link. A five-second start-command
   probe received zero UDP datagrams. Read-only JTAG discovery found no target.
   Windows reports problem code 10 (`CM_PROB_FAILED_START`) on the FTDI
   USB download device; a targeted device restart was denied by the OS.
-  Manual USB reconnection was requested. The route from the bound local
-  address to the board was confirmed to use the wired NIC.
-  Board power and a working JTAG connection still need confirmation before
-  hardware comparison. No Flash or boot media was written.
+  Manual USB reconnection was initially requested. The user subsequently
+  approved remote administrator actions, and targeted USB restarts cleared
+  problem code 10. Both this candidate and the previous camera bitstream
+  then failed configuration; JTAG communication remains intermittent.
+  See the [remote recovery record](2026-09-30-jtag-recovery.md) for the
+  observed registers and follow-up attempts. The route from the bound local
+  address to the board was confirmed to use the wired NIC. A working JTAG
+  connection and successful configuration are still needed before hardware
+  comparison. No Flash or boot media was written.
 
 ## Required hardware follow-up
 
