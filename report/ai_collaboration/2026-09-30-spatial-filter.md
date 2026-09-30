@@ -27,5 +27,8 @@
   transfer size, without changing image-processing logic. The default
   license selection initially failed; an explicit process-local selection
   of the existing working license allowed bitgen to finish. Configuration
-  still awaits the final recovery attempt. See the
+  was not retried because the final approved USB restart returned 3010,
+  explicitly requiring a Windows computer restart. The computer has not
+  been rebooted; USB-restart authorization does not authorize closing all
+  host applications or interrupting the remote desktop. See the
   [recovery record](../experiments/2026-09-30-jtag-recovery.md).

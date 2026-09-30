@@ -92,7 +92,9 @@
 - Discovery later became intermittent. The 250 kHz trial did not reach
   programming; the XSDB probe did not execute a system reset. A compressed
   copy of the previous routed design was generated for a final transfer
-  check, currently awaiting administrator approval for cleanup/retry.
+  check. The last approved USB restart returned 3010 and Windows explicitly
+  required a computer restart, so that transfer check was not attempted.
+  The computer has not been rebooted; separate user authorization is needed.
 - The five-second video probe received no datagrams. Live video has not
   recovered, and the spatial filter has not been board verified. No Flash,
   boot media or driver EEPROM was written. Exact hashes, register sample,
