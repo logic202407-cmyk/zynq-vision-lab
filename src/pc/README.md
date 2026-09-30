@@ -124,3 +124,19 @@ raw PL count, box and sums remain available unchanged in the packet and
 software comparison path. The median can delay a genuinely moving target by
 up to about three received frames; a PL spatial filter is still needed for
 robust raw measurements.
+
+The new spatial candidate identifies its PL mask as version 2; version 1
+keeps the original threshold-only semantics. `pl_compare.py` automatically
+chooses the matching golden reference. After temporarily loading the spatial
+trial bitstream, keep a red paper target still and run:
+
+```text
+python -m src.pc.pl_compare --seconds 30 --frames 100 --compare-raw-mask
+```
+
+This also measures the threshold-only mask on the same received images and
+reports box variation for both masks. Jumps over 50 pixels are a descriptive
+metric for a stationary scene; genuine target movement can also cause them.
+The 2026-09-30 build is ready for a board test, but no JTAG target or live UDP
+data was found in that session. A built bitstream does not establish that the
+new filter reduces flicker on hardware.

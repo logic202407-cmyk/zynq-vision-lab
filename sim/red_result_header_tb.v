@@ -13,7 +13,9 @@ module red_result_header_tb;
     reg [8:0] red_min_y = 0, red_max_y = 0;
     reg [5:0] header_index = 0;
     wire [7:0] header_byte;
+    wire [7:0] filtered_header_byte;
     reg [255:0] observed;
+    reg [255:0] observed_filtered;
     integer i;
 
     red_result_header dut (
@@ -25,14 +27,27 @@ module red_result_header_tb;
         .header_index(header_index), .header_byte(header_byte)
     );
 
+    red_result_header #(.MASK_VERSION(8'd2)) filtered_dut (
+        .clk(clk), .rst_n(rst_n), .result_strobe(result_strobe),
+        .frame_complete(frame_complete), .target_valid(target_valid),
+        .red_count(red_count), .red_sum_x(red_sum_x), .red_sum_y(red_sum_y),
+        .red_min_x(red_min_x), .red_min_y(red_min_y),
+        .red_max_x(red_max_x), .red_max_y(red_max_y),
+        .header_index(header_index), .header_byte(filtered_header_byte)
+    );
+
     task read_extension;
         begin
             observed = 256'd0;
+            observed_filtered = 256'd0;
             for (i = 8; i < 40; i = i + 1) begin
                 header_index = i;
                 #1;
                 observed = {observed[247:0], header_byte};
+                observed_filtered = {observed_filtered[247:0], filtered_header_byte};
             end
+            if (observed_filtered !== {observed[255:184], 8'd2, observed[175:0]})
+                $fatal(1, "Filtered extension version mismatch");
         end
     endtask
 

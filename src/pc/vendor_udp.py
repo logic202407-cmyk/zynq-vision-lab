@@ -39,6 +39,7 @@ class PLMeasurement:
     sum_x: int
     sum_y: int
     bbox: tuple[int, int, int, int] | None
+    mask_version: int = 1
 
     @property
     def centroid(self) -> tuple[int, int] | None:
@@ -49,7 +50,7 @@ class PLMeasurement:
 
 def parse_pl_extension(extension: bytes) -> tuple[int, PLMeasurement | None]:
     """Decode the 32-byte camera-clock-domain measurement header extension."""
-    if len(extension) != 32 or extension[9] != 1 or extension[10:12] != b"\0\0":
+    if len(extension) != 32 or extension[9] not in (1, 2) or extension[10:12] != b"\0\0":
         raise ValueError("invalid PL extension")
     current_seq = int.from_bytes(extension[0:4], "big")
     result_seq = int.from_bytes(extension[4:8], "big")
@@ -70,7 +71,8 @@ def parse_pl_extension(extension: bytes) -> tuple[int, PLMeasurement | None]:
     if valid and (not complete or count == 0):
         raise ValueError("invalid target flags")
     return current_seq, PLMeasurement(result_seq, complete, valid, count,
-                                      sum_x, sum_y, bbox_values if valid else None)
+                                      sum_x, sum_y, bbox_values if valid else None,
+                                      extension[9])
 
 
 class FrameAssembler:

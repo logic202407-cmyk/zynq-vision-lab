@@ -39,3 +39,30 @@ Coordinates and count are exact for the bytes provided to this reference. Multip
 - Counters and sums are bounded for 640×480: `count <= 307200`, `sum_x <= 98150400`, `sum_y <= 73574400`. The RTL uses 19-bit count, 28-bit sums, 10-bit X and 9-bit Y. A 640×480 all-red frame and one retained raw camera frame matched the Python reference in xsim, including exact sums; this is simulation evidence, not PL board evidence.
 
 The source of truth for the live vendor link and its timing limitations is [`../board/video_baseline.md`](../board/video_baseline.md). Synthetic case definitions and test provenance are in [`../data/test_manifest.md`](../data/test_manifest.md).
+
+## Spatial-filter candidate (mask version 2)
+
+`red_frame_stats` defaults to the original threshold-only mode. With
+`SPATIAL_FILTER=1`, `red_mask_majority3x3.v` stores two one-bit mask rows and
+accepts a center pixel when at least five of its nine 3×3 neighbors satisfy
+the same color rule. The outermost image border is excluded. Isolated pixels
+and thin features can disappear; small holes can be filled, so the filtered
+count can either decrease or increase. Separate red regions are still combined.
+
+At input coordinate `(x,y)`, the filter completes the window centered on
+`(x-1,y-1)`. Statistics use that center coordinate, while frame completeness
+still counts all input pixels and publishes at the original last input pixel.
+Idle cycles leave line memories unchanged. The first two rows overwrite old
+line data before any filtered hit is accepted; RAM content is not reset.
+Thus the one-pixel border has no result, rather than using padding or replicating
+edge pixels. A full-red 640×480 frame produces count 304964, box
+`(1,1,638,478)`, sum X 97435998 and sum Y 73038878.
+
+The 40-byte first-row header keeps its layout, with byte 17 equal to `2`
+for this mask. Version `1` denotes threshold-only statistics; unrecognized
+versions are rejected. `PLMeasurement.mask_version` selects the corresponding
+software reference in `pl_compare.py`. Video RGB565 pixels remain camera pixels;
+the packet's count, sums and box describe the selected PL mask. Viewer temporal
+stabilization applies afterward and is separate from this spatial operator.
+This candidate passed simulation and local bitstream generation on 2026-09-30;
+its hardware effect remains unverified until the board/JTAG connection is restored.

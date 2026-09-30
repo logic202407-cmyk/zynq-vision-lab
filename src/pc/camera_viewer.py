@@ -386,7 +386,9 @@ class Viewer(tk.Tk):
                         result = frame.pl_measurement
                         if result.target_valid and overlay is not None:
                             self.detail.set(
-                                f"PL 帧 {result.frame_seq} · 原始红色像素 {result.count} · "
+                                f"PL 帧 {result.frame_seq} · "
+                                f"{'邻域滤波' if result.mask_version == 2 else '颜色阈值'} "
+                                f"红色像素 {result.count} · "
                                 f"显示平滑中心 {overlay.centroid} · 边框 {overlay.bbox}"
                             )
                         else:

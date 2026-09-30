@@ -3,7 +3,9 @@
 // Camera-clock-domain snapshot and 32-byte UDP header extension.
 // Header of video frame N contains the completed measurement for frame N-1.
 // A sequence number links that measurement to the earlier video frame.
-module red_result_header (
+module red_result_header #(
+    parameter [7:0] MASK_VERSION = 8'd1
+) (
     input wire clk,
     input wire rst_n,
     input wire result_strobe,
@@ -66,7 +68,7 @@ module red_result_header (
             6'd14: header_byte = last_seq[15:8];
             6'd15: header_byte = last_seq[7:0];
             6'd16: header_byte = {6'd0, last_target, last_complete};
-            6'd17: header_byte = 8'd1; // protocol version
+            6'd17: header_byte = MASK_VERSION; // 1 raw; 2 spatial majority
             6'd18, 6'd19: header_byte = 8'd0;
             6'd20: header_byte = 8'd0;
             6'd21: header_byte = {5'd0, last_count[18:16]};

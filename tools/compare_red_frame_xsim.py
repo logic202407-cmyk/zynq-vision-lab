@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from sim.reference.red_mask import is_red_rgb565, measure_red_pixels  # noqa: E402
+from sim.reference.red_mask import red_binary_mask, measure_red_pixels  # noqa: E402
 
 
 FIELDS = ("valid", "count", "sx", "sy", "minx", "miny", "maxx", "maxy")
@@ -38,6 +38,7 @@ def main() -> int:
                         help="ASCII-only temporary build directory")
     parser.add_argument("--vivado-bin", type=Path, required=True,
                         help="Vivado bin directory containing xvlog.bat")
+    parser.add_argument("--spatial-filter", action="store_true")
     args = parser.parse_args()
     build = args.build_dir.resolve()
     if not build.as_posix().isascii():
@@ -45,16 +46,21 @@ def main() -> int:
     raw = args.frame.read_bytes()
     if len(raw) != 640 * 480 * 2:
         parser.error("input must contain exactly 614400 bytes")
-    reference = measure_red_pixels(raw, 640, 480)
+    reference = measure_red_pixels(raw, 640, 480, spatial_filter=args.spatial_filter)
     build.mkdir(parents=True, exist_ok=True)
     mem = build / "frame.mem"
     with mem.open("w", encoding="ascii") as stream:
         for offset in range(0, len(raw), 2):
             stream.write(f"{raw[offset]:02x}{raw[offset + 1]:02x}\n")
-    sources = ["src/rtl/red_pixel_mask.v", "src/rtl/red_frame_stats.v",
+    sources = ["src/rtl/red_pixel_mask.v", "src/rtl/red_mask_majority3x3.v",
+               "src/rtl/red_frame_stats.v",
                "sim/red_frame_file_tb.v"]
     for source in sources:
         shutil.copyfile(ROOT / source, build / Path(source).name)
+    if args.spatial_filter:
+        tb = build / "red_frame_file_tb.v"
+        tb.write_text(tb.read_text().replace(
+            "red_frame_stats dut (", "red_frame_stats #(.SPATIAL_FILTER(1)) dut ("))
     run([str(args.vivado_bin / "xvlog.bat"), *[Path(p).name for p in sources]], build)
     run([str(args.vivado_bin / "xelab.bat"), "red_frame_file_tb", "-s", "frame_file_sim"], build)
     output = run([str(args.vivado_bin / "xsim.bat"), "frame_file_sim", "-runall"], build)
@@ -75,9 +81,9 @@ def main() -> int:
     # The public reference returns the floored centroid. Its exact sums are
     # reconstructed here from the same input for a stronger RTL comparison.
     if reference.valid:
-        for index in range(640 * 480):
-            pixel = (raw[2 * index] << 8) | raw[2 * index + 1]
-            if is_red_rgb565(pixel):
+        mask = red_binary_mask(raw, 640, 480, spatial_filter=args.spatial_filter)
+        for index, hit in enumerate(mask):
+            if hit:
                 expected["sx"] += index % 640
                 expected["sy"] += index // 640
     print(f"REFERENCE {expected}")

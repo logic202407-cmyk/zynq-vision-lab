@@ -21,3 +21,12 @@ All six fixtures are generated in `tests/test_red_mask_reference.py` as original
 Additional boundary tests check the exact threshold values, big-endian byte decoding, a full 640×480 all-red frame, invalid dimensions, short buffers and negative frame indices. Run `py -3 -m unittest discover -s tests -v` from the repository root. This manifest defines controlled reference expectations before any PL result comparison.
 
 The live red-square screen-sampling trial is logged separately in [`../report/experiments/2026-09-27-red-square-preview-trial.md`](../report/experiments/2026-09-27-red-square-preview-trial.md). It supplied representative quantized colors for an additional synthetic boundary case, but it is not a retained raw-frame fixture or pixel-accurate ground truth.
+
+## Spatial-filter fixtures
+
+`tests/test_red_spatial_filter.py` generates original 6×6/3×3 binary red scenes:
+an isolated pixel is removed; a 3×3 patch plus a distant speck yields five
+centered cross pixels; a fully red 6×6 frame retains only its 4×4 interior;
+four votes yield no center while five retain it. Dimensions below 3×3 yield
+an empty filtered mask. These expectations test the defined border and
+majority semantics; they do not establish real-camera robustness.

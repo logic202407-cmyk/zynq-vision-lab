@@ -23,20 +23,41 @@ def is_red_rgb565(pixel: int) -> bool:
             2 * red >= green + 13 and (blue >= 6 or green <= 12))
 
 
+def red_binary_mask(
+    rgb565_be: bytes, width: int, height: int, *, spatial_filter: bool = False
+) -> bytearray:
+    """Color mask, optionally 5-of-9 majority with an excluded one-pixel border."""
+    if width <= 0 or height <= 0:
+        raise ValueError("width and height must be positive")
+    if len(rgb565_be) != width * height * 2:
+        raise ValueError("frame byte length does not match dimensions")
+    mask = bytearray(is_red_rgb565((rgb565_be[i] << 8) | rgb565_be[i + 1])
+                     for i in range(0, len(rgb565_be), 2))
+    if not spatial_filter:
+        return mask
+    filtered = bytearray(width * height)
+    for y in range(1, height - 1):
+        for x in range(1, width - 1):
+            i = y * width + x
+            votes = sum(mask[j] for j in (
+                i - width - 1, i - width, i - width + 1,
+                i - 1, i, i + 1, i + width - 1, i + width, i + width + 1))
+            filtered[i] = votes >= 5
+    return filtered
+
+
 def measure_red_pixels(
-    rgb565_be: bytes, width: int, height: int, frame_index: int = 0
+    rgb565_be: bytes, width: int, height: int, frame_index: int = 0,
+    *, spatial_filter: bool = False
 ) -> Measurement:
     """Measure all red pixels in one complete row-major RGB565 frame.
 
     The predicate and output rounding are specified in src/interface_contract.md.
     Smaller dimensions are accepted to keep synthetic corner cases inspectable.
     """
-    if width <= 0 or height <= 0:
-        raise ValueError("width and height must be positive")
     if frame_index < 0:
         raise ValueError("frame_index must be nonnegative")
-    if len(rgb565_be) != width * height * 2:
-        raise ValueError("frame byte length does not match dimensions")
+    mask = red_binary_mask(rgb565_be, width, height, spatial_filter=spatial_filter)
 
     count = 0
     sum_x = 0
@@ -47,9 +68,7 @@ def measure_red_pixels(
     max_y = -1
 
     for pixel_index in range(width * height):
-        byte_index = pixel_index * 2
-        pixel = (rgb565_be[byte_index] << 8) | rgb565_be[byte_index + 1]
-        if not is_red_rgb565(pixel):
+        if not mask[pixel_index]:
             continue
         y, x = divmod(pixel_index, width)
         count += 1

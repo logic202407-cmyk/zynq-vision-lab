@@ -13,3 +13,10 @@ vivado -mode batch -source <ASCII-only-build-directory>/build_red_trial.tcl
 ```
 
 The final two commands require the local Vivado 2024.2 installation and a valid device license. Confirm the actual board target before downloading the generated temporary bitstream.
+
+The 2026-09-30 spatial candidate adds `red_mask_majority3x3.v`. Pass
+`--spatial-filter` to the preparation command to enable 5-of-9 majority
+statistics and mask-version-2 headers. Omitting that option keeps the original
+threshold-only build. The filter and header passed xsim; a private bitstream
+was generated, but current JTAG discovery found no target and hardware testing
+is pending. See [`../../report/experiments/2026-09-30-red-spatial-filter.md`](../../report/experiments/2026-09-30-red-spatial-filter.md).

@@ -6,6 +6,7 @@ from src.pc.vendor_udp import (
     HEIGHT,
     ROW_BYTES,
     FrameAssembler,
+    parse_pl_extension,
 )
 
 
@@ -71,6 +72,16 @@ class FrameAssemblerTests(unittest.TestCase):
     def test_bad_pl_extension_is_rejected(self):
         self.assertIsNone(self.assembler.feed(FRAME_HEADER + bytes(32) + self.row))
         self.assertEqual(self.assembler.malformed, 1)
+
+    def test_filtered_mask_version_is_explicit(self):
+        extension = ((2).to_bytes(4, "big") + (1).to_bytes(4, "big") +
+                     bytes((1, 2, 0, 0)) + bytes(20))
+        seq, result = parse_pl_extension(extension)
+        self.assertEqual(seq, 2)
+        self.assertEqual(result.mask_version, 2)
+        self.assertFalse(result.target_valid)
+        with self.assertRaises(ValueError):
+            parse_pl_extension(extension[:9] + b"\x03" + extension[10:])
 
 
 if __name__ == "__main__":

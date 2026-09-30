@@ -13,6 +13,8 @@ parser.add_argument("--source", type=Path, required=True,
                     help="local 30 FPS vendor trial root with rtl/, ip/, XDC and Tcl")
 parser.add_argument("--output", type=Path, required=True,
                     help="new ASCII-only directory outside this repository")
+parser.add_argument("--spatial-filter", action="store_true",
+                    help="enable 3x3 majority and identify results as mask version 2")
 args = parser.parse_args()
 base = args.source.resolve()
 dest = args.output.resolve()
@@ -28,7 +30,7 @@ shutil.copytree(base / "rtl", dest / "rtl")
 shutil.copytree(base / "ip", dest / "ip")
 shutil.copyfile(base / "ov5640_udp_pc.xdc", dest / "ov5640_udp_pc.xdc")
 for name in ("red_pixel_mask.v", "camera_rgb565_stream.v", "red_frame_stats.v",
-             "red_result_header.v"):
+             "red_result_header.v", "red_mask_majority3x3.v"):
     shutil.copyfile(repo / "src" / "rtl" / name, dest / "rtl" / name)
 
 
@@ -82,6 +84,11 @@ red_result_header u_pl_red_header (
 );
 
 """
+if args.spatial_filter:
+    block = block.replace("red_frame_stats u_pl_red_stats",
+                          "red_frame_stats #(.SPATIAL_FILTER(1)) u_pl_red_stats")
+    block = block.replace("red_result_header u_pl_red_header",
+                          "red_result_header #(.MASK_VERSION(8'd2)) u_pl_red_header")
 top = replace_once(top, "img_data_pkt u_img_data_pkt(", block + "img_data_pkt u_img_data_pkt(")
 top = replace_once(top, ".rst_n              (rst_n),              \n   \n    .cam_pclk",
                    ".rst_n              (rst_n),              \n    .red_header_index   (pl_header_index),\n    .red_header_byte    (pl_header_byte),\n   \n    .cam_pclk")

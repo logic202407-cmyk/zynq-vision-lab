@@ -5,7 +5,8 @@
 // No division is performed in PL: the host computes floor(sum/count).
 module red_frame_stats #(
     parameter integer WIDTH = 640,
-    parameter integer HEIGHT = 480
+    parameter integer HEIGHT = 480,
+    parameter integer SPATIAL_FILTER = 0
 ) (
     input  wire        clk,
     input  wire        rst_n,
@@ -45,7 +46,25 @@ module red_frame_stats #(
     reg [8:0] max_y_acc;
 
     wire accept_pixel = pixel_valid && (frame_start || active);
-    wire red_hit = accept_pixel && is_red;
+    wire selected_red;
+    wire [9:0] hit_x;
+    wire [8:0] hit_y;
+    generate
+        if (SPATIAL_FILTER) begin : g_spatial
+            red_mask_majority3x3 #(.WIDTH(WIDTH)) u_majority (
+                .clk(clk), .rst_n(rst_n), .pixel_valid(accept_pixel),
+                .is_red(is_red), .pixel_x(pixel_x), .pixel_y(pixel_y),
+                .filtered_red(selected_red)
+            );
+            assign hit_x = pixel_x - 10'd1;
+            assign hit_y = pixel_y - 9'd1;
+        end else begin : g_raw
+            assign selected_red = is_red;
+            assign hit_x = pixel_x;
+            assign hit_y = pixel_y;
+        end
+    endgenerate
+    wire red_hit = accept_pixel && selected_red;
     wire [18:0] base_total = frame_start ? 19'd0 : pixel_total;
     wire [18:0] base_count = frame_start ? 19'd0 : count_acc;
     wire [27:0] base_sum_x = frame_start ? 28'd0 : sum_x_acc;
@@ -59,12 +78,12 @@ module red_frame_stats #(
     wire [18:0] next_total =
         (base_total <= FRAME_PIXELS) ? base_total + 19'd1 : base_total;
     wire [18:0] next_count = base_count + (red_hit ? 19'd1 : 19'd0);
-    wire [27:0] next_sum_x = base_sum_x + (red_hit ? {18'd0, pixel_x} : 28'd0);
-    wire [27:0] next_sum_y = base_sum_y + (red_hit ? {19'd0, pixel_y} : 28'd0);
-    wire [9:0] next_min_x = red_hit && (pixel_x < base_min_x) ? pixel_x : base_min_x;
-    wire [8:0] next_min_y = red_hit && (pixel_y < base_min_y) ? pixel_y : base_min_y;
-    wire [9:0] next_max_x = red_hit && (pixel_x > base_max_x) ? pixel_x : base_max_x;
-    wire [8:0] next_max_y = red_hit && (pixel_y > base_max_y) ? pixel_y : base_max_y;
+    wire [27:0] next_sum_x = base_sum_x + (red_hit ? {18'd0, hit_x} : 28'd0);
+    wire [27:0] next_sum_y = base_sum_y + (red_hit ? {19'd0, hit_y} : 28'd0);
+    wire [9:0] next_min_x = red_hit && (hit_x < base_min_x) ? hit_x : base_min_x;
+    wire [8:0] next_min_y = red_hit && (hit_y < base_min_y) ? hit_y : base_min_y;
+    wire [9:0] next_max_x = red_hit && (hit_x > base_max_x) ? hit_x : base_max_x;
+    wire [8:0] next_max_y = red_hit && (hit_y > base_max_y) ? hit_y : base_max_y;
     wire complete_now = (next_total == FRAME_PIXELS) &&
                         (pixel_x == WIDTH - 1) && (pixel_y == HEIGHT - 1);
 
