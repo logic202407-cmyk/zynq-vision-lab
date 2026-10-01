@@ -16,6 +16,10 @@
 
 **Codex 下一轮入口：[仅执行场景关系 R0](docs/codex_scene_relation_r0.md)。**先核对最新仓库与未提交工作，再完成契约复核、纯 Python 黄金参考和测试；不修改现有相机时序、红色 RTL 核心或视频协议。本次仅文档入库，不代表多色、关系核、PS 或模型功能已经实现，也不改变已有板测状态。
 
+## ROSS 开发辅助工具评估（待验证）
+
+新增 [ROSS 适用性评估](docs/ross_evaluation_2026-10-01.md)、[队友 / Codex 验证手册](docs/codex_ross_validation.md)与[结果模板](report/templates/ross_validation_result.md)。先在仓库外使用已发布的像素 RTL 做正例、故意错误负例及恢复验证；本次只提供资料与步骤，未安装或运行 ROSS。现有 Vivado 2024.2 与各 skill 的版本要求需逐项核实，硬件测试继续暂停，不改变 OV5640 + Zynq 主线或已有证据等级。
+
 ## 实施顺序
 
 1. Gate A：核对仓库远程状态、审查公开内容、运行仓库基础检查。
