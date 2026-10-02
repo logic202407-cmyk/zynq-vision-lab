@@ -79,3 +79,32 @@ ROSS 仓库的 [LICENSE](https://github.com/Xilinx/ross-ai-assistant/blob/2cdc9e
 - [上游 XSim 执行与证据判定](https://github.com/Xilinx/ross-ai-assistant/blob/2cdc9eef1b6b5b17fa45f5e4d468e5483a1c92de/skills/vivado-simulate-rtl/references/xsim.md)
 - [AMD Vivado 2024.2 仿真手册](https://docs.amd.com/r/2024.2-English/ug900-vivado-logic-simulation)
 - [本项目既有 XSim 记录](https://github.com/logic202407-cmyk/zynq-vision-lab/blob/0daf92f09ed912635169087b07914b65775ab7ff/report/experiments/2026-09-27-red-pixel-mask-xsim.md)：旧记录的 24→25 阈值属于当时版本；本手册固定输入已变为 15→16，不照抄旧数值。
+
+## 7. 2026-10-02 补充：赛道渠道转述与本项目理解
+
+**来源记录：**项目负责人于 2026-10-02 提供一段转发文字，并将其标识为嵌赛 FPGA 设计赛道官方渠道消息。文字称 AMD 于“10月1日”发布 ROSS，介绍通用大模型调用能力、官方文档本地知识库、工程师经验 Skill 和 Vivado/Vitis MCP 的组合，并建议参赛同学借鉴官方 Skill 写法，在设计报告中体现官方 MCP 的应用与效率收益。
+
+本仓库目前没有该消息的公开原帖链接、公告编号或可独立核验的原始发文记录；以上保留为**用户转述并注明来源属性的消息摘要**。“10月1日发布”也只按这段转述记录，不以 Git 提交时间替代产品发布日期。已核对的 ROSS 技术依据仍是第 6 节的固定版本官方源码。取得可核验原帖后再补来源，不猜链接、不公开群成员或个人聊天截图。
+
+对项目的理解：
+- 这段文字鼓励把 AI 辅助开发做成“有方法、有真实工具调用、有结果复核”的工程过程，并积累个人经验 Skill。
+- “可以借鉴”“体现如何应用”不构成已核验的强制评分条款。本次不新增所谓必装要求、得分值、权重或承诺；正式要求以赛事可核验公告/评分细则为准。转述中的“Vivado/Vitis MCP”也不代表本项目已经通过 MCP 使用 Vitis；固定版本 HLS 的实际 CLI 路径见第 3 节。
+- 官方消息中对效率的描述是工具介绍，不能直接变成本项目的量化结论。写报告时必须说明实际用了哪一层、完成什么操作、保留什么证据、有没有真正减少工作量。
+- 未实测前仍写“计划验证/NOT_TESTED”。不为凑 AI 应用经历而重跑硬件、升级工具，或把既有非 ROSS 成果追认成 ROSS 的贡献。
+
+## 8. 可落地的个人 Skill 提案（候选，未创建/未验证）
+
+建议方向：**`zynq-pixel-evidence-check`：像素 RTL 与独立黄金期望的仿真证据核验**。将本仓库已有[证据分级候选流程](../skill/evidence-gates/SKILL.md)落到一个可复现案例，而不是只复制上游标题或另造一套“万能 FPGA 助手”。当前变更只给出提案，不安装新 Skill，也不把候选流程标成赛事已验收材料。
+
+可借鉴的结构来自固定版本 [vivado-simulate-rtl/SKILL.md](https://github.com/Xilinx/ross-ai-assistant/blob/2cdc9eef1b6b5b17fa45f5e4d468e5483a1c92de/skills/vivado-simulate-rtl/SKILL.md)：YAML 中的 name、description，以及按需的 compatibility/license/metadata；正文的工具策略、输入、preflight、有限运行、诊断、复跑与结果格式；较长的后端细节放入引用文件。以上是该上游实例的结构，不宣称所有字段都被每个客户端支持；适配时实际核对宿主格式，不照搬工具权限、AMD 作者身份或未经核对的许可声明。
+
+拟写入的项目内容：
+1. **触发范围：**用户要求复核 red_pixel_mask 或同类纯组合像素模块的 XSim 结果、黄金期望、故意错误检测。超出到 DVP/帧统计/CDC/板测时单列新验证范围，不自动泛化。
+2. **必需输入：**源码提交与散列、工具版本、`src/interface_contract.md`、RTL/TB、独立期望依据、完整三阶段日志、变异 diff、恢复与复核记录。允许“已有日志只读复核”和“获准后的 scratch 仿真”两种模式，缺工具不伪造运行。
+3. **项目特有规则：**RGB565 的 R5/G6/B5 位域、当前阈值的包含边界、16 个固定检查；测试期望独立于被测实现。识别本手册 15→16 变异使 7a26 从应为 1 变成 0，避免照抄旧版 24→25。
+4. **证据门禁：**绑定同一提交/输入/工具；完整日志与终止标记；负例实际运行失败；恢复在新目录重编译。没有真实负例就不能声称“测试能发现错误”。
+5. **输出：**每条结论带 claim、source SHA、tool version、input hash、命令/调用记录、日志/位置、PASS/FAIL/BLOCKED/NOT_TESTED、known limit、reviewer。输出不直接改 `report/status.json`。
+6. **验证计划：**队友用正例、负例、恢复例复核；再给它一份有意缺日志或版本错配的证据包，检查是否诚实拒绝升级结论。该试验只检验 Skill 的核验行为，不冒充新增 RTL 功能。
+7. **原创贡献：**列出借鉴的上游结构/版本和自己新增的位域边界、错误案例、证据关联规则；保留真实模型误判与人工纠正。现阶段作者、实际使用次数、验证结果均待填，不将官方 Skill 改名冒充原创。
+
+后续确要制作此 Skill 时，可在单独任务中采用与 name 一致的目录（如 `skill/zynq-pixel-evidence-check/SKILL.md`），保留许可证与来源，再验证加载和行为。本轮仍只维护评估、执行说明与报告模板。
