@@ -9,7 +9,7 @@
 以下是 Windows PowerShell 命令，均从仓库根目录执行。选一个可写的 **ASCII 绝对路径**；不要复用别人正在工作的目录。Vivado 的完整帧 runner 会拒绝含中文的绝对输出路径，即使末级文件夹是英文。
 
 ```powershell
-git clone https://github.com/logic202407-cmyk/zynq-vision-lab.git D:/zynq-repro
+git clone --config core.autocrlf=false https://github.com/logic202407-cmyk/zynq-vision-lab.git D:/zynq-repro
 if ($LASTEXITCODE -ne 0) { throw 'Clone failed; stop here' }
 Set-Location D:/zynq-repro
 git log -1 --format='%H'
@@ -29,7 +29,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Cannot check out the requested commit' }
 git rev-parse HEAD
 ```
 
-保存实际完整 commit。工作区若已有修改，先辨明归属并记录差异；不要 reset、clean、stash、覆盖、合并或提交他人的修改。上述检出步骤只用于干净克隆；已有工作目录不能自动切换分支。后续开发使用自己的分支和 PR；复现固定提交时不要顺手升级代码或阈值。
+保存实际完整 commit。克隆参数仅为新仓库设置 `core.autocrlf=false`，保持 Git 中源码字节以核对 SHA-256，不修改全局 Git 设置。工作区若已有修改，先辨明归属并记录差异；不要 reset、clean、stash、覆盖、合并或提交他人的修改。上述检出步骤只用于干净克隆；已有工作目录不能自动切换分支。后续开发使用自己的分支和 PR；复现固定提交时不要顺手升级代码或阈值。
 
 发布快照应包含下面的文件。**缺文件立即停止**；`unittest discover` 找不到文件时可能出现 `Ran 0 tests / OK`，不能算通过。
 

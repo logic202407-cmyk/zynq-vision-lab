@@ -41,6 +41,8 @@ git diff --check
 
 首次 [远端 CI](https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37135955264) 在依赖检查报 `ModuleNotFoundError: No module named 'tkinter'`，尚未执行测试，保留为失败记录。修正为 GitHub Windows 临时 runner、固定 SHA 的官方 setup-python 选择 Python 3.12，继续显式检查 Pillow/Tk；不改本机环境、不跳过 UI 测试。最终 PR head 的 CI 仍须读取实际运行/日志判定。
 
+修正后的 head `eb90fbce0ed18adfb1f26741d66d952bd23ea993` 的 [CI](https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37136262139) 实际成功，job 日志为 Python **3.12.10**、Pillow **12.3.0**、Tk **8.6**，仓库检查 PASS、完整 **93** 项 `OK` 且无 skip。随后仅补新克隆的换行配置和本段证据，最终 head 仍以 PR 的对应运行确认；五份算法/测试源码不变。
+
 [源码 SHA-256 清单](2026-10-03-r0-acceptance-source-sha256.txt) 随 PR 完整提交交付，覆盖五份实现/测试、冻结契约及未修改的 UDP/仿真 runner/依赖表。现有五份实现/测试的字节保持先前检查版本；契约增加冻结版本说明，参数文档更新历史恢复范围。复现者对照 `git rev-parse HEAD` 及清单核对实际字节，不使用另一个 PR 的 SHA。
 
 ## 板测和队员接口限制
