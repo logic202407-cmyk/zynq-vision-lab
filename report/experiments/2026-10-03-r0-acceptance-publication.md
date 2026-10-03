@@ -37,6 +37,8 @@ git diff --check
 
 ## 源码身份
 
+冻结源码提交为 [`2a018c4b82e356dee3ca8cb000b520112b624c18`](https://github.com/logic202407-cmyk/zynq-vision-lab/commit/2a018c4b82e356dee3ca8cb000b520112b624c18)。后续本轮提交仅补 [两人任务安排](../../docs/team_next_stage_2026-10-03.md)、入口与交付证据；五份实现/测试不变。PR head 是最终文档快照身份，冻结源码 commit 是参考算法身份，分别记录。
+
 [源码 SHA-256 清单](2026-10-03-r0-acceptance-source-sha256.txt) 随 PR 完整提交交付，覆盖五份实现/测试、冻结契约及未修改的 UDP/仿真 runner/依赖表。现有五份实现/测试的字节保持先前检查版本；契约增加冻结版本说明，参数文档更新历史恢复范围。复现者对照 `git rev-parse HEAD` 及清单核对实际字节，不使用另一个 PR 的 SHA。
 
 ## 板测和队员接口限制

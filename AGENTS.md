@@ -28,6 +28,10 @@ evidence paths and separate offline/board gates. Read
 Reading these files does not authorize hardware, system changes, motion or light
 emission; run only the stages requested by the user.
 
+Next-stage assignments and the shared interface checklist are indexed in
+`docs/team_next_stage_2026-10-03.md`; read the assigned account's task document
+before starting that work. The task plans do not authorize physical execution.
+
 ```bash
 python tools/check_repository.py
 python -m unittest discover -s tests -v

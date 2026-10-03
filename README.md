@@ -12,6 +12,8 @@
 
 **队友 Codex 测试入口：[可执行测试流程](docs/codex_test_runbook.md)。**包含干净克隆/固定源码提交、R0 冻结边界与 10,000 随机框、离线错误注入、v1/v2 RTL/golden，以及另行授权的真实视频与强制 v2 的 100 同帧验收。分工和待开发原型见[队友指南](docs/team_offline_handoff_2026-09-30.md)，历史证据见[交付说明](report/experiments/2026-09-30-test-delivery.md)，本次源码发布与软件复跑见[发布记录](report/experiments/2026-10-03-r0-acceptance-publication.md)。本次发布不复测硬件；独立分支 draft PR 尚未合并 main。
 
+**下一阶段分工：[统一索引与共同接口](docs/team_next_stage_2026-10-03.md)** → [3331083641-prog：PC/FPGA](docs/3331083641_next_stage_2026-10-03.md)、[ikkkkk19：STM32/云台](docs/ikkkkk19_next_stage_2026-10-03.md)。按各自 P0/P1 和实际依赖推进，失败留证，硬件阶段另行协调。
+
 ## 场景关系扩展（规划）
 
 新增[场景关系集成方案](docs/scene_relation_plan_2026-09-30.md)与[候选数据契约](docs/scene_relation_contract_v0_1.md)，规划在现有 PL 视觉测量上逐步增加多色对象表、确定性空间关系、缺测状态和可解释查询。借鉴 RelateAnything 的区域关系表示与分层输出思想，不将完整模型作为主链路依赖。
