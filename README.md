@@ -10,11 +10,13 @@
 
 2026-09-30，针对孤立杂点拉偏边框，新增可选的[PL 3×3 多数滤波](report/experiments/2026-09-30-red-spatial-filter.md)，已有小型场景与完整帧 RTL 仿真证据。用户后来确认现场设备就绪，旧摄像头和滤波位流均成功临时配置。[恢复板测记录](report/experiments/2026-09-30-spatial-board-recovery.md)：滤波版本 2 的 100 组无目标同帧统计零差异，上位机一分钟收到 1800 个完整帧，显示约 30 FPS。当前红纸偏暗、未检出有效目标，补光后的有效靶标与抗干扰验收仍待完成，尚不能声称检测框闪动已解决。队友可继续按各自授权的范围离线推进。
 
+**队友 Codex 测试入口：[可执行测试流程](docs/codex_test_runbook.md)。**包含干净克隆/固定源码提交、R0 冻结边界与 10,000 随机框、离线错误注入、v1/v2 RTL/golden，以及另行授权的真实视频与强制 v2 的 100 同帧验收。分工和待开发原型见[队友指南](docs/team_offline_handoff_2026-09-30.md)，历史证据见[交付说明](report/experiments/2026-09-30-test-delivery.md)，本次源码发布与软件复跑见[发布记录](report/experiments/2026-10-03-r0-acceptance-publication.md)。本次发布不复测硬件；独立分支 draft PR 尚未合并 main。
+
 ## 场景关系扩展（规划）
 
 新增[场景关系集成方案](docs/scene_relation_plan_2026-09-30.md)与[候选数据契约](docs/scene_relation_contract_v0_1.md)，规划在现有 PL 视觉测量上逐步增加多色对象表、确定性空间关系、缺测状态和可解释查询。借鉴 RelateAnything 的区域关系表示与分层输出思想，不将完整模型作为主链路依赖。
 
-**Codex 下一轮入口：[仅执行场景关系 R0](docs/codex_scene_relation_r0.md)。**先核对最新仓库与未提交工作，再完成契约复核、纯 Python 黄金参考和测试；不修改现有相机时序、红色 RTL 核心或视频协议。本次仅文档入库，不代表多色、关系核、PS 或模型功能已经实现，也不改变已有板测状态。
+R0 的[纯 Python 几何黄金参考](sim/reference/spatial_relations.py)和[独立测试](tests/test_spatial_relations.py)只处理调用方提供的框与快照；复现步骤见上述测试入口，原始范围见 [R0 任务说明](docs/codex_scene_relation_r0.md)。多色测量、PL 关系核、时间状态机、PS 和模型功能仍待实现，已有板测状态不因此提升。
 
 ## 实施顺序
 
@@ -34,7 +36,7 @@ python tools/check_repository.py
 python -m unittest discover -s tests -v
 ```
 
-两项检查只核对仓库结构、相对链接、状态证据格式和检查工具本身，不调用 Vivado 或板卡。逐项事实状态见 [status.json](report/status.json)。
+仓库检查核对结构、相对链接和状态证据格式；单元测试另覆盖 PC/黄金参考逻辑，均不调用 Vivado 或板卡。完整复现须按测试入口核对依赖、实际测试数及 skip。逐项事实状态见 [status.json](report/status.json)。
 
 项目只处理无生命几何靶标，输出屏幕标记、位置测量和实验日志。不开发真人或真实飞行器自主指向、弹丸发射或移动发射系统。原厂工程、第三方图像和个人资料不会直接复制到公开仓库。
 

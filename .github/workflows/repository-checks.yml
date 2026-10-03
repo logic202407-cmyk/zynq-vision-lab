@@ -19,6 +19,10 @@ jobs:
           persist-credentials: false
       - name: Check repository structure and claims
         run: python3 tools/check_repository.py
+      - name: Prepare UI regression dependencies
+        run: |
+          python3 -m pip install -r src/pc/requirements.txt
+          python3 -c "import PIL, tkinter; print('Pillow', PIL.__version__); print('Tk', tkinter.TkVersion)"
       - name: Test repository tooling
         run: python3 -m unittest discover -s tests -v
       - name: Clarify verification boundary
