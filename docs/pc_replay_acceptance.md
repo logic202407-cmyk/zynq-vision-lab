@@ -38,6 +38,28 @@ bbox 和向下取整质心。明确的 expected 常量来自矩形计数/对称�
 不把显示中值滤波加入精确 expected。已有颜色阈值边界测试继续复跑，
 人工降低阈值去迎合暗红纸不属于此任务。
 
+## 连续回放输入
+
+[pc_replay_sequences.json](../data/fixtures/pc_replay_sequences.json) 复用上述人工
+expected，不调用参考生成期望，不改变 JSONL 格式。
+
+| `--sequence` | 输入 | 预期与核对方式 |
+|---|---|---|
+| acquire_loss_reacquire | 4 帧居中、4 帧无目标、4 帧居中 | 有效→无效→有效；失效段坐标 null、计数/和为零，帧号连续 |
+| edge_scan | 居中、左、右、上、下、居中 | 对照同名像素样例的全部字段，不把边界框外推 |
+| noise_small | 无目标、单点、2×2、十字、色块加噪点、孔洞、无目标 | v2 count=[0,0,0,1,21,21,0]；v1 保留小目标 |
+| receive_pause | t=0/33/66/666/699ms | 中间 600ms 没有输入；回放等待间隔正确，恢复后帧号仍连续 |
+| session_restart | a 会话三帧，再 b 会话三帧 | 新 session 帧号从 1、时间从 0；原型不得把会话重启混同普通丢帧 |
+| config_change | 同会话前三帧 v1，后三帧 v2 | count 25→21、config_epoch 1→2，帧号连续；不能跨配置混合比较 |
+
+600ms 是测试空窗，不是已约定的失联阈值。STM32 的超时、首次检出、丢失后
+状态和模拟输出需要双方确认后另测；本轮只验证输入和回放，未验收原型。
+`config_change` 有显式模式覆盖，因此 `--mask-version` 不会覆盖其中的 v1/v2。
+
+```powershell
+python -m src.pc.target_replay generate --sequence acquire_loss_reacquire --mask-version 2 --output D:\嵌入式比赛资料\task_outputs\loss-v2.jsonl
+```
+
 ## 运行命令
 
 在仓库根目录执行，以下输出目录位于仓库外。文件已存在时生成器拒绝覆盖，
@@ -79,14 +101,16 @@ python tools/run_pc_acceptance.py --require-r0 --output-dir D:\嵌入式比赛�
 
 R0 同步后使用它已经冻结的关系 API/边界表，补独立适配用例：左/右、上/下、
 同中心、斜对角、交集为零、单像素框、包含 ROI、距离等号、缺测、帧号/
-配置不一致。方向、面积 +1 和距离平方的人工计算作为预期依据；真实参数
-和 unknown 模糊区以冻结契约为准，本轮不另建关系判定器。
+配置不一致。具体输入和人工预期见 [独立核对表](pc_r0_independent_cases.md)；
+真实参数和 unknown 模糊区以冻结契约为准，本轮不另建关系判定器。
 
 ## 硬件与实拍后续
 
-本轮未运行 Vivado/JTAG、未下载位流、未改网络设置或 UDP，未板测。
-电脑只读状态看到 USB Serial Converter 为 OK；不能据此认定下载器型号或
-JTAG 成功。有线网口为 Disconnected，UDP 接收条件未齐。
+最初离线任务时有线网口未连接；后续根据用户连接和提供位流包的安排，
+本机已发现 xc7z100、易失配置 v1，电脑端恢复实拍。最新证据见
+[v1 恢复记录](../report/experiments/2026-10-03-v1-camera-restored.md)。
+10 秒窗口 290 完整帧、7 不完整、1 异常报文，只证明该 v1 接收窗口。
+未下载 v2；未完成受控红纸正例、R0 或修复后精确统计工具的板测。
 
 真实板测由队长统一协调，先确认 GE/PL 网线、电源、相机、下载器和正确
 位流版本，再由已同步的验收工具对有目标/无目标做同帧对照。无目标的

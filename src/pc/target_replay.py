@@ -16,6 +16,7 @@ from sim.reference.red_mask import measure_red_pixels, red_binary_mask
 
 ROOT = Path(__file__).resolve().parents[2]
 FIXTURES = ROOT / "data/fixtures/pc_target_cases.json"
+SEQUENCES = ROOT / "data/fixtures/pc_replay_sequences.json"
 SCHEMA = "target-replay/0.1-candidate"
 WIDTH, HEIGHT = 640, 480
 
@@ -119,6 +120,43 @@ def make_record(case: dict, index: int, version: int) -> dict:
     return record
 
 
+def make_sequence_records(name: str, version: int, path: Path = SEQUENCES) -> list[dict]:
+    """Compose known analytical measurements; no controller or relation model."""
+    integer(version, "mask version", 1, 2)
+    document = json.loads(path.read_text(encoding="utf-8"))
+    if document.get("schema_version") != "pc-replay-sequences/1":
+        raise ValueError("unsupported sequence fixture schema")
+    definitions = document["sequences"]
+    names = [sequence["sequence_id"] for sequence in definitions]
+    if len(names) != len(set(names)) or name not in names:
+        raise ValueError("unknown or duplicate sequence name")
+    events = definitions[names.index(name)]["events"]
+    if not events:
+        raise ValueError("empty sequence")
+    cases = {case["case_id"]: case for case in load_cases()}
+    records, seen_sessions = [], set()
+    previous_session, seq, timestamp = None, 0, 0
+    for event in events:
+        session = event.get("session", "a")
+        if not isinstance(session, str) or not session:
+            raise ValueError("invalid sequence session")
+        if session != previous_session:
+            if session in seen_sessions:
+                raise ValueError("sequence must not reopen an earlier session")
+            seen_sessions.add(session)
+            seq, timestamp = 0, 0
+        current_time = integer(event["timestamp_ms"], "event timestamp", 0, 2**53 - 1)
+        if current_time < timestamp:
+            raise ValueError("sequence timestamp moved backwards")
+        event_version = integer(event.get("mask_version", version), "event mask version", 1, 2)
+        record = make_record(cases[event["case_id"]], seq, event_version)
+        record.update(session_id=f"pc-sequence-{name}-{session}", timestamp_ms=current_time)
+        validate_record(record)
+        records.append(record)
+        previous_session, seq, timestamp = session, seq + 1, current_time
+    return records
+
+
 def read_records(path: Path):
     previous = None
     with path.open(encoding="utf-8") as stream:
@@ -170,6 +208,7 @@ def main(argv=None) -> int:
     generate = sub.add_parser("generate")
     generate.add_argument("--output", required=True, type=Path)
     generate.add_argument("--mask-version", required=True, type=int, choices=(1, 2))
+    generate.add_argument("--sequence", help="named continuous sequence; omitted means all eleven pixel cases")
     check = sub.add_parser("check")
     check.add_argument("--output", required=True, type=Path)
     replay = sub.add_parser("replay")
@@ -190,7 +229,8 @@ def main(argv=None) -> int:
         cases = load_cases()
         args.output.parent.mkdir(parents=True, exist_ok=True)
         if args.command == "generate":
-            records = [make_record(case, index, args.mask_version) for index, case in enumerate(cases)]
+            records = (make_sequence_records(args.sequence, args.mask_version) if args.sequence else
+                       [make_record(case, index, args.mask_version) for index, case in enumerate(cases)])
             with args.output.open("x", encoding="utf-8", newline="\n") as stream:
                 for record in records:
                     stream.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
