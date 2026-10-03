@@ -6,5 +6,6 @@
 - 早期 USB 故障不能覆盖之后的恢复证据。纠正：入口指向 9 月 30 日后续配置/视频记录；v2 的 100 精确同帧匹配全部无有效滤波目标，正例和抗闪烁仍未验收。10 月 3 日 v1 状态单独标成队员报告。
 - 缺 Pillow/Tk 时 UI 回归可被 unittest 跳过。纠正：CI 使用现有 requirements 并显式检查依赖，复现要求记录实际测试数和 skip；本地 93 项无跳过，不以本地结果冒充远端 CI。
 - R0 只比较本次关系端点 Snapshot，不能修复输入流的旧 session 复现。PR3 的 JSONL `A→B→A` 风险留待接口层单独验证，本次不改队员代码。
+- 不能假定 Ubuntu runner 的默认 Python 带 Tk：首次远端 CI 的依赖检查失败，未运行测试。纠正为 GitHub Windows 临时 runner 与固定 SHA 的官方 setup-python，仍以依赖检查和实际完整套件日志判定，不改本机环境或通过 skip 绕过。
 
 实际命令、版本和结果见 [发布记录](../experiments/2026-10-03-r0-acceptance-publication.md)。本次没有改变数学阈值、测试期望或硬件证据等级。

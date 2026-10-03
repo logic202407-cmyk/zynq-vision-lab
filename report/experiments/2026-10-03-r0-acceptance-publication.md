@@ -37,7 +37,9 @@ git diff --check
 
 ## 源码身份
 
-冻结源码提交为 [`2a018c4b82e356dee3ca8cb000b520112b624c18`](https://github.com/logic202407-cmyk/zynq-vision-lab/commit/2a018c4b82e356dee3ca8cb000b520112b624c18)。后续本轮提交仅补 [两人任务安排](../../docs/team_next_stage_2026-10-03.md)、入口与交付证据；五份实现/测试不变。PR head 是最终文档快照身份，冻结源码 commit 是参考算法身份，分别记录。
+冻结源码提交为 [`2a018c4b82e356dee3ca8cb000b520112b624c18`](https://github.com/logic202407-cmyk/zynq-vision-lab/commit/2a018c4b82e356dee3ca8cb000b520112b624c18)。后续本轮提交仅补 [两人任务安排](../../docs/team_next_stage_2026-10-03.md)、入口、交付证据及 CI 环境；五份实现/测试不变。PR head 是最终发布快照身份，冻结源码 commit 是参考算法身份，分别记录。
+
+首次 [远端 CI](https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37135955264) 在依赖检查报 `ModuleNotFoundError: No module named 'tkinter'`，尚未执行测试，保留为失败记录。修正为 GitHub Windows 临时 runner、固定 SHA 的官方 setup-python 选择 Python 3.12，继续显式检查 Pillow/Tk；不改本机环境、不跳过 UI 测试。最终 PR head 的 CI 仍须读取实际运行/日志判定。
 
 [源码 SHA-256 清单](2026-10-03-r0-acceptance-source-sha256.txt) 随 PR 完整提交交付，覆盖五份实现/测试、冻结契约及未修改的 UDP/仿真 runner/依赖表。现有五份实现/测试的字节保持先前检查版本；契约增加冻结版本说明，参数文档更新历史恢复范围。复现者对照 `git rev-parse HEAD` 及清单核对实际字节，不使用另一个 PR 的 SHA。
 
