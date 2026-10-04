@@ -63,6 +63,27 @@
     "v2_positive": "not_run",
     "v2_receive_30s": "not_run"
   },
+  "ci_followup": {
+    "correction": "Normalize both path identities before injecting sidecar conflict; retain all original error/preservation assertions.",
+    "ended_at_utc": "2026-10-04T03:58:30.782608+00:00",
+    "failure_run": "https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37175393043",
+    "hardware_actions_performed": false,
+    "independent_r0_checks": 31,
+    "independent_r0_groups": 16,
+    "new_regression_file_sha256": "a5c57a73e347699aa56b9eaab89260bcca0e90cb9a9c6a61405763ae34d6487d",
+    "passed_runs": [
+      "https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37175491698",
+      "https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37175489549"
+    ],
+    "pixel_comparisons": 22,
+    "private_first_ci_failure_log_sha256": "773bb2734ce7cb34408d6c20d351c319832c9cd8423cb729fc31f0d9442eaebc",
+    "private_fixed_record_sha256": "fd4a1b27de481ff66d5641ba5b92e0d49139425d797f884dd9b522fa39150034",
+    "source_commit_tested": "e3ca20df8da6ff627f2f06fa5ddf288996247766",
+    "source_worktree_clean": true,
+    "started_at_utc": "2026-10-04T03:56:23.306859+00:00",
+    "unittest_count": 141,
+    "unittest_skipped": 0
+  },
   "ended_at_utc": "2026-10-04T03:51:30.102452+00:00",
   "evidence_gate": {
     "claim": "Private raw snapshot export and offline same-input reference analysis implemented and regression checked",

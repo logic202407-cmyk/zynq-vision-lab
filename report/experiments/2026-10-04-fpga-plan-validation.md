@@ -51,3 +51,16 @@ v2 count 304964 / sum_x 97435998 / sum_y 73038878 / bbox [1,1,638,478]。
 无目标、30 秒连续统计与物理干扰均 not_run。历史日志不转为本轮完成。
 软件/同输入 golden 工具通过不能提升到 board_verified 或 reproduced；
 实际板测须按 AGENTS/runbook 另获本次许可和设备独占后执行。
+
+## CI 路径注入修正后的追加复跑
+
+首次 [CI 失败](https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37175393043)
+保留：141 项中的 sidecar 故障注入未触发。临时路径别名是原因推断；
+注入器改为比较两边 resolve 后的路径，原异常/文件保留/清理断言不变。
+产品实现和全部既有门槛未变。固定提交
+`e3ca20df8da6ff627f2f06fa5ddf288996247766` 干净检出重新执行同一 runner：
+141 项无 skip、22 对照、16 组/31 检查和基础/diff 全通过。
+追加 UTC、日志/hash 和测试文件 hash 见 JSON 的 ci_followup；首轮证据保留。
+[push CI](https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37175489549)
+与 [PR CI](https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37175491698)
+也通过。两次本机运行和远端 CI 均是软件证据，不提升为新板测。
