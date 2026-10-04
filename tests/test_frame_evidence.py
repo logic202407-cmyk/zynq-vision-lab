@@ -49,7 +49,7 @@ class FrameEvidenceTests(unittest.TestCase):
         sidecar = self.path.with_suffix(".rgb565.json")
 
         def raced_open(path, *args, **kwargs):
-            if path == sidecar and args[0] == "x":
+            if path.resolve() == sidecar.resolve() and args[0] == "x":
                 with original_open(path, "w", encoding="utf-8") as handle:
                     handle.write("other writer")
                 raise FileExistsError("sidecar race")
