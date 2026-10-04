@@ -5,8 +5,12 @@
 已阅读 [R0 工作要求](codex_scene_relation_r0.md)、
 [集成方案](scene_relation_plan_2026-09-30.md)、
 [候选契约](scene_relation_contract_v0_1.md)及现有接口契约。
-队长实现与边界表尚未同步，本文件是人工预期和后续适配清单，尚未执行 R0。
-不创建第二套关系参考实现，不把像素质心代入 bbox 中心关系。
+本表最初于2026-10-03整理，当时源码未同步。2026-10-04已取得冻结源码
+2a018c4b82e356dee3ca8cb000b520112b624c18，边界版本r0-boundaries/2026-10-03。
+新增 [独立常量fixture](../data/fixtures/pc_r0_independent_cases.json) 和
+[API适配核对工具](../tools/check_pc_r0_cases.py)；16组共31个检查，预期不调用
+被测evaluate生成。原表“待冻结”描述保留为当时的准备过程，下节给实际配置。
+不创建第二套关系算法，不把像素质心代入 bbox 中心关系。
 
 坐标左上为原点，bbox 两端包含。以下均为 640×480 的合法框，除明确标为
 非法者。表中的 `c2=(xmin+xmax,ymin+ymax)`，`d2=c2(B)-c2(A)`，
@@ -43,3 +47,26 @@ G01/G02 等零 margin 条件也需 API 确认允许；不允许时用实际合�
 这些是 R0 几何输入，不是单红目标 JSONL 的新版字段，也不是 UDP 包。
 颜色 ID/ROI 对象表的实际构造器、错误类型和枚举需从队长源码取得。
 同帧对照还需考虑视频 N 携带 N−1 统计，不能直接按画面序号配对。
+
+## 冻结边界对应的实际输入
+
+fixture显式默认配置：epoch7，方向margin0，IoU false=0/1、true=1/1，
+near内外半径均0；每项覆盖值均写入fixture，不声称实拍标定。
+G01/G02反向关系false；G03左/上均true。G04方向false、near true、
+overlap unknown。G05保留半像素中心。G06在high=1/3时true，在
+low=1/3、high=1/2时unknown。G07在零阈值下仍false，G08在high=1/19时true。
+G09分别测半径(5,5)=true、(4,5)=unknown、(4,4)=false、(6,6)=true。
+G10方向margin20的正等号unknown，margin19为true，margin21为unknown。
+G11/G12包含true、G13 false；G14两种非法框ValueError；G15缺测unknown，
+G16帧/配置/session不一致均unknown且原因区分。ROI以count=None合法构造。
+
+工具只将固定输入构造为冻结API对象，逐字段核对truth/reason/evidence；
+不含第二套关系判定器。G01-G13还比较人工整数几何证据，G15/G16要求
+evidence=null，非法组要求ValueError。可执行命令：
+
+```powershell
+python tools/check_pc_r0_cases.py --output <new-output-json-outside-repository>
+python -m unittest discover -s tests -p test_pc_r0_independent.py -v
+```
+
+命令/实际结果以2026-10-04新实验报告为准；不能用源码存在状态代替核对通过。

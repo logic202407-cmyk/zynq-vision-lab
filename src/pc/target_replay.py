@@ -159,11 +159,17 @@ def make_sequence_records(name: str, version: int, path: Path = SEQUENCES) -> li
 
 def read_records(path: Path):
     previous = None
+    seen_sessions = set()
     with path.open(encoding="utf-8") as stream:
         for number, line in enumerate(stream, 1):
             try:
                 record = json.loads(line)
                 validate_record(record)
+                session = record["session_id"]
+                if previous is None or session != previous["session_id"]:
+                    if session in seen_sessions:
+                        raise ValueError("closed session_id cannot reappear")
+                    seen_sessions.add(session)
                 if previous and record["session_id"] == previous["session_id"]:
                     if record["timestamp_ms"] < previous["timestamp_ms"]:
                         raise ValueError("timestamp moved backwards within session")
