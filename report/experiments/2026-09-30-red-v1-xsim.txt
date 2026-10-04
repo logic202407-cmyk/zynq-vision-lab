@@ -1,0 +1,3 @@
+REFERENCE {'valid': 1, 'count': 307200, 'sx': 98150400, 'sy': 73574400, 'minx': 0, 'miny': 0, 'maxx': 639, 'maxy': 479}
+PL_XSIM   {'valid': 1, 'count': 307200, 'sx': 98150400, 'sy': 73574400, 'minx': 0, 'miny': 0, 'maxx': 639, 'maxy': 479}
+FRAME_COMPARE_PASS
