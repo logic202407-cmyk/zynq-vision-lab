@@ -1,0 +1,60 @@
+{
+  "schema": "pc-fpga-recovery/1",
+  "attempt": "centerlit-20261004-11",
+  "source_commit": "417ea6d6eb66040ae820db127c692da24c5160b4",
+  "condition_plan": "pc-fpga-plan/2026-10-04-r5-condition-centerlit",
+  "condition_plan_sha256": "16056cffd7e01c7a5aa1040bea407abcb42885e11147bddf4f7f8213b8b4d0ac",
+  "user_report": "Both USB connections direct; previous common hub unknown",
+  "read_only": {
+    "done_internal": null,
+    "started_at_utc": "2026-10-04T12:18:17.2301805Z",
+    "target_count": null,
+    "done_pin": null,
+    "eos": null,
+    "part": null,
+    "timed_out": false,
+    "exit_code": 1,
+    "error_codes": [
+      "Labtoolstcl 44-199",
+      "Common 17-39"
+    ],
+    "ended_at_utc": "2026-10-04T12:18:50.6253737Z"
+  },
+  "network": {
+    "adapter_status": "Up",
+    "new_helper_executed": false,
+    "usb_problem_code": 0,
+    "link_speed": "1 Gbps",
+    "ipv4": "APIPA"
+  },
+  "downloader": {
+    "problem_code": null,
+    "present": false,
+    "status": "Unknown"
+  },
+  "programming_started": false,
+  "new_frame_captured": false,
+  "new_roi_frozen": false,
+  "stages": {
+    "I0": "not_run",
+    "H0": "fail",
+    "H2": "not_run",
+    "repeats": "not_run",
+    "P0": "not_run",
+    "N0": "not_run",
+    "H1": "not_run",
+    "window_30s": "not_run",
+    "v2_board": "not_run"
+  },
+  "protected_files_sha256": {
+    "data/fixtures/pc_r0_independent_cases.json": "da06ca9b7341b94fceaf5844755314ae8811aae983d552e7fbdb09cc9462432e",
+    "data/fixtures/pc_replay_sequences.json": "0c8a6c85e18ec738ca81e36859ef8f3eb15d6d5e15ee19475e09f1c50ab89d9e",
+    "data/fixtures/pc_target_cases.json": "d316d5202a33448da04b75875bd0a8c228ce78a3f7ea49332ae23226b7033661",
+    "sim/reference/red_mask.py": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52",
+    "sim/reference/spatial_relations.py": "940a8b85feab756cbe62933d474271e4ae276b811bd3fffc2f9010c782be6f5c",
+    "src/pc/pl_compare.py": "52accca8b2cde821dfd11a3607bd7143d6a24bb6705d3b5f0c842b03229eb2d3",
+    "src/pc/vendor_udp.py": "63936f4caee1d39e2016cb6e40781abf09f7cba46605a3ae3a4c5ec56e027a26",
+    "tests/test_pl_compare.py": "96035259d0ce27f15093e25aa935cf1dede97644346912bf6b1e2cee23731d55",
+    "tests/test_spatial_relations.py": "23a3044c8d27966de60276791489f738cf803faf38c375d187af0de1d52b74f1"
+  }
+}
