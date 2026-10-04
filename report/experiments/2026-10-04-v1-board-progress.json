@@ -1,0 +1,377 @@
+{
+  "schema": "fpga-board-progress/1",
+  "run_id": "20261004T042710Z",
+  "recorded_at_utc": "2026-10-04T07:04:19.099073+00:00",
+  "source_commit_executed": "cc58615f34d90e7cd1da9bd9d9dffa455c1d19ae",
+  "plan_sha256": "3301785371b6da99926aa1468c0217bbe2baa50c1e7f593413dcb98e7a084b6a",
+  "plan_version": "pc-fpga-plan/2026-10-04-r1",
+  "tool_version": "Vivado 2024.2 / SW Build 5239630; Python 3.12.4; Pillow 12.2.0",
+  "bitstream_v1_sha256": "2a380055b3fd93049a5a174c0f3e1e7b140117b0df77fb5825b6b2ab6011fdc5",
+  "bitstream_v1_rtl_origin": "declared private manifest; not an independent rebuild",
+  "hardware_actions_performed": true,
+  "configuration_invocations": [
+    {
+      "input_id": "v1-configuration",
+      "exit_code": 0,
+      "startup": "HIGH",
+      "eos": 1,
+      "done_internal": 1,
+      "done_pin": 1,
+      "attempt_count_in_this_invocation": 1,
+      "private_console_sha256": "6f69197249291a6fb8324508374416fdbe18dd8731975600154f2666b99f8849",
+      "private_result_sha256": "9ad4c58abe1f7f7b20e801bc7243f9d33cda888ce73a2ea0ead99a40bb2f5625"
+    },
+    {
+      "input_id": "v1-reload-after-link",
+      "exit_code": 0,
+      "startup": "HIGH",
+      "eos": 1,
+      "done_internal": 1,
+      "done_pin": 1,
+      "attempt_count_in_this_invocation": 1,
+      "private_console_sha256": "b87bbc438de76ca4c6e959465913ca85bd54348892475064a7c843d943bdaf61",
+      "private_result_sha256": "a5f61270999d6a759f91c52a6195e935b9d0e8e36ccfc53024b21880d618b19f"
+    }
+  ],
+  "intervening_configuration_status": {
+    "eos": 0,
+    "done_internal": 0,
+    "done_pin": 0,
+    "cause": "unknown; observed after user connection recovery",
+    "private_log_sha256": "7a101f5fdec43c36cd35e4e1053a3f020642bce7bc4e7fdebabcf47304d35f96"
+  },
+  "network_recovery": {
+    "status": "CONFIGURED",
+    "scope": "same previously authorized wired adapter; temporary ActiveStore address, metric and board host route",
+    "wifi_changed": false,
+    "dns_changed": false,
+    "default_gateway_added": false,
+    "actual_state_checked": true,
+    "private_actual_state_sha256": "485b67693e98af6c3533672b9b41f42de0b08d6660dc137a3257a75c8b888736"
+  },
+  "preserved_failures": [
+    {
+      "stage": "first_video_bind",
+      "reason": "WinError 10049: required local IPv4 absent; no receive window or START command",
+      "private_result_sha256": "3eda9f82a1cb70a9f956c20076c03d79b1ca753afa4007fd4c114f10f331f7d3"
+    },
+    {
+      "stage": "network_helper",
+      "reason": "Initial desktop launch unavailable/cancelled; stale NEEDS_ADMIN was read before user completion; unnecessary retry hit existing-attempt guard. Earlier writes were verified independently; guard was preserved."
+    },
+    {
+      "stage": "later_framing_preflight",
+      "reason": "Wired link disconnected/address deprecated, then temporary address absent; no framing receive window"
+    },
+    {
+      "stage": "read_only_jtag_after_link",
+      "reason": "No matching targets; restarted only hardware-server process whose ownership was verified",
+      "private_result_sha256": "8ae5db803e427db98922af513d7809c7cf791cac54125f17c95dde4205251c6e"
+    }
+  ],
+  "video_probes": [
+    {
+      "input_id": "v1-video-10s-after-network",
+      "command": [
+        "python",
+        "-m",
+        "src.pc.bench_probe",
+        "--seconds",
+        "10",
+        "--interval",
+        "5",
+        "--output",
+        "<new-private-json>"
+      ],
+      "exit_code": 0,
+      "measurements": {
+        "started_at_utc": "2026-10-04T04:44:23.356238+00:00",
+        "requested_seconds": 10,
+        "elapsed_seconds": 10.0,
+        "interrupted": false,
+        "complete_frames": 297,
+        "incomplete_frames": 2,
+        "malformed_datagrams": 1,
+        "orphan_rows": 272,
+        "received_datagrams": 143935,
+        "received_payload_bytes": 184248840,
+        "other_source_datagrams": 0,
+        "max_complete_frame_gap_seconds": 0.063,
+        "intervals": [
+          {
+            "elapsed_seconds": 5.0,
+            "complete_frames": 149,
+            "new_frames": 149,
+            "incomplete_frames": 0,
+            "malformed_datagrams": 1
+          },
+          {
+            "elapsed_seconds": 10.0,
+            "complete_frames": 297,
+            "new_frames": 148,
+            "incomplete_frames": 2,
+            "malformed_datagrams": 1
+          }
+        ]
+      },
+      "average_complete_fps": 29.7,
+      "private_result_sha256": "6faf73cf33918d5e4a03c87143f00a3322362f4368c93a7527216aeb69b58761"
+    },
+    {
+      "input_id": "v1-video-10s-after-reload",
+      "command": [
+        "python",
+        "-m",
+        "src.pc.bench_probe",
+        "--seconds",
+        "10",
+        "--interval",
+        "5",
+        "--output",
+        "<new-private-json>"
+      ],
+      "exit_code": 0,
+      "measurements": {
+        "started_at_utc": "2026-10-04T06:54:44.260078+00:00",
+        "requested_seconds": 10,
+        "elapsed_seconds": 10.0,
+        "interrupted": false,
+        "complete_frames": 278,
+        "incomplete_frames": 0,
+        "malformed_datagrams": 1,
+        "orphan_rows": 457,
+        "received_datagrams": 134253,
+        "received_payload_bytes": 171855040,
+        "other_source_datagrams": 0,
+        "max_complete_frame_gap_seconds": 0.047,
+        "intervals": [
+          {
+            "elapsed_seconds": 5.0,
+            "complete_frames": 128,
+            "new_frames": 128,
+            "incomplete_frames": 0,
+            "malformed_datagrams": 1
+          },
+          {
+            "elapsed_seconds": 10.0,
+            "complete_frames": 278,
+            "new_frames": 150,
+            "incomplete_frames": 0,
+            "malformed_datagrams": 1
+          }
+        ]
+      },
+      "average_complete_fps": 27.8,
+      "private_result_sha256": "481277a492362cb9f31866cbeac60d9b3167fb25e32ea04760f3caca8ae12f65"
+    }
+  ],
+  "pilots": [
+    {
+      "input_id": "v1-pilot",
+      "scope": "pilot_excluded_not_formal_acceptance",
+      "input_sha256": "aefe57ae24d714d468eb24df8907b478f1bf113029456022934887acdb61a16e",
+      "byte_count": 614400,
+      "frame_seq": 27548,
+      "host_saved_at_utc": "2026-10-04T04:44:33.776164+00:00",
+      "matched_pl_v1": {
+        "frame_seq": 27548,
+        "frame_complete": true,
+        "mask_version": 1,
+        "target_valid": true,
+        "count": 6089,
+        "sum_x": 1889176,
+        "sum_y": 2427095,
+        "bbox": [
+          0,
+          0,
+          639,
+          475
+        ],
+        "centroid": [
+          310,
+          398
+        ]
+      },
+      "offline_same_input_masks": {
+        "1": {
+          "bbox": [
+            0,
+            0,
+            639,
+            475
+          ],
+          "centroid_mask_floor": [
+            310,
+            398
+          ],
+          "count": 6089,
+          "sum_x": 1889176,
+          "sum_y": 2427095,
+          "valid": true
+        },
+        "2": {
+          "bbox": [
+            1,
+            15,
+            546,
+            458
+          ],
+          "centroid_mask_floor": [
+            309,
+            407
+          ],
+          "count": 2858,
+          "sum_x": 884262,
+          "sum_y": 1165063,
+          "valid": true
+        }
+      },
+      "single_frame_v1_reference_equal": true,
+      "manual_roi": null,
+      "visual_limit": "No distinguishable independent paper-target boundary in the close framing.",
+      "private_capture_sha256": "e699444b2f1d9cf8289445813680960d70e91bd792b951a97561cbe4f7390c4d",
+      "private_offline_result_sha256": "f286412e3e56f7d13f4a7138181bf398059111e3ea7fae4f0e360a8b75858078"
+    },
+    {
+      "input_id": "v1-pilot-framing-check1",
+      "scope": "pilot_excluded_not_formal_acceptance",
+      "input_sha256": "bb2ec64c3d40eef04db05486a33975acd13eee96576c804e242f20f00747d23b",
+      "byte_count": 614400,
+      "frame_seq": 2160,
+      "host_saved_at_utc": "2026-10-04T06:55:19.268792+00:00",
+      "matched_pl_v1": {
+        "frame_seq": 2160,
+        "frame_complete": true,
+        "mask_version": 1,
+        "target_valid": true,
+        "count": 15,
+        "sum_x": 7209,
+        "sum_y": 4574,
+        "bbox": [
+          384,
+          159,
+          557,
+          434
+        ],
+        "centroid": [
+          480,
+          304
+        ]
+      },
+      "offline_same_input_masks": {
+        "1": {
+          "bbox": [
+            384,
+            159,
+            557,
+            434
+          ],
+          "centroid_mask_floor": [
+            480,
+            304
+          ],
+          "count": 15,
+          "sum_x": 7209,
+          "sum_y": 4574,
+          "valid": true
+        },
+        "2": {
+          "bbox": null,
+          "centroid_mask_floor": null,
+          "count": 0,
+          "sum_x": 0,
+          "sum_y": 0,
+          "valid": false
+        }
+      },
+      "single_frame_v1_reference_equal": true,
+      "manual_roi": null,
+      "visual_limit": "Room background visible; no distinguishable red paper marker and matte backboard.",
+      "private_capture_sha256": "4e163bb4db0198b19722aa31a2a36f69cfe9e8c6c1a173674736740ee0cb8fca",
+      "private_offline_result_sha256": "1139fa933ddbe1bddf377fdab35d9fc374be38ce780f85f09134067717598aa2"
+    }
+  ],
+  "latest_failed_pilot": {
+    "input_id": "v1-pilot-framing-check2",
+    "user_report": "Paper target in frame; current distance 1m; 10.5cm was previous camera-to-target distance",
+    "capture": {
+      "scope": "pilot_excluded_not_formal_acceptance",
+      "started_at_utc": "2026-10-04T06:59:15.325988+00:00",
+      "ended_at_utc": "2026-10-04T06:59:25.528013+00:00",
+      "stop_error": null,
+      "complete_frames": 0,
+      "incomplete_frames": 0,
+      "malformed": 0,
+      "orphan_rows": 0,
+      "failure": "no_pilot_frame"
+    },
+    "exit_code": 1,
+    "private_capture_sha256": "8ad7db6e4b66d2c80c3035e5f05af3deb99f4b020bec515c468e66b494c94062",
+    "network_checked_after_failure": "Link Up/1Gbps; required local IPv4 preferred; host route present; port unoccupied",
+    "configuration_check": "Read-only query returned no active target; not interpreted as EOS/DONE zero",
+    "private_status_result_sha256": "d593e29e770c6c97e18b93d707e2001e1aeac34c646ca84f7b452cf140353d11",
+    "latest_recovery_status": "No targets after owned-server restart; no further configuration attempted"
+  },
+  "scene_conditions": {
+    "latest_user_reported_distance_m": 1,
+    "diameter_cm": null,
+    "earlier_distance_cm": 10.5,
+    "diameter_note": "User clarified 10.5 cm was original distance, not diameter; diameter unconfirmed",
+    "lighting": "No external lamp reported earlier; current lighting unconfirmed",
+    "lux": null,
+    "exposure_locked": "unknown",
+    "white_balance_locked": "unknown"
+  },
+  "board_stage_status": {
+    "v1_volatile_configuration": "verified",
+    "v1_camera_bytes": "captured",
+    "manual_controlled_paper_scene_confirmation": "pending",
+    "manual_roi_freeze": "not_run",
+    "v1_exact_100": "not_run",
+    "v1_positive_P0": "not_run",
+    "v1_no_target_N0": "not_run",
+    "v1_receive_30s": "not_run",
+    "v1_interference_I0": "not_run",
+    "v2_configuration": "not_run",
+    "v2_live_video": "not_run",
+    "v2_exact_100": "not_run",
+    "v2_positive_P0": "not_run",
+    "v2_no_target_N0": "not_run",
+    "v2_receive_30s": "not_run",
+    "v2_interference_I0": "not_run",
+    "independent_person_reproduction": "not_run"
+  },
+  "evidence_gate": {
+    "claim": "Two prior temporary v1 programming and live reception observations preserved; latest pilot has no frames and JTAG unavailable; controlled paper-target acceptance pending",
+    "evidence_path": "report/experiments/2026-10-04-v1-board-progress.json",
+    "commit": "cc58615f34d90e7cd1da9bd9d9dffa455c1d19ae",
+    "tool_version": "Vivado 2024.2 / Python 3.12.4",
+    "input_id": "20261004T042710Z",
+    "status": "partial_board_evidence",
+    "known_limit": "Latest pilot received no frame and read-only JTAG query had no active target. Prior video counts remain historical observations. No frozen manual ROI, formal 100-frame comparison, P0/N0/I0, 30-second stage, v2 hardware or independent-person reproduction.",
+    "reviewer": "3331083641-prog/Codex local execution; external review pending"
+  },
+  "raw_evidence_policy": "Private images, RGB565, bitstreams, adapter/device identifiers, machine paths and raw logs excluded from Git; sanitized summaries and hashes only.",
+  "latest_read_only_diagnosis": {
+    "exit_code": 1,
+    "reason": "No matching JTAG targets after restarting only the verified owned hardware server",
+    "eos": null,
+    "done_internal": null,
+    "done_pin": null,
+    "current_configuration_state": "unknown; unavailable target is not a zero register measurement",
+    "private_result_sha256": "dee85573108d6caab5b7dbe0de87ef5d7356c374983df2512efc26180f19e88f",
+    "private_console_sha256": "dce63ea1c1d78ae17fcb0e96228cf22dd498bb64f7b956a690639a80bb1afd4d",
+    "action": "Pause capture; ask user to observe power/DONE indicators and any connection/reset changes, without unplugging"
+  },
+  "protected_files_sha256": {
+    "data/fixtures/pc_r0_independent_cases.json": "da06ca9b7341b94fceaf5844755314ae8811aae983d552e7fbdb09cc9462432e",
+    "data/fixtures/pc_replay_sequences.json": "0c8a6c85e18ec738ca81e36859ef8f3eb15d6d5e15ee19475e09f1c50ab89d9e",
+    "data/fixtures/pc_target_cases.json": "d316d5202a33448da04b75875bd0a8c228ce78a3f7ea49332ae23226b7033661",
+    "sim/reference/red_mask.py": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52",
+    "sim/reference/spatial_relations.py": "940a8b85feab756cbe62933d474271e4ae276b811bd3fffc2f9010c782be6f5c",
+    "src/pc/pl_compare.py": "52accca8b2cde821dfd11a3607bd7143d6a24bb6705d3b5f0c842b03229eb2d3",
+    "src/pc/vendor_udp.py": "63936f4caee1d39e2016cb6e40781abf09f7cba46605a3ae3a4c5ec56e027a26",
+    "tests/test_pl_compare.py": "96035259d0ce27f15093e25aa935cf1dede97644346912bf6b1e2cee23731d55",
+    "tests/test_spatial_relations.py": "23a3044c8d27966de60276791489f738cf803faf38c375d187af0de1d52b74f1"
+  }
+}
