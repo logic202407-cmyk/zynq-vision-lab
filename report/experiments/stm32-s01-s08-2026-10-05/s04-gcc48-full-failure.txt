@@ -1,0 +1,42 @@
+test_display_median_rejects_three_frame_box_outlier (test_camera_viewer.ConversionTests.test_display_median_rejects_three_frame_box_outlier) ... ok
+test_pl_overlay_does_not_modify_raw_image (test_camera_viewer.ConversionTests.test_pl_overlay_does_not_modify_raw_image) ... ok
+test_pl_result_is_paired_with_its_own_video_frame (test_camera_viewer.ConversionTests.test_pl_result_is_paired_with_its_own_video_frame) ... ok
+test_rgb565_primary_colors (test_camera_viewer.ConversionTests.test_rgb565_primary_colors) ... ok
+test_wrong_size_rejected (test_camera_viewer.ConversionTests.test_wrong_size_rejected) ... ok
+test_centered_single_region_rounds_centroid_down (test_red_mask_reference.RedMaskReferenceTests.test_centered_single_region_rounds_centroid_down) ... ok
+test_distinguishable_red_and_green_regions (test_red_mask_reference.RedMaskReferenceTests.test_distinguishable_red_and_green_regions) ... ok
+test_full_resolution_all_red_frame (test_red_mask_reference.RedMaskReferenceTests.test_full_resolution_all_red_frame) ... ok
+test_no_target (test_red_mask_reference.RedMaskReferenceTests.test_no_target) ... ok
+test_partially_occluded_red_region (test_red_mask_reference.RedMaskReferenceTests.test_partially_occluded_red_region) ... ok
+test_quantized_live_preview_color_candidate (test_red_mask_reference.RedMaskReferenceTests.test_quantized_live_preview_color_candidate) ... ok
+test_region_touching_left_edge (test_red_mask_reference.RedMaskReferenceTests.test_region_touching_left_edge) ... ok
+test_rejects_invalid_shape_and_frame_index (test_red_mask_reference.RedMaskReferenceTests.test_rejects_invalid_shape_and_frame_index) ... ok
+test_similar_orange_background_excluded (test_red_mask_reference.RedMaskReferenceTests.test_similar_orange_background_excluded) ... ok
+test_threshold_edges_and_big_endian_bytes (test_red_mask_reference.RedMaskReferenceTests.test_threshold_edges_and_big_endian_bytes) ... ok
+test_border_is_excluded (test_red_spatial_filter.SpatialFilterTests.test_border_is_excluded) ... ok
+test_dimensions_smaller_than_window_return_empty (test_red_spatial_filter.SpatialFilterTests.test_dimensions_smaller_than_window_return_empty) ... ok
+test_five_votes_are_required (test_red_spatial_filter.SpatialFilterTests.test_five_votes_are_required) ... ok
+test_isolated_pixel_is_removed (test_red_spatial_filter.SpatialFilterTests.test_isolated_pixel_is_removed) ... ok
+test_solid_patch_survives_without_distant_speck (test_red_spatial_filter.SpatialFilterTests.test_solid_patch_survives_without_distant_speck) ... ok
+test_current_repository_foundations (test_repository_checks.RepositoryCheckTests.test_current_repository_foundations) ... FAIL
+
+======================================================================
+FAIL: test_current_repository_foundations (test_repository_checks.RepositoryCheckTests.test_current_repository_foundations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORK_REPO>\tests\test_repository_checks.py", line 65, in test_current_repository_foundations
+    self.assertEqual(check_repository(ROOT), [])
+AssertionError: Lists differ: ['docs\\stm32_s01_s08_coverage.md: missing[58 chars].md'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'docs\\stm32_s01_s08_coverage.md: missing local link ../report/experiments/2026-10-04-stm32-s01-s08.md'
+
++ []
+- ['docs\\stm32_s01_s08_coverage.md: missing local link '
+-  '../report/experiments/2026-10-04-stm32-s01-s08.md']
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.232s
+
+FAILED (failures=1)

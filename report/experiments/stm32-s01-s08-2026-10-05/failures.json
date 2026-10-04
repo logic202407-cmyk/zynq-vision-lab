@@ -1,0 +1,96 @@
+[
+  {
+    "id": "new_harness_integral_units",
+    "execution": "failed",
+    "tests": 1,
+    "failure": 1,
+    "remaining_not_run": 436,
+    "cause": "New expected draft treated stored integral as unweighted error*time. Frozen PID stores Ki*error*dt.",
+    "wrong_expected": {
+      "pan_integral": 0.1,
+      "tilt_integral": -0.1
+    },
+    "corrected_hand_calculation": {
+      "pan_integral": 0.05,
+      "tilt_integral": -0.08
+    },
+    "saved_expected_draft_sha256": "bdb273e01603dd97df6ce8f46f9c4a9fa7b5c00da9eedc192c7b78bae52cff5b",
+    "raw_replay_sha256": "72410ab6da6bf162f374bd6991fc69c0ce05f5cf63048811466ce9dc46c84f72",
+    "production_and_old_expected_changed": false
+  },
+  {
+    "id": "unfinished_report_link",
+    "execution": "failed",
+    "runs": [
+      {
+        "exit_code": 1,
+        "counts": {
+          "tests": 21,
+          "failure": 1
+        },
+        "utc_start": "2026-10-04T16:14:03.864422+00:00",
+        "utc_end": "2026-10-04T16:14:04.274185+00:00",
+        "raw_log_sha256": "06838b784a65b23159a81dc4448e2aecea3fcf5649f627f7cdebc505e6aa65b1",
+        "compiler_invoked": false,
+        "stm32_tests": "not_run"
+      },
+      {
+        "exit_code": 1,
+        "counts": {
+          "tests": 21,
+          "failure": 1
+        },
+        "utc_start": "2026-10-04T16:14:03.699226+00:00",
+        "utc_end": "2026-10-04T16:14:04.183001+00:00",
+        "raw_log_sha256": "8e6c34997719c6d80e06c79736c1f60e8d0e399649c5b36b18cd6640ef87aedb",
+        "compiler_invoked": false,
+        "stm32_tests": "not_run"
+      }
+    ]
+  },
+  {
+    "id": "license_console_encoding",
+    "execution": "failed",
+    "cause": "GBK stdout rejected a nonbreaking space after full main text had already been saved.",
+    "correction": "Use UTF-8 stdout, fresh private extraction directory; second run exit 0 and identical text hash."
+  },
+  {
+    "id": "git_object_metadata_timezone",
+    "execution": "failed",
+    "cause": "Git API exposes UTC-normalized dates; initial reconstruction assumed +0000.",
+    "correction": "Only import raw commit after object SHA matches; original timezone recovered by bounded search.",
+    "accepted_object_sha": "0d037f44315b548de48cda4767ee73e40cc9e112",
+    "initial_write_performed": false
+  },
+  {
+    "id": "public_json_path_redaction",
+    "execution": "failed",
+    "cause": "Cleaning JSON after serialization missed escaped backslashes in nested command paths.",
+    "correction": "Clean every original string recursively before JSON serialization, regenerate public evidence and scan parsed strings.",
+    "upload_performed_before_correction": false
+  },
+  {
+    "id": "ci_windows_posix_manifest_paths",
+    "execution": "failed",
+    "source_commit": "0d037f44315b548de48cda4767ee73e40cc9e112",
+    "run": "https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37216615726",
+    "job_id": 111478308203,
+    "raw_log_sha256": "37b4365cb4bfdd2247a9d723ad33d6d547f1d0d64829116eb8d33d0250e3f4b8",
+    "counts": {
+      "discovered": 554,
+      "passed": 549,
+      "skip": 5
+    },
+    "stm32_cases_passed": 506,
+    "cause": "All portable C regressions passed; crosscheck rejected Windows backslashes vs POSIX slashes as different source keys.",
+    "correction": "Normalize separators only; preserve source digest comparison. Add one platform regression: same path/hash accepted, changed hash still differs.",
+    "skipped_scope": "Five inherited camera_viewer tests: Pillow/Tk optional UI dependency missing; no STM32 test skipped"
+  },
+  {
+    "id": "public_manifest_self_reference",
+    "execution": "failed",
+    "cause": "Regenerating public packaging accidentally included the previous manifest hash as its own entry.",
+    "correction": "Exclude the manifest itself and verify all other artifact hashes before upload.",
+    "upload_performed_before_correction": false
+  }
+]
