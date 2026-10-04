@@ -1,0 +1,648 @@
+{
+  "started_utc": "2026-10-04T01:51:01.366902+00:00",
+  "commit": "ed98fdccc7985eeca8f07edf71da8d3c818d40ee",
+  "worktree": "",
+  "source_commit": "2a018c4b82e356dee3ca8cb000b520112b624c18",
+  "board_verified": false,
+  "steps": [
+    {
+      "stage": "environment",
+      "command": [
+        "python",
+        "-c",
+        "import sys,tkinter,PIL; print(sys.version); print('Pillow',PIL.__version__); print('Tk',tkinter.TkVersion)"
+      ],
+      "started_utc": "2026-10-04T01:51:02.414639+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:02.488480+00:00",
+      "exit_code": 0,
+      "log_file": "environment.txt",
+      "log_sha256": "3b9e2aaf640dcf9c4b1c40181199cd8dfc527a6fcf84bb4a70fb48f32fcaa0a7"
+    },
+    {
+      "stage": "replay-regression",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_target_replay.py",
+        "-v"
+      ],
+      "started_utc": "2026-10-04T01:51:02.501558+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:09.649471+00:00",
+      "exit_code": 0,
+      "log_file": "replay-regression.txt",
+      "log_sha256": "0a69ea6399c22db1fd1389d2881beeae1173ad2b7962dee746ff2e59219253f0",
+      "expected_tests": 21,
+      "actual_tests": 21,
+      "skipped": false
+    },
+    {
+      "stage": "independent-r0-tests",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_pc_r0_independent.py",
+        "-v"
+      ],
+      "started_utc": "2026-10-04T01:51:09.656758+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:09.785052+00:00",
+      "exit_code": 0,
+      "log_file": "independent-r0-tests.txt",
+      "log_sha256": "9aceadf2257d85f8c9f9725cfffd6a6094bf38106653de1ea512f5daf1e04dc1",
+      "expected_tests": 16,
+      "actual_tests": 16,
+      "skipped": false
+    },
+    {
+      "stage": "independent-r0-records",
+      "command": [
+        "python",
+        "tools/check_pc_r0_cases.py",
+        "--output",
+        "<evidence>\\offline-evidence\\independent-r0.json"
+      ],
+      "started_utc": "2026-10-04T01:51:09.799609+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:09.914102+00:00",
+      "exit_code": 0,
+      "log_file": "independent-r0-records.txt",
+      "log_sha256": "69c30503d60a1867deb0019aa6e8a5624aae29080c38a4f2395796c89ea597f5"
+    },
+    {
+      "stage": "r0",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_spatial_relations.py",
+        "-v"
+      ],
+      "started_utc": "2026-10-04T01:51:09.939909+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:11.633288+00:00",
+      "exit_code": 0,
+      "log_file": "r0.txt",
+      "log_sha256": "9a21e4bff1b02d773e5636e8921431b4a88e057f1aa07eff4bfe7eecc652c7e3",
+      "expected_tests": 23,
+      "actual_tests": 23,
+      "skipped": false
+    },
+    {
+      "stage": "r0-random",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_spatial_relations.py",
+        "-k",
+        "test_10000_fixed_seed_pairs_against_fraction_oracle_and_invariants",
+        "-v"
+      ],
+      "started_utc": "2026-10-04T01:51:11.647280+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:13.314894+00:00",
+      "exit_code": 0,
+      "log_file": "r0-random.txt",
+      "log_sha256": "f57a2929aae37df3b3667ef173198e77ed8147c90f7619d060adc47c28723a8d",
+      "expected_tests": 1,
+      "actual_tests": 1,
+      "skipped": false
+    },
+    {
+      "stage": "exact-acceptance",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_pl_compare.py",
+        "-v"
+      ],
+      "started_utc": "2026-10-04T01:51:13.330240+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:13.572149+00:00",
+      "exit_code": 0,
+      "log_file": "exact-acceptance.txt",
+      "log_sha256": "67b6371c1fe1255ebf7662097eab679411c7e98ad345611879d968666f062f42",
+      "expected_tests": 30,
+      "actual_tests": 30,
+      "skipped": false
+    },
+    {
+      "stage": "reject-sum",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_pl_compare.py",
+        "-k",
+        "test_cli_exact_sum_error_sets_failure_exit_code",
+        "-v"
+      ],
+      "started_utc": "2026-10-04T01:51:13.587580+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:13.783168+00:00",
+      "exit_code": 0,
+      "log_file": "reject-sum.txt",
+      "log_sha256": "8188001b857e0e096dac5bc42ab17a53427c742a05041c98a1e02e75f9d22f12",
+      "expected_tests": 1,
+      "actual_tests": 1,
+      "skipped": false
+    },
+    {
+      "stage": "reject-v1",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_pl_compare.py",
+        "-k",
+        "test_cli_v2_request_rejects_v1_with_failure_exit_code",
+        "-v"
+      ],
+      "started_utc": "2026-10-04T01:51:13.796854+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:13.990947+00:00",
+      "exit_code": 0,
+      "log_file": "reject-v1.txt",
+      "log_sha256": "4ae88eb73f093d4d81943ebdcf7d926f79059c674695d1f4a7d4c1b3ed9922d5",
+      "expected_tests": 1,
+      "actual_tests": 1,
+      "skipped": false
+    },
+    {
+      "stage": "reject-empty",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_pl_compare.py",
+        "-k",
+        "test_cli_no_data_sets_failure_exit_code",
+        "-v"
+      ],
+      "started_utc": "2026-10-04T01:51:14.006826+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:14.230823+00:00",
+      "exit_code": 0,
+      "log_file": "reject-empty.txt",
+      "log_sha256": "3311b6a064116a16d354427b07dba02ca2c7f82940b6f7ea8946219ae02bc4c5",
+      "expected_tests": 1,
+      "actual_tests": 1,
+      "skipped": false
+    },
+    {
+      "stage": "reject-stop",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_pl_compare.py",
+        "-k",
+        "test_stop_command_error_cannot_leave_a_success_exit_code",
+        "-v"
+      ],
+      "started_utc": "2026-10-04T01:51:14.247838+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:14.449202+00:00",
+      "exit_code": 0,
+      "log_file": "reject-stop.txt",
+      "log_sha256": "0b538e2e9f29f3aafedbfbf6fa3c84ed6f9634fd5133d0afdc7a51290a483aa0",
+      "expected_tests": 1,
+      "actual_tests": 1,
+      "skipped": false
+    },
+    {
+      "stage": "combined-acceptance",
+      "command": [
+        "python",
+        "tools/run_pc_acceptance.py",
+        "--require-r0",
+        "--output-dir",
+        "<evidence>\\offline-evidence\\combined"
+      ],
+      "started_utc": "2026-10-04T01:51:14.464604+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:30.975072+00:00",
+      "exit_code": 0,
+      "log_file": "combined-acceptance.txt",
+      "log_sha256": "a832815cc61cd0bc0552a6d057787147861f85243889c8fa9d595960142d5a53"
+    },
+    {
+      "stage": "golden",
+      "started_utc": "2026-10-04T01:51:31.021237+00:00",
+      "ended_utc": "2026-10-04T01:51:31.525644+00:00",
+      "command": [
+        "measure_red_statistics(all_red,640,480,spatial_filter=version==2)"
+      ],
+      "status": "passed",
+      "log_file": "golden.json",
+      "log_sha256": "086675037e4f93087f383b60c0eea767d7a9d5ae8ff97d81ff6fb5a3af8e3e22"
+    },
+    {
+      "stage": "xsim-v1",
+      "command": [
+        "python",
+        "tools/compare_red_frame_xsim.py",
+        "<ascii-build>\\all-red.rgb565",
+        "--build-dir",
+        "<ascii-build>\\xsim-v1",
+        "--vivado-bin",
+        "D:\\Vivado\\Vivado\\2024.2\\bin"
+      ],
+      "started_utc": "2026-10-04T01:51:31.541153+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:51:53.471162+00:00",
+      "exit_code": 0,
+      "log_file": "xsim-v1.txt",
+      "log_sha256": "4c6901ce8dd443aec49d3a723ec9d20eeb20e1dd515090132c1f8e7643611a82"
+    },
+    {
+      "stage": "xsim-v2",
+      "command": [
+        "python",
+        "tools/compare_red_frame_xsim.py",
+        "<ascii-build>\\all-red.rgb565",
+        "--build-dir",
+        "<ascii-build>\\xsim-v2",
+        "--vivado-bin",
+        "D:\\Vivado\\Vivado\\2024.2\\bin",
+        "--spatial-filter"
+      ],
+      "started_utc": "2026-10-04T01:51:53.486446+00:00",
+      "status": "passed",
+      "ended_utc": "2026-10-04T01:52:01.982341+00:00",
+      "exit_code": 0,
+      "log_file": "xsim-v2.txt",
+      "log_sha256": "a4159895c0bee4e72d3c2f452e516df5cdfb0dfe29d021185a0c32c8e5dde44d"
+    }
+  ],
+  "failed_stage": null,
+  "frozen_workfile_sha256": {
+    "sim/reference/spatial_relations.py": "940a8b85feab756cbe62933d474271e4ae276b811bd3fffc2f9010c782be6f5c",
+    "tests/test_spatial_relations.py": "23a3044c8d27966de60276791489f738cf803faf38c375d187af0de1d52b74f1",
+    "sim/reference/red_mask.py": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52",
+    "src/pc/pl_compare.py": "52accca8b2cde821dfd11a3607bd7143d6a24bb6705d3b5f0c842b03229eb2d3",
+    "tests/test_pl_compare.py": "96035259d0ce27f15093e25aa935cf1dede97644346912bf6b1e2cee23731d55"
+  },
+  "source_sha256": {
+    "data/fixtures/pc_r0_independent_cases.json": "da06ca9b7341b94fceaf5844755314ae8811aae983d552e7fbdb09cc9462432e",
+    "data/fixtures/pc_replay_sequences.json": "0c8a6c85e18ec738ca81e36859ef8f3eb15d6d5e15ee19475e09f1c50ab89d9e",
+    "data/fixtures/pc_target_cases.json": "d316d5202a33448da04b75875bd0a8c228ce78a3f7ea49332ae23226b7033661",
+    "report/status.json": "d46d3c6e82fd152daf4935dec11c30e887ca25edc0b1c2f9c3d28a45a8832fa6",
+    "sim/camera_rgb565_stream_tb.v": "9b39b96f4dd71e61b4cc78ec829da886328112f7fadde2b8e15d7beb11f6d2c6",
+    "sim/red_frame_file_tb.v": "dc93d789546fed33ec5c9d5257f65091b2ce1235ae6f772633fcd21e4797998e",
+    "sim/red_frame_stats_tb.v": "7cab4875c2c157ae9736957e0e09c8ae978c22af6119116ef1d0c9f1883062f9",
+    "sim/red_pixel_mask_tb.v": "538f1a232876d7ed6045dc31486a5b132a54becd99ac54d6541cd9b58a1d0238",
+    "sim/red_result_header_tb.v": "1e050a699d9dd1b1834c0221d8685979c078d76e12d9631f7bac1b04922d9b9b",
+    "sim/red_spatial_stats_tb.v": "44b9cb92a19546682ec94769a48eb79ede1863a8b94dd426e8768a29131ea57b",
+    "sim/reference/red_mask.py": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52",
+    "sim/reference/spatial_relations.py": "940a8b85feab756cbe62933d474271e4ae276b811bd3fffc2f9010c782be6f5c",
+    "src/pc/bench_probe.py": "b5e585ab3248dfcb731773567dfd9616a03bda2804ae25483f43ddcaa564dd23",
+    "src/pc/camera_viewer.py": "ff115b3fd3436da91d261add50c9ad24b6b52303292d81458f3dc10fba9e0c15",
+    "src/pc/pl_compare.py": "52accca8b2cde821dfd11a3607bd7143d6a24bb6705d3b5f0c842b03229eb2d3",
+    "src/pc/target_replay.py": "cd968d737c6f685696fa0232ef7f3bf040d408986d851cbca757cf0c8b672ef9",
+    "src/pc/vendor_udp.py": "63936f4caee1d39e2016cb6e40781abf09f7cba46605a3ae3a4c5ec56e027a26",
+    "src/rtl/camera_rgb565_stream.v": "bdf4fe04910aa71ee8e7f9d06c8ac24608610919dd50e0b7efb167e88add8af0",
+    "src/rtl/red_frame_stats.v": "b3cf13033ea661c34a9773e10a81ea6f9152c3e2ab8a3f6c717d175508d23805",
+    "src/rtl/red_mask_majority3x3.v": "0f921c3465950851356749fb1865be8c91ef15d1adeaad6d7c63d272646a533f",
+    "src/rtl/red_pixel_mask.v": "76b2129ddbe7f9ccb1dba4fb4a7415ac706df8b3a8981afccc460af29362917b",
+    "src/rtl/red_result_header.v": "1aa560d9108814bfd135947121bd9e7dff90619382dee18116015299f7fdd3fb",
+    "tests/test_camera_viewer.py": "e1cd0bfb833158808a3b3dc16322e2caeacde7b8a4426221e4a8d751e2914e38",
+    "tests/test_pc_r0_independent.py": "d4bd70608879de339bde0c2c10c85de6c8ecafc6f778add864e1b2d54c9954af",
+    "tests/test_pl_compare.py": "96035259d0ce27f15093e25aa935cf1dede97644346912bf6b1e2cee23731d55",
+    "tests/test_red_mask_reference.py": "ede5fe301e4416c10955c9242546d8f370fce31827002db2b2ed51ab1b14023d",
+    "tests/test_red_spatial_filter.py": "6ac45346ef7ca0f959e40dad79594a2a91dd09c8e330841e0a885d9fab5c9d90",
+    "tests/test_repository_checks.py": "089d7f66437c530b0533bc464e8f835c284e1a908b559361e858c8d468ca214f",
+    "tests/test_spatial_relations.py": "23a3044c8d27966de60276791489f738cf803faf38c375d187af0de1d52b74f1",
+    "tests/test_target_replay.py": "9e02bf91fc4f7362d494f90bd0c909caa1e86252518453a588a72f14f5592508",
+    "tests/test_vendor_udp.py": "f01b37306062e9f7657ddacc4c4966ebeaac5cf772315cae5064ff0dfd66fee0",
+    "tools/__init__.py": "6cc6d0ada30788a5cf5f93ebc41326fce2476ffc58dcfdbecff4c29f20a0d2cc",
+    "tools/check_pc_r0_cases.py": "5091c6642ce15a46a111164e8f93ac6372e711b3db546e9f26a03a506a74c0d1",
+    "tools/check_repository.py": "726c9b0162f34535f1be8c48119797bd5644dba53717bf6f8de5056b21ac8307",
+    "tools/compare_red_frame_xsim.py": "2d69bca4031a3041fa0b9c9ba7ecdc7eb41046da0a175bcb565abea61da8b479",
+    "tools/prepare_vendor_red_camera.py": "5fbb4d9d61272c0badba26b3725487c808fca562d8e5d79d4503a1703f62d077",
+    "tools/run_pc_acceptance.py": "2b2b61366e0ee62c0a3c40547166000630be904ed993aac2270228ce1df0d5c8"
+  },
+  "input_sha256": {
+    "data/fixtures/pc_target_cases.json": "d316d5202a33448da04b75875bd0a8c228ce78a3f7ea49332ae23226b7033661",
+    "data/fixtures/pc_replay_sequences.json": "0c8a6c85e18ec738ca81e36859ef8f3eb15d6d5e15ee19475e09f1c50ab89d9e",
+    "data/fixtures/pc_r0_independent_cases.json": "da06ca9b7341b94fceaf5844755314ae8811aae983d552e7fbdb09cc9462432e"
+  },
+  "full_suite": {
+    "tests": 130,
+    "skipped": false
+  },
+  "pixel_comparisons": 22,
+  "passed": true,
+  "not_run": [],
+  "ended_utc": "2026-10-04T01:52:02.001054+00:00",
+  "tool_versions": {
+    "Python": "3.12.4",
+    "Pillow": "12.2.0",
+    "Tk": "8.6",
+    "xsim": "2024.2 SW Build 5239630"
+  },
+  "known_limits": [
+    "No new board/serial/motor/light tests",
+    "Serial contract requires peer review",
+    "No valid paper-target or interference acceptance"
+  ],
+  "raw_record_sha256": "a02ac304a93b5a0798e92ea97707b0da761f341fe11b419e21d99964f443f3d7",
+  "controls_record_sha256": "432686091a1dc25e67aee8f16ce33cdcf68f968964f98ad81f290cb231cabbe6",
+  "controls": [
+    {
+      "id": "old-regressed",
+      "started_utc": "2026-10-04T01:52:53.084066+00:00",
+      "ended_utc": "2026-10-04T01:52:53.191576+00:00",
+      "command": [
+        "python",
+        "-m",
+        "src.pc.target_replay",
+        "replay",
+        "--input",
+        "<evidence>\\controls-evidence\\old-regressed.jsonl",
+        "--realtime"
+      ],
+      "input_sha256": "7f6fb4ec572d64bd3e8916c2f084b0ff7747f4eccf5477eaa1cb47656b39abc0",
+      "expected": {
+        "exit_code": 2,
+        "stdout": "",
+        "stderr_contains": "line 3: closed session_id cannot reappear"
+      },
+      "actual": {
+        "exit_code": 2,
+        "stdout": "",
+        "stderr": "ERROR: line 3: closed session_id cannot reappear\n"
+      },
+      "passed": true
+    },
+    {
+      "id": "old-duplicate",
+      "started_utc": "2026-10-04T01:52:53.192564+00:00",
+      "ended_utc": "2026-10-04T01:52:53.302395+00:00",
+      "command": [
+        "python",
+        "-m",
+        "src.pc.target_replay",
+        "replay",
+        "--input",
+        "<evidence>\\controls-evidence\\old-duplicate.jsonl",
+        "--realtime"
+      ],
+      "input_sha256": "9d0a3e433d6278ea8dd4194e46f89cdd204479f466ca09c9b39ea1953217761a",
+      "expected": {
+        "exit_code": 2,
+        "stdout": "",
+        "stderr_contains": "line 3: closed session_id cannot reappear"
+      },
+      "actual": {
+        "exit_code": 2,
+        "stdout": "",
+        "stderr": "ERROR: line 3: closed session_id cannot reappear\n"
+      },
+      "passed": true
+    },
+    {
+      "id": "old-apparently-continuous",
+      "started_utc": "2026-10-04T01:52:53.304484+00:00",
+      "ended_utc": "2026-10-04T01:52:53.427639+00:00",
+      "command": [
+        "python",
+        "-m",
+        "src.pc.target_replay",
+        "replay",
+        "--input",
+        "<evidence>\\controls-evidence\\old-apparently-continuous.jsonl",
+        "--realtime"
+      ],
+      "input_sha256": "f771143a2568c7fcf1fc029ebfc6d08a6f8dc2069c350a9bee6a06eed17ee347",
+      "expected": {
+        "exit_code": 2,
+        "stdout": "",
+        "stderr_contains": "line 3: closed session_id cannot reappear"
+      },
+      "actual": {
+        "exit_code": 2,
+        "stdout": "",
+        "stderr": "ERROR: line 3: closed session_id cannot reappear\n"
+      },
+      "passed": true
+    },
+    {
+      "id": "wrong-sum",
+      "started_utc": "2026-10-04T01:52:53.428614+00:00",
+      "ended_utc": "2026-10-04T01:52:53.431630+00:00",
+      "input_sha256": "469f0c4806a626b8aebffaccf4af246e111586c3f07e5fd75c1402e55a7a2cc9",
+      "expected": {
+        "cli_exit_code": 1,
+        "passed": false,
+        "failure_reason": "measurement_mismatch"
+      },
+      "cli_exit_code": 1,
+      "actual_file": "wrong-sum.json",
+      "actual_sha256": "42e6b8d7b1011f78675fad5f663d077b9a576ddb89f6d86137f3d05358e4d8e9",
+      "passed": true,
+      "source_call": [
+        "offline CompareCommandTests.run_command; socket/clock/receiver mocked"
+      ]
+    },
+    {
+      "id": "wrong-version",
+      "started_utc": "2026-10-04T01:52:53.446781+00:00",
+      "ended_utc": "2026-10-04T01:52:53.450168+00:00",
+      "input_sha256": "60daa3a5f7dbfa200f8c82840ecf5b42640b70f3b7218a4c6bbd67db542e75a4",
+      "expected": {
+        "cli_exit_code": 1,
+        "passed": false,
+        "failure_reason": "mask_version_mismatch"
+      },
+      "cli_exit_code": 1,
+      "actual_file": "wrong-version.json",
+      "actual_sha256": "f5dfcd39d1c5a278d99b59d4072ca42e907c6800edb2f975fe2d93b7c718cf56",
+      "passed": true,
+      "source_call": [
+        "offline CompareCommandTests.run_command; socket/clock/receiver mocked",
+        "--expected-mask-version",
+        "2",
+        "--compare-raw-mask"
+      ]
+    },
+    {
+      "id": "empty-input",
+      "started_utc": "2026-10-04T01:52:53.464737+00:00",
+      "ended_utc": "2026-10-04T01:52:53.469655+00:00",
+      "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected": {
+        "cli_exit_code": 1,
+        "passed": false,
+        "failure_reason": "insufficient_pairs"
+      },
+      "cli_exit_code": 1,
+      "actual_file": "empty-input.json",
+      "actual_sha256": "51213565d6c32bca56155cf4ded5152ea2315fabdf1b881cb1d8c1d16550d6ef",
+      "passed": true,
+      "source_call": [
+        "offline CompareCommandTests.run_command; socket/clock/receiver mocked"
+      ]
+    },
+    {
+      "id": "stop-error",
+      "started_utc": "2026-10-04T01:52:53.477858+00:00",
+      "ended_utc": "2026-10-04T01:52:53.480956+00:00",
+      "input_sha256": "60daa3a5f7dbfa200f8c82840ecf5b42640b70f3b7218a4c6bbd67db542e75a4",
+      "expected": {
+        "cli_exit_code": 1,
+        "passed": false,
+        "failure_reason": "stop_command_failed"
+      },
+      "cli_exit_code": 1,
+      "actual_file": "stop-error.json",
+      "actual_sha256": "de06c8ee8869ca8d71faa13208e0438198cc9b4ddfc506a777d18b4b48994659",
+      "passed": true,
+      "source_call": [
+        "offline CompareCommandTests.run_command; socket/clock/receiver mocked"
+      ]
+    },
+    {
+      "id": "independent-oracle-mutation",
+      "started_utc": "2026-10-04T01:52:53.496668+00:00",
+      "ended_utc": "2026-10-04T01:52:53.496668+00:00",
+      "input_id": "G01",
+      "expected": "wrong truth must be detected",
+      "actual": [
+        {
+          "id": "G01.1",
+          "predicate": "left_of",
+          "expected": {
+            "truth": "true",
+            "reason": "evaluated",
+            "evidence": {
+              "delta_cx2": 40,
+              "delta_cy2": 0,
+              "subject_area": 100,
+              "object_area": 100,
+              "intersection": 0,
+              "union": 200,
+              "distance_sq_center2": 1600
+            }
+          },
+          "actual": {
+            "truth": "false",
+            "reason": "evaluated",
+            "evidence": {
+              "delta_cx2": 40,
+              "delta_cy2": 0,
+              "subject_area": 100,
+              "object_area": 100,
+              "intersection": 0,
+              "union": 200,
+              "distance_sq_center2": 1600
+            }
+          },
+          "differences": {
+            "truth": {
+              "expected": "true",
+              "actual": "false"
+            }
+          },
+          "passed": false
+        },
+        {
+          "id": "G01.2",
+          "predicate": "right_of",
+          "expected": {
+            "truth": "false",
+            "reason": "evaluated",
+            "evidence": {
+              "delta_cx2": 40,
+              "delta_cy2": 0,
+              "subject_area": 100,
+              "object_area": 100,
+              "intersection": 0,
+              "union": 200,
+              "distance_sq_center2": 1600
+            }
+          },
+          "actual": {
+            "truth": "false",
+            "reason": "evaluated",
+            "evidence": {
+              "delta_cx2": 40,
+              "delta_cy2": 0,
+              "subject_area": 100,
+              "object_area": 100,
+              "intersection": 0,
+              "union": 200,
+              "distance_sq_center2": 1600
+            }
+          },
+          "differences": {},
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "claims": [
+    {
+      "claim": "PC offline continuity and geometry checks",
+      "status": "implemented",
+      "commit": "ed98fdccc7985eeca8f07edf71da8d3c818d40ee",
+      "evidence_path": "report/experiments/2026-10-04-pc-p0-checks.txt",
+      "tool_version": "Python 3.12.4",
+      "input_id": "pc_target_cases + pc_r0_independent_cases",
+      "known_limit": "software only; peer STM32 untested",
+      "reviewer": "Codex on 3331083641 workspace"
+    },
+    {
+      "claim": "Identical full-red v1/v2 RTL statistics",
+      "status": "simulated",
+      "commit": "ed98fdccc7985eeca8f07edf71da8d3c818d40ee",
+      "evidence_path": "report/experiments/2026-10-04-pc-p0-checks.txt",
+      "tool_version": "xsim 2024.2 SW Build 5239630",
+      "input_id": "82764ed06ca9dd3c9c9caaa0ade5318aa135abbd2f11cad36f9aa1e2aa944440",
+      "known_limit": "one full-red synthetic input; no board test",
+      "reviewer": "Codex on 3331083641 workspace"
+    }
+  ]
+}

@@ -1,0 +1,904 @@
+{
+  "scope": "offline_geometry_only",
+  "board_verified": false,
+  "boundary_version": "r0-boundaries/2026-10-03",
+  "groups": 16,
+  "checks": 31,
+  "passed": true,
+  "fixture_sha256": "da06ca9b7341b94fceaf5844755314ae8811aae983d552e7fbdb09cc9462432e",
+  "results": [
+    {
+      "id": "G01.1",
+      "predicate": "left_of",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G01.2",
+      "predicate": "right_of",
+      "expected": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "actual": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G02.1",
+      "predicate": "above",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 40,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 40,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G02.2",
+      "predicate": "below",
+      "expected": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 40,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "actual": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 40,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G03.1",
+      "predicate": "left_of",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 40,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 3200
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 40,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 3200
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G03.2",
+      "predicate": "above",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 40,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 3200
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 40,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 3200
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G04.1",
+      "predicate": "left_of",
+      "expected": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 4,
+          "intersection": 4,
+          "union": 100,
+          "distance_sq_center2": 0
+        }
+      },
+      "actual": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 4,
+          "intersection": 4,
+          "union": 100,
+          "distance_sq_center2": 0
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G04.2",
+      "predicate": "near_2d",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 4,
+          "intersection": 4,
+          "union": 100,
+          "distance_sq_center2": 0
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 4,
+          "intersection": 4,
+          "union": 100,
+          "distance_sq_center2": 0
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G04.3",
+      "predicate": "bbox_overlap",
+      "expected": {
+        "truth": "unknown",
+        "reason": "threshold_band",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 4,
+          "intersection": 4,
+          "union": 100,
+          "distance_sq_center2": 0
+        }
+      },
+      "actual": {
+        "truth": "unknown",
+        "reason": "threshold_band",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 4,
+          "intersection": 4,
+          "union": 100,
+          "distance_sq_center2": 0
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G05.1",
+      "predicate": "left_of",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 1,
+          "delta_cy2": 1,
+          "subject_area": 1,
+          "object_area": 4,
+          "intersection": 1,
+          "union": 4,
+          "distance_sq_center2": 2
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 1,
+          "delta_cy2": 1,
+          "subject_area": 1,
+          "object_area": 4,
+          "intersection": 1,
+          "union": 4,
+          "distance_sq_center2": 2
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G05.2",
+      "predicate": "near_2d",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 1,
+          "delta_cy2": 1,
+          "subject_area": 1,
+          "object_area": 4,
+          "intersection": 1,
+          "union": 4,
+          "distance_sq_center2": 2
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 1,
+          "delta_cy2": 1,
+          "subject_area": 1,
+          "object_area": 4,
+          "intersection": 1,
+          "union": 4,
+          "distance_sq_center2": 2
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G06.1",
+      "predicate": "bbox_overlap",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 10,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 50,
+          "union": 150,
+          "distance_sq_center2": 100
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 10,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 50,
+          "union": 150,
+          "distance_sq_center2": 100
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G06.2",
+      "predicate": "bbox_overlap",
+      "expected": {
+        "truth": "unknown",
+        "reason": "threshold_band",
+        "evidence": {
+          "delta_cx2": 10,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 50,
+          "union": 150,
+          "distance_sq_center2": 100
+        }
+      },
+      "actual": {
+        "truth": "unknown",
+        "reason": "threshold_band",
+        "evidence": {
+          "delta_cx2": 10,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 50,
+          "union": 150,
+          "distance_sq_center2": 100
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G07.1",
+      "predicate": "bbox_overlap",
+      "expected": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 20,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 400
+        }
+      },
+      "actual": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 20,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 400
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G08.1",
+      "predicate": "bbox_overlap",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 18,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 10,
+          "union": 190,
+          "distance_sq_center2": 324
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 18,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 10,
+          "union": 190,
+          "distance_sq_center2": 324
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G09.1",
+      "predicate": "near_2d",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 6,
+          "delta_cy2": 8,
+          "subject_area": 1,
+          "object_area": 1,
+          "intersection": 0,
+          "union": 2,
+          "distance_sq_center2": 100
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 6,
+          "delta_cy2": 8,
+          "subject_area": 1,
+          "object_area": 1,
+          "intersection": 0,
+          "union": 2,
+          "distance_sq_center2": 100
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G09.2",
+      "predicate": "near_2d",
+      "expected": {
+        "truth": "unknown",
+        "reason": "threshold_band",
+        "evidence": {
+          "delta_cx2": 6,
+          "delta_cy2": 8,
+          "subject_area": 1,
+          "object_area": 1,
+          "intersection": 0,
+          "union": 2,
+          "distance_sq_center2": 100
+        }
+      },
+      "actual": {
+        "truth": "unknown",
+        "reason": "threshold_band",
+        "evidence": {
+          "delta_cx2": 6,
+          "delta_cy2": 8,
+          "subject_area": 1,
+          "object_area": 1,
+          "intersection": 0,
+          "union": 2,
+          "distance_sq_center2": 100
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G09.3",
+      "predicate": "near_2d",
+      "expected": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 6,
+          "delta_cy2": 8,
+          "subject_area": 1,
+          "object_area": 1,
+          "intersection": 0,
+          "union": 2,
+          "distance_sq_center2": 100
+        }
+      },
+      "actual": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 6,
+          "delta_cy2": 8,
+          "subject_area": 1,
+          "object_area": 1,
+          "intersection": 0,
+          "union": 2,
+          "distance_sq_center2": 100
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G09.4",
+      "predicate": "near_2d",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 6,
+          "delta_cy2": 8,
+          "subject_area": 1,
+          "object_area": 1,
+          "intersection": 0,
+          "union": 2,
+          "distance_sq_center2": 100
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 6,
+          "delta_cy2": 8,
+          "subject_area": 1,
+          "object_area": 1,
+          "intersection": 0,
+          "union": 2,
+          "distance_sq_center2": 100
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G10.1",
+      "predicate": "left_of",
+      "expected": {
+        "truth": "unknown",
+        "reason": "threshold_band",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "actual": {
+        "truth": "unknown",
+        "reason": "threshold_band",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G10.2",
+      "predicate": "left_of",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G10.3",
+      "predicate": "left_of",
+      "expected": {
+        "truth": "unknown",
+        "reason": "threshold_band",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "actual": {
+        "truth": "unknown",
+        "reason": "threshold_band",
+        "evidence": {
+          "delta_cx2": 40,
+          "delta_cy2": 0,
+          "subject_area": 100,
+          "object_area": 100,
+          "intersection": 0,
+          "union": 200,
+          "distance_sq_center2": 1600
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G11.1",
+      "predicate": "bbox_within_roi",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 50,
+          "delta_cy2": 50,
+          "subject_area": 100,
+          "object_area": 10000,
+          "intersection": 100,
+          "union": 10000,
+          "distance_sq_center2": 5000
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 50,
+          "delta_cy2": 50,
+          "subject_area": 100,
+          "object_area": 10000,
+          "intersection": 100,
+          "union": 10000,
+          "distance_sq_center2": 5000
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G12.1",
+      "predicate": "bbox_within_roi",
+      "expected": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 0,
+          "subject_area": 10000,
+          "object_area": 10000,
+          "intersection": 10000,
+          "union": 10000,
+          "distance_sq_center2": 0
+        }
+      },
+      "actual": {
+        "truth": "true",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": 0,
+          "delta_cy2": 0,
+          "subject_area": 10000,
+          "object_area": 10000,
+          "intersection": 10000,
+          "union": 10000,
+          "distance_sq_center2": 0
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G13.1",
+      "predicate": "bbox_within_roi",
+      "expected": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": -100,
+          "delta_cy2": 50,
+          "subject_area": 20,
+          "object_area": 10000,
+          "intersection": 10,
+          "union": 10010,
+          "distance_sq_center2": 12500
+        }
+      },
+      "actual": {
+        "truth": "false",
+        "reason": "evaluated",
+        "evidence": {
+          "delta_cx2": -100,
+          "delta_cy2": 50,
+          "subject_area": 20,
+          "object_area": 10000,
+          "intersection": 10,
+          "union": 10010,
+          "distance_sq_center2": 12500
+        }
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G14.1",
+      "predicate": "left_of",
+      "expected": {
+        "error": "ValueError"
+      },
+      "actual": {
+        "error": "ValueError",
+        "message": "bbox exceeds snapshot dimensions"
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G14.2",
+      "predicate": "left_of",
+      "expected": {
+        "error": "ValueError"
+      },
+      "actual": {
+        "error": "ValueError",
+        "message": "bbox minima must not exceed maxima"
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G15.1",
+      "predicate": "left_of",
+      "expected": {
+        "truth": "unknown",
+        "reason": "subject_invalid:no_target",
+        "evidence": null
+      },
+      "actual": {
+        "truth": "unknown",
+        "reason": "subject_invalid:no_target",
+        "evidence": null
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G16.1",
+      "predicate": "left_of",
+      "expected": {
+        "truth": "unknown",
+        "reason": "measurement_frame_mismatch",
+        "evidence": null
+      },
+      "actual": {
+        "truth": "unknown",
+        "reason": "measurement_frame_mismatch",
+        "evidence": null
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G16.2",
+      "predicate": "left_of",
+      "expected": {
+        "truth": "unknown",
+        "reason": "config_epoch_mismatch",
+        "evidence": null
+      },
+      "actual": {
+        "truth": "unknown",
+        "reason": "config_epoch_mismatch",
+        "evidence": null
+      },
+      "differences": {},
+      "passed": true
+    },
+    {
+      "id": "G16.3",
+      "predicate": "left_of",
+      "expected": {
+        "truth": "unknown",
+        "reason": "session_mismatch",
+        "evidence": null
+      },
+      "actual": {
+        "truth": "unknown",
+        "reason": "session_mismatch",
+        "evidence": null
+      },
+      "differences": {},
+      "passed": true
+    }
+  ],
+  "commit": "ed98fdccc7985eeca8f07edf71da8d3c818d40ee",
+  "tool_version": "Python 3.12.4",
+  "raw_log_sha256": "beb7eefab96f0719be3d6e2bbd4e50ecd6af658b444eb9f9d1b94de901f294cd"
+}

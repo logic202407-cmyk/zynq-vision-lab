@@ -1,0 +1,456 @@
+OFFLINE P0 CHECKS
+commit=ed98fdccc7985eeca8f07edf71da8d3c818d40ee
+UTC 2026-10-04T01:51:01.366902+00:00 to 2026-10-04T01:52:02.001054+00:00
+Python 3.12.4 / Pillow 12.2.0 / Tk 8.6; xsim 2024.2 SW Build 5239630
+No new board or serial test.
+
+environment passed
+2026-10-04T01:51:02.414639+00:00 to 2026-10-04T01:51:02.488480+00:00
+command: ["python", "-c", "import sys,tkinter,PIL; print(sys.version); print('Pillow',PIL.__version__); print('Tk',tkinter.TkVersion)"]
+raw log sha256: 3b9e2aaf640dcf9c4b1c40181199cd8dfc527a6fcf84bb4a70fb48f32fcaa0a7
+3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]
+Pillow 12.2.0
+Tk 8.6
+
+
+replay-regression passed
+2026-10-04T01:51:02.501558+00:00 to 2026-10-04T01:51:09.649471+00:00
+command: ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_target_replay.py", "-v"]
+raw log sha256: 0a69ea6399c22db1fd1389d2881beeae1173ad2b7962dee746ff2e59219253f0
+test_analytical_masks_match_current_reference (test_target_replay.TargetReplayTests.test_analytical_masks_match_current_reference) ... ok
+test_cli_generated_replay_round_trip (test_target_replay.TargetReplayTests.test_cli_generated_replay_round_trip) ... ok
+test_config_epoch_change_is_preserved_without_claiming_confirmation (test_target_replay.TargetReplayTests.test_config_epoch_change_is_preserved_without_claiming_confirmation) ... ok
+test_empty_input_is_rejected (test_target_replay.TargetReplayTests.test_empty_input_is_rejected) ... ok
+test_external_new_sessions_and_in_session_wrap_remain_legal (test_target_replay.TargetReplayTests.test_external_new_sessions_and_in_session_wrap_remain_legal) ... ok
+test_external_old_session_reentry_rejects_regressed_duplicate_and_continuous_values (test_target_replay.TargetReplayTests.test_external_old_session_reentry_rejects_regressed_duplicate_and_continuous_values) ... ok
+test_external_session_history_covers_more_than_one_closed_session (test_target_replay.TargetReplayTests.test_external_session_history_covers_more_than_one_closed_session) ... ok
+test_generator_keeps_rgb565_big_endian_and_expected_box (test_target_replay.TargetReplayTests.test_generator_keeps_rgb565_big_endian_and_expected_box) ... ok
+test_invalid_measurement_never_reuses_previous_coordinates (test_target_replay.TargetReplayTests.test_invalid_measurement_never_reuses_previous_coordinates) ... ok
+test_loss_sequence_clears_then_reacquires (test_target_replay.TargetReplayTests.test_loss_sequence_clears_then_reacquires) ... ok
+test_pause_replay_uses_timestamps_without_sleeping_in_test (test_target_replay.TargetReplayTests.test_pause_replay_uses_timestamps_without_sleeping_in_test) ... ok
+test_reference_mutation_is_detected (test_target_replay.TargetReplayTests.test_reference_mutation_is_detected) ... ok
+test_rejects_duplicate_gap_and_out_of_order (test_target_replay.TargetReplayTests.test_rejects_duplicate_gap_and_out_of_order) ... ok
+test_rejects_geometry_and_sum_errors (test_target_replay.TargetReplayTests.test_rejects_geometry_and_sum_errors) ... ok
+test_rejects_illegal_fields (test_target_replay.TargetReplayTests.test_rejects_illegal_fields) ... ok
+test_rejects_time_reversal (test_target_replay.TargetReplayTests.test_rejects_time_reversal) ... ok
+test_replay_rejects_whole_external_file_before_any_output_or_wait (test_target_replay.TargetReplayTests.test_replay_rejects_whole_external_file_before_any_output_or_wait) ... ok
+test_sequence_cli_round_trip_and_refuses_overwrite (test_target_replay.TargetReplayTests.test_sequence_cli_round_trip_and_refuses_overwrite) ... ok
+test_sequence_fixture_rejects_unknown_case_reversal_and_reopened_session (test_target_replay.TargetReplayTests.test_sequence_fixture_rejects_unknown_case_reversal_and_reopened_session) ... ok
+test_sequence_wrap_and_new_session (test_target_replay.TargetReplayTests.test_sequence_wrap_and_new_session) ... ok
+test_session_restart_and_config_change_sequences (test_target_replay.TargetReplayTests.test_session_restart_and_config_change_sequences) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 6.958s
+
+OK
+
+
+independent-r0-tests passed
+2026-10-04T01:51:09.656758+00:00 to 2026-10-04T01:51:09.785052+00:00
+command: ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_pc_r0_independent.py", "-v"]
+raw log sha256: 9aceadf2257d85f8c9f9725cfffd6a6094bf38106653de1ea512f5daf1e04dc1
+test_G01 (test_pc_r0_independent.IndependentR0Cases.test_G01) ... ok
+test_G02 (test_pc_r0_independent.IndependentR0Cases.test_G02) ... ok
+test_G03 (test_pc_r0_independent.IndependentR0Cases.test_G03) ... ok
+test_G04 (test_pc_r0_independent.IndependentR0Cases.test_G04) ... ok
+test_G05 (test_pc_r0_independent.IndependentR0Cases.test_G05) ... ok
+test_G06 (test_pc_r0_independent.IndependentR0Cases.test_G06) ... ok
+test_G07 (test_pc_r0_independent.IndependentR0Cases.test_G07) ... ok
+test_G08 (test_pc_r0_independent.IndependentR0Cases.test_G08) ... ok
+test_G09 (test_pc_r0_independent.IndependentR0Cases.test_G09) ... ok
+test_G10 (test_pc_r0_independent.IndependentR0Cases.test_G10) ... ok
+test_G11 (test_pc_r0_independent.IndependentR0Cases.test_G11) ... ok
+test_G12 (test_pc_r0_independent.IndependentR0Cases.test_G12) ... ok
+test_G13 (test_pc_r0_independent.IndependentR0Cases.test_G13) ... ok
+test_G14 (test_pc_r0_independent.IndependentR0Cases.test_G14) ... ok
+test_G15 (test_pc_r0_independent.IndependentR0Cases.test_G15) ... ok
+test_G16 (test_pc_r0_independent.IndependentR0Cases.test_G16) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.001s
+
+OK
+
+
+independent-r0-records passed
+2026-10-04T01:51:09.799609+00:00 to 2026-10-04T01:51:09.914102+00:00
+command: ["python", "tools/check_pc_r0_cases.py", "--output", "<evidence>\\offline-evidence\\independent-r0.json"]
+raw log sha256: 69c30503d60a1867deb0019aa6e8a5624aae29080c38a4f2395796c89ea597f5
+{"scope": "offline_geometry_only", "groups": 16, "checks": 31, "passed": true}
+
+
+r0 passed
+2026-10-04T01:51:09.939909+00:00 to 2026-10-04T01:51:11.633288+00:00
+command: ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_spatial_relations.py", "-v"]
+raw log sha256: 9a21e4bff1b02d773e5636e8921431b4a88e057f1aa07eff4bfe7eecc652c7e3
+test_10000_fixed_seed_pairs_against_fraction_oracle_and_invariants (test_spatial_relations.SpatialRelationsTests.test_10000_fixed_seed_pairs_against_fraction_oracle_and_invariants) ... ok
+test_diagonal_relations_can_both_be_true (test_spatial_relations.SpatialRelationsTests.test_diagonal_relations_can_both_be_true) ... ok
+test_direction_margin_equality_and_reverse_false (test_spatial_relations.SpatialRelationsTests.test_direction_margin_equality_and_reverse_false) ... ok
+test_each_snapshot_or_config_mismatch_is_unknown (test_spatial_relations.SpatialRelationsTests.test_each_snapshot_or_config_mismatch_is_unknown) ... ok
+test_full_frame_single_pixel_iou_and_large_exact_ratio_products (test_spatial_relations.SpatialRelationsTests.test_full_frame_single_pixel_iou_and_large_exact_ratio_products) ... ok
+test_half_pixel_centers_are_not_rounded_to_integer_pixels (test_spatial_relations.SpatialRelationsTests.test_half_pixel_centers_are_not_rounded_to_integer_pixels) ... ok
+test_incomplete_frame_cannot_produce_relation (test_spatial_relations.SpatialRelationsTests.test_incomplete_frame_cannot_produce_relation) ... ok
+test_missing_measurement_is_unknown_and_keeps_reason (test_spatial_relations.SpatialRelationsTests.test_missing_measurement_is_unknown_and_keeps_reason) ... ok
+test_near_uses_square_distance_and_inclusive_true_boundary (test_spatial_relations.SpatialRelationsTests.test_near_uses_square_distance_and_inclusive_true_boundary) ... ok
+test_overlap_threshold_equality_and_band (test_spatial_relations.SpatialRelationsTests.test_overlap_threshold_equality_and_band) ... ok
+test_public_predicates_and_truth_values_are_explicit (test_spatial_relations.SpatialRelationsTests.test_public_predicates_and_truth_values_are_explicit) ... ok
+test_rejects_bad_evaluate_arguments_self_pair_and_roi_roles (test_spatial_relations.SpatialRelationsTests.test_rejects_bad_evaluate_arguments_self_pair_and_roi_roles) ... ok
+test_rejects_malformed_bbox_types_and_order (test_spatial_relations.SpatialRelationsTests.test_rejects_malformed_bbox_types_and_order) ... ok
+test_rejects_malformed_ratios_and_config_values (test_spatial_relations.SpatialRelationsTests.test_rejects_malformed_ratios_and_config_values) ... ok
+test_rejects_malformed_region_fields_and_validity_combinations (test_spatial_relations.SpatialRelationsTests.test_rejects_malformed_region_fields_and_validity_combinations) ... ok
+test_rejects_malformed_snapshot_values (test_spatial_relations.SpatialRelationsTests.test_rejects_malformed_snapshot_values) ... ok
+test_roi_does_not_require_visual_count (test_spatial_relations.SpatialRelationsTests.test_roi_does_not_require_visual_count) ... ok
+test_roi_includes_equal_edges_and_rejects_each_outside_edge (test_spatial_relations.SpatialRelationsTests.test_roi_includes_equal_edges_and_rejects_each_outside_edge) ... ok
+test_same_center_is_false_for_all_directions_and_near_at_zero (test_spatial_relations.SpatialRelationsTests.test_same_center_is_false_for_all_directions_and_near_at_zero) ... ok
+test_shared_inclusive_endpoint_has_one_pixel_of_intersection (test_spatial_relations.SpatialRelationsTests.test_shared_inclusive_endpoint_has_one_pixel_of_intersection) ... ok
+test_single_pixel_and_full_frame_inclusive_area_and_center (test_spatial_relations.SpatialRelationsTests.test_single_pixel_and_full_frame_inclusive_area_and_center) ... ok
+test_uint32_frame_extremes_are_valid_but_wrap_pair_does_not_match (test_spatial_relations.SpatialRelationsTests.test_uint32_frame_extremes_are_valid_but_wrap_pair_does_not_match) ... ok
+test_zero_intersection_is_false_even_with_zero_true_threshold (test_spatial_relations.SpatialRelationsTests.test_zero_intersection_is_false_even_with_zero_true_threshold) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 1.556s
+
+OK
+
+
+r0-random passed
+2026-10-04T01:51:11.647280+00:00 to 2026-10-04T01:51:13.314894+00:00
+command: ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_spatial_relations.py", "-k", "test_10000_fixed_seed_pairs_against_fraction_oracle_and_invariants", "-v"]
+raw log sha256: f57a2929aae37df3b3667ef173198e77ed8147c90f7619d060adc47c28723a8d
+test_10000_fixed_seed_pairs_against_fraction_oracle_and_invariants (test_spatial_relations.SpatialRelationsTests.test_10000_fixed_seed_pairs_against_fraction_oracle_and_invariants) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.550s
+
+OK
+
+
+exact-acceptance passed
+2026-10-04T01:51:13.330240+00:00 to 2026-10-04T01:51:13.572149+00:00
+command: ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_pl_compare.py", "-v"]
+raw log sha256: 67b6371c1fe1255ebf7662097eab679411c7e98ad345611879d968666f062f42
+test_bind_failure_closes_socket_without_sending_commands (test_pl_compare.CompareCommandTests.test_bind_failure_closes_socket_without_sending_commands) ... ok
+test_cli_exact_sum_error_sets_failure_exit_code (test_pl_compare.CompareCommandTests.test_cli_exact_sum_error_sets_failure_exit_code) ... ok
+test_cli_no_data_sets_failure_exit_code (test_pl_compare.CompareCommandTests.test_cli_no_data_sets_failure_exit_code) ... ok
+test_cli_success_saves_exact_statistics_and_input_hash (test_pl_compare.CompareCommandTests.test_cli_success_saves_exact_statistics_and_input_hash) ... ok
+test_cli_v2_request_rejects_v1_with_failure_exit_code (test_pl_compare.CompareCommandTests.test_cli_v2_request_rejects_v1_with_failure_exit_code) ... ok
+test_existing_output_is_preserved_before_socket_creation (test_pl_compare.CompareCommandTests.test_existing_output_is_preserved_before_socket_creation) ... ok
+test_stop_command_error_cannot_leave_a_success_exit_code (test_pl_compare.CompareCommandTests.test_stop_command_error_cannot_leave_a_success_exit_code) ... ok
+test_consecutive_valid_boxes_record_real_jumps (test_pl_compare.CompareFramesTests.test_consecutive_valid_boxes_record_real_jumps) ... ok
+test_duplicate_sequence_fails_after_an_otherwise_good_pair (test_pl_compare.CompareFramesTests.test_duplicate_sequence_fails_after_an_otherwise_good_pair) ... ok
+test_empty_input_cannot_pass (test_pl_compare.CompareFramesTests.test_empty_input_cannot_pass) ... ok
+test_exact_sum_error_with_unchanged_floor_centroid_is_rejected (test_pl_compare.CompareFramesTests.test_exact_sum_error_with_unchanged_floor_centroid_is_rejected) ... ok
+test_incomplete_measurement_fails_even_with_all_zero_fields (test_pl_compare.CompareFramesTests.test_incomplete_measurement_fails_even_with_all_zero_fields) ... ok
+test_last_pair_before_uint32_rollover_is_accepted (test_pl_compare.CompareFramesTests.test_last_pair_before_uint32_rollover_is_accepted) ... ok
+test_missing_measurement_cannot_be_treated_as_no_target (test_pl_compare.CompareFramesTests.test_missing_measurement_cannot_be_treated_as_no_target) ... ok
+test_mixed_versions_fail_even_when_each_measurement_is_correct (test_pl_compare.CompareFramesTests.test_mixed_versions_fail_even_when_each_measurement_is_correct) ... ok
+test_old_mask_cannot_pass_a_v2_acceptance_request (test_pl_compare.CompareFramesTests.test_old_mask_cannot_pass_a_v2_acceptance_request) ... ok
+test_one_complete_image_is_not_a_comparison (test_pl_compare.CompareFramesTests.test_one_complete_image_is_not_a_comparison) ... ok
+test_other_frame_measurement_is_never_compared_with_identical_pixels (test_pl_compare.CompareFramesTests.test_other_frame_measurement_is_never_compared_with_identical_pixels) ... ok
+test_restart_at_the_end_fails_after_an_otherwise_good_pair (test_pl_compare.CompareFramesTests.test_restart_at_the_end_fails_after_an_otherwise_good_pair) ... ok
+test_result_sequence_zero_is_reserved_even_for_hand_built_frames (test_pl_compare.CompareFramesTests.test_result_sequence_zero_is_reserved_even_for_hand_built_frames) ... ok
+test_reversed_sequence_frames_fail (test_pl_compare.CompareFramesTests.test_reversed_sequence_frames_fail) ... ok
+test_sequence_gap_does_not_create_a_box_jump (test_pl_compare.CompareFramesTests.test_sequence_gap_does_not_create_a_box_jump) ... ok
+test_target_loss_breaks_adjacent_box_variation (test_pl_compare.CompareFramesTests.test_target_loss_breaks_adjacent_box_variation) ... ok
+test_too_few_matching_pairs_fail_the_requested_sample_count (test_pl_compare.CompareFramesTests.test_too_few_matching_pairs_fail_the_requested_sample_count) ... ok
+test_uint32_rollover_through_reserved_zero_is_not_accepted (test_pl_compare.CompareFramesTests.test_uint32_rollover_through_reserved_zero_is_not_accepted) ... ok
+test_unknown_mask_version_is_rejected_without_a_reference_guess (test_pl_compare.CompareFramesTests.test_unknown_mask_version_is_rejected_without_a_reference_guess) ... ok
+test_v1_exact_hand_counted_pair_and_input_identity (test_pl_compare.CompareFramesTests.test_v1_exact_hand_counted_pair_and_input_identity) ... ok
+test_v2_five_votes_keep_the_center (test_pl_compare.CompareFramesTests.test_v2_five_votes_keep_the_center) ... ok
+test_v2_four_votes_produce_a_matched_no_target_result (test_pl_compare.CompareFramesTests.test_v2_four_votes_produce_a_matched_no_target_result) ... ok
+test_v2_full_red_counts_only_interior_coordinates (test_pl_compare.CompareFramesTests.test_v2_full_red_counts_only_interior_coordinates) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.050s
+
+OK
+
+
+reject-sum passed
+2026-10-04T01:51:13.587580+00:00 to 2026-10-04T01:51:13.783168+00:00
+command: ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_pl_compare.py", "-k", "test_cli_exact_sum_error_sets_failure_exit_code", "-v"]
+raw log sha256: 8188001b857e0e096dac5bc42ab17a53427c742a05041c98a1e02e75f9d22f12
+test_cli_exact_sum_error_sets_failure_exit_code (test_pl_compare.CompareCommandTests.test_cli_exact_sum_error_sets_failure_exit_code) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+OK
+
+
+reject-v1 passed
+2026-10-04T01:51:13.796854+00:00 to 2026-10-04T01:51:13.990947+00:00
+command: ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_pl_compare.py", "-k", "test_cli_v2_request_rejects_v1_with_failure_exit_code", "-v"]
+raw log sha256: 4ae88eb73f093d4d81943ebdcf7d926f79059c674695d1f4a7d4c1b3ed9922d5
+test_cli_v2_request_rejects_v1_with_failure_exit_code (test_pl_compare.CompareCommandTests.test_cli_v2_request_rejects_v1_with_failure_exit_code) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+OK
+
+
+reject-empty passed
+2026-10-04T01:51:14.006826+00:00 to 2026-10-04T01:51:14.230823+00:00
+command: ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_pl_compare.py", "-k", "test_cli_no_data_sets_failure_exit_code", "-v"]
+raw log sha256: 3311b6a064116a16d354427b07dba02ca2c7f82940b6f7ea8946219ae02bc4c5
+test_cli_no_data_sets_failure_exit_code (test_pl_compare.CompareCommandTests.test_cli_no_data_sets_failure_exit_code) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+OK
+
+
+reject-stop passed
+2026-10-04T01:51:14.247838+00:00 to 2026-10-04T01:51:14.449202+00:00
+command: ["python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_pl_compare.py", "-k", "test_stop_command_error_cannot_leave_a_success_exit_code", "-v"]
+raw log sha256: 0b538e2e9f29f3aafedbfbf6fa3c84ed6f9634fd5133d0afdc7a51290a483aa0
+test_stop_command_error_cannot_leave_a_success_exit_code (test_pl_compare.CompareCommandTests.test_stop_command_error_cannot_leave_a_success_exit_code) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+OK
+
+
+combined-acceptance passed
+2026-10-04T01:51:14.464604+00:00 to 2026-10-04T01:51:30.975072+00:00
+command: ["python", "tools/run_pc_acceptance.py", "--require-r0", "--output-dir", "<evidence>\\offline-evidence\\combined"]
+raw log sha256: a832815cc61cd0bc0552a6d057787147861f85243889c8fa9d595960142d5a53
+{"passed": true, "r0_gate": "SOURCE_PRESENT_REVIEW_RESULTS", "board": "NOT_TESTED"}
+
+
+golden passed
+2026-10-04T01:51:31.021237+00:00 to 2026-10-04T01:51:31.525644+00:00
+command: ["measure_red_statistics(all_red,640,480,spatial_filter=version==2)"]
+raw log sha256: 086675037e4f93087f383b60c0eea767d7a9d5ae8ff97d81ff6fb5a3af8e3e22
+{
+  "input_sha256": "82764ed06ca9dd3c9c9caaa0ade5318aa135abbd2f11cad36f9aa1e2aa944440",
+  "results": [
+    {
+      "version": 1,
+      "expected": {
+        "valid": true,
+        "count": 307200,
+        "sum_x": 98150400,
+        "sum_y": 73574400,
+        "bbox": [
+          0,
+          0,
+          639,
+          479
+        ]
+      },
+      "actual": {
+        "valid": true,
+        "count": 307200,
+        "sum_x": 98150400,
+        "sum_y": 73574400,
+        "bbox": [
+          0,
+          0,
+          639,
+          479
+        ]
+      },
+      "passed": true
+    },
+    {
+      "version": 2,
+      "expected": {
+        "valid": true,
+        "count": 304964,
+        "sum_x": 97435998,
+        "sum_y": 73038878,
+        "bbox": [
+          1,
+          1,
+          638,
+          478
+        ]
+      },
+      "actual": {
+        "valid": true,
+        "count": 304964,
+        "sum_x": 97435998,
+        "sum_y": 73038878,
+        "bbox": [
+          1,
+          1,
+          638,
+          478
+        ]
+      },
+      "passed": true
+    }
+  ]
+}
+
+
+xsim-v1 passed
+2026-10-04T01:51:31.541153+00:00 to 2026-10-04T01:51:53.471162+00:00
+command: ["python", "tools/compare_red_frame_xsim.py", "<ascii-build>\\all-red.rgb565", "--build-dir", "<ascii-build>\\xsim-v1", "--vivado-bin", "D:\\Vivado\\Vivado\\2024.2\\bin"]
+raw log sha256: 4c6901ce8dd443aec49d3a723ec9d20eeb20e1dd515090132c1f8e7643611a82
+REFERENCE {'valid': 1, 'count': 307200, 'sx': 98150400, 'sy': 73574400, 'minx': 0, 'miny': 0, 'maxx': 639, 'maxy': 479}
+PL_XSIM   {'valid': 1, 'count': 307200, 'sx': 98150400, 'sy': 73574400, 'minx': 0, 'miny': 0, 'maxx': 639, 'maxy': 479}
+FRAME_COMPARE_PASS
+
+
+xsim-v2 passed
+2026-10-04T01:51:53.486446+00:00 to 2026-10-04T01:52:01.982341+00:00
+command: ["python", "tools/compare_red_frame_xsim.py", "<ascii-build>\\all-red.rgb565", "--build-dir", "<ascii-build>\\xsim-v2", "--vivado-bin", "D:\\Vivado\\Vivado\\2024.2\\bin", "--spatial-filter"]
+raw log sha256: a4159895c0bee4e72d3c2f452e516df5cdfb0dfe29d021185a0c32c8e5dde44d
+REFERENCE {'valid': 1, 'count': 304964, 'sx': 97435998, 'sy': 73038878, 'minx': 1, 'miny': 1, 'maxx': 638, 'maxy': 478}
+PL_XSIM   {'valid': 1, 'count': 304964, 'sx': 97435998, 'sy': 73038878, 'minx': 1, 'miny': 1, 'maxx': 638, 'maxy': 478}
+FRAME_COMPARE_PASS
+
+
+combined internal check-1
+PASS: repository foundations, local links, and claim-ledger checks.
+Not verified: FPGA simulation, synthesis/implementation, board behavior, performance, or all private data.
+
+
+combined internal check-2
+test_display_median_rejects_three_frame_box_outlier (test_camera_viewer.ConversionTests.test_display_median_rejects_three_frame_box_outlier) ... ok
+test_pl_overlay_does_not_modify_raw_image (test_camera_viewer.ConversionTests.test_pl_overlay_does_not_modify_raw_image) ... ok
+test_pl_result_is_paired_with_its_own_video_frame (test_camera_viewer.ConversionTests.test_pl_result_is_paired_with_its_own_video_frame) ... ok
+test_rgb565_primary_colors (test_camera_viewer.ConversionTests.test_rgb565_primary_colors) ... ok
+test_wrong_size_rejected (test_camera_viewer.ConversionTests.test_wrong_size_rejected) ... ok
+test_G01 (test_pc_r0_independent.IndependentR0Cases.test_G01) ... ok
+test_G02 (test_pc_r0_independent.IndependentR0Cases.test_G02) ... ok
+test_G03 (test_pc_r0_independent.IndependentR0Cases.test_G03) ... ok
+test_G04 (test_pc_r0_independent.IndependentR0Cases.test_G04) ... ok
+test_G05 (test_pc_r0_independent.IndependentR0Cases.test_G05) ... ok
+test_G06 (test_pc_r0_independent.IndependentR0Cases.test_G06) ... ok
+test_G07 (test_pc_r0_independent.IndependentR0Cases.test_G07) ... ok
+test_G08 (test_pc_r0_independent.IndependentR0Cases.test_G08) ... ok
+test_G09 (test_pc_r0_independent.IndependentR0Cases.test_G09) ... ok
+test_G10 (test_pc_r0_independent.IndependentR0Cases.test_G10) ... ok
+test_G11 (test_pc_r0_independent.IndependentR0Cases.test_G11) ... ok
+test_G12 (test_pc_r0_independent.IndependentR0Cases.test_G12) ... ok
+test_G13 (test_pc_r0_independent.IndependentR0Cases.test_G13) ... ok
+test_G14 (test_pc_r0_independent.IndependentR0Cases.test_G14) ... ok
+test_G15 (test_pc_r0_independent.IndependentR0Cases.test_G15) ... ok
+test_G16 (test_pc_r0_independent.IndependentR0Cases.test_G16) ... ok
+test_bind_failure_closes_socket_without_sending_commands (test_pl_compare.CompareCommandTests.test_bind_failure_closes_socket_without_sending_commands) ... ok
+test_cli_exact_sum_error_sets_failure_exit_code (test_pl_compare.CompareCommandTests.test_cli_exact_sum_error_sets_failure_exit_code) ... ok
+test_cli_no_data_sets_failure_exit_code (test_pl_compare.CompareCommandTests.test_cli_no_data_sets_failure_exit_code) ... ok
+test_cli_success_saves_exact_statistics_and_input_hash (test_pl_compare.CompareCommandTests.test_cli_success_saves_exact_statistics_and_input_hash) ... ok
+test_cli_v2_request_rejects_v1_with_failure_exit_code (test_pl_compare.CompareCommandTests.test_cli_v2_request_rejects_v1_with_failure_exit_code) ... ok
+test_existing_output_is_preserved_before_socket_creation (test_pl_compare.CompareCommandTests.test_existing_output_is_preserved_before_socket_creation) ... ok
+test_stop_command_error_cannot_leave_a_success_exit_code (test_pl_compare.CompareCommandTests.test_stop_command_error_cannot_leave_a_success_exit_code) ... ok
+test_consecutive_valid_boxes_record_real_jumps (test_pl_compare.CompareFramesTests.test_consecutive_valid_boxes_record_real_jumps) ... ok
+test_duplicate_sequence_fails_after_an_otherwise_good_pair (test_pl_compare.CompareFramesTests.test_duplicate_sequence_fails_after_an_otherwise_good_pair) ... ok
+test_empty_input_cannot_pass (test_pl_compare.CompareFramesTests.test_empty_input_cannot_pass) ... ok
+test_exact_sum_error_with_unchanged_floor_centroid_is_rejected (test_pl_compare.CompareFramesTests.test_exact_sum_error_with_unchanged_floor_centroid_is_rejected) ... ok
+test_incomplete_measurement_fails_even_with_all_zero_fields (test_pl_compare.CompareFramesTests.test_incomplete_measurement_fails_even_with_all_zero_fields) ... ok
+test_last_pair_before_uint32_rollover_is_accepted (test_pl_compare.CompareFramesTests.test_last_pair_before_uint32_rollover_is_accepted) ... ok
+test_missing_measurement_cannot_be_treated_as_no_target (test_pl_compare.CompareFramesTests.test_missing_measurement_cannot_be_treated_as_no_target) ... ok
+test_mixed_versions_fail_even_when_each_measurement_is_correct (test_pl_compare.CompareFramesTests.test_mixed_versions_fail_even_when_each_measurement_is_correct) ... ok
+test_old_mask_cannot_pass_a_v2_acceptance_request (test_pl_compare.CompareFramesTests.test_old_mask_cannot_pass_a_v2_acceptance_request) ... ok
+test_one_complete_image_is_not_a_comparison (test_pl_compare.CompareFramesTests.test_one_complete_image_is_not_a_comparison) ... ok
+test_other_frame_measurement_is_never_compared_with_identical_pixels (test_pl_compare.CompareFramesTests.test_other_frame_measurement_is_never_compared_with_identical_pixels) ... ok
+test_restart_at_the_end_fails_after_an_otherwise_good_pair (test_pl_compare.CompareFramesTests.test_restart_at_the_end_fails_after_an_otherwise_good_pair) ... ok
+test_result_sequence_zero_is_reserved_even_for_hand_built_frames (test_pl_compare.CompareFramesTests.test_result_sequence_zero_is_reserved_even_for_hand_built_frames) ... ok
+test_reversed_sequence_frames_fail (test_pl_compare.CompareFramesTests.test_reversed_sequence_frames_fail) ... ok
+test_sequence_gap_does_not_create_a_box_jump (test_pl_compare.CompareFramesTests.test_sequence_gap_does_not_create_a_box_jump) ... ok
+test_target_loss_breaks_adjacent_box_variation (test_pl_compare.CompareFramesTests.test_target_loss_breaks_adjacent_box_variation) ... ok
+test_too_few_matching_pairs_fail_the_requested_sample_count (test_pl_compare.CompareFramesTests.test_too_few_matching_pairs_fail_the_requested_sample_count) ... ok
+test_uint32_rollover_through_reserved_zero_is_not_accepted (test_pl_compare.CompareFramesTests.test_uint32_rollover_through_reserved_zero_is_not_accepted) ... ok
+test_unknown_mask_version_is_rejected_without_a_reference_guess (test_pl_compare.CompareFramesTests.test_unknown_mask_version_is_rejected_without_a_reference_guess) ... ok
+test_v1_exact_hand_counted_pair_and_input_identity (test_pl_compare.CompareFramesTests.test_v1_exact_hand_counted_pair_and_input_identity) ... ok
+test_v2_five_votes_keep_the_center (test_pl_compare.CompareFramesTests.test_v2_five_votes_keep_the_center) ... ok
+test_v2_four_votes_produce_a_matched_no_target_result (test_pl_compare.CompareFramesTests.test_v2_four_votes_produce_a_matched_no_target_result) ... ok
+test_v2_full_red_counts_only_interior_coordinates (test_pl_compare.CompareFramesTests.test_v2_full_red_counts_only_interior_coordinates) ... ok
+test_centered_single_region_rounds_centroid_down (test_red_mask_reference.RedMaskReferenceTests.test_centered_single_region_rounds_centroid_down) ... ok
+test_distinguishable_red_and_green_regions (test_red_mask_reference.RedMaskReferenceTests.test_distinguishable_red_and_green_regions) ... ok
+test_full_resolution_all_red_frame (test_red_mask_reference.RedMaskReferenceTests.test_full_resolution_all_red_frame) ... ok
+test_no_target (test_red_mask_reference.RedMaskReferenceTests.test_no_target) ... ok
+test_partially_occluded_red_region (test_red_mask_reference.RedMaskReferenceTests.test_partially_occluded_red_region) ... ok
+test_quantized_live_preview_color_candidate (test_red_mask_reference.RedMaskReferenceTests.test_quantized_live_preview_color_candidate) ... ok
+test_region_touching_left_edge (test_red_mask_reference.RedMaskReferenceTests.test_region_touching_left_edge) ... ok
+test_rejects_invalid_shape_and_frame_index (test_red_mask_reference.RedMaskReferenceTests.test_rejects_invalid_shape_and_frame_index) ... ok
+test_similar_orange_background_excluded (test_red_mask_reference.RedMaskReferenceTests.test_similar_orange_background_excluded) ... ok
+test_threshold_edges_and_big_endian_bytes (test_red_mask_reference.RedMaskReferenceTests.test_threshold_edges_and_big_endian_bytes) ... ok
+test_border_is_excluded (test_red_spatial_filter.SpatialFilterTests.test_border_is_excluded) ... ok
+test_dimensions_smaller_than_window_return_empty (test_red_spatial_filter.SpatialFilterTests.test_dimensions_smaller_than_window_return_empty) ... ok
+test_five_votes_are_required (test_red_spatial_filter.SpatialFilterTests.test_five_votes_are_required) ... ok
+test_isolated_pixel_is_removed (test_red_spatial_filter.SpatialFilterTests.test_isolated_pixel_is_removed) ... ok
+test_solid_patch_survives_without_distant_speck (test_red_spatial_filter.SpatialFilterTests.test_solid_patch_survives_without_distant_speck) ... ok
+test_current_repository_foundations (test_repository_checks.RepositoryCheckTests.test_current_repository_foundations) ... ok
+test_existing_relative_link (test_repository_checks.RepositoryCheckTests.test_existing_relative_link) ... ok
+test_external_links_are_not_fetched (test_repository_checks.RepositoryCheckTests.test_external_links_are_not_fetched) ... ok
+test_invalid_and_duplicate_status (test_repository_checks.RepositoryCheckTests.test_invalid_and_duplicate_status) ... ok
+test_missing_and_escaping_links (test_repository_checks.RepositoryCheckTests.test_missing_and_escaping_links) ... ok
+test_normal_document_not_secret (test_repository_checks.RepositoryCheckTests.test_normal_document_not_secret) ... ok
+test_planned_status_needs_no_fabricated_evidence (test_repository_checks.RepositoryCheckTests.test_planned_status_needs_no_fabricated_evidence) ... ok
+test_private_key_detected (test_repository_checks.RepositoryCheckTests.test_private_key_detected) ... ok
+test_reject_traversal_absolute_and_non_ascii (test_repository_checks.RepositoryCheckTests.test_reject_traversal_absolute_and_non_ascii) ... ok
+test_safe_ascii_path (test_repository_checks.RepositoryCheckTests.test_safe_ascii_path) ... ok
+test_secret_token_detected (test_repository_checks.RepositoryCheckTests.test_secret_token_detected) ... ok
+test_verified_status_requires_evidence_and_provenance (test_repository_checks.RepositoryCheckTests.test_verified_status_requires_evidence_and_provenance) ... ok
+test_10000_fixed_seed_pairs_against_fraction_oracle_and_invariants (test_spatial_relations.SpatialRelationsTests.test_10000_fixed_seed_pairs_against_fraction_oracle_and_invariants) ... ok
+test_diagonal_relations_can_both_be_true (test_spatial_relations.SpatialRelationsTests.test_diagonal_relations_can_both_be_true) ... ok
+test_direction_margin_equality_and_reverse_false (test_spatial_relations.SpatialRelationsTests.test_direction_margin_equality_and_reverse_false) ... ok
+test_each_snapshot_or_config_mismatch_is_unknown (test_spatial_relations.SpatialRelationsTests.test_each_snapshot_or_config_mismatch_is_unknown) ... ok
+test_full_frame_single_pixel_iou_and_large_exact_ratio_products (test_spatial_relations.SpatialRelationsTests.test_full_frame_single_pixel_iou_and_large_exact_ratio_products) ... ok
+test_half_pixel_centers_are_not_rounded_to_integer_pixels (test_spatial_relations.SpatialRelationsTests.test_half_pixel_centers_are_not_rounded_to_integer_pixels) ... ok
+test_incomplete_frame_cannot_produce_relation (test_spatial_relations.SpatialRelationsTests.test_incomplete_frame_cannot_produce_relation) ... ok
+test_missing_measurement_is_unknown_and_keeps_reason (test_spatial_relations.SpatialRelationsTests.test_missing_measurement_is_unknown_and_keeps_reason) ... ok
+test_near_uses_square_distance_and_inclusive_true_boundary (test_spatial_relations.SpatialRelationsTests.test_near_uses_square_distance_and_inclusive_true_boundary) ... ok
+test_overlap_threshold_equality_and_band (test_spatial_relations.SpatialRelationsTests.test_overlap_threshold_equality_and_band) ... ok
+test_public_predicates_and_truth_values_are_explicit (test_spatial_relations.SpatialRelationsTests.test_public_predicates_and_truth_values_are_explicit) ... ok
+test_rejects_bad_evaluate_arguments_self_pair_and_roi_roles (test_spatial_relations.SpatialRelationsTests.test_rejects_bad_evaluate_arguments_self_pair_and_roi_roles) ... ok
+test_rejects_malformed_bbox_types_and_order (test_spatial_relations.SpatialRelationsTests.test_rejects_malformed_bbox_types_and_order) ... ok
+test_rejects_malformed_ratios_and_config_values (test_spatial_relations.SpatialRelationsTests.test_rejects_malformed_ratios_and_config_values) ... ok
+test_rejects_malformed_region_fields_and_validity_combinations (test_spatial_relations.SpatialRelationsTests.test_rejects_malformed_region_fields_and_validity_combinations) ... ok
+test_rejects_malformed_snapshot_values (test_spatial_relations.SpatialRelationsTests.test_rejects_malformed_snapshot_values) ... ok
+test_roi_does_not_require_visual_count (test_spatial_relations.SpatialRelationsTests.test_roi_does_not_require_visual_count) ... ok
+test_roi_includes_equal_edges_and_rejects_each_outside_edge (test_spatial_relations.SpatialRelationsTests.test_roi_includes_equal_edges_and_rejects_each_outside_edge) ... ok
+test_same_center_is_false_for_all_directions_and_near_at_zero (test_spatial_relations.SpatialRelationsTests.test_same_center_is_false_for_all_directions_and_near_at_zero) ... ok
+test_shared_inclusive_endpoint_has_one_pixel_of_intersection (test_spatial_relations.SpatialRelationsTests.test_shared_inclusive_endpoint_has_one_pixel_of_intersection) ... ok
+test_single_pixel_and_full_frame_inclusive_area_and_center (test_spatial_relations.SpatialRelationsTests.test_single_pixel_and_full_frame_inclusive_area_and_center) ... ok
+test_uint32_frame_extremes_are_valid_but_wrap_pair_does_not_match (test_spatial_relations.SpatialRelationsTests.test_uint32_frame_extremes_are_valid_but_wrap_pair_does_not_match) ... ok
+test_zero_intersection_is_false_even_with_zero_true_threshold (test_spatial_relations.SpatialRelationsTests.test_zero_intersection_is_false_even_with_zero_true_threshold) ... ok
+test_analytical_masks_match_current_reference (test_target_replay.TargetReplayTests.test_analytical_masks_match_current_reference) ... ok
+test_cli_generated_replay_round_trip (test_target_replay.TargetReplayTests.test_cli_generated_replay_round_trip) ... ok
+test_config_epoch_change_is_preserved_without_claiming_confirmation (test_target_replay.TargetReplayTests.test_config_epoch_change_is_preserved_without_claiming_confirmation) ... ok
+test_empty_input_is_rejected (test_target_replay.TargetReplayTests.test_empty_input_is_rejected) ... ok
+test_external_new_sessions_and_in_session_wrap_remain_legal (test_target_replay.TargetReplayTests.test_external_new_sessions_and_in_session_wrap_remain_legal) ... ok
+test_external_old_session_reentry_rejects_regressed_duplicate_and_continuous_values (test_target_replay.TargetReplayTests.test_external_old_session_reentry_rejects_regressed_duplicate_and_continuous_values) ... ok
+test_external_session_history_covers_more_than_one_closed_session (test_target_replay.TargetReplayTests.test_external_session_history_covers_more_than_one_closed_session) ... ok
+test_generator_keeps_rgb565_big_endian_and_expected_box (test_target_replay.TargetReplayTests.test_generator_keeps_rgb565_big_endian_and_expected_box) ... ok
+test_invalid_measurement_never_reuses_previous_coordinates (test_target_replay.TargetReplayTests.test_invalid_measurement_never_reuses_previous_coordinates) ... ok
+test_loss_sequence_clears_then_reacquires (test_target_replay.TargetReplayTests.test_loss_sequence_clears_then_reacquires) ... ok
+test_pause_replay_uses_timestamps_without_sleeping_in_test (test_target_replay.TargetReplayTests.test_pause_replay_uses_timestamps_without_sleeping_in_test) ... ok
+test_reference_mutation_is_detected (test_target_replay.TargetReplayTests.test_reference_mutation_is_detected) ... ok
+test_rejects_duplicate_gap_and_out_of_order (test_target_replay.TargetReplayTests.test_rejects_duplicate_gap_and_out_of_order) ... ok
+test_rejects_geometry_and_sum_errors (test_target_replay.TargetReplayTests.test_rejects_geometry_and_sum_errors) ... ok
+test_rejects_illegal_fields (test_target_replay.TargetReplayTests.test_rejects_illegal_fields) ... ok
+test_rejects_time_reversal (test_target_replay.TargetReplayTests.test_rejects_time_reversal) ... ok
+test_replay_rejects_whole_external_file_before_any_output_or_wait (test_target_replay.TargetReplayTests.test_replay_rejects_whole_external_file_before_any_output_or_wait) ... ok
+test_sequence_cli_round_trip_and_refuses_overwrite (test_target_replay.TargetReplayTests.test_sequence_cli_round_trip_and_refuses_overwrite) ... ok
+test_sequence_fixture_rejects_unknown_case_reversal_and_reopened_session (test_target_replay.TargetReplayTests.test_sequence_fixture_rejects_unknown_case_reversal_and_reopened_session) ... ok
+test_sequence_wrap_and_new_session (test_target_replay.TargetReplayTests.test_sequence_wrap_and_new_session) ... ok
+test_session_restart_and_config_change_sequences (test_target_replay.TargetReplayTests.test_session_restart_and_config_change_sequences) ... ok
+test_bad_header_and_orphan (test_vendor_udp.FrameAssemblerTests.test_bad_header_and_orphan) ... ok
+test_bad_pl_extension_is_rejected (test_vendor_udp.FrameAssemblerTests.test_bad_pl_extension_is_rejected) ... ok
+test_bad_row_invalidates_partial (test_vendor_udp.FrameAssemblerTests.test_bad_row_invalidates_partial) ... ok
+test_complete_frame (test_vendor_udp.FrameAssemblerTests.test_complete_frame) ... ok
+test_filtered_mask_version_is_explicit (test_vendor_udp.FrameAssemblerTests.test_filtered_mask_version_is_explicit) ... ok
+test_incomplete_frame_dropped_at_next_header (test_vendor_udp.FrameAssemblerTests.test_incomplete_frame_dropped_at_next_header) ... ok
+test_pixel_row_can_begin_with_magic_bytes (test_vendor_udp.FrameAssemblerTests.test_pixel_row_can_begin_with_magic_bytes) ... ok
+test_pl_extension_attaches_previous_frame_measurement (test_vendor_udp.FrameAssemblerTests.test_pl_extension_attaches_previous_frame_measurement) ... ok
+
+----------------------------------------------------------------------
+Ran 130 tests in 8.991s
+
+OK
+
+
+combined internal check-3
+offline comparisons: 22; passed: True; board: NOT_TESTED
+
+
+combined internal check-4

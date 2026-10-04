@@ -21,9 +21,22 @@ Read `README.md`, `docs/project_plan.md`, `docs/first_week_tasks.md`, `report/st
 
 ## Checks
 
+For a teammate Codex reproducing tests, read `docs/codex_test_runbook.md` first.
+It supplies checked commands, dependencies, expected counts, negative controls,
+evidence paths and separate offline/board gates. Read
+`docs/team_offline_handoff_2026-09-30.md` for planned teammate prototypes.
+Reading these files does not authorize hardware, system changes, motion or light
+emission; run only the stages requested by the user.
+
+Next-stage assignments and the shared interface checklist are indexed in
+`docs/team_next_stage_2026-10-03.md`; read the assigned account's task document
+before starting that work. The task plans do not authorize physical execution.
+
 ```bash
 python tools/check_repository.py
 python -m unittest discover -s tests -v
 ```
 
-These checks validate repository foundations, not FPGA functionality. No synthesizable HDL or verified board build is present in the initial scaffold.
+The repository checker validates foundations only. The unit suite also checks
+host references and acceptance logic; neither establishes FPGA functionality.
+Use the runbook to distinguish software, RTL simulation and real board evidence.

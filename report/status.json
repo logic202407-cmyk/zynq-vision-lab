@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-09-30",
+  "updated_on": "2026-10-03",
   "project_stage": "pl_camera_prototype",
   "components": [
     {
@@ -61,6 +61,12 @@
       "status": "planned",
       "evidence": [],
       "note": "Not implemented or verified."
+    },
+    {
+      "id": "spatial_relations_reference",
+      "status": "implemented",
+      "evidence": ["sim/reference/spatial_relations.py", "tests/test_spatial_relations.py", "docs/scene_relation_contract_v0_1.md", "report/experiments/2026-09-30-test-delivery.md", "report/experiments/2026-10-03-r0-acceptance-publication.md"],
+      "note": "Original standard-library Python reference for seven raw image-plane predicates, explicit three-valued boundaries, ROI validity and snapshot/config consistency. Checked on synthetic boundary cases and 10,000 fixed-seed pairs against independent mathematical expectations. Not relation RTL, multi-color camera measurement, temporal management, PS, protocol integration, model inference or new board verification."
     },
     {
       "id": "interference_experiments",

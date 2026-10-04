@@ -131,12 +131,30 @@ chooses the matching golden reference. After temporarily loading the spatial
 trial bitstream, keep a red paper target still and run:
 
 ```text
-python -m src.pc.pl_compare --seconds 30 --frames 100 --compare-raw-mask
+python -m src.pc.pl_compare --seconds 30 --frames 100 --expected-mask-version 2 --compare-raw-mask --output private/filter-acceptance.json
 ```
 
-This also measures the threshold-only mask on the same received images and
+Create the local `private` directory first and use a new evidence filename;
+the command refuses to overwrite an earlier record. Stop any active viewer
+before this physical test because it uses the same UDP port. The explicit
+version requirement prevents an old threshold-only bitstream from passing a
+filter acceptance run. JSON records exact count, coordinate sums, box,
+centroid, input hashes, source hashes and discarded pairing conditions; it
+stores no image pixels. This also measures the threshold-only mask on the same received images and
 reports box variation for both masks. Jumps over 50 pixels are a descriptive
 metric for a stationary scene; genuine target movement can also cause them.
-The 2026-09-30 build is ready for a board test, but no JTAG target or live UDP
-data was found in that session. A built bitstream does not establish that the
-new filter reduces flicker on hardware.
+The later 2026-09-30 recovery configured this candidate successfully and
+matched 100 same-frame pairs, but all 100 had no valid filtered target.
+See [the limited board trial](../../report/experiments/2026-09-30-spatial-board-recovery.md).
+Positive-marker detection and reduced hardware flicker remain unverified;
+no new board test is performed by the source-publication task.
+
+The offline acceptance fixes and their existing software/xsim evidence are
+recorded in [the test delivery](../../report/experiments/2026-09-30-test-delivery.md).
+For checked reproduction commands and separate offline/board gates, use
+[the Codex test runbook](../../docs/codex_test_runbook.md).
+Exact coordinate sums are compared before centroid division; an error that
+leaves the floored centroid unchanged still fails. Missing, duplicate or
+out-of-order frame sequences and mixed mask versions fail the run. The old
+row protocol can still silently repeat or reorder rows; these checks do not
+provide row integrity or a new board verification result.

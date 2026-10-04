@@ -1,5 +1,6 @@
 """Independent fixture checks and host replay rejection behavior."""
 import copy
+import io
 import json
 import tempfile
 import unittest
@@ -99,6 +100,62 @@ class TargetReplayTests(unittest.TestCase):
         restart = make_record(self.cases[1], 0, 2)
         restart["session_id"] = "restarted"
         self.assertEqual(len(self.read([first, following, restart])), 3)
+
+    def test_external_old_session_reentry_rejects_regressed_duplicate_and_continuous_values(self):
+        first = make_record(self.cases[1], 2, 1)
+        first["session_id"] = "a"
+        second = make_record(self.cases[0], 0, 1)
+        second["session_id"] = "b"
+        for seq, timestamp in ((2, 33), (3, 66), (4, 99)):
+            with self.subTest(seq=seq, timestamp=timestamp):
+                old = copy.deepcopy(first)
+                old.update(measurement_frame_seq=seq, timestamp_ms=timestamp)
+                with self.assertRaisesRegex(ValueError, "line 3: closed session_id"):
+                    self.read([first, second, old])
+
+    def test_external_session_history_covers_more_than_one_closed_session(self):
+        records = [copy.deepcopy(self.record) for _ in range(4)]
+        for record, session in zip(records, ("a", "b", "c", "a")):
+            record["session_id"] = session
+        with self.assertRaisesRegex(ValueError, "line 4: closed session_id"):
+            self.read(records)
+
+    def test_external_new_sessions_and_in_session_wrap_remain_legal(self):
+        first = copy.deepcopy(self.record)
+        first.update(session_id="a", measurement_frame_seq=0xFFFFFFFF, timestamp_ms=66)
+        wrapped = copy.deepcopy(first)
+        wrapped.update(measurement_frame_seq=0, timestamp_ms=99)
+        next_session = copy.deepcopy(self.record)
+        next_session.update(session_id="b", timestamp_ms=0)
+        last_session = copy.deepcopy(next_session)
+        last_session.update(session_id="c", measurement_frame_seq=17)
+        self.assertEqual(len(self.read([first, wrapped, next_session, last_session])), 4)
+
+    def test_replay_rejects_whole_external_file_before_any_output_or_wait(self):
+        first = copy.deepcopy(self.record)
+        second = copy.deepcopy(first)
+        second["session_id"] = "next"
+        for bad_kind in ("reentry", "gap", "duplicate", "time_reversal"):
+            with self.subTest(bad_kind=bad_kind), tempfile.TemporaryDirectory() as temp:
+                third = copy.deepcopy(second)
+                third.update(measurement_frame_seq=2, timestamp_ms=33)
+                if bad_kind == "reentry":
+                    third["session_id"] = first["session_id"]
+                elif bad_kind == "gap":
+                    third["measurement_frame_seq"] = 3
+                elif bad_kind == "duplicate":
+                    third["measurement_frame_seq"] = 1
+                else:
+                    second["timestamp_ms"] = 66
+                path = Path(temp) / "external.jsonl"
+                path.write_text("".join(json.dumps(r)+"\n" for r in (first, second, third)), encoding="utf-8")
+                with patch("sys.stdout", new_callable=io.StringIO) as stdout, patch("sys.stderr", new_callable=io.StringIO) as stderr, patch("src.pc.target_replay.time.sleep") as sleep:
+                    with self.assertRaises(SystemExit) as raised:
+                        main(["replay", "--input", str(path), "--realtime"])
+                    self.assertEqual(raised.exception.code, 2)
+                    self.assertEqual(stdout.getvalue(), "")
+                    self.assertIn("line 3:", stderr.getvalue())
+                    sleep.assert_not_called()
 
     def test_config_epoch_change_is_preserved_without_claiming_confirmation(self):
         following = make_record(self.cases[0], 1, 2)
