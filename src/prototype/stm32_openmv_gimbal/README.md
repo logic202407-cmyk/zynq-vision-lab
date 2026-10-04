@@ -1,4 +1,34 @@
-# STM32/OpenMV gimbal prototype
+# STM32/OpenMV gimbal prototype and independent P0
+
+## Current independent software P0 (2026-10-04)
+
+The STM32 application now has authored parser, state/controller, command, RX
+queue, servo and interrupt support, a Keil project, and a compile-only command
+line build. See [build/dependency instructions](stm32/BUILD.md) and
+[independent temporary format stm32-p0/v1](stm32/PROTOCOL.md).
+
+The host fixture compiles the actual application C sources and replays fixed
+inputs with independently written expected states and pulse values. It covers
+valid zero/nonzero error, loss/timeout/recovery, malformed packets and
+resynchronization, session/sequence/configuration, and single-axis/mode changes.
+Timeout and invalid input reset PID/filter/jump history; a single-axis command
+preserves the other applied axis. Software holds its last pulse values while
+automatic updates are disabled. This does not prove physical stopping or PWM.
+
+This P0 uses local synthetic input. The historical OpenMV script below still
+emits the eight-byte format and is not compatible with the new temporary
+26-byte firmware input. No PC/FPGA adapter or final fixed-camera control loop
+has been implemented. The inherited axis signs, gains and limits require
+new calibration for the final fixed OV5640 architecture.
+
+Vendor dependencies stay outside public source. OLED/delay are unnecessary
+for the current control build. No board, serial-port or actuator test is run
+by these build/test commands.
+
+## Historical PR1 snapshot (d96bc149)
+
+The following observations and file list describe the original
+`d96bc149bc25f0572350c47ed031c0922ec265ad` snapshot, not the new firmware.
 
 Status: contributor-reported and locally observed prototype. This directory is
 not the Zynq PS application and is not part of the repository's PL/UDP data
