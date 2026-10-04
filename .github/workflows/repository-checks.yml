@@ -21,5 +21,7 @@ jobs:
         run: python3 tools/check_repository.py
       - name: Test repository tooling
         run: python3 -m unittest discover -s tests -v
+      - name: Compare STM32 host results across existing compilers
+        run: python3 tools/stm32_s04_crosscheck.py --discover private --output private/s04-crosscheck.json
       - name: Clarify verification boundary
         run: echo 'Repository checks only. No FPGA simulation, implementation or board test has run.'
