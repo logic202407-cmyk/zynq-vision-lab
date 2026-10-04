@@ -66,6 +66,32 @@ rates. A separate temporary vendor-camera timing trial delivered 8999 complete
 frames in 300 seconds (29.997 incoming FPS); see
 `../../report/experiments/2026-09-27-ov5640-fps30.md`.
 
+## Private raw-frame snapshots (2026-10-04)
+
+The `保存原始帧 RGB565` button saves the exact received 614400-byte
+RGB565_BE frame and a `.rgb565.json` sidecar containing its SHA-256,
+dimensions, frame sequence (if present), UI source and host save time.
+It snapshots the frame/source before the file dialog can process newer frames.
+Stopping or clearing the preview also clears this saved-frame candidate.
+Neither overlays nor display smoothing are written into these bytes.
+Save outside this public repository or under its ignored `private/` directory.
+Either existing raw/sidecar file prevents overwrite. The source label
+`synthetic_demo` cannot establish live-camera evidence; even `live_camera`
+is a UI mode label, not independent provenance verification. Host save time
+is not an exposure timestamp; the sidecar contains no PL statistics.
+
+Analyze that same snapshot with both existing reference masks, offline:
+
+```text
+python tools/measure_saved_rgb565.py --input private/snapshot.rgb565 --output private/same-input.json
+```
+
+The input sidecar is required and its hash is checked. The new private output
+records both versions' exact statistics and `offline_not_board`. This command
+opens no socket, runs no hardware and cannot replace live same-frame PL
+acceptance. PNG conversion cannot reconstruct the exact raw input. See the
+[experiment plan](../../docs/fpga_experiment_plan_2026-10-04.md) for separate gates.
+
 ## Wire format inspected from local vendor reference
 
 - UDP source/destination port: 1234; board IP: 192.168.1.10; default PC IP:

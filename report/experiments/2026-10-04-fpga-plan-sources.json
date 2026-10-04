@@ -1,0 +1,71 @@
+{
+  "bitstream_build_tool_declared": {
+    "software_build": "5239630",
+    "vivado": "2024.2"
+  },
+  "bitstreams": [
+    {
+      "board_stage_status": "not_run",
+      "built_at_local": "2026-09-30T17:55:31+08:00",
+      "current_rtl_bytes_match_declared_source": false,
+      "current_rtl_files_differing_from_declared_source": [
+        "src/rtl/red_frame_stats.v",
+        "src/rtl/red_result_header.v"
+      ],
+      "file_verified": true,
+      "input_id": "captain-bit-v1",
+      "kind": "compressed PL red statistics v1, not pure vendor video",
+      "mask_version": 1,
+      "rtl_commit": "2bfef119a46d1f1e6604d945a58e3896e539113d",
+      "rtl_files_sha256_at_declared_commit": {
+        "src/rtl/camera_rgb565_stream.v": "bdf4fe04910aa71ee8e7f9d06c8ac24608610919dd50e0b7efb167e88add8af0",
+        "src/rtl/red_frame_stats.v": "58036f94f05c99d3d961235bb7dfd4784378447a6a729497ac9d9c91797f0410",
+        "src/rtl/red_pixel_mask.v": "76b2129ddbe7f9ccb1dba4fb4a7415ac706df8b3a8981afccc460af29362917b",
+        "src/rtl/red_result_header.v": "5344980154a0bd4a2951b9627ef0dc5fef18180291d7b1fa96a0c90c497e684f"
+      },
+      "rtl_origin": "private_manifest_declaration_not_independent_rebuild",
+      "sha256": "2a380055b3fd93049a5a174c0f3e1e7b140117b0df77fb5825b6b2ab6011fdc5",
+      "size_bytes": 2190907
+    },
+    {
+      "board_stage_status": "not_run",
+      "built_at_local": "2026-09-30T16:43:54+08:00",
+      "current_rtl_bytes_match_declared_source": true,
+      "current_rtl_files_differing_from_declared_source": [],
+      "file_verified": true,
+      "input_id": "captain-bit-v2",
+      "kind": "3x3 5-of-9 majority PL red statistics",
+      "mask_version": 2,
+      "rtl_commit": "a9842abe55cf2d7460fa9c09b0ce188a0bd37f14",
+      "rtl_files_sha256_at_declared_commit": {
+        "src/rtl/camera_rgb565_stream.v": "bdf4fe04910aa71ee8e7f9d06c8ac24608610919dd50e0b7efb167e88add8af0",
+        "src/rtl/red_frame_stats.v": "b3cf13033ea661c34a9773e10a81ea6f9152c3e2ab8a3f6c717d175508d23805",
+        "src/rtl/red_mask_majority3x3.v": "0f921c3465950851356749fb1865be8c91ef15d1adeaad6d7c63d272646a533f",
+        "src/rtl/red_pixel_mask.v": "76b2129ddbe7f9ccb1dba4fb4a7415ac706df8b3a8981afccc460af29362917b",
+        "src/rtl/red_result_header.v": "1aa560d9108814bfd135947121bd9e7dff90619382dee18116015299f7fdd3fb"
+      },
+      "rtl_origin": "private_manifest_declaration_not_independent_rebuild",
+      "sha256": "4b42c32436a0b9ac7e089ed15777536709839eab8b58314c8e3b37031ce7e121",
+      "size_bytes": 17416457
+    }
+  ],
+  "checked_at_utc": "2026-10-04T03:49:09.630897+00:00",
+  "frozen_reference_commit": "2a018c4b82e356dee3ca8cb000b520112b624c18",
+  "hardware_actions_performed": false,
+  "known_limit": "Bitstream hashes and RTL declarations are lineage checks, not board tests or independently reproduced vendor builds.",
+  "pc_base_commit": "0c10df7968b4e22dacc8d52f7838c15e9a8904fc",
+  "protected_file_count": 9,
+  "protected_files_sha256": {
+    "data/fixtures/pc_r0_independent_cases.json": "da06ca9b7341b94fceaf5844755314ae8811aae983d552e7fbdb09cc9462432e",
+    "data/fixtures/pc_replay_sequences.json": "0c8a6c85e18ec738ca81e36859ef8f3eb15d6d5e15ee19475e09f1c50ab89d9e",
+    "data/fixtures/pc_target_cases.json": "d316d5202a33448da04b75875bd0a8c228ce78a3f7ea49332ae23226b7033661",
+    "sim/reference/red_mask.py": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52",
+    "sim/reference/spatial_relations.py": "940a8b85feab756cbe62933d474271e4ae276b811bd3fffc2f9010c782be6f5c",
+    "src/pc/pl_compare.py": "52accca8b2cde821dfd11a3607bd7143d6a24bb6705d3b5f0c842b03229eb2d3",
+    "src/pc/vendor_udp.py": "63936f4caee1d39e2016cb6e40781abf09f7cba46605a3ae3a4c5ec56e027a26",
+    "tests/test_pl_compare.py": "96035259d0ce27f15093e25aa935cf1dede97644346912bf6b1e2cee23731d55",
+    "tests/test_spatial_relations.py": "23a3044c8d27966de60276791489f738cf803faf38c375d187af0de1d52b74f1"
+  },
+  "schema": "fpga-plan-sources/1",
+  "task_source_commit": "091cb7138b89537bffae3557e23a0f2f5d76ae30"
+}

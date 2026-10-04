@@ -9,10 +9,13 @@ import time
 import tkinter as tk
 from collections import deque
 from dataclasses import dataclass, replace
+from pathlib import Path
 from statistics import median_low
 from tkinter import filedialog, messagebox, ttk
 
 from PIL import Image, ImageDraw, ImageTk
+
+from .frame_evidence import save_frame_bundle
 
 from .vendor_udp import (
     BOARD_IP,
@@ -216,6 +219,8 @@ class Viewer(tk.Tk):
         self.worker: CameraReceiver | DemoSource | None = None
         self.mode = "idle"
         self.last_image: Image.Image | None = None
+        self.last_raw_frame: Frame | None = None
+        self.last_raw_source: str | None = None
         self.box_stabilizer = BoxStabilizer()
         self.last_arrival = 0.0
         self.render_times: list[float] = []
@@ -280,6 +285,9 @@ class Viewer(tk.Tk):
         tk.Button(panel, text="保存当前帧 PNG", command=self.save_frame,
                   bg=SURFACE, fg=TEXT, relief="flat", pady=4,
                   font=("Microsoft YaHei UI", 11)).pack(fill="x")
+        tk.Button(panel, text="保存原始帧 RGB565", command=self.save_raw_frame,
+                  bg=SURFACE, fg=TEXT, relief="flat", pady=4,
+                  font=("Microsoft YaHei UI", 11)).pack(fill="x", pady=(3, 0))
 
         self._heading(panel, "当前数据", top=8)
         tk.Label(panel, textvariable=self.stats, fg=MUTED, bg=BG, justify="left",
@@ -354,6 +362,8 @@ class Viewer(tk.Tk):
         self.canvas.itemconfigure(self.empty_item, state="normal")
         self.canvas.itemconfigure(self.demo_item, state="hidden")
         self.last_image = None
+        self.last_raw_frame = None
+        self.last_raw_source = None
         self.photo = None
         self.last_arrival = 0.0
         self.render_times = []
@@ -369,6 +379,8 @@ class Viewer(tk.Tk):
                 frame = None
             if frame is not None:
                 self.last_image = rgb565_be_to_image(frame)
+                self.last_raw_frame = frame
+                self.last_raw_source = "synthetic_demo" if self.mode == "demo" else "live_camera"
                 overlay = self.box_stabilizer.update(frame.pl_measurement)
                 self.photo = ImageTk.PhotoImage(
                     draw_pl_result(self.last_image, overlay)
@@ -419,6 +431,26 @@ class Viewer(tk.Tk):
         if path:
             self.last_image.save(path)
             self.detail.set(f"已保存当前帧：{path}")
+
+    def save_raw_frame(self) -> None:
+        # Capture both before the modal dialog lets the Tk event loop poll again.
+        frame, source = self.last_raw_frame, self.last_raw_source
+        if frame is None or source is None:
+            messagebox.showinfo("没有图像", "收到完整帧后才能保存。", parent=self)
+            return
+        path = filedialog.asksaveasfilename(
+            parent=self, defaultextension=".rgb565",
+            filetypes=[("Raw RGB565", "*.rgb565")],
+            initialfile=time.strftime("ov5640_%Y%m%d_%H%M%S.rgb565")
+        )
+        if not path:
+            return
+        try:
+            save_frame_bundle(frame, Path(path), source=source)
+        except (OSError, ValueError) as exc:
+            messagebox.showerror("保存失败", str(exc), parent=self)
+            return
+        self.detail.set(f"已保存原始帧及来源记录：{path}")
 
     def on_close(self) -> None:
         self.stop()
