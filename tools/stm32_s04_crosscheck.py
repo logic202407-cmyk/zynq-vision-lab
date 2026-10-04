@@ -14,6 +14,11 @@ ROOT = Path(__file__).resolve().parents[1]
 REFERENCE = ROOT / "report/experiments/stm32-p0-2026-10-04"
 
 
+def source_hashes(sources):
+    """Use repository paths on Windows and POSIX; keep every content digest."""
+    return {path.replace("\\", "/"): digest for path, digest in sources.items()}
+
+
 def compare(reference, actual):
     old = {r["id"]: r for r in reference}
     new = {r["id"]: r for r in actual}
@@ -49,7 +54,7 @@ def summarize(legacy_path, deep_path):
     old_build = json.loads((REFERENCE / "host-build.json").read_text(encoding="utf-8"))
     if len(legacy["records"]) != 66 or legacy["expected_cases"] != 66 or build["exit_code"] != 0:
         raise ValueError("incomplete legacy host evidence")
-    if build["sources"] != old_build["sources"]:
+    if source_hashes(build["sources"]) != source_hashes(old_build["sources"]):
         raise ValueError("C translation unit sources differ")
     diff = compare(old["records"], legacy["records"])
     deep = json.loads(deep_path.read_text(encoding="utf-8"))

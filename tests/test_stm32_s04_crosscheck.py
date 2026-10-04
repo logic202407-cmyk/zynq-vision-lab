@@ -1,7 +1,7 @@
 """Cross-tool comparison must catch corruption without widening tolerance."""
 import copy
 import unittest
-from tools.stm32_s04_crosscheck import compare
+from tools.stm32_s04_crosscheck import compare, source_hashes
 
 
 class CrosscheckTests(unittest.TestCase):
@@ -45,3 +45,10 @@ class CrosscheckTests(unittest.TestCase):
         del self.actual[0]["actual"]["valid"]
         with self.assertRaisesRegex(ValueError, "snapshot fields"):
             compare(self.reference, self.actual)
+
+    def test_windows_posix_source_identity_keeps_hash_check(self):
+        windows = {"src\\User\\control.c": "original-digest"}
+        posix = {"src/User/control.c": "original-digest"}
+        self.assertEqual(source_hashes(windows), source_hashes(posix))
+        posix["src/User/control.c"] = "changed-digest"
+        self.assertNotEqual(source_hashes(windows), source_hashes(posix))
