@@ -1,0 +1,28 @@
+{
+  "schema": "stm32-s04/crosscheck-v1",
+  "source_baseline": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+  "original_tolerance_preserved": true,
+  "compared_legacy_cases": 66,
+  "new_deep_cases": 437,
+  "new_deep_by_package": {
+    "S06": 111,
+    "S07": 150,
+    "S08": 176
+  },
+  "sources_equal": true,
+  "compiler_reference": "gcc.exe (tdm64-2) 4.8.1",
+  "compiler_actual": "gcc.exe (tdm64-2) 4.8.1",
+  "different_compiler_identity": false,
+  "float_comparison": {
+    "float_fields": 726,
+    "max_abs_delta": 0.0,
+    "tolerance": 1e-05,
+    "differences": []
+  },
+  "utc_start": "2026-10-04T16:42:33.871465+00:00",
+  "utc_end": "2026-10-04T16:42:33.949438+00:00",
+  "actual_replay_sha256": "ee3eceb9ff6a4a3ccca574cf180d84c23af48e3162075e0c8b87a76e5ba309e7",
+  "deep_replay_sha256": "33498d2c0ef21ab62fe426760f964f58f3421e2f3974267907da2c5ef348d9c7",
+  "execution": "simulated",
+  "reviewer": "author-side software verification, not another human reviewer"
+}

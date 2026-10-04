@@ -1,0 +1,454 @@
+{
+  "schema": "stm32-s01-s08/packages-v1",
+  "source_commit": "943142f9c52160a7512909e26901074fb13b7515",
+  "packages": [
+    {
+      "id": "S01",
+      "claim": "Frozen PR7 module/scenario mapping and protected-source hashes",
+      "priority": "P0",
+      "gate": "O",
+      "status": "implemented",
+      "acceptance": "passed",
+      "execution": "static_review",
+      "commit": "943142f9c52160a7512909e26901074fb13b7515",
+      "tool_version": "Python3.12.14; GCC4.8.1 and GCC8.3.0 for host; original ARM log only for S03",
+      "inputs": [
+        {
+          "id": "fixed_task_document",
+          "commit": "58fa10e3a0aedea338ddfe9b63ecba8821ec9b60"
+        },
+        {
+          "id": "frozen_source",
+          "commit": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+          "hashes_path": "audit.json"
+        },
+        {
+          "id": "new_fixture_and_helpers",
+          "hashes_path": "source.sha256.json"
+        }
+      ],
+      "utc_start": "2026-10-04T16:42:32.930295+00:00",
+      "utc_end": "2026-10-04T16:42:33.614536+00:00",
+      "command": [
+        "<PYTHON312>",
+        "tools/audit_stm32_s01_s08.py",
+        "--deps",
+        "<PRIVATE_DEPS>",
+        "--archive",
+        "<LOCAL_SPL350_ARCHIVE>",
+        "--output",
+        "<FRESH_AUDIT>"
+      ],
+      "independent_expected": "v1 contract, frozen source-derived invariants and hand calculations; binascii CCITT-FALSE CRC, 123456789=29B1; never DUT-generated answers",
+      "actual": "see linked complete output records; only S02 acceptance remains blocked",
+      "exit_code": 0,
+      "counts": {
+        "original_tests": 109,
+        "stm32_tests": 69,
+        "fixed_scenarios": 66,
+        "queue_tests": 3
+      },
+      "evidence": [
+        {
+          "path": "audit.json",
+          "sha256": "2da6b22500ad0356479b04d8ff86bc7fc6d2152efe5381124a77e8f8a86b342a"
+        }
+      ],
+      "known_limit": "Author-side software/static evidence; no hardware, PWM, physical stop, final calibration or independent human reproduction",
+      "reviewer": "Codex author-side review; another human reviewer not_run"
+    },
+    {
+      "id": "S02",
+      "claim": "16 local ZIP member hashes and CMSIS/ST notice inventory; full ST authority incomplete",
+      "priority": "P0",
+      "gate": "O",
+      "status": "implemented",
+      "acceptance": "partial_blocked",
+      "execution": "blocked",
+      "commit": "943142f9c52160a7512909e26901074fb13b7515",
+      "tool_version": "Python3.12.14; GCC4.8.1 and GCC8.3.0 for host; original ARM log only for S03",
+      "inputs": [
+        {
+          "id": "fixed_task_document",
+          "commit": "58fa10e3a0aedea338ddfe9b63ecba8821ec9b60"
+        },
+        {
+          "id": "frozen_source",
+          "commit": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+          "hashes_path": "audit.json"
+        },
+        {
+          "id": "new_fixture_and_helpers",
+          "hashes_path": "source.sha256.json"
+        }
+      ],
+      "utc_start": "2026-10-04T16:42:32.930295+00:00",
+      "utc_end": "2026-10-04T16:42:33.614536+00:00",
+      "command": [
+        "<PYTHON312>",
+        "tools/audit_stm32_s01_s08.py",
+        "--deps",
+        "<PRIVATE_DEPS>",
+        "--archive",
+        "<LOCAL_SPL350_ARCHIVE>",
+        "--output",
+        "<FRESH_AUDIT>"
+      ],
+      "independent_expected": "v1 contract, frozen source-derived invariants and hand calculations; binascii CCITT-FALSE CRC, 123456789=29B1; never DUT-generated answers",
+      "actual": "see linked complete output records; only S02 acceptance remains blocked",
+      "exit_code": 0,
+      "counts": {
+        "files": 16,
+        "matches": 16,
+        "skip": 0
+      },
+      "evidence": [
+        {
+          "path": "audit.json",
+          "sha256": "2da6b22500ad0356479b04d8ff86bc7fc6d2152efe5381124a77e8f8a86b342a"
+        }
+      ],
+      "known_limit": "Full ST licence and official download authenticity not proven",
+      "reviewer": "Codex author-side review; another human reviewer not_run"
+    },
+    {
+      "id": "S03",
+      "claim": "18 translation units and GUI/CLI options/scatter differences audited",
+      "priority": "P0",
+      "gate": "O",
+      "status": "implemented",
+      "acceptance": "passed",
+      "execution": "static_review",
+      "commit": "943142f9c52160a7512909e26901074fb13b7515",
+      "tool_version": "Python3.12.14; GCC4.8.1 and GCC8.3.0 for host; original ARM log only for S03",
+      "inputs": [
+        {
+          "id": "fixed_task_document",
+          "commit": "58fa10e3a0aedea338ddfe9b63ecba8821ec9b60"
+        },
+        {
+          "id": "frozen_source",
+          "commit": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+          "hashes_path": "audit.json"
+        },
+        {
+          "id": "new_fixture_and_helpers",
+          "hashes_path": "source.sha256.json"
+        }
+      ],
+      "utc_start": "2026-10-04T16:42:32.930295+00:00",
+      "utc_end": "2026-10-04T16:42:33.614536+00:00",
+      "command": [
+        "<PYTHON312>",
+        "tools/audit_stm32_s01_s08.py",
+        "--deps",
+        "<PRIVATE_DEPS>",
+        "--archive",
+        "<LOCAL_SPL350_ARCHIVE>",
+        "--output",
+        "<FRESH_AUDIT>"
+      ],
+      "independent_expected": "v1 contract, frozen source-derived invariants and hand calculations; binascii CCITT-FALSE CRC, 123456789=29B1; never DUT-generated answers",
+      "actual": "see linked complete output records; only S02 acceptance remains blocked",
+      "exit_code": 0,
+      "counts": {
+        "units": 18,
+        "gui_runs": 0
+      },
+      "evidence": [
+        {
+          "path": "audit.json",
+          "sha256": "2da6b22500ad0356479b04d8ff86bc7fc6d2152efe5381124a77e8f8a86b342a"
+        }
+      ],
+      "known_limit": "GUI and actual parameter expansion not_run; static differences retained",
+      "reviewer": "Codex author-side review; another human reviewer not_run"
+    },
+    {
+      "id": "S04",
+      "claim": "Existing GCC4.8.1 and GCC8.3.0 compile identical portable C and pass all 555 checks",
+      "priority": "P0",
+      "gate": "O",
+      "status": "simulated",
+      "acceptance": "passed",
+      "execution": "simulated",
+      "commit": "943142f9c52160a7512909e26901074fb13b7515",
+      "tool_version": "Python3.12.14; GCC4.8.1 and GCC8.3.0 for host; original ARM log only for S03",
+      "inputs": [
+        {
+          "id": "fixed_task_document",
+          "commit": "58fa10e3a0aedea338ddfe9b63ecba8821ec9b60"
+        },
+        {
+          "id": "frozen_source",
+          "commit": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+          "hashes_path": "audit.json"
+        },
+        {
+          "id": "new_fixture_and_helpers",
+          "hashes_path": "source.sha256.json"
+        }
+      ],
+      "utc_start": "2026-10-04T16:42:32.525720+00:00",
+      "utc_end": "2026-10-04T16:42:34.120652+00:00",
+      "command": [
+        "<PYTHON312>",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v",
+        "-f"
+      ],
+      "independent_expected": "v1 contract, frozen source-derived invariants and hand calculations; binascii CCITT-FALSE CRC, 123456789=29B1; never DUT-generated answers",
+      "actual": "see linked complete output records; only S02 acceptance remains blocked",
+      "exit_code": 0,
+      "counts": {
+        "tests_per_compiler": 555,
+        "failure": 0,
+        "error": 0,
+        "skip": 0,
+        "legacy_float_fields": 726,
+        "max_abs_delta": 0.0
+      },
+      "evidence": [
+        {
+          "path": "gcc48-validation.json",
+          "sha256": "c54f6677259e472dd9c1a49c601eb492223c6dba3d53bbc24a6529a66165d62a"
+        },
+        {
+          "path": "gcc83-validation.json",
+          "sha256": "6aaada168e46b3df8185090509e9116e87653dbc65408dd0783460fa7c565b6b"
+        },
+        {
+          "path": "gcc48-comparison.json",
+          "sha256": "ba7838c05bfd7dba6d3a68a39ad1df00d1b0656064c37af69d843eb7f9c89fef"
+        },
+        {
+          "path": "gcc83-comparison.json",
+          "sha256": "e81d7a89fba77d7b1398011d590d970c75c68f54661c7a83215486e1a08226a6"
+        },
+        {
+          "path": "ci-source.json",
+          "sha256": "4b6f1c39d06e23aa964edb3ebfce097933945d29da6a43a71fc105dab0e4ef17"
+        }
+      ],
+      "known_limit": "Author-side software/static evidence; no hardware, PWM, physical stop, final calibration or independent human reproduction",
+      "reviewer": "Codex author-side review; another human reviewer not_run"
+    },
+    {
+      "id": "S05",
+      "claim": "Static old/new coverage matrix, no invented dynamic percentage",
+      "priority": "P0",
+      "gate": "O",
+      "status": "implemented",
+      "acceptance": "passed",
+      "execution": "static_review",
+      "commit": "943142f9c52160a7512909e26901074fb13b7515",
+      "tool_version": "Python3.12.14; GCC4.8.1 and GCC8.3.0 for host; original ARM log only for S03",
+      "inputs": [
+        {
+          "id": "fixed_task_document",
+          "commit": "58fa10e3a0aedea338ddfe9b63ecba8821ec9b60"
+        },
+        {
+          "id": "frozen_source",
+          "commit": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+          "hashes_path": "audit.json"
+        },
+        {
+          "id": "new_fixture_and_helpers",
+          "hashes_path": "source.sha256.json"
+        }
+      ],
+      "utc_start": "2026-10-04T16:42:32.930295+00:00",
+      "utc_end": "2026-10-04T16:42:33.614536+00:00",
+      "command": [
+        "static review of fixed scenarios, C branches and new assertions"
+      ],
+      "independent_expected": "v1 contract, frozen source-derived invariants and hand calculations; binascii CCITT-FALSE CRC, 123456789=29B1; never DUT-generated answers",
+      "actual": "see linked complete output records; only S02 acceptance remains blocked",
+      "exit_code": null,
+      "counts": {
+        "static_paths": 13
+      },
+      "evidence": [
+        {
+          "path": "source.sha256.json",
+          "sha256": "c7e30fd35596301f02e395ace07c7d7d1077f052684946a752d2070cbc3dce6a"
+        }
+      ],
+      "known_limit": "Author-side software/static evidence; no hardware, PWM, physical stop, final calibration or independent human reproduction",
+      "reviewer": "Codex author-side review; another human reviewer not_run"
+    },
+    {
+      "id": "S06",
+      "claim": "10 state/mode combinations x11 events plus 11-step hand trace",
+      "priority": "P0",
+      "gate": "O",
+      "status": "simulated",
+      "acceptance": "passed",
+      "execution": "simulated",
+      "commit": "943142f9c52160a7512909e26901074fb13b7515",
+      "tool_version": "Python3.12.14; GCC4.8.1 and GCC8.3.0 for host; original ARM log only for S03",
+      "inputs": [
+        {
+          "id": "fixed_task_document",
+          "commit": "58fa10e3a0aedea338ddfe9b63ecba8821ec9b60"
+        },
+        {
+          "id": "frozen_source",
+          "commit": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+          "hashes_path": "audit.json"
+        },
+        {
+          "id": "new_fixture_and_helpers",
+          "hashes_path": "source.sha256.json"
+        }
+      ],
+      "utc_start": "2026-10-04T16:42:32.525720+00:00",
+      "utc_end": "2026-10-04T16:42:34.120652+00:00",
+      "command": [
+        "<PYTHON312>",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v",
+        "-f"
+      ],
+      "independent_expected": "v1 contract, frozen source-derived invariants and hand calculations; binascii CCITT-FALSE CRC, 123456789=29B1; never DUT-generated answers",
+      "actual": "see linked complete output records; only S02 acceptance remains blocked",
+      "exit_code": 0,
+      "counts": {
+        "tests": 111,
+        "failure": 0,
+        "error": 0,
+        "skip": 0
+      },
+      "evidence": [
+        {
+          "path": "deep-replay.json",
+          "sha256": "6f50e963a5115c159d05b1f45b289d02e381551dd71a2e6037ec8f99f20f87df"
+        }
+      ],
+      "known_limit": "Author-side software/static evidence; no hardware, PWM, physical stop, final calibration or independent human reproduction",
+      "reviewer": "Codex author-side review; another human reviewer not_run"
+    },
+    {
+      "id": "S07",
+      "claim": "25 cuts x19/20/21ms ximplicit/explicit expiry, all following frames recover",
+      "priority": "P0",
+      "gate": "O",
+      "status": "simulated",
+      "acceptance": "passed",
+      "execution": "simulated",
+      "commit": "943142f9c52160a7512909e26901074fb13b7515",
+      "tool_version": "Python3.12.14; GCC4.8.1 and GCC8.3.0 for host; original ARM log only for S03",
+      "inputs": [
+        {
+          "id": "fixed_task_document",
+          "commit": "58fa10e3a0aedea338ddfe9b63ecba8821ec9b60"
+        },
+        {
+          "id": "frozen_source",
+          "commit": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+          "hashes_path": "audit.json"
+        },
+        {
+          "id": "new_fixture_and_helpers",
+          "hashes_path": "source.sha256.json"
+        }
+      ],
+      "utc_start": "2026-10-04T16:42:32.525720+00:00",
+      "utc_end": "2026-10-04T16:42:34.120652+00:00",
+      "command": [
+        "<PYTHON312>",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v",
+        "-f"
+      ],
+      "independent_expected": "v1 contract, frozen source-derived invariants and hand calculations; binascii CCITT-FALSE CRC, 123456789=29B1; never DUT-generated answers",
+      "actual": "see linked complete output records; only S02 acceptance remains blocked",
+      "exit_code": 0,
+      "counts": {
+        "tests": 150,
+        "failure": 0,
+        "error": 0,
+        "skip": 0
+      },
+      "evidence": [
+        {
+          "path": "deep-replay.json",
+          "sha256": "6f50e963a5115c159d05b1f45b289d02e381551dd71a2e6037ec8f99f20f87df"
+        }
+      ],
+      "known_limit": "Author-side software/static evidence; no hardware, PWM, physical stop, final calibration or independent human reproduction",
+      "reviewer": "Codex author-side review; another human reviewer not_run"
+    },
+    {
+      "id": "S08",
+      "claim": "176 one-bit mutations in bytes2..23 rejected; same-sequence valid frame recovers",
+      "priority": "P0",
+      "gate": "O",
+      "status": "simulated",
+      "acceptance": "passed",
+      "execution": "simulated",
+      "commit": "943142f9c52160a7512909e26901074fb13b7515",
+      "tool_version": "Python3.12.14; GCC4.8.1 and GCC8.3.0 for host; original ARM log only for S03",
+      "inputs": [
+        {
+          "id": "fixed_task_document",
+          "commit": "58fa10e3a0aedea338ddfe9b63ecba8821ec9b60"
+        },
+        {
+          "id": "frozen_source",
+          "commit": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+          "hashes_path": "audit.json"
+        },
+        {
+          "id": "new_fixture_and_helpers",
+          "hashes_path": "source.sha256.json"
+        }
+      ],
+      "utc_start": "2026-10-04T16:42:32.525720+00:00",
+      "utc_end": "2026-10-04T16:42:34.120652+00:00",
+      "command": [
+        "<PYTHON312>",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v",
+        "-f"
+      ],
+      "independent_expected": "v1 contract, frozen source-derived invariants and hand calculations; binascii CCITT-FALSE CRC, 123456789=29B1; never DUT-generated answers",
+      "actual": "see linked complete output records; only S02 acceptance remains blocked",
+      "exit_code": 0,
+      "counts": {
+        "tests": 176,
+        "failure": 0,
+        "error": 0,
+        "skip": 0,
+        "length_rejects": 8,
+        "version_rejects": 8,
+        "crc_rejects": 160
+      },
+      "evidence": [
+        {
+          "path": "deep-replay.json",
+          "sha256": "6f50e963a5115c159d05b1f45b289d02e381551dd71a2e6037ec8f99f20f87df"
+        }
+      ],
+      "known_limit": "Author-side software/static evidence; no hardware, PWM, physical stop, final calibration or independent human reproduction",
+      "reviewer": "Codex author-side review; another human reviewer not_run"
+    }
+  ]
+}

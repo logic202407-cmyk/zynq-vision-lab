@@ -1,0 +1,57 @@
+{
+  "source_commit": "943142f9c52160a7512909e26901074fb13b7515",
+  "run_id": 37217762692,
+  "job_id": 111481669290,
+  "url": "https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37217762692",
+  "conclusion": "success",
+  "counts": {
+    "discovered": 555,
+    "passed": 550,
+    "failure": 0,
+    "error": 0,
+    "skip": 5
+  },
+  "skips": [
+    "2026-10-04T16:42:37.7293427Z test_display_median_rejects_three_frame_box_outlier (test_camera_viewer.ConversionTests.test_display_median_rejects_three_frame_box_outlier) ... skipped 'Pillow/Tk optional UI dependency missing'",
+    "2026-10-04T16:42:37.7301934Z test_pl_overlay_does_not_modify_raw_image (test_camera_viewer.ConversionTests.test_pl_overlay_does_not_modify_raw_image) ... skipped 'Pillow/Tk optional UI dependency missing'",
+    "2026-10-04T16:42:37.7309963Z test_pl_result_is_paired_with_its_own_video_frame (test_camera_viewer.ConversionTests.test_pl_result_is_paired_with_its_own_video_frame) ... skipped 'Pillow/Tk optional UI dependency missing'",
+    "2026-10-04T16:42:37.7317627Z test_rgb565_primary_colors (test_camera_viewer.ConversionTests.test_rgb565_primary_colors) ... skipped 'Pillow/Tk optional UI dependency missing'",
+    "2026-10-04T16:42:37.7323926Z test_wrong_size_rejected (test_camera_viewer.ConversionTests.test_wrong_size_rejected) ... skipped 'Pillow/Tk optional UI dependency missing'"
+  ],
+  "stm32_cases": {
+    "legacy": 69,
+    "new_deep": 437,
+    "passed": 506,
+    "skip": 0
+  },
+  "comparator_checks": 9,
+  "crosscheck": {
+    "schema": "stm32-s04/crosscheck-v1",
+    "source_baseline": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+    "original_tolerance_preserved": true,
+    "compared_legacy_cases": 66,
+    "new_deep_cases": 437,
+    "new_deep_by_package": {
+      "S06": 111,
+      "S07": 150,
+      "S08": 176
+    },
+    "sources_equal": true,
+    "compiler_reference": "gcc.exe (tdm64-2) 4.8.1",
+    "compiler_actual": "gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "different_compiler_identity": true,
+    "float_comparison": {
+      "float_fields": 726,
+      "max_abs_delta": 0,
+      "tolerance": 1e-05,
+      "differences": []
+    },
+    "utc_start": "2026-10-04T16:42:39.768316+00:00",
+    "utc_end": "2026-10-04T16:42:39.873763+00:00",
+    "actual_replay_sha256": "268466973c9e05dc572f0ceda1ecd8ffa9107cdf1f9310a55c62921c2f4a4c91",
+    "deep_replay_sha256": "c00da44f5ec256d836ab3816b9aa38704ab5f8a2fc57ba0a1282a83e4bc2f16a",
+    "execution": "simulated",
+    "reviewer": "author-side software verification, not another human reviewer"
+  },
+  "raw_log_sha256": "45e777770988dbd5b5dcd8b7af65c7c0ce5c3e787ef514063c434436b0917775"
+}

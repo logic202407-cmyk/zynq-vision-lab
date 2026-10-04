@@ -1,0 +1,133 @@
+{
+  "command": [
+    "<PYTHON312>",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v",
+    "-f"
+  ],
+  "compiler": "<GCC48>",
+  "source_commit": "943142f9c52160a7512909e26901074fb13b7515",
+  "utc_start": "2026-10-04T16:42:32.525720+00:00",
+  "utc_end": "2026-10-04T16:42:34.000427+00:00",
+  "exit_code": 0,
+  "log_sha256": "dab288355129ee4cde8ee6299634f058777f1d670dfac5603a6425a3aa484443",
+  "inputs": {
+    "tests/test_stm32_s01_s08.py": "2b6721a183fc3d0e28c05dbc1828d2a1cf4cbbcc91fcf134c60fd4f1ebc224e1",
+    "tools/stm32_p0_host.py": "bd3c96540b87e7cac3b2260dd3f3d00a573d5fa22c74b99c9b1102ff9302ac1d",
+    "src/prototype/stm32_openmv_gimbal/stm32/tests/s01_s08_bridge.c": "61a17175a5121525a27741515c515d8bf36bda8b8a4a8eaf4bf9b8e6f794c4e2"
+  },
+  "counts": {
+    "tests": 555,
+    "passed": 555,
+    "failure": 0,
+    "error": 0,
+    "skip": 0
+  },
+  "clean_clone": true,
+  "working_tree_clean_before_and_after": true,
+  "public_log_sha256": "dd089495dafb60ff1c4800699d05c024a3cbf1ad8f9f5f68c0f3a4ddcbf4a101",
+  "repository": {
+    "command": [
+      "<PYTHON312>",
+      "tools/check_repository.py"
+    ],
+    "utc_start": "2026-10-04T16:48:32.740648+00:00",
+    "utc_end": "2026-10-04T16:48:32.869173+00:00",
+    "exit_code": 0,
+    "stdout": "PASS: repository foundations, local links, and claim-ledger checks.\r\nNot verified: FPGA simulation, synthesis/implementation, board behavior, performance, or all private data.\r\n",
+    "raw_log_sha256": "f61a9288ef6a96d77eb3dbcd44918bfd038320a53dd4b98ebf7128a8af308e90"
+  },
+  "whitespace": {
+    "command": [
+      "git",
+      "diff",
+      "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2..HEAD",
+      "--check"
+    ],
+    "utc_start": "2026-10-04T16:48:32.869683+00:00",
+    "utc_end": "2026-10-04T16:48:32.886043+00:00",
+    "exit_code": 0,
+    "stdout": "",
+    "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "builds": {
+    "legacy": {
+      "command": [
+        "<GCC48>",
+        "-std=c99",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2",
+        "-shared",
+        "-I<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\pid.c",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\control.c",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\uart_parser.c",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\command.c",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\rx_queue.c",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\tests\\bridge.c",
+        "-o",
+        "<CLEAN_REPO>\\private\\gcc48-final-v2\\host\\stm32_p0.dll"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-04T16:42:33.089519+00:00",
+      "ended_utc": "2026-10-04T16:42:33.465832+00:00",
+      "compiler_version": "gcc.exe (tdm64-2) 4.8.1\r\nCopyright (C) 2013 Free Software Foundation, Inc.\r\nThis is free software; see the source for copying conditions.  There is NO\r\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\r\n\r\n",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "sources": {
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\pid.c": "389b627c4e66908e20c30a48f93233c3ce13f239fabbcb5e0984a386a026ce3b",
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\control.c": "a1d3a0509b162f6e995aac4055a18c0004afbe2d2920cea8d01dd886205323c7",
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\uart_parser.c": "3c301d62be8076c724675f84f4d2530241fcc42ed000dd3f5df8200df5ac1262",
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\command.c": "a176b342ea7de2a6f8a044779e64a12501e70efd3cdae13a45f53a0c16200f99",
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\rx_queue.c": "fa2e4881c99cb13a51cb076d1b820177decf4beeb9547a8da373e86bd08a3c30",
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\tests\\bridge.c": "5356ca3964a9e73f3329061f18cf9d8a426bc52dd90c273c73ac5db05fc40514"
+      },
+      "library_sha256": "f19db696fa7d2715cb91ee4ac89c846f3d7404e88a9b9ec17286fd4ea8b8f142",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "warnings": 0,
+      "errors": 0
+    },
+    "deep": {
+      "command": [
+        "<GCC48>",
+        "-std=c99",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-O2",
+        "-shared",
+        "-I<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\pid.c",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\control.c",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\uart_parser.c",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\command.c",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\rx_queue.c",
+        "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\tests\\s01_s08_bridge.c",
+        "-o",
+        "<CLEAN_REPO>\\private\\gcc48-final-v2\\host-deep\\stm32_p0.dll"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-04T16:42:33.496663+00:00",
+      "ended_utc": "2026-10-04T16:42:33.860438+00:00",
+      "compiler_version": "gcc.exe (tdm64-2) 4.8.1\r\nCopyright (C) 2013 Free Software Foundation, Inc.\r\nThis is free software; see the source for copying conditions.  There is NO\r\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\r\n\r\n",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "sources": {
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\pid.c": "389b627c4e66908e20c30a48f93233c3ce13f239fabbcb5e0984a386a026ce3b",
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\control.c": "a1d3a0509b162f6e995aac4055a18c0004afbe2d2920cea8d01dd886205323c7",
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\uart_parser.c": "3c301d62be8076c724675f84f4d2530241fcc42ed000dd3f5df8200df5ac1262",
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\command.c": "a176b342ea7de2a6f8a044779e64a12501e70efd3cdae13a45f53a0c16200f99",
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\User\\rx_queue.c": "fa2e4881c99cb13a51cb076d1b820177decf4beeb9547a8da373e86bd08a3c30",
+        "src\\prototype\\stm32_openmv_gimbal\\stm32\\tests\\s01_s08_bridge.c": "61a17175a5121525a27741515c515d8bf36bda8b8a4a8eaf4bf9b8e6f794c4e2"
+      },
+      "library_sha256": "f48f30bf9aa655e4df336d04f9bd10ccdf03081cc3af8583d73055e823939efc",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "warnings": 0,
+      "errors": 0
+    }
+  }
+}

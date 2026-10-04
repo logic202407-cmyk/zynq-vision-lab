@@ -1,0 +1,10 @@
+{
+  "float_fields": 14124,
+  "max_abs_delta": 0.0,
+  "tolerance": 1e-05,
+  "differences": [],
+  "compared_cases": 437,
+  "compared_steps": 1284,
+  "complete_records_identical": true,
+  "raw_replays_preserved_privately": true
+}

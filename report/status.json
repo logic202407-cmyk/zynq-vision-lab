@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-01",
+  "updated_on": "2026-10-05",
   "project_stage": "pl_camera_prototype",
   "components": [
     {
@@ -98,6 +98,18 @@
       "tool_version": "Python3.12.14; GCC4.8.1; ARMCC5.06u5 build528",
       "reviewer": "Codex local compiled-C fixture and clean-clone verifier",
       "note": "69 independent STM32 host checks and 109 full tests without skip; clean-clone firmware build with 0 errors/warnings. Software state/pulse-cache evidence only; no hardware, physical stop, final fixed-camera calibration, integration or independent-person reproduction."
+    },
+    {
+      "id": "stm32_s01_s08",
+      "status": "simulated",
+      "evidence": [
+        "report/experiments/2026-10-05-stm32-s01-s08.md",
+        "report/experiments/stm32-s01-s08-2026-10-05/packages.json"
+      ],
+      "verified_commit": "943142f9c52160a7512909e26901074fb13b7515",
+      "tool_version": "Python3.12.14; existing GCC4.8.1 and GCC8.3.0",
+      "reviewer": "Codex author-side compiled-C/static review; another human not_run",
+      "note": "437 new C regressions plus 9 comparator checks; both existing compilers passed 555 full tests without skip from the pinned clean clone. S01/S03/S05 static audits delivered; S02 local ZIP 16-file provenance matched, but full ST licence and official download proof remain blocked. Linux has 5 inherited viewer dependency skips, no STM32 skips. GUI/hardware/PWM/physical stop/final calibration/integration and independent-human reproduction not_run."
     }
   ]
 }

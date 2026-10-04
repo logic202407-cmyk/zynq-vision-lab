@@ -1,0 +1,1162 @@
+{
+  "schema": "stm32-s01-s08/audit-v1",
+  "baseline": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+  "utc_start": "2026-10-04T16:42:32.930295+00:00",
+  "utc_end": "2026-10-04T16:42:33.614536+00:00",
+  "S01": {
+    "original_total": 109,
+    "original_stm32": 69,
+    "fixed_scenarios": 66,
+    "queue_tests": 3,
+    "scenario_ids": [
+      "startup_waiting",
+      "valid_nonzero",
+      "valid_zero",
+      "no_target_clears_history",
+      "timeout_before_boundary",
+      "timeout_at_boundary",
+      "timeout_recovery",
+      "gap_recovery_without_tick",
+      "crc_invalidates_old_measurement",
+      "normal_after_crc",
+      "bad_length",
+      "bad_version",
+      "bad_valid_flag",
+      "bad_config",
+      "x_above_range",
+      "x_below_range",
+      "y_above_range",
+      "y_below_range",
+      "zero_session",
+      "no_target_nonzero_fields",
+      "bad_tail",
+      "missing_fields_expires",
+      "partial_gap_then_recovery",
+      "overlapping_header",
+      "noise_then_normal",
+      "back_to_back_frames",
+      "duplicate_frame",
+      "out_of_order_frame",
+      "retired_session",
+      "new_session_resets_history",
+      "sequence_wrap_requires_new_session",
+      "receive_clock_wrap",
+      "source_clock_not_freshness",
+      "queued_stale_frame",
+      "manual_pan_preserves_tilt",
+      "manual_tilt_preserves_pan",
+      "alternating_axes",
+      "camera_cannot_override_manual",
+      "auto_waits_for_new_frame",
+      "auto_rejects_queued_duplicate",
+      "auto_recovers_on_new_frame",
+      "gain_change_preserves_manual",
+      "reject_command_trailing_junk",
+      "reject_command_missing_value",
+      "reject_command_out_of_range",
+      "reject_command_negative",
+      "reject_command_pulse_fraction",
+      "reject_command_auto_extra_field",
+      "reject_command_gain_nan",
+      "reject_command_gain_infinity",
+      "reject_command_gain_above_range",
+      "reject_command_oversized_command",
+      "command_resynchronizes",
+      "manual_more_than_256_commands",
+      "deadband_independent_axes",
+      "jump_filter",
+      "recovery_initializes_derivative",
+      "range_boundaries",
+      "session_wrap_rejected",
+      "bad_config_does_not_advance_frame",
+      "deleted_byte_resynchronizes",
+      "inserted_byte_resynchronizes",
+      "manual_timeout_keeps_axis_values",
+      "auto_rejects_older_queued_new_sequence",
+      "auto_accepts_post_switch_new_sequence",
+      "mode_barrier_across_clock_wrap"
+    ],
+    "protected": [
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/.gitignore",
+        "baseline_sha256": "e1ed430f8768863a2c2fadda06097769fdc49e338207155e8e2a148dae226b82",
+        "actual_sha256": "e1ed430f8768863a2c2fadda06097769fdc49e338207155e8e2a148dae226b82",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/BUILD.md",
+        "baseline_sha256": "95c3e8ea874c604651cbea1cbb63df7a194a68541be5e21120dd24fa57838fdf",
+        "actual_sha256": "95c3e8ea874c604651cbea1cbb63df7a194a68541be5e21120dd24fa57838fdf",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/dependencies.sha256.json",
+        "baseline_sha256": "7f62ab3d905fd6c2dcaa2ed0d5d2c650cd42f11abe6899b004bcf7cd8265ac0c",
+        "actual_sha256": "7f62ab3d905fd6c2dcaa2ed0d5d2c650cd42f11abe6899b004bcf7cd8265ac0c",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/firmware.sct",
+        "baseline_sha256": "3cc2b096f366e2ee0deedfb91995d0a78739f0aa61be4835031a61fa027f4576",
+        "actual_sha256": "3cc2b096f366e2ee0deedfb91995d0a78739f0aa61be4835031a61fa027f4576",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/Project.uvprojx",
+        "baseline_sha256": "fc4f7d3a1652303f66ea969391d8854190da176964ef95ed4220d3e325ae880a",
+        "actual_sha256": "fc4f7d3a1652303f66ea969391d8854190da176964ef95ed4220d3e325ae880a",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/PROTOCOL.md",
+        "baseline_sha256": "b6b65b88d99631b4d10be919350c6534f0666e52a26fc81f86fae167665fe014",
+        "actual_sha256": "b6b65b88d99631b4d10be919350c6534f0666e52a26fc81f86fae167665fe014",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/tests/bridge.c",
+        "baseline_sha256": "5356ca3964a9e73f3329061f18cf9d8a426bc52dd90c273c73ac5db05fc40514",
+        "actual_sha256": "5356ca3964a9e73f3329061f18cf9d8a426bc52dd90c273c73ac5db05fc40514",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/tests/scenarios.json",
+        "baseline_sha256": "a50b17d05f8f2ea3e7a1baf7b3c7521b446b9e8f47dc61ee137de89b2cc9adab",
+        "actual_sha256": "a50b17d05f8f2ea3e7a1baf7b3c7521b446b9e8f47dc61ee137de89b2cc9adab",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/command.c",
+        "baseline_sha256": "a176b342ea7de2a6f8a044779e64a12501e70efd3cdae13a45f53a0c16200f99",
+        "actual_sha256": "a176b342ea7de2a6f8a044779e64a12501e70efd3cdae13a45f53a0c16200f99",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/command.h",
+        "baseline_sha256": "41fb3d00291c7ffcc0808c110fcbcd9bc3941968521ac178b3b11b612285c533",
+        "actual_sha256": "41fb3d00291c7ffcc0808c110fcbcd9bc3941968521ac178b3b11b612285c533",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/control.c",
+        "baseline_sha256": "a1d3a0509b162f6e995aac4055a18c0004afbe2d2920cea8d01dd886205323c7",
+        "actual_sha256": "a1d3a0509b162f6e995aac4055a18c0004afbe2d2920cea8d01dd886205323c7",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/control.h",
+        "baseline_sha256": "91e7ef9dc2b2d0d095f4d4f187b00fbbc7155cc0c57ad36ffb7214468084e893",
+        "actual_sha256": "91e7ef9dc2b2d0d095f4d4f187b00fbbc7155cc0c57ad36ffb7214468084e893",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/main.c",
+        "baseline_sha256": "5abe613e1ed86c9c29846942b03c8eef425e42fbd9784b5a97a68b40e13eb9d2",
+        "actual_sha256": "5abe613e1ed86c9c29846942b03c8eef425e42fbd9784b5a97a68b40e13eb9d2",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/pid.c",
+        "baseline_sha256": "389b627c4e66908e20c30a48f93233c3ce13f239fabbcb5e0984a386a026ce3b",
+        "actual_sha256": "389b627c4e66908e20c30a48f93233c3ce13f239fabbcb5e0984a386a026ce3b",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/pid.h",
+        "baseline_sha256": "f141334c5beaa30242297eb4a05bdd32247c7e7627e7f55e549c8a07e765069a",
+        "actual_sha256": "f141334c5beaa30242297eb4a05bdd32247c7e7627e7f55e549c8a07e765069a",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/rx_queue.c",
+        "baseline_sha256": "fa2e4881c99cb13a51cb076d1b820177decf4beeb9547a8da373e86bd08a3c30",
+        "actual_sha256": "fa2e4881c99cb13a51cb076d1b820177decf4beeb9547a8da373e86bd08a3c30",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/rx_queue.h",
+        "baseline_sha256": "e6cb2419dcc7b0796d127af0285549400fa6aa92267775330523132802a23103",
+        "actual_sha256": "e6cb2419dcc7b0796d127af0285549400fa6aa92267775330523132802a23103",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/servo.c",
+        "baseline_sha256": "47e6ee477145c430a414f1eba1fd46a7af7bf11ecf9f451d174c01bf1c199a4d",
+        "actual_sha256": "47e6ee477145c430a414f1eba1fd46a7af7bf11ecf9f451d174c01bf1c199a4d",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/servo.h",
+        "baseline_sha256": "de85695374ce108ac8990a406b40a66b1b63ead8bb77b80b974d14f33eded4bc",
+        "actual_sha256": "de85695374ce108ac8990a406b40a66b1b63ead8bb77b80b974d14f33eded4bc",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/stm32f10x_conf.h",
+        "baseline_sha256": "9fb57c67e0949837af9580243362d5bc2fb04c121c8ad75ff7cb1aca2d90005b",
+        "actual_sha256": "9fb57c67e0949837af9580243362d5bc2fb04c121c8ad75ff7cb1aca2d90005b",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/stm32f10x_it.c",
+        "baseline_sha256": "334a06d192136bcdaafc157d254da4c15ed0bdb58dd2a37f31be242a6714cc36",
+        "actual_sha256": "334a06d192136bcdaafc157d254da4c15ed0bdb58dd2a37f31be242a6714cc36",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/stm32f10x_it.h",
+        "baseline_sha256": "5cef749948cdd04dea9cbc2b1d3688d534b0573b79f9d65dde94a4a13d54cf22",
+        "actual_sha256": "5cef749948cdd04dea9cbc2b1d3688d534b0573b79f9d65dde94a4a13d54cf22",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/uart_parser.c",
+        "baseline_sha256": "3c301d62be8076c724675f84f4d2530241fcc42ed000dd3f5df8200df5ac1262",
+        "actual_sha256": "3c301d62be8076c724675f84f4d2530241fcc42ed000dd3f5df8200df5ac1262",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/uart_parser.h",
+        "baseline_sha256": "6309c0058a358b2c1954569279beb671a425b59665bf2f41b71d496ca571b446",
+        "actual_sha256": "6309c0058a358b2c1954569279beb671a425b59665bf2f41b71d496ca571b446",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/usart3_config.c",
+        "baseline_sha256": "790a286903d3718cdddfa75337d1f0405ca73f42f93f4778f4a6828e9f708789",
+        "actual_sha256": "790a286903d3718cdddfa75337d1f0405ca73f42f93f4778f4a6828e9f708789",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/usart3_config.h",
+        "baseline_sha256": "d343200a66e62fcd52681924a12cbe36bb01f5fa8de357464b946380181b4390",
+        "actual_sha256": "d343200a66e62fcd52681924a12cbe36bb01f5fa8de357464b946380181b4390",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/usart_config.c",
+        "baseline_sha256": "543227cd601e844facbdd765e562dcdb34fb50f784a22caad5370a3424aa0c50",
+        "actual_sha256": "543227cd601e844facbdd765e562dcdb34fb50f784a22caad5370a3424aa0c50",
+        "equal": true
+      },
+      {
+        "path": "src/prototype/stm32_openmv_gimbal/stm32/User/usart_config.h",
+        "baseline_sha256": "805db00e1ff891d0efb4a0b378798b5702ecaac0c1b63db28458ddc0bd246d74",
+        "actual_sha256": "805db00e1ff891d0efb4a0b378798b5702ecaac0c1b63db28458ddc0bd246d74",
+        "equal": true
+      },
+      {
+        "path": "tests/test_stm32_p0.py",
+        "baseline_sha256": "72de0bae0c64953b0b98efa7f44634daf473f0faa612246bac9096e986146c0a",
+        "actual_sha256": "72de0bae0c64953b0b98efa7f44634daf473f0faa612246bac9096e986146c0a",
+        "equal": true
+      },
+      {
+        "path": "tools/build_stm32_p0.py",
+        "baseline_sha256": "51ea2365520ab89446ded85034467b3fe563cf244e315c48dcfbca3ad8f4b6a5",
+        "actual_sha256": "51ea2365520ab89446ded85034467b3fe563cf244e315c48dcfbca3ad8f4b6a5",
+        "equal": true
+      }
+    ],
+    "all_protected_equal": true
+  },
+  "S02": {
+    "execution": "blocked",
+    "reason": "local archive byte provenance established when present; full ST SPL licence and official download provenance remain unverified",
+    "package": {
+      "logical_path": "<LOCAL_SPL350_ARCHIVE>",
+      "filename": "STM32F10x_StdPeriph_Lib_V3.5.0.zip",
+      "sha256": "0e56bf5eb468d389355f86d4f2715acbb7c3f07e2bd86427caec4f5798846c2a",
+      "member_count": 1171,
+      "matching_manifest_files": 16,
+      "official_download_origin_verified": false,
+      "license_members": [
+        {
+          "member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/License.doc",
+          "sha256": "c0cf8934f8b63e5e021a3786d24f5b36280249774b06be300f8463b54e5beb99",
+          "bytes": 39936
+        }
+      ]
+    },
+    "dependency_rows": [
+      {
+        "path": "Start/core_cm3.c",
+        "expected_sha256": "e93a7e36349e7810f328276a3fed56701e10536779f7527a8ccd140618a556b0",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/CoreSupport/core_cm3.c",
+        "local_archive_sha256": "e93a7e36349e7810f328276a3fed56701e10536779f7527a8ccd140618a556b0",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "e93a7e36349e7810f328276a3fed56701e10536779f7527a8ccd140618a556b0",
+          "matches_manifest": true,
+          "header_version": "V1.30",
+          "header_sha256": "ac3f781ca1b287d5bf987d5b93628f5ea8fe028dd51c8b67a24c9c10871bb393"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Start/core_cm3.h",
+        "expected_sha256": "de4668aa9d314d05769dfb29f028e205b50577c6b2150fc6bccb34bd34179bbb",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/CoreSupport/core_cm3.h",
+        "local_archive_sha256": "de4668aa9d314d05769dfb29f028e205b50577c6b2150fc6bccb34bd34179bbb",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "de4668aa9d314d05769dfb29f028e205b50577c6b2150fc6bccb34bd34179bbb",
+          "matches_manifest": true,
+          "header_version": "V1.30",
+          "header_sha256": "48b1048403632cf5078aaa77b64cf4343a7b4bae78af44db8a7a3484e8254516"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Start/stm32f10x.h",
+        "expected_sha256": "4ee722d262c1e7d7505d7dc7eeb8ccaaf67158b51ee4bc177397cd64e74e1b3a",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/stm32f10x.h",
+        "local_archive_sha256": "4ee722d262c1e7d7505d7dc7eeb8ccaaf67158b51ee4bc177397cd64e74e1b3a",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "4ee722d262c1e7d7505d7dc7eeb8ccaaf67158b51ee4bc177397cd64e74e1b3a",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "54b90bab213e17aaa8c967b1a6d7f8ee8ba2d3a1102c9dfa6469390ccf01ab06"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Start/system_stm32f10x.c",
+        "expected_sha256": "45f52950f5fc6509920fb26d1362e8457907c2d62fa455cbe3c6ce6daa974a76",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c",
+        "local_archive_sha256": "45f52950f5fc6509920fb26d1362e8457907c2d62fa455cbe3c6ce6daa974a76",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "45f52950f5fc6509920fb26d1362e8457907c2d62fa455cbe3c6ce6daa974a76",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "bfc815218fac039a9c8f624dfc1c63fba4e3b43dc763b16cc750bc87ef9afc84"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Start/system_stm32f10x.h",
+        "expected_sha256": "919dc1f5c6bbba74cb712e8ec7cf73f1988eafa9438c706526fb401a2ab4672d",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.h",
+        "local_archive_sha256": "919dc1f5c6bbba74cb712e8ec7cf73f1988eafa9438c706526fb401a2ab4672d",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "919dc1f5c6bbba74cb712e8ec7cf73f1988eafa9438c706526fb401a2ab4672d",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "919dc1f5c6bbba74cb712e8ec7cf73f1988eafa9438c706526fb401a2ab4672d"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Start/startup_stm32f10x_md.s",
+        "expected_sha256": "8bff69adff662663c0fcbee4cfbeb3ed9ff2b7501527f24815789f2736420d23",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/arm/startup_stm32f10x_md.s",
+        "local_archive_sha256": "8bff69adff662663c0fcbee4cfbeb3ed9ff2b7501527f24815789f2736420d23",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "8bff69adff662663c0fcbee4cfbeb3ed9ff2b7501527f24815789f2736420d23",
+          "matches_manifest": true,
+          "header_version": null,
+          "header_sha256": "5a5fe406bf9e65b9aa1a5d62cbef782ae5e44c80c6b46d03e20fa6c249246e42"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Library/misc.c",
+        "expected_sha256": "152c632e56151b2564121c56ff359d0f041621f0da6ed101d7fd376a139a5c75",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/src/misc.c",
+        "local_archive_sha256": "152c632e56151b2564121c56ff359d0f041621f0da6ed101d7fd376a139a5c75",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "152c632e56151b2564121c56ff359d0f041621f0da6ed101d7fd376a139a5c75",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "0b3a7dcf84c48dd30213134aeac7eb48eaa2f6db61b71a69defbf8c0b6d3e3d4"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Library/misc.h",
+        "expected_sha256": "40c918f726035dfa67a7bfadefac8e922196d7918f915a7f2db1e652625c7e41",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/inc/misc.h",
+        "local_archive_sha256": "40c918f726035dfa67a7bfadefac8e922196d7918f915a7f2db1e652625c7e41",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "40c918f726035dfa67a7bfadefac8e922196d7918f915a7f2db1e652625c7e41",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "ee02b99c9da135807c78c493f9c1a9857d48c3acd5ea020cb7e5bde9621b4803"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Library/stm32f10x_gpio.c",
+        "expected_sha256": "8255650b583b2bab2c320e0974309a6ccf26f661e7ad1b54282c0f0e2b9a1acf",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c",
+        "local_archive_sha256": "8255650b583b2bab2c320e0974309a6ccf26f661e7ad1b54282c0f0e2b9a1acf",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "8255650b583b2bab2c320e0974309a6ccf26f661e7ad1b54282c0f0e2b9a1acf",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "4362770f433484b3ded19d81b9eb28d5677193290766930f08863bd874822368"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Library/stm32f10x_gpio.h",
+        "expected_sha256": "ef945fe7b2e4a8f3bf8fa22d44274085444dec80424f91606a1467ea4e69626f",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_gpio.h",
+        "local_archive_sha256": "ef945fe7b2e4a8f3bf8fa22d44274085444dec80424f91606a1467ea4e69626f",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "ef945fe7b2e4a8f3bf8fa22d44274085444dec80424f91606a1467ea4e69626f",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "cbc93706683a9a3997acea36112c010c595609657a3903a4e1845fa9191d65dd"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Library/stm32f10x_rcc.c",
+        "expected_sha256": "f23bbc9b83e44e69f5dc34f072867f0087a3eb0452034ab09c363088d2354cd9",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c",
+        "local_archive_sha256": "f23bbc9b83e44e69f5dc34f072867f0087a3eb0452034ab09c363088d2354cd9",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "f23bbc9b83e44e69f5dc34f072867f0087a3eb0452034ab09c363088d2354cd9",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "3ab9b0d10e94858ede898a98aabf584f04160bf27029edad57cc2f011bd3c221"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Library/stm32f10x_rcc.h",
+        "expected_sha256": "894e140a70b0cdc94e4e96c5011def9dca5a103752783c3bb7cab538fc426f9e",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_rcc.h",
+        "local_archive_sha256": "894e140a70b0cdc94e4e96c5011def9dca5a103752783c3bb7cab538fc426f9e",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "894e140a70b0cdc94e4e96c5011def9dca5a103752783c3bb7cab538fc426f9e",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "82246830141519aaf6c72acff4ecffeba4a439d41028669406a21dea970ab719"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Library/stm32f10x_tim.c",
+        "expected_sha256": "bd12bf18b03b8585ac2ba6bd0e80ec39d8fd0c89307eb54f5a7be38a46894d03",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c",
+        "local_archive_sha256": "bd12bf18b03b8585ac2ba6bd0e80ec39d8fd0c89307eb54f5a7be38a46894d03",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "bd12bf18b03b8585ac2ba6bd0e80ec39d8fd0c89307eb54f5a7be38a46894d03",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "68b40dac33d6469dced065ef2e82cf16dd182fe79a3f2b3d7d64370ccd5fdbd7"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Library/stm32f10x_tim.h",
+        "expected_sha256": "dddf89f9b7134a2f15ed9cc2521589ee9a2e18c0553a6017c71b5d5b394524e5",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_tim.h",
+        "local_archive_sha256": "dddf89f9b7134a2f15ed9cc2521589ee9a2e18c0553a6017c71b5d5b394524e5",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "dddf89f9b7134a2f15ed9cc2521589ee9a2e18c0553a6017c71b5d5b394524e5",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "9ea38b0f0e4ffbaada13b2bce59284a3a12276cb12294b1e3ba6786768a76456"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Library/stm32f10x_usart.c",
+        "expected_sha256": "6d7af47017b01eb260fb7699f5c483e0a8576b4c780069a99975b7c6443030dd",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_usart.c",
+        "local_archive_sha256": "6d7af47017b01eb260fb7699f5c483e0a8576b4c780069a99975b7c6443030dd",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "6d7af47017b01eb260fb7699f5c483e0a8576b4c780069a99975b7c6443030dd",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "450182b597ce245ae47e97c554bfa26e9f42e76897128c38ba468a8eadefd667"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      },
+      {
+        "path": "Library/stm32f10x_usart.h",
+        "expected_sha256": "9d4c2067e54defd64b000076e6561726d758c872d354bed6eea66a6767c08bce",
+        "original_package_verified": true,
+        "full_license_verified": false,
+        "local_archive_member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_usart.h",
+        "local_archive_sha256": "9d4c2067e54defd64b000076e6561726d758c872d354bed6eea66a6767c08bce",
+        "local_archive_matches_manifest": true,
+        "original_package_scope": "byte identity in found local archive, not ST download authenticity",
+        "actual_copy": {
+          "logical_root": "<ACTUAL_COPY>",
+          "sha256": "9d4c2067e54defd64b000076e6561726d758c872d354bed6eea66a6767c08bce",
+          "matches_manifest": true,
+          "header_version": "V3.5.0",
+          "header_sha256": "cfe1835e93ca4ec85d35c7b106e118a4fe675021fb474eecceb2f25c4523b39b"
+        },
+        "candidate_local_origin": {
+          "present": false
+        }
+      }
+    ],
+    "official_product": "https://www.st.com/en/embedded-software/stsw-stm32054.html",
+    "cmsis_license": {
+      "archive_sha256": "0e56bf5eb468d389355f86d4f2715acbb7c3f07e2bd86427caec4f5798846c2a",
+      "member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/License.doc",
+      "raw_sha256": "c0cf8934f8b63e5e021a3786d24f5b36280249774b06be300f8463b54e5beb99",
+      "raw_bytes": 39936,
+      "main_text_characters": 7307,
+      "text_sha256": "b290f35fb61c0bf8ef89ec1dd8c866b47f254113db36732937647d5205fcaad0",
+      "piece_count": 1,
+      "main_text_fully_extracted": true,
+      "review": "complete main text read; scope does not authorize all ST files"
+    },
+    "st_notices": [
+      {
+        "member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/Release_Notes.html",
+        "sha256": "3a97827e5adb7e51685d0308b0dcde7f3e444964cbf42146246e6da130b76186",
+        "finding": "License section says no License Agreement covers the enclosed firmware/documentation; separate agreement not obtained"
+      },
+      {
+        "member": "STM32F10x_StdPeriph_Lib_V3.5.0/Libraries/STM32F10x_StdPeriph_Driver/Release_Notes.html",
+        "sha256": "62d2333d7d66aa87b723b172cebeac38517e37265563dc2b6d5066aad0c67cea",
+        "finding": "License section says no License Agreement covers the enclosed firmware/documentation; separate agreement not obtained"
+      },
+      {
+        "member": "STM32F10x_StdPeriph_Lib_V3.5.0/Release_Notes.html",
+        "sha256": "d0fe5d514a871a7942517d067714bedaf506a798a51abb26ef9a42871e435e60",
+        "finding": "License section says no License Agreement covers the enclosed firmware/documentation; separate agreement not obtained"
+      }
+    ]
+  },
+  "S03": {
+    "execution": "implemented",
+    "review": "static audit; GUI not_run",
+    "options": {
+      "compiler": "5060528::V5.06 update 5 (build 528)::ARMCC",
+      "ac6": "0",
+      "cpu": "\"Cortex-M3\"",
+      "c99": "1",
+      "optimization_raw": "1",
+      "one_elf_section": "1",
+      "interwork": "1",
+      "enum_int": "0",
+      "signed_char": "0",
+      "warning_level_raw": "2",
+      "suppress_auto_includes": "0",
+      "micro_lib": "0",
+      "generated_scatter": "1",
+      "use_scatter_file": "0",
+      "scatter": "",
+      "irom_start": "0x8000000",
+      "irom_size": "0x10000",
+      "iram_start": "0x20000000",
+      "iram_size": "0x5000"
+    },
+    "units": [
+      {
+        "unit": "command.c",
+        "project_path": ".\\User\\command.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "control.c",
+        "project_path": ".\\User\\control.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "main.c",
+        "project_path": ".\\User\\main.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "pid.c",
+        "project_path": ".\\User\\pid.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "rx_queue.c",
+        "project_path": ".\\User\\rx_queue.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "servo.c",
+        "project_path": ".\\User\\servo.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "stm32f10x_it.c",
+        "project_path": ".\\User\\stm32f10x_it.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "uart_parser.c",
+        "project_path": ".\\User\\uart_parser.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "usart3_config.c",
+        "project_path": ".\\User\\usart3_config.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "usart_config.c",
+        "project_path": ".\\User\\usart_config.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "core_cm3.c",
+        "project_path": "..\\..\\..\\..\\private\\stm32-deps\\Start\\core_cm3.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "system_stm32f10x.c",
+        "project_path": "..\\..\\..\\..\\private\\stm32-deps\\Start\\system_stm32f10x.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "startup_stm32f10x_md.s",
+        "project_path": "..\\..\\..\\..\\private\\stm32-deps\\Start\\startup_stm32f10x_md.s",
+        "language": "assembler",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [],
+          "includes": [],
+          "optimization": [],
+          "c99": false,
+          "debug": true,
+          "split_sections": false,
+          "interwork": true,
+          "exit_code": 0
+        },
+        "gui_target_defines": "",
+        "gui_target_includes": ""
+      },
+      {
+        "unit": "misc.c",
+        "project_path": "..\\..\\..\\..\\private\\stm32-deps\\Library\\misc.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "stm32f10x_gpio.c",
+        "project_path": "..\\..\\..\\..\\private\\stm32-deps\\Library\\stm32f10x_gpio.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "stm32f10x_rcc.c",
+        "project_path": "..\\..\\..\\..\\private\\stm32-deps\\Library\\stm32f10x_rcc.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "stm32f10x_tim.c",
+        "project_path": "..\\..\\..\\..\\private\\stm32-deps\\Library\\stm32f10x_tim.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      },
+      {
+        "unit": "stm32f10x_usart.c",
+        "project_path": "..\\..\\..\\..\\private\\stm32-deps\\Library\\stm32f10x_usart.c",
+        "language": "C",
+        "file_override": false,
+        "recorded_cli": {
+          "cpu": "Cortex-M3",
+          "defines": [
+            "USE_STDPERIPH_DRIVER",
+            "STM32F10X_MD"
+          ],
+          "includes": [
+            "<CLEAN_REPO>\\src\\prototype\\stm32_openmv_gimbal\\stm32\\User",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Start",
+            "<CLEAN_REPO>\\private\\stm32-deps\\Library"
+          ],
+          "optimization": [
+            "-O1"
+          ],
+          "c99": true,
+          "debug": true,
+          "split_sections": false,
+          "interwork": false,
+          "exit_code": 0
+        },
+        "gui_target_defines": "USE_STDPERIPH_DRIVER,STM32F10X_MD",
+        "gui_target_includes": ".\\User;..\\..\\..\\..\\private\\stm32-deps\\Start;..\\..\\..\\..\\private\\stm32-deps\\Library"
+      }
+    ],
+    "source_sets_equal": true,
+    "cli_build_rerun_this_stage": false,
+    "enabled_user_hooks": false,
+    "cli_scatter_sha256": "3cc2b096f366e2ee0deedfb91995d0a78739f0aa61be4835031a61fa027f4576",
+    "evidence_build_sha256": "694f84ab4630d2f815d927d081dbc47da17275565a05b002700a99adbeda7547"
+  },
+  "source_commit": "943142f9c52160a7512909e26901074fb13b7515",
+  "source_tree": "f62f8f0c13c9d1301eadecf10e82440a3438615d"
+}

@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FIRMWARE = ROOT / "src/prototype/stm32_openmv_gimbal/stm32"
 
 
-def build_host():
+def build_host(bridge=None):
     compiler = os.environ.get("P0_HOST_CC") or shutil.which("gcc")
     if not compiler and sys.platform == "win32":
         candidate = Path("C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc.exe")
@@ -25,7 +25,7 @@ def build_host():
     output.mkdir(parents=True, exist_ok=False)
     sources = [FIRMWARE / "User" / name for name in
                ("pid.c", "control.c", "uart_parser.c", "command.c", "rx_queue.c")]
-    sources.append(FIRMWARE / "tests/bridge.c")
+    sources.append(bridge or FIRMWARE / "tests/bridge.c")
     library = output / ("stm32_p0.dll" if sys.platform == "win32" else "stm32_p0.so")
     command = [compiler, "-std=c99", "-Wall", "-Wextra", "-Werror", "-O2", "-shared",
                "-I" + str(FIRMWARE / "User")]
