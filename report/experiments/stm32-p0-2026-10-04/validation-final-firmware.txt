@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "errors": 0,
+  "warnings": 0,
+  "artifacts": {
+    "firmware.axf": "28b4f85d10d610f3eeca910f8f372070165bdc1d9396b082b6c74de33d2daecf",
+    "firmware.hex": "05cafdd651a6576733f4a40dd1fb5e702a78fef53e48f1492516ccecfd87e66b",
+    "firmware.map": "300ac0cceb3fb9bf34c482eeaeb3eabf197640a3c3f832227c169c1a2fec14e9"
+  }
+}

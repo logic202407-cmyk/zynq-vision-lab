@@ -85,6 +85,19 @@
       "status": "planned",
       "evidence": [],
       "note": "Not implemented or verified."
+    },
+    {
+      "id": "stm32_independent_p0",
+      "status": "simulated",
+      "evidence": [
+        "src/prototype/stm32_openmv_gimbal/stm32/BUILD.md",
+        "src/prototype/stm32_openmv_gimbal/stm32/PROTOCOL.md",
+        "report/experiments/2026-10-04-stm32-p0-validation.md"
+      ],
+      "verified_commit": "d42b658fa425d71838a604e7cbf42e8764b87129",
+      "tool_version": "Python3.12.14; GCC4.8.1; ARMCC5.06u5 build528",
+      "reviewer": "Codex local compiled-C fixture and clean-clone verifier",
+      "note": "69 independent STM32 host checks and 109 full tests without skip; clean-clone firmware build with 0 errors/warnings. Software state/pulse-cache evidence only; no hardware, physical stop, final fixed-camera calibration, integration or independent-person reproduction."
     }
   ]
 }

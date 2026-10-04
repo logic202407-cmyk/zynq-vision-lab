@@ -1,0 +1,5 @@
+<DEV_REPO>\src\prototype\stm32_openmv_gimbal\stm32\User\uart_parser.c: In function 'crc16':
+<DEV_REPO>\src\prototype\stm32_openmv_gimbal\stm32\User\uart_parser.c:25:69: error: signed and unsigned type in conditional expression [-Werror=sign-compare]
+             crc = (uint16_t)((crc & 0x8000u) ? (crc << 1) ^ 0x1021u : crc << 1);
+                                                                     ^
+cc1.exe: all warnings being treated as errors

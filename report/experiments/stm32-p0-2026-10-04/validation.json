@@ -1,0 +1,155 @@
+{
+  "commit": "d42b658fa425d71838a604e7cbf42e8764b87129",
+  "baseline": "d96bc149bc25f0572350c47ed031c0922ec265ad",
+  "total_tests": 109,
+  "new_tests": 69,
+  "scenarios": 66,
+  "skip": 0,
+  "exit_code": 0,
+  "started_utc": "2026-10-04T06:46:56.400277+00:00",
+  "ended_utc": "2026-10-04T06:46:58.139637+00:00",
+  "worktree_before": "clean",
+  "worktree_after": "clean",
+  "project_paths": "all resolved",
+  "clone_kind": "git clone --no-local from GitHub-derived local repository; no build artifacts copied",
+  "dependencies": "16 ignored files installed separately and hashes enforced by build runner",
+  "commands": [
+    {
+      "name": "commit",
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "started_utc": "2026-10-04T06:46:56.400277+00:00",
+      "ended_utc": "2026-10-04T06:46:56.417869+00:00",
+      "exit_code": 0,
+      "log_sha256": "7f32ea4f4fa5b4dbf7208f24f2eb0d5a17929b538f80df14578ce4a06d678b02"
+    },
+    {
+      "name": "status-before",
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "started_utc": "2026-10-04T06:46:56.417869+00:00",
+      "ended_utc": "2026-10-04T06:46:56.438401+00:00",
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "foundation",
+      "command": [
+        "<PYTHON_3.12.14>",
+        "tools/check_repository.py"
+      ],
+      "started_utc": "2026-10-04T06:46:56.438401+00:00",
+      "ended_utc": "2026-10-04T06:46:56.544938+00:00",
+      "exit_code": 0,
+      "log_sha256": "f61a9288ef6a96d77eb3dbcd44918bfd038320a53dd4b98ebf7128a8af308e90"
+    },
+    {
+      "name": "tests",
+      "command": [
+        "<PYTHON_3.12.14>",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "started_utc": "2026-10-04T06:46:56.545935+00:00",
+      "ended_utc": "2026-10-04T06:46:57.190955+00:00",
+      "exit_code": 0,
+      "log_sha256": "47c67d63b9e0f0772981dd7812d479f7704b0b47f0a0a0222da8fc807384022d"
+    },
+    {
+      "name": "whitespace",
+      "command": [
+        "git",
+        "diff",
+        "d96bc149bc25f0572350c47ed031c0922ec265ad..HEAD",
+        "--check"
+      ],
+      "started_utc": "2026-10-04T06:46:57.190955+00:00",
+      "ended_utc": "2026-10-04T06:46:57.208637+00:00",
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "firmware",
+      "command": [
+        "<PYTHON_3.12.14>",
+        "tools/build_stm32_p0.py",
+        "--deps",
+        "private/stm32-deps",
+        "--tool-bin",
+        "C:/Keil_v5/ARM/ARMCC/bin",
+        "--output",
+        "private/firmware-final"
+      ],
+      "started_utc": "2026-10-04T06:46:57.208637+00:00",
+      "ended_utc": "2026-10-04T06:46:58.069799+00:00",
+      "exit_code": 0,
+      "log_sha256": "a2e3d678d8859368eec35cd1e2cf4969bedda72f0b198832f6bf1ef2bd74bfac"
+    },
+    {
+      "name": "version-armcc",
+      "command": [
+        "C:/Keil_v5/ARM/ARMCC/bin/armcc.exe",
+        "--vsn"
+      ],
+      "started_utc": "2026-10-04T06:46:58.069799+00:00",
+      "ended_utc": "2026-10-04T06:46:58.083121+00:00",
+      "exit_code": 0,
+      "log_sha256": "4feb24fdf982e0b714eaf52363da87f5e40c0ad53c44a8367e7b734f5d3edc1a"
+    },
+    {
+      "name": "version-armasm",
+      "command": [
+        "C:/Keil_v5/ARM/ARMCC/bin/armasm.exe",
+        "--vsn"
+      ],
+      "started_utc": "2026-10-04T06:46:58.083121+00:00",
+      "ended_utc": "2026-10-04T06:46:58.095642+00:00",
+      "exit_code": 0,
+      "log_sha256": "1c7a17b32cef214e2a74e022c318a0d379a42226aa62c11f9a347f771e87a33b"
+    },
+    {
+      "name": "version-armlink",
+      "command": [
+        "C:/Keil_v5/ARM/ARMCC/bin/armlink.exe",
+        "--vsn"
+      ],
+      "started_utc": "2026-10-04T06:46:58.095642+00:00",
+      "ended_utc": "2026-10-04T06:46:58.107488+00:00",
+      "exit_code": 0,
+      "log_sha256": "0f23fda117feb765d5d44743b145dcf289374744d770d8dc6297a7873eb46181"
+    },
+    {
+      "name": "version-fromelf",
+      "command": [
+        "C:/Keil_v5/ARM/ARMCC/bin/fromelf.exe",
+        "--vsn"
+      ],
+      "started_utc": "2026-10-04T06:46:58.108511+00:00",
+      "ended_utc": "2026-10-04T06:46:58.119050+00:00",
+      "exit_code": 0,
+      "log_sha256": "55a833561e3c04ec098d8a1657e186b9f491fa8807c124576095713abecebf66"
+    },
+    {
+      "name": "status-after",
+      "command": [
+        "git",
+        "status",
+        "--porcelain"
+      ],
+      "started_utc": "2026-10-04T06:46:58.123047+00:00",
+      "ended_utc": "2026-10-04T06:46:58.139637+00:00",
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

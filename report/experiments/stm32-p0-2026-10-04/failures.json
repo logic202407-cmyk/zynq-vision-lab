@@ -1,0 +1,25 @@
+{
+  "initial_host_build": {
+    "compiler_exit_code": 1,
+    "unittest_exit_code": 5,
+    "tests_run": 0,
+    "reason": "GCC sign-compare treated as error",
+    "raw_sha256": "cd129d384802cb5488ef1dc4e9e1b5932400a5f5bac1ac480406b3b0395e2e3c",
+    "sanitized_sha256": "a6f5e5df80fe5037447912d241dedefb45f9180802a65ed1cf43d6d924007354"
+  },
+  "source_format_check": {
+    "status": "failed then corrected",
+    "reason": "Generated CRLF lines failed staged whitespace check; all expectations preserved"
+  },
+  "recording_wrapper": {
+    "status": "failed then corrected",
+    "reason": "Wrapper expected LF around OK; actual Windows CRLF test log had 109 passed, exit 0",
+    "log_sha256": "38a946f005a4d175126147a8c31391825af82c352353d7c2700f3e7a7dae9ed0"
+  },
+  "publication": {
+    "cli_push": "connection reset, exit 1; used connected GitHub plugin",
+    "encoding": "Three document blobs differed on initial export; ASCII-escaped JSON corrected them before branch creation",
+    "validated_source_tree": "4b4b71af9b0dadc50422fa1f29c15629e952620d",
+    "github_source_commit": "d42b658fa425d71838a604e7cbf42e8764b87129"
+  }
+}
