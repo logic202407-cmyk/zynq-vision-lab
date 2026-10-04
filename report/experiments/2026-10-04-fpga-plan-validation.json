@@ -1,0 +1,153 @@
+{
+  "acceptance_checks": [
+    {
+      "command": [
+        "python",
+        "tools/check_repository.py"
+      ],
+      "exit_code": 0,
+      "log_file": "check-1.txt",
+      "log_sha256": "f61a9288ef6a96d77eb3dbcd44918bfd038320a53dd4b98ebf7128a8af308e90"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log_file": "check-2.txt",
+      "log_sha256": "71704f2d4049019004c8a7b929bc506ee9b5dee0f68fb7943cfb9379688fc5cf"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "src.pc.target_replay",
+        "check",
+        "--output",
+        "pixel_comparison.json"
+      ],
+      "exit_code": 0,
+      "log_file": "check-3.txt",
+      "log_sha256": "8aaa4730afab93be3f944e42d8dcf253c6428e48b4c71259d2f0ce4faf1d1852"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log_file": "check-4.txt",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "board_stages": {
+    "exclusive_device_coordination": "not_run",
+    "physical_interference": "not_run",
+    "v1_configuration": "not_run",
+    "v1_exact_100": "not_run",
+    "v1_live_video": "not_run",
+    "v1_no_target": "not_run",
+    "v1_positive": "not_run",
+    "v1_receive_30s": "not_run",
+    "v2_configuration": "not_run",
+    "v2_exact_100": "not_run",
+    "v2_live_video": "not_run",
+    "v2_no_target": "not_run",
+    "v2_positive": "not_run",
+    "v2_receive_30s": "not_run"
+  },
+  "ended_at_utc": "2026-10-04T03:51:30.102452+00:00",
+  "evidence_gate": {
+    "claim": "Private raw snapshot export and offline same-input reference analysis implemented and regression checked",
+    "commit": "07fcb34cdaac02da67a09eb359beb233a6d29269",
+    "evidence_path": "report/experiments/2026-10-04-fpga-plan-validation.json",
+    "input_id": "synthetic-full-red-rgb565-640x480",
+    "known_limit": "No live GUI observation, JTAG/UDP session, new camera acquisition or independent person reproduction; bitstream build origins remain declared.",
+    "reviewer": "3331083641-prog/Codex local execution; external review pending",
+    "status": "implemented",
+    "tool_version": "Python 3.12.4 / Pillow 12.2.0 / Tk 8.6"
+  },
+  "hardware_actions_performed": false,
+  "independent_r0_checks": 31,
+  "independent_r0_groups": 16,
+  "new_regression_count": 11,
+  "new_tool_files_sha256": {
+    "src/pc/camera_viewer.py": "d5b20089b78255efbed271d7bf761fba9f456caa4b5ce10c1c52fe9f41c8241e",
+    "src/pc/frame_evidence.py": "e9f770095a01ecf721b40134184f009b9de674fd4ecf5f85546c55e75f724a05",
+    "tests/test_frame_evidence.py": "d637053a32692435682e8a00d84d53974073dff1f2a018f9b6c87adfb3bfbd67",
+    "tools/measure_saved_rgb565.py": "5c0b14d45b53156b41af58e1d2a59042648312521ec1b4ac1fd8d1b13f60e974"
+  },
+  "pillow": "12.2.0",
+  "pixel_comparisons": 22,
+  "plan_sha256": "3301785371b6da99926aa1468c0217bbe2baa50c1e7f593413dcb98e7a084b6a",
+  "private_record_sha256": "85f58aef27f1e4d917c78d07c3379088a82b721b1f416e6dd6b503b3b359fd25",
+  "protected_files_sha256": {
+    "data/fixtures/pc_r0_independent_cases.json": "da06ca9b7341b94fceaf5844755314ae8811aae983d552e7fbdb09cc9462432e",
+    "data/fixtures/pc_replay_sequences.json": "0c8a6c85e18ec738ca81e36859ef8f3eb15d6d5e15ee19475e09f1c50ab89d9e",
+    "data/fixtures/pc_target_cases.json": "d316d5202a33448da04b75875bd0a8c228ce78a3f7ea49332ae23226b7033661",
+    "sim/reference/red_mask.py": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52",
+    "sim/reference/spatial_relations.py": "940a8b85feab756cbe62933d474271e4ae276b811bd3fffc2f9010c782be6f5c",
+    "src/pc/pl_compare.py": "52accca8b2cde821dfd11a3607bd7143d6a24bb6705d3b5f0c842b03229eb2d3",
+    "src/pc/vendor_udp.py": "63936f4caee1d39e2016cb6e40781abf09f7cba46605a3ae3a4c5ec56e027a26",
+    "tests/test_pl_compare.py": "96035259d0ce27f15093e25aa935cf1dede97644346912bf6b1e2cee23731d55",
+    "tests/test_spatial_relations.py": "23a3044c8d27966de60276791489f738cf803faf38c375d187af0de1d52b74f1"
+  },
+  "python": "3.12.4",
+  "raw_camera_frames_captured": false,
+  "schema": "fpga-plan-offline-validation/1",
+  "scope": "software_only",
+  "source_commit_tested": "07fcb34cdaac02da67a09eb359beb233a6d29269",
+  "source_worktree_clean": true,
+  "started_at_utc": "2026-10-04T03:51:11.606048+00:00",
+  "steps": [
+    {
+      "command": [
+        "python",
+        "-c",
+        "import sys,PIL,tkinter; print(sys.version); print('Pillow',PIL.__version__); print('Tk',tkinter.TkVersion)"
+      ],
+      "ended_at_utc": "2026-10-04T03:51:11.691117+00:00",
+      "exit_code": 0,
+      "log_sha256": "3b1a6a00bc0b9e263468dcaf700021540047e3643e6b588bc82352008eb68158",
+      "name": "environment",
+      "started_at_utc": "2026-10-04T03:51:11.620068+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "tools/run_pc_acceptance.py",
+        "--require-r0",
+        "--output-dir",
+        "<private-evidence>/acceptance"
+      ],
+      "ended_at_utc": "2026-10-04T03:51:29.989632+00:00",
+      "exit_code": 0,
+      "log_sha256": "e21b60c43f199e88c19d2d6a8ac2fcd19e0cde811d2be2d5a787f48893518ced",
+      "name": "acceptance",
+      "started_at_utc": "2026-10-04T03:51:11.691629+00:00"
+    },
+    {
+      "command": [
+        "python",
+        "tools/check_pc_r0_cases.py",
+        "--output",
+        "<private-evidence>/independent-r0.json"
+      ],
+      "ended_at_utc": "2026-10-04T03:51:30.101887+00:00",
+      "exit_code": 0,
+      "log_sha256": "87682cb8b0b14da4917bd4ece51ef6c971cdd3bf111fa02b86b7af38138f74e1",
+      "name": "independent-r0",
+      "started_at_utc": "2026-10-04T03:51:29.990270+00:00"
+    }
+  ],
+  "tk": "8.6",
+  "unittest_count": 141,
+  "unittest_skipped": 0
+}
