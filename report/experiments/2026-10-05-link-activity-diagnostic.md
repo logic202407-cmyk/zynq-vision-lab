@@ -92,3 +92,34 @@ component-selection fixtures passing. **The new privileged entry is not_run**
 at this update; its hashes and preparation receipt are in the linked JSON.
 These helper checks do not change the previous failed real-video gate or
 authorize progression to formal P0, N0, 30-second or v2 tests.
+
+## Recovery succeeded; global ETW query gate failed
+
+The prepared entry actually ran from **11:49:36.0380186Z** to
+**11:49:48.1710973Z**. Temporary network recovery returned exit 0 and
+`CONFIGURED`. The capture child ran from **11:49:45.5112312Z** to
+**11:49:47.1958215Z**, returning exit 1 with `Cannot inspect existing ETW
+sessions`. **Capture and its video probe did not start**. The later read-only
+host check found the expected address preferred, the board-only route present,
+the wired link Up at 1 Gbps and no UDP1234 listener.
+
+The old global `logman query -ets` gate did not save native output and return
+code before failure. Its underlying failure reason remains unknown. The same
+read-only query returned 0 in a later non-admin PowerShell 5.1 reproduction;
+that different token and timestamp cannot explain the administrator failure.
+
+A fresh private entry now queries
+[`pktmon status`](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/pktmon-status)
+directly. It saves output and return code first, requiring exit 0 and an exact
+inactive-state message verified against the installed English/Chinese Windows
+resource. Active, unknown, mixed or access-denied output prevents capture start
+and stop. Native NIC-enumeration failures now also retain output and return code.
+The new checks do not infer an idle PktMon session from an unrelated ETW listing.
+
+Exact PowerShell 5.1 validation passed, as did six inactive/active/unknown/denied
+state fixtures and three unique/missing/ambiguous NIC fixtures. If the address
+and route remain valid, the entry skips network writes. If recovery is needed,
+it additionally preserves actual runtime pre-write settings for rollback.
+**Privileged execution of this new entry is not_run** at this update. All prior
+guards/results remain preserved; neither a packet result nor a new real-video
+gate can be claimed. Root cause of the intermittent video remains unknown.
