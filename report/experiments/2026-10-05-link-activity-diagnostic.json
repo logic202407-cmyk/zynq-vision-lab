@@ -68,7 +68,7 @@
     "observed_error": "non-admin PktMon driver access denied"
   },
   "capture_helper": {
-    "status": "UTF8_path_fix_validated_privileged_capture_not_run",
+    "status": "privileged_attempt_failed_before_capture_network_prerequisite",
     "helper_sha256": "6f6baa489ec91ccf9a196eeda2350f0a75a586d25a95e9e422a8c75075b2b397",
     "syntax_errors": 0,
     "selector_fixtures": 3,
@@ -89,6 +89,22 @@
       "correction": "Explicit UTF8 JSON reading; ValidateOnly now creates/removes a new test file in actual output directory",
       "exact_windows_powershell_validation_passed": true,
       "private_screenshot_sha256": "774ac9a28b12211a5816002cfd9951ef7dc44ca86efbf4a42f0e5ab99e72ae08"
+    },
+    "address_gate_attempt": {
+      "started_at_utc": "2026-10-05T11:37:37.6752449Z",
+      "ended_at_utc": "2026-10-05T11:37:40.0692058Z",
+      "status": "FAILED",
+      "capture_started_by_helper": false,
+      "error": "Address/route missing; this helper does not restore settings",
+      "network_settings_changed": false,
+      "packet_evidence": "none; packet capture never started",
+      "read_only_followup": {
+        "wired_link": "Up at 1 Gbps",
+        "expected_preferred_address_present": false,
+        "observed_address_class": "IPv4 link-local",
+        "board_only_route_present": false
+      },
+      "cause_of_network_state_loss": "unknown; observed change is not proof of a USB reset or board fault"
     }
   },
   "root_cause": "unknown",
@@ -98,5 +114,23 @@
     "A source-bound ICMP timeout is not a camera video verdict",
     "Physical indicator flashing is operator observation, not packet decoding",
     "Last JTAG register values belong to earlier query, not this window"
-  ]
+  ],
+  "prepared_recovery_capture_entry": {
+    "source_commit": "c3e646552b6d8b28126d4ec48addc6a7b6064836",
+    "at_utc": "2026-10-05T11:46:21.7982593Z",
+    "status": "prepared_not_executed",
+    "validation_only_exit_code": 0,
+    "selector_fixtures_passed": 3,
+    "script_sha256": {
+      "network-recovery\\configure-board-network.ps1": "9385b4204c7bac5f9de42f34395ab76583f7d03ab683a68729868fd3dd95205b",
+      "select_component.ps1": "6716aa6e4b27b06f2aad203879eda3c7f4628225a316e0f6150281db0cf4ceca",
+      "run_capture.ps1": "a139d4fea822a3475b0bc797743d5807cd0e01ef05691a7fbb9f025e32d61f0e",
+      "run_recovery_capture.ps1": "7ba69ee704c40d94419f33c9eb844e1b537cc8d21097d2c14f522df0cfeeeb88"
+    },
+    "execution_environment": "Windows PowerShell 5.1; validation-only mode checked actual output directory",
+    "authorized_settings_scope": "same identified wired NIC: temporary 192.168.1.102/24, interface metric 5000, on-link board-only 192.168.1.10/32 route; no persistent/Wi-Fi/DNS/default-gateway changes",
+    "capture_scope": "one identified wired NIC, 64-byte prefixes, one source-bound stimulus and one 10-second receiver",
+    "prerequisites": "administrator execution; fresh guard and evidence directory; no capture if recovery fails",
+    "validation_limit": "syntax/path/selector validation is not privileged execution or packet evidence"
+  }
 }

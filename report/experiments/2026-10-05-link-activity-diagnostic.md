@@ -63,3 +63,32 @@ screenshot, reproduction and corrected helper hashes are preserved privately.
 Actual packet capture remains **not_run** pending execution of the corrected
 helper in the already-open administrator window. No guard, active capture or
 network-setting change was created by the failed invocation.
+
+## Corrected helper: network prerequisite failed before capture
+
+The next administrator invocation reached the address/route gate at
+**2026-10-05 11:37:37.6752449Z**, ending at **11:37:40.0692058Z** with
+`FAILED: Address/route missing; this helper does not restore settings`.
+The one-shot guard and failure receipt are preserved. **PktMon never started**;
+there is no packet evidence from this invocation. Administrator access and
+the path correction cannot establish that a capture occurred.
+
+A subsequent read-only check found the wired interface still Up at 1 Gbps,
+but only an IPv4 link-local address and no board-only route. The expected
+preferred `192.168.1.102/24` address was absent. This is an observed host-state
+change; the reason for losing temporary settings remains unknown. It does not
+prove a USB reset, a board ARP fault or receipt of a START packet.
+
+A fresh private one-shot entry was prepared to perform the previously authorized
+temporary wired-address/metric/board-route recovery and then the capture.
+It verifies the same adapter identity and an unused UDP1234 port; it skips writes
+if the expected address and route are already usable. It stops before capture
+if recovery fails. The prior guard, failure record and original settings
+snapshots are retained in separate directories. No Wi-Fi, DNS, default gateway,
+persistent setting, driver or FPGA change is included.
+
+Syntax and actual-path validation passed in Windows PowerShell 5.1, with three
+component-selection fixtures passing. **The new privileged entry is not_run**
+at this update; its hashes and preparation receipt are in the linked JSON.
+These helper checks do not change the previous failed real-video gate or
+authorize progression to formal P0, N0, 30-second or v2 tests.
