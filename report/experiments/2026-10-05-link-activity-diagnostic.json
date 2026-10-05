@@ -1,0 +1,87 @@
+{
+  "schema": "pc-fpga-link-activity-diagnostic/1",
+  "source_commit": "74347b0539306cf676576f85667720ebc148c9c3",
+  "operator_report": "GE/PL lights flashing normally",
+  "registered_at_utc": "2026-10-05T11:13:20.8057250Z",
+  "host_link": {
+    "state": "Up",
+    "speed": "1 Gbps",
+    "wired_address_preferred": true,
+    "board_only_route_present": true,
+    "board_neighbor_before": "Unreachable"
+  },
+  "one_source_bound_stimulus": {
+    "sent_bytes_delta": 84,
+    "received_bytes_delta": 0,
+    "limit": "Adapter-wide counters; emitted ARP and any reply not individually captured; ping timeout not a video verdict",
+    "ended_at_utc": "2026-10-05T11:13:23.0742212Z",
+    "neighbor_after": "Incomplete",
+    "started_at_utc": "2026-10-05T11:13:21.0881395Z",
+    "ping_exit_code": 1
+  },
+  "probe": {
+    "started_at_utc": "2026-10-05T11:14:18.033937+00:00",
+    "requested_seconds": 10,
+    "elapsed_seconds": 10.05,
+    "interrupted": false,
+    "complete_frames": 0,
+    "incomplete_frames": 0,
+    "malformed_datagrams": 0,
+    "orphan_rows": 0,
+    "received_datagrams": 0,
+    "received_payload_bytes": 0,
+    "other_source_datagrams": 0,
+    "max_complete_frame_gap_seconds": 0.0,
+    "intervals": [
+      {
+        "elapsed_seconds": 5.14,
+        "complete_frames": 0,
+        "new_frames": 0,
+        "incomplete_frames": 0,
+        "malformed_datagrams": 0
+      }
+    ]
+  },
+  "probe_receipt": {
+    "udp_listeners_after": 0,
+    "received_bytes_delta": 0,
+    "exit_code": 0,
+    "neighbor_after": "Incomplete",
+    "started_at_utc": "2026-10-05T11:14:17.9162918Z",
+    "ended_at_utc": "2026-10-05T11:14:30.7039544Z",
+    "sent_bytes_delta": 168
+  },
+  "video_gate": {
+    "process_exit_code": 0,
+    "gate": "FAIL",
+    "failure_reasons": [
+      "zero_complete_frames",
+      "zero_received_payload_bytes",
+      "zero_received_datagrams"
+    ],
+    "scope": "10s_real_video_entry_only_not_30s_stability"
+  },
+  "benchmark_source_sha256": "b5e585ab3248dfcb731773567dfd9616a03bda2804ae25483f43ddcaa564dd23",
+  "capture_access": {
+    "status_command_exit_code": 5,
+    "list_command_exit_code": 5,
+    "observed_error": "non-admin PktMon driver access denied"
+  },
+  "capture_helper": {
+    "status": "prepared_not_run_requires_manual_admin_execution",
+    "helper_sha256": "ebdfa2a0ea495cb863b813b2995da087ea888034f5c97853f4f06649a709553e",
+    "syntax_errors": 0,
+    "selector_fixtures": 3,
+    "validation_only_exit_code": 0,
+    "scope": "one uniquely identified wired NIC; 64-byte headers; bounded receive wait",
+    "filters_and_network_settings_changed": false
+  },
+  "root_cause": "unknown",
+  "formal_stages": "not_run",
+  "limits": [
+    "Interface-wide counters do not individually identify ARP packets",
+    "A source-bound ICMP timeout is not a camera video verdict",
+    "Physical indicator flashing is operator observation, not packet decoding",
+    "Last JTAG register values belong to earlier query, not this window"
+  ]
+}
