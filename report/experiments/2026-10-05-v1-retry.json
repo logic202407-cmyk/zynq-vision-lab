@@ -1,0 +1,188 @@
+{
+  "schema": "pc-fpga-r6-retry/1",
+  "source_baseline": "f616f866e275835689528ee12514fec40dc6c4b3",
+  "condition_plan_sha256": "cf08502b4f73c189b333dd7f39a0bca57201f131ffc8c3cfbe531df33d926329",
+  "configuration": {
+    "started_at_utc": "2026-10-05T10:25:33.3893463Z",
+    "ended_at_utc": "2026-10-05T10:26:27.5124576Z",
+    "exit_code": 0,
+    "part": "xc7z100",
+    "attempts": 1,
+    "jtag_hz": 10000000,
+    "eos": 1,
+    "done_internal": 1,
+    "done_pin": 1,
+    "scope": "one_volatile_PL_configuration",
+    "bitstream_sha256": "2a380055b3fd93049a5a174c0f3e1e7b140117b0df77fb5825b6b2ab6011fdc5",
+    "private_console_sha256": "cbe8b59a4aa5e618dd0b8accfe44de4903761fc24d1d9c9669eb64c59ff9b6c1"
+  },
+  "video_probe": {
+    "metrics": {
+      "started_at_utc": "2026-10-05T10:31:25.156391+00:00",
+      "requested_seconds": 10,
+      "elapsed_seconds": 10.0,
+      "interrupted": false,
+      "complete_frames": 292,
+      "incomplete_frames": 6,
+      "malformed_datagrams": 1,
+      "orphan_rows": 138,
+      "received_datagrams": 142828,
+      "received_payload_bytes": 182831840,
+      "other_source_datagrams": 0,
+      "max_complete_frame_gap_seconds": 0.078,
+      "intervals": [
+        {
+          "elapsed_seconds": 5.0,
+          "complete_frames": 147,
+          "new_frames": 147,
+          "incomplete_frames": 2,
+          "malformed_datagrams": 1
+        },
+        {
+          "elapsed_seconds": 10.0,
+          "complete_frames": 292,
+          "new_frames": 145,
+          "incomplete_frames": 6,
+          "malformed_datagrams": 1
+        }
+      ]
+    },
+    "gate": {
+      "process_exit_code": 0,
+      "gate": "PASS",
+      "failure_reasons": [],
+      "scope": "10s_real_video_entry_only_not_30s_stability"
+    },
+    "private_receipt_sha256": "c357540a4b398ca68f2d0f1c5936bf16d5700433e11728de86363e6540a5e55d"
+  },
+  "pilot": {
+    "scope": "pilot_excluded_not_formal_acceptance",
+    "started_at_utc": "2026-10-05T10:32:49.158931+00:00",
+    "ended_at_utc": "2026-10-05T10:32:49.243455+00:00",
+    "stop_error": null,
+    "complete_frames": 2,
+    "incomplete_frames": 0,
+    "malformed": 1,
+    "orphan_rows": 91,
+    "frame": {
+      "schema": "rgb565-frame-evidence/1",
+      "source": "live_camera",
+      "pixel_format": "RGB565_BE",
+      "width": 640,
+      "height": 480,
+      "byte_count": 614400,
+      "input_sha256": "f32b25694913e9939753a3b902c651c658257697e4c0f62e7861b85fcb0f770d",
+      "frame_seq": 12072,
+      "host_saved_at_utc": "2026-10-05T10:32:49.244391+00:00",
+      "scope": "snapshot_not_board_acceptance"
+    },
+    "matched_pl": {
+      "frame_seq": 12072,
+      "frame_complete": true,
+      "mask_version": 1,
+      "target_valid": true,
+      "count": 1,
+      "sum_x": 244,
+      "sum_y": 122,
+      "bbox": [
+        244,
+        122,
+        244,
+        122
+      ],
+      "centroid": [
+        244,
+        122
+      ]
+    }
+  },
+  "manual_roi": {
+    "schema": "manual-paper-roi/1",
+    "origin": "manual_unmodified_png",
+    "width": 640,
+    "height": 480,
+    "bbox": [
+      244,
+      114,
+      383,
+      211
+    ],
+    "input_sha256": "f32b25694913e9939753a3b902c651c658257697e4c0f62e7861b85fcb0f770d",
+    "frozen_at_utc": "2026-10-05T10:39:28.2163860Z",
+    "plan_sha256": "3301785371b6da99926aa1468c0217bbe2baa50c1e7f593413dcb98e7a084b6a",
+    "condition": "r6-20261005",
+    "condition_plan_sha256": "cf08502b4f73c189b333dd7f39a0bca57201f131ffc8c3cfbe531df33d926329",
+    "annotator": "assistant_visual_unmodified_png",
+    "second_person_review_completed": false,
+    "dimensions_source": "prior_user_report_not_reverified_today",
+    "distance_m": "unknown",
+    "exposure_lock": "unknown",
+    "white_balance_lock": "unknown",
+    "illumination_lux": "unknown"
+  },
+  "roi_record_sha256": "bbdbed6bd833a2031904478f75286033f03235d4989c5df751e3bc4aeda8e72e",
+  "roi_unchanged_after_formal": true,
+  "formal_exact": {
+    "exit_code": 1,
+    "private_exact_sha256": "9e289835dd6453535d02a8720760cffa7960c54a983c560d195beb004f16eb7e",
+    "passed": false,
+    "failure_reasons": [
+      "insufficient_pairs",
+      "sequence_gap"
+    ],
+    "required_frames": 100,
+    "compared": 99,
+    "complete_frames": 101,
+    "observed_mask_versions": {
+      "1": 99
+    },
+    "mismatch_count": 0,
+    "sequence_gaps": 1,
+    "duplicate_sequences": 0,
+    "mask_version_mismatches": 0,
+    "started_at_utc": "2026-10-05T10:39:28.470344+00:00",
+    "requested_seconds": 30.0,
+    "receive_elapsed_seconds": 3.437,
+    "incomplete": 0,
+    "malformed": 1,
+    "orphan_rows": 602,
+    "stop_command_error": null,
+    "sequence_span": [
+      24052,
+      24152
+    ],
+    "missing_sequences": [
+      24076,
+      24077
+    ]
+  },
+  "formal_scene": {
+    "exit_code": 2,
+    "scene_report_created": false,
+    "status": "invalid_input_not_complete_100_pair_window",
+    "semantic_match_count": null
+  },
+  "later_stages": {
+    "v1_30s_stability": "not_run",
+    "N0": "not_run",
+    "remaining_repetitions": "not_run",
+    "v2_board": "not_run",
+    "I0": "not_run"
+  },
+  "release": {
+    "formal_exact": "FAIL",
+    "udp1234_listeners": 0,
+    "later_formal_stages": "not_run",
+    "absent_after_stop": true,
+    "at_utc": "2026-10-05T10:40:41.0655696Z",
+    "stopped_owned_server": true,
+    "formal_scene": "invalid_input_99_pairs"
+  },
+  "limits": [
+    "Pilot count1 cannot be generalized to later formal capture",
+    "99 exact matches do not pass 100-pair gate; no patched/subset scene verdict",
+    "10s video is not 30s stability",
+    "Distance, lux, exposure/white balance lock unverified today",
+    "No formal raw frames saved by unchanged comparator; no v2 board evidence"
+  ]
+}

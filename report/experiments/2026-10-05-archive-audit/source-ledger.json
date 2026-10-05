@@ -1,0 +1,95 @@
+{
+  "sources": [
+    {
+      "id": "PR6",
+      "commit": "cc58615f34d90e7cd1da9bd9d9dffa455c1d19ae",
+      "claim": "raw/sidecar tooling and fixed r1 plan; published 141 software checks",
+      "layer": "software_and_plan_not_board",
+      "files": [
+        "docs/fpga_experiment_plan_2026-10-04.md",
+        "report/experiments/2026-10-04-fpga-plan-validation.json"
+      ],
+      "limit": "Historical published report; no new simulation or bitstream rebuild in this audit",
+      "pinned_blob_sha256": {
+        "docs/fpga_experiment_plan_2026-10-04.md": "3301785371b6da99926aa1468c0217bbe2baa50c1e7f593413dcb98e7a084b6a",
+        "report/experiments/2026-10-04-fpga-plan-validation.json": "5a9f308e8c088e5de2eab5cf768fc812802305b44c9caeac78be9a2c0538241b"
+      },
+      "url": "https://github.com/logic202407-cmyk/zynq-vision-lab/commit/cc58615f34d90e7cd1da9bd9d9dffa455c1d19ae"
+    },
+    {
+      "id": "PR8",
+      "commit": "96270ce56fba15ac896f4f6dfdd6ea41a107406f",
+      "claim": "historical v1 volatile recovery/video progress with paper gate pending",
+      "layer": "historical_board_measurements",
+      "files": [
+        "report/experiments/2026-10-04-v1-board-progress.json"
+      ],
+      "limit": "Not current USB/network/configuration state; no formal P0 pass",
+      "pinned_blob_sha256": {
+        "report/experiments/2026-10-04-v1-board-progress.json": "bad44d88b49df395cd82d189acb5347f6d2ade56310657bd260bcb347829a4e3"
+      },
+      "url": "https://github.com/logic202407-cmyk/zynq-vision-lab/commit/96270ce56fba15ac896f4f6dfdd6ea41a107406f"
+    },
+    {
+      "id": "PR9",
+      "commit": "f616f866e275835689528ee12514fec40dc6c4b3",
+      "claim": "scene checker, r2/r3 failed P0 windows, recovery12 H1/pilot/H2 failure; published 158 checks",
+      "layer": "software_and_archived_board_measurements",
+      "files": [
+        "tools/check_board_scene.py",
+        "report/experiments/2026-10-04-v1-scene-validation.json",
+        "report/experiments/2026-10-04-centerlit-pilot-video-failure.json"
+      ],
+      "limit": "Snapshot != 100 raw frames; no v2 positive/I0, no 30s sustained pass in these runs",
+      "pinned_blob_sha256": {
+        "tools/check_board_scene.py": "68bf40176fbb5ecd29787fc4465b13b976c23bc89f204d9acf9f35175a09413c",
+        "report/experiments/2026-10-04-v1-scene-validation.json": "6cac811de5f664db621a85439e34f012489e00d92ff74c52644ee3790bb63907",
+        "report/experiments/2026-10-04-centerlit-pilot-video-failure.json": "5f8f5dddc7f911390f82ba4fa27aba3592c24a6cd6ae7d09ad80ee032c12956d"
+      },
+      "url": "https://github.com/logic202407-cmyk/zynq-vision-lab/commit/f616f866e275835689528ee12514fec40dc6c4b3"
+    },
+    {
+      "id": "captain-task-revision",
+      "commit": "58fa10e3a0aedea338ddfe9b63ecba8821ec9b60",
+      "claim": "First offline batch F01-F08; remaining work packages planned",
+      "layer": "task_document_not_measurement",
+      "files": [
+        "docs/3331083641_next_stage_2026-10-03.md"
+      ],
+      "limit": "Task branch does not contain PR9 implementation automatically",
+      "pinned_blob_sha256": {
+        "docs/3331083641_next_stage_2026-10-03.md": "9d545397ca5d881f5f61fd2f4bc20869997fea5088deb236e4b7a0cf16a1bf8e"
+      },
+      "url": "https://github.com/logic202407-cmyk/zynq-vision-lab/commit/58fa10e3a0aedea338ddfe9b63ecba8821ec9b60"
+    }
+  ],
+  "PR6_to_PR8_files": [
+    "A\treport/experiments/2026-10-04-v1-board-progress.json",
+    "A\treport/experiments/2026-10-04-v1-board-progress.md"
+  ],
+  "PR8_to_fixed_PR9_files": [
+    "A\tdocs/board_scene_evidence.md",
+    "A\tdocs/fpga_experiment_condition_1m_retry_2026-10-04.md",
+    "A\tdocs/fpga_experiment_condition_3m_2026-10-04.md",
+    "A\tdocs/fpga_experiment_condition_background_2026-10-04.md",
+    "A\tdocs/fpga_experiment_condition_centerlit_2026-10-04.md",
+    "A\tdocs/z100_local_reference_notes_2026-10-04.md",
+    "A\treport/experiments/2026-10-04-background-pilot.md",
+    "A\treport/experiments/2026-10-04-centerlit-pilot-video-failure.json",
+    "A\treport/experiments/2026-10-04-centerlit-pilot-video-failure.md",
+    "A\treport/experiments/2026-10-04-centerlit-preflight.md",
+    "A\treport/experiments/2026-10-04-centerlit-recovery-10.json",
+    "A\treport/experiments/2026-10-04-centerlit-recovery-10.md",
+    "A\treport/experiments/2026-10-04-centerlit-recovery-11.json",
+    "A\treport/experiments/2026-10-04-centerlit-recovery-11.md",
+    "A\treport/experiments/2026-10-04-centerlit-v1-config.json",
+    "A\treport/experiments/2026-10-04-centerlit-v1-config.md",
+    "A\treport/experiments/2026-10-04-v1-scene-validation.json",
+    "A\treport/experiments/2026-10-04-v1-scene-validation.md",
+    "A\ttests/test_board_scene_evidence.py",
+    "A\ttools/check_board_scene.py"
+  ],
+  "input_layers": "Original private exact/scene/ROI, raw bundles, receipts and logs read this audit; historical upstream claims remain attributed",
+  "current_worktree_baseline": "f616f866e275835689528ee12514fec40dc6c4b3",
+  "audit_not_bitstream_rebuild": true
+}

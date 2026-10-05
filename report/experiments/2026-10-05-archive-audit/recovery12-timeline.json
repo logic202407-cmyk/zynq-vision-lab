@@ -1,0 +1,63 @@
+{
+  "clock": "host timezone-aware UTC wall clock receipts; probe elapsed uses receiver monotonic clock",
+  "events": [
+    {
+      "event": "recovery12_v1_config",
+      "start_utc": "2026-10-04T12:24:51.6839027Z",
+      "end_utc": "2026-10-04T12:25:37.69842Z",
+      "observed": "exit0; startup HIGH; EOS=1, internalDONE=1, pinDONE=1",
+      "source_sha256": "dc46429bf1817b847f630e2448ab41f26f8dd547466b03e1c73e801e051c4026"
+    },
+    {
+      "event": "separate_pilot_session",
+      "start_utc": "2026-10-04T12:34:44.737029+00:00",
+      "end_utc": "2026-10-04T12:34:44.824703+00:00",
+      "observed": "2 complete; START/STOP separate session; saved seq17019",
+      "source_sha256": "bd0c8a2d42e31fabbfa2c16940f686ca9e6e5f5458368c7899b6d6c4700bd737"
+    },
+    {
+      "event": "pilot_host_save",
+      "start_utc": "2026-10-04T12:34:44.825931+00:00",
+      "end_utc": "2026-10-04T12:34:44.825931+00:00",
+      "observed": "host save time, NOT sensor exposure timestamp",
+      "source_sha256": "d4b9476b565847953527aa3cccfb748b8ad63f79d31190d4ea604d18aae69625"
+    },
+    {
+      "event": "separate_H2_probe",
+      "start_utc": "2026-10-04T12:36:12.682130+00:00",
+      "end_utc": "2026-10-04T12:36:22.8252545Z",
+      "observed": "exit0; actual elapsed10.12s; complete0; payload0; H2 FAIL",
+      "source_sha256": "5c54bdb74d981641f9f2bd58f50f88cc47cc10a68cc33dd185a1ffed0b6f2609"
+    },
+    {
+      "event": "post_probe_host_network",
+      "start_utc": "2026-10-04T12:37:44.9554999Z",
+      "end_utc": "2026-10-04T12:37:44.9554999Z",
+      "observed": "host adapter Up; preferred wired address and route present; not camera proof",
+      "source_sha256": "727661c636c5387ddff4be27d9974dd17cd5cbe1329857b6539d801f4b0fd693"
+    },
+    {
+      "event": "post_probe_readonly_JTAG",
+      "start_utc": "2026-10-04T12:40:14.8584409Z",
+      "end_utc": "2026-10-04T12:40:52.5140814Z",
+      "observed": "exit1; target count1; open_hw_target failed/no devices; EOS/DONE UNKNOWN",
+      "source_sha256": "c8206842fb6ac6d2e5e38c66053cb42d9c712d4ce4cd37297714f449f5f40c50"
+    }
+  ],
+  "elapsed_config_end_to_pilot_save_s": 547.127511,
+  "elapsed_pilot_save_to_probe_start_s": 87.856199,
+  "zero_frame_process_exit": 0,
+  "later_register_state": {
+    "eos": null,
+    "done_internal": null,
+    "done_pin": null
+  },
+  "root_cause": "unknown",
+  "limits": [
+    "Separate START/STOP sessions; no continuous monitoring between captures",
+    "No precise dropout onset inferred",
+    "Host timestamps are not sensor exposure timestamps",
+    "Wall-clock adjustments and device clock offset unmeasured",
+    "Then-DONE=1 does not determine later unreadable state"
+  ]
+}

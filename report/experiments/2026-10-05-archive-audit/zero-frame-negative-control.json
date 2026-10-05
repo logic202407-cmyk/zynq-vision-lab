@@ -1,0 +1,38 @@
+{
+  "probe_sha256": "5c54bdb74d981641f9f2bd58f50f88cc47cc10a68cc33dd185a1ffed0b6f2609",
+  "metrics": {
+    "started_at_utc": "2026-10-04T12:36:12.682130+00:00",
+    "requested_seconds": 10,
+    "elapsed_seconds": 10.12,
+    "interrupted": false,
+    "complete_frames": 0,
+    "incomplete_frames": 0,
+    "malformed_datagrams": 0,
+    "orphan_rows": 0,
+    "received_datagrams": 0,
+    "received_payload_bytes": 0,
+    "other_source_datagrams": 0,
+    "max_complete_frame_gap_seconds": 0.0,
+    "intervals": [
+      {
+        "elapsed_seconds": 5.17,
+        "complete_frames": 0,
+        "new_frames": 0,
+        "incomplete_frames": 0,
+        "malformed_datagrams": 0
+      }
+    ]
+  },
+  "evaluation": {
+    "process_exit_code": 0,
+    "gate": "FAIL",
+    "failure_reasons": [
+      "zero_complete_frames",
+      "zero_received_payload_bytes",
+      "zero_received_datagrams"
+    ],
+    "scope": "10s_real_video_entry_only_not_30s_stability"
+  },
+  "expected_gate": "FAIL",
+  "scope": "existing_zero_frame_negative_control_no_network_execution"
+}

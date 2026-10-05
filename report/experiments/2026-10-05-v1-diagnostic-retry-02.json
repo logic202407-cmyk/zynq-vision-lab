@@ -1,0 +1,70 @@
+{
+  "schema": "pc-fpga-additional-diagnostic/1",
+  "scope": "additional_user_requested_retry_not_replacement_formal_acceptance",
+  "preregistration_sha256": "64465afe79bb8bd9ab649e8bfb33d54a5eb5c88aa7f492ecee09c9fb1f7d5b00",
+  "probe": {
+    "started_at_utc": "2026-10-05T10:57:13.015073+00:00",
+    "requested_seconds": 10,
+    "elapsed_seconds": 10.05,
+    "interrupted": false,
+    "complete_frames": 0,
+    "incomplete_frames": 0,
+    "malformed_datagrams": 0,
+    "orphan_rows": 0,
+    "received_datagrams": 0,
+    "received_payload_bytes": 0,
+    "other_source_datagrams": 0,
+    "max_complete_frame_gap_seconds": 0.0,
+    "intervals": [
+      {
+        "elapsed_seconds": 5.16,
+        "complete_frames": 0,
+        "new_frames": 0,
+        "incomplete_frames": 0,
+        "malformed_datagrams": 0
+      }
+    ]
+  },
+  "probe_gate": {
+    "process_exit_code": 0,
+    "gate": "FAIL",
+    "failure_reasons": [
+      "zero_complete_frames",
+      "zero_received_payload_bytes",
+      "zero_received_datagrams"
+    ],
+    "scope": "10s_real_video_entry_only_not_30s_stability"
+  },
+  "probe_process_receipt": {
+    "ended_at_utc": "2026-10-05T10:57:23.1837461Z",
+    "exit_code": 0,
+    "started_at_utc": "2026-10-05T10:57:12.9220840Z",
+    "command": "python -m src.pc.bench_probe --seconds 10 --interval 5 --output <new-diagnostic-json>"
+  },
+  "readonly_query": {
+    "receipt": {
+      "started_at_utc": "2026-10-05T10:59:07.0761284Z",
+      "exit_code": 0,
+      "timed_out": false,
+      "ended_at_utc": "2026-10-05T10:59:23.4928257Z"
+    },
+    "target_count": "1",
+    "part": "xc7z100",
+    "register_state": {
+      "eos": 1,
+      "done_internal": 1,
+      "done_pin": 1
+    },
+    "refresh_ok": "1",
+    "private_console_sha256": "e0ed492f94650d4a4735c459e137c818a9cf02d5652187a0ef8668f1a0a08cc9",
+    "scope": "unchanged_default_clock_readonly_no_program_or_reset"
+  },
+  "later_100pair_capture": "not_run_after_zero_frame_H2",
+  "release": {
+    "udp1234_listeners": 0,
+    "at_utc": "2026-10-05T10:59:23.9171893Z",
+    "owned_server_absent": true
+  },
+  "cause": "unknown",
+  "previous_99pair_failure_preserved": true
+}

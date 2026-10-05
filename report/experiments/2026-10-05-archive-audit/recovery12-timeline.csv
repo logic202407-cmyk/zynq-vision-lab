@@ -1,0 +1,7 @@
+event,start_utc,end_utc,observed,source_sha256
+recovery12_v1_config,2026-10-04T12:24:51.6839027Z,2026-10-04T12:25:37.69842Z,"exit0; startup HIGH; EOS=1, internalDONE=1, pinDONE=1",dc46429bf1817b847f630e2448ab41f26f8dd547466b03e1c73e801e051c4026
+separate_pilot_session,2026-10-04T12:34:44.737029+00:00,2026-10-04T12:34:44.824703+00:00,2 complete; START/STOP separate session; saved seq17019,bd0c8a2d42e31fabbfa2c16940f686ca9e6e5f5458368c7899b6d6c4700bd737
+pilot_host_save,2026-10-04T12:34:44.825931+00:00,2026-10-04T12:34:44.825931+00:00,"host save time, NOT sensor exposure timestamp",d4b9476b565847953527aa3cccfb748b8ad63f79d31190d4ea604d18aae69625
+separate_H2_probe,2026-10-04T12:36:12.682130+00:00,2026-10-04T12:36:22.8252545Z,exit0; actual elapsed10.12s; complete0; payload0; H2 FAIL,5c54bdb74d981641f9f2bd58f50f88cc47cc10a68cc33dd185a1ffed0b6f2609
+post_probe_host_network,2026-10-04T12:37:44.9554999Z,2026-10-04T12:37:44.9554999Z,host adapter Up; preferred wired address and route present; not camera proof,727661c636c5387ddff4be27d9974dd17cd5cbe1329857b6539d801f4b0fd693
+post_probe_readonly_JTAG,2026-10-04T12:40:14.8584409Z,2026-10-04T12:40:52.5140814Z,exit1; target count1; open_hw_target failed/no devices; EOS/DONE UNKNOWN,c8206842fb6ac6d2e5e38c66053cb42d9c712d4ce4cd37297714f449f5f40c50
