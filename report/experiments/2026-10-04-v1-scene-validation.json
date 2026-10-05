@@ -1,0 +1,358 @@
+{
+  "schema": "pc-fpga-scene-delivery/1",
+  "recorded_at_utc": "2026-10-04T08:41:41.713858+00:00",
+  "owner": "3331083641-prog",
+  "software_verification": {
+    "source_commit": "3817955b845c63b5b65c1a0a02428660505b1b17",
+    "unittest_count": 158,
+    "skipped": 0,
+    "new_scene_tests": 17,
+    "exit_code": 0,
+    "started_at_utc": "2026-10-04T07:30:47.6098280Z",
+    "ended_at_utc": "2026-10-04T07:31:11.8580318Z",
+    "private_log_sha256": "c9fa79df8ffe9046c0c2af75a32dd2c296ef872b97809c0f1eb59039787f35ce",
+    "new_checker_sha256": "68bf40176fbb5ecd29787fc4465b13b976c23bc89f204d9acf9f35175a09413c",
+    "new_tests_sha256": "65d1ddb3d3a70c62af8547d2124090ca241f744717799e9642ae1408d72ba1aa"
+  },
+  "protected_files_sha256": {
+    "data/fixtures/pc_r0_independent_cases.json": "da06ca9b7341b94fceaf5844755314ae8811aae983d552e7fbdb09cc9462432e",
+    "data/fixtures/pc_replay_sequences.json": "0c8a6c85e18ec738ca81e36859ef8f3eb15d6d5e15ee19475e09f1c50ab89d9e",
+    "data/fixtures/pc_target_cases.json": "d316d5202a33448da04b75875bd0a8c228ce78a3f7ea49332ae23226b7033661",
+    "sim/reference/red_mask.py": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52",
+    "sim/reference/spatial_relations.py": "940a8b85feab756cbe62933d474271e4ae276b811bd3fffc2f9010c782be6f5c",
+    "src/pc/pl_compare.py": "52accca8b2cde821dfd11a3607bd7143d6a24bb6705d3b5f0c842b03229eb2d3",
+    "src/pc/vendor_udp.py": "63936f4caee1d39e2016cb6e40781abf09f7cba46605a3ae3a4c5ec56e027a26",
+    "tests/test_pl_compare.py": "96035259d0ce27f15093e25aa935cf1dede97644346912bf6b1e2cee23731d55",
+    "tests/test_spatial_relations.py": "23a3044c8d27966de60276791489f738cf803faf38c375d187af0de1d52b74f1"
+  },
+  "teammate_update_read": {
+    "pr": "https://github.com/logic202407-cmyk/zynq-vision-lab/pull/7",
+    "record_commit": "04ba0db3e1a4f67cee7efa7b941d69ce281bffa2",
+    "reported_source_commit": "d42b658fa425d71838a604e7cbf42e8764b87129",
+    "reported_tests": 109,
+    "reported_state": "software simulated; firmware build passed",
+    "reexecuted_here": false,
+    "merged_into_pc_branch": false,
+    "interface": "stm32-p0/v1 is their temporary binary format; no PC/FPGA adapter or shared freeze in this stage"
+  },
+  "configuration_recovery": {
+    "failed_pilot_input_id": "r3-attempt4-pilot-1m-lit",
+    "failed_pilot": {
+      "scope": "pilot_excluded_not_formal_acceptance",
+      "started_at_utc": "2026-10-04T08:21:57.317102+00:00",
+      "ended_at_utc": "2026-10-04T08:22:07.489782+00:00",
+      "stop_error": null,
+      "complete_frames": 0,
+      "incomplete_frames": 0,
+      "malformed": 0,
+      "orphan_rows": 0,
+      "failure": "no_pilot_frame"
+    },
+    "failed_pilot_exit_code": 1,
+    "subsequent_read_only_state": {
+      "eos": 0,
+      "done_internal": 0,
+      "done_pin": 0,
+      "cause": "unknown; do not infer from USB reenumeration alone"
+    },
+    "private_status_log_sha256": "181fbaa990abfc82d47642d752c9da430cd35a8b1caca34e58be2b656cb82629",
+    "new_v1_configuration": {
+      "exit_code": 0,
+      "startup": "HIGH",
+      "eos": 1,
+      "done_internal": 1,
+      "done_pin": 1,
+      "attempts_in_this_invocation": 1,
+      "bitstream_sha256": "2a380055b3fd93049a5a174c0f3e1e7b140117b0df77fb5825b6b2ab6011fdc5",
+      "private_console_sha256": "f41e2fd80f11bc61689a4656eec6f73f60a8b95e4128bbce2f4b8a774b82151a"
+    },
+    "scope": "volatile PL only; no Flash/EEPROM/eFuse/processor reset"
+  },
+  "video_probes": [
+    {
+      "input_id": "after-third-network-recovery",
+      "metrics": {
+        "started_at_utc": "2026-10-04T07:15:29.806419+00:00",
+        "requested_seconds": 10,
+        "elapsed_seconds": 10.0,
+        "interrupted": false,
+        "complete_frames": 280,
+        "incomplete_frames": 0,
+        "malformed_datagrams": 1,
+        "orphan_rows": 446,
+        "received_datagrams": 134896,
+        "received_payload_bytes": 172678160,
+        "other_source_datagrams": 0,
+        "max_complete_frame_gap_seconds": 0.047,
+        "intervals": [
+          {
+            "elapsed_seconds": 5.0,
+            "complete_frames": 130,
+            "new_frames": 130,
+            "incomplete_frames": 0,
+            "malformed_datagrams": 1
+          },
+          {
+            "elapsed_seconds": 10.0,
+            "complete_frames": 280,
+            "new_frames": 150,
+            "incomplete_frames": 0,
+            "malformed_datagrams": 1
+          }
+        ]
+      },
+      "private_result_sha256": "01440c7e626216434e1fefbeba1d7bebaf21ecb2b50b9ece3f28b07fbb270123"
+    },
+    {
+      "input_id": "after-retained-config-loss-reload",
+      "metrics": {
+        "started_at_utc": "2026-10-04T08:28:46.441028+00:00",
+        "requested_seconds": 10,
+        "elapsed_seconds": 10.0,
+        "interrupted": false,
+        "complete_frames": 284,
+        "incomplete_frames": 0,
+        "malformed_datagrams": 1,
+        "orphan_rows": 333,
+        "received_datagrams": 136767,
+        "received_payload_bytes": 175073200,
+        "other_source_datagrams": 0,
+        "max_complete_frame_gap_seconds": 0.047,
+        "intervals": [
+          {
+            "elapsed_seconds": 5.0,
+            "complete_frames": 134,
+            "new_frames": 134,
+            "incomplete_frames": 0,
+            "malformed_datagrams": 1
+          }
+        ]
+      },
+      "private_result_sha256": "e814b301b3ebcab298d98071e67ad4eb8d08c90bcf85eb1ae4f34e8970fdbc06"
+    }
+  ],
+  "formal_windows": [
+    {
+      "input_id": "r2-reported-3m-v1-P0-R1",
+      "source_commit": "3817955b845c63b5b65c1a0a02428660505b1b17",
+      "condition": "r2-reported-3m",
+      "capture_command": [
+        "python",
+        "-m",
+        "src.pc.pl_compare",
+        "--seconds",
+        "30",
+        "--frames",
+        "100",
+        "--expected-mask-version",
+        "1",
+        "--compare-raw-mask",
+        "--output",
+        "<new-private-json>"
+      ],
+      "capture_exit_code": 0,
+      "exact_gate_passed": true,
+      "capture_metrics": {
+        "started_at_utc": "2026-10-04T07:31:54.534844+00:00",
+        "receive_elapsed_seconds": 3.375,
+        "required_frames": 100,
+        "compared": 100,
+        "expected_mask_version": 1,
+        "observed_mask_versions": {
+          "1": 100
+        },
+        "complete_frames": 101,
+        "mismatch_count": 0,
+        "sequence_gaps": 0,
+        "duplicate_sequences": 0,
+        "mask_version_mismatches": 0,
+        "incomplete": 0,
+        "malformed": 1,
+        "orphan_rows": 135,
+        "received_datagrams": 48616,
+        "other_source_datagrams": 0,
+        "stop_command_error": null
+      },
+      "scene_check_exit_code": 1,
+      "scene_gate_passed": false,
+      "valid_results": 100,
+      "semantic_matches": 0,
+      "semantic_failures": 100,
+      "centroids_inside_manual_roi": 19,
+      "bbox_iou_min": 0.008097946592114142,
+      "bbox_iou_max": 0.01948051948051948,
+      "roi": {
+        "bbox": [
+          349,
+          242,
+          390,
+          289
+        ],
+        "frozen_at_utc": "2026-10-04T07:31:54.3309709Z",
+        "pilot_input_sha256": "815a5138692f60941b68966ba1cc270279550d9df63cba5394fccdf29bfd86d3",
+        "roi_record_sha256": "537a12d2519f0da457e0dd40ee45603262cd3c4fa258e35b2ca1c122c6f0c6be",
+        "condition_plan_sha256": "092bf1f60200343434e35fd6bb28f8a28123152bb58cb7f7dcdbc83bd033c07e",
+        "annotation": "Codex assisted visual annotation of unmodified PNG; not PL/golden bbox; exact coordinates not independently adjudicated"
+      },
+      "private_exact_report_sha256": "73ea4a4b3a8080b59a44dca124cc4193c3de694d1c85bb296b1e49a24992348b",
+      "private_scene_report_sha256": "2dd225bed8e4c5c0f6cb6d767f08e248b16e80a0255a559c9c5aa6cf383c77a0",
+      "comparison_source_files_sha256": {
+        "src/pc/pl_compare.py": "52accca8b2cde821dfd11a3607bd7143d6a24bb6705d3b5f0c842b03229eb2d3",
+        "src/pc/vendor_udp.py": "63936f4caee1d39e2016cb6e40781abf09f7cba46605a3ae3a4c5ec56e027a26",
+        "sim/reference/red_mask.py": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52"
+      },
+      "later_window_status": "not_run: semantic gate failure stopped this condition stage"
+    },
+    {
+      "input_id": "r3-requested-nearer-lit-v1-P0-R1",
+      "source_commit": "a61a29ed96e4da762c39028c9469114235160b60",
+      "condition": "r3-requested-nearer-lit",
+      "capture_command": [
+        "python",
+        "-m",
+        "src.pc.pl_compare",
+        "--seconds",
+        "30",
+        "--frames",
+        "100",
+        "--expected-mask-version",
+        "1",
+        "--compare-raw-mask",
+        "--output",
+        "<new-private-json>"
+      ],
+      "capture_exit_code": 0,
+      "exact_gate_passed": true,
+      "capture_metrics": {
+        "started_at_utc": "2026-10-04T08:31:55.350097+00:00",
+        "receive_elapsed_seconds": 3.375,
+        "required_frames": 100,
+        "compared": 100,
+        "expected_mask_version": 1,
+        "observed_mask_versions": {
+          "1": 100
+        },
+        "complete_frames": 101,
+        "mismatch_count": 0,
+        "sequence_gaps": 0,
+        "duplicate_sequences": 0,
+        "mask_version_mismatches": 0,
+        "incomplete": 0,
+        "malformed": 1,
+        "orphan_rows": 15,
+        "received_datagrams": 48496,
+        "other_source_datagrams": 0,
+        "stop_command_error": null
+      },
+      "scene_check_exit_code": 1,
+      "scene_gate_passed": false,
+      "valid_results": 100,
+      "semantic_matches": 85,
+      "semantic_failures": 15,
+      "centroids_inside_manual_roi": 100,
+      "bbox_iou_min": 0.09893927463059891,
+      "bbox_iou_max": 0.9072527472527473,
+      "roi": {
+        "bbox": [
+          284,
+          171,
+          374,
+          220
+        ],
+        "frozen_at_utc": "2026-10-04T08:31:55.0781204Z",
+        "pilot_input_sha256": "62fc2a11f58ff84c748cd8a90968846c022685dcbd0d5eb8e8c7f16ed15ad74d",
+        "roi_record_sha256": "058f1385810abe7e5ab89e84d2fb40a77a72f0e18eceefde303baad5af873654",
+        "condition_plan_sha256": "6a3568beae2d7e8c1bf8f375156bd628fd854ed7587b8880cd11691eec144819",
+        "annotation": "Codex assisted visual annotation of unmodified PNG; not PL/golden bbox; exact coordinates not independently adjudicated"
+      },
+      "private_exact_report_sha256": "29baf0b9ddd6117caaa59f37c222478494fc4f9fc85c80ab2ffad92c71c3f13f",
+      "private_scene_report_sha256": "22d27a30725f324c207d0c6254c8321061ab0e5896a571b5a56d22235f4b810d",
+      "comparison_source_files_sha256": {
+        "src/pc/pl_compare.py": "52accca8b2cde821dfd11a3607bd7143d6a24bb6705d3b5f0c842b03229eb2d3",
+        "src/pc/vendor_udp.py": "63936f4caee1d39e2016cb6e40781abf09f7cba46605a3ae3a4c5ec56e027a26",
+        "sim/reference/red_mask.py": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52"
+      },
+      "later_window_status": "not_run: semantic gate failure stopped this condition stage"
+    }
+  ],
+  "r2_post_failure_analysis": {
+    "scope": "post_failure_offline_analysis_of_preserved_pilot_and_reports",
+    "input_sha256": "815a5138692f60941b68966ba1cc270279550d9df63cba5394fccdf29bfd86d3",
+    "manual_roi": [
+      349,
+      242,
+      390,
+      289
+    ],
+    "roi_area_pixels": 2016,
+    "full_frame_masks": {
+      "1": {
+        "all_red_pixels": 182,
+        "red_pixels_in_manual_roi": 108,
+        "red_pixels_outside_manual_roi": 74
+      },
+      "2": {
+        "all_red_pixels": 71,
+        "red_pixels_in_manual_roi": 57,
+        "red_pixels_outside_manual_roi": 14
+      }
+    },
+    "roi_red_channel_5bit_median": 14.0,
+    "roi_pixels_with_red_channel_below_frozen_min15": 1328,
+    "formal_100": {
+      "valid_results": 100,
+      "centroid_inside_manual_roi": 19,
+      "bbox_iou_min": 0.008097946592114142,
+      "bbox_iou_max": 0.01948051948051948,
+      "count_min": 82,
+      "count_max": 211,
+      "semantic_matches": 0
+    },
+    "known_limit": "Pilot is a separate snapshot, not all 100 raw inputs. ROI is assisted visual annotation, not an independently adjudicated pixel contour. Offline v2 is not board v2. No causal lighting test."
+  },
+  "scene_conditions": {
+    "target_cm": [
+      17.5,
+      22.5
+    ],
+    "target_size_origin": "user report, not independent measurement",
+    "r2_reported_distance_m": 3,
+    "r3_requested_distance_m": 1,
+    "r3_remeasured_distance_m": null,
+    "r3_confirmation": "user replied adjusted; new video shows red region on light page backing",
+    "lighting_direction_and_lux": null,
+    "exposure_locked": "unknown",
+    "white_balance_locked": "unknown",
+    "background_and_viewing_geometry_changed": true,
+    "single_variable_causal_experiment": false
+  },
+  "remaining_board_stages": {
+    "v1-P0-R1-window30s": "not_run",
+    "v1-N0": "not_run",
+    "v1-R2": "not_run",
+    "v1-R3": "not_run",
+    "v1-I0": "not_run",
+    "v2-configuration": "not_run",
+    "v2-camera": "not_run",
+    "v2-exact100": "not_run",
+    "v2-P0": "not_run",
+    "v2-N0": "not_run",
+    "v2-window30s": "not_run",
+    "v2-I0": "not_run",
+    "independent-person-reproduction": "not_run"
+  },
+  "evidence_gate": {
+    "claim": "158 software tests pass; two separate v1 exact100 windows pass; paper gates fail at 0/100 and 85/100",
+    "evidence_path": "report/experiments/2026-10-04-v1-scene-validation.json",
+    "commit": "3817955b845c63b5b65c1a0a02428660505b1b17",
+    "tool_version": "Python 3.12.4; Vivado 2024.2 SW Build 5239630",
+    "input_id": [
+      "r2-reported-3m-v1-P0-R1",
+      "r3-requested-nearer-lit-v1-P0-R1"
+    ],
+    "status": "software_implemented_and_partial_board_evidence",
+    "known_limit": "Both semantic gates failed. 30s/N0/repeats/I0/v2 hardware not run. ROI assisted visual annotation. Consecutive frames are not independent experiments; physical setup changes preclude causal comparison. Private single-input v2 calculations are offline only.",
+    "reviewer": "3331083641-prog/Codex local execution; external review pending"
+  },
+  "raw_evidence_policy": "Private camera images, RGB565, bitstreams, machine/device identifiers and raw logs excluded from Git."
+}

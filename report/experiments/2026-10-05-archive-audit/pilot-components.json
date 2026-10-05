@@ -1,0 +1,1098 @@
+[
+  {
+    "input_id": "r2-pilot",
+    "input_sha256": "815a5138692f60941b68966ba1cc270279550d9df63cba5394fccdf29bfd86d3",
+    "frame_seq": 57237,
+    "diagnostic_bbox": [
+      349,
+      242,
+      390,
+      289
+    ],
+    "bbox_role": "original_pre_capture_ROI_applied_only_to_pilot_not_formal_frames",
+    "masks": [
+      {
+        "mask_version": 1,
+        "total": 182,
+        "inside": 108,
+        "outside": 74,
+        "bbox": [
+          352,
+          173,
+          551,
+          435
+        ],
+        "iou": 0.03549218868496891,
+        "components_8_neighbour": [
+          {
+            "component": 1,
+            "count": 1,
+            "bbox": [
+              549,
+              173,
+              549,
+              173
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": [
+              "top"
+            ]
+          },
+          {
+            "component": 2,
+            "count": 2,
+            "bbox": [
+              548,
+              188,
+              549,
+              188
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 3,
+            "count": 1,
+            "bbox": [
+              548,
+              211,
+              548,
+              211
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 4,
+            "count": 2,
+            "bbox": [
+              550,
+              238,
+              551,
+              239
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": [
+              "right"
+            ]
+          },
+          {
+            "component": 5,
+            "count": 13,
+            "bbox": [
+              364,
+              242,
+              371,
+              244
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 6,
+            "count": 4,
+            "bbox": [
+              352,
+              244,
+              355,
+              245
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": [
+              "left"
+            ]
+          },
+          {
+            "component": 7,
+            "count": 10,
+            "bbox": [
+              359,
+              247,
+              363,
+              250
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 8,
+            "count": 4,
+            "bbox": [
+              356,
+              249,
+              357,
+              250
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 9,
+            "count": 1,
+            "bbox": [
+              369,
+              252,
+              369,
+              252
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 10,
+            "count": 45,
+            "bbox": [
+              358,
+              253,
+              364,
+              268
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 11,
+            "count": 1,
+            "bbox": [
+              356,
+              254,
+              356,
+              254
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 12,
+            "count": 1,
+            "bbox": [
+              550,
+              254,
+              550,
+              254
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 13,
+            "count": 1,
+            "bbox": [
+              356,
+              261,
+              356,
+              261
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 14,
+            "count": 8,
+            "bbox": [
+              358,
+              269,
+              362,
+              272
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 15,
+            "count": 1,
+            "bbox": [
+              364,
+              272,
+              364,
+              272
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 16,
+            "count": 2,
+            "bbox": [
+              356,
+              275,
+              357,
+              275
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 17,
+            "count": 2,
+            "bbox": [
+              548,
+              275,
+              549,
+              275
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 18,
+            "count": 8,
+            "bbox": [
+              361,
+              276,
+              363,
+              278
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 19,
+            "count": 3,
+            "bbox": [
+              548,
+              279,
+              549,
+              280
+            ],
+            "outside_count": 3,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 20,
+            "count": 2,
+            "bbox": [
+              360,
+              280,
+              361,
+              280
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 21,
+            "count": 7,
+            "bbox": [
+              361,
+              282,
+              363,
+              285
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 22,
+            "count": 2,
+            "bbox": [
+              548,
+              282,
+              549,
+              282
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 23,
+            "count": 3,
+            "bbox": [
+              551,
+              283,
+              551,
+              285
+            ],
+            "outside_count": 3,
+            "global_bbox_edges": [
+              "right"
+            ]
+          },
+          {
+            "component": 24,
+            "count": 2,
+            "bbox": [
+              549,
+              284,
+              549,
+              285
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 25,
+            "count": 1,
+            "bbox": [
+              364,
+              286,
+              364,
+              286
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 26,
+            "count": 1,
+            "bbox": [
+              549,
+              292,
+              549,
+              292
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 27,
+            "count": 5,
+            "bbox": [
+              549,
+              295,
+              551,
+              296
+            ],
+            "outside_count": 5,
+            "global_bbox_edges": [
+              "right"
+            ]
+          },
+          {
+            "component": 28,
+            "count": 1,
+            "bbox": [
+              549,
+              301,
+              549,
+              301
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 29,
+            "count": 1,
+            "bbox": [
+              551,
+              304,
+              551,
+              304
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": [
+              "right"
+            ]
+          },
+          {
+            "component": 30,
+            "count": 1,
+            "bbox": [
+              549,
+              305,
+              549,
+              305
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 31,
+            "count": 2,
+            "bbox": [
+              550,
+              310,
+              551,
+              310
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": [
+              "right"
+            ]
+          },
+          {
+            "component": 32,
+            "count": 1,
+            "bbox": [
+              549,
+              313,
+              549,
+              313
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 33,
+            "count": 4,
+            "bbox": [
+              550,
+              315,
+              551,
+              316
+            ],
+            "outside_count": 4,
+            "global_bbox_edges": [
+              "right"
+            ]
+          },
+          {
+            "component": 34,
+            "count": 5,
+            "bbox": [
+              548,
+              318,
+              549,
+              320
+            ],
+            "outside_count": 5,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 35,
+            "count": 1,
+            "bbox": [
+              551,
+              319,
+              551,
+              319
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": [
+              "right"
+            ]
+          },
+          {
+            "component": 36,
+            "count": 6,
+            "bbox": [
+              548,
+              328,
+              549,
+              331
+            ],
+            "outside_count": 6,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 37,
+            "count": 8,
+            "bbox": [
+              548,
+              334,
+              551,
+              336
+            ],
+            "outside_count": 8,
+            "global_bbox_edges": [
+              "right"
+            ]
+          },
+          {
+            "component": 38,
+            "count": 2,
+            "bbox": [
+              548,
+              353,
+              548,
+              354
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 39,
+            "count": 2,
+            "bbox": [
+              548,
+              387,
+              548,
+              388
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 40,
+            "count": 1,
+            "bbox": [
+              551,
+              412,
+              551,
+              412
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": [
+              "right"
+            ]
+          },
+          {
+            "component": 41,
+            "count": 1,
+            "bbox": [
+              381,
+              419,
+              381,
+              419
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 42,
+            "count": 1,
+            "bbox": [
+              401,
+              422,
+              401,
+              422
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 43,
+            "count": 1,
+            "bbox": [
+              392,
+              424,
+              392,
+              424
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 44,
+            "count": 9,
+            "bbox": [
+              426,
+              431,
+              431,
+              435
+            ],
+            "outside_count": 9,
+            "global_bbox_edges": [
+              "bottom"
+            ]
+          },
+          {
+            "component": 45,
+            "count": 1,
+            "bbox": [
+              432,
+              435,
+              432,
+              435
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": [
+              "bottom"
+            ]
+          },
+          {
+            "component": 46,
+            "count": 1,
+            "bbox": [
+              435,
+              435,
+              435,
+              435
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": [
+              "bottom"
+            ]
+          }
+        ]
+      },
+      {
+        "mask_version": 2,
+        "total": 71,
+        "inside": 57,
+        "outside": 14,
+        "bbox": [
+          358,
+          243,
+          551,
+          433
+        ],
+        "iou": 0.04133905487886138,
+        "components_8_neighbour": [
+          {
+            "component": 1,
+            "count": 4,
+            "bbox": [
+              365,
+              243,
+              367,
+              244
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": [
+              "top"
+            ]
+          },
+          {
+            "component": 2,
+            "count": 5,
+            "bbox": [
+              361,
+              249,
+              363,
+              250
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 3,
+            "count": 38,
+            "bbox": [
+              358,
+              254,
+              363,
+              267
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": [
+              "left"
+            ]
+          },
+          {
+            "component": 4,
+            "count": 2,
+            "bbox": [
+              361,
+              271,
+              361,
+              272
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 5,
+            "count": 5,
+            "bbox": [
+              361,
+              276,
+              363,
+              278
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 6,
+            "count": 3,
+            "bbox": [
+              362,
+              283,
+              363,
+              284
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 7,
+            "count": 1,
+            "bbox": [
+              550,
+              284,
+              550,
+              284
+            ],
+            "outside_count": 1,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 8,
+            "count": 2,
+            "bbox": [
+              550,
+              295,
+              550,
+              296
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 9,
+            "count": 2,
+            "bbox": [
+              548,
+              319,
+              549,
+              319
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 10,
+            "count": 2,
+            "bbox": [
+              548,
+              329,
+              549,
+              329
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 11,
+            "count": 5,
+            "bbox": [
+              549,
+              334,
+              551,
+              336
+            ],
+            "outside_count": 5,
+            "global_bbox_edges": [
+              "right"
+            ]
+          },
+          {
+            "component": 12,
+            "count": 2,
+            "bbox": [
+              427,
+              433,
+              428,
+              433
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": [
+              "bottom"
+            ]
+          }
+        ]
+      }
+    ],
+    "scope": "offline_snapshot_only_not_formal_window_or_v2_board"
+  },
+  {
+    "input_id": "r3-pilot",
+    "input_sha256": "62fc2a11f58ff84c748cd8a90968846c022685dcbd0d5eb8e8c7f16ed15ad74d",
+    "frame_seq": 2329,
+    "diagnostic_bbox": [
+      284,
+      171,
+      374,
+      220
+    ],
+    "bbox_role": "original_pre_capture_ROI_applied_only_to_pilot_not_formal_frames",
+    "masks": [
+      {
+        "mask_version": 1,
+        "total": 3543,
+        "inside": 3543,
+        "outside": 0,
+        "bbox": [
+          286,
+          171,
+          371,
+          218
+        ],
+        "iou": 0.9072527472527473,
+        "components_8_neighbour": [
+          {
+            "component": 1,
+            "count": 3543,
+            "bbox": [
+              286,
+              171,
+              371,
+              218
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": [
+              "left",
+              "top",
+              "right",
+              "bottom"
+            ]
+          }
+        ]
+      },
+      {
+        "mask_version": 2,
+        "total": 3570,
+        "inside": 3570,
+        "outside": 0,
+        "bbox": [
+          286,
+          172,
+          371,
+          218
+        ],
+        "iou": 0.8883516483516484,
+        "components_8_neighbour": [
+          {
+            "component": 1,
+            "count": 3570,
+            "bbox": [
+              286,
+              172,
+              371,
+              218
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": [
+              "left",
+              "top",
+              "right",
+              "bottom"
+            ]
+          }
+        ]
+      }
+    ],
+    "scope": "offline_snapshot_only_not_formal_window_or_v2_board"
+  },
+  {
+    "input_id": "r5-pilot",
+    "input_sha256": "d4b9476b565847953527aa3cccfb748b8ad63f79d31190d4ea604d18aae69625",
+    "frame_seq": 17019,
+    "diagnostic_bbox": [
+      253,
+      100,
+      386,
+      192
+    ],
+    "bbox_role": "post_failure_diagnostic_estimate_never_formal_frozen_ROI",
+    "masks": [
+      {
+        "mask_version": 1,
+        "total": 855,
+        "inside": 840,
+        "outside": 15,
+        "bbox": [
+          257,
+          100,
+          531,
+          471
+        ],
+        "iou": 0.11775362318840579,
+        "components_8_neighbour": [
+          {
+            "component": 1,
+            "count": 793,
+            "bbox": [
+              350,
+              100,
+              385,
+              183
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": [
+              "top"
+            ]
+          },
+          {
+            "component": 2,
+            "count": 13,
+            "bbox": [
+              342,
+              102,
+              347,
+              104
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 3,
+            "count": 17,
+            "bbox": [
+              324,
+              103,
+              333,
+              104
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 4,
+            "count": 5,
+            "bbox": [
+              336,
+              103,
+              339,
+              104
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 5,
+            "count": 5,
+            "bbox": [
+              310,
+              104,
+              314,
+              104
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 6,
+            "count": 3,
+            "bbox": [
+              296,
+              105,
+              298,
+              105
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 7,
+            "count": 1,
+            "bbox": [
+              284,
+              106,
+              284,
+              106
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 8,
+            "count": 1,
+            "bbox": [
+              272,
+              107,
+              272,
+              107
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 9,
+            "count": 2,
+            "bbox": [
+              257,
+              108,
+              258,
+              108
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": [
+              "left"
+            ]
+          },
+          {
+            "component": 10,
+            "count": 13,
+            "bbox": [
+              528,
+              465,
+              531,
+              468
+            ],
+            "outside_count": 13,
+            "global_bbox_edges": [
+              "right"
+            ]
+          },
+          {
+            "component": 11,
+            "count": 2,
+            "bbox": [
+              526,
+              471,
+              527,
+              471
+            ],
+            "outside_count": 2,
+            "global_bbox_edges": [
+              "bottom"
+            ]
+          }
+        ]
+      },
+      {
+        "mask_version": 2,
+        "total": 841,
+        "inside": 830,
+        "outside": 11,
+        "bbox": [
+          327,
+          100,
+          531,
+          468
+        ],
+        "iou": 0.06761423534116108,
+        "components_8_neighbour": [
+          {
+            "component": 1,
+            "count": 808,
+            "bbox": [
+              351,
+              100,
+              385,
+              182
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": [
+              "top"
+            ]
+          },
+          {
+            "component": 2,
+            "count": 10,
+            "bbox": [
+              343,
+              102,
+              347,
+              104
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": []
+          },
+          {
+            "component": 3,
+            "count": 12,
+            "bbox": [
+              327,
+              103,
+              332,
+              104
+            ],
+            "outside_count": 0,
+            "global_bbox_edges": [
+              "left"
+            ]
+          },
+          {
+            "component": 4,
+            "count": 11,
+            "bbox": [
+              528,
+              465,
+              531,
+              468
+            ],
+            "outside_count": 11,
+            "global_bbox_edges": [
+              "right",
+              "bottom"
+            ]
+          }
+        ]
+      }
+    ],
+    "scope": "offline_snapshot_only_not_formal_window_or_v2_board"
+  }
+]

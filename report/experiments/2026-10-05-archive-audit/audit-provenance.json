@@ -1,0 +1,33 @@
+{
+  "schema": "fpga-archive-audit/1",
+  "recorded_at_utc": "2026-10-05T11:05:28.504529+00:00",
+  "source_baseline": "f616f866e275835689528ee12514fec40dc6c4b3",
+  "captain_task_commit": "58fa10e3a0aedea338ddfe9b63ecba8821ec9b60",
+  "audit_script_sha256": "56343ebdf2d428ed2746af83db9f4a3d279b3a7d769939a44f9d410c4667ff87",
+  "protected_files_sha256": {
+    "data/fixtures/pc_r0_independent_cases.json": "da06ca9b7341b94fceaf5844755314ae8811aae983d552e7fbdb09cc9462432e",
+    "data/fixtures/pc_replay_sequences.json": "0c8a6c85e18ec738ca81e36859ef8f3eb15d6d5e15ee19475e09f1c50ab89d9e",
+    "data/fixtures/pc_target_cases.json": "d316d5202a33448da04b75875bd0a8c228ce78a3f7ea49332ae23226b7033661",
+    "sim/reference/red_mask.py": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52",
+    "sim/reference/spatial_relations.py": "940a8b85feab756cbe62933d474271e4ae276b811bd3fffc2f9010c782be6f5c",
+    "src/pc/pl_compare.py": "52accca8b2cde821dfd11a3607bd7143d6a24bb6705d3b5f0c842b03229eb2d3",
+    "src/pc/vendor_udp.py": "63936f4caee1d39e2016cb6e40781abf09f7cba46605a3ae3a4c5ec56e027a26",
+    "tests/test_pl_compare.py": "96035259d0ce27f15093e25aa935cf1dede97644346912bf6b1e2cee23731d55",
+    "tests/test_spatial_relations.py": "23a3044c8d27966de60276791489f738cf803faf38c375d187af0de1d52b74f1"
+  },
+  "scope": "offline_archival_not_board_replay",
+  "windows": 2,
+  "pairs": 200,
+  "raw_bundles_scanned": 9,
+  "raw_bundles_verified": 9,
+  "snapshot_diagnostics": 3,
+  "raw_search_scope": "declared existing run roots only; not the entire disk",
+  "original_archive_files_checked": 29,
+  "original_archives_unchanged_after_audit": true,
+  "limits": [
+    "No saved formal raw bytes inferred from pilot",
+    "No second-person ROI review",
+    "Host save times are not sensor exposure timestamps",
+    "No v2 hardware test"
+  ]
+}

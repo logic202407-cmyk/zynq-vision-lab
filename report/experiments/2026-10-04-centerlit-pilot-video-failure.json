@@ -1,0 +1,238 @@
+{
+  "schema": "pc-fpga-centerlit-video/1",
+  "source_commit": "c64c5ba57a6bdb6219fb2adde544f1076a5375a7",
+  "condition_plan": "pc-fpga-plan/2026-10-04-r5-condition-centerlit",
+  "condition_plan_sha256": "16056cffd7e01c7a5aa1040bea407abcb42885e11147bddf4f7f8213b8b4d0ac",
+  "network_before_pilot": {
+    "udp_port_free": 1234,
+    "board_onlink_route": "192.168.1.10/32",
+    "prefix_length": 24,
+    "status": "Up",
+    "pc_ip": "192.168.1.102",
+    "address_state": "Preferred",
+    "link_speed": "1 Gbps"
+  },
+  "physical": {
+    "distance_m": null,
+    "observed_image": "Four paper edges visible in upper half of unmodified image; user-centered description not geometric center verification",
+    "lux": null,
+    "lamp_details": null,
+    "exposure_lock": null,
+    "target_cm": [
+      17.5,
+      22.5
+    ]
+  },
+  "pilot": {
+    "exit_code": 0,
+    "stop_error": null,
+    "scope": "pilot_excluded_not_formal_acceptance",
+    "frame": {
+      "schema": "rgb565-frame-evidence/1",
+      "source": "live_camera",
+      "pixel_format": "RGB565_BE",
+      "width": 640,
+      "height": 480,
+      "byte_count": 614400,
+      "input_sha256": "d4b9476b565847953527aa3cccfb748b8ad63f79d31190d4ea604d18aae69625",
+      "frame_seq": 17019,
+      "host_saved_at_utc": "2026-10-04T20:34:44.825931+08:00",
+      "scope": "snapshot_not_board_acceptance"
+    },
+    "malformed": 1,
+    "incomplete_frames": 0,
+    "ended_at_utc": "2026-10-04T20:34:44.824703+08:00",
+    "started_at_utc": "2026-10-04T20:34:44.737029+08:00",
+    "complete_frames": 2,
+    "orphan_rows": 276,
+    "matched_pl": {
+      "frame_seq": 17019,
+      "frame_complete": true,
+      "mask_version": 1,
+      "target_valid": true,
+      "count": 855,
+      "sum_x": 321732,
+      "sum_y": 117227,
+      "bbox": [
+        257,
+        100,
+        531,
+        471
+      ],
+      "centroid": [
+        376,
+        137
+      ]
+    }
+  },
+  "video_gate": {
+    "failure_reasons": [
+      "video_no_complete_frames",
+      "video_no_payload"
+    ],
+    "note": "Probe exits zero even when there is no video",
+    "summary": {
+      "started_at_utc": "2026-10-04T20:36:12.68213+08:00",
+      "requested_seconds": 10,
+      "elapsed_seconds": 10.12,
+      "interrupted": false,
+      "complete_frames": 0,
+      "incomplete_frames": 0,
+      "malformed_datagrams": 0,
+      "orphan_rows": 0,
+      "received_datagrams": 0,
+      "received_payload_bytes": 0,
+      "other_source_datagrams": 0,
+      "max_complete_frame_gap_seconds": 0.0,
+      "intervals": [
+        {
+          "elapsed_seconds": 5.17,
+          "complete_frames": 0,
+          "new_frames": 0,
+          "incomplete_frames": 0,
+          "malformed_datagrams": 0
+        }
+      ]
+    },
+    "status": "fail",
+    "process_exit_code": 0
+  },
+  "post_failure_readonly": {
+    "exit_code": 1,
+    "timed_out": false,
+    "error_codes": [
+      "Labtools 27-2269",
+      "Common 17-39"
+    ],
+    "scope": "post_H2_failure_readonly_diagnostic",
+    "target_count": 1,
+    "done_pin": null,
+    "done_internal": null,
+    "eos": null,
+    "ended_at_utc": "2026-10-04T12:40:52.5140814Z",
+    "started_at_utc": "2026-10-04T12:40:14.8584409Z",
+    "part": null,
+    "device_status": "not_detected"
+  },
+  "same_input_offline": {
+    "byte_count": 614400,
+    "frame_seq": 17019,
+    "host_saved_at_utc": "2026-10-04T20:34:44.825931+08:00",
+    "input_sha256": "d4b9476b565847953527aa3cccfb748b8ad63f79d31190d4ea604d18aae69625",
+    "masks": {
+      "1": {
+        "bbox": [
+          257,
+          100,
+          531,
+          471
+        ],
+        "centroid_mask_floor": [
+          376,
+          137
+        ],
+        "count": 855,
+        "sum_x": 321732,
+        "sum_y": 117227,
+        "valid": true
+      },
+      "2": {
+        "bbox": [
+          327,
+          100,
+          531,
+          468
+        ],
+        "centroid_mask_floor": [
+          377,
+          136
+        ],
+        "count": 841,
+        "sum_x": 317387,
+        "sum_y": 114430,
+        "valid": true
+      }
+    },
+    "reference_sha256": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52",
+    "schema": "saved-rgb565-comparison/1",
+    "scope": "offline_not_board",
+    "source": "live_camera"
+  },
+  "post_failure_snapshot_diagnosis": {
+    "schema": "pilot-post-failure-diagnosis/1",
+    "scope": "offline_snapshot_diagnosis_not_formal_acceptance",
+    "at_utc": "2026-10-04T20:41:28.19709+08:00",
+    "input_sha256": "d4b9476b565847953527aa3cccfb748b8ad63f79d31190d4ea604d18aae69625",
+    "frame_seq": 17019,
+    "diagnostic_bbox": [
+      253,
+      100,
+      386,
+      192
+    ],
+    "bbox_origin": "Codex visual estimate on unmodified PNG; no second-person coordinate review",
+    "bbox_is_formal_frozen_roi": false,
+    "bbox_note": "Axis-aligned outline includes background at tilted paper corners; estimated bounds.",
+    "bbox_area": 12462,
+    "red5_median_in_bbox": 12.0,
+    "red5_min_in_bbox": 7,
+    "red5_max_in_bbox": 23,
+    "red5_below_15_in_bbox": 10344,
+    "reference_sha256": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52",
+    "masks": {
+      "1": {
+        "total_red": 855,
+        "red_in_bbox": 840,
+        "red_outside_bbox": 15,
+        "measured_bbox": [
+          257,
+          100,
+          531,
+          471
+        ],
+        "bbox_iou_intersection": 12090,
+        "bbox_iou_union": 102672,
+        "bbox_iou": 0.11775362318840579
+      },
+      "2": {
+        "total_red": 841,
+        "red_in_bbox": 830,
+        "red_outside_bbox": 11,
+        "measured_bbox": [
+          327,
+          100,
+          531,
+          468
+        ],
+        "bbox_iou_intersection": 5580,
+        "bbox_iou_union": 82527,
+        "bbox_iou": 0.06761423534116108
+      }
+    },
+    "v2_is_real_board_measurement": false,
+    "single_snapshot_v1_matches_pl": true
+  },
+  "formal_roi_frozen": false,
+  "stages": {
+    "window_30s": "not_run",
+    "I0": "not_run",
+    "independent_reproduction": "not_run",
+    "P0": "not_run",
+    "H1": "pass_at_configuration_time",
+    "H2": "fail",
+    "repeats": "not_run",
+    "v2_board": "not_run",
+    "N0": "not_run"
+  },
+  "protected_files_sha256": {
+    "data/fixtures/pc_r0_independent_cases.json": "da06ca9b7341b94fceaf5844755314ae8811aae983d552e7fbdb09cc9462432e",
+    "data/fixtures/pc_replay_sequences.json": "0c8a6c85e18ec738ca81e36859ef8f3eb15d6d5e15ee19475e09f1c50ab89d9e",
+    "data/fixtures/pc_target_cases.json": "d316d5202a33448da04b75875bd0a8c228ce78a3f7ea49332ae23226b7033661",
+    "sim/reference/red_mask.py": "19a6ef874cda439c5d980fef29ab7c1606e4beec88330ab2c4acf00d7055cf52",
+    "sim/reference/spatial_relations.py": "940a8b85feab756cbe62933d474271e4ae276b811bd3fffc2f9010c782be6f5c",
+    "src/pc/pl_compare.py": "52accca8b2cde821dfd11a3607bd7143d6a24bb6705d3b5f0c842b03229eb2d3",
+    "src/pc/vendor_udp.py": "63936f4caee1d39e2016cb6e40781abf09f7cba46605a3ae3a4c5ec56e027a26",
+    "tests/test_pl_compare.py": "96035259d0ce27f15093e25aa935cf1dede97644346912bf6b1e2cee23731d55",
+    "tests/test_spatial_relations.py": "23a3044c8d27966de60276791489f738cf803faf38c375d187af0de1d52b74f1"
+  }
+}

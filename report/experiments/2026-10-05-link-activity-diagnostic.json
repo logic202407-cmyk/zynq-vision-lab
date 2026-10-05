@@ -1,0 +1,186 @@
+{
+  "schema": "pc-fpga-link-activity-diagnostic/1",
+  "source_commit": "74347b0539306cf676576f85667720ebc148c9c3",
+  "operator_report": "GE/PL lights flashing normally",
+  "registered_at_utc": "2026-10-05T11:13:20.8057250Z",
+  "host_link": {
+    "state": "Up",
+    "speed": "1 Gbps",
+    "wired_address_preferred": true,
+    "board_only_route_present": true,
+    "board_neighbor_before": "Unreachable"
+  },
+  "one_source_bound_stimulus": {
+    "sent_bytes_delta": 84,
+    "received_bytes_delta": 0,
+    "limit": "Adapter-wide counters; emitted ARP and any reply not individually captured; ping timeout not a video verdict",
+    "ended_at_utc": "2026-10-05T11:13:23.0742212Z",
+    "neighbor_after": "Incomplete",
+    "started_at_utc": "2026-10-05T11:13:21.0881395Z",
+    "ping_exit_code": 1
+  },
+  "probe": {
+    "started_at_utc": "2026-10-05T11:14:18.033937+00:00",
+    "requested_seconds": 10,
+    "elapsed_seconds": 10.05,
+    "interrupted": false,
+    "complete_frames": 0,
+    "incomplete_frames": 0,
+    "malformed_datagrams": 0,
+    "orphan_rows": 0,
+    "received_datagrams": 0,
+    "received_payload_bytes": 0,
+    "other_source_datagrams": 0,
+    "max_complete_frame_gap_seconds": 0.0,
+    "intervals": [
+      {
+        "elapsed_seconds": 5.14,
+        "complete_frames": 0,
+        "new_frames": 0,
+        "incomplete_frames": 0,
+        "malformed_datagrams": 0
+      }
+    ]
+  },
+  "probe_receipt": {
+    "udp_listeners_after": 0,
+    "received_bytes_delta": 0,
+    "exit_code": 0,
+    "neighbor_after": "Incomplete",
+    "started_at_utc": "2026-10-05T11:14:17.9162918Z",
+    "ended_at_utc": "2026-10-05T11:14:30.7039544Z",
+    "sent_bytes_delta": 168
+  },
+  "video_gate": {
+    "process_exit_code": 0,
+    "gate": "FAIL",
+    "failure_reasons": [
+      "zero_complete_frames",
+      "zero_received_payload_bytes",
+      "zero_received_datagrams"
+    ],
+    "scope": "10s_real_video_entry_only_not_30s_stability"
+  },
+  "benchmark_source_sha256": "b5e585ab3248dfcb731773567dfd9616a03bda2804ae25483f43ddcaa564dd23",
+  "capture_access": {
+    "status_command_exit_code": 5,
+    "list_command_exit_code": 5,
+    "observed_error": "non-admin PktMon driver access denied"
+  },
+  "capture_helper": {
+    "status": "temporary_network_restored_capture_failed_at_global_ETW_query_gate",
+    "helper_sha256": "6f6baa489ec91ccf9a196eeda2350f0a75a586d25a95e9e422a8c75075b2b397",
+    "syntax_errors": 0,
+    "selector_fixtures": 3,
+    "validation_only_exit_code": 0,
+    "scope": "one uniquely identified wired NIC; 64-byte headers; bounded receive wait",
+    "filters_and_network_settings_changed": false,
+    "helper_sha256_before_path_fix": "ebdfa2a0ea495cb863b813b2995da087ea888034f5c97853f4f06649a709553e",
+    "admin_path_error": {
+      "observed": "Administrator check passed; guard-file Open failed on illegal path before capture",
+      "capture_started": false,
+      "encoding_reproduction": {
+        "powershell_version": "5.1.26100.9444",
+        "default_read_matches_utf8": false,
+        "default_path_legal": false,
+        "explicit_utf8_directory_exists": true,
+        "sensitive_paths_not_printed": true
+      },
+      "correction": "Explicit UTF8 JSON reading; ValidateOnly now creates/removes a new test file in actual output directory",
+      "exact_windows_powershell_validation_passed": true,
+      "private_screenshot_sha256": "774ac9a28b12211a5816002cfd9951ef7dc44ca86efbf4a42f0e5ab99e72ae08"
+    },
+    "address_gate_attempt": {
+      "started_at_utc": "2026-10-05T11:37:37.6752449Z",
+      "ended_at_utc": "2026-10-05T11:37:40.0692058Z",
+      "status": "FAILED",
+      "capture_started_by_helper": false,
+      "error": "Address/route missing; this helper does not restore settings",
+      "network_settings_changed": false,
+      "packet_evidence": "none; packet capture never started",
+      "read_only_followup": {
+        "wired_link": "Up at 1 Gbps",
+        "expected_preferred_address_present": false,
+        "observed_address_class": "IPv4 link-local",
+        "board_only_route_present": false
+      },
+      "cause_of_network_state_loss": "unknown; observed change is not proof of a USB reset or board fault"
+    },
+    "etw_gate_attempt": {
+      "started_at_utc": "2026-10-05T11:49:36.0380186Z",
+      "ended_at_utc": "2026-10-05T11:49:48.1710973Z",
+      "entry_status": "FAILED",
+      "recovery_exit_code": 0,
+      "network_recovery_status": "CONFIGURED",
+      "recovery_scope": "same temporary wired address and board-only route; no Wi-Fi/DNS/default gateway changes",
+      "capture_exit_code": 1,
+      "capture_started_at_utc": "2026-10-05T11:49:45.5112312Z",
+      "capture_ended_at_utc": "2026-10-05T11:49:47.1958215Z",
+      "capture_started_by_helper": false,
+      "error": "Cannot inspect existing ETW sessions",
+      "packet_evidence": "none; PktMon capture never started",
+      "video_probe": "not_run",
+      "failure_detail_limit": "Prior helper did not preserve native ETW query stdout/return code; underlying reason unknown",
+      "read_only_followup": {
+        "wired_link": "Up at 1 Gbps",
+        "expected_address_preferred": true,
+        "board_only_route_present": true,
+        "udp1234_listeners": 0
+      },
+      "non_admin_reproduction": {
+        "windows_powershell_version": "5.1.26100.9444",
+        "same_logman_query_exit_code": 0,
+        "limit": "Different token and time; does not explain administrator failure"
+      }
+    }
+  },
+  "root_cause": "unknown",
+  "formal_stages": "not_run",
+  "limits": [
+    "Interface-wide counters do not individually identify ARP packets",
+    "A source-bound ICMP timeout is not a camera video verdict",
+    "Physical indicator flashing is operator observation, not packet decoding",
+    "Last JTAG register values belong to earlier query, not this window"
+  ],
+  "prepared_recovery_capture_entry": {
+    "source_commit": "c3e646552b6d8b28126d4ec48addc6a7b6064836",
+    "at_utc": "2026-10-05T11:46:21.7982593Z",
+    "status": "executed_recovery_succeeded_capture_failed_before_start",
+    "validation_only_exit_code": 0,
+    "selector_fixtures_passed": 3,
+    "script_sha256": {
+      "network-recovery\\configure-board-network.ps1": "9385b4204c7bac5f9de42f34395ab76583f7d03ab683a68729868fd3dd95205b",
+      "select_component.ps1": "6716aa6e4b27b06f2aad203879eda3c7f4628225a316e0f6150281db0cf4ceca",
+      "run_capture.ps1": "a139d4fea822a3475b0bc797743d5807cd0e01ef05691a7fbb9f025e32d61f0e",
+      "run_recovery_capture.ps1": "7ba69ee704c40d94419f33c9eb844e1b537cc8d21097d2c14f522df0cfeeeb88"
+    },
+    "execution_environment": "Windows PowerShell 5.1; validation-only mode checked actual output directory",
+    "authorized_settings_scope": "same identified wired NIC: temporary 192.168.1.102/24, interface metric 5000, on-link board-only 192.168.1.10/32 route; no persistent/Wi-Fi/DNS/default-gateway changes",
+    "capture_scope": "one identified wired NIC, 64-byte prefixes, one source-bound stimulus and one 10-second receiver",
+    "prerequisites": "administrator execution; fresh guard and evidence directory; no capture if recovery fails",
+    "validation_limit": "syntax/path/selector validation is not privileged execution or packet evidence"
+  },
+  "direct_pktmon_status_entry_preparation": {
+    "source_commit": "e72d3898ea3daae8465a92e81f4b5438386408d0",
+    "at_utc": "2026-10-05T11:55:59.0561651Z",
+    "status": "prepared_not_executed",
+    "validation_only_exit_code": 0,
+    "status_fixtures_passed": 6,
+    "nic_fixtures_passed": 3,
+    "script_sha256": {
+      "run_recovery_capture.ps1": "46b240e347119a8b853aace4fa6868255f3c32cebcb397bffb44af3e6c1109ae",
+      "test_helper.ps1": "0ab074488c7b54cfc9074d083435986b682a4aed74c1831732c647e119542902",
+      "pktmon-inactive-messages.json": "93a78c2d7d10ef1cce9bd5ca9e9a2ce0e09f2e29c0b60cddce333c3085d8e245",
+      "network-recovery\\configure-board-network.ps1": "015a6f7d6ca95195036b88ee75d570938d48f4760787f635c08de076b0edb0af",
+      "check_pktmon_status.ps1": "c73e76d03451f8fa483603720f38309693276beba122851f8770615ba1932f2c",
+      "select_component.ps1": "e674bfe24cdd72548dd6494e9a7597f10cdcfc342847600b2abba9811308a258",
+      "run_capture.ps1": "67ae7c15e3d4a4bc9c1e0e38af711ad9141f18270c1079d0e636e89e88fa4fd4"
+    },
+    "runtime_guard": "Native pktmon status must return exit 0 and exactly match installed inactive-state message; active, unknown, mixed or denied result prevents start and stop",
+    "command_diagnostics": "Native state/list outputs and return codes now preserved before gates",
+    "authorization_scope": "same existing temporary wired address/metric/board-only route; skip when already valid; runtime original-state snapshot for rollback",
+    "capture_scope": "single freshly identified wired NIC; 64-byte prefixes; one stimulus and one 10s receiver; own capture only",
+    "rollback_snapshot": "Actual runtime pre-write settings preserved for rollback if restoration needed",
+    "limits": "No privileged capture or board evidence from validation-only checks"
+  }
+}

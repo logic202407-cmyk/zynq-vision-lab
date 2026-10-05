@@ -1,0 +1,23 @@
+{
+  "schema": "pc-fpga-configuration/1",
+  "at_utc": "2026-10-04T12:28:26.3840335Z",
+  "source_commit": "490111896b6ebf7d0e29544ebc680a3ae83ec4d1",
+  "started_at_utc": "2026-10-04T12:24:51.6839027Z",
+  "ended_at_utc": "2026-10-04T12:25:37.69842Z",
+  "mask_version": 1,
+  "status": "pass_configuration_only",
+  "exit_code": 0,
+  "target_count": 1,
+  "part": "xc7z100",
+  "startup": "HIGH",
+  "eos": 1,
+  "done_internal": 1,
+  "done_pin": 1,
+  "bitfile_sha256": "2a380055b3fd93049a5a174c0f3e1e7b140117b0df77fb5825b6b2ab6011fdc5",
+  "bitfile_size": 2190907,
+  "program_script_sha256": "db54f7ede61ede8c2580f5f8b027d5d8e3d1d5e36fd7a493853652f229b4a73b",
+  "network_setup": "pending_user_admin_helper",
+  "video": "not_run_at_this_record",
+  "paper_target": "not_run_at_this_record",
+  "v2_board": "not_run"
+}

@@ -1,0 +1,66 @@
+{
+  "schema": "pc-fpga-archive-validation/1",
+  "source_baseline": "f616f866e275835689528ee12514fec40dc6c4b3",
+  "first_attempt": {
+    "ended_at_utc": "2026-10-05T10:55:44.4332867Z",
+    "unittest_exit_code": 1,
+    "started_at_utc": "2026-10-05T10:55:31.9841183Z",
+    "diff_exit_code": 0,
+    "repository_exit_code": 1
+  },
+  "first_attempt_tests": 165,
+  "first_attempt_failures": 1,
+  "failure": "Report linked validation receipt before it existed; repository-link test caught missing file",
+  "correction": "Create actual failed-attempt receipt before repeating checks; no threshold or test changes",
+  "first_repository_log_sha256": "40c461d2343b9ff715ff6e2830dc4d3e88429babe6c476a87b00ba8aa53fe7d4",
+  "first_unittest_log_sha256": "c17a3cc02ee7a685dd6c53da17dd1bf8edaad7d5031c7bb4a4089715656adf30",
+  "final_validation": {
+    "unittest_exit_code": 0,
+    "staged_diff_exit_code": 0,
+    "repository_exit_code": 0,
+    "started_at_utc": "2026-10-05T11:06:06.5672281Z",
+    "ended_at_utc": "2026-10-05T11:06:28.0733932Z",
+    "tests": 165,
+    "failures": 0,
+    "skipped": 0,
+    "repository_log_sha256": "f61a9288ef6a96d77eb3dbcd44918bfd038320a53dd4b98ebf7128a8af308e90",
+    "unittest_log_sha256": "19e890a54392d53bc9af232a132fff85347d5cae63f896d4a41271a2f5dfae40",
+    "audit_script_sha256": "56343ebdf2d428ed2746af83db9f4a3d279b3a7d769939a44f9d410c4667ff87",
+    "new_archive_tests_sha256": "086f2eca1a5c21eb5bc847756d6d910e94d9c3c1a005ac3338726ae5e569ccd6",
+    "scope": "offline_repository_and_unit_tests; unit N0 output is synthetic, not board N0",
+    "environment": {
+      "python": "3.12.4",
+      "Pillow": "12.2.0",
+      "Matplotlib": "3.11.0"
+    }
+  },
+  "prior_pass_before_svg_format_change": {
+    "repository_exit_code": 0,
+    "diff_exit_code": 0,
+    "ended_at_utc": "2026-10-05T11:01:10.0268443Z",
+    "started_at_utc": "2026-10-05T11:00:59.0474767Z",
+    "unittest_exit_code": 0,
+    "tests": 165,
+    "failures": 0,
+    "skipped": 0,
+    "repository_log_sha256": "f61a9288ef6a96d77eb3dbcd44918bfd038320a53dd4b98ebf7128a8af308e90",
+    "unittest_log_sha256": "cf0338c710937d4911b7aa7be21c5bb1ba6fa08d5f5a8ea427c90575ddea9a39",
+    "audit_script_sha256": "462f7359a4c652f4a8fed6c789033f3561a8ceebcc5403833aac6deab41ab603",
+    "new_archive_tests_sha256": "086f2eca1a5c21eb5bc847756d6d910e94d9c3c1a005ac3338726ae5e569ccd6",
+    "scope": "offline_repository_and_unit_tests; synthetic N0 test output is not board N0",
+    "environment": {
+      "python": "3.12.4",
+      "Pillow": "12.2.0",
+      "Matplotlib": "3.11.0"
+    }
+  },
+  "svg_format_check": {
+    "initial_staged_diff_exit_code": 2,
+    "reason": "Native Matplotlib multiline SVG attributes contained trailing spaces",
+    "correction": "Normalize SVG line endings/trailing spaces in export; no plot geometry or acceptance changes",
+    "initial_log_sha256": "d54543005cb59f14bf2ab28477deed91a79d7d3c2d264e87501c88d219c60ac7",
+    "final_staged_diff_exit_code": 0,
+    "SVG_XML_parse_passed": true,
+    "PNG_files_identical_across_correction": true
+  }
+}
