@@ -47,3 +47,19 @@ Flashing LEDs, a configured FPGA, and a working host address cannot individually
 prove the camera-to-host stream. The next diagnostic needs actual packet-level
 evidence; root cause remains **unknown**. No repeated bitstream download or
 static-neighbor workaround was performed.
+
+## Windows PowerShell path correction
+
+The operator successfully opened an administrator window. The first privileged
+helper invocation nevertheless failed before capture, at creation of its guard
+file. Reproduction in Windows PowerShell **5.1.26100.9444** found that default
+reading of the UTF-8-without-BOM JSON changed the non-ASCII output path and
+produced an illegal path. This was a helper encoding mistake, not a board error.
+
+The helper now explicitly reads JSON as UTF-8. Its validation-only mode also
+creates and removes a new path-test file in the actual output directory.
+This exact Windows PowerShell 5.1 path check passed. The initial helper version,
+screenshot, reproduction and corrected helper hashes are preserved privately.
+Actual packet capture remains **not_run** pending execution of the corrected
+helper in the already-open administrator window. No guard, active capture or
+network-setting change was created by the failed invocation.

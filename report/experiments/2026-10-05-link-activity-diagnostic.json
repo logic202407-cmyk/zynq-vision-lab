@@ -68,13 +68,28 @@
     "observed_error": "non-admin PktMon driver access denied"
   },
   "capture_helper": {
-    "status": "prepared_not_run_requires_manual_admin_execution",
-    "helper_sha256": "ebdfa2a0ea495cb863b813b2995da087ea888034f5c97853f4f06649a709553e",
+    "status": "UTF8_path_fix_validated_privileged_capture_not_run",
+    "helper_sha256": "6f6baa489ec91ccf9a196eeda2350f0a75a586d25a95e9e422a8c75075b2b397",
     "syntax_errors": 0,
     "selector_fixtures": 3,
     "validation_only_exit_code": 0,
     "scope": "one uniquely identified wired NIC; 64-byte headers; bounded receive wait",
-    "filters_and_network_settings_changed": false
+    "filters_and_network_settings_changed": false,
+    "helper_sha256_before_path_fix": "ebdfa2a0ea495cb863b813b2995da087ea888034f5c97853f4f06649a709553e",
+    "admin_path_error": {
+      "observed": "Administrator check passed; guard-file Open failed on illegal path before capture",
+      "capture_started": false,
+      "encoding_reproduction": {
+        "powershell_version": "5.1.26100.9444",
+        "default_read_matches_utf8": false,
+        "default_path_legal": false,
+        "explicit_utf8_directory_exists": true,
+        "sensitive_paths_not_printed": true
+      },
+      "correction": "Explicit UTF8 JSON reading; ValidateOnly now creates/removes a new test file in actual output directory",
+      "exact_windows_powershell_validation_passed": true,
+      "private_screenshot_sha256": "774ac9a28b12211a5816002cfd9951ef7dc44ca86efbf4a42f0e5ab99e72ae08"
+    }
   },
   "root_cause": "unknown",
   "formal_stages": "not_run",
