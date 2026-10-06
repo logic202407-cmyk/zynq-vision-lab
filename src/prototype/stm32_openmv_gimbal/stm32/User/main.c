@@ -3,13 +3,16 @@
 #include "control.h"
 #include "command.h"
 #include "uart_parser.h"
+#ifndef P0_LOG_ONLY
 #include "servo.h"
+#endif
 #include "usart_config.h"
 #include "usart3_config.h"
 volatile uint32_t g_ms_tick = 0;
 static control_t controller;
 static uart_parser_t parser;
 static command_t console;
+#ifndef P0_LOG_ONLY
 static void apply_output(void)
 {
     if (controller.updated) {
@@ -17,13 +20,18 @@ static void apply_output(void)
         servo_set_tilt_us(controller.tilt_us);
     }
 }
+#else
+#define apply_output() ((void)0)
+#endif
 int main(void)
 {
     uint32_t status_ms = 0;
     control_init(&controller);
     uart_parser_init(&parser);
     command_init(&console);
+#ifndef P0_LOG_ONLY
     servo_init();
+#endif
     (void)SysTick_Config(SystemCoreClock / 1000);
     usart1_init();
     usart3_init();
@@ -63,5 +71,6 @@ int main(void)
             status_ms = g_ms_tick;
             usart3_send_status(&controller, &parser);
         }
+        usart3_poll_tx();
     }
 }

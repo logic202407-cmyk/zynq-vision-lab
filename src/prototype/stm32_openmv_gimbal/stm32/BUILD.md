@@ -47,6 +47,15 @@ runner在新目录逐文件调用armcc/armasm、armlink、fromelf，不运行uVi
 保留已产生日志。每条实际命令、UTC、退出码、完整stdout/stderr及日志hash单独存储。
 成功时有AXF、Intel HEX、map、完整result.json和源/依赖/产物hash。
 
+日志台架使用独立变体：
+
+```powershell
+python tools/build_stm32_p0.py --deps private/stm32-deps --tool-bin C:/Keil_v5/ARM/ARMCC/bin --output private/build-log-001 --log-only
+```
+
+该命令定义 P0_LOG_ONLY，排除 servo.c 和 TIM 驱动；完整要求和串口脚本见
+[LOG_ONLY.md](LOG_ONLY.md)。普通命令仍生成控制变体，不能用于日志台架。
+
 [Project.uvprojx](Project.uvprojx) 也列出同一组应用和私有依赖，
 配置为STM32F103C8、64KiB Flash/20KiB RAM。它是可审查工程配置，
 本次验证的是命令行完整构建，未把工程能打开当成uVision重建通过。
