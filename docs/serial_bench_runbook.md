@@ -57,6 +57,9 @@ Check MCU state/logs separately for valid, zero-error, no-target, timeout,
 recovery, CRC rejection, repeated-frame rejection and larger-session recovery.
 The finish event says MCU acceptance is not adjudicated. Exit 0 reports tool
 completion only; no status bytes during a physical run makes the tool fail.
+The final 350 ms status-drain window can contain a later timeout after the last
+packet. Review state transitions against transmit times, not just the final
+MCU line.
 
 ## Live FPGA input
 
