@@ -88,3 +88,16 @@ An empty live run or unexpected mask version fails with logs. It is transport
 diagnosis, not the exact100 comparison or formal target/30-second stability
 acceptance. Physical STM32 receipt and stage outcomes must be delivered by
 the operator on the connected computer.
+
+If FPGA and STM32 are on different PCs, copy the reviewed live-preview JSONL
+to the STM32 PC and agree another greater MCU session. The replay mode
+preflights all input before opening ports, preserves source frames/target
+centers and remaps the host session. It accepts only recorded invalid FPGA
+previews with missing-point provenance; it cannot send a valid control error.
+
+    python -m src.pc.serial_bench replay --input D:/Codex/temp/serial-round-01/live-preview.jsonl --dry-run --session 1008 --output D:/Codex/temp/serial-round-01/replay-preview.jsonl
+    python -m src.pc.serial_bench replay --input D:/Codex/temp/serial-round-01/live-preview.jsonl --port $inputCom --log-port $statusCom --session $newSession --firmware-commit $firmwareCommit --protocol-confirmed --output D:/Codex/temp/serial-round-01/replay-physical.jsonl
+
+delivery_mode=recorded_replay and source_is_live=false identify historical
+input. Physical replay waits 50 ms between packets; it does not recreate
+original arrival intervals or establish a current live FPGA–STM32 link.

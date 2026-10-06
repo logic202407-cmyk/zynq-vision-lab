@@ -7,7 +7,8 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from src.pc.serial_bench import Packet, encode, decode, synthetic_plan, live_record, main, emit
+from src.pc.serial_bench import (Packet, encode, decode, synthetic_plan, live_record,
+                                main, emit, read_live_replay)
 from src.pc.vendor_udp import Frame, PLMeasurement
 
 
@@ -155,6 +156,24 @@ class SerialBenchTests(unittest.TestCase):
             raw_status = b"".join(bytes.fromhex(r["raw_hex"]) for r in records if r["event"] == "rx")
             self.assertEqual(raw_status, b"STATE=waiting\r\n")
             self.assertEqual(records[-1]["mcu_acceptance"], "not_adjudicated")
+
+    def test_recorded_live_input_remaps_session_and_stays_invalid(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "recorded.jsonl"
+            record = {"event": "packet_preview", "source": "ov5640_fpga",
+                      "session": 42, "frame": 123, "source_frame_seq": 123,
+                      "source_ms": 200, "valid": 0, "dx": 0, "dy": 0,
+                      "reason": "missing_spot", "target_center": [210, 120]}
+            path.write_text(json.dumps(record), encoding="utf-8")
+            packet, fields = read_live_replay(path, 99)[0]
+            self.assertEqual((packet.session, packet.frame, packet.valid), (99, 123, 0))
+            self.assertEqual(fields["original_session"], 42)
+            self.assertEqual(fields["target_center"], [210, 120])
+            self.assertFalse(fields["source_is_live"])
+            record.update(valid=1, dx=10)
+            path.write_text(json.dumps(record), encoding="utf-8")
+            with self.assertRaises(ValueError):
+                read_live_replay(path, 99)
 
 
 if __name__ == "__main__":

@@ -238,6 +238,59 @@ def run_synthetic(args, recorder, link):
     return 50
 
 
+def read_live_replay(path: Path, session: int):
+    """Preflight saved invalid live previews before opening physical ports."""
+    records = []
+    watermark, original_session = -1, None
+    for line in path.read_text(encoding="utf-8-sig").splitlines():
+        record = json.loads(line)
+        if record.get("event") != "packet_preview":
+            if record.get("event") == "failure":
+                raise ValueError("input run contains failure; select a reviewed successful run")
+            continue
+        if record.get("source") != "ov5640_fpga" or record.get("fault"):
+            raise ValueError("replay accepts only unfaulted recorded FPGA previews")
+        if record.get("reason") not in ("missing_spot", "missing_pl_and_spot"):
+            raise ValueError("recorded FPGA preview lacks missing-point provenance")
+        packet = Packet(**{key: record[key] for key in ("session", "frame", "source_ms",
+                                                       "valid", "dx", "dy")})
+        encode(packet)
+        if packet.valid or packet.dx or packet.dy:
+            raise ValueError("recorded live replay cannot send an effective control error")
+        if packet.frame <= watermark:
+            raise ValueError("recorded sequence regressed or repeated")
+        if record.get("source_frame_seq") != packet.frame:
+            raise ValueError("recorded source sequence disagrees with packet")
+        if original_session is None:
+            original_session = packet.session
+        if packet.session != original_session:
+            raise ValueError("only one uninterrupted source session per replay")
+        watermark = packet.frame
+        remapped = Packet(session, packet.frame, packet.source_ms, 0, 0, 0)
+        encode(remapped)
+        fields = {key: record[key] for key in (
+            "source", "reason", "source_frame_seq", "paired_header_seq", "pair_status",
+            "source_timestamp_basis", "received_at_utc", "input_sha256",
+            "pl_target_valid", "target_center", "pl_raw") if key in record}
+        fields.update(delivery_mode="recorded_replay", source_is_live=False,
+                      original_session=original_session)
+        records.append((remapped, fields))
+    if not records:
+        raise ValueError("input contains no recorded FPGA previews")
+    return records
+
+
+def run_replay(args, recorder, link):
+    records = read_live_replay(args.input, args.session)
+    recorder.write("replay_input", sha256=hashlib.sha256(args.input.read_bytes()).hexdigest(),
+                   source_is_live=False, samples=len(records))
+    for index, (packet, fields) in enumerate(records):
+        if link and index:
+            time.sleep(0.050)
+        emit(recorder, link, packet, **fields)
+    return len(records)
+
+
 def run_live(args, recorder, link):
     pending = queue.Queue(maxsize=1)
     stop = threading.Event()
@@ -313,9 +366,10 @@ def run_live(args, recorder, link):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("mode", choices=("synthetic", "live"))
+    parser.add_argument("mode", choices=("synthetic", "live", "replay"))
     parser.add_argument("--session", type=int, required=True)
     parser.add_argument("--frame-start", type=int, default=0)
+    parser.add_argument("--input", type=Path, help="replay a recorded invalid FPGA preview JSONL")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--dry-run", action="store_true",
                         help="construct packets and logs only; live mode still receives FPGA UDP")
@@ -333,7 +387,13 @@ def main(argv=None):
         encode(Packet(args.session, args.frame_start, 0, 0))
         if args.mode == "synthetic":
             synthetic_plan(args.session, args.frame_start)
-    except ValueError as exc:
+        if args.mode == "replay":
+            if args.input is None:
+                raise ValueError("replay requires --input")
+            read_live_replay(args.input, args.session)
+        elif args.input:
+            raise ValueError("--input is only for replay")
+    except (ValueError, OSError, KeyError, TypeError) as exc:
         parser.error(str(exc))
     if not math.isfinite(args.seconds) or args.seconds <= 0:
         parser.error("seconds must be finite and positive")
@@ -356,7 +416,8 @@ def main(argv=None):
                        serial_format="115200/8N1", scope="transport_log_not_MCU_acceptance")
         if not args.dry_run:
             link = SerialLink(args.port, args.log_port, recorder)
-        count = (run_synthetic if args.mode == "synthetic" else run_live)(args, recorder, link)
+        runner = {"synthetic": run_synthetic, "live": run_live, "replay": run_replay}[args.mode]
+        count = runner(args, recorder, link)
         if link:
             time.sleep(0.350)
             if link.error or link.rx_bytes == 0:
