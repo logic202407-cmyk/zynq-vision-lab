@@ -25,7 +25,7 @@ jobs:
           python-version: '3.12'
       - name: Prepare UI regression dependencies
         run: |
-          python -m pip install -r src/pc/requirements.txt
+          python -m pip install -r src/pc/requirements-paper.txt
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python -c "import sys, PIL, tkinter; print(sys.version); print('Pillow', PIL.__version__); print('Tk', tkinter.TkVersion)"
       - name: Test repository tooling

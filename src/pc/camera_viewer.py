@@ -212,8 +212,8 @@ class Viewer(tk.Tk):
         super().__init__()
         self.title("OV5640 · PC 图像接收")
         self.configure(bg=BG)
-        self.geometry("1040x710")
-        self.minsize(930, 650)
+        self.geometry("1040x780")
+        self.minsize(930, 730)
         self.protocol("WM_DELETE_WINDOW", self.on_close)
         self.frames: queue.Queue[Frame] = queue.Queue(maxsize=1)
         self.worker: CameraReceiver | DemoSource | None = None
@@ -225,6 +225,15 @@ class Viewer(tk.Tk):
         self.last_arrival = 0.0
         self.render_times: list[float] = []
         self.bind_ip = tk.StringVar(value=PC_IP)
+        self.paper_detector = None
+        self.last_pc_detection = None
+        try:
+            from .paper_detector import RedPaperDetector
+            self.paper_detector = RedPaperDetector()
+        except ImportError:
+            pass
+        self.overlay_mode = tk.StringVar(
+            value="电脑端红纸定位" if self.paper_detector else "PL 统计显示")
         self.connection = tk.StringVar(value="等待连接")
         self.detail = tk.StringVar(value="JTAG 不传输视频。实机请用网线连接板卡网口与电脑网口。")
         self.stats = tk.StringVar(value="收到帧 0   ·   未完整帧 0   ·   异常包 0   ·   显示 FPS —")
@@ -289,6 +298,15 @@ class Viewer(tk.Tk):
                   bg=SURFACE, fg=TEXT, relief="flat", pady=4,
                   font=("Microsoft YaHei UI", 11)).pack(fill="x", pady=(3, 0))
 
+        self._heading(panel, "显示结果", top=8)
+        choices = ("电脑端红纸定位", "PL 统计显示", "两者对照")
+        self.overlay_choice = ttk.Combobox(
+            panel, textvariable=self.overlay_mode,
+            values=choices if self.paper_detector else ("PL 统计显示",),
+            state="readonly")
+        self.overlay_choice.pack(fill="x", pady=(3, 4))
+        tk.Label(panel, text="蓝框：电脑端纸靶  ·  绿框：PL 统计",
+                 fg=MUTED, bg=BG, font=("Microsoft YaHei UI", 9)).pack(anchor="w")
         self._heading(panel, "当前数据", top=8)
         tk.Label(panel, textvariable=self.stats, fg=MUTED, bg=BG, justify="left",
                  anchor="w", wraplength=290,
@@ -299,6 +317,7 @@ class Viewer(tk.Tk):
         bottom = tk.Frame(self, bg=BG)
         bottom.pack(fill="x", padx=28, pady=(8, 12))
         tk.Label(bottom, textvariable=self.detail, fg=MUTED, bg=BG, anchor="w",
+                 justify="left", wraplength=980,
                  font=("Microsoft YaHei UI", 10)).pack(fill="x")
 
     @staticmethod
@@ -362,6 +381,7 @@ class Viewer(tk.Tk):
         self.canvas.itemconfigure(self.empty_item, state="normal")
         self.canvas.itemconfigure(self.demo_item, state="hidden")
         self.last_image = None
+        self.last_pc_detection = None
         self.last_raw_frame = None
         self.last_raw_source = None
         self.photo = None
@@ -382,9 +402,16 @@ class Viewer(tk.Tk):
                 self.last_raw_frame = frame
                 self.last_raw_source = "synthetic_demo" if self.mode == "demo" else "live_camera"
                 overlay = self.box_stabilizer.update(frame.pl_measurement)
-                self.photo = ImageTk.PhotoImage(
-                    draw_pl_result(self.last_image, overlay)
-                )
+                shown = self.last_image
+                if self.overlay_mode.get() in ("PL 统计显示", "两者对照"):
+                    shown = draw_pl_result(shown, overlay)
+                self.last_pc_detection = (
+                    self.paper_detector.detect(self.last_image)
+                    if self.paper_detector and self.mode == "live" else None)
+                if self.overlay_mode.get() in ("电脑端红纸定位", "两者对照"):
+                    from .paper_detector import draw_paper_result
+                    shown = draw_paper_result(shown, self.last_pc_detection)
+                self.photo = ImageTk.PhotoImage(shown)
                 self.canvas.itemconfigure(self.image_item, image=self.photo)
                 self.canvas.itemconfigure(self.empty_item, state="hidden")
                 self.canvas.itemconfigure(self.demo_item,
@@ -405,6 +432,14 @@ class Viewer(tk.Tk):
                             )
                         else:
                             self.detail.set(f"PL 帧 {result.frame_seq} · 未检出红色目标")
+                    if self.overlay_mode.get() != "PL 统计显示":
+                        pc = self.last_pc_detection
+                        text = (f"电脑端红纸 · 中心 {pc.centroid} · 边框 {pc.bbox}"
+                                if pc else "电脑端：当前帧未检出红色矩形纸靶")
+                        pl = frame.pl_measurement
+                        if pl is not None:
+                            text += f"  |  PL v{pl.mask_version} 原始 count {pl.count}，bbox {pl.bbox}"
+                        self.detail.set(text)
             a = worker.assembler
             fps = len(self.render_times) / 2 if len(self.render_times) > 1 else 0
             self.stats.set(
