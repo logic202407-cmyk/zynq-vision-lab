@@ -1,0 +1,2 @@
+# Physical serial only; packet generation uses the Python standard library.
+pyserial>=3.5,<4
