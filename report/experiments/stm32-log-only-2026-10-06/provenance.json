@@ -1,0 +1,191 @@
+{
+  "arm-log-build.json": {
+    "private_original": "private/arm-log-final/result.json",
+    "original_sha256": "f462307f13de2573ea0ee52312711b7c9aa3b6388130a64e5ae391c9e818293b",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "arm-control-build.json": {
+    "private_original": "private/arm-control-regression/result.json",
+    "original_sha256": "e5d876bac94747234e3261e3df8bc2c98808156f1324d259e5e26ef680f03551",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "host-tests.json": {
+    "private_original": "private/validation-source/tests.json",
+    "original_sha256": "0d0bf78463169ef5979916d7fbf6dce5e6317eed1f05429d390d2ef03bd88055",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "host-tests.txt": {
+    "private_original": "private/validation-source/tests.txt",
+    "original_sha256": "0b99705ac0e2d59a633bfa604d114aeeed1f61264400542d97fa388bffdde7eb",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "host-phases.json": {
+    "private_original": "private/bench-host-final/host-results.json",
+    "original_sha256": "72dcd7db693263d2720eb01b2daf72e358e536da9da592d6a739985918055508",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "host-bench-build.json": {
+    "private_original": "private/stm32-p0-b905b7af214c47798262ae7a34441e43/host-build.json",
+    "original_sha256": "9d73fa0bae957613914d71c5302e4fe1a9bca843cae97dca8a433127cc7f5593",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "host-bench-build.txt": {
+    "private_original": "private/stm32-p0-b905b7af214c47798262ae7a34441e43/host-build.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "ci-source.json": {
+    "private_original": "private/ci-source.json",
+    "original_sha256": "01b02520ac440cfc6be43811fc34c774fce8b91289b2faf5c9d718c1455a595f",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "identity.json": {
+    "private_original": "private/device/identity.json",
+    "original_sha256": "d0ea4e5e834b1db7e7d39e6c5e52dabaf6dbec4db43f574c12daacfffd494548",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "identity.txt": {
+    "private_original": "private/device/identity.txt",
+    "original_sha256": "a7567d142eb871980ba765a4ab8e5d8711f48a138fae49c9ff6f3a9adbe6e748",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "backup.json": {
+    "private_original": "private/device/backup.json",
+    "original_sha256": "da4c6cb65a469cbb8d51f885a5f23b006c9b87bcb7bf020a07c10022bd6c3cf4",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "backup.txt": {
+    "private_original": "private/device/backup.txt",
+    "original_sha256": "381c66b25d3532ebfc787230d0df991d490e3d610aea5d1e5081c2427adfb318",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "flash.json": {
+    "private_original": "private/device/flash.json",
+    "original_sha256": "beeec786c22d19a90c05066a75d88a89d42b06cd55522be9901c49e853e53d26",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "flash.txt": {
+    "private_original": "private/device/flash.txt",
+    "original_sha256": "d0f672f2b8eaa89b7172ae13933898967c2f2a2185d7ad7361b93ea3fcb124e2",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "reconnect.json": {
+    "private_original": "private/device/reconnect.json",
+    "original_sha256": "5462dc0e1e813b5c7c343a66497beb40ef0abae22404e21373f14d2e7f176513",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "reconnect.txt": {
+    "private_original": "private/device/reconnect.txt",
+    "original_sha256": "3c2065dc3a6f72ea7d38b638f85691e13c76d32e7d2ae8a3e08f26cbd51a9f73",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "flash-resume.json": {
+    "private_original": "private/device/flash-resume.json",
+    "original_sha256": "20204d46249e86b898e91ba9b796968b42240b4f1ef72b32762cd73ab4a732d3",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "flash-resume.txt": {
+    "private_original": "private/device/flash-resume.txt",
+    "original_sha256": "056c7f53c84bb59a06e9dee8c0082da8ac10d83e2143b4bd59549212e57ba675",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "uart-diagnostic-01.json": {
+    "private_original": "private/device/uart-diagnostic-01.json",
+    "original_sha256": "badd52f7031134dd3e3c427d8d4c348394412be46d34c85b3391f0ea97c72524",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "uart-diagnostic-01.txt": {
+    "private_original": "private/device/uart-diagnostic-01.txt",
+    "original_sha256": "debb40e55220c4e6092b87c13994d1e3107686637743eec82feaa2e80d7b3726",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "outputs-disabled.json": {
+    "private_original": "private/device/outputs-disabled.json",
+    "original_sha256": "d50534232c71acd3bce6ea6d4670a969964c08c9c121a8f8cdfed943d70145a8",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "outputs-disabled.txt": {
+    "private_original": "private/device/outputs-disabled.txt",
+    "original_sha256": "f34fe6a1b0c8bff36b73bfa127e8035b816c33b7426eb5c418c468715a3debf0",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "uart-diagnostic-02.txt": {
+    "private_original": "private/device/uart-diagnostic-02.txt",
+    "original_sha256": "6d9eaf8f136f4204ca13ac1da9c4c9d54b10ade8177ce06b6d1914b060380552",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-pass-command.json": {
+    "private_original": "private/device/serial-rewired-02.json",
+    "original_sha256": "0a692efca7854a5de0a02a51f45a5b7e5e55b55b4f84df43860f28c16aa16d0c",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-fail-console.txt": {
+    "private_original": "private/device/serial-resume-01.txt",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "log-elf-symbols.txt": {
+    "private_original": "private/arm-log-final/symbols.txt",
+    "original_sha256": "ec488a17b25e16e06ff9c77c56e1401689c208063200310f644102f52478fa7b",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-fail/results.json": {
+    "private_original": "private/serial-resume-01/results.json",
+    "original_sha256": "3fe94ccb3887eeab7ce7a1ba967deee8739f8945fe77ecc7db6ef7cf1dbc078a",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-fail/plan.json": {
+    "private_original": "private/serial-resume-01/generated-plan/plan.json",
+    "original_sha256": "107f0d2e0f27eacbd8bacf4b979fc3e6de12b8946c70808cb3d694b6ee483602",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-fail/mcu-lines.jsonl": {
+    "private_original": "private/serial-resume-01/mcu-lines.jsonl",
+    "original_sha256": "e8909bfa006b9ccdedffc846165f438e15aef188afd8215072fc64533a632af9",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-fail/pc-sends.jsonl": {
+    "private_original": "private/serial-resume-01/pc-sends.jsonl",
+    "original_sha256": "9091c5b05db227644741eda4b29e7601bb5246e8e929fc1b035091647b1462b9",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-fail/failure.json": {
+    "private_original": "private/serial-resume-01/failure.json",
+    "original_sha256": "48783b3912c1c763e83cb19b14796d9a3aa9a906e9907f76f89cdcd0c18cc51e",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-fail/mcu-raw.hex.txt": {
+    "private_original": "private/serial-resume-01/mcu-raw.bin",
+    "original_sha256": "13876e7d13e809465b5d41086f0ade1a24f715272f70cb1da1c4409d4a2ddf08",
+    "original_bytes": 37016,
+    "encoding": "hex; bytes.fromhex restores every original byte",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-pass/results.json": {
+    "private_original": "private/serial-rewired-02/results.json",
+    "original_sha256": "f9374d3a25c231ed1739362fd79f5703d9e6c1de661be9e9ddfd56b4c203f4a2",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-pass/plan.json": {
+    "private_original": "private/serial-rewired-02/generated-plan/plan.json",
+    "original_sha256": "107f0d2e0f27eacbd8bacf4b979fc3e6de12b8946c70808cb3d694b6ee483602",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-pass/mcu-lines.jsonl": {
+    "private_original": "private/serial-rewired-02/mcu-lines.jsonl",
+    "original_sha256": "0885ac285a40f9863261920310b00e8dd07359e635e46c6f3035cdae2c348b6b",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-pass/pc-sends.jsonl": {
+    "private_original": "private/serial-rewired-02/pc-sends.jsonl",
+    "original_sha256": "ccc9a30fbed10925f376bead0c0ec982181aff19a88d06974a7799efb29a3a14",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  },
+  "serial-pass/mcu-raw.hex.txt": {
+    "private_original": "private/serial-rewired-02/mcu-raw.bin",
+    "original_sha256": "ec342e76b301e1c7d096eb96b4af48f2da83a07a6e1a16f9e6e612d25b59ad16",
+    "original_bytes": 37956,
+    "encoding": "hex; bytes.fromhex restores every original byte",
+    "public_text_transform": "LF line endings; trailing whitespace removed; JSON values unchanged; raw MCU bytes separately preserved in hex"
+  }
+}

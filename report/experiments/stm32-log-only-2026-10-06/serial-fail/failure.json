@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-06T14:24:13.3934786+00:00",
+  "execution": "physical_serial",
+  "sent_packets": 71,
+  "status": "failed",
+  "error": "One or more physical phases failed; see results.json and raw logs",
+  "received_lines": 138
+}

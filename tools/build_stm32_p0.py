@@ -33,7 +33,7 @@ def recorded(command, output, name, cwd=None):
     return entry, text
 
 
-def build(deps, tool_bin, output):
+def build(deps, tool_bin, output, log_only=False):
     if not str(ROOT).isascii() or not str(output).isascii() or not str(deps).isascii():
         raise ValueError("Firmware/dependency/output absolute paths must be ASCII")
     output.mkdir(parents=True, exist_ok=False)
@@ -50,11 +50,15 @@ def build(deps, tool_bin, output):
     version, version_text = recorded([compiler, "--vsn"], output, "compiler-version")
     commands.append(version)
     defines = ["-DUSE_STDPERIPH_DRIVER", "-DSTM32F10X_MD"]
+    if log_only:
+        defines.append("-DP0_LOG_ONLY=1")
     includes = ["-I" + str(p) for p in (FIRMWARE / "User", deps / "Start", deps / "Library")]
-    sources = sorted((FIRMWARE / "User").glob("*.c"))
+    sources = [p for p in sorted((FIRMWARE / "User").glob("*.c"))
+               if not (log_only and p.name == "servo.c")]
     sources += [deps / "Start/core_cm3.c", deps / "Start/system_stm32f10x.c"]
     sources += [deps / ("Library/" + name + ".c") for name in
-                ("misc", "stm32f10x_gpio", "stm32f10x_rcc", "stm32f10x_tim", "stm32f10x_usart")]
+                ("misc", "stm32f10x_gpio", "stm32f10x_rcc", "stm32f10x_tim", "stm32f10x_usart")
+                if not (log_only and name == "stm32f10x_tim")]
     objects = []
     for source in sources:
         obj = output / (source.stem + ".o")
@@ -80,7 +84,8 @@ def build(deps, tool_bin, output):
     entry, _ = recorded([converter, "--i32combined", "--output", output / "firmware.hex", axf],
                         output, "hex")
     commands.append(entry)
-    result = dict(started_utc=commands[0]["started_utc"], ended_utc=utc(), exit_code=0,
+    result = dict(variant="log-only" if log_only else "control", defines=defines,
+                  started_utc=commands[0]["started_utc"], ended_utc=utc(), exit_code=0,
                   compiler=version_text.strip(), errors=0, warnings=0, commands=commands,
                   sources={str(p.relative_to(ROOT)): sha(p) for p in
                            sorted((FIRMWARE / "User").glob("*")) if p.is_file()},
@@ -95,5 +100,7 @@ if __name__ == "__main__":
     parser.add_argument("--deps", required=True, type=Path)
     parser.add_argument("--tool-bin", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--log-only", action="store_true",
+                        help="Disable actuator initialization/writes and omit servo/TIM drivers")
     args = parser.parse_args()
-    build(args.deps.resolve(), args.tool_bin.resolve(), args.output.resolve())
+    build(args.deps.resolve(), args.tool_bin.resolve(), args.output.resolve(), args.log_only)

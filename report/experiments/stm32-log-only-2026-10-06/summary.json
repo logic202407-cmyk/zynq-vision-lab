@@ -1,0 +1,114 @@
+{
+  "source_commit": "621767d596f91efc5b9c1206fbc77c3d5869af71",
+  "baseline_commit": "a94f3f091d1823a18f7b825f254486a85aef5841",
+  "branch": "work/ikkkkk19-stm32-log-only-20261006",
+  "draft_pr": "https://github.com/logic202407-cmyk/zynq-vision-lab/pull/13",
+  "model_user_confirmed": "STM32F103C8T6",
+  "supply_user_confirmed": "computer USB",
+  "programmer": "ST-Link V2J37S7",
+  "chip_readout": "DBGMCU_IDCODE 0x20036410; Flash size 64KB; SWD 0x1ba01477",
+  "ttl_user_confirmed": {
+    "level": "3.3V",
+    "vcc": "not connected",
+    "tx": "PA10",
+    "rx": "PB10",
+    "ground": "shared"
+  },
+  "ports": {
+    "first_disconnected": "COM4",
+    "first_physical_failure": "COM12",
+    "physical_pass": "COM7",
+    "device": "CH340 VID1A86 PID7523"
+  },
+  "stages": {
+    "source_and_branch": "completed",
+    "log_build": "completed",
+    "control_build_regression": "completed",
+    "host_tests": "completed",
+    "host_phases": "completed",
+    "original_flash_backup": "completed",
+    "first_flash": "failed",
+    "resumed_flash_verify_reset": "completed",
+    "first_physical_phases": "failed",
+    "rewired_physical_phases": "completed",
+    "disabled_output_register_read": "completed",
+    "motion": "not_run",
+    "light": "not_run",
+    "camera_closed_loop": "not_run",
+    "independent_reproduction": "not_run"
+  },
+  "host_tests": {
+    "discovered": 566,
+    "passed": 566,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "host_phases": 16,
+  "physical_phases": 16,
+  "actual_send_records": 71,
+  "received_lines": 138,
+  "complete_p0v_lines": 137,
+  "all_complete_lines_outputs_zero": true,
+  "all_tx_skipped_zero": true,
+  "phase_i_frame_zero_seen": [
+    {
+      "utc": "2026-10-06T14:29:34.9094182+00:00",
+      "line": "P0V 1 STATE tracking MODE auto VALID 1 ENABLED 1 DX 20 DY -10 PAN 1510 TLT 1550 REQ_PAN 1510 REQ_TLT 1550 SESSION 2 FRAME 0 RX_MS 338656 SOURCE_MS 0 REJECT none BAD 11035 PARSE_BAD 11025 PKP 300 PKI 50 PKD 0 TKP 500 TKI 80 TKD 0 OUTPUTS 0 TX_SKIPPED 0 PARSER_REJECT crc",
+      "fields": {
+        "DX": "20",
+        "PKI": "50",
+        "VALID": "1",
+        "PARSE_BAD": "11025",
+        "SESSION": "2",
+        "PAN": "1510",
+        "OUTPUTS": "0",
+        "REQ_PAN": "1510",
+        "RX_MS": "338656",
+        "TKI": "80",
+        "MODE": "auto",
+        "TKD": "0",
+        "PKP": "300",
+        "REQ_TLT": "1550",
+        "STATE": "tracking",
+        "PKD": "0",
+        "DY": "-10",
+        "FRAME": "0",
+        "BAD": "11035",
+        "TX_SKIPPED": "0",
+        "TKP": "500",
+        "PARSER_REJECT": "crc",
+        "TLT": "1550",
+        "ENABLED": "1",
+        "SOURCE_MS": "0",
+        "REJECT": "none"
+      },
+      "pc_elapsed_ms": 5249.9252
+    }
+  ],
+  "e_first_timeout_pc_delay_ms": 260.5733,
+  "timing": {
+    "nominal_interval_ms": 50,
+    "actual_interval_ms_min": 45.01540000000023,
+    "actual_interval_ms_max": 63.952999999999975,
+    "actual_interval_ms_median": 47.06364999999994,
+    "samples": 56,
+    "note": "PC write-start and receive timestamps; not wire-level timing or MCU current-time measurement"
+  },
+  "backup": {
+    "bytes": 65536,
+    "sha256": "0ca2c44aec8e5c7c9035c6e75b6987fd68c24f845bda8360ed3b663bbe2283ab",
+    "resume_copy_identical": true,
+    "contents_public": false
+  },
+  "artifacts": {
+    "firmware.axf": "95c6c5a178b88e50c9dadfa4899e77a846c462a41424927f6048e10efe5071b8",
+    "firmware.hex": "0ebfaae889ec506bf4d51af19b7704321065e4296c29f597be4bd3a276044a1d",
+    "firmware.map": "42c905ee93d352fb581c5d8c28476818b690bb2dbf61a4736a3bb00b9eef956e"
+  },
+  "unchanged_protected_files": 20,
+  "physical_disconnection": "Actuator/light physical disconnection was not unambiguously confirmed",
+  "current_firmware": "Verified log-only firmware remains running; TIM2 disabled, PA0/PA1 configured as inputs",
+  "diagnosis": "Initial receive faults disappeared after user rewired, with identical firmware and plan; specific faulty wire/source not identified",
+  "first_serial_wrapper_note": "Terminating PowerShell exception stopped outer wrapper before its JSON manifest. Tool exit=1 and inner raw logs/results/failure UTC preserved; no command start time invented"
+}
