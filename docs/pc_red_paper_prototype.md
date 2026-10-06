@@ -37,3 +37,6 @@ border contact, small paper, no target, orange/neutral/blue backgrounds,
 isolated noise and irregular red components. Existing post-capture manual
 bounds on private snapshots are diagnostic estimates and cannot replace a
 pre-capture formal ROI. PC localization is not PL positive-target acceptance.
+
+Actual software and live-display checks are recorded in the
+[2026-10-06 experiment](../report/experiments/2026-10-06-pc-paper-ui.md).
