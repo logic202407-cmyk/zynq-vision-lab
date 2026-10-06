@@ -1,0 +1,6 @@
+deps/
+Objects/
+Listings/
+*.uvoptx
+*.uvguix.*
+DebugConfig/
