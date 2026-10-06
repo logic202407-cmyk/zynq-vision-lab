@@ -1,0 +1,1198 @@
+{
+  "execution": "simulated",
+  "physical_serial": "not_run",
+  "host_evidence": "<REPO>/private/stm32-p0-b905b7af214c47798262ae7a34441e43",
+  "records": [
+    {
+      "id": "A",
+      "expected": {
+        "STATE": "tracking",
+        "VALID": "1",
+        "SESSION": "1",
+        "FRAME": "5"
+      },
+      "actual": {
+        "state": "tracking",
+        "mode": "auto",
+        "valid": 1,
+        "enabled": 1,
+        "dx": 20,
+        "dy": -10,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 1,
+        "frame": 5,
+        "rx_ms": 300,
+        "source_ms": 0,
+        "reject": "none",
+        "parse_rejected": 0,
+        "control_rejected": 0,
+        "command_rejected": 0,
+        "filter_ready": 1,
+        "filt_dx": 20.0,
+        "filt_dy": -10.0,
+        "raw_dx": 20.0,
+        "raw_dy": -10.0,
+        "pan_integral": 2.1,
+        "tilt_integral": 1.68,
+        "pan_prev": 20.0,
+        "tilt_prev": 10.0,
+        "updated": 0,
+        "recoveries": 1,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 100,
+          "input_hex": "aa55011a01010100000001000000000000001400f6ff34f20d0a",
+          "sha256": "101a34f39f74d5306b48e49c3bc3c68f3a9ae5bac8165855952e1a58d24c703b"
+        },
+        {
+          "received_ms": 150,
+          "input_hex": "aa55011a01010100000002000000000000001400f6ffabf70d0a",
+          "sha256": "4cf97089cda6c99c95ca31626224ebb1cbf9ceb9e4a04c42a687ec9436e6c3ef"
+        },
+        {
+          "received_ms": 200,
+          "input_hex": "aa55011a01010100000003000000000000001400f6ffdef40d0a",
+          "sha256": "a90c646e344215975b8002d407954679f6fb5668d1287b541c9334702564c75c"
+        },
+        {
+          "received_ms": 250,
+          "input_hex": "aa55011a01010100000004000000000000001400f6ff95fc0d0a",
+          "sha256": "7be798e37429c78bdb95ad19d818b293b3e3493d3568c78840a4b2adc8a58c54"
+        },
+        {
+          "received_ms": 300,
+          "input_hex": "aa55011a01010100000005000000000000001400f6ffe0ff0d0a",
+          "sha256": "9e6f6055548d7f6b25b6ff699e47f77c7e64eaae93a258e65816d0190d2d47a4"
+        }
+      ],
+      "checks": {
+        "STATE": true,
+        "VALID": true,
+        "SESSION": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "B",
+      "expected": {
+        "STATE": "tracking",
+        "VALID": "1",
+        "SESSION": "1",
+        "FRAME": "10"
+      },
+      "actual": {
+        "state": "tracking",
+        "mode": "auto",
+        "valid": 1,
+        "enabled": 1,
+        "dx": 0,
+        "dy": 0,
+        "pan": 1464,
+        "tilt": 1519,
+        "requested_pan": 1464,
+        "requested_tilt": 1519,
+        "session": 1,
+        "frame": 10,
+        "rx_ms": 675,
+        "source_ms": 0,
+        "reject": "none",
+        "parse_rejected": 0,
+        "control_rejected": 0,
+        "command_rejected": 0,
+        "filter_ready": 1,
+        "filt_dx": 2.320581,
+        "filt_dy": -3.2768,
+        "raw_dx": 0.0,
+        "raw_dy": 0.0,
+        "pan_integral": 0.0,
+        "tilt_integral": 3.555712,
+        "pan_prev": 0.0,
+        "tilt_prev": 3.2768,
+        "updated": 0,
+        "recoveries": 1,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 475,
+          "input_hex": "aa55011a010101000000060000000000000000000000be8c0d0a",
+          "sha256": "dfa88a1afae4e54ece9192eb739ac67f6de4fe5e1f43de65182cdcc8fd1c9377"
+        },
+        {
+          "received_ms": 525,
+          "input_hex": "aa55011a010101000000070000000000000000000000cb8f0d0a",
+          "sha256": "256009ac6240d2a532c8a48a714e6e373638c0e04f0ed6fe4d857e21e990ea92"
+        },
+        {
+          "received_ms": 575,
+          "input_hex": "aa55011a010101000000080000000000000000000000289c0d0a",
+          "sha256": "8655008f37ba0a41410ae7206e2117e8ce33ab2cc19e88adfd9ff6c2135cee62"
+        },
+        {
+          "received_ms": 625,
+          "input_hex": "aa55011a0101010000000900000000000000000000005d9f0d0a",
+          "sha256": "f25a61d85537e4066736b4487fd1b37e015bc866dc21f56de3301f02e1966389"
+        },
+        {
+          "received_ms": 675,
+          "input_hex": "aa55011a0101010000000a0000000000000000000000c29a0d0a",
+          "sha256": "753ddb42dc85c0ff87d45896493bf557ce823690c14faaa0ae6295aa782786de"
+        }
+      ],
+      "checks": {
+        "STATE": true,
+        "VALID": true,
+        "SESSION": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "C",
+      "expected": {
+        "STATE": "no_target",
+        "VALID": "0",
+        "SESSION": "1",
+        "FRAME": "15"
+      },
+      "actual": {
+        "state": "no_target",
+        "mode": "auto",
+        "valid": 0,
+        "enabled": 0,
+        "dx": 0,
+        "dy": 0,
+        "pan": 1464,
+        "tilt": 1519,
+        "requested_pan": 1464,
+        "requested_tilt": 1519,
+        "session": 1,
+        "frame": 15,
+        "rx_ms": 1050,
+        "source_ms": 0,
+        "reject": "none",
+        "parse_rejected": 0,
+        "control_rejected": 0,
+        "command_rejected": 0,
+        "filter_ready": 0,
+        "filt_dx": 0.0,
+        "filt_dy": 0.0,
+        "raw_dx": 0.0,
+        "raw_dy": 0.0,
+        "pan_integral": 0.0,
+        "tilt_integral": 0.0,
+        "pan_prev": 0.0,
+        "tilt_prev": 0.0,
+        "updated": 0,
+        "recoveries": 1,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 850,
+          "input_hex": "aa55011a0001010000000b000000000000000000000086690d0a",
+          "sha256": "e3dea88f9a2640d82c77f9ce0b6cd015432e23f69cbdb1ff3d20bd0b294a1fe2"
+        },
+        {
+          "received_ms": 900,
+          "input_hex": "aa55011a0001010000000c0000000000000000000000cd610d0a",
+          "sha256": "a6365e847d05d211954a7573c25c98a39cfa79e25e4d1efc0367014bb263c871"
+        },
+        {
+          "received_ms": 950,
+          "input_hex": "aa55011a0001010000000d0000000000000000000000b8620d0a",
+          "sha256": "3ccb9be538dc55b9c22897c3768b1adeb076b9754eb7fba8ba29af208434e240"
+        },
+        {
+          "received_ms": 1000,
+          "input_hex": "aa55011a0001010000000e000000000000000000000027670d0a",
+          "sha256": "68e656d46b872404e15a58f56f11939fbdb6182a8b5cb6cdde77e9050f903567"
+        },
+        {
+          "received_ms": 1050,
+          "input_hex": "aa55011a0001010000000f000000000000000000000052640d0a",
+          "sha256": "93276bd34ba26917c2f2f3de17945854d5160073eda6720c58c5e35aa0f8d376"
+        }
+      ],
+      "checks": {
+        "STATE": true,
+        "VALID": true,
+        "SESSION": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "D",
+      "expected": {
+        "STATE": "tracking",
+        "VALID": "1",
+        "SESSION": "1",
+        "FRAME": "20"
+      },
+      "actual": {
+        "state": "tracking",
+        "mode": "auto",
+        "valid": 1,
+        "enabled": 1,
+        "dx": 20,
+        "dy": -10,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 1,
+        "frame": 20,
+        "rx_ms": 1425,
+        "source_ms": 0,
+        "reject": "none",
+        "parse_rejected": 0,
+        "control_rejected": 0,
+        "command_rejected": 0,
+        "filter_ready": 1,
+        "filt_dx": 20.0,
+        "filt_dy": -10.0,
+        "raw_dx": 20.0,
+        "raw_dy": -10.0,
+        "pan_integral": 2.1,
+        "tilt_integral": 1.68,
+        "pan_prev": 20.0,
+        "tilt_prev": 10.0,
+        "updated": 0,
+        "recoveries": 2,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 1225,
+          "input_hex": "aa55011a01010100000010000000000000001400f6ff11c60d0a",
+          "sha256": "5b165dc0e8065018166698a2c1b2ca8f657fdcad81fe2f5edd93358b0ce8f5a2"
+        },
+        {
+          "received_ms": 1275,
+          "input_hex": "aa55011a01010100000011000000000000001400f6ff64c50d0a",
+          "sha256": "84fe7ef27d56e4853489221f4729fe74dcecaa096388abe20fd072172be04be9"
+        },
+        {
+          "received_ms": 1325,
+          "input_hex": "aa55011a01010100000012000000000000001400f6fffbc00d0a",
+          "sha256": "37f1e9cf3df2296245bab775151acafe90a80b79d0e45f4a4d4b6ac2a7cc7eeb"
+        },
+        {
+          "received_ms": 1375,
+          "input_hex": "aa55011a01010100000013000000000000001400f6ff8ec30d0a",
+          "sha256": "a628ca4fa3aa7e8795078c4fc52aadea4f023f7646e7850ba5bf17f86b1b3d77"
+        },
+        {
+          "received_ms": 1425,
+          "input_hex": "aa55011a01010100000014000000000000001400f6ffc5cb0d0a",
+          "sha256": "79305ba00a60d743da7d4da7de935da31c6ac4312cf352f0ebab9be44e2b76bc"
+        }
+      ],
+      "checks": {
+        "STATE": true,
+        "VALID": true,
+        "SESSION": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "E",
+      "expected": {
+        "STATE": "timeout",
+        "VALID": "0"
+      },
+      "actual": {
+        "state": "timeout",
+        "mode": "auto",
+        "valid": 0,
+        "enabled": 0,
+        "dx": 0,
+        "dy": 0,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 1,
+        "frame": 20,
+        "rx_ms": 1425,
+        "source_ms": 0,
+        "reject": "none",
+        "parse_rejected": 0,
+        "control_rejected": 0,
+        "command_rejected": 0,
+        "filter_ready": 0,
+        "filt_dx": 0.0,
+        "filt_dy": 0.0,
+        "raw_dx": 0.0,
+        "raw_dy": 0.0,
+        "pan_integral": 0.0,
+        "tilt_integral": 0.0,
+        "pan_prev": 0.0,
+        "tilt_prev": 0.0,
+        "updated": 0,
+        "recoveries": 2,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [],
+      "checks": {
+        "STATE": true,
+        "VALID": true
+      },
+      "passed": true
+    },
+    {
+      "id": "F",
+      "expected": {
+        "SESSION": "1",
+        "VALID": "1",
+        "STATE": "tracking",
+        "FRAME": "25"
+      },
+      "actual": {
+        "state": "tracking",
+        "mode": "auto",
+        "valid": 1,
+        "enabled": 1,
+        "dx": 20,
+        "dy": -10,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 1,
+        "frame": 25,
+        "rx_ms": 2225,
+        "source_ms": 0,
+        "reject": "none",
+        "parse_rejected": 0,
+        "control_rejected": 0,
+        "command_rejected": 0,
+        "filter_ready": 1,
+        "filt_dx": 20.0,
+        "filt_dy": -10.0,
+        "raw_dx": 20.0,
+        "raw_dy": -10.0,
+        "pan_integral": 2.1,
+        "tilt_integral": 1.68,
+        "pan_prev": 20.0,
+        "tilt_prev": 10.0,
+        "updated": 0,
+        "recoveries": 3,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 2025,
+          "input_hex": "aa55011a01010100000015000000000000001400f6ffb0c80d0a",
+          "sha256": "fa4b197a0ad9b301770cfe2b9fb2b13f75b9acc9f6feb9ef5d6bd6c3c2c63540"
+        },
+        {
+          "received_ms": 2075,
+          "input_hex": "aa55011a01010100000016000000000000001400f6ff2fcd0d0a",
+          "sha256": "a042dd42a5d832e98c2be5f7f1cc039b8a641bc357748a9c0ace21c08a5f4ff4"
+        },
+        {
+          "received_ms": 2125,
+          "input_hex": "aa55011a01010100000017000000000000001400f6ff5ace0d0a",
+          "sha256": "1465b5dd4afa3c49c95955bf9c3704e175f3dfae18d1297f554b5bc0ee01f9a5"
+        },
+        {
+          "received_ms": 2175,
+          "input_hex": "aa55011a01010100000018000000000000001400f6ffb9dd0d0a",
+          "sha256": "cd129e7076859f65aeb0a383656492f641eeda137ef5705c6f06b3578a9bad26"
+        },
+        {
+          "received_ms": 2225,
+          "input_hex": "aa55011a01010100000019000000000000001400f6ffccde0d0a",
+          "sha256": "81cb63dac0204bc3ed2e0c955f59f0db7c5ac8d762b132b040755a31401ee7b2"
+        }
+      ],
+      "checks": {
+        "SESSION": true,
+        "VALID": true,
+        "STATE": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "G",
+      "expected": {
+        "SESSION": "1",
+        "VALID": "0",
+        "REJECT": "crc",
+        "PARSER_REJECT": "crc",
+        "PARSE_BAD_DELTA": "5",
+        "FRAME": "25"
+      },
+      "actual": {
+        "state": "timeout",
+        "mode": "auto",
+        "valid": 0,
+        "enabled": 0,
+        "dx": 0,
+        "dy": 0,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 1,
+        "frame": 25,
+        "rx_ms": 2225,
+        "source_ms": 0,
+        "reject": "crc",
+        "parse_rejected": 5,
+        "control_rejected": 5,
+        "command_rejected": 0,
+        "filter_ready": 0,
+        "filt_dx": 0.0,
+        "filt_dy": 0.0,
+        "raw_dx": 0.0,
+        "raw_dy": 0.0,
+        "pan_integral": 0.0,
+        "tilt_integral": 0.0,
+        "pan_prev": 0.0,
+        "tilt_prev": 0.0,
+        "updated": 0,
+        "recoveries": 3,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 2400,
+          "input_hex": "aa55011a0101010000001a000000000000001400f6ff52db0d0a",
+          "sha256": "fae3f3d9b3cf84661444acfbc66810d3bc5e375aa087f82fc58eb95febdde273"
+        },
+        {
+          "received_ms": 2450,
+          "input_hex": "aa55011a0101010000001b000000000000001400f6ff27d80d0a",
+          "sha256": "a8c7c4e9976c3ffb02c8073b702b02763b29f883c6df20507945b547b2e9b848"
+        },
+        {
+          "received_ms": 2500,
+          "input_hex": "aa55011a0101010000001c000000000000001400f6ff6cd00d0a",
+          "sha256": "d4460bc01a34da0e307370c5e39053683244316c2337717e829663c52309bdc0"
+        },
+        {
+          "received_ms": 2550,
+          "input_hex": "aa55011a0101010000001d000000000000001400f6ff19d30d0a",
+          "sha256": "d2624dff16f7bc471dd42a8449cf289430fb5bb36850a9b0e9e4c4bc36cb9e1f"
+        },
+        {
+          "received_ms": 2600,
+          "input_hex": "aa55011a0101010000001e000000000000001400f6ff86d60d0a",
+          "sha256": "c116d75f3b761f9835e97d49f8311a59b5041af02b122ccf01df90188f2a8933"
+        }
+      ],
+      "checks": {
+        "SESSION": true,
+        "VALID": true,
+        "REJECT": true,
+        "PARSER_REJECT": true,
+        "PARSE_BAD_DELTA": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "G_RECOVERY",
+      "expected": {
+        "SESSION": "1",
+        "VALID": "1",
+        "STATE": "tracking",
+        "FRAME": "30"
+      },
+      "actual": {
+        "state": "tracking",
+        "mode": "auto",
+        "valid": 1,
+        "enabled": 1,
+        "dx": 20,
+        "dy": -10,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 1,
+        "frame": 30,
+        "rx_ms": 2975,
+        "source_ms": 0,
+        "reject": "none",
+        "parse_rejected": 5,
+        "control_rejected": 5,
+        "command_rejected": 0,
+        "filter_ready": 1,
+        "filt_dx": 20.0,
+        "filt_dy": -10.0,
+        "raw_dx": 20.0,
+        "raw_dy": -10.0,
+        "pan_integral": 2.1,
+        "tilt_integral": 1.68,
+        "pan_prev": 20.0,
+        "tilt_prev": 10.0,
+        "updated": 0,
+        "recoveries": 4,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 2775,
+          "input_hex": "aa55011a0101010000001a000000000000001400f6ff53db0d0a",
+          "sha256": "c70ae269238262743788e06762218b99cce6bc3b18d5f2d90c918b297147c2f4"
+        },
+        {
+          "received_ms": 2825,
+          "input_hex": "aa55011a0101010000001b000000000000001400f6ff26d80d0a",
+          "sha256": "1b579226551795b6c0e152f601f9f31c73ca32d73a5936e8cd99ffb1aefffe61"
+        },
+        {
+          "received_ms": 2875,
+          "input_hex": "aa55011a0101010000001c000000000000001400f6ff6dd00d0a",
+          "sha256": "cb0e01fb6c71dd32a1ac96fbdbc0f6ff8c0d6e848c5bce5b27eae56e5352215a"
+        },
+        {
+          "received_ms": 2925,
+          "input_hex": "aa55011a0101010000001d000000000000001400f6ff18d30d0a",
+          "sha256": "e9e1fd42e3610c5633469c211146e26696491130c7e3f0ecb158c89024d9ddd0"
+        },
+        {
+          "received_ms": 2975,
+          "input_hex": "aa55011a0101010000001e000000000000001400f6ff87d60d0a",
+          "sha256": "05599af3ec2ff17b19dc09fbdf9fdfd8a4f758675c268d211d69b01701a61fa2"
+        }
+      ],
+      "checks": {
+        "SESSION": true,
+        "VALID": true,
+        "STATE": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "H",
+      "expected": {
+        "SESSION": "1",
+        "VALID": "0",
+        "REJECT": "frame",
+        "BAD_DELTA": "5",
+        "FRAME": "30"
+      },
+      "actual": {
+        "state": "timeout",
+        "mode": "auto",
+        "valid": 0,
+        "enabled": 0,
+        "dx": 0,
+        "dy": 0,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 1,
+        "frame": 30,
+        "rx_ms": 2975,
+        "source_ms": 0,
+        "reject": "frame",
+        "parse_rejected": 5,
+        "control_rejected": 10,
+        "command_rejected": 0,
+        "filter_ready": 0,
+        "filt_dx": 0.0,
+        "filt_dy": 0.0,
+        "raw_dx": 0.0,
+        "raw_dy": 0.0,
+        "pan_integral": 0.0,
+        "tilt_integral": 0.0,
+        "pan_prev": 0.0,
+        "tilt_prev": 0.0,
+        "updated": 0,
+        "recoveries": 4,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 3150,
+          "input_hex": "aa55011a0101010000001e000000000000001400f6ff87d60d0a",
+          "sha256": "05599af3ec2ff17b19dc09fbdf9fdfd8a4f758675c268d211d69b01701a61fa2"
+        },
+        {
+          "received_ms": 3200,
+          "input_hex": "aa55011a0101010000001e000000000000001400f6ff87d60d0a",
+          "sha256": "05599af3ec2ff17b19dc09fbdf9fdfd8a4f758675c268d211d69b01701a61fa2"
+        },
+        {
+          "received_ms": 3250,
+          "input_hex": "aa55011a0101010000001e000000000000001400f6ff87d60d0a",
+          "sha256": "05599af3ec2ff17b19dc09fbdf9fdfd8a4f758675c268d211d69b01701a61fa2"
+        },
+        {
+          "received_ms": 3300,
+          "input_hex": "aa55011a0101010000001e000000000000001400f6ff87d60d0a",
+          "sha256": "05599af3ec2ff17b19dc09fbdf9fdfd8a4f758675c268d211d69b01701a61fa2"
+        },
+        {
+          "received_ms": 3350,
+          "input_hex": "aa55011a0101010000001e000000000000001400f6ff87d60d0a",
+          "sha256": "05599af3ec2ff17b19dc09fbdf9fdfd8a4f758675c268d211d69b01701a61fa2"
+        }
+      ],
+      "checks": {
+        "SESSION": true,
+        "VALID": true,
+        "REJECT": true,
+        "BAD_DELTA": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "H_OLD",
+      "expected": {
+        "SESSION": "1",
+        "VALID": "0",
+        "REJECT": "frame",
+        "BAD_DELTA": "5",
+        "FRAME": "30"
+      },
+      "actual": {
+        "state": "timeout",
+        "mode": "auto",
+        "valid": 0,
+        "enabled": 0,
+        "dx": 0,
+        "dy": 0,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 1,
+        "frame": 30,
+        "rx_ms": 2975,
+        "source_ms": 0,
+        "reject": "frame",
+        "parse_rejected": 5,
+        "control_rejected": 15,
+        "command_rejected": 0,
+        "filter_ready": 0,
+        "filt_dx": 0.0,
+        "filt_dy": 0.0,
+        "raw_dx": 0.0,
+        "raw_dy": 0.0,
+        "pan_integral": 0.0,
+        "tilt_integral": 0.0,
+        "pan_prev": 0.0,
+        "tilt_prev": 0.0,
+        "updated": 0,
+        "recoveries": 4,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 3525,
+          "input_hex": "aa55011a0101010000001d000000000000001400f6ff18d30d0a",
+          "sha256": "e9e1fd42e3610c5633469c211146e26696491130c7e3f0ecb158c89024d9ddd0"
+        },
+        {
+          "received_ms": 3575,
+          "input_hex": "aa55011a0101010000001d000000000000001400f6ff18d30d0a",
+          "sha256": "e9e1fd42e3610c5633469c211146e26696491130c7e3f0ecb158c89024d9ddd0"
+        },
+        {
+          "received_ms": 3625,
+          "input_hex": "aa55011a0101010000001d000000000000001400f6ff18d30d0a",
+          "sha256": "e9e1fd42e3610c5633469c211146e26696491130c7e3f0ecb158c89024d9ddd0"
+        },
+        {
+          "received_ms": 3675,
+          "input_hex": "aa55011a0101010000001d000000000000001400f6ff18d30d0a",
+          "sha256": "e9e1fd42e3610c5633469c211146e26696491130c7e3f0ecb158c89024d9ddd0"
+        },
+        {
+          "received_ms": 3725,
+          "input_hex": "aa55011a0101010000001d000000000000001400f6ff18d30d0a",
+          "sha256": "e9e1fd42e3610c5633469c211146e26696491130c7e3f0ecb158c89024d9ddd0"
+        }
+      ],
+      "checks": {
+        "SESSION": true,
+        "VALID": true,
+        "REJECT": true,
+        "BAD_DELTA": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "H_RECOVERY",
+      "expected": {
+        "SESSION": "1",
+        "VALID": "1",
+        "STATE": "tracking",
+        "FRAME": "35"
+      },
+      "actual": {
+        "state": "tracking",
+        "mode": "auto",
+        "valid": 1,
+        "enabled": 1,
+        "dx": 20,
+        "dy": -10,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 1,
+        "frame": 35,
+        "rx_ms": 4100,
+        "source_ms": 0,
+        "reject": "none",
+        "parse_rejected": 5,
+        "control_rejected": 15,
+        "command_rejected": 0,
+        "filter_ready": 1,
+        "filt_dx": 20.0,
+        "filt_dy": -10.0,
+        "raw_dx": 20.0,
+        "raw_dy": -10.0,
+        "pan_integral": 2.1,
+        "tilt_integral": 1.68,
+        "pan_prev": 20.0,
+        "tilt_prev": 10.0,
+        "updated": 0,
+        "recoveries": 5,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 3900,
+          "input_hex": "aa55011a0101010000001f000000000000001400f6fff2d50d0a",
+          "sha256": "5d532ceca612e6b4b9b351c53bb23f083391fd8ea23c54bea60a063231173096"
+        },
+        {
+          "received_ms": 3950,
+          "input_hex": "aa55011a01010100000020000000000000001400f6ffe19f0d0a",
+          "sha256": "01514cb9548eba24da7f5dfca8ddb11b093f18068c76880b1f966fda8a3ac7ee"
+        },
+        {
+          "received_ms": 4000,
+          "input_hex": "aa55011a01010100000021000000000000001400f6ff949c0d0a",
+          "sha256": "2551fe0eef609941271da38f2874a187262c537601e90acf3714f5d943c8e8e3"
+        },
+        {
+          "received_ms": 4050,
+          "input_hex": "aa55011a01010100000022000000000000001400f6ff0b990d0a",
+          "sha256": "8b9875da72ddb61ede3828d9e17aa523c027b847ad8dae2644ba54193eea0a56"
+        },
+        {
+          "received_ms": 4100,
+          "input_hex": "aa55011a01010100000023000000000000001400f6ff7e9a0d0a",
+          "sha256": "ed84d2007dd49c9da1103eb18987d29a492d969664f525888bdd7783c1b4de1d"
+        }
+      ],
+      "checks": {
+        "SESSION": true,
+        "VALID": true,
+        "STATE": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "I",
+      "expected": {
+        "STATE": "tracking",
+        "VALID": "1",
+        "SESSION": "2",
+        "FRAME": "4"
+      },
+      "actual": {
+        "state": "tracking",
+        "mode": "auto",
+        "valid": 1,
+        "enabled": 1,
+        "dx": 20,
+        "dy": -10,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 2,
+        "frame": 4,
+        "rx_ms": 4475,
+        "source_ms": 0,
+        "reject": "none",
+        "parse_rejected": 5,
+        "control_rejected": 15,
+        "command_rejected": 0,
+        "filter_ready": 1,
+        "filt_dx": 20.0,
+        "filt_dy": -10.0,
+        "raw_dx": 20.0,
+        "raw_dy": -10.0,
+        "pan_integral": 2.1,
+        "tilt_integral": 1.68,
+        "pan_prev": 20.0,
+        "tilt_prev": 10.0,
+        "updated": 0,
+        "recoveries": 6,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 4275,
+          "input_hex": "aa55011a01010200000000000000000000001400f6ff0c190d0a",
+          "sha256": "36a61d97f85771a81826f519d78d2200a1ec2888523f5fc0067c59ff11d63561"
+        },
+        {
+          "received_ms": 4325,
+          "input_hex": "aa55011a01010200000001000000000000001400f6ff791a0d0a",
+          "sha256": "84c3d0f9697a1ab7092699ef6272d399d522c7ac3b3c67cda304050edbd943fb"
+        },
+        {
+          "received_ms": 4375,
+          "input_hex": "aa55011a01010200000002000000000000001400f6ffe61f0d0a",
+          "sha256": "d137a73e264375f645b2cfefba0b2b549ff4ed2bc022281f162169d858078748"
+        },
+        {
+          "received_ms": 4425,
+          "input_hex": "aa55011a01010200000003000000000000001400f6ff931c0d0a",
+          "sha256": "bb4b9bd2167bad48cedcd55b844c9ed28ed457e7a8f27b19f31bec5b36548d6c"
+        },
+        {
+          "received_ms": 4475,
+          "input_hex": "aa55011a01010200000004000000000000001400f6ffd8140d0a",
+          "sha256": "a7744eeca567de5c57e1123f79dcbaf6cae6ca052a479a42f807bfff0241a269"
+        }
+      ],
+      "checks": {
+        "STATE": true,
+        "VALID": true,
+        "SESSION": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "PARTIAL",
+      "expected": {
+        "VALID": "0",
+        "REJECT": "partial",
+        "PARSER_REJECT": "partial",
+        "PARSE_BAD_DELTA": "1",
+        "FRAME": "4"
+      },
+      "actual": {
+        "state": "timeout",
+        "mode": "auto",
+        "valid": 0,
+        "enabled": 0,
+        "dx": 0,
+        "dy": 0,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 2,
+        "frame": 4,
+        "rx_ms": 4475,
+        "source_ms": 0,
+        "reject": "partial",
+        "parse_rejected": 6,
+        "control_rejected": 16,
+        "command_rejected": 0,
+        "filter_ready": 0,
+        "filt_dx": 0.0,
+        "filt_dy": 0.0,
+        "raw_dx": 0.0,
+        "raw_dy": 0.0,
+        "pan_integral": 0.0,
+        "tilt_integral": 0.0,
+        "pan_prev": 0.0,
+        "tilt_prev": 0.0,
+        "updated": 0,
+        "recoveries": 6,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 4650,
+          "input_hex": "aa55011a010102000000050000",
+          "sha256": "22990902764c398cc4e8656ffda6869b21c70320e18f97493a22b6d3bb72e851"
+        }
+      ],
+      "checks": {
+        "VALID": true,
+        "REJECT": true,
+        "PARSER_REJECT": true,
+        "PARSE_BAD_DELTA": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "PARTIAL_RECOVERY",
+      "expected": {
+        "STATE": "tracking",
+        "VALID": "1",
+        "FRAME": "9"
+      },
+      "actual": {
+        "state": "tracking",
+        "mode": "auto",
+        "valid": 1,
+        "enabled": 1,
+        "dx": 20,
+        "dy": -10,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 2,
+        "frame": 9,
+        "rx_ms": 5000,
+        "source_ms": 0,
+        "reject": "none",
+        "parse_rejected": 6,
+        "control_rejected": 16,
+        "command_rejected": 0,
+        "filter_ready": 1,
+        "filt_dx": 20.0,
+        "filt_dy": -10.0,
+        "raw_dx": 20.0,
+        "raw_dy": -10.0,
+        "pan_integral": 2.1,
+        "tilt_integral": 1.68,
+        "pan_prev": 20.0,
+        "tilt_prev": 10.0,
+        "updated": 0,
+        "recoveries": 7,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 4800,
+          "input_hex": "aa55011a01010200000005000000000000001400f6ffad170d0a",
+          "sha256": "d9b9f84a2d1937241cfe86cb127bf9b9ca912ea0f7d0eefa04c2d8e0e56c4c09"
+        },
+        {
+          "received_ms": 4850,
+          "input_hex": "aa55011a01010200000006000000000000001400f6ff32120d0a",
+          "sha256": "6b83a05a04e35247df6e2efbf586a4248e5a7f4670473010229dd2e08e9d1082"
+        },
+        {
+          "received_ms": 4900,
+          "input_hex": "aa55011a01010200000007000000000000001400f6ff47110d0a",
+          "sha256": "d2966e320265f273cdb6955c70a3c17000ce5d6206c24f88982d6220b23f671d"
+        },
+        {
+          "received_ms": 4950,
+          "input_hex": "aa55011a01010200000008000000000000001400f6ffa4020d0a",
+          "sha256": "4dbffbbbc06de5c6c47614686c74621eab780874daf0b9fd22bb19ae4e9a5804"
+        },
+        {
+          "received_ms": 5000,
+          "input_hex": "aa55011a01010200000009000000000000001400f6ffd1010d0a",
+          "sha256": "054692212cd27b3104f1dac489adae028cf297290f744bead74a3209ad3a8170"
+        }
+      ],
+      "checks": {
+        "STATE": true,
+        "VALID": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "OLD_SESSION",
+      "expected": {
+        "VALID": "0",
+        "REJECT": "session",
+        "BAD_DELTA": "5",
+        "SESSION": "2",
+        "FRAME": "9"
+      },
+      "actual": {
+        "state": "timeout",
+        "mode": "auto",
+        "valid": 0,
+        "enabled": 0,
+        "dx": 0,
+        "dy": 0,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 2,
+        "frame": 9,
+        "rx_ms": 5000,
+        "source_ms": 0,
+        "reject": "session",
+        "parse_rejected": 6,
+        "control_rejected": 21,
+        "command_rejected": 0,
+        "filter_ready": 0,
+        "filt_dx": 0.0,
+        "filt_dy": 0.0,
+        "raw_dx": 0.0,
+        "raw_dy": 0.0,
+        "pan_integral": 0.0,
+        "tilt_integral": 0.0,
+        "pan_prev": 0.0,
+        "tilt_prev": 0.0,
+        "updated": 0,
+        "recoveries": 7,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 5175,
+          "input_hex": "aa55011a01010100000024000000000000001400f6ff35920d0a",
+          "sha256": "66dbac7fcd8975e1552a4900ed713d3cb5312660a017660c5ec6c70ef3982851"
+        },
+        {
+          "received_ms": 5225,
+          "input_hex": "aa55011a01010100000025000000000000001400f6ff40910d0a",
+          "sha256": "40be6adc37911446bb6946b72afa3d2a053195bac2b017e6558afe5065ba1025"
+        },
+        {
+          "received_ms": 5275,
+          "input_hex": "aa55011a01010100000026000000000000001400f6ffdf940d0a",
+          "sha256": "1cc5d35dcc73f25d3529b964ed0bc15843500175e1af8e14015b8fddaf2a432f"
+        },
+        {
+          "received_ms": 5325,
+          "input_hex": "aa55011a01010100000027000000000000001400f6ffaa970d0a",
+          "sha256": "aaff991ef25d033440bf7e574221f60f865e63609e944ed60e1390dcae0639d7"
+        },
+        {
+          "received_ms": 5375,
+          "input_hex": "aa55011a01010100000028000000000000001400f6ff49840d0a",
+          "sha256": "0793721ba36ce3601e8d1bf6d96fd53b6000180a2c4b583040f55fed2c0ddd86"
+        }
+      ],
+      "checks": {
+        "VALID": true,
+        "REJECT": true,
+        "BAD_DELTA": true,
+        "SESSION": true,
+        "FRAME": true
+      },
+      "passed": true
+    },
+    {
+      "id": "FINAL_RECOVERY",
+      "expected": {
+        "STATE": "tracking",
+        "VALID": "1",
+        "FRAME": "14"
+      },
+      "actual": {
+        "state": "tracking",
+        "mode": "auto",
+        "valid": 1,
+        "enabled": 1,
+        "dx": 20,
+        "dy": -10,
+        "pan": 1512,
+        "tilt": 1551,
+        "requested_pan": 1512,
+        "requested_tilt": 1551,
+        "session": 2,
+        "frame": 14,
+        "rx_ms": 5750,
+        "source_ms": 0,
+        "reject": "none",
+        "parse_rejected": 6,
+        "control_rejected": 21,
+        "command_rejected": 0,
+        "filter_ready": 1,
+        "filt_dx": 20.0,
+        "filt_dy": -10.0,
+        "raw_dx": 20.0,
+        "raw_dy": -10.0,
+        "pan_integral": 2.1,
+        "tilt_integral": 1.68,
+        "pan_prev": 20.0,
+        "tilt_prev": 10.0,
+        "updated": 0,
+        "recoveries": 8,
+        "pkp": 3.0,
+        "pki": 0.5,
+        "pkd": 0.0
+      },
+      "sends": [
+        {
+          "received_ms": 5550,
+          "input_hex": "aa55011a0101020000000a000000000000001400f6ff4e040d0a",
+          "sha256": "38028abddee61bffb00651744fce377a4f8fe79597c66a6da3b04b25f6028277"
+        },
+        {
+          "received_ms": 5600,
+          "input_hex": "aa55011a0101020000000b000000000000001400f6ff3b070d0a",
+          "sha256": "a9e09b82f04bb60577ed38fcb1357c946bec61b108b0ae196407d631cf436726"
+        },
+        {
+          "received_ms": 5650,
+          "input_hex": "aa55011a0101020000000c000000000000001400f6ff700f0d0a",
+          "sha256": "d608642e054e878dd9aa9502b07c2869424c3a02b1c32cbec7dc52867d3fe961"
+        },
+        {
+          "received_ms": 5700,
+          "input_hex": "aa55011a0101020000000d000000000000001400f6ff050c0d0a",
+          "sha256": "97871087123e83c862966fd3c5b159449af89c88acc08754774c43f22b650029"
+        },
+        {
+          "received_ms": 5750,
+          "input_hex": "aa55011a0101020000000e000000000000001400f6ff9a090d0a",
+          "sha256": "bad4fec7fee35ef88ea559df2e4d4744ae5f6a1f0f77eb1d044a92fd58ff4fe2"
+        }
+      ],
+      "checks": {
+        "STATE": true,
+        "VALID": true,
+        "FRAME": true
+      },
+      "passed": true
+    }
+  ],
+  "passed": true
+}

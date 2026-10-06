@@ -1,0 +1,14 @@
+xPack Open On-Chip Debugger 0.12.0+dev-02228-ge5888bda3-dirty (2025-10-04-22:44)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+adapter speed: 950 kHz
+Error: open failed
+** OpenOCD init failed **
+shutdown command invoked
+embedded:startup.tcl:1893: Error:
+Traceback (most recent call last):
+  File "embedded:startup.tcl", line 1928, in program
+    program_error {** OpenOCD init failed **} 1
+  File "embedded:startup.tcl", line 1893, in program_error
+    shutdown error

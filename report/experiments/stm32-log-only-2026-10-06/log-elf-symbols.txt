@@ -1,0 +1,824 @@
+
+========================================================================
+
+** ELF Header Information
+
+    File Name: private/arm-log-final/firmware.axf
+
+    Machine class: ELFCLASS32 (32-bit)
+    Data encoding: ELFDATA2LSB (Little endian)
+    Header version: EV_CURRENT (Current version)
+    Operating System ABI: none
+    ABI Version: 0
+    File Type: ET_EXEC (Executable) (2)
+    Machine: EM_ARM (ARM)
+
+    Image Entry point: 0x080000ed
+    Flags: EF_ARM_HASENTRY + EF_ARM_ABI_FLOAT_SOFT (0x05000202)
+
+    ARM ELF revision: 5 (ABI version 2)
+
+    Conforms to Soft float procedure-call standard
+
+    Built with
+    Component: ARM Compiler 5.06 update 5 (build 528) Tool: armasm [4d35e1]
+    Component: ARM Compiler 5.06 update 5 (build 528) Tool: armcc [4d3621]
+    Component: ARM Compiler 5.06 update 5 (build 528) Tool: armlink [4d35e2]
+
+    Header size: 52 bytes (0x34)
+    Program header entry size: 32 bytes (0x20)
+    Section header entry size: 40 bytes (0x28)
+
+    Program header entries: 1
+    Section header entries: 16
+
+    Program header offset: 361436 (0x000583dc)
+    Section header offset: 361468 (0x000583fc)
+
+    Section header string table index: 15
+
+========================================================================
+
+** Program header #0 (PT_LOAD) [PF_X + PF_W + PF_R + PF_ARM_ENTRY]
+    Size : 15756 bytes (11396 bytes in file)
+    Virtual address: 0x08000000 (Alignment 8)
+
+
+========================================================================
+
+** Section #1 'ER_IROM1' (SHT_PROGBITS) [SHF_ALLOC + SHF_EXECINSTR]
+    Size   : 11340 bytes (alignment 4)
+    Address: 0x08000000
+
+
+** Section #2 'RW_IRAM1' (SHT_PROGBITS) [SHF_ALLOC + SHF_WRITE]
+    Size   : 56 bytes (alignment 4)
+    Address: 0x20000000
+
+
+** Section #3 'RW_IRAM1' (SHT_NOBITS) [SHF_ALLOC + SHF_WRITE]
+    Size   : 4360 bytes (alignment 8)
+    Address: 0x20000038
+
+
+** Section #4 '.debug_abbrev' (SHT_PROGBITS)
+    Size   : 1476 bytes
+
+
+** Section #5 '.debug_frame' (SHT_PROGBITS)
+    Size   : 4592 bytes
+
+
+** Section #6 '.debug_info' (SHT_PROGBITS)
+    Size   : 42564 bytes
+
+
+** Section #7 '.debug_line' (SHT_PROGBITS)
+    Size   : 18476 bytes
+
+
+** Section #8 '.debug_loc' (SHT_PROGBITS)
+    Size   : 10724 bytes
+
+
+** Section #9 '.debug_macinfo' (SHT_PROGBITS)
+    Size   : 244864 bytes
+
+
+** Section #10 '.debug_pubnames' (SHT_PROGBITS)
+    Size   : 3070 bytes
+
+
+** Section #11 '.symtab' (SHT_SYMTAB)
+    Size   : 10160 bytes (alignment 4)
+    String table #12 '.strtab'
+    Last local symbol no. 327
+
+    Symbol table .symtab (634 symbols, 327 local)
+
+      #  Symbol Name                Value      Bind  Sec  Type  Vis  Size
+    ========================================================================
+
+      1  $d.realdata                0x08000000   Lc    1   --   De
+      2  $t                         0x080000ec   Lc    1   --   De
+      3  $d                         0x08000120   Lc    1   --   De
+      4  $t                         0x08000128   Lc    1   --   De
+      5  $d                         0x080001c2   Lc    1   --   De
+      6  $t                         0x080001dc   Lc    1   --   De
+      7  $d                         0x08000424   Lc    1   --   De
+      8  $t                         0x08000448   Lc    1   --   De
+      9  $d                         0x08000874   Lc    1   --   De
+     10  $t                         0x080008b0   Lc    1   --   De
+     11  $d                         0x08000928   Lc    1   --   De
+     12  $t                         0x0800092c   Lc    1   --   De
+     13  $d                         0x08000a70   Lc    1   --   De
+     14  $t                         0x08000a80   Lc    1   --   De
+     15  $d                         0x08000b7a   Lc    1   --   De
+     16  $t                         0x08000b80   Lc    1   --   De
+     17  $d                         0x08000c26   Lc    1   --   De
+     18  $t                         0x08000c2c   Lc    1   --   De
+     19  $d                         0x08000e36   Lc    1   --   De
+     20  $t                         0x08000e3c   Lc    1   --   De
+     21  $d                         0x0800100e   Lc    1   --   De
+     22  $t                         0x08001038   Lc    1   --   De
+     23  $d                         0x0800114e   Lc    1   --   De
+     24  $t                         0x08001164   Lc    1   --   De
+     25  $d                         0x080012b6   Lc    1   --   De
+     26  $t                         0x080012d8   Lc    1   --   De
+     27  $d                         0x08001384   Lc    1   --   De
+     28  $t                         0x08001390   Lc    1   --   De
+     29  $d                         0x08001604   Lc    1   --   De
+     30  $t                         0x08001628   Lc    1   --   De
+     31  $d                         0x080018fc   Lc    1   --   De
+     32  $t                         0x0800191c   Lc    1   --   De
+     33  $d                         0x08001ca4   Lc    1   --   De
+     34  $t                         0x08001cb8   Lc    1   --   De
+     35  $d                         0x08001cea   Lc    1   --   De
+     36  $t                         0x08001cf0   Lc    1   --   De
+     37  $d                         0x08001dac   Lc    1   --   De
+     38  $t                         0x08001dbc   Lc    1   --   De
+     39  $d                         0x0800217e   Lc    1   --   De
+     40  $t                         0x08002184   Lc    1   --   De
+     41  $d                         0x08002394   Lc    1   --   De
+     42  $t                         0x08002398   Lc    1   --   De
+     43  $d                         0x080023a0   Lc    1   --   De
+     44  $t                         0x080023a4   Lc    1   --   De
+     45  $d                         0x08002468   Lc    1   --   De
+     46  $t                         0x0800246c   Lc    1   --   De
+     47  $d                         0x0800254c   Lc    1   --   De
+     48  $t                         0x08002590   Lc    1   --   De
+     49  $d                         0x080025d4   Lc    1   --   De
+     50  $t                         0x080025d8   Lc    1   --   De
+     51  $d                         0x08002604   Lc    1   --   De
+     52  $t                         0x08002608   Lc    1   --   De
+     53  $d                         0x0800262c   Lc    1   --   De
+     54  $t                         0x08002630   Lc    1   --   De
+     55  $d                         0x08002670   Lc    1   --   De
+     56  $t                         0x08002674   Lc    1   --   De
+     57  $d                         0x08002730   Lc    1   --   De
+     58  $t                         0x08002734   Lc    1   --   De
+     59  $d                         0x08002810   Lc    1   --   De
+     60  $t                         0x08002814   Lc    1   --   De
+     61  $d                         0x080028ae   Lc    1   --   De
+     62  $t                         0x080028b2   Lc    1   --   De
+     63  $d                         0x08002a1c   Lc    1   --   De
+     64  $t                         0x08002a20   Lc    1   --   De
+     65  $d.realdata                0x08002a28   Lc    1   --   De
+     66  $d.realdata                0x20000000   Lc    2   --   De
+     67  <REPO>/private/stm32-deps/Start/startup_stm32f10x_md.s
+                                    0x00000000   Lc  Abs  File  De
+     68  STACK                      0x20000d40   Lc    3  Sect  De   0x400
+     69  Stack_Mem                  0x20000d40   Lc    3  Data  De   0x400
+     70  __initial_sp               0x20001140   Lc    3  Data  De
+     71  HEAP                       0x20000b40   Lc    3  Sect  De   0x200
+     72  Heap_Mem                   0x20000b40   Lc    3  Data  De   0x200
+     73  RESET                      0x08000000   Lc    1  Sect  De   0xec
+     74  .text                      0x0800019c   Lc    1  Sect  De   0x40
+     75  <REPO>/src/prototype/stm32_openmv_gimbal/stm32/User/command.c
+                                    0x00000000   Lc  Abs  File  De
+     76  .text                      0x080001dc   Lc    1  Sect  De
+     77  number                     0x080001e3   Lc    1  Code  De   0xbc
+     78  process                    0x0800029f   Lc    1  Code  De   0x102
+     79  <REPO>/src/prototype/stm32_openmv_gimbal/stm32/User/control.c
+                                    0x00000000   Lc  Abs  File  De
+     80  .text                      0x08000448   Lc    1  Sect  De
+     81  reset_history              0x08000449   Lc    1  Code  De   0x3c
+     82  limited_input              0x0800051d   Lc    1  Code  De   0x3e
+     83  pulse                      0x0800055b   Lc    1  Code  De   0x34
+     84  .constdata                 0x08002a28   Lc    1  Sect  De   0x14
+     85  names                      0x08002a28   Lc    1  Data  De   0x14
+     86  .conststring               0x08002a78   Lc    1  Sect  De   0x34
+     87  <REPO>/src/prototype/stm32_openmv_gimbal/stm32/User/main.c
+                                    0x00000000   Lc  Abs  File  De
+     88  .text                      0x0800092c   Lc    1  Sect  De
+     89  .bss                       0x20000038   Lc    3  Sect  De   0xfc
+     90  controller                 0x20000038   Lc    3  Data  De   0x88
+     91  parser                     0x200000c0   Lc    3  Data  De   0x2c
+     92  console                    0x200000ec   Lc    3  Data  De   0x48
+     93  .data                      0x20000000   Lc    2  Sect  De   0x4
+     94  <REPO>/src/prototype/stm32_openmv_gimbal/stm32/User/pid.c
+                                    0x00000000   Lc  Abs  File  De
+     95  .text                      0x08000a80   Lc    1  Sect  De
+     96  <REPO>/src/prototype/stm32_openmv_gimbal/stm32/User/rx_queue.c
+                                    0x00000000   Lc  Abs  File  De
+     97  .text                      0x08000b80   Lc    1  Sect  De
+     98  <REPO>/src/prototype/stm32_openmv_gimbal/stm32/User/stm32f10x_it.c
+                                    0x00000000   Lc  Abs  File  De
+     99  .text                      0x08000c0c   Lc    1  Sect  De
+    100  <REPO>/src/prototype/stm32_openmv_gimbal/stm32/User/uart_parser.c
+                                    0x00000000   Lc  Abs  File  De
+    101  .text                      0x08000c2c   Lc    1  Sect  De
+    102  u16                        0x08000c2d   Lc    1  Code  De   0xa
+    103  u32                        0x08000c37   Lc    1  Code  De   0x16
+    104  s16                        0x08000c4d   Lc    1  Code  De   0x14
+    105  crc16                      0x08000c61   Lc    1  Code  De   0x34
+    106  drop_first                 0x08000c95   Lc    1  Code  De   0xe
+    107  reject                     0x08000ca3   Lc    1  Code  De   0xc
+    108  .constdata                 0x08002a3c   Lc    1  Sect  De   0x3c
+    109  names                      0x08002a3c   Lc    1  Data  De   0x3c
+    110  .conststring               0x08002aac   Lc    1  Sect  De   0x75
+    111  <REPO>/src/prototype/stm32_openmv_gimbal/stm32/User/usart3_config.c
+                                    0x00000000   Lc  Abs  File  De
+    112  .text                      0x08000e3c   Lc    1  Sect  De
+    113  .bss                       0x20000134   Lc    3  Sect  De   0x1a4
+    114  tx_buf                     0x20000134   Lc    3  Data  De   0x1a4
+    115  .conststring               0x08002b24   Lc    1  Sect  De   0x106
+    116  .data                      0x20000004   Lc    2  Sect  De   0xc
+    117  tx_pos                     0x20000004   Lc    2  Data  De   0x4
+    118  tx_size                    0x20000008   Lc    2  Data  De   0x4
+    119  tx_skipped                 0x2000000c   Lc    2  Data  De   0x4
+    120  <REPO>/src/prototype/stm32_openmv_gimbal/stm32/User/usart_config.c
+                                    0x00000000   Lc  Abs  File  De
+    121  .text                      0x08001038   Lc    1  Sect  De
+    122  .bss                       0x200002d8   Lc    3  Sect  De   0x808
+    123  queues                     0x200002d8   Lc    3  Data  De   0x808
+    124  <REPO>//private//stm32-deps//Start//core_cm3.c
+                                    0x00000000   Lc  Abs  File  De
+    125  <REPO>/private/stm32-deps/Start/core_cm3.c
+                                    0x00000000   Lc  Abs  File  De
+    126  <REPO>/private/stm32-deps/Start/system_stm32f10x.c
+                                    0x00000000   Lc  Abs  File  De
+    127  .text                      0x08001164   Lc    1  Sect  De
+    128  SetSysClockTo72            0x08001165   Lc    1  Code  De   0xa6
+    129  SetSysClock                0x0800120b   Lc    1  Code  De   0x2
+    130  .data                      0x20000010   Lc    2  Sect  De   0x14
+    131  <REPO>/private/stm32-deps/Library/misc.c
+                                    0x00000000   Lc  Abs  File  De
+    132  .text                      0x080012d8   Lc    1  Sect  De
+    133  <REPO>/private/stm32-deps/Library/stm32f10x_gpio.c
+                                    0x00000000   Lc  Abs  File  De
+    134  .text                      0x08001390   Lc    1  Sect  De
+    135  <REPO>/private/stm32-deps/Library/stm32f10x_rcc.c
+                                    0x00000000   Lc  Abs  File  De
+    136  .text                      0x08001628   Lc    1  Sect  De
+    137  .data                      0x20000024   Lc    2  Sect  De   0x14
+    138  ADCPrescTable              0x20000024   Lc    2  Data  De   0x4
+    139  APBAHBPrescTable           0x20000028   Lc    2  Data  De   0x10
+    140  <REPO>/private/stm32-deps/Library/stm32f10x_usart.c
+                                    0x00000000   Lc  Abs  File  De
+    141  .text                      0x0800191c   Lc    1  Sect  De
+    142  dc.s                       0x00000000   Lc  Abs  File  De
+    143  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    144  .text                      0x08001cb8   Lc    1  Sect  De
+    145  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    146  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    147  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    148  .text                      0x08001cf0   Lc    1  Sect  De
+    149  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    150  .text                      0x08001d44   Lc    1  Sect  De
+    151  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    152  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    153  .text                      0x08001dbc   Lc    1  Sect  De
+    154  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    155  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    156  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    157  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    158  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    159  ../clib/printf_percent.s   0x00000000   Lc  Abs  File  De
+    160  .ARM.Collect$$_printf_percent$$00000014
+                                    0x0800016c   Lc    1  Sect  De   0x6
+    161  ../clib/printf_percent.s   0x00000000   Lc  Abs  File  De
+    162  .ARM.Collect$$_printf_percent$$00000009
+                                    0x08000160   Lc    1  Sect  De   0x6
+    163  ../clib/printf_percent.s   0x00000000   Lc  Abs  File  De
+    164  .ARM.Collect$$_printf_percent$$0000000A
+                                    0x08000166   Lc    1  Sect  De   0x6
+    165  ../clib/printf_percent.s   0x00000000   Lc  Abs  File  De
+    166  .ARM.Collect$$_printf_percent$$00000000
+                                    0x08000160   Lc    1  Sect  De
+    167  ../clib/string.c           0x00000000   Lc  Abs  File  De
+    168  .text                      0x08001e74   Lc    1  Sect  De
+    169  ../clib/string.c           0x00000000   Lc  Abs  File  De
+    170  .text                      0x08001eb2   Lc    1  Sect  De
+    171  ../clib/memcpset.s         0x00000000   Lc  Abs  File  De
+    172  .text                      0x08001f48   Lc    1  Sect  De   0x84
+    173  ../clib/memcpset.s         0x00000000   Lc  Abs  File  De
+    174  .text                      0x08001fcc   Lc    1  Sect  De   0x4e
+    175  ../clib/memcpset.s         0x00000000   Lc  Abs  File  De
+    176  .text                      0x0800201c   Lc    1  Sect  De   0x80
+    177  ../clib/heapaux.c          0x00000000   Lc  Abs  File  De
+    178  .text                      0x0800209c   Lc    1  Sect  De
+    179  ../clib/angel/startup.s    0x00000000   Lc  Abs  File  De
+    180  !!!main                    0x080000ec   Lc    1  Sect  De   0x8
+    181  ../clib/misc.s             0x00000000   Lc  Abs  File  De
+    182  ../fplib/faddsub.s         0x00000000   Lc  Abs  File  De
+    183  x$fpl$fadd                 0x080023a8   Lc    1  Sect  De   0xc4
+    184  _fadd1                     0x080023b7   Lc    1  Code  De
+    185  x$fpl$fsub                 0x0800293c   Lc    1  Sect  De   0xea
+    186  _fsub1                     0x0800294b   Lc    1  Code  De
+    187  ../fplib/fdiv.s            0x00000000   Lc  Abs  File  De
+    188  x$fpl$fdiv                 0x08002484   Lc    1  Sect  De   0x184
+    189  _fdiv1                     0x08002485   Lc    1  Code  De
+    190  ../fplib/ffix.s            0x00000000   Lc  Abs  File  De
+    191  x$fpl$ffix                 0x08002608   Lc    1  Sect  De   0x36
+    192  ../fplib/ffixu.s           0x00000000   Lc  Abs  File  De
+    193  x$fpl$ffixu                0x08002640   Lc    1  Sect  De   0x3e
+    194  ../fplib/fflt.s            0x00000000   Lc  Abs  File  De
+    195  x$fpl$ffltu                0x080026b0   Lc    1  Sect  De   0x26
+    196  x$fpl$fflt                 0x08002680   Lc    1  Sect  De   0x30
+    197  ../fplib/fleqf.s           0x00000000   Lc  Abs  File  De
+    198  x$fpl$fleqf                0x080026d8   Lc    1  Sect  De   0x68
+    199  ../fplib/fmul.s            0x00000000   Lc  Abs  File  De
+    200  x$fpl$fmul                 0x08002740   Lc    1  Sect  De   0x102
+    201  ../fplib/frleqf.s          0x00000000   Lc  Abs  File  De
+    202  x$fpl$frleqf               0x080028d8   Lc    1  Sect  De   0x62
+    203  ../clib/angel/kernel.s     0x00000000   Lc  Abs  File  De
+    204  .ARM.Collect$$rtentry$$00000000
+                                    0x0800017e   Lc    1  Sect  De
+    205  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    206  .text                      0x080020a2   Lc    1  Sect  De
+    207  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    208  .text                      0x08002154   Lc    1  Sect  De
+    209  _printf_input_char         0x08002155   Lc    1  Code  De   0xa
+    210  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    211  .text                      0x08002184   Lc    1  Sect  De
+    212  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    213  .text                      0x0800218e   Lc    1  Sect  De
+    214  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    215  .text                      0x0800219e   Lc    1  Sect  De
+    216  ../clib/printf_percent.s   0x00000000   Lc  Abs  File  De
+    217  .ARM.Collect$$_printf_percent$$00000017
+                                    0x08000172   Lc    1  Sect  De   0x4
+    218  ../clib/memcpset.s         0x00000000   Lc  Abs  File  De
+    219  .text                      0x080021ca   Lc    1  Sect  De   0x8a
+    220  ../clib/memcpset.s         0x00000000   Lc  Abs  File  De
+    221  .text                      0x08002254   Lc    1  Sect  De   0x7a
+    222  ../fplib/fcmpi.s           0x00000000   Lc  Abs  File  De
+    223  x$fpl$fcmpinf              0x0800246c   Lc    1  Sect  De   0x18
+    224  ../fplib/fnaninf.s         0x00000000   Lc  Abs  File  De
+    225  x$fpl$fnaninf              0x08002842   Lc    1  Sect  De   0x8c
+    226  ../fplib/fretinf.s         0x00000000   Lc  Abs  File  De
+    227  x$fpl$fretinf              0x080028ce   Lc    1  Sect  De   0xa
+    228  ../fplib/usenofp.s         0x00000000   Lc  Abs  File  De
+    229  x$fpl$usenofp              0x08002a26   Lc    1  Sect  De
+    230  ../clib/angel/kernel.s     0x00000000   Lc  Abs  File  De
+    231  .ARM.Collect$$rtentry$$00000002
+                                    0x0800017e   Lc    1  Sect  De
+    232  .ARM.Collect$$rtentry$$00000009
+                                    0x08000184   Lc    1  Sect  De
+    233  .ARM.Collect$$rtentry$$0000000A
+                                    0x08000184   Lc    1  Sect  De   0x4
+    234  .ARM.Collect$$rtentry$$0000000C
+                                    0x08000188   Lc    1  Sect  De
+    235  .ARM.Collect$$rtentry$$0000000D
+                                    0x08000188   Lc    1  Sect  De   0x8
+    236  ../clib/angel/kernel.s     0x00000000   Lc  Abs  File  De
+    237  .ARM.Collect$$rtentry$$00000004
+                                    0x0800017e   Lc    1  Sect  De   0x6
+    238  ../clib/printf.c           0x00000000   Lc  Abs  File  De
+    239  ../clib/memcpset.s         0x00000000   Lc  Abs  File  De
+    240  .text                      0x080022ce   Lc    1  Sect  De   0x64
+    241  ../clib/angel/sys.s        0x00000000   Lc  Abs  File  De
+    242  .text                      0x08002332   Lc    1  Sect  De   0x4a
+    243  ../clib/stdlib.c           0x00000000   Lc  Abs  File  De
+    244  .text                      0x0800237c   Lc    1  Sect  De
+    245  ../clib/angel/boardlib.s   0x00000000   Lc  Abs  File  De
+    246  ../clib/angel/boardlib.s   0x00000000   Lc  Abs  File  De
+    247  ../clib/angel/boardlib.s   0x00000000   Lc  Abs  File  De
+    248  ../clib/libinit.s          0x00000000   Lc  Abs  File  De
+    249  .ARM.Collect$$libinit$$00000000
+                                    0x08000176   Lc    1  Sect  De   0x2
+    250  ../clib/angel/sys.s        0x00000000   Lc  Abs  File  De
+    251  .text                      0x08002390   Lc    1  Sect  De   0x8
+    252  .bss                       0x20000ae0   Lc    3  Sect  De   0x60
+    253  ../clib/angel/kernel.s     0x00000000   Lc  Abs  File  De
+    254  .ARM.Collect$$rtexit$$00000000
+                                    0x08000190   Lc    1  Sect  De   0x2
+    255  ../clib/libinit.s          0x00000000   Lc  Abs  File  De
+    256  .ARM.Collect$$libinit$$00000002
+                                    0x08000178   Lc    1  Sect  De
+    257  .ARM.Collect$$libinit$$00000004
+                                    0x08000178   Lc    1  Sect  De
+    258  .ARM.Collect$$libinit$$0000000A
+                                    0x08000178   Lc    1  Sect  De
+    259  .ARM.Collect$$libinit$$0000000C
+                                    0x08000178   Lc    1  Sect  De
+    260  .ARM.Collect$$libinit$$0000000E
+                                    0x08000178   Lc    1  Sect  De
+    261  .ARM.Collect$$libinit$$00000011
+                                    0x08000178   Lc    1  Sect  De
+    262  .ARM.Collect$$libinit$$00000013
+                                    0x08000178   Lc    1  Sect  De
+    263  .ARM.Collect$$libinit$$00000015
+                                    0x08000178   Lc    1  Sect  De
+    264  .ARM.Collect$$libinit$$00000017
+                                    0x08000178   Lc    1  Sect  De
+    265  .ARM.Collect$$libinit$$00000019
+                                    0x08000178   Lc    1  Sect  De
+    266  .ARM.Collect$$libinit$$0000001B
+                                    0x08000178   Lc    1  Sect  De
+    267  .ARM.Collect$$libinit$$0000001D
+                                    0x08000178   Lc    1  Sect  De
+    268  .ARM.Collect$$libinit$$0000001F
+                                    0x08000178   Lc    1  Sect  De
+    269  .ARM.Collect$$libinit$$00000021
+                                    0x08000178   Lc    1  Sect  De
+    270  .ARM.Collect$$libinit$$00000023
+                                    0x08000178   Lc    1  Sect  De
+    271  .ARM.Collect$$libinit$$00000025
+                                    0x08000178   Lc    1  Sect  De
+    272  .ARM.Collect$$libinit$$0000002C
+                                    0x08000178   Lc    1  Sect  De
+    273  .ARM.Collect$$libinit$$0000002E
+                                    0x08000178   Lc    1  Sect  De
+    274  .ARM.Collect$$libinit$$00000030
+                                    0x08000178   Lc    1  Sect  De
+    275  .ARM.Collect$$libinit$$00000032
+                                    0x08000178   Lc    1  Sect  De
+    276  .ARM.Collect$$libinit$$00000033
+                                    0x08000178   Lc    1  Sect  De   0x2
+    277  ../clib/angel/kernel.s     0x00000000   Lc  Abs  File  De
+    278  .ARM.Collect$$rtexit$$00000002
+                                    0x08000192   Lc    1  Sect  De
+    279  .ARM.Collect$$rtexit$$00000003
+                                    0x08000192   Lc    1  Sect  De   0x4
+    280  .ARM.Collect$$rtexit$$00000004
+                                    0x08000196   Lc    1  Sect  De   0x6
+    281  ../clib/armsys.c           0x00000000   Lc  Abs  File  De
+    282  ../clib/armsys.c           0x00000000   Lc  Abs  File  De
+    283  ../fplib/fpinit.s          0x00000000   Lc  Abs  File  De
+    284  ../clib/angel/sysapp.c     0x00000000   Lc  Abs  File  De
+    285  .text                      0x08002398   Lc    1  Sect  De
+    286  ../clib/angel/boardlib.s   0x00000000   Lc  Abs  File  De
+    287  ../clib/armsys.c           0x00000000   Lc  Abs  File  De
+    288  ../clib/armsys.c           0x00000000   Lc  Abs  File  De
+    289  ../clib/libinit.s          0x00000000   Lc  Abs  File  De
+    290  .ARM.Collect$$libshutdown$$00000000
+                                    0x0800017a   Lc    1  Sect  De   0x2
+    291  ../clib/angel/sysapp.c     0x00000000   Lc  Abs  File  De
+    292  ../clib/angel/sys.s        0x00000000   Lc  Abs  File  De
+    293  .text                      0x080023a4   Lc    1  Sect  De   0x2
+    294  ../clib/angel/sys.s        0x00000000   Lc  Abs  File  De
+    295  .text                      0x080023a6   Lc    1  Sect  De
+    296  ../clib/heapalloc.c        0x00000000   Lc  Abs  File  De
+    297  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    298  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    299  ../clib/libinit.s          0x00000000   Lc  Abs  File  De
+    300  .ARM.Collect$$libshutdown$$00000002
+                                    0x0800017c   Lc    1  Sect  De
+    301  .ARM.Collect$$libshutdown$$00000004
+                                    0x0800017c   Lc    1  Sect  De
+    302  .ARM.Collect$$libshutdown$$00000007
+                                    0x0800017c   Lc    1  Sect  De
+    303  .ARM.Collect$$libshutdown$$0000000A
+                                    0x0800017c   Lc    1  Sect  De
+    304  .ARM.Collect$$libshutdown$$0000000C
+                                    0x0800017c   Lc    1  Sect  De
+    305  .ARM.Collect$$libshutdown$$0000000F
+                                    0x0800017c   Lc    1  Sect  De
+    306  .ARM.Collect$$libshutdown$$00000010
+                                    0x0800017c   Lc    1  Sect  De   0x2
+    307  ../clib/angel/rt.s         0x00000000   Lc  Abs  File  De
+    308  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    309  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    310  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    311  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    312  ../clib/angel/sysapp.c     0x00000000   Lc  Abs  File  De
+    313  ../clib/signal.s           0x00000000   Lc  Abs  File  De
+    314  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    315  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    316  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    317  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    318  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    319  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    320  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    321  ../clib/signal.c           0x00000000   Lc  Abs  File  De
+    322  ../clib/angel/scatter.s    0x00000000   Lc  Abs  File  De
+    323  !!!scatter                 0x080000f4   Lc    1  Sect  De   0x34
+    324  ../clib/angel/handlers.s   0x00000000   Lc  Abs  File  De
+    325  !!handler_copy             0x08000128   Lc    1  Sect  De   0x1a
+    326  ../clib/angel/handlers.s   0x00000000   Lc  Abs  File  De
+    327  !!handler_zi               0x08000144   Lc    1  Sect  De   0x1c
+    328  BuildAttributes$$THM_ISAv4$P$D$K$B$S$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$ROPI$EBA8$UX$STANDARDLIB$REQ8$PRES8$EABIv2
+                                    0x00000000   Gb  Abs   --   Hi
+    329  __ARM_use_no_argv          0x00000000   Gb  Abs   --   Hi
+    330  _printf_flags              0x00000000   Gb  Abs   --   De
+    331  _printf_return_value       0x00000000   Gb  Abs   --   Hi
+    332  _printf_sizespec           0x00000000   Gb  Abs   --   Hi
+    333  _printf_widthprec          0x00000000   Gb  Abs   --   De
+    334  __Vectors_Size             0x000000ec   Gb  Abs   --   Hi
+    335  __Vectors                  0x08000000   Gb    1  Data  Hi   0x4
+    336  __Vectors_End              0x080000ec   Gb    1  Data  Hi
+    337  __main                     0x080000ed   Gb    1  Code  Hi   0x8
+    338  __scatterload              0x080000f5   Gb    1  Code  Hi
+    339  __scatterload_rt2          0x080000f5   Gb    1  Code  Hi   0x2c
+    340  __scatterload_rt2_thumb_only
+                                    0x080000f5   Gb    1  Code  Hi
+    341  __scatterload_null         0x08000103   Gb    1  Code  Hi
+    342  __scatterload_copy         0x08000129   Gb    1  Code  Hi   0x1a
+    343  __scatterload_zeroinit     0x08000145   Gb    1  Code  Hi   0x1c
+    344  _printf_d                  0x08000161   Gb    1  Code  Hi
+    345  _printf_percent            0x08000161   Gb    1  Code  Hi
+    346  _printf_u                  0x08000167   Gb    1  Code  Hi
+    347  _printf_s                  0x0800016d   Gb    1  Code  Hi
+    348  _printf_percent_end        0x08000173   Gb    1  Code  De
+    349  __rt_lib_init              0x08000177   Gb    1  Code  De
+    350  __rt_lib_init_alloca_1     0x08000179   Gb    1  Code  Hi
+    351  __rt_lib_init_argv_1       0x08000179   Gb    1  Code  Hi
+    352  __rt_lib_init_atexit_1     0x08000179   Gb    1  Code  Hi
+    353  __rt_lib_init_clock_1      0x08000179   Gb    1  Code  Hi
+    354  __rt_lib_init_cpp_1        0x08000179   Gb    1  Code  Hi
+    355  __rt_lib_init_exceptions_1 0x08000179   Gb    1  Code  Hi
+    356  __rt_lib_init_fp_1         0x08000179   Gb    1  Code  Hi
+    357  __rt_lib_init_fp_trap_1    0x08000179   Gb    1  Code  Hi
+    358  __rt_lib_init_getenv_1     0x08000179   Gb    1  Code  Hi
+    359  __rt_lib_init_heap_1       0x08000179   Gb    1  Code  Hi
+    360  __rt_lib_init_lc_collate_1 0x08000179   Gb    1  Code  Hi
+    361  __rt_lib_init_lc_ctype_1   0x08000179   Gb    1  Code  Hi
+    362  __rt_lib_init_lc_monetary_1
+                                    0x08000179   Gb    1  Code  Hi
+    363  __rt_lib_init_lc_numeric_1 0x08000179   Gb    1  Code  Hi
+    364  __rt_lib_init_lc_time_1    0x08000179   Gb    1  Code  Hi
+    365  __rt_lib_init_preinit_1    0x08000179   Gb    1  Code  Hi
+    366  __rt_lib_init_rand_1       0x08000179   Gb    1  Code  Hi
+    367  __rt_lib_init_return       0x08000179   Gb    1  Code  Hi
+    368  __rt_lib_init_signal_1     0x08000179   Gb    1  Code  Hi
+    369  __rt_lib_init_stdio_1      0x08000179   Gb    1  Code  Hi
+    370  __rt_lib_init_user_alloc_1 0x08000179   Gb    1  Code  Hi
+    371  __rt_lib_shutdown          0x0800017b   Gb    1  Code  De
+    372  __rt_lib_shutdown_cpp_1    0x0800017d   Gb    1  Code  Hi
+    373  __rt_lib_shutdown_fp_trap_1
+                                    0x0800017d   Gb    1  Code  Hi
+    374  __rt_lib_shutdown_heap_1   0x0800017d   Gb    1  Code  Hi
+    375  __rt_lib_shutdown_return   0x0800017d   Gb    1  Code  Hi
+    376  __rt_lib_shutdown_signal_1 0x0800017d   Gb    1  Code  Hi
+    377  __rt_lib_shutdown_stdio_1  0x0800017d   Gb    1  Code  Hi
+    378  __rt_lib_shutdown_user_alloc_1
+                                    0x0800017d   Gb    1  Code  Hi
+    379  __rt_entry                 0x0800017f   Gb    1  Code  Hi
+    380  __rt_entry_presh_1         0x0800017f   Gb    1  Code  Hi
+    381  __rt_entry_sh              0x0800017f   Gb    1  Code  Hi
+    382  __rt_entry_li              0x08000185   Gb    1  Code  Hi
+    383  __rt_entry_postsh_1        0x08000185   Gb    1  Code  Hi
+    384  __rt_entry_main            0x08000189   Gb    1  Code  Hi
+    385  __rt_entry_postli_1        0x08000189   Gb    1  Code  Hi
+    386  __rt_exit                  0x08000191   Gb    1  Code  De
+    387  __rt_exit_ls               0x08000193   Gb    1  Code  Hi
+    388  __rt_exit_prels_1          0x08000193   Gb    1  Code  Hi
+    389  __rt_exit_exit             0x08000197   Gb    1  Code  Hi
+    390  Reset_Handler              0x0800019d   Wk    1  Code  Hi   0x8
+    391  ADC1_2_IRQHandler          0x080001b7   Wk    1  Code  Hi
+    392  CAN1_RX1_IRQHandler        0x080001b7   Wk    1  Code  Hi
+    393  CAN1_SCE_IRQHandler        0x080001b7   Wk    1  Code  Hi
+    394  DMA1_Channel1_IRQHandler   0x080001b7   Wk    1  Code  Hi
+    395  DMA1_Channel2_IRQHandler   0x080001b7   Wk    1  Code  Hi
+    396  DMA1_Channel3_IRQHandler   0x080001b7   Wk    1  Code  Hi
+    397  DMA1_Channel4_IRQHandler   0x080001b7   Wk    1  Code  Hi
+    398  DMA1_Channel5_IRQHandler   0x080001b7   Wk    1  Code  Hi
+    399  DMA1_Channel6_IRQHandler   0x080001b7   Wk    1  Code  Hi
+    400  DMA1_Channel7_IRQHandler   0x080001b7   Wk    1  Code  Hi
+    401  EXTI0_IRQHandler           0x080001b7   Wk    1  Code  Hi
+    402  EXTI15_10_IRQHandler       0x080001b7   Wk    1  Code  Hi
+    403  EXTI1_IRQHandler           0x080001b7   Wk    1  Code  Hi
+    404  EXTI2_IRQHandler           0x080001b7   Wk    1  Code  Hi
+    405  EXTI3_IRQHandler           0x080001b7   Wk    1  Code  Hi
+    406  EXTI4_IRQHandler           0x080001b7   Wk    1  Code  Hi
+    407  EXTI9_5_IRQHandler         0x080001b7   Wk    1  Code  Hi
+    408  FLASH_IRQHandler           0x080001b7   Wk    1  Code  Hi
+    409  I2C1_ER_IRQHandler         0x080001b7   Wk    1  Code  Hi
+    410  I2C1_EV_IRQHandler         0x080001b7   Wk    1  Code  Hi
+    411  I2C2_ER_IRQHandler         0x080001b7   Wk    1  Code  Hi
+    412  I2C2_EV_IRQHandler         0x080001b7   Wk    1  Code  Hi
+    413  PVD_IRQHandler             0x080001b7   Wk    1  Code  Hi
+    414  RCC_IRQHandler             0x080001b7   Wk    1  Code  Hi
+    415  RTCAlarm_IRQHandler        0x080001b7   Wk    1  Code  Hi
+    416  RTC_IRQHandler             0x080001b7   Wk    1  Code  Hi
+    417  SPI1_IRQHandler            0x080001b7   Wk    1  Code  Hi
+    418  SPI2_IRQHandler            0x080001b7   Wk    1  Code  Hi
+    419  TAMPER_IRQHandler          0x080001b7   Wk    1  Code  Hi
+    420  TIM1_BRK_IRQHandler        0x080001b7   Wk    1  Code  Hi
+    421  TIM1_CC_IRQHandler         0x080001b7   Wk    1  Code  Hi
+    422  TIM1_TRG_COM_IRQHandler    0x080001b7   Wk    1  Code  Hi
+    423  TIM1_UP_IRQHandler         0x080001b7   Wk    1  Code  Hi
+    424  TIM2_IRQHandler            0x080001b7   Wk    1  Code  Hi
+    425  TIM3_IRQHandler            0x080001b7   Wk    1  Code  Hi
+    426  TIM4_IRQHandler            0x080001b7   Wk    1  Code  Hi
+    427  USART2_IRQHandler          0x080001b7   Wk    1  Code  Hi
+    428  USBWakeUp_IRQHandler       0x080001b7   Wk    1  Code  Hi
+    429  USB_HP_CAN1_TX_IRQHandler  0x080001b7   Wk    1  Code  Hi
+    430  USB_LP_CAN1_RX0_IRQHandler 0x080001b7   Wk    1  Code  Hi
+    431  WWDG_IRQHandler            0x080001b7   Wk    1  Code  Hi
+    432  __user_initial_stackheap   0x080001b9   Gb    1  Code  Hi
+    433  command_init               0x080001dd   Gb    1  Code  Hi   0x6
+    434  command_feed               0x080003a1   Gb    1  Code  Hi   0x84
+    435  control_init               0x08000485   Gb    1  Code  Hi   0x50
+    436  control_invalidate         0x080004d5   Gb    1  Code  Hi   0x1e
+    437  control_tick               0x080004f3   Gb    1  Code  Hi   0x2a
+    438  control_frame              0x0800058f   Gb    1  Code  Hi   0x29e
+    439  control_manual             0x0800082d   Gb    1  Code  Hi   0xb4
+    440  control_auto               0x080008e1   Gb    1  Code  Hi   0x1e
+    441  control_parameters_changed 0x080008ff   Gb    1  Code  Hi   0x1c
+    442  observation_name           0x0800091b   Gb    1  Code  Hi   0xe
+    443  main                       0x0800092d   Gb    1  Code  Hi   0x144
+    444  pid_init                   0x08000a81   Gb    1  Code  Hi   0x1a
+    445  pid_update                 0x08000a9b   Gb    1  Code  Hi   0xd8
+    446  pid_reset                  0x08000b73   Gb    1  Code  Hi   0x8
+    447  rx_queue_init              0x08000b81   Gb    1  Code  Hi   0x8
+    448  rx_queue_push              0x08000b89   Gb    1  Code  Hi   0x3c
+    449  rx_queue_pop               0x08000bc5   Gb    1  Code  Hi   0x46
+    450  NMI_Handler                0x08000c0d   Gb    1  Code  Hi   0x2
+    451  HardFault_Handler          0x08000c0f   Gb    1  Code  Hi   0x2
+    452  MemManage_Handler          0x08000c11   Gb    1  Code  Hi   0x2
+    453  BusFault_Handler           0x08000c13   Gb    1  Code  Hi   0x2
+    454  UsageFault_Handler         0x08000c15   Gb    1  Code  Hi   0x2
+    455  SVC_Handler                0x08000c17   Gb    1  Code  Hi   0x2
+    456  DebugMon_Handler           0x08000c19   Gb    1  Code  Hi   0x2
+    457  PendSV_Handler             0x08000c1b   Gb    1  Code  Hi   0x2
+    458  SysTick_Handler            0x08000c1d   Gb    1  Code  Hi   0xa
+    459  uart_parser_init           0x08000caf   Gb    1  Code  Hi   0x6
+    460  uart_parser_expire         0x08000cb5   Gb    1  Code  Hi   0x22
+    461  uart_parser_feed           0x08000cd7   Gb    1  Code  Hi   0x152
+    462  reject_name                0x08000e29   Gb    1  Code  Hi   0xe
+    463  usart3_poll_tx             0x08000e3d   Gb    1  Code  Hi   0x30
+    464  usart3_init                0x08000e6d   Gb    1  Code  Hi   0x68
+    465  usart3_send_status         0x08000ed5   Gb    1  Code  Hi   0x134
+    466  USART3_IRQHandler          0x08001009   Gb    1  Code  Hi   0x6
+    467  serial_rx_init             0x08001039   Gb    1  Code  Hi   0x18
+    468  serial_rx_pop              0x08001051   Gb    1  Code  Hi   0x26
+    469  serial_rx_interrupt        0x08001077   Gb    1  Code  Hi   0x44
+    470  usart1_init                0x080010bb   Gb    1  Code  Hi   0x90
+    471  USART1_IRQHandler          0x0800114b   Gb    1  Code  Hi   0x4
+    472  SystemInit                 0x0800120d   Gb    1  Code  Hi   0x40
+    473  SystemCoreClockUpdate      0x0800124d   Gb    1  Code  Hi   0x6a
+    474  NVIC_PriorityGroupConfig   0x080012d9   Gb    1  Code  Hi   0xa
+    475  NVIC_Init                  0x080012e3   Gb    1  Code  Hi   0x60
+    476  NVIC_SetVectorTable        0x08001343   Gb    1  Code  Hi   0xe
+    477  NVIC_SystemLPConfig        0x08001351   Gb    1  Code  Hi   0x18
+    478  SysTick_CLKSourceConfig    0x08001369   Gb    1  Code  Hi   0x1c
+    479  GPIO_DeInit                0x08001391   Gb    1  Code  Hi   0xbc
+    480  GPIO_AFIODeInit            0x0800144d   Gb    1  Code  Hi   0x16
+    481  GPIO_Init                  0x08001463   Gb    1  Code  Hi   0xa6
+    482  GPIO_StructInit            0x08001509   Gb    1  Code  Hi   0x10
+    483  GPIO_ReadInputDataBit      0x08001519   Gb    1  Code  Hi   0xe
+    484  GPIO_ReadInputData         0x08001527   Gb    1  Code  Hi   0x6
+    485  GPIO_ReadOutputDataBit     0x0800152d   Gb    1  Code  Hi   0xe
+    486  GPIO_ReadOutputData        0x0800153b   Gb    1  Code  Hi   0x6
+    487  GPIO_SetBits               0x08001541   Gb    1  Code  Hi   0x4
+    488  GPIO_ResetBits             0x08001545   Gb    1  Code  Hi   0x4
+    489  GPIO_WriteBit              0x08001549   Gb    1  Code  Hi   0xc
+    490  GPIO_Write                 0x08001555   Gb    1  Code  Hi   0x4
+    491  GPIO_PinLockConfig         0x08001559   Gb    1  Code  Hi   0x10
+    492  GPIO_EventOutputConfig     0x08001569   Gb    1  Code  Hi   0x16
+    493  GPIO_EventOutputCmd        0x0800157f   Gb    1  Code  Hi   0x6
+    494  GPIO_PinRemapConfig        0x08001585   Gb    1  Code  Hi   0x56
+    495  GPIO_EXTILineConfig        0x080015db   Gb    1  Code  Hi   0x22
+    496  GPIO_ETH_MediaInterfaceConfig
+                                    0x080015fd   Gb    1  Code  Hi   0x8
+    497  RCC_DeInit                 0x08001629   Gb    1  Code  Hi   0x32
+    498  RCC_HSEConfig              0x0800165b   Gb    1  Code  Hi   0x32
+    499  RCC_GetFlagStatus          0x0800168d   Gb    1  Code  Hi   0x2a
+    500  RCC_WaitForHSEStartUp      0x080016b7   Gb    1  Code  Hi   0x30
+    501  RCC_AdjustHSICalibrationValue
+                                    0x080016e7   Gb    1  Code  Hi   0x10
+    502  RCC_HSICmd                 0x080016f7   Gb    1  Code  Hi   0x6
+    503  RCC_PLLConfig              0x080016fd   Gb    1  Code  Hi   0x10
+    504  RCC_PLLCmd                 0x0800170d   Gb    1  Code  Hi   0x6
+    505  RCC_SYSCLKConfig           0x08001713   Gb    1  Code  Hi   0xe
+    506  RCC_GetSYSCLKSource        0x08001721   Gb    1  Code  Hi   0xa
+    507  RCC_HCLKConfig             0x0800172b   Gb    1  Code  Hi   0xe
+    508  RCC_PCLK1Config            0x08001739   Gb    1  Code  Hi   0xe
+    509  RCC_PCLK2Config            0x08001747   Gb    1  Code  Hi   0x10
+    510  RCC_ITConfig               0x08001757   Gb    1  Code  Hi   0x16
+    511  RCC_USBCLKConfig           0x0800176d   Gb    1  Code  Hi   0x8
+    512  RCC_ADCCLKConfig           0x08001775   Gb    1  Code  Hi   0xe
+    513  RCC_LSEConfig              0x08001783   Gb    1  Code  Hi   0x24
+    514  RCC_LSICmd                 0x080017a7   Gb    1  Code  Hi   0x6
+    515  RCC_RTCCLKConfig           0x080017ad   Gb    1  Code  Hi   0xa
+    516  RCC_RTCCLKCmd              0x080017b7   Gb    1  Code  Hi   0x8
+    517  RCC_GetClocksFreq          0x080017bf   Gb    1  Code  Hi   0x9a
+    518  RCC_AHBPeriphClockCmd      0x08001859   Gb    1  Code  Hi   0x16
+    519  RCC_APB2PeriphClockCmd     0x0800186f   Gb    1  Code  Hi   0x16
+    520  RCC_APB1PeriphClockCmd     0x08001885   Gb    1  Code  Hi   0x16
+    521  RCC_APB2PeriphResetCmd     0x0800189b   Gb    1  Code  Hi   0x16
+    522  RCC_APB1PeriphResetCmd     0x080018b1   Gb    1  Code  Hi   0x16
+    523  RCC_BackupResetCmd         0x080018c7   Gb    1  Code  Hi   0x8
+    524  RCC_ClockSecuritySystemCmd 0x080018cf   Gb    1  Code  Hi   0x6
+    525  RCC_MCOConfig              0x080018d5   Gb    1  Code  Hi   0x6
+    526  RCC_ClearFlag              0x080018db   Gb    1  Code  Hi   0xc
+    527  RCC_GetITStatus            0x080018e7   Gb    1  Code  Hi   0x10
+    528  RCC_ClearITPendingBit      0x080018f7   Gb    1  Code  Hi   0x6
+    529  USART_DeInit               0x0800191d   Gb    1  Code  Hi   0x90
+    530  USART_Init                 0x080019ad   Gb    1  Code  Hi   0xb6
+    531  USART_StructInit           0x08001a63   Gb    1  Code  Hi   0x16
+    532  USART_ClockInit            0x08001a79   Gb    1  Code  Hi   0x1e
+    533  USART_ClockStructInit      0x08001a97   Gb    1  Code  Hi   0xc
+    534  USART_Cmd                  0x08001aa3   Gb    1  Code  Hi   0x18
+    535  USART_ITConfig             0x08001abb   Gb    1  Code  Hi   0x36
+    536  USART_DMACmd               0x08001af1   Gb    1  Code  Hi   0x14
+    537  USART_SetAddress           0x08001b05   Gb    1  Code  Hi   0x10
+    538  USART_WakeUpConfig         0x08001b15   Gb    1  Code  Hi   0x10
+    539  USART_ReceiverWakeUpCmd    0x08001b25   Gb    1  Code  Hi   0x18
+    540  USART_LINBreakDetectLengthConfig
+                                    0x08001b3d   Gb    1  Code  Hi   0x10
+    541  USART_LINCmd               0x08001b4d   Gb    1  Code  Hi   0x18
+    542  USART_SendData             0x08001b65   Gb    1  Code  Hi   0x8
+    543  USART_ReceiveData          0x08001b6d   Gb    1  Code  Hi   0x8
+    544  USART_SendBreak            0x08001b75   Gb    1  Code  Hi   0xa
+    545  USART_SetGuardTime         0x08001b7f   Gb    1  Code  Hi   0x10
+    546  USART_SetPrescaler         0x08001b8f   Gb    1  Code  Hi   0x10
+    547  USART_SmartCardCmd         0x08001b9f   Gb    1  Code  Hi   0x18
+    548  USART_SmartCardNACKCmd     0x08001bb7   Gb    1  Code  Hi   0x18
+    549  USART_HalfDuplexCmd        0x08001bcf   Gb    1  Code  Hi   0x18
+    550  USART_OverSampling8Cmd     0x08001be7   Gb    1  Code  Hi   0x18
+    551  USART_OneBitMethodCmd      0x08001bff   Gb    1  Code  Hi   0x18
+    552  USART_IrDAConfig           0x08001c17   Gb    1  Code  Hi   0x10
+    553  USART_IrDACmd              0x08001c27   Gb    1  Code  Hi   0x18
+    554  USART_GetFlagStatus        0x08001c3f   Gb    1  Code  Hi   0xe
+    555  USART_ClearFlag            0x08001c4d   Gb    1  Code  Hi   0x8
+    556  USART_GetITStatus          0x08001c55   Gb    1  Code  Hi   0x40
+    557  USART_ClearITPendingBit    0x08001c95   Gb    1  Code  Hi   0x10
+    558  __2snprintf                0x08001cb9   Gb    1  Code  Hi   0x32
+    559  _printf_str                0x08001cf1   Gb    1  Code  Hi   0x52
+    560  _printf_int_dec            0x08001d45   Gb    1  Code  Hi   0x68
+    561  __printf                   0x08001dbd   Gb    1  Code  De   0xb8
+    562  strlen                     0x08001e75   Gb    1  Code  Hi   0x3e
+    563  strncmp                    0x08001eb3   Gb    1  Code  Hi   0x96
+    564  __aeabi_memmove            0x08001f49   Gb    1  Code  Hi
+    565  __rt_memmove               0x08001f49   Gb    1  Code  De   0x84
+    566  __memmove_lastfew          0x08001fa9   Gb    1  Code  De
+    567  __aeabi_memclr4            0x08001fcd   Gb    1  Code  Hi
+    568  __aeabi_memclr8            0x08001fcd   Gb    1  Code  De
+    569  __rt_memclr_w              0x08001fcd   Gb    1  Code  De   0x4e
+    570  _memset_w                  0x08001fd1   Gb    1  Code  De
+    571  strcmp                     0x0800201d   Gb    1  Code  Hi   0x80
+    572  __use_two_region_memory    0x0800209d   Gb    1  Code  Hi   0x2
+    573  __rt_heap_escrow$2region   0x0800209f   Gb    1  Code  De   0x2
+    574  __rt_heap_expand$2region   0x080020a1   Gb    1  Code  De   0x2
+    575  _printf_int_common         0x080020a3   Gb    1  Code  De   0xb2
+    576  _printf_char_common        0x0800215f   Gb    1  Code  De   0x20
+    577  _sputc                     0x08002185   Gb    1  Code  De   0xa
+    578  _snputc                    0x0800218f   Gb    1  Code  De   0x10
+    579  _printf_cs_common          0x0800219f   Gb    1  Code  Hi   0x14
+    580  _printf_char               0x080021b3   Gb    1  Code  De   0x10
+    581  _printf_string             0x080021c3   Gb    1  Code  De   0x8
+    582  __aeabi_memcpy             0x080021cb   Gb    1  Code  De
+    583  __rt_memcpy                0x080021cb   Gb    1  Code  De   0x8a
+    584  _memcpy_lastbytes          0x08002231   Gb    1  Code  De
+    585  __aeabi_memmove4           0x08002255   Gb    1  Code  De
+    586  __aeabi_memmove8           0x08002255   Gb    1  Code  De
+    587  __rt_memmove_w             0x08002255   Gb    1  Code  De   0x7a
+    588  __memmove_aligned          0x0800227b   Gb    1  Code  De
+    589  __memmove_lastfew_aligned  0x080022b3   Gb    1  Code  De
+    590  __aeabi_memcpy4            0x080022cf   Gb    1  Code  De
+    591  __aeabi_memcpy8            0x080022cf   Gb    1  Code  De
+    592  __rt_memcpy_w              0x080022cf   Gb    1  Code  De   0x64
+    593  _memcpy_lastbytes_aligned  0x08002317   Gb    1  Code  De
+    594  __user_setup_stackheap     0x08002333   Gb    1  Code  De   0x4a
+    595  exit                       0x0800237d   Gb    1  Code  De   0x12
+    596  __user_libspace            0x08002391   Wk    1  Code  De   0x8
+    597  __user_perproc_libspace    0x08002391   Wk    1  Code  De
+    598  __user_perthread_libspace  0x08002391   Wk    1  Code  De
+    599  _sys_exit                  0x08002399   Gb    1  Code  De   0x8
+    600  __I$use$semihosting        0x080023a5   Gb    1  Code  Hi
+    601  __use_no_semihosting_swi   0x080023a5   Gb    1  Code  Hi   0x2
+    602  __semihosting_library_function
+                                    0x080023a7   Gb    1  Code  Hi
+    603  __aeabi_fadd               0x080023a9   Gb    1  Code  Hi
+    604  _fadd                      0x080023a9   Gb    1  Code  De   0xc4
+    605  __fpl_fcmp_Inf             0x0800246d   Gb    1  Code  De   0x18
+    606  __aeabi_fdiv               0x08002485   Gb    1  Code  Hi
+    607  _fdiv                      0x08002485   Gb    1  Code  De   0x180
+    608  __aeabi_f2iz               0x08002609   Gb    1  Code  Hi
+    609  _ffix                      0x08002609   Gb    1  Code  De   0x36
+    610  __aeabi_f2uiz              0x08002641   Gb    1  Code  Hi
+    611  _ffixu                     0x08002641   Gb    1  Code  De   0x3e
+    612  __aeabi_i2f                0x08002681   Gb    1  Code  Hi
+    613  _fflt                      0x08002681   Gb    1  Code  De   0x30
+    614  __aeabi_ui2f               0x080026b1   Gb    1  Code  Hi
+    615  _ffltu                     0x080026b1   Gb    1  Code  De   0x26
+    616  __aeabi_cfcmple            0x080026d9   Gb    1  Code  Hi
+    617  _fcmple                    0x080026d9   Gb    1  Code  De   0x68
+    618  __fpl_fcmple_InfNaN        0x0800272b   Gb    1  Code  Pr
+    619  __aeabi_fmul               0x08002741   Gb    1  Code  Hi
+    620  _fmul                      0x08002741   Gb    1  Code  De   0x102
+    621  __fpl_fnaninf              0x08002843   Gb    1  Code  De   0x8c
+    622  __fpl_fretinf              0x080028cf   Gb    1  Code  De   0xa
+    623  __aeabi_cfrcmple           0x080028d9   Gb    1  Code  Hi
+    624  _frcmple                   0x080028d9   Gb    1  Code  De   0x62
+    625  __aeabi_fsub               0x0800293d   Gb    1  Code  Hi
+    626  _fsub                      0x0800293d   Gb    1  Code  De   0xea
+    627  __I$use$fp                 0x08002a26   Gb    1   --   De
+    628  Region$$Table$$Base        0x08002c2c   Gb    1   --   Hi
+    629  Region$$Table$$Limit       0x08002c4c   Gb    1   --   Hi
+    630  g_ms_tick                  0x20000000   Gb    2  Data  Hi   0x4
+    631  SystemCoreClock            0x20000010   Gb    2  Data  Hi   0x4
+    632  AHBPrescTable              0x20000014   Gb    2  Data  Hi   0x10
+    633  __libspace_start           0x20000ae0   Gb    3  Data  De   0x60
+    634  __temporary_stack_top$libspace
+                                    0x20000b40   Gb    3  Data  De
+
+
+** Section #12 '.strtab' (SHT_STRTAB)
+    Size   : 10920 bytes
+
+
+** Section #13 '.note' (SHT_NOTE)
+    Size   : 28 bytes (alignment 4)
+
+
+** Section #14 '.comment' (SHT_PROGBITS)
+    Size   : 2956 bytes
+
+
+** Section #15 '.shstrtab' (SHT_STRTAB)
+    Size   : 156 bytes

@@ -1,0 +1,27 @@
+{
+  "exit_code": 0,
+  "command": [
+    "-s",
+    "private/openocd/extracted/xpack-openocd-0.12.0-7/openocd/scripts",
+    "-f",
+    "interface/stlink.cfg",
+    "-c",
+    "transport select swd",
+    "-f",
+    "target/stm32f1x.cfg",
+    "-c",
+    "adapter speed 950",
+    "-c",
+    "gdb port disabled",
+    "-c",
+    "tcl port disabled",
+    "-c",
+    "telnet port disabled",
+    "-c",
+    "program private/arm-log-final/firmware.hex verify reset exit"
+  ],
+  "started_utc": "2026-10-06T14:23:54.8286174+00:00",
+  "firmware_hex_sha256": "0EBFAAE889EC506BF4D51AF19B7704321065E4296C29F597BE4BD3A276044A1D",
+  "source_commit": "621767d596f91efc5b9c1206fbc77c3d5869af71",
+  "ended_utc": "2026-10-06T14:23:56.3019190+00:00"
+}

@@ -1,0 +1,76 @@
+{
+  "source_commit": "621767d596f91efc5b9c1206fbc77c3d5869af71",
+  "runs": [
+    {
+      "id": 37474409836,
+      "url": "https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37474409836",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "621767d596f91efc5b9c1206fbc77c3d5869af71",
+      "created_at": "2026-10-06T13:53:31Z",
+      "updated_at": "2026-10-06T13:53:41Z"
+    },
+    {
+      "id": 37474290838,
+      "url": "https://github.com/logic202407-cmyk/zynq-vision-lab/actions/runs/37474290838",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "621767d596f91efc5b9c1206fbc77c3d5869af71",
+      "created_at": "2026-10-06T13:52:38Z",
+      "updated_at": "2026-10-06T13:52:48Z"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 112305958648,
+      "name": "repository-checks",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Checkout pinned action",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check repository structure and claims",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Test repository tooling",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Compare STM32 host results across existing compilers",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Clarify verification boundary",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Checkout pinned action",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "note": "Read GitHub run/job metadata, not detailed test/skip output; no CI counts inferred."
+}

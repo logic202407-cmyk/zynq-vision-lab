@@ -1,0 +1,20 @@
+{
+  "exit_code": 0,
+  "ended_utc": "2026-10-06T14:29:36.6933135+00:00",
+  "port": "COM7",
+  "friendly_name": "USB-SERIAL CH340 (COM7)",
+  "source_commit": "621767d596f91efc5b9c1206fbc77c3d5869af71",
+  "started_utc": "2026-10-06T14:29:29.2802681+00:00",
+  "command": [
+    "pwsh",
+    "-NoProfile",
+    "-File",
+    "tools/stm32_p0_serial.ps1",
+    "-Port",
+    "COM7",
+    "-Python",
+    "<PYTHON>",
+    "-OutputDirectory",
+    "private/serial-rewired-02"
+  ]
+}
