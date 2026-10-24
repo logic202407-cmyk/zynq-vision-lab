@@ -19,7 +19,7 @@ jobs:
           persist-credentials: false
       - name: Check repository structure and claims
         run: python3 tools/check_repository.py
-      - name: Test repository tooling
+      - name: Test repository tooling and STM32 C behavior with host GCC
         run: python3 -m unittest discover -s tests -v
       - name: Clarify verification boundary
-        run: echo 'Repository checks only. No FPGA simulation, implementation or board test has run.'
+        run: echo 'Repository and host C checks only. No FPGA simulation, implementation, MCU flashing or board test has run in CI.'

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-09-30",
+  "updated_on": "2026-10-24",
   "project_stage": "pl_camera_prototype",
   "components": [
     {
@@ -79,6 +79,12 @@
       "status": "planned",
       "evidence": [],
       "note": "Not implemented or verified."
+    },
+    {
+      "id": "stm32_fixed_camera_bench",
+      "status": "implemented",
+      "evidence": ["src/prototype/fixed_camera_stm32/README.md", "src/prototype/fixed_camera_stm32/User/main.c", "src/prototype/fixed_camera_stm32/build.py", "tests/test_fixed_camera_core.py", "tests/test_fixed_camera_console.py", "tests/test_fixed_camera_build.py", "report/experiments/2026-10-24-stm32-fixed-camera-bench.md"],
+      "note": "Standalone STM32 ASCII console accepts calibrated absolute PWM, dark positioning and a separate bounded point command. Host C behavior and ARMCC build are checked; this entry has not been flashed or tested with Zynq, a real serial link or multiple paper targets. No PS, detector, ranking or fixed-camera calibration implementation is claimed."
     }
   ]
 }

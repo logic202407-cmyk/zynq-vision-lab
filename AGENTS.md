@@ -2,7 +2,7 @@
 
 ## Project boundary
 
-This is a geometric-marker vision and experimental validation repository. Keep outputs to screen overlays, measurements, and logs. Do not add autonomous weapon targeting, person/aircraft illumination, firing control, or moving emitter coordination.
+This is a geometric-marker vision and experimental validation repository. The FPGA vision mainline outputs screen overlays, measurements, and logs. The user-authorized `src/prototype/fixed_camera_stm32/` bench is a separate STM32 prototype for calibrated, fixed, inanimate paper targets: dark positioning followed by an explicit bounded illumination command. This exception does not authorize autonomous weapon targeting, person/aircraft illumination, projectile firing, or moving emitter platforms. Keep its software, build, and physical-test evidence separate from FPGA evidence.
 
 ## Read first
 
