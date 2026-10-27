@@ -43,3 +43,7 @@ python -m unittest discover -s tests -v
 无 HDMI 显示器时，可使用 [OV5640 电脑端 UDP 预览工具](src/pc/README.md)做原厂视频链路基线；它需要单独的有线网口连接，JTAG 不能替代传图。测试条件、复现步骤、统计和限制见[原厂视频基线](board/video_baseline.md)，上板过程见[上板日志](board/bringup_log.md)。
 
 仓库原创材料采用 [MIT License](LICENSE)。资料来源及适用限制见[来源清单](docs/sources.md)。
+
+## 天空星接口资料（2026-10-27）
+
+新增[天空星 F407 接线与资料](board/skystar_f407/README.md)：两套二维云台的四路 PWM、独立动力供电、H1 十针调试口、USB-TTL 日志及 ST-Link SWD。包含原创重绘接线图、原厂来源与版本指纹、固件离线检查摘要和下次上板步骤。当前尚未收到烧录及实际动作成功结果，三套视觉协作仍属后续候选。

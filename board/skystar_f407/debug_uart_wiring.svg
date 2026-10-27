@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="840" viewBox="0 0 1320 840" role="img" aria-label="天空星 H1 十针接口：ST-Link SWD 与 USB-TTL 日志接线">
+<title>天空星 H1 十针接口：ST-Link SWD 与 USB-TTL 日志接线</title>
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" fill="#172033">
+<text x="45" y="48" font-size="29" fill="#172033" font-weight="700" text-anchor="start">天空星 H1 · ST-Link 下载 + USB-TTL 日志</text>
+<text x="45" y="82" font-size="19" fill="#b45309" font-weight="400" text-anchor="start">按实物 1 脚标记确认针号；以下为逻辑编号，不是实物正反面方向图</text>
+<rect x="410" y="130" width="500" height="405" rx="12" fill="#eef5ff" stroke="#7c9ac5" stroke-width="2"/>
+<text x="435" y="170" font-size="23" fill="#172033" font-weight="700" text-anchor="start">底部 H1 / 2 × 5 调试接口</text>
+<rect x="430" y="193" width="215" height="42" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<rect x="672" y="193" width="218" height="42" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="443" y="220" font-size="19" fill="#172033" font-weight="700" text-anchor="start">1  SWO</text>
+<text x="685" y="220" font-size="19" fill="#172033" font-weight="700" text-anchor="start">2  +3.3V</text>
+<rect x="430" y="253" width="215" height="42" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<rect x="672" y="253" width="218" height="42" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="443" y="280" font-size="19" fill="#172033" font-weight="700" text-anchor="start">3  SWCLK</text>
+<text x="685" y="280" font-size="19" fill="#172033" font-weight="700" text-anchor="start">4  GND</text>
+<rect x="430" y="313" width="215" height="42" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<rect x="672" y="313" width="218" height="42" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="443" y="340" font-size="19" fill="#172033" font-weight="700" text-anchor="start">5  SWDIO</text>
+<text x="685" y="340" font-size="19" fill="#172033" font-weight="700" text-anchor="start">6  GND</text>
+<rect x="430" y="373" width="215" height="42" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<rect x="672" y="373" width="218" height="42" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="443" y="400" font-size="19" fill="#172033" font-weight="700" text-anchor="start">7  +5V</text>
+<text x="685" y="400" font-size="19" fill="#172033" font-weight="700" text-anchor="start">8  U1.R / RX</text>
+<rect x="430" y="433" width="215" height="42" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<rect x="672" y="433" width="218" height="42" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="443" y="460" font-size="19" fill="#172033" font-weight="700" text-anchor="start">9  NRST</text>
+<text x="685" y="460" font-size="19" fill="#172033" font-weight="700" text-anchor="start">10 U1.T / TX</text>
+<rect x="35" y="165" width="330" height="325" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="57" y="207" font-size="24" fill="#172033" font-weight="700" text-anchor="start">ST-Link → 天空星</text>
+<text x="57" y="253" font-size="21" fill="#172033" font-weight="400" text-anchor="start">SWCLK → H1-3</text>
+<text x="57" y="304" font-size="21" fill="#172033" font-weight="400" text-anchor="start">SWDIO → H1-5</text>
+<text x="57" y="355" font-size="21" fill="#172033" font-weight="400" text-anchor="start">GND → H1-4 或 H1-6</text>
+<text x="57" y="406" font-size="21" fill="#172033" font-weight="400" text-anchor="start">NRST → H1-9（若有）</text>
+<polyline points="365,325 410,325" fill="none" stroke="#2563eb" stroke-width="4" stroke-linejoin="round"/>
+<rect x="955" y="165" width="330" height="325" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="977" y="207" font-size="22" fill="#172033" font-weight="700" text-anchor="start">USB 转 TTL → 天空星</text>
+<text x="977" y="253" font-size="19" fill="#172033" font-weight="400" text-anchor="start">RXD ← H1-10 / U1.T</text>
+<text x="977" y="304" font-size="19" fill="#172033" font-weight="400" text-anchor="start">GND → H1-4 或 H1-6</text>
+<text x="977" y="355" font-size="19" fill="#172033" font-weight="400" text-anchor="start">TXD、VCC 不接</text>
+<text x="977" y="406" font-size="19" fill="#172033" font-weight="400" text-anchor="start">115200 / 8N1 / 无流控</text>
+<polyline points="910,325 955,325" fill="none" stroke="#0284c7" stroke-width="4" stroke-linejoin="round"/>
+<rect x="45" y="575" width="1240" height="205" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="68" y="615" font-size="23" fill="#172033" font-weight="700" text-anchor="start">关键对应关系</text>
+<text x="68" y="654" font-size="20" fill="#172033" font-weight="400" text-anchor="start">U1.T = USART1_TX = PA9 = H1-10；U1.R = USART1_RX = PA10 = H1-8。</text>
+<text x="68" y="692" font-size="20" fill="#172033" font-weight="400" text-anchor="start">PA9 不在两侧普通 GPIO 排针上。两块工具的 GND 可以共用天空星地。</text>
+<text x="68" y="730" font-size="19" fill="#172033" font-weight="400" text-anchor="start">H1-2 仅按下载器说明作为 VTref 检测参考；不要把电源输出和电压检测输入混接。</text>
+<text x="68" y="762" font-size="19" fill="#172033" font-weight="400" text-anchor="start">天空星保持原方式供电；H1-7 / +5V 本次不接；下载器端按功能标签接线。</text>
+<text x="45" y="817" font-size="18" fill="#475569" font-weight="400" text-anchor="start">2026-10-27 · 原创重绘，依据原厂原理图核对；实物接线与烧录结果仍待验证。</text>
+</g>
+</svg>

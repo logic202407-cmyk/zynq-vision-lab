@@ -1,0 +1,21 @@
+{
+  "checked_on": "2026-10-27",
+  "reference_documents": [
+    {
+      "original_filename": "立创梁山派·天空星开发板原理图_2024-01-17.pdf",
+      "bytes": 1367561,
+      "pages": 9,
+      "sha256": "8667d4e882f61bdb0dc9279479e69bb98b540cdb87ca1c52074871b34f889bb1",
+      "redistributed": false
+    },
+    {
+      "original_filename": "天空星-STM32-引脚分配图.pdf",
+      "bytes": 1538704,
+      "pages": 3,
+      "sha256": "d27d04cf8b2d322f93e60a836d8a2cdfaa0275c2c4f4597ac6bd63f21a968c3b",
+      "redistributed": false
+    }
+  ],
+  "official_hardware_url": "https://wiki.lckfb.com/zh-hans/tkx/hardware/schematic.html",
+  "official_board_url": "https://wiki.lckfb.com/zh-hans/tkx/tkx-stm32f407vxt6/"
+}
