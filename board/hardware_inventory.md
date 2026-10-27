@@ -1,5 +1,9 @@
 # Hardware inventory
 
+## Skystar controller documentation (2026-10-27)
+
+The user confirmed a standalone Skystar core board and reported wiring two dual-axis PWM gimbals. Local vendor documents and the Keil target identify STM32F407VET6; the physical device marking/ID was not independently read in this session. Controller bring-up, waveform checks and motion acceptance remain **available-untested**. See [Skystar interfaces and wiring](skystar_f407/README.md) for connector numbers, power separation, official source fingerprints and the next bench steps. This documentation does not upgrade the Zynq camera or three-gimbal integration status.
+
 Status: partially verified from in-hand photos and live JTAG. Do not fill remaining gaps from assumptions or proposal wording. Never publish device license keys, private registration records, or unapproved personal photos.
 
 | Item | Status | Required evidence |

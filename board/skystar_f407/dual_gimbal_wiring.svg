@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="870" viewBox="0 0 1320 870" role="img" aria-label="天空星 F407 与两套二维云台：四路 PWM 和独立动力供电">
+<title>天空星 F407 与两套二维云台：四路 PWM 和独立动力供电</title>
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, Arial, sans-serif" fill="#172033">
+<text x="55" y="48" font-size="30" fill="#172033" font-weight="700" text-anchor="start">天空星 F407 · 两套二维云台接线</text>
+<text x="55" y="82" font-size="18" fill="#475569" font-weight="400" text-anchor="start">普通 PWM 舵机；单独核心板；型号、电源额定值和机构限位待实物确认</text>
+<rect x="55" y="130" width="390" height="505" rx="12" fill="#eef5ff" stroke="#7c9ac5" stroke-width="2"/>
+<text x="80" y="177" font-size="24" fill="#172033" font-weight="700" text-anchor="start">天空星 STM32F407VET6</text>
+<text x="80" y="208" font-size="18" fill="#172033" font-weight="400" text-anchor="start">TIM4 · 四个独立 PWM 通道</text>
+<text x="80" y="250" font-size="22" fill="#172033" font-weight="700" text-anchor="start">D12 / PD12</text>
+<text x="80" y="278" font-size="17" fill="#475569" font-weight="400" text-anchor="start">TIM4_CH1</text>
+<polyline points="445,260 845,260" fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round"/>
+<text x="565" y="248" font-size="17" fill="#2563eb" font-weight="400" text-anchor="start">PWM 控制信号</text>
+<rect x="845" y="228" width="285" height="92" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="863" y="255" font-size="21" fill="#172033" font-weight="700" text-anchor="start">云台① · 水平</text>
+<text x="863" y="286" font-size="17" fill="#475569" font-weight="400" text-anchor="start">PWM        V+ / GND →</text>
+<circle cx="445" cy="260" r="5" fill="#2563eb"/>
+<circle cx="845" cy="260" r="5" fill="#2563eb"/>
+<polyline points="1130,265 1190,265" fill="none" stroke="#dc2626" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1130,298 1250,298" fill="none" stroke="#475569" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1190" cy="265" r="5" fill="#dc2626"/>
+<circle cx="1250" cy="298" r="5" fill="#475569"/>
+<text x="80" y="355" font-size="22" fill="#172033" font-weight="700" text-anchor="start">D13 / PD13</text>
+<text x="80" y="383" font-size="17" fill="#475569" font-weight="400" text-anchor="start">TIM4_CH2</text>
+<polyline points="445,365 845,365" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linejoin="round"/>
+<text x="565" y="353" font-size="17" fill="#7c3aed" font-weight="400" text-anchor="start">PWM 控制信号</text>
+<rect x="845" y="333" width="285" height="92" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="863" y="360" font-size="21" fill="#172033" font-weight="700" text-anchor="start">云台① · 俯仰</text>
+<text x="863" y="391" font-size="17" fill="#475569" font-weight="400" text-anchor="start">PWM        V+ / GND →</text>
+<circle cx="445" cy="365" r="5" fill="#7c3aed"/>
+<circle cx="845" cy="365" r="5" fill="#7c3aed"/>
+<polyline points="1130,370 1190,370" fill="none" stroke="#dc2626" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1130,403 1250,403" fill="none" stroke="#475569" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1190" cy="370" r="5" fill="#dc2626"/>
+<circle cx="1250" cy="403" r="5" fill="#475569"/>
+<text x="80" y="460" font-size="22" fill="#172033" font-weight="700" text-anchor="start">D14 / PD14</text>
+<text x="80" y="488" font-size="17" fill="#475569" font-weight="400" text-anchor="start">TIM4_CH3</text>
+<polyline points="445,470 845,470" fill="none" stroke="#0284c7" stroke-width="3" stroke-linejoin="round"/>
+<text x="565" y="458" font-size="17" fill="#0284c7" font-weight="400" text-anchor="start">PWM 控制信号</text>
+<rect x="845" y="438" width="285" height="92" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="863" y="465" font-size="21" fill="#172033" font-weight="700" text-anchor="start">云台② · 水平</text>
+<text x="863" y="496" font-size="17" fill="#475569" font-weight="400" text-anchor="start">PWM        V+ / GND →</text>
+<circle cx="445" cy="470" r="5" fill="#0284c7"/>
+<circle cx="845" cy="470" r="5" fill="#0284c7"/>
+<polyline points="1130,475 1190,475" fill="none" stroke="#dc2626" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1130,508 1250,508" fill="none" stroke="#475569" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1190" cy="475" r="5" fill="#dc2626"/>
+<circle cx="1250" cy="508" r="5" fill="#475569"/>
+<text x="80" y="565" font-size="22" fill="#172033" font-weight="700" text-anchor="start">D15 / PD15</text>
+<text x="80" y="593" font-size="17" fill="#475569" font-weight="400" text-anchor="start">TIM4_CH4</text>
+<polyline points="445,575 845,575" fill="none" stroke="#b45309" stroke-width="3" stroke-linejoin="round"/>
+<text x="565" y="563" font-size="17" fill="#b45309" font-weight="400" text-anchor="start">PWM 控制信号</text>
+<rect x="845" y="543" width="285" height="92" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="863" y="570" font-size="21" fill="#172033" font-weight="700" text-anchor="start">云台② · 俯仰</text>
+<text x="863" y="601" font-size="17" fill="#475569" font-weight="400" text-anchor="start">PWM        V+ / GND →</text>
+<circle cx="445" cy="575" r="5" fill="#b45309"/>
+<circle cx="845" cy="575" r="5" fill="#b45309"/>
+<polyline points="1130,580 1190,580" fill="none" stroke="#dc2626" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1130,613 1250,613" fill="none" stroke="#475569" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="1190" cy="580" r="5" fill="#dc2626"/>
+<circle cx="1250" cy="613" r="5" fill="#475569"/>
+<polyline points="1190,265 1190,715" fill="none" stroke="#dc2626" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1250,298 1250,770" fill="none" stroke="#475569" stroke-width="4" stroke-linejoin="round"/>
+<text x="1178" y="220" font-size="18" fill="#dc2626" font-weight="700" text-anchor="start">V+</text>
+<text x="1230" y="247" font-size="18" fill="#475569" font-weight="700" text-anchor="start">GND</text>
+<rect x="720" y="675" width="410" height="125" rx="12" fill="#fff4f2" stroke="#e8a39c" stroke-width="2"/>
+<text x="742" y="713" font-size="23" fill="#172033" font-weight="700" text-anchor="start">外部舵机动力电源</text>
+<text x="742" y="747" font-size="17" fill="#172033" font-weight="400" text-anchor="start">电压按舵机额定值，容量按实际负载</text>
+<text x="742" y="777" font-size="18" fill="#172033" font-weight="400" text-anchor="start">正极 → V+；负极 → GND</text>
+<polyline points="1130,715 1190,715" fill="none" stroke="#dc2626" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1130,770 1250,770" fill="none" stroke="#475569" stroke-width="4" stroke-linejoin="round"/>
+<text x="80" y="620" font-size="20" fill="#172033" font-weight="700" text-anchor="start">侧边 GND</text>
+<polyline points="220,635 220,770 700,770 700,810 1250,810 1250,770" fill="none" stroke="#475569" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="220" cy="635" r="5" fill="#475569"/>
+<circle cx="1250" cy="770" r="5" fill="#475569"/>
+<text x="255" y="748" font-size="18" fill="#475569" font-weight="400" text-anchor="start">公共信号参考地</text>
+<text x="55" y="830" font-size="18" fill="#475569" font-weight="400" text-anchor="start">D12-D15 仅接信号；舵机动力电流不经过核心板。图为功能接线，不代表已实测通过。</text>
+</g>
+</svg>

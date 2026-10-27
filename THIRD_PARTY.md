@@ -10,3 +10,7 @@ The initial repository contains original project documentation and repository to
 | `Vickyiii/fpgachina26-amd` | `e47e4a81c2a6a35dbd0b25dcaa4d2edef9daf643` | 2026 AMD track and open-topic requirements reference | No `LICENSE` found; cite requirements only, do not copy repository content into this MIT project |
 
 For each future import, record its source URL, pinned commit/tag, files used, license text location, modifications, and redistribution approval. Unknown licensing is a blocker to copying source into this public repository. The root MIT license applies only to material the contributors have authority to license.
+
+## Skystar STM32F407 references (2026-10-27)
+
+`board/skystar_f407/` contains original connection tables and redrawn functional wiring diagrams. Vendor schematics, board photos, SDK sources and firmware binaries are not included in this documentation submission. Official acquisition links and SHA-256 fingerprints of the locally consulted PDFs are recorded in `board/skystar_f407/sources.md` and `sources.json`. Online vendor packages can change; the recorded fingerprints identify the reviewed local versions. The root MIT license does not relicense external vendor documents.

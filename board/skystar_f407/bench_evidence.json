@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-27",
+  "board": "Skystar STM32F407VET6 standalone core board",
+  "scope": "two pan/tilt gimbals, four independent PWM bench channels",
+  "pins": {
+    "PD12": "gimbal1_pan",
+    "PD13": "gimbal1_tilt",
+    "PD14": "gimbal2_pan",
+    "PD15": "gimbal2_tilt"
+  },
+  "peer_commit": "aafbb9bd62a91028b573b02389ceb714f8e43481",
+  "peer_pr": "https://github.com/logic202407-cmyk/zynq-vision-lab/pull/13",
+  "compiler": "Arm Compiler 6.21 / Keil uVision 5.39",
+  "build_errors": 0,
+  "build_warnings": 0,
+  "program_size": {
+    "code": 13254,
+    "ro_data": 790,
+    "rw_data": 8,
+    "zi_data": 1088
+  },
+  "host_checks": [
+    {
+      "test": "bench_logic",
+      "passed": true,
+      "output": "PASS bench: startup-off, four independent axes, exact timeout boundary, idle stop, wraparound, cancel\nPASS button: boot-held ignored, debounce, short release, exact long hold, no re-enable on long release"
+    },
+    {
+      "test": "servo_driver",
+      "passed": true,
+      "output": "PASS driver: APB1 x2/div1 clocks, 50Hz, pin AF, 4 independent CCRs, clamps, gates, invalid clock"
+    }
+  ],
+  "firmware": {
+    "hex_records": 882,
+    "bin_bytes": 14056,
+    "flash_base": "0x08000000",
+    "initial_sp": "0x20000448",
+    "reset_vector": "0x800019d",
+    "checksums_valid": true,
+    "hex_bin_match": true,
+    "firmware_sha256": {
+      "skystar_dual_pwm.bin": "1355d2f0d47d31794ee6dd471a2358721381affcd45d6f6f4a6a1a4b31080155",
+      "skystar_dual_pwm.hex": "13624f6c738e413847f89392c9ab45b138dee19573b64d9a7002b2f8f44b0c15"
+    }
+  },
+  "hardware_download_performed": false,
+  "hardware_waveform_or_motion_verified": false,
+  "evidence_scope": "Local firmware build and host model only; no device programming, waveform or motion evidence.",
+  "firmware_files_in_this_submission": false
+}
