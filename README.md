@@ -10,6 +10,10 @@
 
 2026-09-30，针对孤立杂点拉偏边框，新增可选的[PL 3×3 多数滤波](report/experiments/2026-09-30-red-spatial-filter.md)，已有小型场景与完整帧 RTL 仿真证据。用户后来确认现场设备就绪，旧摄像头和滤波位流均成功临时配置。[恢复板测记录](report/experiments/2026-09-30-spatial-board-recovery.md)：滤波版本 2 的 100 组无目标同帧统计零差异，上位机一分钟收到 1800 个完整帧，显示约 30 FPS。当前红纸偏暗、未检出有效目标，补光后的有效靶标与抗干扰验收仍待完成，尚不能声称检测框闪动已解决。队友可继续按各自授权的范围离线推进。
 
+2026-10-01，成员 `ikkkkk19` 提交了独立的 [STM32F103C8T6 + OpenMV 云台控制原型](src/prototype/stm32_openmv_gimbal/README.md)。OpenMV IDE 显示约 46 FPS，本地 Keil 重建为 0 错误、0 警告，USB-TTL 实测可接收包含 `DX`、`DY`、舵机脉宽和 PID 参数的 STM32 USART3 状态帧。该原型不属于 Zynq PS 应用或 PS-PL 集成，不修改现有 RGB565/UDP 契约，也不代表整机验收完成。
+
+2026-10-06，OpenMV 原型更新为从屏幕最左目标开始依次向右锁定：两轴误差保持在 ±5 像素内 200ms 后停留 2 秒，完成一轮后保持当前位置。已保存本次修改前的第一版，并修复目标仍可见却停在 `LOST` 的恢复问题；15 项主机模拟检查通过，修复后的实机运动与停留效果待确认。详见 [OpenMV 进度与运行说明](src/prototype/stm32_openmv_gimbal/openmv/PROGRESS.md)。
+
 ## 场景关系扩展（规划）
 
 新增[场景关系集成方案](docs/scene_relation_plan_2026-09-30.md)与[候选数据契约](docs/scene_relation_contract_v0_1.md)，规划在现有 PL 视觉测量上逐步增加多色对象表、确定性空间关系、缺测状态和可解释查询。借鉴 RelateAnything 的区域关系表示与分层输出思想，不将完整模型作为主链路依赖。

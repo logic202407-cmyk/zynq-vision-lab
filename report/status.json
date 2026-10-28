@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-09-30",
+  "updated_on": "2026-10-06",
   "project_stage": "pl_camera_prototype",
   "components": [
     {
@@ -49,6 +49,12 @@
       "status": "planned",
       "evidence": [],
       "note": "Not implemented or verified."
+    },
+    {
+      "id": "stm32_openmv_control_prototype",
+      "status": "implemented",
+      "evidence": ["src/prototype/stm32_openmv_gimbal/README.md", "src/prototype/stm32_openmv_gimbal/openmv/main.py", "src/prototype/stm32_openmv_gimbal/openmv/PROGRESS.md", "tests/test_openmv_sequence.py", "src/prototype/stm32_openmv_gimbal/stm32/User/main.c", "report/experiments/2026-10-01-stm32-openmv-gimbal-prototype.md", "report/ai_collaboration/2026-10-06-openmv-gimbal.md"],
+      "note": "Independent STM32F103C8T6 and OpenMV H7 Plus control prototype. The 2026-10-01 snapshot recorded about 46 FPS in OpenMV IDE, a local Keil rebuild with zero errors and warnings, and USB-TTL reception of STM32 USART3 status fields. The 2026-10-06 OpenMV revision adds left-to-right locking, 200 ms stability, a 2-second hold, final-position hold and full-scene LOST recovery; 15 host checks pass. This revision's actual motion and dwell remain unverified. Raw serial captures, a clean-clone firmware build, independent reproduction, Zynq PS-PL integration and whole-system acceptance remain open."
     },
     {
       "id": "golden_reference",
