@@ -48,4 +48,4 @@ python -m unittest discover -s tests -v
 
 新增[天空星 F407 接线与资料](board/skystar_f407/README.md)：两套二维云台的四路 PWM、独立动力供电、H1 十针调试口、USB-TTL 日志及 ST-Link SWD。包含原创重绘接线图、原厂来源与版本指纹、固件离线检查摘要和下次上板步骤。该次资料整理尚未收到烧录及实际动作成功结果，三套视觉协作仍属后续候选。
 
-2026-10-28，[OpenMV 独立相机与天空星串口台架](src/prototype/openmv_skystar_bench/README.md)完成有限取图和P4→PA3单向串口短测；[10月29日复查](report/experiments/2026-10-28-openmv-skystar.md)仍未恢复OpenMV原生USB与IDE预览。历史成功与当前连接失败分别保留，不代表视觉闭环或Zynq最终相机链路验收。
+2026-10-28，[OpenMV 独立相机与天空星串口台架](src/prototype/openmv_skystar_bench/README.md)完成有限取图和P4→PA3单向串口短测；[10月29日复查](report/experiments/2026-10-28-openmv-skystar.md)先遇到原生USB断连，随后USB恢复并重新完成有限取图，IDE实时预览仍待确认。历史失败与恢复证据分别保留，不代表视觉闭环或Zynq最终相机链路验收。

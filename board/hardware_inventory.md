@@ -2,7 +2,7 @@
 
 ## OpenMV independent bench (2026-10-28, rechecked 2026-10-29)
 
-An attached device self-reported OpenMV4P / STM32H743; the IDE identified H7 Plus / OV5640. A finite 320x240 capture and P4-to-F407-PA3 UART receive test passed on October 28. Native USB enumeration and IDE preview were unavailable at the October 29 recheck. Historical short tests do not establish current connectivity, physical markings, independent reproduction, or the final Zynq camera path. See the [experiment record](../report/experiments/2026-10-28-openmv-skystar.md) and [bench source](../src/prototype/openmv_skystar_bench/README.md).
+An attached device self-reported OpenMV4P / STM32H743; the IDE identified H7 Plus / OV5640. A finite 320x240 capture and P4-to-F407-PA3 UART receive test passed on October 28. Native USB was initially unavailable on October 29, then reappeared and a fresh finite capture passed. IDE live preview remains unverified. The short tests do not establish long-term connectivity, physical markings, independent reproduction, or the final Zynq camera path. See the [experiment record](../report/experiments/2026-10-28-openmv-skystar.md) and [bench source](../src/prototype/openmv_skystar_bench/README.md).
 
 ## Skystar controller documentation (2026-10-27)
 
