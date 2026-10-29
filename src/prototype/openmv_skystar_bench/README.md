@@ -25,6 +25,12 @@ OpenMV 由本体 USB 连接电脑用于供电和IDE通信。两板使用3.3V TTL
 - `camera_probe.py`：实际执行过的有限相机探测脚本。输出板卡信息、20帧采集统计、三张JPEG的Base64、UART3写入返回值。JPEG是现场画面，控制台输出也应保留在私有目录。该脚本会向P4发一次诊断字符串。
 - `uart_probe.py`：实际执行过的12秒诊断发送；保持取图，每至少60ms发送一个字符，循环标识为 `OPENMV_P4_UART3_TEST\r\n`。这是便于主机经SWD轮询收字节的慢速夹具，不是最终视觉协议。
 - `preview.py`：为IDE准备的320×240预览脚本，画面中心画十字并定期打印帧率。源码已静态检查；当前IDE实时运行尚未通过，不把之前的有限取图测试冒充此脚本通过。
+- `orientation_focus_probe.py`（第二阶段）：同场景分别以“不翻转”和“`hmirror+vflip`”各抓3帧并保存原帧，供主机侧判定两者是否为精确的180°旋转关系。中心十字旋转前后都在画幅中心，**不能**用来判断方向，方向判定必须用文字/箭头类靶标。
+- `focus_sweep.py`（第二阶段）：15帧/30s 的时间序列，供人工转镜头时逐帧打分；固定ROI `(96,56,128,128)`，所有轮次同一曝光模式、同一处理流程。
+- `capture_fps.py`（第二阶段）：纯 `sensor.snapshot()` 采集循环，`FLIP` 开关两侧各跑一次，用于核对方向校正是否带来帧率代价。
+- `../../../tools/openmv_frame_metrics.py`（主机侧）：`pair` 判定旋转映射（比较 `mse(a,b)` 与 `mse(b,rot180(a))`），`group` 给一批评分，`selftest` 用人为模糊验证指标确实响应。
+
+固件 5.0.0 的固定参数入口与直觉不同，本轮已逐项探测：`set_exposure_us`、`set_gain_db`、`set_rgb_gain_db` **均不存在**，只能通过 `set_auto_exposure(False, exposure_us=…)`、`set_auto_gain(False, gain_db=…)`、`set_auto_whitebal(False, rgb_gain_db=(…))` 固定；`set_auto_focus`/`set_focus`/`get_focus` **全部不存在**，本机没有自动对焦能力，对焦只能人工转镜头。详见[第二阶段S2-A记录](../../../report/experiments/2026-10-29-openmv-stage2-orientation.md)。
 
 恢复USB枚举后，先在IDE连接相机，再打开所需脚本并运行。脚本在RAM执行；本次没有覆盖摄像头原来的闪灯 `main.py`。不要仅因IDE出现“是否变砖”的问句就选择固件恢复；本次未刷写摄像头固件或格式化文件系统。
 
