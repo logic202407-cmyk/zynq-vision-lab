@@ -1,5 +1,9 @@
 # Hardware inventory
 
+## OpenMV independent bench (2026-10-28, rechecked 2026-10-29)
+
+An attached device self-reported OpenMV4P / STM32H743; the IDE identified H7 Plus / OV5640. A finite 320x240 capture and P4-to-F407-PA3 UART receive test passed on October 28. Native USB enumeration and IDE preview were unavailable at the October 29 recheck. Historical short tests do not establish current connectivity, physical markings, independent reproduction, or the final Zynq camera path. See the [experiment record](../report/experiments/2026-10-28-openmv-skystar.md) and [bench source](../src/prototype/openmv_skystar_bench/README.md).
+
 ## Skystar controller documentation (2026-10-27)
 
 The user confirmed a standalone Skystar core board and reported wiring two dual-axis PWM gimbals. Local vendor documents and the Keil target identify STM32F407VET6; the physical device marking/ID was not independently read in this session. Controller bring-up, waveform checks and motion acceptance remain **available-untested**. See [Skystar interfaces and wiring](skystar_f407/README.md) for connector numbers, power separation, official source fingerprints and the next bench steps. This documentation does not upgrade the Zynq camera or three-gimbal integration status.
