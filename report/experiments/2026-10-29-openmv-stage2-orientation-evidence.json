@@ -1,0 +1,153 @@
+{
+  "experiment": "openmv-stage2-orientation",
+  "date": "2026-10-29",
+  "checkpoint": "S2-A orientation only; focus and world-upright still open",
+  "device": {
+    "firmware": "OpenMV v5.0.0; MicroPython v1.28.0-49; OPENMV4P with STM32H743",
+    "sensor_id": 86,
+    "sensor": "OV5640",
+    "framesize": "QVGA 320x240",
+    "pixformat": "RGB565"
+  },
+  "api_capability": {
+    "hmirror_vflip_transpose": "available",
+    "exposure_us_setter": "absent; use set_auto_exposure(False, exposure_us=...)",
+    "gain_db_setter": "absent; use set_auto_gain(False, gain_db=...)",
+    "rgb_gain_db_setter": "absent; use set_auto_whitebal(False, rgb_gain_db=(...))",
+    "autofocus_api": "absent (set_auto_focus/set_focus/get_focus all missing)",
+    "get_framerate": "raises RuntimeError: Frame rate is not supported or is not set."
+  },
+  "orientation_mapping": {
+    "noise_floor_mse_a0_a1": 7.045,
+    "noise_floor_mae_a0_a1": 1.906,
+    "mse_b0_vs_rot180_a0": 7.005,
+    "mae_b0_vs_rot180_a0": 1.917,
+    "mse_b0_vs_a0_as_is": 876.847,
+    "mae_b0_vs_a0_as_is": 22.495,
+    "verdict": "hmirror+vflip equals an exact 180 deg rotation: the difference sits at the run-to-run noise floor (7.005 vs 7.045) and is 125x smaller than the unrotated comparison (876.847)"
+  },
+  "flip_fps_cost": {
+    "flip_off": {
+      "frames": 700,
+      "elapsed_ms": 15008,
+      "avg_fps": 46.64
+    },
+    "flip_on": {
+      "frames": 700,
+      "elapsed_ms": 15008,
+      "avg_fps": 46.64
+    },
+    "verdict": "no measurable cost on the capture path; this is the capture loop, not the IDE render FPS and not clock.fps()"
+  },
+  "focus_metric_selftest": {
+    "blur_0.0": {
+      "laplacian_var": 6.656,
+      "tenengrad": 10.763
+    },
+    "blur_1.0": {
+      "laplacian_var": 2.748,
+      "tenengrad": 8.173
+    },
+    "blur_2.0": {
+      "laplacian_var": 0.782,
+      "tenengrad": 3.468
+    },
+    "blur_3.0": {
+      "laplacian_var": 0.683,
+      "tenengrad": 2.242
+    },
+    "verdict": "both metrics fall monotonically with blur; usable to rank manual focus turns, not as an acceptance criterion on its own"
+  },
+  "not_verified": [
+    "world-upright orientation: needs a directional target in view; the centre cross is rotationally invariant and cannot serve as evidence",
+    "lens focus at 30 cm working distance: no autofocus API, manual lens turn not yet performed",
+    "pan/tilt gimbal release: not an OpenMV-side issue"
+  ],
+  "note": "Raw frames, logs and screenshots stay on the private host; only SHA-256 digests and aggregate numbers are published.",
+  "evidence_files": [
+    {
+      "path": "evidence/frames/s2a_A_0.jpg",
+      "role": "flip OFF baseline frame 0",
+      "bytes": 14174,
+      "sha256": "624122589d07ae0d8639341c63e27a1dbc8dd62638eaad16d8e7b2d8d2c161c2"
+    },
+    {
+      "path": "evidence/frames/s2a_A_1.jpg",
+      "role": "flip OFF baseline frame 1 (noise-floor reference)",
+      "bytes": 14115,
+      "sha256": "093834110be79610cc3b7a63907ee2423ad06bbb0dcbcf1ea7f18671c507f128"
+    },
+    {
+      "path": "evidence/frames/s2a_A_2.jpg",
+      "role": "flip OFF baseline frame 2",
+      "bytes": 14095,
+      "sha256": "cc066fc1cd554b91ff27a9929dcc3f49133313e4c018b4adac9ec281a47b9159"
+    },
+    {
+      "path": "evidence/frames/s2a_B_0.jpg",
+      "role": "hmirror+vflip frame 0",
+      "bytes": 14118,
+      "sha256": "56bf5ba2f3a9f8178ddf8d2310da644c669e255c875ae7912103922b14002823"
+    },
+    {
+      "path": "evidence/frames/s2a_B_1.jpg",
+      "role": "hmirror+vflip frame 1",
+      "bytes": 14055,
+      "sha256": "c5abe040e07231d39e14db0c099824ccadfad6d42572ca196bb342c07dfb9b38"
+    },
+    {
+      "path": "evidence/frames/s2a_B_2.jpg",
+      "role": "hmirror+vflip frame 2",
+      "bytes": 14092,
+      "sha256": "3f21984791a2ddbe6cd05b2f821b906203e34f3813019033ad1ecf28ee4cd16e"
+    },
+    {
+      "path": "evidence/frames/s2a_T0_0.jpg",
+      "role": "orientation-target attempt (target not yet in view)",
+      "bytes": 14193,
+      "sha256": "f238f64f5b42ad27de17f54e81dcddb870b64fa87cd2983661045046020ed932"
+    },
+    {
+      "path": "evidence/frames/s2a_orient_pair.json",
+      "role": "host-side pair comparison output",
+      "bytes": 810,
+      "sha256": "ac56228aeb617d69d4a5b2c87d85491052608e39fe42ea9effd34370eb9e7b1d"
+    },
+    {
+      "path": "evidence/s2a_orientation_AB.png",
+      "role": "A / rot180(A) / B side-by-side montage",
+      "bytes": 347226,
+      "sha256": "8f5e0bd40dae793aadc59e4b04d99a468e86379c5523b336226ac955873faedf"
+    },
+    {
+      "path": "logs/s2a_probe_api.log",
+      "role": "device API capability probe",
+      "bytes": 990,
+      "sha256": "302561d8de1aa81c1c33bfbe6d547061c6ce1526c63a4a817a1a36f08988c931"
+    },
+    {
+      "path": "logs/s2a_capture_A.log",
+      "role": "flip OFF capture log",
+      "bytes": 535,
+      "sha256": "26e284e5c42937d861a8688b3cc2576504466ac9deb9055f289f56ca72855555"
+    },
+    {
+      "path": "logs/s2a_capture_B.log",
+      "role": "hmirror+vflip capture log",
+      "bytes": 534,
+      "sha256": "cc285ed5656d021bde6bd65e79ebf1ca718f4d44dd29f672953168beabfb19af"
+    },
+    {
+      "path": "logs/s2a_fps_off.log",
+      "role": "capture FPS, flip OFF",
+      "bytes": 368,
+      "sha256": "a238e28faba3a9bcb0623922e8ca2f6f7f3222bd29c03f17a9d0f80cdda60942"
+    },
+    {
+      "path": "logs/s2a_fps_on.log",
+      "role": "capture FPS, flip ON",
+      "bytes": 365,
+      "sha256": "014d45f8bf40f70ac20daaf78ebbb3fbb3a00517dc78392ba0de8d9b85e863f7"
+    }
+  ]
+}

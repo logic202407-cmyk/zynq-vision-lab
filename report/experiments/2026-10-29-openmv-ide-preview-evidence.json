@@ -1,0 +1,134 @@
+{
+  "run_date": "2026-10-29",
+  "owner": "3331083641-prog",
+  "stage": "stage-1: native USB connection + OpenMV IDE live preview acceptance",
+  "verdict": {
+    "ide_live_preview_passed": true,
+    "all_acceptance_checks_met": true,
+    "previous_pending_item_closed": "IDE live preview had not been verified before 2026-10-29"
+  },
+  "host_ide": {
+    "product": "OpenMV IDE",
+    "file_version": "5.0.0",
+    "product_version": "5.0.0",
+    "versions_installed": 1,
+    "reinstalled_or_upgraded": false
+  },
+  "camera": {
+    "ide_model": "OpenMV Cam H7 Plus",
+    "firmware_banner": "OpenMV v5.0.0; MicroPython v1.28.0-49; OPENMV4P with STM32H743",
+    "sensor": "OV5640",
+    "sensor_id": "0x56",
+    "pixformat": "RGB565",
+    "resolution": "QVGA 320x240",
+    "firmware_write_or_dfu": false,
+    "filesystem_formatted": false,
+    "device_main_py_overwritten": false
+  },
+  "usb": {
+    "vid_pid": "37C5:124A",
+    "composite_device_status": "OK",
+    "mass_storage_interface": {
+      "status": "OK",
+      "volume_label": "OPENMV",
+      "filesystem": "FAT",
+      "bytes": 25122816
+    },
+    "serial_interface": {
+      "status": "OK",
+      "driver": "usbser",
+      "host_port_note": "COM number is host-local and may change between sessions"
+    },
+    "ch340_or_usb_ttl_present": false,
+    "rechecked_after_preview": true,
+    "recheck_result": "all three nodes OK; no disconnect or re-enumeration during the run"
+  },
+  "api_compatibility": {
+    "problem": "preview.py centre-cross line fails on firmware 5.0.0",
+    "observed_error": "TypeError: object 'int' isn't a tuple or list",
+    "probe_script": "src/prototype/openmv_skystar_bench/draw_api_probe.py",
+    "probe_result_lines": [
+      "A_FAIL TypeError object 'int' isn't a tuple or list",
+      "B_FAIL TypeError object 'int' isn't a tuple or list",
+      "C_OK point_tuple",
+      "D_FAIL TypeError object 'int' isn't a tuple or list",
+      "E_FAIL TypeError object 'int' isn't a tuple or list",
+      "F_FAIL TypeError object 'int' isn't a tuple or list",
+      "PROBE_DONE"
+    ],
+    "finding": "This firmware accepts point/coordinate tuples only; the (x, y) two-int form raises TypeError for draw_cross and draw_line",
+    "fix": "img.draw_cross((160, 120), size=5, color=(0, 255, 0))",
+    "baseline_preview_kept_unmodified": true
+  },
+  "preview_run": {
+    "start_local": "2026-10-29T17:02:02+08:00",
+    "stop_local": "2026-10-29T17:09:10+08:00",
+    "duration_seconds": 428,
+    "stop_reason": "operator pressed Stop in OpenMV IDE; not a crash",
+    "frames_total": 19738,
+    "mean_fps_by_frame_count": 46.1,
+    "ide_camera_fps_range": [44.9, 46.3],
+    "ide_camera_fps_steady": "46.1-46.3",
+    "ide_render_fps_range": [25.0, 38.5],
+    "ide_render_fps_steady": "37.0-38.5",
+    "script_clock_fps_range": [38.62502, 40.85422],
+    "fps_fluctuation_after_warmup": "<0.3 fps",
+    "console_summary_lines": [
+      "OPENMV CAMERA PREVIEW: 320x240 RGB565; UART3 TX=P4; no motion control",
+      "FRAME 19738 FPS 38.62502"
+    ],
+    "runtime_errors": 0,
+    "usb_disconnects": 0,
+    "device_reboots": 0,
+    "post_stop_traceback": "File \"<stdin>\", line 27, in <module> — operator Stop; line 27 is the in-loop log-throttle line, not a runtime fault"
+  },
+  "visual_checks": {
+    "real_scene_not_test_pattern": true,
+    "frame_updates_continuously": true,
+    "centre_green_cross_visible": true,
+    "green_cross_pixel_check": {
+      "rule": "G>120 and G>R+40 and G>B+40 inside the framebuffer region",
+      "matched_pixels": 93,
+      "arm_length_px_est": 20,
+      "cross_centre_px_est": [160, 120]
+    },
+    "sharpness": "blurry / out of focus; lens flare present",
+    "brightness": "medium-bright with clipped specular highlights (max 255 at lamp areas)",
+    "global_overexposure": false,
+    "colour_cast": "slight cyan-green (histogram means R 121 / G 128 / B 117)",
+    "artifacts_stripes": "none observed",
+    "orientation": "180 degrees inverted relative to the scene, consistent with the camera being physically mounted upside down; no mirror/flip setting changed in this run",
+    "fps_fluctuation": "negligible"
+  },
+  "sensor_settings_changed": {
+    "exposure": false,
+    "gain": false,
+    "white_balance": false,
+    "colour_thresholds": false,
+    "resolution": false,
+    "mirror_flip": false
+  },
+  "forbidden_actions_not_performed": [
+    "firmware upgrade or flashing",
+    "DFU recovery",
+    "camera filesystem format",
+    "overwriting on-camera main.py",
+    "STM32/F407 firmware change",
+    "servo PWM / gimbal / light control",
+    "Zynq FPGA project change",
+    "serial protocol change"
+  ],
+  "script_hash_convention": "SHA-256 of UTF-8 source with LF line endings",
+  "script_sha256": {
+    "preview.py": "efd77ee2ecf89e1c5aab27f902c5e7f0b79faa11d4663152069124b1532bc335",
+    "preview_h7plus_compat.py": "47ce25e6153989097db5cdcd548dbbd5babb8e0ab72894f7b75c4023f8d39c16",
+    "draw_api_probe.py": "45e18ad782944258d6c7c15ea4cf1577d95dfcb8c71b0ebe9383542c63e5798a"
+  },
+  "private_artifacts": "Original scene screenshots, full USB device identifiers and local host paths retained in a private local directory only; not committed to this repository",
+  "not_verified": [
+    "long-duration (many-minutes) stability beyond the 428 s window",
+    "root cause of the earlier native-USB non-enumeration incident",
+    "exposure/gain/white-balance calibration and colour-threshold re-baselining",
+    "any recognition, gimbal, illumination or multi-camera integration work"
+  ]
+}

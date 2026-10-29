@@ -1,0 +1,176 @@
+{
+  "hardware_run_date": "2026-10-28",
+  "connection_recheck_date": "2026-10-29",
+  "owner": "3331083641-prog",
+  "camera": {
+    "frames": [
+      {
+        "file": "camera_0.jpg",
+        "bytes": 12067,
+        "sha256": "252fd04cdcb2d4861f82c899a3ba53ec298304ddd70303083da05fd855d366fc"
+      },
+      {
+        "file": "camera_1.jpg",
+        "bytes": 12078,
+        "sha256": "d08c1b5929dafa2ba1944b26a3488fb9f18f46d4e3c9eba53f7e82055b4080b2"
+      },
+      {
+        "file": "camera_2.jpg",
+        "bytes": 12131,
+        "sha256": "c884ce5007671a03920b18c5ac820b891ae9220320a7556e23c01ba8af128ab7"
+      }
+    ],
+    "summary_lines": [
+      "BOARD (sysname='OpenMV4P-H7', nodename='OpenMV4P-H7', release='1.28.0', version='v1.28.0-49 on 2026-07-02', machine='OPENMV4P with STM32H743')",
+      "SENSOR_ID 0x56",
+      "FORMAT 320 240",
+      "CAPTURE_20_FPS 47.61906",
+      "STATS 0 48 25",
+      "STATS 1 48 25",
+      "STATS 2 48 25",
+      "UART3_TX_P4_BYTES 20",
+      "CAMERA_CHECK_DONE"
+    ]
+  },
+  "uart": {
+    "baud": 115200,
+    "format": "8N1",
+    "transmitter": "OpenMV UART3 P4",
+    "receiver": "F407 USART2 PA3",
+    "window_seconds": 5,
+    "received_bytes": [
+      79,
+      80,
+      69,
+      78,
+      77,
+      86,
+      95,
+      80,
+      52,
+      95,
+      85,
+      65,
+      82,
+      84,
+      51,
+      95,
+      84,
+      69,
+      83,
+      84,
+      13,
+      10,
+      79,
+      80,
+      69,
+      78,
+      77,
+      86,
+      95,
+      80,
+      52,
+      95,
+      85,
+      65,
+      82,
+      84,
+      51,
+      95,
+      84,
+      69,
+      83,
+      84,
+      13,
+      10,
+      79,
+      80,
+      69,
+      78,
+      77,
+      86,
+      95,
+      80,
+      52,
+      95,
+      85,
+      65,
+      82,
+      84,
+      51,
+      95,
+      84,
+      69,
+      83,
+      84,
+      13,
+      10,
+      79,
+      80,
+      69,
+      78,
+      77,
+      86,
+      95,
+      80,
+      52
+    ],
+    "received_ascii": "OPENMV_P4_UART3_TEST\r\nOPENMV_P4_UART3_TEST\r\nOPENMV_P4_UART3_TEST\r\nOPENMV_P4",
+    "error_events": 0,
+    "marker_received": true,
+    "complete_markers": 3,
+    "receiver_configuration": "temporary; registers restored; PWM outputs off"
+  },
+  "current_connection": {
+    "native_usb_detected": true,
+    "ide_preview_verified": false,
+    "firmware_recovery_performed": false,
+    "cause": "Prior disconnect cause undetermined; USB subsequently reappeared",
+    "camera_recheck_passed": true
+  },
+  "script_hash_convention": "SHA-256 of UTF-8 source with LF line endings",
+  "script_sha256": {
+    "camera_probe.py": "9c8d99ea7babe2e377bddc4190206858b90b633769cfaa62c8f637c880b641c0",
+    "uart_probe.py": "8cfb39c1115c15791378b7334c4bb96f50d784b042df6c34315a735804caf448",
+    "preview.py": "efd77ee2ecf89e1c5aab27f902c5e7f0b79faa11d4663152069124b1532bc335"
+  },
+  "private_artifacts": "Original JPEGs, Base64 console output, host IDs and full local paths retained locally only",
+  "usb_recovery_recheck": {
+    "date": "2026-10-29",
+    "recorded_utc": "2026-10-29T01:09:18.389272+00:00",
+    "native_usb_detected": true,
+    "camera_check": {
+      "frames": [
+        {
+          "file": "camera_0.jpg",
+          "bytes": 11886,
+          "sha256": "f3303a42166436da1bba4909987f6eedef7587285b9f25d92e4feb75c80dca00"
+        },
+        {
+          "file": "camera_1.jpg",
+          "bytes": 11932,
+          "sha256": "4044cfcaf627b8713ff7f8996227ade17b6b4b5200a6c824fcdd79d32e2b5724"
+        },
+        {
+          "file": "camera_2.jpg",
+          "bytes": 11923,
+          "sha256": "95b0bb70ab57f51872c553d838fbb3c3ed261a2b48fe5112531d21f38cb16bcf"
+        }
+      ],
+      "summary_lines": [
+        "BOARD (sysname='OpenMV4P-H7', nodename='OpenMV4P-H7', release='1.28.0', version='v1.28.0-49 on 2026-07-02', machine='OPENMV4P with STM32H743')",
+        "SENSOR_ID 0x56",
+        "FORMAT 320 240",
+        "CAPTURE_20_FPS 47.61906",
+        "STATS 0 47 27",
+        "STATS 1 47 27",
+        "STATS 2 47 27",
+        "UART3_TX_P4_BYTES 20",
+        "CAMERA_CHECK_DONE"
+      ]
+    },
+    "stderr_bytes": 0,
+    "uart_receiver_retested": false,
+    "firmware_recovery_performed": false
+  }
+}

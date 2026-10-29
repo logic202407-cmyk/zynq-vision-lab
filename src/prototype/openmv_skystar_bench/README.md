@@ -1,0 +1,39 @@
+# OpenMV 与天空星串口台架
+
+负责人：`3331083641-prog`。这是一组独立相机/串口诊断脚本；不实现视觉云台闭环，也不替换 Zynq 的 OV5640 最终相机链路。
+
+## 已有证据与当前状态
+
+2026-10-28，设备自报 OpenMV4P / STM32H743，IDE 识别为 OpenMV Cam H7 Plus / OV5640，固件 5.0.0。320×240 RGB565 连续20帧采集后报告约47.62 FPS，三张 JPEG 经主机解码保存；OpenMV P4 至天空星 PA3 收到测试标识，接收窗口内未记录串口错误。该短测不等于长期性能、清晰度或视觉识别验收。
+
+2026-10-29先出现原生USB不枚举，随后设备重新出现并通过一次新的20帧采集及三张JPEG回传；未进行DFU恢复刷写。失败与恢复证据同时保留。参见[实验记录](../../../report/experiments/2026-10-28-openmv-skystar.md)。
+
+2026-10-29晚，**IDE实时预览已通过**：IDE 5.0.0 连接设备，帧缓冲区连续显示320×240 RGB565真实场景，中心绿色十字可见，`FRAME`/`FPS`每秒输出，428 s受控运行累计19,738帧（均值约46.1 fps），运行期无断连、无重启、无报错。该运行暴露了固件5.0.0的绘图API差异（只接受点元组），修正见下节。参见[实验记录](../../../report/experiments/2026-10-29-openmv-ide-preview.md)与[证据JSON](../../../report/experiments/2026-10-29-openmv-ide-preview-evidence.json)。
+
+## 接线
+
+| OpenMV | 天空星 STM32F407 | 用途 |
+|---|---|---|
+| P4 / UART3 TX | A3 / PA3 / USART2 RX | 单向诊断发送 |
+| GND | GND | 共地 |
+| P5 / UART3 RX | A2 / PA2 / USART2 TX | 本次未使用；双向通信时另行配置 |
+
+OpenMV 由本体 USB 连接电脑用于供电和IDE通信。两板使用3.3V TTL串口。IDE识别需要摄像头本体的USB接口，USB-TTL转换器的COM口不能代替它。USART1日志和D12/D13舵机接口仍按[天空星接线说明](../../../board/skystar_f407/README.md)管理。
+
+## 脚本与执行边界
+
+- `camera_probe.py`：实际执行过的有限相机探测脚本。输出板卡信息、20帧采集统计、三张JPEG的Base64、UART3写入返回值。JPEG是现场画面，控制台输出也应保留在私有目录。该脚本会向P4发一次诊断字符串。
+- `uart_probe.py`：实际执行过的12秒诊断发送；保持取图，每至少60ms发送一个字符，循环标识为 `OPENMV_P4_UART3_TEST\r\n`。这是便于主机经SWD轮询收字节的慢速夹具，不是最终视觉协议。
+- `preview.py`：为IDE准备的320×240预览脚本，画面中心画十字并定期打印帧率。源码已静态检查；当前IDE实时运行尚未通过，不把之前的有限取图测试冒充此脚本通过。
+- `orientation_focus_probe.py`（第二阶段）：同场景分别以“不翻转”和“`hmirror+vflip`”各抓3帧并保存原帧，供主机侧判定两者是否为精确的180°旋转关系。中心十字旋转前后都在画幅中心，**不能**用来判断方向，方向判定必须用文字/箭头类靶标。
+- `focus_sweep.py`（第二阶段）：15帧/30s 的时间序列，供人工转镜头时逐帧打分；固定ROI `(96,56,128,128)`，所有轮次同一曝光模式、同一处理流程。
+- `capture_fps.py`（第二阶段）：纯 `sensor.snapshot()` 采集循环，`FLIP` 开关两侧各跑一次，用于核对方向校正是否带来帧率代价。
+- `../../../tools/openmv_frame_metrics.py`（主机侧）：`pair` 判定旋转映射（比较 `mse(a,b)` 与 `mse(b,rot180(a))`），`group` 给一批评分，`selftest` 用人为模糊验证指标确实响应。
+
+固件 5.0.0 的固定参数入口与直觉不同，本轮已逐项探测：`set_exposure_us`、`set_gain_db`、`set_rgb_gain_db` **均不存在**，只能通过 `set_auto_exposure(False, exposure_us=…)`、`set_auto_gain(False, gain_db=…)`、`set_auto_whitebal(False, rgb_gain_db=(…))` 固定；`set_auto_focus`/`set_focus`/`get_focus` **全部不存在**，本机没有自动对焦能力，对焦只能人工转镜头。详见[第二阶段S2-A记录](../../../report/experiments/2026-10-29-openmv-stage2-orientation.md)。
+
+恢复USB枚举后，先在IDE连接相机，再打开所需脚本并运行。脚本在RAM执行；本次没有覆盖摄像头原来的闪灯 `main.py`。不要仅因IDE出现“是否变砖”的问句就选择固件恢复；本次未刷写摄像头固件或格式化文件系统。
+
+**天空星当前持久固件仍是舵机台架。** 10月28日串口验证通过的是临时USART2接收配置，结束后恢复了原寄存器；接上P4不会使当前固件自动识别图像或驱动云台。接收实现、消息格式、目标识别、限位和闭环须另行开发与验收。
+
+来源：[OpenMV UART文档](https://docs.openmv.io/dev/library/pyb.UART.html)、[STM32F407数据手册](https://www.st.com/resource/en/datasheet/dm00037051.pdf)。本目录脚本为本次诊断编写，未复制厂商SDK。
