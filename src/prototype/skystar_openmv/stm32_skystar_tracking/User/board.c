@@ -1,0 +1,148 @@
+/* STM32F407 register map checked against ST cmsis-device-f4/stm32f407xx.h.
+ * HSI 16MHz baseline: no assumption about the board's external crystal.
+ * Only PD12/PD13 are PWM outputs. PD14/PD15 remain low.
+ */
+#include "board.h"
+#include <string.h>
+#ifdef BOARD_HOST_TEST
+extern uint32_t *board_test_register(uint32_t address);
+#define R(a) (*board_test_register(a))
+#define __schedule_barrier() ((void)0)
+#define __disable_irq() ((void)0)
+#define __enable_irq() ((void)0)
+#else
+#define R(a) (*(volatile uint32_t *)(a))
+#endif
+#define RCC 0x40023800u
+#define GPIOA 0x40020000u
+#define GPIOD 0x40020C00u
+#define TIM4 0x40000800u
+#define U1 0x40011000u
+#define U2 0x40004400u
+#define QSIZE 256u
+typedef struct {
+    volatile uint16_t head, tail;
+    uint8_t bytes[QSIZE];
+    uint32_t times[QSIZE];
+} rx_queue_t;
+static rx_queue_t vision, pc;
+static volatile uint32_t milliseconds;
+static volatile uint8_t fault;
+static char tx[512];
+static uint16_t tx_head, tx_tail;
+static int pwm_enabled;
+
+static void pin(uint32_t gpio, unsigned n, unsigned mode, unsigned af)
+{
+    R(gpio) = (R(gpio) & ~(3u << (2*n))) | (mode << (2*n));
+    R(gpio+4) &= ~(1u << n); /* push-pull */
+    R(gpio+8) = (R(gpio+8) & ~(3u << (2*n))) | (1u << (2*n));
+    R(gpio+0x0C) &= ~(3u << (2*n));
+    if (mode == 2) {
+        uint32_t address = gpio+0x20+4*(n/8);
+        R(address) = (R(address) & ~(15u << (4*(n%8)))) | (af << (4*(n%8)));
+    }
+}
+void board_init(void)
+{
+    volatile uint32_t dummy;
+    R(0xE000ED08u)=0x08000000u;
+    R(RCC) |= 1u;
+    while (!(R(RCC)&2u)) { }
+    R(RCC+8) &= ~3u;
+    while (R(RCC+8)&12u) { }
+    R(RCC+8) &= ~((15u<<4)|(7u<<10)|(7u<<13)); /* AHB/APB = HSI */
+    R(RCC+0x30) |= (1u<<0)|(1u<<3);
+    R(RCC+0x40) |= (1u<<2)|(1u<<17);
+    R(RCC+0x44) |= 1u<<4;
+    dummy=R(RCC+0x44); (void)dummy;
+    /* Reset only peripherals owned by this image. */
+    R(RCC+0x20) |= (1u<<2)|(1u<<17);
+    R(RCC+0x20) &= ~((1u<<2)|(1u<<17));
+    R(RCC+0x24) |= 1u<<4; R(RCC+0x24) &= ~(1u<<4);
+    R(GPIOD+0x18) = 15u<<28; /* PD12..15 low before output mode */
+    pin(GPIOD,12,1,0); pin(GPIOD,13,1,0);
+    pin(GPIOD,14,1,0); pin(GPIOD,15,1,0);
+    pin(GPIOA,0,0,0); R(GPIOA+0x0C) |= 2u; /* WKUP active high */
+    pin(GPIOA,3,2,7); R(GPIOA+0x0C) |= 1u<<6; /* USART2 RX pull-up */
+    pin(GPIOA,9,2,7); pin(GPIOA,10,2,7);
+    R(GPIOA+0x0C) |= 1u<<20;
+    R(U1+8)=139; R(U2+8)=139; /* 16MHz / 115200, oversampling 16 */
+    R(U1+0x0C)=(1u<<13)|(1u<<5)|(1u<<3)|(1u<<2);
+    R(U2+0x0C)=(1u<<13)|(1u<<5)|(1u<<2);
+    R(0xE000E104u)=(1u<<5)|(1u<<6); /* external IRQ 37,38 */
+    R(TIM4+0x28)=15; R(TIM4+0x2C)=19999;
+    R(TIM4+0x18)=(6u<<4)|(1u<<3)|(6u<<12)|(1u<<11);
+    R(TIM4+0x20)=0;
+    R(TIM4+0x34)=1500; R(TIM4+0x38)=1500;
+    R(TIM4+0x14)=1; R(TIM4)= (1u<<7)|1u;
+    R(0xE000E014u)=15999; R(0xE000E018u)=0; R(0xE000E010u)=7;
+}
+void SysTick_Handler(void) { ++milliseconds; }
+uint32_t board_ms(void) { return milliseconds; }
+static void receive(uint32_t uart, rx_queue_t *q)
+{
+    uint32_t status=R(uart);
+    if (status & ((1u<<5)|15u)) {
+        uint8_t byte=(uint8_t)R(uart+4);
+        uint16_t next=(uint16_t)((q->head+1)&255u);
+        if ((status&15u) || next==q->tail) { fault=1; return; }
+        q->bytes[q->head]=byte; q->times[q->head]=milliseconds;
+        __schedule_barrier();
+        q->head=next;
+    }
+}
+void USART1_IRQHandler(void) { receive(U1,&pc); }
+void USART2_IRQHandler(void) { receive(U2,&vision); }
+static int pop(rx_queue_t *q, uint8_t *byte, uint32_t *time)
+{
+    uint16_t tail=q->tail;
+    if (tail==q->head) return 0;
+    __schedule_barrier();
+    *byte=q->bytes[tail]; *time=q->times[tail];
+    __schedule_barrier();
+    q->tail=(uint16_t)((tail+1)&255u); return 1;
+}
+int board_vision_byte(uint8_t *byte, uint32_t *received) { return pop(&vision,byte,received); }
+int board_pc_byte(uint8_t *byte) { uint32_t time; return pop(&pc,byte,&time); }
+void board_flush_vision(void)
+{
+    __disable_irq(); vision.tail=vision.head; __enable_irq();
+}
+int board_take_fault(void)
+{
+    int result;
+    __disable_irq(); result=fault; fault=0;
+    if (result) { vision.tail=vision.head; pc.tail=pc.head; }
+    __enable_irq(); return result;
+}
+int board_button(void) { return (R(GPIOA+0x10)&1u)!=0; }
+void board_outputs(int enabled, uint16_t pan, uint16_t tilt)
+{
+    if (!enabled) {
+        R(TIM4+0x20)=0;
+        R(GPIOD+0x18)=3u<<28;
+        pin(GPIOD,12,1,0); pin(GPIOD,13,1,0); pwm_enabled=0;
+    } else {
+        R(TIM4+0x34)=pan; R(TIM4+0x38)=tilt;
+        if (!pwm_enabled) {
+            R(TIM4+0x14)=1;
+            pin(GPIOD,12,2,2); pin(GPIOD,13,2,2);
+            R(TIM4+0x20)=(1u<<0)|(1u<<4); pwm_enabled=1;
+        }
+    }
+}
+int board_send(const char *line)
+{
+    unsigned n=(unsigned)strlen(line), i;
+    unsigned free=(tx_tail-tx_head-1u)&511u;
+    if (n>free) return 0;
+    for (i=0;i<n;++i) { tx[tx_head]=line[i]; tx_head=(tx_head+1)&511u; }
+    return 1;
+}
+void board_poll_tx(void)
+{
+    if (tx_head!=tx_tail && (R(U1)&(1u<<7))) {
+        R(U1+4)=(uint8_t)tx[tx_tail]; tx_tail=(tx_tail+1)&511u;
+    }
+}

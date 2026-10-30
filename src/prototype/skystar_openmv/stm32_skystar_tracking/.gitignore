@@ -1,0 +1,6 @@
+/private/
+/build/
+/Objects/
+/Listings/
+/tests/result.json
+*.uvguix.*
