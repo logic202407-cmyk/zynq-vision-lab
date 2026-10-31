@@ -177,6 +177,21 @@
       "reviewer": "Codex offline self-checking regression",
       "note": "Manual st/stop CRLF only; TX/RX, debounce, bounded reply wait and coordinated PC mux. Five testbenches pass. OOC 100MHz assumption, not board timing closure; no physical clock/control pins, waveform or hardware validation. Existing bridge and STM32 unchanged.",
       "verified_commit": "7ebc8df8192af570a5d2cfcb317c9cb7c0b2e32c"
+    },
+    {
+      "id": "zynq_s1ack1_autonomous_motion_b2",
+      "status": "simulated",
+      "verified_commit": "db1d930f7f5719897ca95dc2274c258ff36be663",
+      "tool_version": "Vivado XSim 2024.2; MinGW GCC; Python 3.12; ARMCC 5.06u5",
+      "reviewer": "Codex automated offline checks; independent human reproduction pending",
+      "evidence": [
+        "src/rtl/zynq_motion_s1.v",
+        "report/experiments/2026-10-31-b2-motion.md",
+        "report/evidence/b2-motion/suite.json",
+        "report/evidence/b2-motion/netlist-result.json",
+        "report/evidence/b2-motion/timing.rpt"
+      ],
+      "note": "22 coupled RTL/real-C cases,26 C cases,query-only routed functional smoke and OOC implementation passed. Dual-channel PWM enable retained. Not hardware verified; real clock/IO constraints and epoch source unresolved."
     }
   ]
 }
