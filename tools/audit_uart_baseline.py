@@ -56,6 +56,7 @@ def main():
     result = {
         'scope': 'offline audit of historical artifacts; no new hardware action',
         'base_source_commit': BASE, 'python': platform.python_version(),
+        'audit_tool_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         'bitstream_sha256': digest, 'bitstream_bytes': bit.stat().st_size,
         'historical_stm32_flash_sha256_recorded_not_reread':
             'b94c9e0edc1cac282dcf0a39fd765bacb4aa3957f9d5dd751c46d962ac6dcae8',

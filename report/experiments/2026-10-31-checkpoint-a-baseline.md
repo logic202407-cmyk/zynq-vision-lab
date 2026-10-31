@@ -48,7 +48,7 @@ remain untouched; new copies/logs live under
 `D:/嵌入式比赛资料/Zynq_SkyStar_UART_20261031`.
 Public sanitized results and canonical source SHA-256 values are in
 [audit.json](../evidence/checkpoint_a/audit.json) and the actual invocation log
-[audit.log](../evidence/checkpoint_a/audit.log). Source files tested are anchored
+[audit.txt](../evidence/checkpoint_a/audit.txt). Source files tested are anchored
 to the full base commit above. The checkpoint commit receipt is generated after
 commit into the local `evidence` directory and reported with its GitHub permalink;
 a commit cannot contain its own hash without changing that hash.

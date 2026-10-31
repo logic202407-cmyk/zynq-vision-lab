@@ -1,0 +1,2 @@
+PASS 11 archived baseline checks; electrical/Flash identity remain pending
+EXIT_CODE=0

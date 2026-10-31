@@ -2,6 +2,7 @@
   "scope": "offline audit of historical artifacts; no new hardware action",
   "base_source_commit": "4a254d2bd5846efccadd6d812eb0980abd28d1f6",
   "python": "3.12.4",
+  "audit_tool_sha256": "67a44a4cb6affe26e30868474316b3c7197014ab2c8c6bec48a11d439ea63aef",
   "bitstream_sha256": "af68cf8f6b14e36257e764874a5c60645030aeba3b8667c9d56a0d6b9339c46e",
   "bitstream_bytes": 17416460,
   "historical_stm32_flash_sha256_recorded_not_reread": "b94c9e0edc1cac282dcf0a39fd765bacb4aa3957f9d5dd751c46d962ac6dcae8",
