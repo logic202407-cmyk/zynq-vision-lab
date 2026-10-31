@@ -1,0 +1,8 @@
+TELEMETRY P0V 1 STATE waiting MODE manual VALID 0 ENABLED 0 DX 0 DY 0 PAN 1500 TLT 1500 REQ_PAN 1500 REQ_TLT 1500 SESSION 1 FRAME 0 RX_MS 0 SOURCE_MS 0 REJECT none BAD 0 PARSE_BAD 0 PKP 300 PKI 50 PKD 0 TKP 500 TKI 80 TKD 0
+S1STAT SAFE stopped WHY boot NONCE 0000000100000002 SEQ 0 TX_DROP 0 FW 15
+PASS 35235 assertions: actual PID/controller/parser and driver register model; hardware not tested
+
+PASS actual firmware telemetry accepted by existing PID workbench
+
+
+EXIT_CODE=0

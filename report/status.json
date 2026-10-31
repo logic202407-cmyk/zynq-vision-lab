@@ -125,6 +125,18 @@
       "tool_version": "Vivado 2024.2; Python 3.12; existing SkyStar USART3 firmware",
       "reviewer": "Codex serial/readback checks and local user motion observation",
       "note": "Limited PC-driven transparent PL UART test: temporary JTAG startup HIGH, stop/status and invalid-command return, separate 1500->1550->1500 us commands on PAN and TILT, user observed both axes move and return quietly; final ENABLED 0. No autonomous Zynq tracking, encoder position or loss-of-link acceptance. New v14 STM32 candidate was not flashed, existing controller firmware exact Flash contents were not read today."
+    },
+    {
+      "id": "skystar_safety_supervisor",
+      "status": "implemented",
+      "evidence": [
+        "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.c",
+        "src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c",
+        "src/prototype/skystar_openmv/stm32_skystar_tracking/tests/safety_cases.h",
+        "report/experiments/2026-10-31-checkpoint-b-safety.md",
+        "report/evidence/checkpoint_b/manifest.json"
+      ],
+      "note": "Unflashed v15 candidate; host C/register model, strict UART1/3 regression, ARM builds and vector checks pass. MCU-local lease/latched fault, CRC/session/sequence and explicit arm implemented. Hardware entropy, stop latency/PWM, independent servo power disconnect and electrical validation remain pending; no new board test authorized."
     }
   ]
 }

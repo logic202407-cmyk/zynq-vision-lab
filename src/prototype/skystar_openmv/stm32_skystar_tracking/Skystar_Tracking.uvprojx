@@ -398,6 +398,11 @@
               <FilePath>User\tracking.c</FilePath>
             </File>
             <File>
+              <FileName>safety.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>User\safety.c</FilePath>
+            </File>
+            <File>
               <FileName>pid.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\stm32_project\User\pid.c</FilePath>

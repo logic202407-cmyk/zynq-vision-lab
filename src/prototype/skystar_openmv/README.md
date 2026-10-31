@@ -70,3 +70,19 @@ Candidate transparent PL bridge: `../../rtl/zynq_uart_bridge.v`; simulation:
 `../../../build/build_zynq_uart_bridge.tcl`. Supply a reviewed four-port XDC.
 No protocol parsing, buffering or autonomous movement is performed by this bridge.
 See [hardening evidence](../../../report/experiments/2026-10-31-chain-hardening.md).
+
+## v15 safety supervisor candidate (offline only)
+
+The [S1 contract](../../../docs/skystar_safety_protocol_v1.md) supersedes bare
+motion commands for the new unflashed candidate: explicit current-session arm,
+CRC16, monotonic sequence and a 500 ms MCU-local lease are required. Stop/query
+remain unframed. Faults latch, and returned camera/PC data cannot re-enable PWM.
+P0 gains can still be read by the old workbench; safety state is a separate
+S1STAT line and the old workbench motion/write path is not an S1 adapter.
+The earlier v13/v14 statements above remain historical evidence, not v15 behavior.
+
+Reproduce offline B from repository root:
+`python -B tools/check_skystar_safety.py --private-output <outside-git>
+--temp <outside-git>` (one line). No serial or programmer is opened by this runner.
+See [B report](../../../report/experiments/2026-10-31-checkpoint-b-safety.md)
+and [C pending observation sheet](../../../docs/skystar_checkpoint_c_observation.md).

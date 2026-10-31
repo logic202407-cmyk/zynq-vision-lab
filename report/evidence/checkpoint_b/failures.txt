@@ -1,0 +1,12 @@
+Checkpoint B development failures (sanitized)
+1. Initial GCC compile exit 1: CRC conditional operator changed signedness under
+   -Werror. Changed to explicit if/else, retaining strict warning settings.
+2. First C test exit nonzero: recovery assertion failed because the test's UART
+   timestamp advanced while fake board_ms remained behind. Updated fixture clock
+   to follow simulated delivery; stale-queue tests still preserve deliberate lag.
+3. C passed but interop exit 1: strict legacy P0 parser rejected appended safety
+   fields. Split S1STAT into a separate line; did not relax P0 parser checks.
+No hardware actions occurred. Final independent rerun logs are adjacent.
+4. First full runner Python exit 1: repository-link test ran before the
+   evidence manifest/current log existed. Reordered evidence creation and test
+   invocation; no test expectations were changed. Full rerun passed.

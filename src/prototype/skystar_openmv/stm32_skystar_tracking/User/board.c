@@ -3,6 +3,7 @@
  * Only PD12/PD13 are PWM outputs. PD14/PD15 remain low.
  */
 #include "board.h"
+#include "safety.h"
 #include <string.h>
 #ifdef BOARD_HOST_TEST
 extern uint32_t *board_test_register(uint32_t address);
@@ -38,6 +39,8 @@ static volatile uint8_t fault;
 static char tx[512];
 static uint16_t tx_head, tx_tail;
 static int pwm_enabled;
+static volatile uint8_t guard_active, guard_event;
+static volatile uint32_t guard_received;
 
 static void pin(uint32_t gpio, unsigned n, unsigned mode, unsigned af)
 {
@@ -53,6 +56,9 @@ static void pin(uint32_t gpio, unsigned n, unsigned mode, unsigned af)
 void board_init(void)
 {
     volatile uint32_t dummy;
+    guard_active=guard_event=fault=0; pwm_enabled=0;
+    milliseconds=0; vision.head=vision.tail=pc.head=pc.tail=0;
+    tx_head=tx_tail=0;
     R(0xE000ED08u)=0x08000000u;
     R(RCC) |= 1u;
     while (!(R(RCC)&2u)) { }
@@ -101,7 +107,25 @@ void board_init(void)
     R(TIM4+0x14)=1; R(TIM4)= (1u<<7)|1u;
     R(0xE000E014u)=15999; R(0xE000E018u)=0; R(0xE000E010u)=7;
 }
-void SysTick_Handler(void) { ++milliseconds; }
+static void force_off(void)
+{
+    R(TIM4+0x20)=0;
+    R(GPIOD+0x18)=3u<<28;
+    pin(GPIOD,12,1,0); pin(GPIOD,13,1,0); pwm_enabled=0;
+}
+static void guard_fail(unsigned event)
+{
+    guard_active=0;
+    if (!guard_event) guard_event=(uint8_t)event;
+    force_off();
+}
+void SysTick_Handler(void)
+{
+    ++milliseconds;
+    if (board_button()) guard_fail(BOARD_GUARD_KEY);
+    else if (guard_active && (uint32_t)(milliseconds-guard_received)>=SAFETY_LEASE_MS)
+        guard_fail(BOARD_GUARD_LEASE);
+}
 uint32_t board_ms(void) { return milliseconds; }
 static void receive(uint32_t uart, rx_queue_t *q)
 {
@@ -109,7 +133,9 @@ static void receive(uint32_t uart, rx_queue_t *q)
     if (status & ((1u<<5)|15u)) {
         uint8_t byte=(uint8_t)R(uart+4);
         uint16_t next=(uint16_t)((q->head+1)&255u);
-        if ((status&15u) || next==q->tail) { fault=1; return; }
+        if ((status&15u) || next==q->tail) {
+            fault=1; guard_fail(BOARD_GUARD_UART); return;
+        }
         q->bytes[q->head]=byte; q->times[q->head]=milliseconds;
         __schedule_barrier();
         q->head=next;
@@ -138,6 +164,10 @@ static int pop(rx_queue_t *q, uint8_t *byte, uint32_t *time)
 int board_vision_byte(uint8_t *byte, uint32_t *received) { return pop(&vision,byte,received); }
 int board_pc_byte(uint8_t *byte) { uint32_t time; return pop(&pc,byte,&time); }
 int board_pc_timed_byte(uint8_t *byte, uint32_t *time) { return pop(&pc,byte,time); }
+void board_flush_pc(void)
+{
+    __disable_irq(); pc.tail=pc.head; __enable_irq();
+}
 void board_flush_vision(void)
 {
     __disable_irq(); vision.tail=vision.head; __enable_irq();
@@ -152,10 +182,14 @@ int board_take_fault(void)
 int board_button(void) { return (R(GPIOA+0x10)&1u)!=0; }
 void board_outputs(int enabled, uint16_t pan, uint16_t tilt)
 {
+    /* Foreground only: keep the permit check and enable indivisible to SysTick. */
+    __disable_irq();
+    if (enabled && (pan<PAN_MIN_US || pan>PAN_MAX_US || tilt<TILT_MIN_US || tilt>TILT_MAX_US))
+        guard_fail(BOARD_GUARD_RANGE);
+    if (!guard_active || guard_event || fault || board_button() ||
+        (uint32_t)(milliseconds-guard_received)>=SAFETY_LEASE_MS) enabled=0;
     if (!enabled) {
-        R(TIM4+0x20)=0;
-        R(GPIOD+0x18)=3u<<28;
-        pin(GPIOD,12,1,0); pin(GPIOD,13,1,0); pwm_enabled=0;
+        force_off();
     } else {
         R(TIM4+0x34)=pan; R(TIM4+0x38)=tilt;
         if (!pwm_enabled) {
@@ -164,6 +198,56 @@ void board_outputs(int enabled, uint16_t pan, uint16_t tilt)
             R(TIM4+0x20)=(1u<<0)|(1u<<4); pwm_enabled=1;
         }
     }
+    __enable_irq();
+}
+int board_guard_refresh(uint32_t received)
+{
+    int accepted=0;
+    __disable_irq();
+    if (!guard_event && !fault && !board_button() &&
+        (uint32_t)(milliseconds-received)<SAFETY_LEASE_MS) {
+        guard_received=received; guard_active=1; accepted=1;
+    }
+    __enable_irq(); return accepted;
+}
+void board_guard_disarm(void)
+{
+    __disable_irq(); guard_active=0; force_off(); __enable_irq();
+}
+unsigned board_guard_take_event(void)
+{
+    unsigned result;
+    __disable_irq(); result=guard_event; guard_event=0; __enable_irq(); return result;
+}
+/* HSI remains SYSCLK at 16MHz. PLL is used only for PLL48/RNG, not PWM/UART.
+ * No entropy fallback to a fixed ID, uptime, or previous session is permitted. */
+int board_session_nonce(uint32_t *hi, uint32_t *lo)
+{
+    unsigned i, n; uint32_t value[2], status; volatile uint32_t dummy;
+    *hi=*lo=0;
+    if ((R(RCC+8)&12u)!=0) return 0;
+    R(RCC)&=~(1u<<24);
+    for(i=0;i<100000u && (R(RCC)&(1u<<25));++i) { }
+    if(i==100000u) return 0;
+    R(RCC+4)=16u|(192u<<6)|(4u<<24); /* M16 N192 P2 Q4, HSI -> 48MHz */
+    R(RCC)|=1u<<24;
+    for(i=0;i<100000u && !(R(RCC)&(1u<<25));++i) { }
+    if(i==100000u) return 0;
+    R(RCC+0x34)|=1u<<6; dummy=R(RCC+0x34); (void)dummy;
+    R(RCC+0x14)|=1u<<6; R(RCC+0x14)&=~(1u<<6);
+    R(0x50060800u)=4u;
+    for(n=0;n<2;++n) {
+        for(i=0;i<100000u;++i) {
+            status=R(0x50060804u);
+            if(status&0x66u) return 0;
+            if(status&1u) break;
+        }
+        if(i==100000u) return 0;
+        value[n]=R(0x50060808u);
+        if(!value[n]) return 0;
+    }
+    if(value[0]==value[1]) return 0;
+    *hi=value[0]; *lo=value[1]; return 1;
 }
 int board_send(const char *line)
 {

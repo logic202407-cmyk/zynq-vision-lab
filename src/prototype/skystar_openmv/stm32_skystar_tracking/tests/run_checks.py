@@ -17,7 +17,7 @@ stage = Path(tempfile.mkdtemp(prefix='skystar-host-'))
 command = [str(cc), '-std=c99', '-Wall', '-Wextra', '-Werror', '-O2',
            '-DBOARD_HOST_TEST', '-DCONSOLE_USART='+str(options.console_usart), '-I'+str(root/'User'),
            '-I'+str(root.parent/'stm32_project/User'),
-           str(root/'tests/host_checks.c'), str(root/'User/tracking.c'),
+           str(root/'tests/host_checks.c'), str(root/'User/tracking.c'), str(root/'User/safety.c'),
            str(root.parent/'stm32_project/User/pid.c'), '-o', str(stage/'checks.exe')]
 result = subprocess.run(command, capture_output=True)
 (stage/'compile.log').write_bytes(result.stdout+result.stderr)
@@ -41,5 +41,5 @@ output.write_text(json.dumps({'command':command, 'exit_code':0,
     'output':result.stdout.decode('utf-8','replace').strip(), 'evidence_dir':str(stage),
     'workbench_telemetry_interop':'pass',
     'source_sha256':{str(p.relative_to(root.parent)):hashlib.sha256(p.read_bytes()).hexdigest()
-                     for p in list((root/'User').glob('*.[ch]'))+[root.parent/'stm32_project/User/pid.c',root/'tests/host_checks.c']},
+                     for p in list((root/'User').glob('*.[ch]'))+[root.parent/'stm32_project/User/pid.c',root/'tests/host_checks.c',root/'tests/safety_cases.h']},
     'console_usart':options.console_usart, 'scope':'offline C and register model only'},ensure_ascii=False,indent=2),encoding='utf-8')

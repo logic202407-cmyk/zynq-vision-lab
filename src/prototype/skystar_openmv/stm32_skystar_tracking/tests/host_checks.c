@@ -9,13 +9,28 @@
 
 static struct { uint32_t address, value; } registers[256];
 static unsigned register_count;
+static unsigned model_pll, model_rng, model_rng_reads;
 uint32_t *board_test_register(uint32_t address)
 {
     unsigned i;
-    for (i=0;i<register_count;++i) if (registers[i].address==address) return &registers[i].value;
+    for (i=0;i<register_count;++i) if (registers[i].address==address) {
+        if (address==0x40023800u && model_pll) {
+            if (model_pll==2 || (model_pll==1 && (registers[i].value&(1u<<24))))
+                registers[i].value|=1u<<25;
+            else registers[i].value&=~(1u<<25);
+        }
+        if (address==0x50060804u && model_rng)
+            registers[i].value=model_rng==2 ? 0u : model_rng==3 ? 0x20u : 1u;
+        if (address==0x50060808u && model_rng) {
+            ++model_rng_reads;
+            registers[i].value=model_rng==4 ? 0u : model_rng==5 ? 123u : 0x12340000u+model_rng_reads;
+        }
+        return &registers[i].value;
+    }
     assert(register_count<256);
     registers[register_count].address=address;
-    return &registers[register_count++].value;
+    ++register_count;
+    return board_test_register(address);
 }
 #include "../User/board.c"
 #define main firmware_entry
@@ -193,6 +208,7 @@ static void driver_checks(void)
     CHECK((R(0xE000E104u)&96u)==96u);
 #endif
     CHECK(R(0xE000E014u)==15999);
+    CHECK(board_guard_refresh(board_ms()));
     board_outputs(1,1500,1550);
     CHECK(R(TIM4+0x34)==1500 && R(TIM4+0x38)==1550);
     CHECK(R(TIM4+0x20)==17 && (R(TIM4+0x20)&0x1100u)==0);
@@ -228,32 +244,34 @@ static void driver_checks(void)
 }
 static void command_text(const char *s, uint32_t rx, uint32_t now)
 {
+    milliseconds=now;
     while (*s) console_feed((uint8_t)*s++,rx,now);
 }
 static void command_checks(void)
 {
-    tracking_init(&control); used=dropping=0; tx_head=tx_tail=0;
-    command_text("pan 1600\n",10,10); CHECK(control.outputs && control.pan_us==1600);
+    tracking_init(&control); safety_init(&guardian,0x12345678u,0x87654321u,1);
+    used=dropping=0; tx_head=tx_tail=0;
+    /* Original unframed motion vectors are deliberately rejected by v15. */
+    command_text("pan 1600\n",10,10); CHECK(!control.outputs && control.pan_us==1500);
     command_text("pan 1",20,20); console_expire(220);
-    CHECK(!control.outputs && dropping && !used);
-    command_text("600\n",221,221); CHECK(!control.outputs && control.pan_us==1600);
-    command_text("home\n",222,222); CHECK(control.outputs && control.pan_us==1500);
-    command_text("pan 1650\n",230,430); CHECK(!control.outputs && control.pan_us==1500);
-    command_text("pan 1550\n",431,431); CHECK(control.outputs && control.pan_us==1550);
-    command_text("stop\n",432,432); CHECK(!control.outputs);
+    CHECK(!control.outputs && dropping && !used && guardian.state==SAFE_FAULT);
+    command_text("600\n",221,221); CHECK(!control.outputs);
+    command_text("home\n",222,222); CHECK(!control.outputs);
+    command_text("pan 1650\n",230,430); CHECK(!control.outputs);
+    command_text("stop\n",432,432); CHECK(!control.outputs && guardian.state==SAFE_FAULT);
     command_text("pan 1",0xFFFFFFF0u,0xFFFFFFF0u);
     console_expire(0xB7u); CHECK(used && !dropping);
     console_expire(0xB8u); CHECK(!used && dropping && !control.outputs);
     command_text("600\n",0xB9u,0xB9u); CHECK(!control.outputs);
-    command_text("home\r\n",0xBAu,0xBAu); CHECK(control.outputs && !used && !dropping);
-    command_text("PAN 1510\n",0xBBu,0xBBu); CHECK(control.pan_us==1510);
-    R(GPIOA+0x10)=1; command_text("home\n",0xBCu,0xBCu); CHECK(control.pan_us==1510);
+    command_text("home\r\n",0xBAu,0xBAu); CHECK(!control.outputs && !used && !dropping);
+    R(GPIOA+0x10)=1; command_text("home\n",0xBCu,0xBCu); CHECK(!control.outputs);
     R(GPIOA+0x10)=0;
 }
+#include "safety_cases.h"
 int main(void)
 {
-    controller_checks(); parser_checks(); driver_checks(); command_checks();
-    tracking_init(&control); tx_head=tx_tail=0; status();
+    controller_checks(); parser_checks(); driver_checks(); command_checks(); safety_checks();
+    tracking_init(&control); safety_init(&guardian,1,2,1); tx_head=tx_tail=0; status(); tx[tx_head]=0;
     CHECK(strstr(tx,"P0V 1 STATE waiting MODE manual VALID 0 ENABLED 0")!=0);
     CHECK(strstr(tx,"PKP 300 PKI 50 PKD 0 TKP 500 TKI 80 TKD 0")!=0);
     tx[tx_head]=0; printf("TELEMETRY %s",tx);
