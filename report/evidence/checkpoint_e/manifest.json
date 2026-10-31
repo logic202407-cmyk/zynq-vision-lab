@@ -1,0 +1,136 @@
+{
+  "status": "planned; design review only, M1 not implemented",
+  "review_parent_commit": "2824f0aa6d7ac94e4f5bd90830617ca9e992ed31",
+  "source_sha256": {
+    "src/interface_contract.md": "04decec7565cd736b906eafe942a84b41a75b19270424bd65921dbe9d8605db8",
+    "src/rtl/red_pixel_mask.v": "c1a72ee3bbdb885e0e96b6c829f50d0f3f733c53e9555658305cce3ddd41eb9d",
+    "src/rtl/red_mask_majority3x3.v": "cb54f07db9eb29d0cc00c3e08c3a8f916a1e72e764a0a88bd7dfc331ff21cec8",
+    "src/rtl/red_frame_stats.v": "f71a43d0884f1c09a1cb44dc7775c00696c39a874a8b3188acf247345b3347e7",
+    "src/rtl/red_result_header.v": "0c0ed7477bf0852fa7108bfa07d51a38b7694c7e2365ca5d3c56cf6fad7fdf84",
+    "src/pc/vendor_udp.py": "98f3dc603d8a6ecfacc826b3f5b609fb25261c2463337a968ec70df035100b16",
+    "src/pc/pl_compare.py": "92a4e8bef0e8f290824f3bfe83f01498ff997888881aeb0c7bf1171ea5e3eab8",
+    "sim/reference/red_mask.py": "c5f3bdf3867fd472f68217463b453bd6aca751ec82f568f494db2f90e8e415c8",
+    "docs/skystar_safety_protocol_v1.md": "bff6b00740d7b9a569019d01c8a75c1ab0837c6771905e1323b4479ad13ee214",
+    "docs/vision_uart_interface_plan_v1.md": "fb2d89f39a2c3716257d8bcc875dc427ee322955361ba71a0cf5ea6d3ce67ca7",
+    "report/experiments/2026-10-31-checkpoint-e-interface.md": "abef3688ce02b10dcaa89679bc82c4bbd861bdf71397ede6bc381bc9c794e090"
+  },
+  "review_tool_sha256": "12121e13a5c908a961c0ad9747a3d33eb348ed2681a56c4ac95e441b77f3a59d",
+  "layout_rows": [
+    [
+      0,
+      2,
+      "Sync A5 5A"
+    ],
+    [
+      2,
+      1,
+      "Major version 1"
+    ],
+    [
+      3,
+      1,
+      "Type 1 observation"
+    ],
+    [
+      4,
+      2,
+      "Total length 64"
+    ],
+    [
+      6,
+      1,
+      "Origin: 1 PL, 2 PC reference (explicit, never interchangeable)"
+    ],
+    [
+      7,
+      1,
+      "Flags bit0 complete, bit1 target, bit2 capture timestamp available; others 0"
+    ],
+    [
+      8,
+      8,
+      "Capture session ID, nonzero, changes after source reset"
+    ],
+    [
+      16,
+      4,
+      "Transport packet sequence, strictly increasing within session"
+    ],
+    [
+      20,
+      4,
+      "Measurement frame sequence, same-frame identity for comparison"
+    ],
+    [
+      24,
+      4,
+      "Source capture microsecond tick, 0 if unavailable"
+    ],
+    [
+      28,
+      2,
+      "Image width"
+    ],
+    [
+      30,
+      2,
+      "Image height"
+    ],
+    [
+      32,
+      1,
+      "Mask algorithm version (1 or 2 initially)"
+    ],
+    [
+      33,
+      3,
+      "Reserved zeros"
+    ],
+    [
+      36,
+      4,
+      "Count"
+    ],
+    [
+      40,
+      4,
+      "sum_x"
+    ],
+    [
+      44,
+      4,
+      "sum_y"
+    ],
+    [
+      48,
+      8,
+      "Inclusive bbox xmin,ymin,xmax,ymax, 16 bits each"
+    ],
+    [
+      56,
+      4,
+      "Configuration tag mapped to a full config SHA-256 in session manifest"
+    ],
+    [
+      60,
+      4,
+      "CRC32/ISO-HDLC over bytes 0..59 (IEEE/zlib result)"
+    ]
+  ],
+  "total_bytes": 64,
+  "limits": {
+    "count": 307200,
+    "sum_x": 98150400,
+    "sum_y": 73574400
+  },
+  "bandwidth_30hz_bits_per_second": 19200,
+  "one_direction_utilization": 0.16666666666666666,
+  "checks": [
+    "layout contiguous and bounded",
+    "CRC field covers preceding 60 bytes by design",
+    "640x480 numerical limits",
+    "30Hz 8N1 bandwidth arithmetic"
+  ],
+  "hardware_actions": [],
+  "exit_code": 0
+}

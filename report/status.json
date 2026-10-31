@@ -137,6 +137,31 @@
         "report/evidence/checkpoint_b/manifest.json"
       ],
       "note": "Unflashed v15 candidate; host C/register model, strict UART1/3 regression, ARM builds and vector checks pass. MCU-local lease/latched fault, CRC/session/sequence and explicit arm implemented. Hardware entropy, stop latency/PWM, independent servo power disconnect and electrical validation remain pending; no new board test authorized."
+    },
+    {
+      "id": "fpga_uart_diagnostic",
+      "status": "simulated",
+      "evidence": [
+        "src/rtl/uart_tx_8n1.v",
+        "src/rtl/zynq_uart_diagnostic.v",
+        "sim/uart_diagnostic_tb.v",
+        "report/evidence/checkpoint_d/manifest.json",
+        "report/experiments/2026-10-31-checkpoint-d-uart.md"
+      ],
+      "verified_commit": "2824f0aa6d7ac94e4f5bd90830617ca9e992ed31",
+      "tool_version": "Vivado 2024.2 XSim and out-of-context synthesis",
+      "reviewer": "Codex offline testbench and synthesis runner",
+      "note": "1384 XSim checks passed; UART byte engine plus manual-trigger query/diagnostic sender, no arm/motion messages. Accepted transparent bridge unchanged. No board constraints, bitstream, implementation/timing closure or physical test for diagnostic candidate."
+    },
+    {
+      "id": "vision_uart_interface_m1",
+      "status": "planned",
+      "evidence": [
+        "docs/vision_uart_interface_plan_v1.md",
+        "report/experiments/2026-10-31-checkpoint-e-interface.md",
+        "report/evidence/checkpoint_e/manifest.json"
+      ],
+      "note": "Design review and layout/bandwidth arithmetic only. Distinguishes PL, PC reference, command acceptance, expected PWM and actual position; M1 receiver/codec/control integration and ACK lineage extension not implemented. Requires completed C/electrical gates and explicit operator authorization before hardware integration."
     }
   ]
 }

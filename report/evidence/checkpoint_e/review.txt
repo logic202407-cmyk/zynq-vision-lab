@@ -1,0 +1,2 @@
+PASS E document-layout review: 64 bytes, 4 arithmetic/layout checks; M1 remains planned
+EXIT_CODE=0
