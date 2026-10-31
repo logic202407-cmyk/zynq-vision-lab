@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-09-30",
+  "updated_on": "2026-10-31",
   "project_stage": "pl_camera_prototype",
   "components": [
     {
@@ -17,19 +17,34 @@
     {
       "id": "board_bringup",
       "status": "planned",
-      "evidence": ["board/bringup_log.md"],
+      "evidence": [
+        "board/bringup_log.md"
+      ],
       "note": "XC7Z100 JTAG, a vendor LED smoke test, diagnostic GE ARP receive/reply, and two direct camera-bitstream ARP replies after power cycles were observed. Physical package/speed grade, full board bring-up and independent reproduction remain open."
     },
     {
       "id": "video_baseline",
       "status": "planned",
-      "evidence": ["board/bringup_log.md", "board/video_baseline.md", "src/pc/README.md"],
+      "evidence": [
+        "board/bringup_log.md",
+        "board/video_baseline.md",
+        "src/pc/README.md"
+      ],
       "note": "A vendor OV5640 bitstream replied to ARP directly after two power cycles. One 300-second run assembled 7884 complete 640x480 frames; a second 10-second run assembled 262. Earlier ARP startup failure remains unexplained. Formal frame quality, own PL processing and independent reproduction remain open."
     },
     {
       "id": "rtl_hls_core",
       "status": "board_verified",
-      "evidence": ["src/rtl/red_pixel_mask.v", "src/rtl/camera_rgb565_stream.v", "src/rtl/red_frame_stats.v", "src/rtl/red_result_header.v", "sim/red_frame_stats_tb.v", "sim/camera_rgb565_stream_tb.v", "sim/red_result_header_tb.v", "report/experiments/2026-09-27-pl-red-camera-trial.md"],
+      "evidence": [
+        "src/rtl/red_pixel_mask.v",
+        "src/rtl/camera_rgb565_stream.v",
+        "src/rtl/red_frame_stats.v",
+        "src/rtl/red_result_header.v",
+        "sim/red_frame_stats_tb.v",
+        "sim/camera_rgb565_stream_tb.v",
+        "sim/red_result_header_tb.v",
+        "report/experiments/2026-09-27-pl-red-camera-trial.md"
+      ],
       "verified_commit": "2bfef119a46d1f1e6604d945a58e3896e539113d",
       "tool_version": "Vivado 2024.2; Python 3.12",
       "reviewer": "Codex automated local bench comparison",
@@ -38,7 +53,17 @@
     {
       "id": "rtl_spatial_filter",
       "status": "simulated",
-      "evidence": ["src/rtl/red_mask_majority3x3.v", "src/rtl/red_frame_stats.v", "sim/red_spatial_stats_tb.v", "tests/test_red_spatial_filter.py", "src/interface_contract.md", "report/experiments/2026-09-30-red-spatial-filter.md", "report/experiments/2026-09-30-jtag-recovery.md", "report/experiments/2026-09-30-jtag-post-reboot.md", "report/experiments/2026-09-30-spatial-board-recovery.md"],
+      "evidence": [
+        "src/rtl/red_mask_majority3x3.v",
+        "src/rtl/red_frame_stats.v",
+        "sim/red_spatial_stats_tb.v",
+        "tests/test_red_spatial_filter.py",
+        "src/interface_contract.md",
+        "report/experiments/2026-09-30-red-spatial-filter.md",
+        "report/experiments/2026-09-30-jtag-recovery.md",
+        "report/experiments/2026-09-30-jtag-post-reboot.md",
+        "report/experiments/2026-09-30-spatial-board-recovery.md"
+      ],
       "verified_commit": "a9842abe55cf2d7460fa9c09b0ce188a0bd37f14",
       "tool_version": "Vivado 2024.2; Python 3.12",
       "reviewer": "Codex automated xsim and software comparisons",
@@ -53,7 +78,13 @@
     {
       "id": "golden_reference",
       "status": "implemented",
-      "evidence": ["sim/reference/red_mask.py", "tests/test_red_mask_reference.py", "data/test_manifest.md", "src/interface_contract.md", "report/experiments/2026-09-27-pl-red-camera-trial.md"],
+      "evidence": [
+        "sim/reference/red_mask.py",
+        "tests/test_red_mask_reference.py",
+        "data/test_manifest.md",
+        "src/interface_contract.md",
+        "report/experiments/2026-09-27-pl-red-camera-trial.md"
+      ],
       "note": "Candidate RGB565 count, box and centroid reference checked on synthetic cases, two private raw camera frames at different exposures, and 100 same-frame board PL outputs. Broader lighting/background calibration remains open."
     },
     {
@@ -79,6 +110,21 @@
       "status": "planned",
       "evidence": [],
       "note": "Not implemented or verified."
+    },
+    {
+      "id": "zynq_skystar_manual_uart",
+      "status": "board_verified",
+      "evidence": [
+        "src/rtl/zynq_uart_bridge.v",
+        "sim/zynq_uart_bridge_tb.v",
+        "build/build_zynq_uart_bridge.tcl",
+        "board/skystar_f407/zynq_uart_bridge_v12.xdc",
+        "report/experiments/2026-10-31-chain-hardening.md"
+      ],
+      "verified_commit": "267137b0e2cfd935945e8c2107c64bb73b93a13a",
+      "tool_version": "Vivado 2024.2; Python 3.12; existing SkyStar USART3 firmware",
+      "reviewer": "Codex serial/readback checks and local user motion observation",
+      "note": "Limited PC-driven transparent PL UART test: temporary JTAG startup HIGH, stop/status and invalid-command return, separate 1500->1550->1500 us commands on PAN and TILT, user observed both axes move and return quietly; final ENABLED 0. No autonomous Zynq tracking, encoder position or loss-of-link acceptance. New v14 STM32 candidate was not flashed, existing controller firmware exact Flash contents were not read today."
     }
   ]
 }

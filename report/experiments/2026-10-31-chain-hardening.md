@@ -58,7 +58,7 @@ No timing or electrical acceptance is inferred from this combinational build.
 The candidate does not instantiate PS7, so the related warning remains expected.
 JTAG programming and communication/movement results are recorded separately below.
 
-## Current programming and communication receipt
+## Initial receipt before core-board power restoration
 
 - Candidate bitstream SHA-256: `af68cf8f6b14e36257e764874a5c60645030aeba3b8667c9d56a0d6b9339c46e`.
 - Temporary JTAG configuration completed at 17:45 (China time), exit 0,
@@ -74,3 +74,39 @@ JTAG programming and communication/movement results are recorded separately belo
 - Completed PC-originated commands currently lack transactional ACKs and an
   idle-link watchdog. Even a future matched pulse/status receipt will not prove
   servo position; user-observed movement is separate evidence.
+
+## Successful power-restored communication and movement test
+
+The user restored core-board indication and confirmed PL_UART connection, then
+corrected the supply report: servo power remained ON. Software treated it as ON.
+The STM32 was not reprogrammed or reset by the bench script.
+
+Communication test, COM14 / 115200 / 8N1:
+
+- `stop` returned manual mode and ENABLED 0.
+- `__link_probe__` returned ERROR command, exercising the forward command path.
+- `st` returned P0V telemetry with PAN 1500, TLT 1500, ENABLED 0, exercising the
+  return path. This is state/readback evidence, not a transactional ACK protocol.
+
+A second guarded script rechecked communication, then sent:
+
+| Sequence | Commanded pulse | Result |
+| --- | --- | --- |
+| PAN step | 1500 -> 1550 us | Readback matched, PWM enabled |
+| PAN return | 1550 -> 1500 us | Readback matched |
+| TILT step | 1500 -> 1550 us | Readback matched, PWM enabled |
+| TILT return | 1550 -> 1500 us | Readback matched |
+| Stop | PWM disabled | Final ENABLED 0; PAN/TLT command fields both 1500 |
+
+The user then confirmed both axes moved and returned, with silence after stopping.
+This establishes one sequential small-step manual gimbal test through the new
+Zynq bridge. It does not establish measured positions, mechanical limits,
+tracking accuracy, loss-of-link handling, autonomous Zynq control or independent
+reproduction. The Zynq configuration is temporary and is lost on power removal.
+
+The motion run recorded 171 P0V status frames and 1 expected invalid-command
+rejection(s). Raw private records: communication-test.json, motion-test.json and
+user-motion-observation.json under the local D-drive output directory. Full STM32
+Flash was not read today; the existing controller must not be equated with the
+new unflashed v14 timed-console candidate. The bridge source verified in this
+run is commit `267137b`; the old private controller source gap remains explicit.

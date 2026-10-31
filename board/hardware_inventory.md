@@ -51,3 +51,17 @@ Allowed inventory states: available-and-tested, available-untested, unavailable,
 - For the no-HDMI video path, an RJ45 cable is now connected to the board's GE/PL port and the host's ASIX AX88179 USB Gigabit Ethernet adapter (`以太网 8`). The adapter reports a 1 Gbps link, and the user reports the GE port LEDs lit or blinking with KEY_RST released. The host's wired IPv4 address is `192.168.1.102/24`; Wi-Fi remains connected separately.
 - The vendor `50_ov5640_udp_pc` bitstream was temporarily loaded by Vivado GUI over JTAG; Vivado reported `Programmed` and startup status `HIGH`. The initial viewer attempt received no packets because the host could not resolve the board's ARP address. Later diagnostics isolated this startup condition; see `bringup_log.md`.
 - Separate JTAG diagnostics verified PHY receive activity, acceptance of an ARP request for `192.168.1.10`, and one board-to-PC ARP reply. After that reply seeded the host neighbor table, the vendor camera bitstream sent complete 640×480 frames. The user reported both ARP-reply diagnostic LEDs steadily on. On 2026-09-27, the original camera bitstream also answered ARP directly after each of two board power cycles, without loading the diagnostic bitstream; one run received 7884 complete frames over 300 seconds, and the second received 262 frames over 10 seconds. The cause of the earlier failed ARP startup remains unknown. All programming was volatile PL configuration; no Flash was programmed. See `bringup_log.md` for counts and evidence limits.
+
+
+## 2026-10-31 limited Zynq / SkyStar manual-link acceptance
+
+A new original PL UART bridge completed Vivado 2024.2 build and temporary JTAG
+configuration with startup HIGH. After normal SkyStar core power and PL_UART USB
+were restored, stop/status and invalid-command responses were received through
+Zynq. Both axes performed the separate 1500->1550->1500 us command sequences;
+the user reported visible movement, return, and quiet stopping. Final telemetry
+reported PWM disabled. See the [full scope and evidence](../report/experiments/2026-10-31-chain-hardening.md).
+The existing SkyStar USART3 firmware was retained; the new timed-console STM32
+candidate remains unflashed. This is not a three-gimbal or vision closed-loop
+acceptance. Supply voltage, waveform quality, full physical part and independent
+reproduction remain outside this run.
