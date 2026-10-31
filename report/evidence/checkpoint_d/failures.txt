@@ -1,0 +1,6 @@
+Initial XSim elaboration succeeded, simulator OS exit 0, but testbench emitted
+Fatal: Check 1308 failed (no sampled trigger-low edge after reset in fixture).
+Runner correctly treated the Fatal marker as failure despite OS exit 0.
+Fixed fixture pulse timing to allow a sampled low before a rising trigger.
+All substantive assertions retained; invalid-parameter disable checks were added.
+Final independently rerun source/TB hashes and exits are in manifest.json.

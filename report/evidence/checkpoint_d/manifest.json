@@ -1,0 +1,57 @@
+{
+  "scope": "XSim and out-of-context synthesis only; no pins, implementation or hardware",
+  "parent_commit": "f3ef4c0ada2bab8afaf2ac1cf52997431ea47bd7",
+  "version": [
+    "Vivado v2024.2 (64-bit)"
+  ],
+  "source_sha256": {
+    "src/rtl/uart_tx_8n1.v": "1cb9b21a239380e46b2e1eb40310b5bd69aee54565084224b9d74aff6546d58f",
+    "src/rtl/zynq_uart_diagnostic.v": "58ed65efb2fc61ac5c635cf752fc2b767d27f649c2dad4c2445677ccea785d3d",
+    "sim/uart_diagnostic_tb.v": "48bfff162de497dd616bbbf7748495def5d7304581cab785f82023b313556681"
+  },
+  "runner_sha256": "d931f43a5de64fc9b74b8b351e09bbd450ea5e9eff4b0584ef4d7069e0f11eb4",
+  "pass_marker": "UART_DIAGNOSTIC_TB_PASS checks=1384 divisor=868 baud=115207",
+  "steps": [
+    {
+      "tool": "xvlog",
+      "arguments": [
+        "uart_tx_8n1.v",
+        "zynq_uart_diagnostic.v",
+        "uart_diagnostic_tb.v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "tool": "xelab",
+      "arguments": [
+        "uart_diagnostic_tb",
+        "-s",
+        "diagnostic_check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "tool": "xsim",
+      "arguments": [
+        "diagnostic_check",
+        "-runall"
+      ],
+      "exit_code": 0
+    },
+    {
+      "tool": "vivado",
+      "arguments": [
+        "-mode",
+        "batch",
+        "-nojournal",
+        "-log",
+        "synth.log",
+        "-source",
+        "synth.tcl"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "hardware_actions": [],
+  "exit_code": 0
+}
