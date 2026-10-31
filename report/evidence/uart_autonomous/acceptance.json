@@ -1,0 +1,123 @@
+{
+  "checks": [
+    {
+      "check": "tested source src/rtl/uart_tx_8n1.v",
+      "passed": true
+    },
+    {
+      "check": "tested source src/rtl/uart_rx.v",
+      "passed": true
+    },
+    {
+      "check": "tested source src/rtl/zynq_uart_autonomous.v",
+      "passed": true
+    },
+    {
+      "check": "tested source src/rtl/zynq_uart_bridge.v",
+      "passed": true
+    },
+    {
+      "check": "tested source src/rtl/zynq_uart_diagnostic.v",
+      "passed": true
+    },
+    {
+      "check": "tested source sim/uart_tx_tb.v",
+      "passed": true
+    },
+    {
+      "check": "tested source sim/uart_rx_tb.v",
+      "passed": true
+    },
+    {
+      "check": "tested source sim/zynq_uart_autonomous_tb.v",
+      "passed": true
+    },
+    {
+      "check": "tested source sim/zynq_uart_bridge_tb.v",
+      "passed": true
+    },
+    {
+      "check": "tested source sim/uart_diagnostic_tb.v",
+      "passed": true
+    },
+    {
+      "check": "tested source build/check_uart_autonomous.tcl",
+      "passed": true
+    },
+    {
+      "check": "runner unchanged since execution",
+      "passed": true
+    },
+    {
+      "check": "preserved src/rtl/zynq_uart_bridge.v",
+      "passed": true
+    },
+    {
+      "check": "preserved sim/zynq_uart_bridge_tb.v",
+      "passed": true
+    },
+    {
+      "check": "preserved build/build_zynq_uart_bridge.tcl",
+      "passed": true
+    },
+    {
+      "check": "preserved board/skystar_f407/zynq_uart_bridge_v12.xdc",
+      "passed": true
+    },
+    {
+      "check": "preserved src/rtl/uart_tx_8n1.v",
+      "passed": true
+    },
+    {
+      "check": "preserved src/rtl/zynq_uart_diagnostic.v",
+      "passed": true
+    },
+    {
+      "check": "STM32 sources untouched",
+      "passed": true
+    }
+  ],
+  "testbenches": 5,
+  "counted_assertions": 2224617,
+  "python_tests": 43,
+  "implementation": {
+    "luts": 387,
+    "flip_flops": 252,
+    "latches": 0,
+    "routable_nets": 698,
+    "fully_routed": 698,
+    "routing_errors": 0,
+    "structural_drc_violations": 0,
+    "wns_ns": 6.652,
+    "whs_ns": 0.094,
+    "board_timing_signoff": false
+  },
+  "file_sha256": {
+    "build/start_vivado_local_mcp.ps1": "c32a6cb205cf35582d286383cb57fdd948aed484858e076b09d61633c5cd324d",
+    "docs/zynq_uart_autonomous.md": "054077e59508e5ae577def44c6b458f9fa32c4d65e96d7c3a0206ca1c8206b52",
+    "report/experiments/2026-10-31-autonomous-uart.md": "33b61ff5a90b0629abf5b4d42574c99f9d092ab92c00d43d53feb364e811f200",
+    "report/ai_collaboration/2026-10-31-autonomous-uart.md": "dd938319251fc1803917ad78cd51624cb6df567e86917a464ef0f254798238f7",
+    "report/evidence/uart_autonomous/compile.txt": "f1904c2f5d1dbf7ecc4cc9fe22292e4aefd956ff861e982756b89dcd120a8184",
+    "report/evidence/uart_autonomous/drc.rpt": "3ccf00025adac04fa43ce122e72f6320794bab6361c66c74404d46fb700ea664",
+    "report/evidence/uart_autonomous/implementation.txt": "4e4c8ed5045054b3f37f2c0e32f6c27c8a40c3db878469373a08cb6681f953ea",
+    "report/evidence/uart_autonomous/manifest.json": "6e3dd0f7997393293089a5ea0023a0dc02a218ec0bd0350ff599c453d4468fc1",
+    "report/evidence/uart_autonomous/plugin-validation.txt": "7a605cd31c7835aac4eb2be4b293d4d5d5a3904f71e37af36a61507c08941513",
+    "report/evidence/uart_autonomous/route_status.rpt": "e82acadf736d530c1bd3ffd2f45a663f271653b0088621d1c392ae7cc3217436",
+    "report/evidence/uart_autonomous/structural_drc.rpt": "067771e45eea5383d73143538ffd509a5993c190299588061f192a171e7c932d",
+    "report/evidence/uart_autonomous/timing.rpt": "0a5fdc331d8d95b3858cf95d5de37d1ba40849d438ff0a214461ac3b29e359ac",
+    "report/evidence/uart_autonomous/uart_diagnostic_tb-elaborate.txt": "89dc4d7876cf9551b28da09be376171db7bd5a90d7469a1a1cc1a8ebb8a88e14",
+    "report/evidence/uart_autonomous/uart_diagnostic_tb.txt": "359886bdad7a67cd946b40cd04d0455af8a4a27c1d1659eb1a3d1ae1528430c7",
+    "report/evidence/uart_autonomous/uart_rx_tb-elaborate.txt": "1e71f34b7bdc1fbd61c6959267bf701facf16f813eaee6a7c21db172f49606ae",
+    "report/evidence/uart_autonomous/uart_rx_tb.txt": "58e5db375d45dfd9c747b4cf4e7b015cc25fb71c031e17a4d451435db4e46276",
+    "report/evidence/uart_autonomous/uart_tx_tb-elaborate.txt": "04b42c842eaf2f563671e3652b9f4cb999cab618c338d15aac99266838e31a4a",
+    "report/evidence/uart_autonomous/uart_tx_tb.txt": "64f1d8acb23fd3c5c7e7f988ddaa06eb91e32c68f24022a70af4dadafa575fd9",
+    "report/evidence/uart_autonomous/utilization.rpt": "5c534c921c6894b6c853698b8e9b241af3cbf81fe24f7025a5e18d3e25f7b4d7",
+    "report/evidence/uart_autonomous/zynq_uart_autonomous_tb-elaborate.txt": "1f7edc7b6179d765a5ccec0573925c8f75de0f7193d07151e07133bc24a97b67",
+    "report/evidence/uart_autonomous/zynq_uart_autonomous_tb.txt": "169beb6ff06b236c46453e7898c895a2c9007a000e8473ae096fefde521962fa",
+    "report/evidence/uart_autonomous/zynq_uart_bridge_tb-elaborate.txt": "fb567c69a9dc20c45e58616350d31237039ed44da1d64ef3b3264a88fb0bf589",
+    "report/evidence/uart_autonomous/zynq_uart_bridge_tb.txt": "d001c49b821c62f3d1eed9545bbabbf5dfaee4a8aa99d8cb3257f6218f1c22f3"
+  },
+  "hardware_actions": [],
+  "exit_code": 0,
+  "public_log_normalization": "Trailing whitespace/extra EOF blank lines normalized; original raw logs retained privately in final staging directory; diagnostics unchanged."
+}

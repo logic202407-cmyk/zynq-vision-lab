@@ -1,0 +1,24 @@
+2026-10-31: installed Vivado reports v2024.2, SW Build 5239630.
+Private Codex TOML VIVADO_PATH updated to installed 2024.2; TOML parse PASS.
+Original config backed up privately outside Git. No config or credentials uploaded.
+
+Plugin built-in vivado_start proxy: FAILED before Vivado output (child exit 1).
+Fallback: hidden local batch Vivado, webserver, vwait event loop.
+vivado_connect: SUCCESS, Vivado Version 2024.2, Mode TCL.
+vivado_execute (webserver):
+  list [version -short] [pwd] [llength [get_parts xc7z100ffg900-2]]
+  output: 2024.2 R:/evidence/autonomous-uart 1
+  exit_code: 0
+
+Reproducible build/start_vivado_local_mcp.ps1 independently tested on port 18884.
+PowerShell syntax parse: PASS. Launcher exit_code: 0.
+vivado_connect: SUCCESS, Vivado Version 2024.2, Mode TCL.
+vivado_execute (same command):
+  output: 2024.2 R:/evidence/autonomous-uart/plugin-launcher-test 1
+  exit_code: 0
+
+Plugin source ran OOC synthesis/place/route and wrote DCP, but final puts failed
+because stdout absent; source exit_code 1. Not counted as a complete PASS.
+Build Tcl now writes an explicit receipt and guards stdout; final batch build
+and actual exit recorded separately in implementation.txt.
+No hardware commands, JTAG or serial I/O invoked.

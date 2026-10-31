@@ -1,0 +1,156 @@
+{
+  "base_commit": "8a3c7802fcb67ff12977482eb392ff212f323457",
+  "scope": "offline only; no hardware; OOC 100MHz assumption is not board timing signoff",
+  "source_sha256": {
+    "src/rtl/uart_tx_8n1.v": "1cb9b21a239380e46b2e1eb40310b5bd69aee54565084224b9d74aff6546d58f",
+    "src/rtl/uart_rx.v": "bd821bc063edd8e5e88088d34916ddab0d7ac7a35320823944c25b852fca2324",
+    "src/rtl/zynq_uart_autonomous.v": "572697287d38d9d2bbfeadedb112197bb1ddbdc4a02863b07d1af6fd8a4dd4dd",
+    "src/rtl/zynq_uart_bridge.v": "62b30c71d626baa48cca7702074ab44b5895721a2648ba88cb911ebf64238895",
+    "src/rtl/zynq_uart_diagnostic.v": "58ed65efb2fc61ac5c635cf752fc2b767d27f649c2dad4c2445677ccea785d3d",
+    "sim/uart_tx_tb.v": "6268ceb223c8ca74ca6c5ca96d490a30b73bfd20db554697e1b17c8829e4f84e",
+    "sim/uart_rx_tb.v": "3ed31f4a5fe7ef2b7e96de086d50df925342e9aaac0d3160be6c3573098f2790",
+    "sim/zynq_uart_autonomous_tb.v": "7dd20888d652fda8c1cda2bfcc4adfcb3b44ebddccf2795660d5e4062c939744",
+    "sim/zynq_uart_bridge_tb.v": "afe3071ce4623befe3360d45072607b277d25ee226b7da5a8224875a36b7b486",
+    "sim/uart_diagnostic_tb.v": "48bfff162de497dd616bbbf7748495def5d7304581cab785f82023b313556681",
+    "build/check_uart_autonomous.tcl": "568c7951b738843daed7d4b7271bfae1a33ca16b3a83f3221e42e506ee765162"
+  },
+  "runner_sha256": "e7801e1b3e2b51244615652afa587ddf7606bb97fe674390b537963960eb8106",
+  "passes": {
+    "uart_tx_tb": "UART_TX_TB_PASS checks=2222341 bytes=256",
+    "uart_rx_tb": "UART_RX_TB_PASS checks=774 bytes=770 errors=1",
+    "zynq_uart_autonomous_tb": "ZYNQ_UART_AUTONOMOUS_TB_PASS checks=118 sent_bytes=40 received_bytes=31 completed=8 rejected=1",
+    "zynq_uart_bridge_tb": "ZYNQ_UART_BRIDGE_TB_PASS",
+    "uart_diagnostic_tb": "UART_DIAGNOSTIC_TB_PASS checks=1384 divisor=868 baud=115207"
+  },
+  "steps": [
+    {
+      "name": "compile",
+      "tool": "xvlog",
+      "arguments": [
+        "uart_tx_8n1.v",
+        "uart_rx.v",
+        "zynq_uart_autonomous.v",
+        "zynq_uart_bridge.v",
+        "zynq_uart_diagnostic.v",
+        "uart_tx_tb.v",
+        "uart_rx_tb.v",
+        "zynq_uart_autonomous_tb.v",
+        "zynq_uart_bridge_tb.v",
+        "uart_diagnostic_tb.v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "uart_tx_tb-elaborate",
+      "tool": "xelab",
+      "arguments": [
+        "uart_tx_tb",
+        "-s",
+        "uart_tx_tb_snapshot"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "uart_tx_tb",
+      "tool": "xsim",
+      "arguments": [
+        "uart_tx_tb_snapshot",
+        "-runall"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "uart_rx_tb-elaborate",
+      "tool": "xelab",
+      "arguments": [
+        "uart_rx_tb",
+        "-s",
+        "uart_rx_tb_snapshot"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "uart_rx_tb",
+      "tool": "xsim",
+      "arguments": [
+        "uart_rx_tb_snapshot",
+        "-runall"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "zynq_uart_autonomous_tb-elaborate",
+      "tool": "xelab",
+      "arguments": [
+        "zynq_uart_autonomous_tb",
+        "-s",
+        "zynq_uart_autonomous_tb_snapshot"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "zynq_uart_autonomous_tb",
+      "tool": "xsim",
+      "arguments": [
+        "zynq_uart_autonomous_tb_snapshot",
+        "-runall"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "zynq_uart_bridge_tb-elaborate",
+      "tool": "xelab",
+      "arguments": [
+        "zynq_uart_bridge_tb",
+        "-s",
+        "zynq_uart_bridge_tb_snapshot"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "zynq_uart_bridge_tb",
+      "tool": "xsim",
+      "arguments": [
+        "zynq_uart_bridge_tb_snapshot",
+        "-runall"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "uart_diagnostic_tb-elaborate",
+      "tool": "xelab",
+      "arguments": [
+        "uart_diagnostic_tb",
+        "-s",
+        "uart_diagnostic_tb_snapshot"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "uart_diagnostic_tb",
+      "tool": "xsim",
+      "arguments": [
+        "uart_diagnostic_tb_snapshot",
+        "-runall"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "implementation",
+      "tool": "vivado",
+      "arguments": [
+        "-mode",
+        "batch",
+        "-nojournal",
+        "-log",
+        "implementation.log",
+        "-source",
+        "check_uart_autonomous.tcl"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "implementation": true,
+  "hardware_actions": [],
+  "exit_code": 0
+}

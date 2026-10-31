@@ -1,0 +1,22 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/autonomous-uart/final/uart_tx_8n1.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_tx_8n1
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/autonomous-uart/final/uart_rx.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/autonomous-uart/final/zynq_uart_autonomous.v" into library work
+INFO: [VRFC 10-311] analyzing module zynq_uart_autonomous
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/autonomous-uart/final/zynq_uart_bridge.v" into library work
+INFO: [VRFC 10-311] analyzing module zynq_uart_bridge
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/autonomous-uart/final/zynq_uart_diagnostic.v" into library work
+INFO: [VRFC 10-311] analyzing module zynq_uart_diagnostic
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/autonomous-uart/final/uart_tx_tb.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_tx_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/autonomous-uart/final/uart_rx_tb.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_rx_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/autonomous-uart/final/zynq_uart_autonomous_tb.v" into library work
+INFO: [VRFC 10-311] analyzing module zynq_uart_autonomous_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/autonomous-uart/final/zynq_uart_bridge_tb.v" into library work
+INFO: [VRFC 10-311] analyzing module zynq_uart_bridge_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/autonomous-uart/final/uart_diagnostic_tb.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_diagnostic_tb
+
+EXIT_CODE=0

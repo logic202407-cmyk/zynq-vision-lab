@@ -1,0 +1,18 @@
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Vivado/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe zynq_uart_autonomous_tb -s zynq_uart_autonomous_tb_snapshot
+Multi-threading is on. Using 22 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.uart_tx_8n1(CLOCK_HZ=100000000)
+Compiling module work.uart_rx(CLOCK_HZ=100000000)
+Compiling module work.zynq_uart_autonomous(CLOCK_HZ=10...
+Compiling module work.zynq_uart_autonomous_tb
+Built simulation snapshot zynq_uart_autonomous_tb_snapshot
+
+EXIT_CODE=0
