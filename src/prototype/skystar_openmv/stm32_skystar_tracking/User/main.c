@@ -19,9 +19,23 @@ static void trip(safe_reason_t reason)
 {
     safety_trip(&guardian,&control,reason); disarm_queues();
 }
+static void poll_safety(uint32_t now);
+#ifdef S1ACK1
+#include "s1ack.h"
+#endif
 static void status(void)
 {
     char text[512]; int n;
+#ifdef S1ACK1
+    /* Keep at least 256 bytes for one transaction response. */
+    if (board_tx_free()<384u) return;
+    n=snprintf(text,sizeof(text),"S1STAT SAFE %s WHY %s NONCE %08lx%08lx SEQ %lu TX_DROP %lu FW 15 CAP S1ACK1\r\n",
+        safety_state_name(&guardian),safety_reason_name(&guardian),
+        (unsigned long)guardian.nonce_hi,(unsigned long)guardian.nonce_lo,
+        (unsigned long)guardian.sequence,(unsigned long)tx_dropped);
+    if(n<0 || n>=128 || !board_send(text)) ++tx_dropped;
+    return;
+#endif
     /* FRAME is local to legacy vision reception, not an end-to-end frame ID. */
     n=snprintf(text,sizeof(text),"P0V 1 STATE %s MODE %s VALID %u ENABLED %u DX %d DY %d PAN %u TLT %u REQ_PAN %u REQ_TLT %u SESSION 1 FRAME %lu RX_MS %lu SOURCE_MS 0 REJECT %s BAD %lu PARSE_BAD %lu PKP %ld PKI %ld PKD %ld TKP %ld TKI %ld TKD %ld\r\n",
         control.valid ? "tracking":"waiting",control.automatic ? "auto":"manual",
@@ -48,6 +62,10 @@ static void console_expire(uint32_t now)
 static void console_feed(uint8_t byte, uint32_t received, uint32_t now)
 {
     int accepted;
+#ifdef S1ACK1
+    ack_request_t request;
+    const char *command;
+#endif
     uint32_t prior_sequence;
     safe_state_t prior_state;
     console_expire(received);
@@ -60,13 +78,28 @@ static void console_feed(uint8_t byte, uint32_t received, uint32_t now)
             line[used]=0;
             if (!dropping && !board_button()) {
                 prior_state=guardian.state; prior_sequence=guardian.sequence;
+                #ifdef S1ACK1
+                command=ack_prepare(line,&request);
+                if (!command) { used=dropping=0; return; }
+                if (request.kind && board_tx_free()<256u) {
+                    trip(SAFE_PARSE); guardian.last_reject="tx_full";
+                    ++tx_dropped; used=dropping=0; return;
+                }
+                accepted=safety_command(&guardian,&control,command,received,now);
+#else
                 accepted=safety_command(&guardian,&control,line,received,now);
+#endif
                 if (accepted && (prior_state!=guardian.state ||
                     (prior_sequence!=guardian.sequence && guardian.mode_ms==received &&
                      strstr(line," hb*")==0))) flush_vision();
                 if (!accepted) (void)board_send("ERROR guarded_command\r\n");
                 if (!safety_armed(&guardian)) disarm_queues();
                 else if (accepted && !board_guard_refresh(guardian.live_ms)) trip(SAFE_LINK_TIMEOUT);
+#ifdef S1ACK1
+                poll_safety(now);
+                board_outputs(safety_armed(&guardian)&&control.outputs,control.pan_us,control.tilt_us);
+                ack_reply(&request,accepted);
+#endif
                 status();
             } else if (board_button()) trip(SAFE_KEY);
             used=dropping=0;

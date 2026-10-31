@@ -1,0 +1,1 @@
+MOTION_S1_OOC_PASS latches=0; candidate 100MHz only; no IO timing or hardware signoff

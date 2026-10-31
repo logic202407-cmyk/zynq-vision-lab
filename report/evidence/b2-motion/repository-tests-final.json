@@ -1,0 +1,10 @@
+[
+  {
+    "name": "repository",
+    "exit_code": 0
+  },
+  {
+    "name": "python-tests",
+    "exit_code": 0
+  }
+]

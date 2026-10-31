@@ -24,6 +24,10 @@ int board_button(void);
 void board_outputs(int enabled, uint16_t pan, uint16_t tilt);
 int board_send(const char *line);
 void board_poll_tx(void);
+#ifdef S1ACK1
+unsigned board_tx_free(void);
+void board_pwm_snapshot(unsigned *mask, unsigned *pan, unsigned *tilt);
+#endif
 #define BOARD_GUARD_LEASE 1u
 #define BOARD_GUARD_KEY 2u
 #define BOARD_GUARD_UART 3u

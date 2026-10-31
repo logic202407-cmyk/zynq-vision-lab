@@ -263,3 +263,17 @@ void board_poll_tx(void)
         R(CONSOLE+4)=(uint8_t)tx[tx_tail]; tx_tail=(tx_tail+1)&511u;
     }
 }
+
+#ifdef S1ACK1
+unsigned board_tx_free(void) { return (tx_tail-tx_head-1u)&511u; }
+void board_pwm_snapshot(unsigned *mask, unsigned *pan, unsigned *tilt)
+{
+    uint32_t cc, mode;
+    __disable_irq();
+    cc=R(TIM4+0x20); mode=R(GPIOD);
+    *mask=((cc&1u) && ((mode>>24)&3u)==2u ? 1u:0u) |
+          ((cc&16u) && ((mode>>26)&3u)==2u ? 2u:0u);
+    *pan=R(TIM4+0x34); *tilt=R(TIM4+0x38);
+    __enable_irq();
+}
+#endif

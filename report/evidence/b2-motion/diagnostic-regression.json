@@ -1,0 +1,53 @@
+{
+  "scope": "B2-0 coupled diagnostic only; not S1ACK1 or motion acceptance",
+  "pass_marker": "B2_0_XSIM_REAL_C_PASS",
+  "simulated_us": 150000,
+  "wall_seconds": 18.657,
+  "uart_to_mcu": "73740d0a73746f700d0a",
+  "mcu_tx_bytes": 943,
+  "fpga_rx_bytes": 943,
+  "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nP0V 1 STATE waiting MODE manual VALID 0 ENABLED 0 DX 0 DY 0 PAN 1500 TLT 1500 REQ_PAN 1500 REQ_TLT 1500 SESSION 1 FRAME 0 RX_MS 0 SOURCE_MS 0 REJECT none BAD 0 PARSE_BAD 0 PKP 300 PKI 50 PKD 0 TKP 500 TKI 80 TKD 0\r\nS1STAT SAFE stopped WHY boot NONCE 1234000112340002 SEQ 0 TX_DROP 0 FW 15\r\nP0V 1 STATE waiting MODE manual VALID 0 ENABLED 0 DX 0 DY 0 PAN 1500 TLT 1500 REQ_PAN 1500 REQ_TLT 1500 SESSION 1 FRAME 0 RX_MS 0 SOURCE_MS 0 REJECT none BAD 0 PARSE_BAD 0 PKP 300 PKI 50 PKD 0 TKP 500 TKI 80 TKD 0\r\nS1STAT SAFE stopped WHY stop NONCE 1234000112340002 SEQ 0 TX_DROP 0 FW 15\r\nP0V 1 STATE waiting MODE manual VALID 0 ENABLED 0 DX 0 DY 0 PAN 1500 TLT 1500 REQ_PAN 1500 REQ_TLT 1500 SESSION 1 FRAME 0 RX_MS 0 SOURCE_MS 0 REJECT none BAD 0 PARSE_BAD 0 PKP 300 PKI 50 PKD 0 TKP 500 TKI 80 TKD 0\r\nS1STAT SAFE stopped WHY stop NONCE 1234000112340002 SEQ 0 TX_DROP 0 FW 15\r\n",
+  "pwm_enabled": false,
+  "fpga_done_count": 2,
+  "steps": [
+    {
+      "name": "c-build",
+      "exit_code": 0
+    },
+    {
+      "name": "compile",
+      "exit_code": 0
+    },
+    {
+      "name": "elaborate",
+      "exit_code": 0
+    }
+  ],
+  "xsim_status": 1,
+  "source_sha256": {
+    "sim/cosim/stm32_adapter.c": "93692657f69efdb23caf5cdb8280f26ee2ffba587394b8b1ba3159d875adf785",
+    "sim/cosim/uart_c_bridge_tb.v": "f912ec84a5634407a7fcb49f0780b603ae70535e4c9fa222358455879900ef3f",
+    "tools/xsim_c_bridge.py": "73dad24d78f9f3cf9196a28b658b08583acf41bffef527157ee2127968cef6b2",
+    "tools/check_uart_c_cosim.py": "6a01b08f34ad9f9d5eb25b46fa6519c10c24e0d579bde5aa9ce06429abace1ba",
+    "src/rtl/uart_tx_8n1.v": "1cb9b21a239380e46b2e1eb40310b5bd69aee54565084224b9d74aff6546d58f",
+    "src/rtl/uart_rx.v": "bd821bc063edd8e5e88088d34916ddab0d7ac7a35320823944c25b852fca2324",
+    "src/rtl/zynq_uart_autonomous.v": "572697287d38d9d2bbfeadedb112197bb1ddbdc4a02863b07d1af6fd8a4dd4dd",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.c": "625f1d60c7203216ddcf9b3aedf79253b04a84dfcee446ed8c9e8cfd10f632fc",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.h": "d8a80fb0a8c0b1647f73b56b634df6458196d7910f56777a8b1e207cf6e11bab",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c": "f58fce33efe0fdd12062d9f1039db54263f09b8c2794a236f6ad0e6c64f726ba",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/s1ack.h": "a8262c465e29f27e4908b564008c06155d01caf292cc66703c9fdaeea565c843",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.c": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.h": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/tracking.c": "4e5aa8fe89f9038c6e074e9eb50f7a4a860d3c0d93502ff2e276f3e214d10429",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/tracking.h": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819",
+    "src/prototype/skystar_openmv/stm32_project/User/pid.c": "a8c2aaf9a13ee6da79e239c6326cb73dc609d4fc020044226de571ffd4b6109b",
+    "src/prototype/skystar_openmv/stm32_project/User/pid.h": "9165579899b287df4be202e21700378945bee0a700ce787606d12f062c03521c"
+  },
+  "hardware_actions": [],
+  "limitations": [
+    "test register model, not MCU instruction/peripheral timing",
+    "foreground wrapper mirrors main loop; IRQ race/preload model not yet covered",
+    "no motion generator or ACK extension implemented"
+  ],
+  "exit_code": 0
+}

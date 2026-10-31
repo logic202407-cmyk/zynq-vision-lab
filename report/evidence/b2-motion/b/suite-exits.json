@@ -1,0 +1,42 @@
+[
+  {
+    "case": "bad_ack_crc",
+    "exit_code": 0
+  },
+  {
+    "case": "late_ack",
+    "exit_code": 0
+  },
+  {
+    "case": "mismatch_sequence",
+    "exit_code": 0
+  },
+  {
+    "case": "mismatch_nonce",
+    "exit_code": 0
+  },
+  {
+    "case": "mismatch_opcode",
+    "exit_code": 0
+  },
+  {
+    "case": "mismatch_request_crc",
+    "exit_code": 0
+  },
+  {
+    "case": "mismatch_target",
+    "exit_code": 0
+  },
+  {
+    "case": "recovery",
+    "exit_code": 0
+  },
+  {
+    "case": "boundaries",
+    "exit_code": 0
+  },
+  {
+    "case": "sync_crc",
+    "exit_code": 0
+  }
+]

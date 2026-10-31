@@ -1,0 +1,21 @@
+{
+  "pass": "MOTION_NETLIST_PASS",
+  "bytes": 45,
+  "scope": "routed functional smoke; no SDF or hardware timing",
+  "retry": "reuse unchanged xvlog/xelab snapshot after wall-time timeout; 600 seconds; assertions unchanged",
+  "steps": [
+    {
+      "name": "xvlog",
+      "exit_code": 0
+    },
+    {
+      "name": "xelab",
+      "exit_code": 0
+    },
+    {
+      "name": "xsim_retry",
+      "exit_code": 0
+    }
+  ],
+  "exit_code": 0
+}

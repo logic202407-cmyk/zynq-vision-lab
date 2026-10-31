@@ -4,7 +4,7 @@
 #include <assert.h>
 #include "tracking.h"
 static struct { uint32_t address,value; } regs[256];
-static unsigned nr,rng_reads;
+static unsigned nr,rng_reads,rng_epoch;
 uint32_t *board_test_register(uint32_t address) {
     unsigned i;
     for(i=0;i<nr;i++) if(regs[i].address==address) {
@@ -14,7 +14,7 @@ uint32_t *board_test_register(uint32_t address) {
             else regs[i].value&=~(1u<<25);
         }
         if(address==0x50060804u) regs[i].value=1;
-        if(address==0x50060808u) regs[i].value=0x12340000u+(++rng_reads);
+        if(address==0x50060808u) regs[i].value=0x12340000u+(rng_epoch<<8)+(++rng_reads);
         return &regs[i].value;
     }
     assert(nr<256);regs[nr++].address=address;return board_test_register(address);
@@ -58,3 +58,12 @@ API unsigned model_reg(unsigned address) { return R(address); }
 API unsigned model_state(void) { return guardian.state; }
 API unsigned model_reason(void) { return guardian.reason; }
 API unsigned model_live(void) { return guardian.live_ms; }
+
+API void model_tx_fill(void) { while(board_send("x")) {} }
+API unsigned model_nonce_hi(void) { return guardian.nonce_hi; }
+API unsigned model_nonce_lo(void) { return guardian.nonce_lo; }
+API unsigned model_sequence(void) { return guardian.sequence; }
+API unsigned model_pan(void) { return control.pan_us; }
+API unsigned model_tilt(void) { return control.tilt_us; }
+
+API void model_reboot(void) { ++rng_epoch;model_init(); }

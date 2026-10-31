@@ -1,0 +1,23 @@
+{
+  "auth_ms": 30000,
+  "legacy": true,
+  "sha256": {
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.c": "625f1d60c7203216ddcf9b3aedf79253b04a84dfcee446ed8c9e8cfd10f632fc",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.h": "d8a80fb0a8c0b1647f73b56b634df6458196d7910f56777a8b1e207cf6e11bab",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c": "f58fce33efe0fdd12062d9f1039db54263f09b8c2794a236f6ad0e6c64f726ba",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/s1ack.h": "a70d636465c9d0858ad444516cf1ab79a247c36467e38f95f5b3605cf4cb5101",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.c": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.h": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/tracking.c": "4e5aa8fe89f9038c6e074e9eb50f7a4a860d3c0d93502ff2e276f3e214d10429",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/tracking.h": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819",
+    "src/prototype/skystar_openmv/stm32_project/User/pid.c": "a8c2aaf9a13ee6da79e239c6326cb73dc609d4fc020044226de571ffd4b6109b",
+    "src/prototype/skystar_openmv/stm32_project/User/pid.h": "9165579899b287df4be202e21700378945bee0a700ce787606d12f062c03521c",
+    "src/rtl/uart_tx_8n1.v": "1cb9b21a239380e46b2e1eb40310b5bd69aee54565084224b9d74aff6546d58f",
+    "src/rtl/uart_rx.v": "bd821bc063edd8e5e88088d34916ddab0d7ac7a35320823944c25b852fca2324",
+    "src/rtl/zynq_motion_s1.v": "ae43560fc53ca3bc362541b3a21b314a54ea4b992dfd52aef39e74f7f418081a",
+    "sim/cosim/stm32_adapter.c": "93692657f69efdb23caf5cdb8280f26ee2ffba587394b8b1ba3159d875adf785",
+    "sim/cosim/motion_c_bridge_tb.v": "807f4798c0cbf5736a665e17167092cdaec7bd649083d5dd910ea8fbb5280ab5",
+    "tools/check_motion_cosim.py": "e14d59d122a6d240f1526c5842184cbdfa081f914d4f881fa3396bf121c99845",
+    "tools/xsim_c_bridge.py": "73dad24d78f9f3cf9196a28b658b08583acf41bffef527157ee2127968cef6b2"
+  }
+}

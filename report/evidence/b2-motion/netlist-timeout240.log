@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# xsim v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Sat Oct 31 21:43:08 2026
+# Process ID         : 9832
+# Current directory  : R:/evidence/b2-motion/netlist-routed-final
+# Command line       : xsim.exe -mode tcl -source {xsim.dir/gate/xsim_script.tcl}
+# Log file           : R:/evidence/b2-motion/netlist-routed-final/xsim.log
+# Journal file       : R:/evidence/b2-motion/netlist-routed-final\xsim.jou
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Swap memory        : 34832 MB
+# Total Virtual      : 51777 MB
+# Available Virtual  : 9064 MB
+#-----------------------------------------------------------
+source xsim.dir/gate/xsim_script.tcl
+# xsim {gate} -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+MOTION_NETLIST_PASS 45 exact UART bytes and safe query-only state
+$finish called at time : 4113665100 ps : File "R:/evidence/b2-motion/netlist-routed-final/tb.v" Line 26
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:04:19 . Memory (MB): peak = 206.676 ; gain = 0.000
+## quit
+INFO: xsimkernel Simulation Memory Usage: 181780 KB (Peak: 181780 KB), Simulation CPU Usage: 234343 ms
+INFO: [Common 17-206] Exiting xsim at Sat Oct 31 21:47:29 2026...
