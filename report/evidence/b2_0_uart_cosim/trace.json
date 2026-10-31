@@ -1,0 +1,4777 @@
+[
+  {
+    "ns": 1000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 88000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 175000,
+    "event": "MCU_TX",
+    "byte": 89
+  },
+  {
+    "ns": 262000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 349000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 436000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 523000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 610000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 697000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 784000,
+    "event": "MCU_TX",
+    "byte": 52
+  },
+  {
+    "ns": 871000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 958000,
+    "event": "MCU_TX",
+    "byte": 55
+  },
+  {
+    "ns": 1045000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 1132000,
+    "event": "MCU_TX",
+    "byte": 118
+  },
+  {
+    "ns": 1219000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 1306000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 1393000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 1480000,
+    "event": "MCU_TX",
+    "byte": 71
+  },
+  {
+    "ns": 1567000,
+    "event": "MCU_TX",
+    "byte": 85
+  },
+  {
+    "ns": 1654000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 1741000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 1828000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 1915000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 2002000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 2089000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 2176000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 2263000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 2350000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 2437000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 2524000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 2611000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 2698000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 2785000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 2872000,
+    "event": "MCU_TX",
+    "byte": 72
+  },
+  {
+    "ns": 2959000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 3046000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 3133000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 3220000,
+    "event": "MCU_TX",
+    "byte": 54
+  },
+  {
+    "ns": 3307000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 3394000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 3481000,
+    "event": "MCU_TX",
+    "byte": 87
+  },
+  {
+    "ns": 3568000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 3655000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 3742000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 3829000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 3916000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 4003000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 4090000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 4177000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 4264000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 4351000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 4438000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 4525000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 4612000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 4699000,
+    "event": "MCU_TX",
+    "byte": 61
+  },
+  {
+    "ns": 4786000,
+    "event": "MCU_TX",
+    "byte": 85
+  },
+  {
+    "ns": 4873000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 4960000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 5047000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 5134000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 5221000,
+    "event": "MCU_TX",
+    "byte": 51
+  },
+  {
+    "ns": 5308000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 5395000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 5482000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 5569000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 5656000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 5743000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 5830000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 5917000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 6004000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 6091000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 6178000,
+    "event": "MCU_TX",
+    "byte": 13
+  },
+  {
+    "ns": 6265000,
+    "event": "MCU_TX",
+    "byte": 10
+  },
+  {
+    "ns": 10084000,
+    "event": "MCU_RX",
+    "byte": 115,
+    "stop": 1
+  },
+  {
+    "ns": 10171000,
+    "event": "MCU_RX",
+    "byte": 116,
+    "stop": 1
+  },
+  {
+    "ns": 10257000,
+    "event": "MCU_RX",
+    "byte": 13,
+    "stop": 1
+  },
+  {
+    "ns": 10257000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 10344000,
+    "event": "MCU_RX",
+    "byte": 10,
+    "stop": 1
+  },
+  {
+    "ns": 10344000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 10431000,
+    "event": "MCU_TX",
+    "byte": 86
+  },
+  {
+    "ns": 10518000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 10605000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 10692000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 10779000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 10866000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 10953000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 11040000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 11127000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 11214000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 11301000,
+    "event": "MCU_TX",
+    "byte": 119
+  },
+  {
+    "ns": 11388000,
+    "event": "MCU_TX",
+    "byte": 97
+  },
+  {
+    "ns": 11475000,
+    "event": "MCU_TX",
+    "byte": 105
+  },
+  {
+    "ns": 11562000,
+    "event": "MCU_TX",
+    "byte": 116
+  },
+  {
+    "ns": 11649000,
+    "event": "MCU_TX",
+    "byte": 105
+  },
+  {
+    "ns": 11736000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 11823000,
+    "event": "MCU_TX",
+    "byte": 103
+  },
+  {
+    "ns": 11910000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 11997000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 12084000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 12171000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 12258000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 12345000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 12432000,
+    "event": "MCU_TX",
+    "byte": 109
+  },
+  {
+    "ns": 12519000,
+    "event": "MCU_TX",
+    "byte": 97
+  },
+  {
+    "ns": 12606000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 12693000,
+    "event": "MCU_TX",
+    "byte": 117
+  },
+  {
+    "ns": 12780000,
+    "event": "MCU_TX",
+    "byte": 97
+  },
+  {
+    "ns": 12867000,
+    "event": "MCU_TX",
+    "byte": 108
+  },
+  {
+    "ns": 12954000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 13041000,
+    "event": "MCU_TX",
+    "byte": 86
+  },
+  {
+    "ns": 13128000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 13215000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 13302000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 13389000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 13476000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 13563000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 13650000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 13737000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 13824000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 13911000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 13998000,
+    "event": "MCU_TX",
+    "byte": 66
+  },
+  {
+    "ns": 14085000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 14172000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 14259000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 14346000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 14433000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 14520000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 14607000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 14694000,
+    "event": "MCU_TX",
+    "byte": 88
+  },
+  {
+    "ns": 14781000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 14868000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 14955000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 15042000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 15129000,
+    "event": "MCU_TX",
+    "byte": 89
+  },
+  {
+    "ns": 15216000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 15303000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 15390000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 15477000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 15564000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 15651000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 15738000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 15825000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 15912000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 15999000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 16086000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 16173000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 16260000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 16347000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 16434000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 16521000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 16608000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 16695000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 16782000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 16869000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 16956000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 17043000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 17130000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 17217000,
+    "event": "MCU_TX",
+    "byte": 81
+  },
+  {
+    "ns": 17304000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 17391000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 17478000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 17565000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 17652000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 17739000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 17826000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 17913000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 18000000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 18087000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 18174000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 18261000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 18348000,
+    "event": "MCU_TX",
+    "byte": 81
+  },
+  {
+    "ns": 18435000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 18522000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 18609000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 18696000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 18783000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 18870000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 18957000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 19044000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 19131000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 19218000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 19305000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 19392000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 19479000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 19566000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 19653000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 19740000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 19827000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 19914000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 20001000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 20088000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 20175000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 20262000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 20349000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 20436000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 20523000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 20610000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 20697000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 20784000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 20871000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 20958000,
+    "event": "MCU_TX",
+    "byte": 88
+  },
+  {
+    "ns": 21045000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 21132000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 21219000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 21306000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 21393000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 21480000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 21567000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 21654000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 21741000,
+    "event": "MCU_TX",
+    "byte": 85
+  },
+  {
+    "ns": 21828000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 21915000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 22002000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 22089000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 22176000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 22263000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 22350000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 22437000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 22524000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 22611000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 22698000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 22785000,
+    "event": "MCU_TX",
+    "byte": 74
+  },
+  {
+    "ns": 22872000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 22959000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 23046000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 23133000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 23220000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 23307000,
+    "event": "MCU_TX",
+    "byte": 111
+  },
+  {
+    "ns": 23394000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 23481000,
+    "event": "MCU_TX",
+    "byte": 101
+  },
+  {
+    "ns": 23568000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 23655000,
+    "event": "MCU_TX",
+    "byte": 66
+  },
+  {
+    "ns": 23742000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 23829000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 23916000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 24003000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 24090000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 24177000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 24264000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 24351000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 24438000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 24525000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 24612000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 24699000,
+    "event": "MCU_TX",
+    "byte": 66
+  },
+  {
+    "ns": 24786000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 24873000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 24960000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 25047000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 25134000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 25221000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 25308000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 25395000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 25482000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 25569000,
+    "event": "MCU_TX",
+    "byte": 51
+  },
+  {
+    "ns": 25656000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 25743000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 25830000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 25917000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 26004000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 26091000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 26178000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 26265000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 26352000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 26439000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 26526000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 26613000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 26700000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 26787000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 26874000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 26961000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 27048000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 27135000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 27222000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 27309000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 27396000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 27483000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 27570000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 27657000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 27744000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 27831000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 27918000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 28005000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 28092000,
+    "event": "MCU_TX",
+    "byte": 56
+  },
+  {
+    "ns": 28179000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 28266000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 28353000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 28440000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 28527000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 28614000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 28701000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 28788000,
+    "event": "MCU_TX",
+    "byte": 13
+  },
+  {
+    "ns": 28875000,
+    "event": "MCU_TX",
+    "byte": 10
+  },
+  {
+    "ns": 28962000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 29049000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 29136000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 29223000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 29310000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 29397000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 29484000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 29571000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 29658000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 29745000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 29832000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 29919000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 30006000,
+    "event": "MCU_TX",
+    "byte": 115
+  },
+  {
+    "ns": 30093000,
+    "event": "MCU_TX",
+    "byte": 116
+  },
+  {
+    "ns": 30180000,
+    "event": "MCU_TX",
+    "byte": 111
+  },
+  {
+    "ns": 30267000,
+    "event": "MCU_TX",
+    "byte": 112
+  },
+  {
+    "ns": 30354000,
+    "event": "MCU_TX",
+    "byte": 112
+  },
+  {
+    "ns": 30441000,
+    "event": "MCU_TX",
+    "byte": 101
+  },
+  {
+    "ns": 30528000,
+    "event": "MCU_TX",
+    "byte": 100
+  },
+  {
+    "ns": 30615000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 30702000,
+    "event": "MCU_TX",
+    "byte": 87
+  },
+  {
+    "ns": 30789000,
+    "event": "MCU_TX",
+    "byte": 72
+  },
+  {
+    "ns": 30876000,
+    "event": "MCU_TX",
+    "byte": 89
+  },
+  {
+    "ns": 30963000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 31050000,
+    "event": "MCU_TX",
+    "byte": 98
+  },
+  {
+    "ns": 31137000,
+    "event": "MCU_TX",
+    "byte": 111
+  },
+  {
+    "ns": 31224000,
+    "event": "MCU_TX",
+    "byte": 111
+  },
+  {
+    "ns": 31311000,
+    "event": "MCU_TX",
+    "byte": 116
+  },
+  {
+    "ns": 31398000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 31485000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 31572000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 31659000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 31746000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 31833000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 31920000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 32007000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 32094000,
+    "event": "MCU_TX",
+    "byte": 50
+  },
+  {
+    "ns": 32181000,
+    "event": "MCU_TX",
+    "byte": 51
+  },
+  {
+    "ns": 32268000,
+    "event": "MCU_TX",
+    "byte": 52
+  },
+  {
+    "ns": 32355000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 32442000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 32529000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 32616000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 32703000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 32790000,
+    "event": "MCU_TX",
+    "byte": 50
+  },
+  {
+    "ns": 32877000,
+    "event": "MCU_TX",
+    "byte": 51
+  },
+  {
+    "ns": 32964000,
+    "event": "MCU_TX",
+    "byte": 52
+  },
+  {
+    "ns": 33051000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 33138000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 33225000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 33312000,
+    "event": "MCU_TX",
+    "byte": 50
+  },
+  {
+    "ns": 33399000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 33486000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 33573000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 33660000,
+    "event": "MCU_TX",
+    "byte": 81
+  },
+  {
+    "ns": 33747000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 33834000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 33921000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 34008000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 34095000,
+    "event": "MCU_TX",
+    "byte": 88
+  },
+  {
+    "ns": 34182000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 34269000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 34356000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 34443000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 34530000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 34617000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 34704000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 34791000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 34878000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 34965000,
+    "event": "MCU_TX",
+    "byte": 87
+  },
+  {
+    "ns": 35052000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 35139000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 35226000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 35313000,
+    "event": "MCU_TX",
+    "byte": 13
+  },
+  {
+    "ns": 35400000,
+    "event": "MCU_TX",
+    "byte": 10
+  },
+  {
+    "ns": 55085000,
+    "event": "MCU_RX",
+    "byte": 115,
+    "stop": 1
+  },
+  {
+    "ns": 55172000,
+    "event": "MCU_RX",
+    "byte": 116,
+    "stop": 1
+  },
+  {
+    "ns": 55258000,
+    "event": "MCU_RX",
+    "byte": 111,
+    "stop": 1
+  },
+  {
+    "ns": 55345000,
+    "event": "MCU_RX",
+    "byte": 112,
+    "stop": 1
+  },
+  {
+    "ns": 55432000,
+    "event": "MCU_RX",
+    "byte": 13,
+    "stop": 1
+  },
+  {
+    "ns": 55432000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 55519000,
+    "event": "MCU_RX",
+    "byte": 10,
+    "stop": 1
+  },
+  {
+    "ns": 55519000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 55606000,
+    "event": "MCU_TX",
+    "byte": 86
+  },
+  {
+    "ns": 55693000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 55780000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 55867000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 55954000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 56041000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 56128000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 56215000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 56302000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 56389000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 56476000,
+    "event": "MCU_TX",
+    "byte": 119
+  },
+  {
+    "ns": 56563000,
+    "event": "MCU_TX",
+    "byte": 97
+  },
+  {
+    "ns": 56650000,
+    "event": "MCU_TX",
+    "byte": 105
+  },
+  {
+    "ns": 56737000,
+    "event": "MCU_TX",
+    "byte": 116
+  },
+  {
+    "ns": 56824000,
+    "event": "MCU_TX",
+    "byte": 105
+  },
+  {
+    "ns": 56911000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 56998000,
+    "event": "MCU_TX",
+    "byte": 103
+  },
+  {
+    "ns": 57085000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 57172000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 57259000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 57346000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 57433000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 57520000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 57607000,
+    "event": "MCU_TX",
+    "byte": 109
+  },
+  {
+    "ns": 57694000,
+    "event": "MCU_TX",
+    "byte": 97
+  },
+  {
+    "ns": 57781000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 57868000,
+    "event": "MCU_TX",
+    "byte": 117
+  },
+  {
+    "ns": 57955000,
+    "event": "MCU_TX",
+    "byte": 97
+  },
+  {
+    "ns": 58042000,
+    "event": "MCU_TX",
+    "byte": 108
+  },
+  {
+    "ns": 58129000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 58216000,
+    "event": "MCU_TX",
+    "byte": 86
+  },
+  {
+    "ns": 58303000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 58390000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 58477000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 58564000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 58651000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 58738000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 58825000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 58912000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 58999000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 59086000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 59173000,
+    "event": "MCU_TX",
+    "byte": 66
+  },
+  {
+    "ns": 59260000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 59347000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 59434000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 59521000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 59608000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 59695000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 59782000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 59869000,
+    "event": "MCU_TX",
+    "byte": 88
+  },
+  {
+    "ns": 59956000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 60043000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 60130000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 60217000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 60304000,
+    "event": "MCU_TX",
+    "byte": 89
+  },
+  {
+    "ns": 60391000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 60478000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 60565000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 60652000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 60739000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 60826000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 60913000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 61000000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 61087000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 61174000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 61261000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 61348000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 61435000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 61522000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 61609000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 61696000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 61783000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 61870000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 61957000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 62044000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 62131000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 62218000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 62305000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 62392000,
+    "event": "MCU_TX",
+    "byte": 81
+  },
+  {
+    "ns": 62479000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 62566000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 62653000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 62740000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 62827000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 62914000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 63001000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 63088000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 63175000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 63262000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 63349000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 63436000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 63523000,
+    "event": "MCU_TX",
+    "byte": 81
+  },
+  {
+    "ns": 63610000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 63697000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 63784000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 63871000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 63958000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 64045000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 64132000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 64219000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 64306000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 64393000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 64480000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 64567000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 64654000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 64741000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 64828000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 64915000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 65002000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 65089000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 65176000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 65263000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 65350000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 65437000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 65524000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 65611000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 65698000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 65785000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 65872000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 65959000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 66046000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 66133000,
+    "event": "MCU_TX",
+    "byte": 88
+  },
+  {
+    "ns": 66220000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 66307000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 66394000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 66481000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 66568000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 66655000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 66742000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 66829000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 66916000,
+    "event": "MCU_TX",
+    "byte": 85
+  },
+  {
+    "ns": 67003000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 67090000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 67177000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 67264000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 67351000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 67438000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 67525000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 67612000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 67699000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 67786000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 67873000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 67960000,
+    "event": "MCU_TX",
+    "byte": 74
+  },
+  {
+    "ns": 68047000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 68134000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 68221000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 68308000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 68395000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 68482000,
+    "event": "MCU_TX",
+    "byte": 111
+  },
+  {
+    "ns": 68569000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 68656000,
+    "event": "MCU_TX",
+    "byte": 101
+  },
+  {
+    "ns": 68743000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 68830000,
+    "event": "MCU_TX",
+    "byte": 66
+  },
+  {
+    "ns": 68917000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 69004000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 69091000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 69178000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 69265000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 69352000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 69439000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 69526000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 69613000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 69700000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 69787000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 69874000,
+    "event": "MCU_TX",
+    "byte": 66
+  },
+  {
+    "ns": 69961000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 70048000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 70135000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 70222000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 70309000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 70396000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 70483000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 70570000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 70657000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 70744000,
+    "event": "MCU_TX",
+    "byte": 51
+  },
+  {
+    "ns": 70831000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 70918000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 71005000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 71092000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 71179000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 71266000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 71353000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 71440000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 71527000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 71614000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 71701000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 71788000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 71875000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 71962000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 72049000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 72136000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 72223000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 72310000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 72397000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 72484000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 72571000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 72658000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 72745000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 72832000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 72919000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 73006000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 73093000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 73180000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 73267000,
+    "event": "MCU_TX",
+    "byte": 56
+  },
+  {
+    "ns": 73354000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 73441000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 73528000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 73615000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 73702000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 73789000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 73876000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 73963000,
+    "event": "MCU_TX",
+    "byte": 13
+  },
+  {
+    "ns": 74050000,
+    "event": "MCU_TX",
+    "byte": 10
+  },
+  {
+    "ns": 74137000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 74224000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 74311000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 74398000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 74485000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 74572000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 74659000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 74746000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 74833000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 74920000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 75007000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 75094000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 75181000,
+    "event": "MCU_TX",
+    "byte": 115
+  },
+  {
+    "ns": 75268000,
+    "event": "MCU_TX",
+    "byte": 116
+  },
+  {
+    "ns": 75355000,
+    "event": "MCU_TX",
+    "byte": 111
+  },
+  {
+    "ns": 75442000,
+    "event": "MCU_TX",
+    "byte": 112
+  },
+  {
+    "ns": 75529000,
+    "event": "MCU_TX",
+    "byte": 112
+  },
+  {
+    "ns": 75616000,
+    "event": "MCU_TX",
+    "byte": 101
+  },
+  {
+    "ns": 75703000,
+    "event": "MCU_TX",
+    "byte": 100
+  },
+  {
+    "ns": 75790000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 75877000,
+    "event": "MCU_TX",
+    "byte": 87
+  },
+  {
+    "ns": 75964000,
+    "event": "MCU_TX",
+    "byte": 72
+  },
+  {
+    "ns": 76051000,
+    "event": "MCU_TX",
+    "byte": 89
+  },
+  {
+    "ns": 76138000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 76225000,
+    "event": "MCU_TX",
+    "byte": 115
+  },
+  {
+    "ns": 76312000,
+    "event": "MCU_TX",
+    "byte": 116
+  },
+  {
+    "ns": 76399000,
+    "event": "MCU_TX",
+    "byte": 111
+  },
+  {
+    "ns": 76486000,
+    "event": "MCU_TX",
+    "byte": 112
+  },
+  {
+    "ns": 76573000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 76660000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 76747000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 76834000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 76921000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 77008000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 77095000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 77182000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 77269000,
+    "event": "MCU_TX",
+    "byte": 50
+  },
+  {
+    "ns": 77356000,
+    "event": "MCU_TX",
+    "byte": 51
+  },
+  {
+    "ns": 77443000,
+    "event": "MCU_TX",
+    "byte": 52
+  },
+  {
+    "ns": 77530000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 77617000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 77704000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 77791000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 77878000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 77965000,
+    "event": "MCU_TX",
+    "byte": 50
+  },
+  {
+    "ns": 78052000,
+    "event": "MCU_TX",
+    "byte": 51
+  },
+  {
+    "ns": 78139000,
+    "event": "MCU_TX",
+    "byte": 52
+  },
+  {
+    "ns": 78226000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 78313000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 78400000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 78487000,
+    "event": "MCU_TX",
+    "byte": 50
+  },
+  {
+    "ns": 78574000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 78661000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 78748000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 78835000,
+    "event": "MCU_TX",
+    "byte": 81
+  },
+  {
+    "ns": 78922000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 79009000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 79096000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 79183000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 79270000,
+    "event": "MCU_TX",
+    "byte": 88
+  },
+  {
+    "ns": 79357000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 79444000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 79531000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 79618000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 79705000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 79792000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 79879000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 79966000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 80053000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 80140000,
+    "event": "MCU_TX",
+    "byte": 87
+  },
+  {
+    "ns": 80227000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 80314000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 80401000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 80488000,
+    "event": "MCU_TX",
+    "byte": 13
+  },
+  {
+    "ns": 80575000,
+    "event": "MCU_TX",
+    "byte": 10
+  },
+  {
+    "ns": 100000000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 100087000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 100174000,
+    "event": "MCU_TX",
+    "byte": 86
+  },
+  {
+    "ns": 100261000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 100348000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 100435000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 100522000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 100609000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 100696000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 100783000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 100870000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 100957000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 101044000,
+    "event": "MCU_TX",
+    "byte": 119
+  },
+  {
+    "ns": 101131000,
+    "event": "MCU_TX",
+    "byte": 97
+  },
+  {
+    "ns": 101218000,
+    "event": "MCU_TX",
+    "byte": 105
+  },
+  {
+    "ns": 101305000,
+    "event": "MCU_TX",
+    "byte": 116
+  },
+  {
+    "ns": 101392000,
+    "event": "MCU_TX",
+    "byte": 105
+  },
+  {
+    "ns": 101479000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 101566000,
+    "event": "MCU_TX",
+    "byte": 103
+  },
+  {
+    "ns": 101653000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 101740000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 101827000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 101914000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 102001000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 102088000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 102175000,
+    "event": "MCU_TX",
+    "byte": 109
+  },
+  {
+    "ns": 102262000,
+    "event": "MCU_TX",
+    "byte": 97
+  },
+  {
+    "ns": 102349000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 102436000,
+    "event": "MCU_TX",
+    "byte": 117
+  },
+  {
+    "ns": 102523000,
+    "event": "MCU_TX",
+    "byte": 97
+  },
+  {
+    "ns": 102610000,
+    "event": "MCU_TX",
+    "byte": 108
+  },
+  {
+    "ns": 102697000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 102784000,
+    "event": "MCU_TX",
+    "byte": 86
+  },
+  {
+    "ns": 102871000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 102958000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 103045000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 103132000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 103219000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 103306000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 103393000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 103480000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 103567000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 103654000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 103741000,
+    "event": "MCU_TX",
+    "byte": 66
+  },
+  {
+    "ns": 103828000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 103915000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 104002000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 104089000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 104176000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 104263000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 104350000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 104437000,
+    "event": "MCU_TX",
+    "byte": 88
+  },
+  {
+    "ns": 104524000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 104611000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 104698000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 104785000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 104872000,
+    "event": "MCU_TX",
+    "byte": 89
+  },
+  {
+    "ns": 104959000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 105046000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 105133000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 105220000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 105307000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 105394000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 105481000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 105568000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 105655000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 105742000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 105829000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 105916000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 106003000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 106090000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 106177000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 106264000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 106351000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 106438000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 106525000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 106612000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 106699000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 106786000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 106873000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 106960000,
+    "event": "MCU_TX",
+    "byte": 81
+  },
+  {
+    "ns": 107047000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 107134000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 107221000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 107308000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 107395000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 107482000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 107569000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 107656000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 107743000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 107830000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 107917000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 108004000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 108091000,
+    "event": "MCU_TX",
+    "byte": 81
+  },
+  {
+    "ns": 108178000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 108265000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 108352000,
+    "event": "MCU_TX",
+    "byte": 76
+  },
+  {
+    "ns": 108439000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 108526000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 108613000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 108700000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 108787000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 108874000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 108961000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 109048000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 109135000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 109222000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 109309000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 109396000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 109483000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 109570000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 109657000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 109744000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 109831000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 109918000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 110005000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 110092000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 110179000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 110266000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 110353000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 110440000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 110527000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 110614000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 110701000,
+    "event": "MCU_TX",
+    "byte": 88
+  },
+  {
+    "ns": 110788000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 110875000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 110962000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 111049000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 111136000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 111223000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 111310000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 111397000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 111484000,
+    "event": "MCU_TX",
+    "byte": 85
+  },
+  {
+    "ns": 111571000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 111658000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 111745000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 111832000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 111919000,
+    "event": "MCU_TX",
+    "byte": 77
+  },
+  {
+    "ns": 112006000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 112093000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 112180000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 112267000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 112354000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 112441000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 112528000,
+    "event": "MCU_TX",
+    "byte": 74
+  },
+  {
+    "ns": 112615000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 112702000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 112789000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 112876000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 112963000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 113050000,
+    "event": "MCU_TX",
+    "byte": 111
+  },
+  {
+    "ns": 113137000,
+    "event": "MCU_TX",
+    "byte": 110
+  },
+  {
+    "ns": 113224000,
+    "event": "MCU_TX",
+    "byte": 101
+  },
+  {
+    "ns": 113311000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 113398000,
+    "event": "MCU_TX",
+    "byte": 66
+  },
+  {
+    "ns": 113485000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 113572000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 113659000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 113746000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 113833000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 113920000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 114007000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 114094000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 114181000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 114268000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 114355000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 114442000,
+    "event": "MCU_TX",
+    "byte": 66
+  },
+  {
+    "ns": 114529000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 114616000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 114703000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 114790000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 114877000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 114964000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 115051000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 115138000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 115225000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 115312000,
+    "event": "MCU_TX",
+    "byte": 51
+  },
+  {
+    "ns": 115399000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 115486000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 115573000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 115660000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 115747000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 115834000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 115921000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 116008000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 116095000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 116182000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 116269000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 116356000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 116443000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 116530000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 116617000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 116704000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 116791000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 116878000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 116965000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 117052000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 117139000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 117226000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 117313000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 117400000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 117487000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 117574000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 117661000,
+    "event": "MCU_TX",
+    "byte": 73
+  },
+  {
+    "ns": 117748000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 117835000,
+    "event": "MCU_TX",
+    "byte": 56
+  },
+  {
+    "ns": 117922000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 118009000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 118096000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 118183000,
+    "event": "MCU_TX",
+    "byte": 75
+  },
+  {
+    "ns": 118270000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 118357000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 118444000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 118531000,
+    "event": "MCU_TX",
+    "byte": 13
+  },
+  {
+    "ns": 118618000,
+    "event": "MCU_TX",
+    "byte": 10
+  },
+  {
+    "ns": 118705000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 118792000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 118879000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 118966000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 119053000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 119140000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 119227000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 119314000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 119401000,
+    "event": "MCU_TX",
+    "byte": 65
+  },
+  {
+    "ns": 119488000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 119575000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 119662000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 119749000,
+    "event": "MCU_TX",
+    "byte": 115
+  },
+  {
+    "ns": 119836000,
+    "event": "MCU_TX",
+    "byte": 116
+  },
+  {
+    "ns": 119923000,
+    "event": "MCU_TX",
+    "byte": 111
+  },
+  {
+    "ns": 120010000,
+    "event": "MCU_TX",
+    "byte": 112
+  },
+  {
+    "ns": 120097000,
+    "event": "MCU_TX",
+    "byte": 112
+  },
+  {
+    "ns": 120184000,
+    "event": "MCU_TX",
+    "byte": 101
+  },
+  {
+    "ns": 120271000,
+    "event": "MCU_TX",
+    "byte": 100
+  },
+  {
+    "ns": 120358000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 120445000,
+    "event": "MCU_TX",
+    "byte": 87
+  },
+  {
+    "ns": 120532000,
+    "event": "MCU_TX",
+    "byte": 72
+  },
+  {
+    "ns": 120619000,
+    "event": "MCU_TX",
+    "byte": 89
+  },
+  {
+    "ns": 120706000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 120793000,
+    "event": "MCU_TX",
+    "byte": 115
+  },
+  {
+    "ns": 120880000,
+    "event": "MCU_TX",
+    "byte": 116
+  },
+  {
+    "ns": 120967000,
+    "event": "MCU_TX",
+    "byte": 111
+  },
+  {
+    "ns": 121054000,
+    "event": "MCU_TX",
+    "byte": 112
+  },
+  {
+    "ns": 121141000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 121228000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 121315000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 121402000,
+    "event": "MCU_TX",
+    "byte": 78
+  },
+  {
+    "ns": 121489000,
+    "event": "MCU_TX",
+    "byte": 67
+  },
+  {
+    "ns": 121576000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 121663000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 121750000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 121837000,
+    "event": "MCU_TX",
+    "byte": 50
+  },
+  {
+    "ns": 121924000,
+    "event": "MCU_TX",
+    "byte": 51
+  },
+  {
+    "ns": 122011000,
+    "event": "MCU_TX",
+    "byte": 52
+  },
+  {
+    "ns": 122098000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 122185000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 122272000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 122359000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 122446000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 122533000,
+    "event": "MCU_TX",
+    "byte": 50
+  },
+  {
+    "ns": 122620000,
+    "event": "MCU_TX",
+    "byte": 51
+  },
+  {
+    "ns": 122707000,
+    "event": "MCU_TX",
+    "byte": 52
+  },
+  {
+    "ns": 122794000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 122881000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 122968000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 123055000,
+    "event": "MCU_TX",
+    "byte": 50
+  },
+  {
+    "ns": 123142000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 123229000,
+    "event": "MCU_TX",
+    "byte": 83
+  },
+  {
+    "ns": 123316000,
+    "event": "MCU_TX",
+    "byte": 69
+  },
+  {
+    "ns": 123403000,
+    "event": "MCU_TX",
+    "byte": 81
+  },
+  {
+    "ns": 123490000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 123577000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 123664000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 123751000,
+    "event": "MCU_TX",
+    "byte": 84
+  },
+  {
+    "ns": 123838000,
+    "event": "MCU_TX",
+    "byte": 88
+  },
+  {
+    "ns": 123925000,
+    "event": "MCU_TX",
+    "byte": 95
+  },
+  {
+    "ns": 124012000,
+    "event": "MCU_TX",
+    "byte": 68
+  },
+  {
+    "ns": 124099000,
+    "event": "MCU_TX",
+    "byte": 82
+  },
+  {
+    "ns": 124186000,
+    "event": "MCU_TX",
+    "byte": 79
+  },
+  {
+    "ns": 124273000,
+    "event": "MCU_TX",
+    "byte": 80
+  },
+  {
+    "ns": 124360000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 124447000,
+    "event": "MCU_TX",
+    "byte": 48
+  },
+  {
+    "ns": 124534000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 124621000,
+    "event": "MCU_TX",
+    "byte": 70
+  },
+  {
+    "ns": 124708000,
+    "event": "MCU_TX",
+    "byte": 87
+  },
+  {
+    "ns": 124795000,
+    "event": "MCU_TX",
+    "byte": 32
+  },
+  {
+    "ns": 124882000,
+    "event": "MCU_TX",
+    "byte": 49
+  },
+  {
+    "ns": 124969000,
+    "event": "MCU_TX",
+    "byte": 53
+  },
+  {
+    "ns": 125056000,
+    "event": "MCU_TX",
+    "byte": 13
+  },
+  {
+    "ns": 125143000,
+    "event": "MCU_TX",
+    "byte": 10
+  }
+]

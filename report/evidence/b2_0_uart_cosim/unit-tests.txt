@@ -1,0 +1,48 @@
+test_display_median_rejects_three_frame_box_outlier (test_camera_viewer.ConversionTests.test_display_median_rejects_three_frame_box_outlier) ... ok
+test_pl_overlay_does_not_modify_raw_image (test_camera_viewer.ConversionTests.test_pl_overlay_does_not_modify_raw_image) ... ok
+test_pl_result_is_paired_with_its_own_video_frame (test_camera_viewer.ConversionTests.test_pl_result_is_paired_with_its_own_video_frame) ... ok
+test_rgb565_primary_colors (test_camera_viewer.ConversionTests.test_rgb565_primary_colors) ... ok
+test_wrong_size_rejected (test_camera_viewer.ConversionTests.test_wrong_size_rejected) ... ok
+test_centered_single_region_rounds_centroid_down (test_red_mask_reference.RedMaskReferenceTests.test_centered_single_region_rounds_centroid_down) ... ok
+test_distinguishable_red_and_green_regions (test_red_mask_reference.RedMaskReferenceTests.test_distinguishable_red_and_green_regions) ... ok
+test_full_resolution_all_red_frame (test_red_mask_reference.RedMaskReferenceTests.test_full_resolution_all_red_frame) ... ok
+test_no_target (test_red_mask_reference.RedMaskReferenceTests.test_no_target) ... ok
+test_partially_occluded_red_region (test_red_mask_reference.RedMaskReferenceTests.test_partially_occluded_red_region) ... ok
+test_quantized_live_preview_color_candidate (test_red_mask_reference.RedMaskReferenceTests.test_quantized_live_preview_color_candidate) ... ok
+test_region_touching_left_edge (test_red_mask_reference.RedMaskReferenceTests.test_region_touching_left_edge) ... ok
+test_rejects_invalid_shape_and_frame_index (test_red_mask_reference.RedMaskReferenceTests.test_rejects_invalid_shape_and_frame_index) ... ok
+test_similar_orange_background_excluded (test_red_mask_reference.RedMaskReferenceTests.test_similar_orange_background_excluded) ... ok
+test_threshold_edges_and_big_endian_bytes (test_red_mask_reference.RedMaskReferenceTests.test_threshold_edges_and_big_endian_bytes) ... ok
+test_border_is_excluded (test_red_spatial_filter.SpatialFilterTests.test_border_is_excluded) ... ok
+test_dimensions_smaller_than_window_return_empty (test_red_spatial_filter.SpatialFilterTests.test_dimensions_smaller_than_window_return_empty) ... ok
+test_five_votes_are_required (test_red_spatial_filter.SpatialFilterTests.test_five_votes_are_required) ... ok
+test_isolated_pixel_is_removed (test_red_spatial_filter.SpatialFilterTests.test_isolated_pixel_is_removed) ... ok
+test_solid_patch_survives_without_distant_speck (test_red_spatial_filter.SpatialFilterTests.test_solid_patch_survives_without_distant_speck) ... ok
+test_current_repository_foundations (test_repository_checks.RepositoryCheckTests.test_current_repository_foundations) ... ok
+test_existing_relative_link (test_repository_checks.RepositoryCheckTests.test_existing_relative_link) ... ok
+test_external_links_are_not_fetched (test_repository_checks.RepositoryCheckTests.test_external_links_are_not_fetched) ... ok
+test_invalid_and_duplicate_status (test_repository_checks.RepositoryCheckTests.test_invalid_and_duplicate_status) ... ok
+test_missing_and_escaping_links (test_repository_checks.RepositoryCheckTests.test_missing_and_escaping_links) ... ok
+test_normal_document_not_secret (test_repository_checks.RepositoryCheckTests.test_normal_document_not_secret) ... ok
+test_planned_status_needs_no_fabricated_evidence (test_repository_checks.RepositoryCheckTests.test_planned_status_needs_no_fabricated_evidence) ... ok
+test_private_key_detected (test_repository_checks.RepositoryCheckTests.test_private_key_detected) ... ok
+test_reject_traversal_absolute_and_non_ascii (test_repository_checks.RepositoryCheckTests.test_reject_traversal_absolute_and_non_ascii) ... ok
+test_safe_ascii_path (test_repository_checks.RepositoryCheckTests.test_safe_ascii_path) ... ok
+test_secret_token_detected (test_repository_checks.RepositoryCheckTests.test_secret_token_detected) ... ok
+test_verified_status_requires_evidence_and_provenance (test_repository_checks.RepositoryCheckTests.test_verified_status_requires_evidence_and_provenance) ... ok
+test_ccitt_reference_and_wire_body (test_safety_protocol.SafetyProtocolTests.test_ccitt_reference_and_wire_body) ... ok
+test_only_explicit_supported_commands (test_safety_protocol.SafetyProtocolTests.test_only_explicit_supported_commands) ... ok
+test_strict_safety_status (test_safety_protocol.SafetyProtocolTests.test_strict_safety_status) ... ok
+test_bad_header_and_orphan (test_vendor_udp.FrameAssemblerTests.test_bad_header_and_orphan) ... ok
+test_bad_pl_extension_is_rejected (test_vendor_udp.FrameAssemblerTests.test_bad_pl_extension_is_rejected) ... ok
+test_bad_row_invalidates_partial (test_vendor_udp.FrameAssemblerTests.test_bad_row_invalidates_partial) ... ok
+test_complete_frame (test_vendor_udp.FrameAssemblerTests.test_complete_frame) ... ok
+test_filtered_mask_version_is_explicit (test_vendor_udp.FrameAssemblerTests.test_filtered_mask_version_is_explicit) ... ok
+test_incomplete_frame_dropped_at_next_header (test_vendor_udp.FrameAssemblerTests.test_incomplete_frame_dropped_at_next_header) ... ok
+test_pixel_row_can_begin_with_magic_bytes (test_vendor_udp.FrameAssemblerTests.test_pixel_row_can_begin_with_magic_bytes) ... ok
+test_pl_extension_attaches_previous_frame_measurement (test_vendor_udp.FrameAssemblerTests.test_pl_extension_attaches_previous_frame_measurement) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 0.522s
+
+OK

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "repository",
+    "exit_code": 0
+  },
+  {
+    "name": "unit-tests",
+    "exit_code": 0
+  },
+  {
+    "name": "baseline-unchanged",
+    "exit_code": 0
+  }
+]
