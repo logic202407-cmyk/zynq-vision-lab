@@ -1,6 +1,6 @@
 {
   "scope": "offline host/register model and build only; NOT board verified",
-  "base_commit": "2b9f1b3b62c68e5c647d6134d75cc75256df3099",
+  "base_commit": "a7c4c301117ef23038232305ca29764e6ae52c7c",
   "python": "3.12.4",
   "steps": [
     {
@@ -174,7 +174,7 @@
     "src/prototype/skystar_openmv/stm32_skystar_tracking/build.py": "40ef23cf5df97cfbd2e02cce3b347669643738ae88f9355aa91ed3908ca449e0",
     "src/prototype/skystar_openmv/safety_protocol.py": "72e0693cca035f82266ee807ed9c84c27f5f8520babe4d553005946f845ab950",
     "tests/test_safety_protocol.py": "97651c742545c4c1e1abf8bd7b37fdef878f39df72dad742fecc3fc7f1b4262c",
-    "tools/check_skystar_safety.py": "1c23ea68e32c7cd308fcfca8c253d107a0fa8f2fc655e148edd02bf31b4695a3"
+    "tools/check_skystar_safety.py": "f97bca67c98ab1d3ad1aac8201cf1136768e83de69cdaeef0cf66c89d764fce1"
   },
   "hardware_actions": [],
   "firmware_flashed": false,

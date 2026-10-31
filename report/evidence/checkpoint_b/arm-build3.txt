@@ -1,3 +1,3 @@
-{"output": "D:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\evidence\\b-final-builds\\usart3\\20261031T101307283043Z", "errors": 0, "warnings": 0}
+{"output": "D:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\evidence\\b-final-builds\\usart3\\20261031T101346213629Z", "errors": 0, "warnings": 0}
 
 EXIT_CODE=0

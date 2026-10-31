@@ -34,8 +34,11 @@ def main():
     def run(name, argv):
         (output/(name+'.txt')).write_text('RUNNING; no result yet\n',encoding='utf-8')
         result = subprocess.run([str(x) for x in argv], cwd=ROOT,env=env,capture_output=True)
-        text = (result.stdout+result.stderr).decode('utf-8','replace')
-        (output/(name+'.txt')).write_text(text+f'\nEXIT_CODE={result.returncode}\n',encoding='utf-8')
+        # Keep raw bytes privately; public logs normalize Windows CRs only.
+        (private/(name+'.raw')).write_bytes(result.stdout+result.stderr)
+        text = (result.stdout+result.stderr).decode('utf-8','replace').replace('\r','')
+        with (output/(name+'.txt')).open('w',encoding='utf-8',newline='\n') as log:
+            log.write(text+f'\nEXIT_CODE={result.returncode}\n')
         steps.append({'name':name,'argv':[str(x) for x in argv[1:]],'exit_code':result.returncode})
         if result.returncode:
             raise RuntimeError(name+' failed; see '+str(output/(name+'.txt')))

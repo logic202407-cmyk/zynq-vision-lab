@@ -43,7 +43,8 @@ test_pixel_row_can_begin_with_magic_bytes (test_vendor_udp.FrameAssemblerTests.t
 test_pl_extension_attaches_previous_frame_measurement (test_vendor_udp.FrameAssemblerTests.test_pl_extension_attaches_previous_frame_measurement) ... ok
 
 ----------------------------------------------------------------------
-Ran 43 tests in 0.506s
+Ran 43 tests in 0.553s
 
 OK
+
 EXIT_CODE=0
