@@ -1,5 +1,7 @@
 # SkyStar F407 + OpenMV single-marker tracking
 
+**Later bench update (2026-10-31):** the board was flashed with a locally prepared USART3 variant for the [Zynq–SkyStar UART and gimbal test](../../../report/experiments/2026-10-31-zynq-skystar-uart-gimbal.md). The original v13 source in this directory still uses USART1 for the PC console; the USART3 variant itself is not included in this commit.
+
 2026-10-31: single red paper target, one two-axis gimbal, no emitter control. OpenMV detects the largest eligible red blob and sends signed offsets from the 160×120 image centre over UART3 to the SkyStar STM32F407. The STM32 reuses the original local PID implementation and controls PAN and TILT. The LAB threshold in `openmv_main.py` is specific to the user's lighting and needs to be calibrated for other scenes.
 
 ## Wiring and configuration
