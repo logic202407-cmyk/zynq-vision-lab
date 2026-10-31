@@ -1,0 +1,25 @@
+{
+  "source_commit": "7ebc8df8192af570a5d2cfcb317c9cb7c0b2e32c",
+  "branch": "work/zynq-chain-hardening-20261031",
+  "post_commit_checks": [
+    {
+      "command": [
+        "tools/check_repository.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "status_file_sha256": "138a77ddce3f52cce845b5f57c05ef196d2e192b82fd77bc92339a6e78462027",
+  "hardware_actions": []
+}

@@ -162,6 +162,21 @@
         "report/evidence/checkpoint_e/manifest.json"
       ],
       "note": "Design review and layout/bandwidth arithmetic only. Distinguishes PL, PC reference, command acceptance, expected PWM and actual position; M1 receiver/codec/control integration and ACK lineage extension not implemented. Requires completed C/electrical gates and explicit operator authorization before hardware integration."
+    },
+    {
+      "id": "fpga_uart_autonomous_tx_rx",
+      "status": "simulated",
+      "evidence": [
+        "src/rtl/uart_rx.v",
+        "src/rtl/zynq_uart_autonomous.v",
+        "docs/zynq_uart_autonomous.md",
+        "report/experiments/2026-10-31-autonomous-uart.md",
+        "report/evidence/uart_autonomous/manifest.json"
+      ],
+      "tool_version": "Vivado 2024.2 XSim and OOC synthesis/placement/routing",
+      "reviewer": "Codex offline self-checking regression",
+      "note": "Manual st/stop CRLF only; TX/RX, debounce, bounded reply wait and coordinated PC mux. Five testbenches pass. OOC 100MHz assumption, not board timing closure; no physical clock/control pins, waveform or hardware validation. Existing bridge and STM32 unchanged.",
+      "verified_commit": "7ebc8df8192af570a5d2cfcb317c9cb7c0b2e32c"
     }
   ]
 }

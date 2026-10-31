@@ -1,4 +1,3 @@
 PASS: repository foundations, local links, and claim-ledger checks.
 Not verified: FPGA simulation, synthesis/implementation, board behavior, performance, or all private data.
-
 EXIT_CODE=0
