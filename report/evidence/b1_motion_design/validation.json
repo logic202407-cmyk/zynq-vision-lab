@@ -1,0 +1,31 @@
+{
+  "source_files_unchanged": 21,
+  "steps": [
+    {
+      "command": [
+        "tools/check_repository.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "doc_sha256": {
+    "docs/zynq_skystar_motion_protocol_v1.md": "ab8cc18669f3c590cf4847110beec8b21d99daa9e1f7244da8a52ea7f099ccac",
+    "docs/zynq_skystar_e2e_acceptance_plan.md": "fcf55b7c8a2adbd6750a82d8e742b5a4463d67bcbbe186e75e4cc485ca79c119",
+    "report/experiments/2026-10-31-motion-protocol-design.md": "28ce6b8b21a43325c41211b8af0b689e95f4f81007b4a8597b89b11f4b01721e"
+  },
+  "new_protocol_status": "proposed only",
+  "b2_tests_executed": false,
+  "hardware_actions": [],
+  "exit_code": 0
+}
