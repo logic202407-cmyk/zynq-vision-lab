@@ -69,7 +69,7 @@ __Vectors
                 DCD Default_Handler
                 DCD USART1_IRQHandler
                 DCD USART2_IRQHandler
-                DCD Default_Handler
+                DCD USART3_IRQHandler
                 DCD Default_Handler
                 DCD Default_Handler
                 DCD Default_Handler
@@ -118,6 +118,7 @@ __Vectors
                 IMPORT __main
                 IMPORT SysTick_Handler
                 IMPORT USART1_IRQHandler
+                IMPORT USART3_IRQHandler
                 IMPORT USART2_IRQHandler
 Reset_Handler   PROC
                 LDR R0, =__main

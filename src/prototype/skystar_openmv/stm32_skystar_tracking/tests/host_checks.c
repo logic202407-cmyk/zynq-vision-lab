@@ -179,12 +179,19 @@ static void driver_checks(void)
 {
     uint8_t b; uint32_t t; unsigned i;
     R(RCC)=3; board_init();
-    CHECK(R(U1+8)==139 && R(U2+8)==139);
+    CHECK(R(CONSOLE+8)==139 && R(U2+8)==139);
     CHECK(R(TIM4+0x28)==15 && R(TIM4+0x2C)==19999);
     CHECK(R(TIM4+0x20)==0 && !pwm_enabled);
     CHECK((R(GPIOD) & (255u<<24))==(85u<<24));
     CHECK(((R(GPIOA+0x20)>>12)&15u)==7u); /* PA3 AF7 */
+    #if CONSOLE_USART == 3
+    CHECK((R(0xE000E104u)&192u)==192u);
+    CHECK(((R(GPIOC+0x24)>>8)&255u)==0x77u);
+    CHECK((R(RCC+0x30)&4u)!=0);
+    CHECK((R(RCC+0x40)&(1u<<18))!=0);
+#else
     CHECK((R(0xE000E104u)&96u)==96u);
+#endif
     CHECK(R(0xE000E014u)==15999);
     board_outputs(1,1500,1550);
     CHECK(R(TIM4+0x34)==1500 && R(TIM4+0x38)==1550);
@@ -197,17 +204,55 @@ static void driver_checks(void)
     /* On queue full or hardware receive error, fail instead of silently overwrite. */
     for(i=0;i<256;++i) { R(U2)=32; R(U2+4)=i; USART2_IRQHandler(); }
     CHECK(board_take_fault()); CHECK(!board_vision_byte(&b,&t));
-    R(U1)=8; R(U1+4)=1; USART1_IRQHandler(); CHECK(board_take_fault());
-    CHECK(board_send("ABC")); R(U1)=128;
-    board_poll_tx(); CHECK(R(U1+4)=='A');
-    board_poll_tx(); CHECK(R(U1+4)=='B');
-    board_poll_tx(); CHECK(R(U1+4)=='C');
+    R(CONSOLE)=8; R(CONSOLE+4)=1;
+#if CONSOLE_USART == 3
+    USART3_IRQHandler();
+#else
+    USART1_IRQHandler();
+#endif
+ CHECK(board_take_fault());
+    milliseconds=13; R(CONSOLE)=32; R(CONSOLE+4)='s';
+#if CONSOLE_USART == 3
+    USART3_IRQHandler();
+#else
+    USART1_IRQHandler();
+#endif
+    CHECK(board_pc_timed_byte(&b,&t) && b=='s' && t==13);
+    CHECK(!board_pc_timed_byte(&b,&t));
+    CHECK(board_send("ABC")); R(CONSOLE)=128;
+    board_poll_tx(); CHECK(R(CONSOLE+4)=='A');
+    board_poll_tx(); CHECK(R(CONSOLE+4)=='B');
+    board_poll_tx(); CHECK(R(CONSOLE+4)=='C');
     R(GPIOA+0x10)=1; CHECK(board_button());
     R(GPIOA+0x10)=0; CHECK(!board_button());
 }
+static void command_text(const char *s, uint32_t rx, uint32_t now)
+{
+    while (*s) console_feed((uint8_t)*s++,rx,now);
+}
+static void command_checks(void)
+{
+    tracking_init(&control); used=dropping=0; tx_head=tx_tail=0;
+    command_text("pan 1600\n",10,10); CHECK(control.outputs && control.pan_us==1600);
+    command_text("pan 1",20,20); console_expire(220);
+    CHECK(!control.outputs && dropping && !used);
+    command_text("600\n",221,221); CHECK(!control.outputs && control.pan_us==1600);
+    command_text("home\n",222,222); CHECK(control.outputs && control.pan_us==1500);
+    command_text("pan 1650\n",230,430); CHECK(!control.outputs && control.pan_us==1500);
+    command_text("pan 1550\n",431,431); CHECK(control.outputs && control.pan_us==1550);
+    command_text("stop\n",432,432); CHECK(!control.outputs);
+    command_text("pan 1",0xFFFFFFF0u,0xFFFFFFF0u);
+    console_expire(0xB7u); CHECK(used && !dropping);
+    console_expire(0xB8u); CHECK(!used && dropping && !control.outputs);
+    command_text("600\n",0xB9u,0xB9u); CHECK(!control.outputs);
+    command_text("home\r\n",0xBAu,0xBAu); CHECK(control.outputs && !used && !dropping);
+    command_text("PAN 1510\n",0xBBu,0xBBu); CHECK(control.pan_us==1510);
+    R(GPIOA+0x10)=1; command_text("home\n",0xBCu,0xBCu); CHECK(control.pan_us==1510);
+    R(GPIOA+0x10)=0;
+}
 int main(void)
 {
-    controller_checks(); parser_checks(); driver_checks();
+    controller_checks(); parser_checks(); driver_checks(); command_checks();
     tracking_init(&control); tx_head=tx_tail=0; status();
     CHECK(strstr(tx,"P0V 1 STATE waiting MODE manual VALID 0 ENABLED 0")!=0);
     CHECK(strstr(tx,"PKP 300 PKI 50 PKD 0 TKP 500 TKI 80 TKD 0")!=0);

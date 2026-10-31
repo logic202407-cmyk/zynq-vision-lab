@@ -1,10 +1,22 @@
 #ifndef SKYSTAR_BOARD_H
 #define SKYSTAR_BOARD_H
 #include <stdint.h>
+#ifndef CONSOLE_USART
+#define CONSOLE_USART 1
+#endif
+#if CONSOLE_USART != 1 && CONSOLE_USART != 3
+#error Unsupported CONSOLE_USART
+#endif
+#if CONSOLE_USART == 3
+#define CONSOLE_LABEL "USART3_PC10_PC11"
+#else
+#define CONSOLE_LABEL "USART1_PA9_PA10"
+#endif
 void board_init(void);
 uint32_t board_ms(void);
 int board_vision_byte(uint8_t *byte, uint32_t *received);
 int board_pc_byte(uint8_t *byte);
+int board_pc_timed_byte(uint8_t *byte, uint32_t *received);
 void board_flush_vision(void);
 int board_take_fault(void);
 int board_button(void);

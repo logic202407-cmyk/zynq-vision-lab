@@ -1,4 +1,7 @@
 """Compile and execute actual C offline; never opens a serial/debug port."""
+import argparse
+import os
+import shutil
 import json
 import subprocess
 import tempfile
@@ -6,10 +9,13 @@ import hashlib
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
-cc = Path('C:/Program Files (x86)/Dev-Cpp/MinGW64/bin/gcc.exe')
+args = argparse.ArgumentParser()
+args.add_argument('--console-usart', type=int, choices=(1,3), default=1)
+options = args.parse_args()
+cc = Path(os.environ.get('CC') or shutil.which('gcc') or 'D:/Dev-Cpp/MinGW64/bin/gcc.exe')
 stage = Path(tempfile.mkdtemp(prefix='skystar-host-'))
 command = [str(cc), '-std=c99', '-Wall', '-Wextra', '-Werror', '-O2',
-           '-DBOARD_HOST_TEST', '-I'+str(root/'User'),
+           '-DBOARD_HOST_TEST', '-DCONSOLE_USART='+str(options.console_usart), '-I'+str(root/'User'),
            '-I'+str(root.parent/'stm32_project/User'),
            str(root/'tests/host_checks.c'), str(root/'User/tracking.c'),
            str(root.parent/'stm32_project/User/pid.c'), '-o', str(stage/'checks.exe')]
@@ -36,4 +42,4 @@ output.write_text(json.dumps({'command':command, 'exit_code':0,
     'workbench_telemetry_interop':'pass',
     'source_sha256':{str(p.relative_to(root.parent)):hashlib.sha256(p.read_bytes()).hexdigest()
                      for p in list((root/'User').glob('*.[ch]'))+[root.parent/'stm32_project/User/pid.c',root/'tests/host_checks.c']},
-    'scope':'offline C and register model only'},ensure_ascii=False,indent=2),encoding='utf-8')
+    'console_usart':options.console_usart, 'scope':'offline C and register model only'},ensure_ascii=False,indent=2),encoding='utf-8')

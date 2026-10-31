@@ -1,6 +1,6 @@
 # SkyStar F407 + OpenMV single-marker tracking
 
-**Later bench update (2026-10-31):** the board was flashed with a locally prepared USART3 variant for the [Zynq–SkyStar UART and gimbal test](../../../report/experiments/2026-10-31-zynq-skystar-uart-gimbal.md). The original v13 source in this directory still uses USART1 for the PC console; the USART3 variant itself is not included in this commit.
+**Later bench update (2026-10-31):** the board was flashed with a locally prepared USART3 variant for the [Zynq–SkyStar UART and gimbal test](../../../report/experiments/2026-10-31-zynq-skystar-uart-gimbal.md). The old private USART3 bench source is not included. The new v14 candidate below supports an explicit USART3 build but has not been flashed in this hardening run; it must not be confused with the earlier bench binary.
 
 2026-10-31: single red paper target, one two-axis gimbal, no emitter control. OpenMV detects the largest eligible red blob and sends signed offsets from the 160×120 image centre over UART3 to the SkyStar STM32F407. The STM32 reuses the original local PID implementation and controls PAN and TILT. The LAB threshold in `openmv_main.py` is specific to the user's lighting and needs to be calibrated for other scenes.
 
@@ -42,3 +42,31 @@ py -3 -B stm32_skystar_tracking/tests/run_checks.py
 ```
 
 The checks exercise the real PID, controller and parser in a simulated register environment. At v13, 127 assertions and the console-telemetry parser check passed locally. These checks do not observe physical servo motion. The Keil project download configuration has not been validated; use an independently verified F407 flash configuration.
+
+## Candidate chain hardening (2026-10-31)
+
+The candidate supports `--console-usart 1` (PA9/PA10, default) or
+`--console-usart 3` (PC10/PC11, the recorded Zynq connection). The USART3 path
+includes its IRQ39 vector. This is not a byte-identical copy of the old private
+firmware. Keil GUI builds still default to USART1 unless `CONSOLE_USART=3` is set.
+
+Build with `python -B stm32_skystar_tracking/build.py --console-usart 3
+--output-root D:/Codex/outputs/skystar-build` (on one command line).
+`ARMCC_BIN` overrides the compiler directory; `CC` overrides GCC for host checks.
+Current fallbacks use D:/Keil_ARM/ARM/ARMCC/bin and GCC from PATH or
+D:/Dev-Cpp/MinGW64/bin. Set TEMP/TMP to a D-drive temporary directory.
+
+Run `python -B stm32_skystar_tracking/tests/run_checks.py --console-usart 1`
+and repeat with `--console-usart 3`. UART arrival timestamps prevent stale bytes
+or partial commands from being combined into a later motion command: a 200 ms
+inter-byte gap or byte queue age disables PWM and discards through the next
+newline. This does not add CRC, transactional ACK, session IDs or an idle-link
+watchdog. A completed manual command still holds PWM after disconnection.
+The existing PID gains, pulse limits and ordinary target-loss hold behavior
+are retained.
+
+Candidate transparent PL bridge: `../../rtl/zynq_uart_bridge.v`; simulation:
+`../../../sim/zynq_uart_bridge_tb.v`; build entry:
+`../../../build/build_zynq_uart_bridge.tcl`. Supply a reviewed four-port XDC.
+No protocol parsing, buffering or autonomous movement is performed by this bridge.
+See [hardening evidence](../../../report/experiments/2026-10-31-chain-hardening.md).

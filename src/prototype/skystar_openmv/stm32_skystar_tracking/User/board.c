@@ -15,10 +15,17 @@ extern uint32_t *board_test_register(uint32_t address);
 #endif
 #define RCC 0x40023800u
 #define GPIOA 0x40020000u
+#define GPIOC 0x40020800u
 #define GPIOD 0x40020C00u
 #define TIM4 0x40000800u
 #define U1 0x40011000u
 #define U2 0x40004400u
+#define U3 0x40004800u
+#if CONSOLE_USART == 3
+#define CONSOLE U3
+#else
+#define CONSOLE U1
+#endif
 #define QSIZE 256u
 typedef struct {
     volatile uint16_t head, tail;
@@ -53,10 +60,17 @@ void board_init(void)
     while (R(RCC+8)&12u) { }
     R(RCC+8) &= ~((15u<<4)|(7u<<10)|(7u<<13)); /* AHB/APB = HSI */
     R(RCC+0x30) |= (1u<<0)|(1u<<3);
+#if CONSOLE_USART == 3
+    R(RCC+0x30) |= 1u<<2;
+    R(RCC+0x40) |= 1u<<18;
+#endif
     R(RCC+0x40) |= (1u<<2)|(1u<<17);
     R(RCC+0x44) |= 1u<<4;
-    dummy=R(RCC+0x44); (void)dummy;
-    /* Reset only peripherals owned by this image. */
+    dummy=R(RCC+0x44); dummy=R(RCC+0x40); (void)dummy;
+    /* Reset only peripherals owned by this image, after clock readback. */
+#if CONSOLE_USART == 3
+    R(RCC+0x20) |= 1u<<18; R(RCC+0x20) &= ~(1u<<18);
+#endif
     R(RCC+0x20) |= (1u<<2)|(1u<<17);
     R(RCC+0x20) &= ~((1u<<2)|(1u<<17));
     R(RCC+0x24) |= 1u<<4; R(RCC+0x24) &= ~(1u<<4);
@@ -65,12 +79,21 @@ void board_init(void)
     pin(GPIOD,14,1,0); pin(GPIOD,15,1,0);
     pin(GPIOA,0,0,0); R(GPIOA+0x0C) |= 2u; /* WKUP active high */
     pin(GPIOA,3,2,7); R(GPIOA+0x0C) |= 1u<<6; /* USART2 RX pull-up */
+#if CONSOLE_USART == 3
+    pin(GPIOC,10,2,7); pin(GPIOC,11,2,7);
+    R(GPIOC+0x0C) |= 1u<<22;
+#else
     pin(GPIOA,9,2,7); pin(GPIOA,10,2,7);
     R(GPIOA+0x0C) |= 1u<<20;
-    R(U1+8)=139; R(U2+8)=139; /* 16MHz / 115200, oversampling 16 */
-    R(U1+0x0C)=(1u<<13)|(1u<<5)|(1u<<3)|(1u<<2);
+#endif
+    R(CONSOLE+8)=139; R(U2+8)=139; /* 16MHz / 115200, oversampling 16 */
+    R(CONSOLE+0x0C)=(1u<<13)|(1u<<5)|(1u<<3)|(1u<<2);
     R(U2+0x0C)=(1u<<13)|(1u<<5)|(1u<<2);
-    R(0xE000E104u)=(1u<<5)|(1u<<6); /* external IRQ 37,38 */
+#if CONSOLE_USART == 3
+    R(0xE000E104u)=(1u<<6)|(1u<<7); /* IRQ 38,39 */
+#else
+    R(0xE000E104u)=(1u<<5)|(1u<<6); /* IRQ 37,38 */
+#endif
     R(TIM4+0x28)=15; R(TIM4+0x2C)=19999;
     R(TIM4+0x18)=(6u<<4)|(1u<<3)|(6u<<12)|(1u<<11);
     R(TIM4+0x20)=0;
@@ -92,7 +115,16 @@ static void receive(uint32_t uart, rx_queue_t *q)
         q->head=next;
     }
 }
-void USART1_IRQHandler(void) { receive(U1,&pc); }
+void USART1_IRQHandler(void) {
+#if CONSOLE_USART == 1
+    receive(U1,&pc);
+#endif
+}
+void USART3_IRQHandler(void) {
+#if CONSOLE_USART == 3
+    receive(U3,&pc);
+#endif
+}
 void USART2_IRQHandler(void) { receive(U2,&vision); }
 static int pop(rx_queue_t *q, uint8_t *byte, uint32_t *time)
 {
@@ -105,6 +137,7 @@ static int pop(rx_queue_t *q, uint8_t *byte, uint32_t *time)
 }
 int board_vision_byte(uint8_t *byte, uint32_t *received) { return pop(&vision,byte,received); }
 int board_pc_byte(uint8_t *byte) { uint32_t time; return pop(&pc,byte,&time); }
+int board_pc_timed_byte(uint8_t *byte, uint32_t *time) { return pop(&pc,byte,time); }
 void board_flush_vision(void)
 {
     __disable_irq(); vision.tail=vision.head; __enable_irq();
@@ -142,7 +175,7 @@ int board_send(const char *line)
 }
 void board_poll_tx(void)
 {
-    if (tx_head!=tx_tail && (R(U1)&(1u<<7))) {
-        R(U1+4)=(uint8_t)tx[tx_tail]; tx_tail=(tx_tail+1)&511u;
+    if (tx_head!=tx_tail && (R(CONSOLE)&(1u<<7))) {
+        R(CONSOLE+4)=(uint8_t)tx[tx_tail]; tx_tail=(tx_tail+1)&511u;
     }
 }
