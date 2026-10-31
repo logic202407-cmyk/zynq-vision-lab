@@ -1,0 +1,70 @@
+{
+  "scope": "offline audit of historical artifacts; no new hardware action",
+  "base_source_commit": "4a254d2bd5846efccadd6d812eb0980abd28d1f6",
+  "python": "3.12.4",
+  "bitstream_sha256": "af68cf8f6b14e36257e764874a5c60645030aeba3b8667c9d56a0d6b9339c46e",
+  "bitstream_bytes": 17416460,
+  "historical_stm32_flash_sha256_recorded_not_reread": "b94c9e0edc1cac282dcf0a39fd765bacb4aa3957f9d5dd751c46d962ac6dcae8",
+  "stm32_v14_candidate_flashed": false,
+  "actual_current_flash_identity": "unconfirmed; no fresh read authorized/performed",
+  "j23_electrical_measurement": "pending; LVCMOS33 is a constraint, not a measured voltage",
+  "physical_package_speed_grade": "unconfirmed; vendor reference xc7z100ffg900-2",
+  "pin_mapping": {
+    "pc_rx": "AA27",
+    "pc_tx": "AA28",
+    "skystar_rx": "AB26",
+    "skystar_tx": "AB25"
+  },
+  "source_git_blob_sha256": {
+    "src/rtl/zynq_uart_bridge.v": "c84ee154de75e4aee3f2fd7fa7ec87df1452a98650fc511ea44639c0d1c6b39f",
+    "sim/zynq_uart_bridge_tb.v": "0ab7c802833aca09983e2b47b55003695fb5764f4c403cd05411c2c83e395a94",
+    "board/skystar_f407/zynq_uart_bridge_v12.xdc": "c0cde001efdd73ba4ce030b4be9e4cd168736532ae0235bf5b2aa94de8bbbf23"
+  },
+  "checks": [
+    {
+      "name": "archived bitstream SHA-256",
+      "passed": true
+    },
+    {
+      "name": "historical motion script exit/result",
+      "passed": true
+    },
+    {
+      "name": "historical final PWM disabled",
+      "passed": true
+    },
+    {
+      "name": "historical step/return order",
+      "passed": true
+    },
+    {
+      "name": "historical reverse error response",
+      "passed": true
+    },
+    {
+      "name": "historical startup HIGH",
+      "passed": true
+    },
+    {
+      "name": "historical program completion",
+      "passed": true
+    },
+    {
+      "name": "four-port pin mapping",
+      "passed": true
+    },
+    {
+      "name": "baseline source unchanged: src/rtl/zynq_uart_bridge.v",
+      "passed": true
+    },
+    {
+      "name": "baseline source unchanged: sim/zynq_uart_bridge_tb.v",
+      "passed": true
+    },
+    {
+      "name": "baseline source unchanged: board/skystar_f407/zynq_uart_bridge_v12.xdc",
+      "passed": true
+    }
+  ],
+  "exit_code": 0
+}
