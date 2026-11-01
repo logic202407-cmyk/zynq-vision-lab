@@ -1,0 +1,21 @@
+[
+  {
+    "command": [
+      "D:/Python312/python.exe",
+      "tools/check_repository.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:/Python312/python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-q"
+    ],
+    "exit_code": 0
+  }
+]

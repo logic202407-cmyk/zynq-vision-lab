@@ -259,6 +259,16 @@
         "report/evidence/c1-safe-deploy/uart-safe-result.json"
       ],
       "note": "Limited no-power diagnostic only: candidate programmed and whole Flash verified; 11 UART/state/register checks with PC via transparent bridge pass. PWM stayed OFF throughout; no active PWM stop timing, mechanics, FPGA autonomy or optical control verified. Initial erase timeout and recovery retained. Camera bitstream restored afterwards; integrated board top and epoch remain blockers."
+    },
+    {
+      "id": "c1_board_observation_only",
+      "status": "implemented",
+      "evidence": [
+        "docs/c1_board_observation.md",
+        "report/experiments/2026-11-01-c1-board-observation.md",
+        "report/evidence/c1-board-observe/implementation.json"
+      ],
+      "note": "Read-only FPGA board integration, not motion control. Commit-pinned receipt follows source commit; CDC/I/O/epoch/calibration blockers remain."
     }
   ]
 }

@@ -1,0 +1,58 @@
+{
+  "verdict": "PASS",
+  "before": {
+    "sequence": 10056,
+    "count": 5826,
+    "sum_x": 1899948,
+    "sum_y": 1673802,
+    "bbox": [
+      284,
+      245,
+      369,
+      330
+    ],
+    "centroid": [
+      326,
+      287
+    ],
+    "flags": 7,
+    "mask": 2,
+    "accepted": 2693,
+    "rejected": 0,
+    "gaps": 5384,
+    "bound": 1,
+    "fresh": 0,
+    "state": 0,
+    "reason": 1,
+    "ccer": 0,
+    "milliseconds": 352382
+  },
+  "after": {
+    "sequence": 10056,
+    "count": 5826,
+    "sum_x": 1899948,
+    "sum_y": 1673802,
+    "bbox": [
+      284,
+      245,
+      369,
+      330
+    ],
+    "centroid": [
+      326,
+      287
+    ],
+    "flags": 7,
+    "mask": 2,
+    "accepted": 2693,
+    "rejected": 0,
+    "gaps": 5384,
+    "bound": 1,
+    "fresh": 0,
+    "state": 0,
+    "reason": 1,
+    "ccer": 0,
+    "milliseconds": 352886
+  },
+  "meaning": "STOP ends FPGA measurement stream; MCU stopped-state logging bind can remain; not motion stop timing"
+}

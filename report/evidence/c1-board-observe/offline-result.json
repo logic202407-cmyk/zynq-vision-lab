@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS",
+  "unit_checks": 7,
+  "coupled_checks": [
+    "query_only_no_arm",
+    "correlated_measurement_bind",
+    "camera_CDC_M2_real_C",
+    "unused_motion_inputs_cannot_arm_or_move",
+    "measurement_survives_ignored_motion_inputs",
+    "stop_flushes_FPGA_session_and_prevents_further_measurement",
+    "all_generated_wire_opcodes_nonmotion"
+  ],
+  "hardware_actions": [],
+  "simulated_us": 111117
+}

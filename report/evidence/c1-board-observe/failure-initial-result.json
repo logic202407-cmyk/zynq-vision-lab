@@ -1,0 +1,11 @@
+{
+  "verdict": "FAIL",
+  "checks": [
+    "query_only_no_arm",
+    "correlated_measurement_bind",
+    "camera_CDC_M2_real_C",
+    "unused_motion_inputs_cannot_arm_or_move",
+    "measurement_survives_ignored_motion_inputs"
+  ],
+  "error": "Traceback (most recent call last):\n  File \"R:\\c1-repo\\tools\\check_c1_observation_board.py\", line 26, in <module>\n    c.stop();c.advance(10000);assert not c.lib.c1_bound() and c.lib.model_reg(0x40000820)==0;checks.append('stop_invalidates_observation_session')\n                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+}

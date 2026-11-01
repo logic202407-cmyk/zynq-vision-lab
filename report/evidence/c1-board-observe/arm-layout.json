@@ -1,0 +1,16 @@
+{
+  "slot_size": 76,
+  "accepted": 48,
+  "rejected": 52,
+  "gaps": 56,
+  "rx_ms": 60,
+  "bound": 72,
+  "fresh": 74,
+  "measurement_size": 48,
+  "count": 24,
+  "cx": 44,
+  "sequence": 12,
+  "flags": 1,
+  "gimbal_size": 172,
+  "pwm_enabled": 163
+}

@@ -1,0 +1,29 @@
+import sys,json,time,struct,binascii
+from pathlib import Path
+from read_mcu_observation import snapshot,read,l,addresses,root
+import serial
+from elftools.elf.elffile import ELFFile
+with (root/'observation_layout2.o').open('rb') as f:
+ e=ELFFile(f);s=e.get_section_by_name('.symtab').get_symbol_by_name('layout')[0];v=struct.unpack('<18I',e.get_section(s['st_shndx']).data()[s['st_value']:s['st_value']+72])
+slot,pwm=v[12],v[13];fo,dxo,dyo,vo=v[14:]
+s=serial.Serial(port=None,baudrate=115200,timeout=.01);s.dtr=False;s.rts=False;s.port='COM14';s.open()
+samples=[];lines=[];buffer=bytearray();start=time.monotonic();nextsample=start
+try:
+ while time.monotonic()-start<40:
+  buffer.extend(s.read(4096))
+  while b'\n' in buffer:
+   line,_,rest=buffer.partition(b'\n');buffer[:]=rest
+   if line.startswith(b'F1 '):lines.append(line.decode())
+  if time.monotonic()>=nextsample:
+   nextsample=time.monotonic()+.2;x=snapshot();g=read(addresses['observation_devices'],slot*3)
+   x.update(t=time.monotonic()-start,openmv_frames=int.from_bytes(g[fo:fo+4],'little'),openmv_dx=int.from_bytes(g[dxo:dxo+2],'little',signed=True),openmv_dy=int.from_bytes(g[dyo:dyo+2],'little',signed=True),openmv_valid=g[vo],gimbal_pwm=[g[i*slot+pwm] for i in range(3)])
+   samples.append(x)
+finally:s.close();l.close()
+crc_good=[]
+for line in lines:
+ try:
+  b,c=line.rsplit('*',1);crc_good.append(binascii.crc_hqx(b.encode(),65535)==int(c,16))
+ except ValueError:crc_good.append(False)
+r=dict(samples=samples,feedback_lines=lines,feedback_count=len(lines),bad_crc=sum(not x for x in crc_good),both_valid_samples=sum(x['fresh'] and x['openmv_valid'] for x in samples))
+r['verdict']='PASS' if len(lines)>=10 and r['bad_crc']==0 and r['both_valid_samples']>=10 and all(x['state']==0 and x['ccer']==0 and x['gimbal_pwm']==[0,0,0] for x in samples) and samples[-1]['openmv_valid']==0 and samples[-1]['accepted']>samples[0]['accepted'] else 'FAIL'
+(root/'two-camera-target-confirmed-private.json').write_text(json.dumps(r,indent=2));print(json.dumps({k:v for k,v in r.items() if k not in ('samples','feedback_lines')},indent=2))

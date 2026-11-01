@@ -17,11 +17,11 @@ parser.add_argument("--spatial-filter", action="store_true",
                     help="enable 3x3 majority and identify results as mask version 2")
 args = parser.parse_args()
 base = args.source.resolve()
-dest = args.output.resolve()
+dest = args.output.absolute()
 repo = Path(__file__).resolve().parents[1]
 if not dest.as_posix().isascii():
     parser.error("--output must be an ASCII-only path")
-if dest == repo or repo in dest.parents:
+if dest.resolve() == repo or repo in dest.resolve().parents:
     parser.error("--output must be outside the public repository")
 if dest.exists():
     raise SystemExit(f"destination already exists: {dest}")

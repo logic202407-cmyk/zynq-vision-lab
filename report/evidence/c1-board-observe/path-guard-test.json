@@ -1,0 +1,13 @@
+{
+  "command": [
+    "D:/Python312/python.exe",
+    "tools/prepare_vendor_red_camera.py",
+    "--source",
+    "R:/private/c1-board-integration",
+    "--output",
+    "R:/c1-repo/forbidden-build-output"
+  ],
+  "exit_code": 2,
+  "expected": "Reject repository output without creating files",
+  "verdict": "PASS"
+}

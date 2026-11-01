@@ -1,0 +1,27 @@
+{
+  "sequence": 0,
+  "count": 0,
+  "sum_x": 0,
+  "sum_y": 0,
+  "bbox": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "centroid": [
+    0,
+    0
+  ],
+  "flags": 0,
+  "mask": 0,
+  "accepted": 0,
+  "rejected": 0,
+  "gaps": 0,
+  "bound": 0,
+  "fresh": 0,
+  "state": 4,
+  "reason": 6,
+  "ccer": 0,
+  "milliseconds": 1922219
+}

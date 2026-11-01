@@ -1,0 +1,10 @@
+{
+  "scope": "live camera viewer, not motion control",
+  "mode": "live",
+  "connection": "接收中 · 实时画面",
+  "detail": "PL 帧 15934 · 邻域滤波 红色像素 5826 · 显示平滑中心 (326, 287) · 边框 (284, 245, 369, 330)",
+  "stats": "收到包 97306   ·   完整帧 202\n未完整帧 0   ·   异常包 1\n显示 FPS 18.0   ·   当前帧行数 0/480",
+  "complete_frames": 202,
+  "incomplete": 0,
+  "error": null
+}

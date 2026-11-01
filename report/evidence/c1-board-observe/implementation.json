@@ -1,0 +1,36 @@
+{
+  "tool": "Vivado 2024.2",
+  "source_call_timeout_seconds": 300,
+  "actual_source_completion_seconds": 921.782,
+  "source_exit_code": 0,
+  "synthesis_errors": 0,
+  "synthesis_critical_warnings": 0,
+  "latches": 0,
+  "routed_wns_ns": 3.115,
+  "routed_whs_ns": 0.054,
+  "mailbox_skew_ns": 0.957,
+  "mailbox_skew_slack_ns": 19.043,
+  "mailbox_timed_bits": 180,
+  "unclocked_sequential_pins": 90,
+  "unconstrained_internal_endpoints": 227,
+  "no_input_delay": 17,
+  "no_output_delay": 8,
+  "cdc": {
+    "CDC-10 Critical": 5,
+    "CDC-7 Critical": 4,
+    "CDC-15 Warning": 540,
+    "CDC-3 Info": 13,
+    "CDC-9 Info": 2
+  },
+  "bitgen_exit_code": 0,
+  "jtag_exit_code": 0,
+  "jtag_command_seconds": 43.083,
+  "startup": "HIGH",
+  "eos": 1,
+  "done": 1,
+  "notes": [
+    "Constrained timing only, not full board signoff",
+    "New reset CDC findings and inherited vendor FIFO findings retained",
+    "No movement-authorize input exists"
+  ]
+}

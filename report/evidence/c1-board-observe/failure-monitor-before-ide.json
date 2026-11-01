@@ -1,0 +1,7261 @@
+{
+  "samples": [
+    {
+      "sequence": 5940,
+      "count": 5830,
+      "sum_x": 1901121,
+      "sum_y": 1675056,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1321,
+      "rejected": 0,
+      "gaps": 2640,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 193632,
+      "t": 0.062000000005355105,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 5946,
+      "count": 5826,
+      "sum_x": 1900036,
+      "sum_y": 1673938,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1323,
+      "rejected": 0,
+      "gaps": 2644,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 193832,
+      "t": 0.2649999999994179,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 5952,
+      "count": 5824,
+      "sum_x": 1899217,
+      "sum_y": 1673450,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1325,
+      "rejected": 0,
+      "gaps": 2648,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 194032,
+      "t": 0.46799999999348074,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 5955,
+      "count": 5825,
+      "sum_x": 1899543,
+      "sum_y": 1673697,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1326,
+      "rejected": 0,
+      "gaps": 2650,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 194234,
+      "t": 0.6560000000026776,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 5961,
+      "count": 5826,
+      "sum_x": 1899871,
+      "sum_y": 1673979,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1328,
+      "rejected": 0,
+      "gaps": 2654,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 194449,
+      "t": 0.875,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 5967,
+      "count": 5823,
+      "sum_x": 1898776,
+      "sum_y": 1673296,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1330,
+      "rejected": 0,
+      "gaps": 2658,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 194645,
+      "t": 1.0779999999940628,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 5973,
+      "count": 5827,
+      "sum_x": 1900086,
+      "sum_y": 1674397,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1332,
+      "rejected": 0,
+      "gaps": 2662,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 194843,
+      "t": 1.2810000000026776,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 5979,
+      "count": 5819,
+      "sum_x": 1897326,
+      "sum_y": 1672018,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1334,
+      "rejected": 0,
+      "gaps": 2666,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 195044,
+      "t": 1.4679999999934807,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 5985,
+      "count": 5825,
+      "sum_x": 1899523,
+      "sum_y": 1673800,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1336,
+      "rejected": 0,
+      "gaps": 2670,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 195267,
+      "t": 1.7029999999940628,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 5988,
+      "count": 5820,
+      "sum_x": 1897811,
+      "sum_y": 1672204,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1337,
+      "rejected": 0,
+      "gaps": 2672,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 195488,
+      "t": 1.9210000000020955,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 5994,
+      "count": 5821,
+      "sum_x": 1898232,
+      "sum_y": 1672419,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1339,
+      "rejected": 0,
+      "gaps": 2676,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 195682,
+      "t": 2.125,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6000,
+      "count": 5824,
+      "sum_x": 1899283,
+      "sum_y": 1673568,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1341,
+      "rejected": 0,
+      "gaps": 2680,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 195875,
+      "t": 2.312000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6006,
+      "count": 5820,
+      "sum_x": 1898260,
+      "sum_y": 1672342,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1343,
+      "rejected": 0,
+      "gaps": 2684,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 196073,
+      "t": 2.5,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6009,
+      "count": 5822,
+      "sum_x": 1898511,
+      "sum_y": 1672736,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1344,
+      "rejected": 0,
+      "gaps": 2686,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 196293,
+      "t": 2.7339999999967404,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6015,
+      "count": 5823,
+      "sum_x": 1898917,
+      "sum_y": 1673418,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1346,
+      "rejected": 0,
+      "gaps": 2690,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 196481,
+      "t": 2.9210000000020955,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6021,
+      "count": 5827,
+      "sum_x": 1900295,
+      "sum_y": 1674474,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1348,
+      "rejected": 0,
+      "gaps": 2694,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 196696,
+      "t": 3.139999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6027,
+      "count": 5814,
+      "sum_x": 1895725,
+      "sum_y": 1670681,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1350,
+      "rejected": 0,
+      "gaps": 2698,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 196907,
+      "t": 3.3429999999934807,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6033,
+      "count": 5821,
+      "sum_x": 1898080,
+      "sum_y": 1672551,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1352,
+      "rejected": 0,
+      "gaps": 2702,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 197099,
+      "t": 3.5310000000026776,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6036,
+      "count": 5823,
+      "sum_x": 1899013,
+      "sum_y": 1673341,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1353,
+      "rejected": 0,
+      "gaps": 2704,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 197297,
+      "t": 3.7339999999967404,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6042,
+      "count": 5816,
+      "sum_x": 1896566,
+      "sum_y": 1670873,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1355,
+      "rejected": 0,
+      "gaps": 2708,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 197498,
+      "t": 3.952999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6048,
+      "count": 5822,
+      "sum_x": 1898565,
+      "sum_y": 1672943,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1357,
+      "rejected": 0,
+      "gaps": 2712,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 197709,
+      "t": 4.139999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6054,
+      "count": 5826,
+      "sum_x": 1899858,
+      "sum_y": 1673835,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1359,
+      "rejected": 0,
+      "gaps": 2716,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 197992,
+      "t": 4.437000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6060,
+      "count": 5820,
+      "sum_x": 1897873,
+      "sum_y": 1672245,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1361,
+      "rejected": 0,
+      "gaps": 2720,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 198144,
+      "t": 4.577999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6066,
+      "count": 5826,
+      "sum_x": 1899819,
+      "sum_y": 1673833,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1363,
+      "rejected": 0,
+      "gaps": 2724,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 198344,
+      "t": 4.7810000000026776,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6069,
+      "count": 5821,
+      "sum_x": 1898186,
+      "sum_y": 1672549,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1364,
+      "rejected": 0,
+      "gaps": 2726,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 198546,
+      "t": 4.98399999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6075,
+      "count": 5821,
+      "sum_x": 1898470,
+      "sum_y": 1672549,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1366,
+      "rejected": 0,
+      "gaps": 2730,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 198745,
+      "t": 5.187000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6081,
+      "count": 5818,
+      "sum_x": 1896978,
+      "sum_y": 1671649,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1368,
+      "rejected": 0,
+      "gaps": 2734,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 198952,
+      "t": 5.389999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6087,
+      "count": 5819,
+      "sum_x": 1897471,
+      "sum_y": 1672110,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1370,
+      "rejected": 0,
+      "gaps": 2738,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 199147,
+      "t": 5.592999999993481,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6090,
+      "count": 5825,
+      "sum_x": 1899484,
+      "sum_y": 1673542,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1371,
+      "rejected": 0,
+      "gaps": 2740,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 199357,
+      "t": 5.7960000000020955,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6096,
+      "count": 5829,
+      "sum_x": 1901054,
+      "sum_y": 1674895,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1373,
+      "rejected": 0,
+      "gaps": 2744,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 199557,
+      "t": 6.0,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6102,
+      "count": 5821,
+      "sum_x": 1898173,
+      "sum_y": 1672674,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1375,
+      "rejected": 0,
+      "gaps": 2748,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 199757,
+      "t": 6.202999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6108,
+      "count": 5827,
+      "sum_x": 1900108,
+      "sum_y": 1674543,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1377,
+      "rejected": 0,
+      "gaps": 2752,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 199960,
+      "t": 6.4060000000026776,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6111,
+      "count": 5822,
+      "sum_x": 1898369,
+      "sum_y": 1672818,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1378,
+      "rejected": 0,
+      "gaps": 2754,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 200160,
+      "t": 6.60899999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6117,
+      "count": 5819,
+      "sum_x": 1897628,
+      "sum_y": 1672349,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1380,
+      "rejected": 0,
+      "gaps": 2758,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 200360,
+      "t": 6.7960000000020955,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6123,
+      "count": 5825,
+      "sum_x": 1899676,
+      "sum_y": 1673497,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1382,
+      "rejected": 0,
+      "gaps": 2762,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 200572,
+      "t": 7.014999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6129,
+      "count": 5826,
+      "sum_x": 1899817,
+      "sum_y": 1674103,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1384,
+      "rejected": 0,
+      "gaps": 2766,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 200774,
+      "t": 7.217999999993481,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6135,
+      "count": 5823,
+      "sum_x": 1898732,
+      "sum_y": 1673301,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1386,
+      "rejected": 0,
+      "gaps": 2770,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 200970,
+      "t": 7.4210000000020955,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6141,
+      "count": 5829,
+      "sum_x": 1900696,
+      "sum_y": 1675151,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1388,
+      "rejected": 0,
+      "gaps": 2774,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 201191,
+      "t": 7.639999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6144,
+      "count": 5822,
+      "sum_x": 1898541,
+      "sum_y": 1672905,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1389,
+      "rejected": 0,
+      "gaps": 2776,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 201388,
+      "t": 7.827999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6150,
+      "count": 5826,
+      "sum_x": 1899854,
+      "sum_y": 1674048,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1391,
+      "rejected": 0,
+      "gaps": 2780,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 201618,
+      "t": 8.077999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6156,
+      "count": 5821,
+      "sum_x": 1898155,
+      "sum_y": 1672778,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1393,
+      "rejected": 0,
+      "gaps": 2784,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 201807,
+      "t": 8.25,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6162,
+      "count": 5829,
+      "sum_x": 1900745,
+      "sum_y": 1675088,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1395,
+      "rejected": 0,
+      "gaps": 2788,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 202000,
+      "t": 8.452999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6165,
+      "count": 5818,
+      "sum_x": 1897376,
+      "sum_y": 1671851,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1396,
+      "rejected": 0,
+      "gaps": 2790,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 202217,
+      "t": 8.671000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6171,
+      "count": 5820,
+      "sum_x": 1897882,
+      "sum_y": 1672114,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1398,
+      "rejected": 0,
+      "gaps": 2794,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 202433,
+      "t": 8.889999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6177,
+      "count": 5817,
+      "sum_x": 1896995,
+      "sum_y": 1671496,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1400,
+      "rejected": 0,
+      "gaps": 2798,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 202631,
+      "t": 9.077999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6183,
+      "count": 5826,
+      "sum_x": 1899926,
+      "sum_y": 1673843,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1402,
+      "rejected": 0,
+      "gaps": 2802,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 202835,
+      "t": 9.281000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6189,
+      "count": 5827,
+      "sum_x": 1900324,
+      "sum_y": 1674478,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1404,
+      "rejected": 0,
+      "gaps": 2806,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 203035,
+      "t": 9.48399999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6195,
+      "count": 5819,
+      "sum_x": 1897599,
+      "sum_y": 1671960,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1406,
+      "rejected": 0,
+      "gaps": 2810,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 203241,
+      "t": 9.687000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6198,
+      "count": 5820,
+      "sum_x": 1897604,
+      "sum_y": 1672184,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1407,
+      "rejected": 0,
+      "gaps": 2812,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 203463,
+      "t": 9.921000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6204,
+      "count": 5831,
+      "sum_x": 1901549,
+      "sum_y": 1675426,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1409,
+      "rejected": 0,
+      "gaps": 2816,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 203639,
+      "t": 10.09299999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6210,
+      "count": 5824,
+      "sum_x": 1899300,
+      "sum_y": 1673473,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1411,
+      "rejected": 0,
+      "gaps": 2820,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 203840,
+      "t": 10.296000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6216,
+      "count": 5823,
+      "sum_x": 1898865,
+      "sum_y": 1673227,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1413,
+      "rejected": 0,
+      "gaps": 2824,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 204043,
+      "t": 10.5,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6219,
+      "count": 5828,
+      "sum_x": 1900552,
+      "sum_y": 1674687,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1414,
+      "rejected": 0,
+      "gaps": 2826,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 204246,
+      "t": 10.702999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6225,
+      "count": 5823,
+      "sum_x": 1898801,
+      "sum_y": 1673224,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1416,
+      "rejected": 0,
+      "gaps": 2830,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 204445,
+      "t": 10.889999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6231,
+      "count": 5823,
+      "sum_x": 1898848,
+      "sum_y": 1673224,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1418,
+      "rejected": 0,
+      "gaps": 2834,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 204659,
+      "t": 11.10899999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6237,
+      "count": 5823,
+      "sum_x": 1899015,
+      "sum_y": 1673243,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1420,
+      "rejected": 0,
+      "gaps": 2838,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 204883,
+      "t": 11.34299999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6240,
+      "count": 5819,
+      "sum_x": 1897460,
+      "sum_y": 1672105,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1421,
+      "rejected": 0,
+      "gaps": 2840,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 205057,
+      "t": 11.514999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6246,
+      "count": 5826,
+      "sum_x": 1899852,
+      "sum_y": 1673950,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1423,
+      "rejected": 0,
+      "gaps": 2844,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 205266,
+      "t": 11.71799999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6252,
+      "count": 5826,
+      "sum_x": 1899707,
+      "sum_y": 1674003,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1425,
+      "rejected": 0,
+      "gaps": 2848,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 205458,
+      "t": 11.921000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6258,
+      "count": 5824,
+      "sum_x": 1899165,
+      "sum_y": 1673586,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1427,
+      "rejected": 0,
+      "gaps": 2852,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 205666,
+      "t": 12.125,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6264,
+      "count": 5820,
+      "sum_x": 1898046,
+      "sum_y": 1672302,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1429,
+      "rejected": 0,
+      "gaps": 2856,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 205942,
+      "t": 12.406000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6267,
+      "count": 5821,
+      "sum_x": 1898089,
+      "sum_y": 1672659,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1430,
+      "rejected": 0,
+      "gaps": 2858,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 206079,
+      "t": 12.531000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6273,
+      "count": 5819,
+      "sum_x": 1897451,
+      "sum_y": 1672052,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1432,
+      "rejected": 0,
+      "gaps": 2862,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 206271,
+      "t": 12.73399999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6279,
+      "count": 5820,
+      "sum_x": 1897762,
+      "sum_y": 1672293,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1434,
+      "rejected": 0,
+      "gaps": 2866,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 206482,
+      "t": 12.937000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6285,
+      "count": 5821,
+      "sum_x": 1898368,
+      "sum_y": 1672624,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1436,
+      "rejected": 0,
+      "gaps": 2870,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 206677,
+      "t": 13.139999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6291,
+      "count": 5816,
+      "sum_x": 1896436,
+      "sum_y": 1671369,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1438,
+      "rejected": 0,
+      "gaps": 2874,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 206900,
+      "t": 13.35899999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6294,
+      "count": 5815,
+      "sum_x": 1896335,
+      "sum_y": 1670763,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1439,
+      "rejected": 0,
+      "gaps": 2876,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 207092,
+      "t": 13.562000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6300,
+      "count": 5820,
+      "sum_x": 1897693,
+      "sum_y": 1672512,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1441,
+      "rejected": 0,
+      "gaps": 2880,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 207287,
+      "t": 13.75,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6306,
+      "count": 5819,
+      "sum_x": 1897570,
+      "sum_y": 1672026,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1443,
+      "rejected": 0,
+      "gaps": 2884,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 207490,
+      "t": 13.952999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6312,
+      "count": 5824,
+      "sum_x": 1899062,
+      "sum_y": 1673417,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1445,
+      "rejected": 0,
+      "gaps": 2888,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 207693,
+      "t": 14.156000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6315,
+      "count": 5824,
+      "sum_x": 1899099,
+      "sum_y": 1673509,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1446,
+      "rejected": 0,
+      "gaps": 2890,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 207910,
+      "t": 14.375,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6321,
+      "count": 5828,
+      "sum_x": 1900591,
+      "sum_y": 1674809,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1448,
+      "rejected": 0,
+      "gaps": 2894,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 208097,
+      "t": 14.562000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6327,
+      "count": 5822,
+      "sum_x": 1898686,
+      "sum_y": 1672997,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1450,
+      "rejected": 0,
+      "gaps": 2898,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 208301,
+      "t": 14.764999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6333,
+      "count": 5822,
+      "sum_x": 1898425,
+      "sum_y": 1672912,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1452,
+      "rejected": 0,
+      "gaps": 2902,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 208504,
+      "t": 14.96799999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6339,
+      "count": 5824,
+      "sum_x": 1899225,
+      "sum_y": 1673396,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1454,
+      "rejected": 0,
+      "gaps": 2906,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 208703,
+      "t": 15.171000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6342,
+      "count": 5824,
+      "sum_x": 1899312,
+      "sum_y": 1673790,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1455,
+      "rejected": 0,
+      "gaps": 2908,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 208905,
+      "t": 15.375,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6348,
+      "count": 5826,
+      "sum_x": 1899838,
+      "sum_y": 1674006,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1457,
+      "rejected": 0,
+      "gaps": 2912,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 209112,
+      "t": 15.577999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6354,
+      "count": 5813,
+      "sum_x": 1895686,
+      "sum_y": 1670398,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1459,
+      "rejected": 0,
+      "gaps": 2916,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 209309,
+      "t": 15.781000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6360,
+      "count": 5818,
+      "sum_x": 1897168,
+      "sum_y": 1671716,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1461,
+      "rejected": 0,
+      "gaps": 2920,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 209525,
+      "t": 16.0,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6363,
+      "count": 5818,
+      "sum_x": 1897192,
+      "sum_y": 1671994,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1462,
+      "rejected": 0,
+      "gaps": 2922,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 209713,
+      "t": 16.202999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6369,
+      "count": 5826,
+      "sum_x": 1899756,
+      "sum_y": 1674122,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1464,
+      "rejected": 0,
+      "gaps": 2926,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 209963,
+      "t": 16.452999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6375,
+      "count": 5835,
+      "sum_x": 1902734,
+      "sum_y": 1676667,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1466,
+      "rejected": 0,
+      "gaps": 2930,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 210141,
+      "t": 16.60899999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6381,
+      "count": 5824,
+      "sum_x": 1899068,
+      "sum_y": 1673433,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1468,
+      "rejected": 0,
+      "gaps": 2934,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 210339,
+      "t": 16.812000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6387,
+      "count": 5826,
+      "sum_x": 1899751,
+      "sum_y": 1673975,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1470,
+      "rejected": 0,
+      "gaps": 2938,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 210545,
+      "t": 17.014999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6390,
+      "count": 5828,
+      "sum_x": 1900793,
+      "sum_y": 1674842,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1471,
+      "rejected": 0,
+      "gaps": 2940,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 210744,
+      "t": 17.21799999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6396,
+      "count": 5822,
+      "sum_x": 1898825,
+      "sum_y": 1672954,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1473,
+      "rejected": 0,
+      "gaps": 2944,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 210949,
+      "t": 17.421000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6402,
+      "count": 5825,
+      "sum_x": 1899675,
+      "sum_y": 1673877,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1475,
+      "rejected": 0,
+      "gaps": 2948,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 211149,
+      "t": 17.625,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6408,
+      "count": 5814,
+      "sum_x": 1896139,
+      "sum_y": 1670701,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1477,
+      "rejected": 0,
+      "gaps": 2952,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 211357,
+      "t": 17.827999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6414,
+      "count": 5831,
+      "sum_x": 1901484,
+      "sum_y": 1675517,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1479,
+      "rejected": 0,
+      "gaps": 2956,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 211583,
+      "t": 18.062000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6417,
+      "count": 5830,
+      "sum_x": 1901227,
+      "sum_y": 1675257,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1480,
+      "rejected": 0,
+      "gaps": 2958,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 211760,
+      "t": 18.23399999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6423,
+      "count": 5829,
+      "sum_x": 1901033,
+      "sum_y": 1674966,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1482,
+      "rejected": 0,
+      "gaps": 2962,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 211964,
+      "t": 18.437000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6429,
+      "count": 5827,
+      "sum_x": 1900110,
+      "sum_y": 1674370,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1484,
+      "rejected": 0,
+      "gaps": 2966,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 212166,
+      "t": 18.639999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6435,
+      "count": 5826,
+      "sum_x": 1899636,
+      "sum_y": 1674181,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1486,
+      "rejected": 0,
+      "gaps": 2970,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 212372,
+      "t": 18.84299999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6441,
+      "count": 5811,
+      "sum_x": 1894574,
+      "sum_y": 1669692,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1488,
+      "rejected": 0,
+      "gaps": 2974,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 212586,
+      "t": 19.062000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6444,
+      "count": 5825,
+      "sum_x": 1899428,
+      "sum_y": 1673622,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1489,
+      "rejected": 0,
+      "gaps": 2976,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 212771,
+      "t": 19.25,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6450,
+      "count": 5820,
+      "sum_x": 1897849,
+      "sum_y": 1672331,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1491,
+      "rejected": 0,
+      "gaps": 2980,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 212972,
+      "t": 19.452999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6456,
+      "count": 5823,
+      "sum_x": 1898940,
+      "sum_y": 1673126,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1493,
+      "rejected": 0,
+      "gaps": 2984,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 213174,
+      "t": 19.656000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6462,
+      "count": 5823,
+      "sum_x": 1898584,
+      "sum_y": 1673092,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1495,
+      "rejected": 0,
+      "gaps": 2988,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 213385,
+      "t": 19.875,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6465,
+      "count": 5822,
+      "sum_x": 1898468,
+      "sum_y": 1672934,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1496,
+      "rejected": 0,
+      "gaps": 2990,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 213586,
+      "t": 20.077999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6471,
+      "count": 5833,
+      "sum_x": 1902333,
+      "sum_y": 1676353,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1498,
+      "rejected": 0,
+      "gaps": 2994,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 213779,
+      "t": 20.264999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6477,
+      "count": 5821,
+      "sum_x": 1898217,
+      "sum_y": 1672749,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1500,
+      "rejected": 0,
+      "gaps": 2998,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 214002,
+      "t": 20.48399999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6483,
+      "count": 5824,
+      "sum_x": 1899082,
+      "sum_y": 1673460,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1502,
+      "rejected": 0,
+      "gaps": 3002,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 214196,
+      "t": 20.671000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6489,
+      "count": 5821,
+      "sum_x": 1898172,
+      "sum_y": 1672624,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1504,
+      "rejected": 0,
+      "gaps": 3006,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 214413,
+      "t": 20.889999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6492,
+      "count": 5823,
+      "sum_x": 1898846,
+      "sum_y": 1673359,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1505,
+      "rejected": 0,
+      "gaps": 3008,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 214610,
+      "t": 21.09299999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6498,
+      "count": 5819,
+      "sum_x": 1897375,
+      "sum_y": 1672110,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1507,
+      "rejected": 0,
+      "gaps": 3012,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 214805,
+      "t": 21.281000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6504,
+      "count": 5831,
+      "sum_x": 1901496,
+      "sum_y": 1675572,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1509,
+      "rejected": 0,
+      "gaps": 3016,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 215009,
+      "t": 21.546000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6510,
+      "count": 5823,
+      "sum_x": 1898875,
+      "sum_y": 1673229,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1511,
+      "rejected": 0,
+      "gaps": 3020,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 215255,
+      "t": 21.73399999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6516,
+      "count": 5821,
+      "sum_x": 1898056,
+      "sum_y": 1672559,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1513,
+      "rejected": 0,
+      "gaps": 3024,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 215443,
+      "t": 21.921000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6519,
+      "count": 5821,
+      "sum_x": 1898299,
+      "sum_y": 1672735,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1514,
+      "rejected": 0,
+      "gaps": 3026,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 215645,
+      "t": 22.125,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6525,
+      "count": 5830,
+      "sum_x": 1901043,
+      "sum_y": 1675195,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1516,
+      "rejected": 0,
+      "gaps": 3030,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 215854,
+      "t": 22.34299999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6531,
+      "count": 5828,
+      "sum_x": 1900349,
+      "sum_y": 1674789,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1518,
+      "rejected": 0,
+      "gaps": 3034,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 216082,
+      "t": 22.577999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6537,
+      "count": 5823,
+      "sum_x": 1898785,
+      "sum_y": 1673251,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1520,
+      "rejected": 0,
+      "gaps": 3038,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 216270,
+      "t": 22.764999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6543,
+      "count": 5822,
+      "sum_x": 1898313,
+      "sum_y": 1673009,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1522,
+      "rejected": 0,
+      "gaps": 3042,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 216466,
+      "t": 22.952999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6546,
+      "count": 5820,
+      "sum_x": 1897970,
+      "sum_y": 1672419,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1523,
+      "rejected": 0,
+      "gaps": 3044,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 216662,
+      "t": 23.139999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6552,
+      "count": 5825,
+      "sum_x": 1899474,
+      "sum_y": 1673658,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1525,
+      "rejected": 0,
+      "gaps": 3048,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 216895,
+      "t": 23.375,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6558,
+      "count": 5820,
+      "sum_x": 1897931,
+      "sum_y": 1672433,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1527,
+      "rejected": 0,
+      "gaps": 3052,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 217079,
+      "t": 23.562000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6564,
+      "count": 5823,
+      "sum_x": 1898537,
+      "sum_y": 1673283,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1529,
+      "rejected": 0,
+      "gaps": 3056,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 217292,
+      "t": 23.781000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6570,
+      "count": 5830,
+      "sum_x": 1901147,
+      "sum_y": 1675238,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1531,
+      "rejected": 0,
+      "gaps": 3060,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 217497,
+      "t": 23.98399999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6573,
+      "count": 5810,
+      "sum_x": 1894704,
+      "sum_y": 1669372,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1532,
+      "rejected": 0,
+      "gaps": 3062,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 217688,
+      "t": 24.171000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6579,
+      "count": 5825,
+      "sum_x": 1899623,
+      "sum_y": 1673759,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1534,
+      "rejected": 0,
+      "gaps": 3066,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 217894,
+      "t": 24.375,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6585,
+      "count": 5833,
+      "sum_x": 1902144,
+      "sum_y": 1676178,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1536,
+      "rejected": 0,
+      "gaps": 3070,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 218080,
+      "t": 24.562000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6591,
+      "count": 5828,
+      "sum_x": 1900214,
+      "sum_y": 1674885,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1538,
+      "rejected": 0,
+      "gaps": 3074,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 218284,
+      "t": 24.781000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6594,
+      "count": 5825,
+      "sum_x": 1899558,
+      "sum_y": 1673833,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1539,
+      "rejected": 0,
+      "gaps": 3076,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 218486,
+      "t": 24.96799999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6600,
+      "count": 5821,
+      "sum_x": 1898195,
+      "sum_y": 1672641,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1541,
+      "rejected": 0,
+      "gaps": 3080,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 218701,
+      "t": 25.187000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6606,
+      "count": 5828,
+      "sum_x": 1900526,
+      "sum_y": 1674875,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1543,
+      "rejected": 0,
+      "gaps": 3084,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 218893,
+      "t": 25.389999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6612,
+      "count": 5822,
+      "sum_x": 1898377,
+      "sum_y": 1672863,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1545,
+      "rejected": 0,
+      "gaps": 3088,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 219096,
+      "t": 25.59299999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6618,
+      "count": 5832,
+      "sum_x": 1901780,
+      "sum_y": 1675994,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1547,
+      "rejected": 0,
+      "gaps": 3092,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 219298,
+      "t": 25.796000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6621,
+      "count": 5820,
+      "sum_x": 1897752,
+      "sum_y": 1672569,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1548,
+      "rejected": 0,
+      "gaps": 3094,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 219501,
+      "t": 26.0,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6627,
+      "count": 5828,
+      "sum_x": 1900517,
+      "sum_y": 1674635,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1550,
+      "rejected": 0,
+      "gaps": 3098,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 219705,
+      "t": 26.202999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6633,
+      "count": 5820,
+      "sum_x": 1897744,
+      "sum_y": 1672286,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1552,
+      "rejected": 0,
+      "gaps": 3102,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 219918,
+      "t": 26.406000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6639,
+      "count": 5818,
+      "sum_x": 1896962,
+      "sum_y": 1671629,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1554,
+      "rejected": 0,
+      "gaps": 3106,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 220107,
+      "t": 26.60899999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6642,
+      "count": 5829,
+      "sum_x": 1900736,
+      "sum_y": 1674923,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1555,
+      "rejected": 0,
+      "gaps": 3108,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 220316,
+      "t": 26.812000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6651,
+      "count": 5823,
+      "sum_x": 1898866,
+      "sum_y": 1673308,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1558,
+      "rejected": 0,
+      "gaps": 3114,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 220547,
+      "t": 27.046000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6654,
+      "count": 5824,
+      "sum_x": 1899231,
+      "sum_y": 1673732,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1559,
+      "rejected": 0,
+      "gaps": 3116,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 220742,
+      "t": 27.23399999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6660,
+      "count": 5819,
+      "sum_x": 1897456,
+      "sum_y": 1672101,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1561,
+      "rejected": 0,
+      "gaps": 3120,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 220944,
+      "t": 27.437000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6666,
+      "count": 5821,
+      "sum_x": 1898204,
+      "sum_y": 1672568,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1563,
+      "rejected": 0,
+      "gaps": 3124,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 221147,
+      "t": 27.639999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6672,
+      "count": 5823,
+      "sum_x": 1898790,
+      "sum_y": 1673226,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1565,
+      "rejected": 0,
+      "gaps": 3128,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 221348,
+      "t": 27.84299999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6675,
+      "count": 5828,
+      "sum_x": 1900370,
+      "sum_y": 1674818,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1566,
+      "rejected": 0,
+      "gaps": 3130,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 221550,
+      "t": 28.046000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6681,
+      "count": 5820,
+      "sum_x": 1897713,
+      "sum_y": 1672449,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1568,
+      "rejected": 0,
+      "gaps": 3134,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 221757,
+      "t": 28.25,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6687,
+      "count": 5820,
+      "sum_x": 1897794,
+      "sum_y": 1672167,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1570,
+      "rejected": 0,
+      "gaps": 3138,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 221954,
+      "t": 28.452999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6693,
+      "count": 5823,
+      "sum_x": 1898817,
+      "sum_y": 1673085,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1572,
+      "rejected": 0,
+      "gaps": 3142,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 222160,
+      "t": 28.656000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6699,
+      "count": 5822,
+      "sum_x": 1898657,
+      "sum_y": 1672929,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1574,
+      "rejected": 0,
+      "gaps": 3146,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 222369,
+      "t": 28.875,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6702,
+      "count": 5820,
+      "sum_x": 1897855,
+      "sum_y": 1672195,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1575,
+      "rejected": 0,
+      "gaps": 3148,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 222566,
+      "t": 29.062000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6708,
+      "count": 5826,
+      "sum_x": 1899720,
+      "sum_y": 1674184,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1577,
+      "rejected": 0,
+      "gaps": 3152,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 222767,
+      "t": 29.264999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6714,
+      "count": 5817,
+      "sum_x": 1896940,
+      "sum_y": 1671398,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1579,
+      "rejected": 0,
+      "gaps": 3156,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 222972,
+      "t": 29.46799999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6720,
+      "count": 5827,
+      "sum_x": 1900336,
+      "sum_y": 1674374,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1581,
+      "rejected": 0,
+      "gaps": 3160,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 223171,
+      "t": 29.671000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6723,
+      "count": 5820,
+      "sum_x": 1897865,
+      "sum_y": 1672220,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1582,
+      "rejected": 0,
+      "gaps": 3162,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 223374,
+      "t": 29.875,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6729,
+      "count": 5818,
+      "sum_x": 1897216,
+      "sum_y": 1672068,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1584,
+      "rejected": 0,
+      "gaps": 3166,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 223575,
+      "t": 30.077999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6735,
+      "count": 5832,
+      "sum_x": 1901808,
+      "sum_y": 1675814,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1586,
+      "rejected": 0,
+      "gaps": 3170,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 223779,
+      "t": 30.281000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6741,
+      "count": 5832,
+      "sum_x": 1901814,
+      "sum_y": 1675872,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1588,
+      "rejected": 0,
+      "gaps": 3174,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 223984,
+      "t": 30.48399999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6747,
+      "count": 5828,
+      "sum_x": 1900347,
+      "sum_y": 1674687,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1590,
+      "rejected": 0,
+      "gaps": 3178,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 224190,
+      "t": 30.702999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6750,
+      "count": 5826,
+      "sum_x": 1899695,
+      "sum_y": 1673962,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1591,
+      "rejected": 0,
+      "gaps": 3180,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 224391,
+      "t": 30.889999999999418,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6756,
+      "count": 5819,
+      "sum_x": 1897464,
+      "sum_y": 1672119,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1593,
+      "rejected": 0,
+      "gaps": 3184,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 224591,
+      "t": 31.09299999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6762,
+      "count": 5825,
+      "sum_x": 1899290,
+      "sum_y": 1673893,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1595,
+      "rejected": 0,
+      "gaps": 3188,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 224793,
+      "t": 31.296000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6768,
+      "count": 5827,
+      "sum_x": 1900157,
+      "sum_y": 1674409,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1597,
+      "rejected": 0,
+      "gaps": 3192,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 224996,
+      "t": 31.5,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6771,
+      "count": 5820,
+      "sum_x": 1898027,
+      "sum_y": 1672268,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1598,
+      "rejected": 0,
+      "gaps": 3194,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 225201,
+      "t": 31.702999999994063,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6777,
+      "count": 5826,
+      "sum_x": 1899785,
+      "sum_y": 1674076,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1600,
+      "rejected": 0,
+      "gaps": 3198,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 225403,
+      "t": 31.906000000002678,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6783,
+      "count": 5818,
+      "sum_x": 1897201,
+      "sum_y": 1671583,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1602,
+      "rejected": 0,
+      "gaps": 3202,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 225604,
+      "t": 32.10899999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6789,
+      "count": 5820,
+      "sum_x": 1897860,
+      "sum_y": 1672396,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1604,
+      "rejected": 0,
+      "gaps": 3206,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 225812,
+      "t": 32.32799999999406,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6795,
+      "count": 5828,
+      "sum_x": 1900678,
+      "sum_y": 1674581,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1606,
+      "rejected": 0,
+      "gaps": 3210,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 226011,
+      "t": 32.51499999999942,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6801,
+      "count": 5822,
+      "sum_x": 1898470,
+      "sum_y": 1672856,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1608,
+      "rejected": 0,
+      "gaps": 3214,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 226242,
+      "t": 32.75,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6804,
+      "count": 5828,
+      "sum_x": 1900429,
+      "sum_y": 1674569,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1609,
+      "rejected": 0,
+      "gaps": 3216,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 226445,
+      "t": 32.95299999999406,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6810,
+      "count": 5821,
+      "sum_x": 1898610,
+      "sum_y": 1672643,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1611,
+      "rejected": 0,
+      "gaps": 3220,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 226647,
+      "t": 33.15600000000268,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6816,
+      "count": 5826,
+      "sum_x": 1899727,
+      "sum_y": 1674087,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1613,
+      "rejected": 0,
+      "gaps": 3224,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 226848,
+      "t": 33.35899999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6822,
+      "count": 5820,
+      "sum_x": 1897884,
+      "sum_y": 1672096,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1615,
+      "rejected": 0,
+      "gaps": 3228,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 227049,
+      "t": 33.562000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6825,
+      "count": 5823,
+      "sum_x": 1898892,
+      "sum_y": 1673196,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1616,
+      "rejected": 0,
+      "gaps": 3230,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 227255,
+      "t": 33.76499999999942,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6831,
+      "count": 5827,
+      "sum_x": 1900245,
+      "sum_y": 1674414,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1618,
+      "rejected": 0,
+      "gaps": 3234,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 227459,
+      "t": 33.96799999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6837,
+      "count": 5821,
+      "sum_x": 1898133,
+      "sum_y": 1672618,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1620,
+      "rejected": 0,
+      "gaps": 3238,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 227663,
+      "t": 34.171000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6843,
+      "count": 5820,
+      "sum_x": 1898115,
+      "sum_y": 1672257,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1622,
+      "rejected": 0,
+      "gaps": 3242,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 227867,
+      "t": 34.375,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6849,
+      "count": 5826,
+      "sum_x": 1899796,
+      "sum_y": 1673862,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1624,
+      "rejected": 0,
+      "gaps": 3246,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 228071,
+      "t": 34.59299999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6852,
+      "count": 5822,
+      "sum_x": 1898455,
+      "sum_y": 1672744,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1625,
+      "rejected": 0,
+      "gaps": 3248,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 228270,
+      "t": 34.78100000000268,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6858,
+      "count": 5821,
+      "sum_x": 1898149,
+      "sum_y": 1672568,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1627,
+      "rejected": 0,
+      "gaps": 3252,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 228472,
+      "t": 34.98399999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6864,
+      "count": 5818,
+      "sum_x": 1897225,
+      "sum_y": 1671670,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1629,
+      "rejected": 0,
+      "gaps": 3256,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 228674,
+      "t": 35.187000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6870,
+      "count": 5825,
+      "sum_x": 1899641,
+      "sum_y": 1673698,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1631,
+      "rejected": 0,
+      "gaps": 3260,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 228876,
+      "t": 35.38999999999942,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6876,
+      "count": 5818,
+      "sum_x": 1897260,
+      "sum_y": 1671917,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1633,
+      "rejected": 0,
+      "gaps": 3264,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 229099,
+      "t": 35.625,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6879,
+      "count": 5816,
+      "sum_x": 1896458,
+      "sum_y": 1671237,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1634,
+      "rejected": 0,
+      "gaps": 3266,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 229284,
+      "t": 35.812000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6885,
+      "count": 5825,
+      "sum_x": 1899596,
+      "sum_y": 1673941,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1636,
+      "rejected": 0,
+      "gaps": 3270,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 229484,
+      "t": 36.0,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6891,
+      "count": 5818,
+      "sum_x": 1897269,
+      "sum_y": 1671721,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1638,
+      "rejected": 0,
+      "gaps": 3274,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 229697,
+      "t": 36.21799999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6897,
+      "count": 5815,
+      "sum_x": 1896122,
+      "sum_y": 1671040,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1640,
+      "rejected": 0,
+      "gaps": 3278,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 229889,
+      "t": 36.40600000000268,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6900,
+      "count": 5817,
+      "sum_x": 1896725,
+      "sum_y": 1671394,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1641,
+      "rejected": 0,
+      "gaps": 3280,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 230099,
+      "t": 36.625,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6906,
+      "count": 5825,
+      "sum_x": 1899450,
+      "sum_y": 1673913,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1643,
+      "rejected": 0,
+      "gaps": 3284,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 230292,
+      "t": 36.812000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6912,
+      "count": 5823,
+      "sum_x": 1898792,
+      "sum_y": 1673274,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1645,
+      "rejected": 0,
+      "gaps": 3288,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 230498,
+      "t": 37.01499999999942,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6918,
+      "count": 5822,
+      "sum_x": 1898508,
+      "sum_y": 1672933,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1647,
+      "rejected": 0,
+      "gaps": 3292,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 230696,
+      "t": 37.21799999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6921,
+      "count": 5826,
+      "sum_x": 1899794,
+      "sum_y": 1674206,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1648,
+      "rejected": 0,
+      "gaps": 3294,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 230898,
+      "t": 37.421000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6927,
+      "count": 5817,
+      "sum_x": 1896729,
+      "sum_y": 1671513,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1650,
+      "rejected": 0,
+      "gaps": 3298,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 231100,
+      "t": 37.625,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6933,
+      "count": 5824,
+      "sum_x": 1899419,
+      "sum_y": 1673617,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1652,
+      "rejected": 0,
+      "gaps": 3302,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 231300,
+      "t": 37.82799999999406,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6939,
+      "count": 5821,
+      "sum_x": 1898138,
+      "sum_y": 1672819,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1654,
+      "rejected": 0,
+      "gaps": 3306,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 231505,
+      "t": 38.03100000000268,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6945,
+      "count": 5825,
+      "sum_x": 1899377,
+      "sum_y": 1673951,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1656,
+      "rejected": 0,
+      "gaps": 3310,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 231710,
+      "t": 38.23399999999674,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6948,
+      "count": 5821,
+      "sum_x": 1897985,
+      "sum_y": 1672741,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1657,
+      "rejected": 0,
+      "gaps": 3312,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 231911,
+      "t": 38.437000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6954,
+      "count": 5829,
+      "sum_x": 1901034,
+      "sum_y": 1675005,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1659,
+      "rejected": 0,
+      "gaps": 3316,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 232108,
+      "t": 38.63999999999942,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6960,
+      "count": 5816,
+      "sum_x": 1896222,
+      "sum_y": 1671237,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1661,
+      "rejected": 0,
+      "gaps": 3320,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 232310,
+      "t": 38.84299999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6966,
+      "count": 5822,
+      "sum_x": 1898330,
+      "sum_y": 1672927,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1663,
+      "rejected": 0,
+      "gaps": 3324,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 232526,
+      "t": 39.062000000005355,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6972,
+      "count": 5817,
+      "sum_x": 1896822,
+      "sum_y": 1671448,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1665,
+      "rejected": 0,
+      "gaps": 3328,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 232743,
+      "t": 39.26499999999942,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6975,
+      "count": 5819,
+      "sum_x": 1897711,
+      "sum_y": 1671962,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1666,
+      "rejected": 0,
+      "gaps": 3330,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 232940,
+      "t": 39.46799999999348,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6981,
+      "count": 5821,
+      "sum_x": 1898282,
+      "sum_y": 1672692,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1668,
+      "rejected": 0,
+      "gaps": 3334,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 233145,
+      "t": 39.671000000002095,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "sequence": 6987,
+      "count": 5820,
+      "sum_x": 1897852,
+      "sum_y": 1672503,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "flags": 7,
+      "mask": 2,
+      "accepted": 1670,
+      "rejected": 0,
+      "gaps": 3338,
+      "bound": 1,
+      "fresh": 1,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 233345,
+      "t": 39.875,
+      "openmv_frames": 0,
+      "openmv_dx": 0,
+      "openmv_dy": 0,
+      "openmv_valid": 0,
+      "gimbal_pwm": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "feedback_count": 0,
+  "bad_crc": 0,
+  "both_valid_samples": 0,
+  "verdict": "FAIL",
+  "scope_note": "No IDE run occurred in this monitoring window"
+}
