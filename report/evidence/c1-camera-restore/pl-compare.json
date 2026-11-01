@@ -1,0 +1,26 @@
+{
+  "complete_frames": 31,
+  "compared": 30,
+  "mismatch_count": 0,
+  "sequence_gaps": 0,
+  "incomplete": 0,
+  "malformed": 1,
+  "first_match": {
+    "seq": 1219,
+    "mask_version": 2,
+    "count": 5799,
+    "bbox": [
+      284,
+      245,
+      369,
+      330
+    ],
+    "centroid": [
+      325,
+      287
+    ]
+  },
+  "first_mismatches": [],
+  "command": "D:/Python312/python.exe -m src.pc.pl_compare --seconds 15 --frames 30",
+  "exit_code": 0
+}

@@ -1,0 +1,37 @@
+{
+  "started_at_utc": "2026-11-01T12:46:07.774068+00:00",
+  "requested_seconds": 30,
+  "elapsed_seconds": 30.0,
+  "interrupted": false,
+  "complete_frames": 898,
+  "incomplete_frames": 1,
+  "malformed_datagrams": 1,
+  "orphan_rows": 56,
+  "received_datagrams": 431806,
+  "received_payload_bytes": 552747720,
+  "other_source_datagrams": 0,
+  "max_complete_frame_gap_seconds": 0.062,
+  "intervals": [
+    {
+      "elapsed_seconds": 10.0,
+      "complete_frames": 299,
+      "new_frames": 299,
+      "incomplete_frames": 0,
+      "malformed_datagrams": 1
+    },
+    {
+      "elapsed_seconds": 20.0,
+      "complete_frames": 598,
+      "new_frames": 299,
+      "incomplete_frames": 1,
+      "malformed_datagrams": 1
+    },
+    {
+      "elapsed_seconds": 30.0,
+      "complete_frames": 898,
+      "new_frames": 300,
+      "incomplete_frames": 1,
+      "malformed_datagrams": 1
+    }
+  ]
+}

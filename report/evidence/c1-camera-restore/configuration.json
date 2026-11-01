@@ -1,0 +1,32 @@
+{
+  "scope": "Restored historical OV5640 PL red detection only; not integrated autonomous control",
+  "date": "2026-11-01",
+  "tool": "Vivado 2024.2",
+  "bit_sha256": "4b42c32436a0b9ac7e089ed15777536709839eab8b58314c8e3b37031ce7e121",
+  "historical_rtl_commit": "a9842abe55cf2d7460fa9c09b0ce188a0bd37f14",
+  "program_command": "program_hw_devices (unique XC7Z100), volatile JTAG only",
+  "program_exit_code": 0,
+  "program_seconds": 140.157,
+  "startup": "HIGH",
+  "eos": 1,
+  "internal_done": 1,
+  "pin_done": 1,
+  "crc_error": 0,
+  "flash_operations": false,
+  "motion_commands": false,
+  "laser_operations": false,
+  "mcu_firmware_changed": false,
+  "user_reported_servo_laser_power": "physically disconnected",
+  "commands": [
+    {
+      "command": "python -m src.pc.bench_probe --seconds 30 --interval 10 --output <private-stage>/stability-30s.json",
+      "exit_code": 0
+    }
+  ],
+  "source_sha256": {
+    "src/pc/pl_compare.py": "92a4e8bef0e8f290824f3bfe83f01498ff997888881aeb0c7bf1171ea5e3eab8",
+    "src/pc/vendor_udp.py": "98f3dc603d8a6ecfacc826b3f5b609fb25261c2463337a968ec70df035100b16",
+    "src/pc/camera_viewer.py": "fce0612c55527de3c06bd4b8f15cdd3f0c7bbc04d00b9798d73b47af104bd89a",
+    "sim/reference/red_mask.py": "c5f3bdf3867fd472f68217463b453bd6aca751ec82f568f494db2f90e8e415c8"
+  }
+}

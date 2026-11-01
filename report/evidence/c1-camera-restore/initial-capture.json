@@ -1,0 +1,1813 @@
+{
+  "scope": "live OV5640 PL metadata, not autonomous motion",
+  "motion_or_laser_commands": false,
+  "elapsed_seconds": 6.75,
+  "complete_frames": 100,
+  "incomplete": 37,
+  "malformed": 1,
+  "measurements": [
+    {
+      "sequence": 667,
+      "complete": true,
+      "valid": true,
+      "count": 5807,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": false
+    },
+    {
+      "sequence": 668,
+      "complete": true,
+      "valid": true,
+      "count": 5811,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 669,
+      "complete": true,
+      "valid": true,
+      "count": 5806,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 670,
+      "complete": true,
+      "valid": true,
+      "count": 5799,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 671,
+      "complete": true,
+      "valid": true,
+      "count": 5811,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 672,
+      "complete": true,
+      "valid": true,
+      "count": 5796,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 673,
+      "complete": true,
+      "valid": true,
+      "count": 5808,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 674,
+      "complete": true,
+      "valid": true,
+      "count": 5811,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 675,
+      "complete": true,
+      "valid": true,
+      "count": 5797,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 676,
+      "complete": true,
+      "valid": true,
+      "count": 5806,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 677,
+      "complete": true,
+      "valid": true,
+      "count": 5815,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 678,
+      "complete": true,
+      "valid": true,
+      "count": 5813,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 679,
+      "complete": true,
+      "valid": true,
+      "count": 5810,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 680,
+      "complete": true,
+      "valid": true,
+      "count": 5802,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 681,
+      "complete": true,
+      "valid": true,
+      "count": 5807,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 682,
+      "complete": true,
+      "valid": true,
+      "count": 5815,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 683,
+      "complete": true,
+      "valid": true,
+      "count": 5800,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 684,
+      "complete": true,
+      "valid": true,
+      "count": 5811,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 685,
+      "complete": true,
+      "valid": true,
+      "count": 5811,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 686,
+      "complete": true,
+      "valid": true,
+      "count": 5803,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 687,
+      "complete": true,
+      "valid": true,
+      "count": 5799,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 688,
+      "complete": true,
+      "valid": true,
+      "count": 5808,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 689,
+      "complete": true,
+      "valid": true,
+      "count": 5812,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 690,
+      "complete": true,
+      "valid": true,
+      "count": 5810,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 691,
+      "complete": true,
+      "valid": true,
+      "count": 5818,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 692,
+      "complete": true,
+      "valid": true,
+      "count": 5806,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 700,
+      "complete": true,
+      "valid": true,
+      "count": 5807,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": false
+    },
+    {
+      "sequence": 719,
+      "complete": true,
+      "valid": true,
+      "count": 5805,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": false
+    },
+    {
+      "sequence": 722,
+      "complete": true,
+      "valid": true,
+      "count": 5808,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": false
+    },
+    {
+      "sequence": 723,
+      "complete": true,
+      "valid": true,
+      "count": 5807,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 724,
+      "complete": true,
+      "valid": true,
+      "count": 5813,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 725,
+      "complete": true,
+      "valid": true,
+      "count": 5802,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 726,
+      "complete": true,
+      "valid": true,
+      "count": 5808,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 727,
+      "complete": true,
+      "valid": true,
+      "count": 5805,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 728,
+      "complete": true,
+      "valid": true,
+      "count": 5807,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 729,
+      "complete": true,
+      "valid": true,
+      "count": 5806,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 730,
+      "complete": true,
+      "valid": true,
+      "count": 5805,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 731,
+      "complete": true,
+      "valid": true,
+      "count": 5809,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 732,
+      "complete": true,
+      "valid": true,
+      "count": 5812,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 733,
+      "complete": true,
+      "valid": true,
+      "count": 5813,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 734,
+      "complete": true,
+      "valid": true,
+      "count": 5807,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 735,
+      "complete": true,
+      "valid": true,
+      "count": 5810,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 736,
+      "complete": true,
+      "valid": true,
+      "count": 5819,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 737,
+      "complete": true,
+      "valid": true,
+      "count": 5802,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 738,
+      "complete": true,
+      "valid": true,
+      "count": 5811,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 739,
+      "complete": true,
+      "valid": true,
+      "count": 5810,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 740,
+      "complete": true,
+      "valid": true,
+      "count": 5813,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 741,
+      "complete": true,
+      "valid": true,
+      "count": 5796,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 742,
+      "complete": true,
+      "valid": true,
+      "count": 5803,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 743,
+      "complete": true,
+      "valid": true,
+      "count": 5809,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 744,
+      "complete": true,
+      "valid": true,
+      "count": 5812,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 745,
+      "complete": true,
+      "valid": true,
+      "count": 5808,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 746,
+      "complete": true,
+      "valid": true,
+      "count": 5808,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 747,
+      "complete": true,
+      "valid": true,
+      "count": 5795,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 748,
+      "complete": true,
+      "valid": true,
+      "count": 5803,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 766,
+      "complete": true,
+      "valid": true,
+      "count": 5811,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": false
+    },
+    {
+      "sequence": 779,
+      "complete": true,
+      "valid": true,
+      "count": 5803,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": false
+    },
+    {
+      "sequence": 780,
+      "complete": true,
+      "valid": true,
+      "count": 5806,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 781,
+      "complete": true,
+      "valid": true,
+      "count": 5807,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 782,
+      "complete": true,
+      "valid": true,
+      "count": 5797,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 783,
+      "complete": true,
+      "valid": true,
+      "count": 5803,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 784,
+      "complete": true,
+      "valid": true,
+      "count": 5802,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 785,
+      "complete": true,
+      "valid": true,
+      "count": 5796,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 786,
+      "complete": true,
+      "valid": true,
+      "count": 5806,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 787,
+      "complete": true,
+      "valid": true,
+      "count": 5800,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 788,
+      "complete": true,
+      "valid": true,
+      "count": 5802,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 789,
+      "complete": true,
+      "valid": true,
+      "count": 5810,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 790,
+      "complete": true,
+      "valid": true,
+      "count": 5803,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 791,
+      "complete": true,
+      "valid": true,
+      "count": 5804,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 792,
+      "complete": true,
+      "valid": true,
+      "count": 5810,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 793,
+      "complete": true,
+      "valid": true,
+      "count": 5805,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 794,
+      "complete": true,
+      "valid": true,
+      "count": 5806,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 795,
+      "complete": true,
+      "valid": true,
+      "count": 5808,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 796,
+      "complete": true,
+      "valid": true,
+      "count": 5804,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 797,
+      "complete": true,
+      "valid": true,
+      "count": 5808,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 798,
+      "complete": true,
+      "valid": true,
+      "count": 5806,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 799,
+      "complete": true,
+      "valid": true,
+      "count": 5815,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 800,
+      "complete": true,
+      "valid": true,
+      "count": 5802,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 801,
+      "complete": true,
+      "valid": true,
+      "count": 5804,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 802,
+      "complete": true,
+      "valid": true,
+      "count": 5810,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 803,
+      "complete": true,
+      "valid": true,
+      "count": 5808,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 804,
+      "complete": true,
+      "valid": true,
+      "count": 5805,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 805,
+      "complete": true,
+      "valid": true,
+      "count": 5799,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 811,
+      "complete": true,
+      "valid": true,
+      "count": 5806,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": false
+    },
+    {
+      "sequence": 828,
+      "complete": true,
+      "valid": true,
+      "count": 5812,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": false
+    },
+    {
+      "sequence": 837,
+      "complete": true,
+      "valid": true,
+      "count": 5806,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": false
+    },
+    {
+      "sequence": 838,
+      "complete": true,
+      "valid": true,
+      "count": 5811,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 839,
+      "complete": true,
+      "valid": true,
+      "count": 5807,
+      "bbox": [
+        283,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 840,
+      "complete": true,
+      "valid": true,
+      "count": 5799,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 841,
+      "complete": true,
+      "valid": true,
+      "count": 5809,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 842,
+      "complete": true,
+      "valid": true,
+      "count": 5804,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 843,
+      "complete": true,
+      "valid": true,
+      "count": 5799,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 844,
+      "complete": true,
+      "valid": true,
+      "count": 5799,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 845,
+      "complete": true,
+      "valid": true,
+      "count": 5810,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 846,
+      "complete": true,
+      "valid": true,
+      "count": 5816,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 847,
+      "complete": true,
+      "valid": true,
+      "count": 5821,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 848,
+      "complete": true,
+      "valid": true,
+      "count": 5806,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 849,
+      "complete": true,
+      "valid": true,
+      "count": 5802,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 850,
+      "complete": true,
+      "valid": true,
+      "count": 5797,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        325,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    },
+    {
+      "sequence": 851,
+      "complete": true,
+      "valid": true,
+      "count": 5802,
+      "bbox": [
+        284,
+        245,
+        369,
+        330
+      ],
+      "centroid": [
+        326,
+        287
+      ],
+      "mask_version": 2,
+      "matched_frame": true
+    }
+  ],
+  "positive_results": 100,
+  "verdict": "PASS",
+  "limitation": "First diagnostic saved PNG on each matched frame; receiver drops occurred, no continuity acceptance inferred."
+}
