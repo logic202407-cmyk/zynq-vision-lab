@@ -262,13 +262,17 @@
     },
     {
       "id": "c1_board_observation_only",
-      "status": "implemented",
+      "status": "board_verified",
       "evidence": [
         "docs/c1_board_observation.md",
         "report/experiments/2026-11-01-c1-board-observation.md",
-        "report/evidence/c1-board-observe/implementation.json"
+        "report/evidence/c1-board-observe/implementation.json",
+        "report/evidence/c1-board-observe/receipt.json"
       ],
-      "note": "Read-only FPGA board integration, not motion control. Commit-pinned receipt follows source commit; CDC/I/O/epoch/calibration blockers remain."
+      "note": "Limited read-only board prototype only: 39 same-frame UDP/MCU measurements agree; 419 F1 feedback lines, CRC0; 131 both-valid samples; all PWM stays OFF. Hardware ARM disabled. Ground correction and initial wrong-target observation retained. CDC reset/FIFO Criticals, IO timing, epoch and calibration still block motion. OpenMV RAM script finite, not persistent deployment.",
+      "verified_commit": "257111ea6f94ef8c0d6824a840e6c539ca3627d2",
+      "tool_version": "Vivado 2024.2 XSim/implementation/JTAG/VIO; ARMCC 5.06u5; OpenMV firmware/IDE 5.0.0",
+      "reviewer": "Codex serial/SWD/VIO and live visual checks with user scene/ground confirmation; independent reproduction pending"
     }
   ]
 }

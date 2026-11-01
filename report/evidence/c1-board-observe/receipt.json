@@ -1,0 +1,33 @@
+{
+  "source_commit": "257111ea6f94ef8c0d6824a840e6c539ca3627d2",
+  "git_blob_sha256": {
+    "board/skystar_f407/c1_observation_insert.vh": "2f9a0966bb275d799aee054db1d57f13807231fd2ee6a6ceb509f14ee3f76ee4",
+    "build/build_c1_observation_board.tcl": "25b754e16d26775ad3cd3ad5e44eab4ebf85dc88527894d9a4bed5738d743aff",
+    "sim/c1/camera_snapshot_tb.v": "6439545f8a3fed1b9c9561ab89f9129139ee4c0ef42a5d41c616c3561e705d4d",
+    "sim/c1/observation_bridge_tb.v": "b4bee746129146208d49771d9720446102d4b6038ab7034b36a848464c837231",
+    "src/rtl/c1_observation_link.v": "194eee7df28f1a7eecdb3090a864af225b383b3bb52348e30685b950a7a1b392",
+    "src/rtl/camera_measurement_snapshot.v": "6b9e5192cb9ca9363242b8bf8e3ef02092d677acd6f838e4d0f5942c343c86a1",
+    "tools/check_c1_observation_board.py": "34597247016cb5ad90b10cf7ef385d3b978f1600722b551519645582e51f1ed9",
+    "tools/prepare_c1_observation_board.py": "052130857f8bbb8f33103ef49d7d5fabf3cfbfdf7033ace4f400ceafe29a4888",
+    "tools/prepare_vendor_red_camera.py": "535999e5ec83dcbc9cff2c6c7bb9ffe0d617644f9f25662e90a94ac16eb267a2"
+  },
+  "bit_sha256": "a34a1726d22f9b684da8e84d0450faafa541b5aaceb037f050413e7cc988115c",
+  "verification": {
+    "snapshot": 7,
+    "coupled_c": 7,
+    "udp_mcu_same_frame": 39,
+    "same_frame_mismatches": 0,
+    "final_f1_lines": 419,
+    "f1_crc_errors": 0,
+    "both_valid_samples": 131,
+    "python_tests": 54
+  },
+  "scope": "Read-only camera/MCU/feedback prototype, all PWM disabled; target identity manually confirmed",
+  "blockers": [
+    "CDC reset Critical findings",
+    "vendor FIFO/IO timing and unclocked endpoints",
+    "reliable motion epoch",
+    "mechanical/optical calibration",
+    "no autonomous cross-camera identity or search"
+  ]
+}

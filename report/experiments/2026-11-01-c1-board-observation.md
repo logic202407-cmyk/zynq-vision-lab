@@ -86,3 +86,5 @@ MCU实际CCER始终0；OpenMV发送脚本结束后valid正常超时，PL观测�
 
 证据目录：[源文件指纹、实际输入、退出码和报告](../evidence/c1-board-observe/README.md)。
 实景截图、厂商源码、位流、Flash、调试会话ID与完整串口日志均留D盘私有目录。
+
+实现及原始验收证据提交：`257111ea6f94ef8c0d6824a840e6c539ca3627d2`。源码Git对象SHA-256与位流指纹见[版本回执](../evidence/c1-board-observe/receipt.json)。
