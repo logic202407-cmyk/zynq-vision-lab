@@ -1,0 +1,7 @@
+"main.c", line 58: Warning:  #111-D: statement is unreachable
+
+      n=snprintf(text,sizeof(text),"P0V 1 STATE %s MODE %s VALID %u ENABLED %u DX %d DY %d PAN %u TLT %u REQ_PAN %u REQ_TLT %u SESSION 1 FRAME %lu RX_MS %lu SOURCE_MS 0 REJECT %s BAD %lu PARSE_BAD %lu PKP %ld PKI %ld PKD %ld TKP %ld TKI %ld TKD %ld\r\n",
+
+      ^
+
+main.c: 1 warning, 0 errors

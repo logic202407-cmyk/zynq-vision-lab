@@ -4,10 +4,28 @@
 #include <stdio.h>
 #include <string.h>
 
+#ifdef C1_OBSERVATIONS
+#include "gimbal_registry.h"
+#include "vision_measurement.h"
+static gimbal_registry_t observation_devices;
+static measurement_store_t observations;
+static int c1_hex(char c){if(c>='0'&&c<='9')return c-'0';if(c>='a'&&c<='f')return c-'a'+10;return -1;}
+static int c1_line(const char *s,uint32_t rx,uint32_t now){
+ uint8_t packet[M2_BYTES];unsigned i;int a,b;
+ if(strncmp(s,"v2 ",3))return 0;
+ if(strlen(s)!=111)return 1;
+ for(i=0;i<M2_BYTES;i++){a=c1_hex(s[3+i*2]);b=c1_hex(s[4+i*2]);if(a<0||b<0)return 1;packet[i]=(uint8_t)(a*16+b);}
+ (void)measurement_receive(&observations,packet,M2_BYTES,rx,now);return 1;
+}
+#endif
 static tracking_t control;
 static vision_parser_t parser;
 static safety_t guardian;
+#ifdef C1_OBSERVATIONS
+static char line[128];
+#else
 static char line[SAFETY_LINE_BYTES];
+#endif
 static unsigned used, dropping;
 static uint32_t command_last_ms, tx_dropped;
 static void flush_vision(void) { board_flush_vision(); vision_init(&parser); }
@@ -77,6 +95,9 @@ static void console_feed(uint8_t byte, uint32_t received, uint32_t now)
         if (used || dropping) {
             line[used]=0;
             if (!dropping && !board_button()) {
+                #ifdef C1_OBSERVATIONS
+                if(c1_line(line,received,now)){used=dropping=0;return;}
+#endif
                 prior_state=guardian.state; prior_sequence=guardian.sequence;
                 #ifdef S1ACK1
                 command=ack_prepare(line,&request);
@@ -129,6 +150,9 @@ static void poll_safety(uint32_t now)
 }
 static void vision_byte(uint8_t byte, uint32_t received, uint32_t now)
 {
+#ifdef C1_OBSERVATIONS
+    (void)gimbal_openmv_byte(&observation_devices,0,byte,received,now);
+#endif
     if (guardian.state==SAFE_AUTO) {
         uint32_t rejected=control.rejected;
         int complete=vision_feed(&parser,&control,byte,received,now);
@@ -139,6 +163,10 @@ int main(void)
 {
     uint32_t last_status=0, received, hi,lo;
     uint8_t byte; int entropy_ok;
+    #ifdef C1_OBSERVATIONS
+    gimbal_registry_init(&observation_devices);
+    memset(&observations,0,sizeof(observations)); /* Explicit bind required; no boot session guess. */
+#endif
     tracking_init(&control); vision_init(&parser); board_init();
     entropy_ok=board_session_nonce(&hi,&lo);
     safety_init(&guardian,hi,lo,entropy_ok);
@@ -155,6 +183,15 @@ int main(void)
         poll_safety(now); tracking_tick(&control,now);
         board_outputs(safety_armed(&guardian) && control.outputs,control.pan_us,control.tilt_us);
         if ((uint32_t)(now-last_status)>=100u) { last_status=now; status(); }
+        #ifdef C1_OBSERVATIONS
+        measurement_tick(&observations,now);gimbal_registry_tick(&observation_devices,now);
+        (void)gimbal_record_targets(&observation_devices,0,control.pan_us,control.tilt_us);
+        observation_devices.devices[0].safety_snapshot=guardian;
+        observation_devices.devices[0].pwm_enabled=(uint8_t)(safety_armed(&guardian)&&control.outputs);
+        observation_devices.devices[0].pwm_known=1;
+        observation_devices.devices[0].fault=guardian.state==SAFE_FAULT?(uint8_t)guardian.reason:0;
+        observation_devices.devices[0].owner=guardian.state==SAFE_AUTO?2:(safety_armed(&guardian)?1:0);
+#endif
         board_poll_tx();
     }
 }

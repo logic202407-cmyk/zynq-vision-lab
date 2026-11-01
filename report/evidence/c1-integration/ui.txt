@@ -1,0 +1,1 @@
+{"verdict": "PASS", "exit_code": 0, "cases": 3, "checks": ["actual_Tk_video_overlay", "two_independent_sources", "three_device_rows_six_unknown_targets"], "scope": "synthetic display only; no hardware communication"}

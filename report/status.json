@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-31",
+  "updated_on": "2026-11-01",
   "project_stage": "pl_camera_prototype",
   "components": [
     {
@@ -192,6 +192,16 @@
         "report/evidence/b2-motion/timing.rpt"
       ],
       "note": "22 coupled RTL/real-C cases,26 C cases,query-only routed functional smoke and OOC implementation passed. Dual-channel PWM enable retained. Not hardware verified; real clock/IO constraints and epoch source unresolved."
+    },
+    {
+      "id": "c1_three_gimbal_observations",
+      "status": "implemented",
+      "evidence": [
+        "docs/c1_three_gimbal_vision.md",
+        "report/experiments/2026-11-01-c1-three-gimbal-integration.md",
+        "report/evidence/c1-integration/result.json"
+      ],
+      "note": "Offline candidate: three isolated observation contexts, measurement codec and replay UI. Not six-axis hardware control; board-level CDC, UART ownership scheduling, session configuration, extra PWM/UART resources and real clock unresolved. No hardware actions. Source commit receipt follows."
     }
   ]
 }

@@ -1,0 +1,19 @@
+[
+  {
+    "run": "acceptance2",
+    "exit_code": 1,
+    "input": "S1 arm then PAN 1550 in register model",
+    "assertion": "model_state()==1 and CCER==17",
+    "actual": "SAFE_MANUAL=2; wrong new-test state expectation",
+    "fix": "expect SAFE_MANUAL=2 per existing safety.h; no production safety or frozen tests changed",
+    "rerun": "acceptance3 PASS"
+  },
+  {
+    "run": "initial unittest",
+    "exit_code": 1,
+    "passed": 48,
+    "failed": 1,
+    "cause": "report links precede evidence collection",
+    "resolution": "write evidence before repository validation; 49/49 rerun"
+  }
+]

@@ -1,0 +1,152 @@
+{
+  "scope": "offline candidate; no hardware operations",
+  "c1_named_checks": 15,
+  "c1_uart_packets": 3,
+  "c1_uart_bytes": 336,
+  "tk_checks": 3,
+  "new_python_tests": 6,
+  "b2": {
+    "pass": "B2_OFFLINE_SUITE_PASS",
+    "coupled_scenarios": 22,
+    "c_cases": 26,
+    "cases": [
+      [
+        {
+          "case": "normal",
+          "exit_code": 0
+        },
+        {
+          "case": "ack_loss",
+          "exit_code": 0
+        },
+        {
+          "case": "link_loss",
+          "exit_code": 0
+        },
+        {
+          "case": "fpga_reset",
+          "exit_code": 0
+        },
+        {
+          "case": "mcu_reset",
+          "exit_code": 0
+        },
+        {
+          "case": "busy_repeat",
+          "exit_code": 0
+        },
+        {
+          "case": "pc_handoff",
+          "exit_code": 0
+        },
+        {
+          "case": "handoff_unconfirmed",
+          "exit_code": 0
+        },
+        {
+          "case": "range",
+          "exit_code": 0
+        },
+        {
+          "case": "stale_sync",
+          "exit_code": 0
+        }
+      ],
+      [
+        {
+          "case": "bad_ack_crc",
+          "exit_code": 0
+        },
+        {
+          "case": "late_ack",
+          "exit_code": 0
+        },
+        {
+          "case": "mismatch_sequence",
+          "exit_code": 0
+        },
+        {
+          "case": "mismatch_nonce",
+          "exit_code": 0
+        },
+        {
+          "case": "mismatch_opcode",
+          "exit_code": 0
+        },
+        {
+          "case": "mismatch_request_crc",
+          "exit_code": 0
+        },
+        {
+          "case": "mismatch_target",
+          "exit_code": 0
+        },
+        {
+          "case": "recovery",
+          "exit_code": 0
+        },
+        {
+          "case": "boundaries",
+          "exit_code": 0
+        },
+        {
+          "case": "sync_crc",
+          "exit_code": 0
+        }
+      ],
+      [
+        {
+          "case": "auth_expiry",
+          "exit_code": 0
+        }
+      ],
+      [
+        {
+          "case": "legacy",
+          "exit_code": 0
+        }
+      ]
+    ],
+    "exit_code": 0,
+    "hardware_actions": []
+  },
+  "arm_errors": 0,
+  "arm_warnings": 0,
+  "vivado": {
+    "version": "2024.2",
+    "exit_code": 0,
+    "lut": 1623,
+    "ff": 405,
+    "latch": 0,
+    "wns_ns": 5.921,
+    "no_input_delay": 296,
+    "no_output_delay": 42,
+    "board_timing_verified": false
+  },
+  "commands": [
+    {
+      "name": "ui",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "tools/check_c1_ui.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "unittest",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "hardware_actions": [],
+  "python_tests": 49,
+  "repository_check_exit_code": 0
+}

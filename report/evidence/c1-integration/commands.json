@@ -1,0 +1,63 @@
+[
+  {
+    "name": "ui",
+    "command": [
+      "D:\\Python312\\python.exe",
+      "tools/check_c1_ui.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "unittest",
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "tools/check_repository.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "tools/check_c1.py",
+      "--stage",
+      "R:/evidence/c1-integration/acceptance3"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "tools/run_motion_acceptance.py",
+      "--stage",
+      "R:/evidence/c1-integration/b2-regression"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "Vivado MCP",
+      "version -short"
+    ],
+    "output": "2024.2",
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "Vivado MCP",
+      "source R:/c1-repo/build/check_c1_measurement.tcl"
+    ],
+    "exit_code": 0
+  }
+]

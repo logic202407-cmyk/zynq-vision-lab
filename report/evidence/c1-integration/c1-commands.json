@@ -1,0 +1,88 @@
+[
+  {
+    "name": "xvlog",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+      "vision_measurement_tx.v",
+      "uart_tx_8n1.v",
+      "uart_rx.v",
+      "measurement_tb.v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "xelab",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+      "measurement_tb",
+      "-s",
+      "c1"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "xsim",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+      "c1",
+      "-tclbatch",
+      "run.tcl"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "c-build",
+    "command": [
+      "D:/Dev-Cpp/MinGW64/bin/gcc.exe",
+      "-std=c99",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-ID:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User",
+      "-ID:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_project\\User",
+      "-shared",
+      "-DBOARD_HOST_TEST",
+      "-DS1ACK1",
+      "-DC1_OBSERVATIONS",
+      "-DCONSOLE_USART=3",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\sim\\c1\\measurement_adapter.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\tracking.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\safety.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\gimbal_registry.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\vision_measurement.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_project\\User\\pid.c",
+      "-o",
+      "c1.dll"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "registry-build",
+    "command": [
+      "D:/Dev-Cpp/MinGW64/bin/gcc.exe",
+      "-std=c99",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-ID:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User",
+      "-ID:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_project\\User",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\sim\\c1\\registry_checks.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\gimbal_registry.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\tracking.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\safety.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\src\\prototype\\skystar_openmv\\stm32_project\\User\\pid.c",
+      "-o",
+      "registry.exe"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "registry",
+    "command": [
+      "R:\\evidence\\c1-integration\\acceptance3\\registry.exe"
+    ],
+    "exit_code": 0
+  }
+]
