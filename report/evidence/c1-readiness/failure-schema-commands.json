@@ -1,0 +1,36 @@
+[
+  {
+    "command": [
+      "D:/Python312/python.exe",
+      "-X",
+      "utf8",
+      "tools/audit_c1_readiness.py",
+      "--output",
+      "R:\\c1-repo\\report\\evidence\\c1-readiness\\audit.json"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:/Python312/python.exe",
+      "-X",
+      "utf8",
+      "tools/check_repository.py"
+    ],
+    "exit_code": 1
+  },
+  {
+    "command": [
+      "D:/Python312/python.exe",
+      "-X",
+      "utf8",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit_code": 1
+  }
+]

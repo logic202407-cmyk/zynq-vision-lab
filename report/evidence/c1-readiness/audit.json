@@ -1,0 +1,1117 @@
+{
+  "payload": [
+    {
+      "bit": 0,
+      "field": "ymax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 1,
+      "field": "ymax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 2,
+      "field": "ymax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 3,
+      "field": "ymax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 4,
+      "field": "ymax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 5,
+      "field": "ymax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 6,
+      "field": "ymax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 7,
+      "field": "ymax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 8,
+      "field": "ymax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 9,
+      "field": "xmax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 10,
+      "field": "xmax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 11,
+      "field": "xmax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 12,
+      "field": "xmax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 13,
+      "field": "xmax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 14,
+      "field": "xmax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 15,
+      "field": "xmax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 16,
+      "field": "xmax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 17,
+      "field": "xmax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 18,
+      "field": "xmax",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 19,
+      "field": "ymin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 20,
+      "field": "ymin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 21,
+      "field": "ymin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 22,
+      "field": "ymin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 23,
+      "field": "ymin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 24,
+      "field": "ymin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 25,
+      "field": "ymin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 26,
+      "field": "ymin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 27,
+      "field": "ymin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 28,
+      "field": "xmin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 29,
+      "field": "xmin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 30,
+      "field": "xmin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 31,
+      "field": "xmin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 32,
+      "field": "xmin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 33,
+      "field": "xmin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 34,
+      "field": "xmin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 35,
+      "field": "xmin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 36,
+      "field": "xmin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 37,
+      "field": "xmin",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 38,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 39,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 40,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 41,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 42,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 43,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 44,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 45,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 46,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 47,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 48,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 49,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 50,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 51,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 52,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 53,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 54,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 55,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 56,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 57,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 58,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 59,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 60,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 61,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 62,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 63,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 64,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 65,
+      "field": "sum_y",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 66,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 67,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 68,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 69,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 70,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 71,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 72,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 73,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 74,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 75,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 76,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 77,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 78,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 79,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 80,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 81,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 82,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 83,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 84,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 85,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 86,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 87,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 88,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 89,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 90,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 91,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 92,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 93,
+      "field": "sum_x",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 94,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 95,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 96,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 97,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 98,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 99,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 100,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 101,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 102,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 103,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 104,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 105,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 106,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 107,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 108,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 109,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 110,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 111,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 112,
+      "field": "count",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 113,
+      "field": "target",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 114,
+      "field": "complete",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 115,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 116,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 117,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 118,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 119,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 120,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 121,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 122,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 123,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 124,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 125,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 126,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 127,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 128,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 129,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 130,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 131,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 132,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 133,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 134,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 135,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 136,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 137,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 138,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 139,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 140,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 141,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 142,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 143,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 144,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 145,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 146,
+      "field": "capture_tick",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 147,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 148,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 149,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 150,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 151,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 152,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 153,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 154,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 155,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 156,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 157,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 158,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 159,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 160,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 161,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 162,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 163,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 164,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 165,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 166,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 167,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 168,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 169,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 170,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 171,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 172,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 173,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 174,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 175,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 176,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 177,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 178,
+      "field": "frame_seq",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 179,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 180,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 181,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 182,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 183,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 184,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 185,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 186,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 187,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 188,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 189,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 190,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 191,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 192,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 193,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 194,
+      "field": "height",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 195,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 196,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 197,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 198,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 199,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 200,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 201,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 202,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 203,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 204,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 205,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 206,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 207,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 208,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 209,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 210,
+      "field": "width",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 211,
+      "field": "mask_version",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 212,
+      "field": "mask_version",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 213,
+      "field": "mask_version",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 214,
+      "field": "mask_version",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 215,
+      "field": "mask_version",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 216,
+      "field": "mask_version",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 217,
+      "field": "mask_version",
+      "disposition": "reviewed_conditional_not_waived"
+    },
+    {
+      "bit": 218,
+      "field": "mask_version",
+      "disposition": "reviewed_conditional_not_waived"
+    }
+  ],
+  "synchronizers": [
+    "1-bit synchronized with ASYNC_REG property      2  False Path  cdc/ack_reg/C  cdc/ack_sync_reg[0]/D",
+    "1-bit synchronized with ASYNC_REG property          2  False Path               cdc/request_reg/C       cdc/req_sync_reg[0]/D"
+  ],
+  "warning_count": 219,
+  "source_sha256": {
+    "report/evidence/c1-link/link_routed_cdc.rpt": "ef48040b8cffd583af4a4b2c63f088a6d30929ca16e9b492ddcc158bd293fc69",
+    "report/evidence/c1-link/link_bus_skew.rpt": "e761fd8126af6e005d1433a062867f3f733c21a16e413baf140bb17b7c9eb0f0",
+    "report/evidence/c1-link/link_routed_timing.rpt": "69ce3b46ebda6fee9f4b1fb1e3aebc99108742d078e3e7b5a246dc303fe01223",
+    "src/rtl/vision_snapshot_cdc.v": "5ff94f6eb724cef5efd4fde61ae5f65ca8ce63a4e0880241b6b111f43fece7ea",
+    "build/c1_cdc_constraints.tcl": "743162c223e0fbb4ee2addb9239c8d1dbba8ea812f48f84669415c87fdbeb60a",
+    "src/rtl/zynq_vision_link.v": "474a462025c7bc3a85c194fc427c010d23e3e42c38418abfaf24557d6d341a89",
+    "src/rtl/zynq_motion_s1.v": "ae43560fc53ca3bc362541b3a21b314a54ea4b992dfd52aef39e74f7f418081a",
+    "board/skystar_f407/zynq_uart_bridge_v12.xdc": "c533c7377a2cf446dea340f74496de0e3a9e5788260cd8bb175b2b393003a229"
+  },
+  "verdict": "EVIDENCE_AUDIT_PASS_BOARD_BLOCKED",
+  "hardware_actions": [],
+  "limitation": "Historical routed evidence, not a new implementation or board signoff"
+}

@@ -1,0 +1,1 @@
+CDC_AUDIT_PASS 219 unique payload bits; 2 two-stage synchronizers; no waiver

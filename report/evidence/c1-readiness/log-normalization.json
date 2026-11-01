@@ -1,0 +1,157 @@
+{
+  "transformation": "Line endings and trailing whitespace only. Raw logs retained outside Git.",
+  "files": {
+    "audit.txt": {
+      "raw_sha256": "baa6d66ed341dfe4717d6e65972d3516fcc5b4b567569a4d93e852b7180a7c88",
+      "public_sha256": "d04f0794ac2d99a71503ce9b293ade53a998299458553816f396cad0bb7cdc22"
+    },
+    "cdc-run1-0-xelab.txt": {
+      "raw_sha256": "6e0c6a260bbd1938f26dfe8105922753d44d2f991cd9ede0421f264c997eff4f",
+      "public_sha256": "4bf1e89937390b9ae1b062ae14014a7ffc5bc754d9911494469798ca63273095"
+    },
+    "cdc-run1-0-xsim.txt": {
+      "raw_sha256": "1e5cec973b80ae20126dc4e899511e3a133def54ed9f168a818c979e3b6758f7",
+      "public_sha256": "8f2ed93b53f1218c7388485ab52bf78e0976de7435f218f53aebe3f558ee0740"
+    },
+    "cdc-run1-0-xvlog.txt": {
+      "raw_sha256": "0a055bd24b36bf574cf035899aa1445b568fa480af4269700e0cc62e8bef28cb",
+      "public_sha256": "f81070f624702ce1ab0746fe25579f8178114fcdf61d3067ba94211597b6023b"
+    },
+    "cdc-run1-1-xelab.txt": {
+      "raw_sha256": "6e0c6a260bbd1938f26dfe8105922753d44d2f991cd9ede0421f264c997eff4f",
+      "public_sha256": "4bf1e89937390b9ae1b062ae14014a7ffc5bc754d9911494469798ca63273095"
+    },
+    "cdc-run1-1-xsim.txt": {
+      "raw_sha256": "d77e635a93d38cf2218fddd010233b6ff85cb6c742bbed14cad969ac8b2dfcfa",
+      "public_sha256": "51a732a1f2e4333aa79e1fd26cfaee4d298e0cf1d43433ce5470b38e53021400"
+    },
+    "cdc-run1-1-xvlog.txt": {
+      "raw_sha256": "1814fb4cdc7612d0ea6cfceb824e064c18aea93a69d1a9b5f7bbb38c4c027e46",
+      "public_sha256": "3574e15c52415f7973b2fca5578349d1ed961ef28f6a4c1d3f8d97de2dc04a33"
+    },
+    "cdc-run2-0-xelab.txt": {
+      "raw_sha256": "6e0c6a260bbd1938f26dfe8105922753d44d2f991cd9ede0421f264c997eff4f",
+      "public_sha256": "4bf1e89937390b9ae1b062ae14014a7ffc5bc754d9911494469798ca63273095"
+    },
+    "cdc-run2-0-xsim.txt": {
+      "raw_sha256": "8d6c1bb3d9dc350ead7820c6b643f80d043b721cc6943e08892cb2f1d36a9797",
+      "public_sha256": "0f78b08c35ee7c59d7259f96b536e56fff8262ce2764ab2ff0846696e3b73ca6"
+    },
+    "cdc-run2-0-xvlog.txt": {
+      "raw_sha256": "cf124703f92d8a15b7c9098568b3596bb116d721463df29c01ab3e2ce4eae1f0",
+      "public_sha256": "cc4c4dcd40530c392370f86d670dbf51e68a4b037ee1b6f94b238011177883b7"
+    },
+    "cdc-run2-1-xelab.txt": {
+      "raw_sha256": "6e0c6a260bbd1938f26dfe8105922753d44d2f991cd9ede0421f264c997eff4f",
+      "public_sha256": "4bf1e89937390b9ae1b062ae14014a7ffc5bc754d9911494469798ca63273095"
+    },
+    "cdc-run2-1-xsim.txt": {
+      "raw_sha256": "6d8f04fc6310aab6b21895d576e173a0c3b6ccb09699e66157f2e784a20120ad",
+      "public_sha256": "31581172a2569916efe683f61a329db9877575a3f48a0a836d2f428ae5479228"
+    },
+    "cdc-run2-1-xvlog.txt": {
+      "raw_sha256": "1fe8bcbdb211621dc0d61084a9818197da0e2801222ddab67306afd4db24f45c",
+      "public_sha256": "f354eede342086a683850902d1f141a48a84bc217e5401dd1cdc5ed0430461ce"
+    },
+    "cdc-run2-2-xelab.txt": {
+      "raw_sha256": "6e0c6a260bbd1938f26dfe8105922753d44d2f991cd9ede0421f264c997eff4f",
+      "public_sha256": "4bf1e89937390b9ae1b062ae14014a7ffc5bc754d9911494469798ca63273095"
+    },
+    "cdc-run2-2-xsim.txt": {
+      "raw_sha256": "2c179b82426912a45cdc546ca81a7fc5f1cb9b694839f39f3b772d264b9d180d",
+      "public_sha256": "374ef5341623d025c4e46e53fdbea39d05a02d9a344af0c822fa695747387afb"
+    },
+    "cdc-run2-2-xvlog.txt": {
+      "raw_sha256": "0e1e98c95f8f55fa0fef53aacdd0edad76eee66c375458291dc2c2f1ac53b162",
+      "public_sha256": "b2f237d0437a1dd65abbefa4d2cfe6f51e547d233a969ba6ede1ce25ff66dc56"
+    },
+    "cdc-run2-3-xelab.txt": {
+      "raw_sha256": "6e0c6a260bbd1938f26dfe8105922753d44d2f991cd9ede0421f264c997eff4f",
+      "public_sha256": "4bf1e89937390b9ae1b062ae14014a7ffc5bc754d9911494469798ca63273095"
+    },
+    "cdc-run2-3-xsim.txt": {
+      "raw_sha256": "15559fdda970f82d904aba39bd46e42e1706df3908e9a464ba0644a9ebedb563",
+      "public_sha256": "8f174687eba9f9f3ecc6a39fba41962400a7ebd17cd69f01808e74247f2ce46e"
+    },
+    "cdc-run2-3-xvlog.txt": {
+      "raw_sha256": "28e2c02e02b36ef1731ac295e431a04e83407931fe9a786bdcb590f8ebc33115",
+      "public_sha256": "7a692a7792a2f4bc03dbe4fff1ad7d921542da91fb0799983565451874368001"
+    },
+    "cdc-run2-4-xelab.txt": {
+      "raw_sha256": "6e0c6a260bbd1938f26dfe8105922753d44d2f991cd9ede0421f264c997eff4f",
+      "public_sha256": "4bf1e89937390b9ae1b062ae14014a7ffc5bc754d9911494469798ca63273095"
+    },
+    "cdc-run2-4-xsim.txt": {
+      "raw_sha256": "f47c1ec52d9279436dc17c46e3679455cd84572a9b73efda5dfa3709a64af347",
+      "public_sha256": "228ae5e1962323bc9a12e5178419b4d62bba64539c3347c0cca3d814bd10ab73"
+    },
+    "cdc-run2-4-xvlog.txt": {
+      "raw_sha256": "090981c5e882b08b913e69a302fe9811282347e5cc352adc5c0efa6b02a8ff9a",
+      "public_sha256": "c0cd715b7afe20f1ffe675ea650c29a036ac3952eeed4cd60bdeedb99aa43e62"
+    },
+    "failure-schema-repository.txt": {
+      "raw_sha256": "612742f6de8f86d63ec2b6f28350525db8b04012ba1b7685f020e5b005322703",
+      "public_sha256": "4bd10303c1b2c94728ec2150735d8c57c579bcf47535e130d2cd17af1c152587"
+    },
+    "failure-schema-unittest.txt": {
+      "raw_sha256": "a503a6c165cdca9a04942bdf0fd7518f047b884d825a06df77af3585f8328c1e",
+      "public_sha256": "cd5b3bbeac2a8128f30d42f1c433bfff2e06f76057a6ec1a2530393c620cc72e"
+    },
+    "repository.txt": {
+      "raw_sha256": "f61a9288ef6a96d77eb3dbcd44918bfd038320a53dd4b98ebf7128a8af308e90",
+      "public_sha256": "c1ac354feb06f13f58127b86ac31570ec4e99bf345d682993d787b18d92d8201"
+    },
+    "transport-line_scheduler_tb-xelab.txt": {
+      "raw_sha256": "750580cd77858b1d138fb9c6fdd7393523893824c10ceaf5ca951c0afd905a2b",
+      "public_sha256": "b8ed57dd5b98c1d5bc5f56822b6eededb589478c0b5256d507ca0b3c823ba57c"
+    },
+    "transport-line_scheduler_tb-xsim.txt": {
+      "raw_sha256": "f25413fd03a980f08bf2432584c6fa3701210abea4ee13a1d90e92d40018506c",
+      "public_sha256": "723779caad2ff95811e9c58ab39d5c7cb330dbb99b63487c53393b2db239305a"
+    },
+    "transport-line_scheduler_tb-xvlog.txt": {
+      "raw_sha256": "de2c6bc6dadb6bf8c49531bda407942a7a49ca9aca1649d8f627fa3016821ff2",
+      "public_sha256": "ca2714cd293c85bd21fceecc9479bed1c6e1a05160f131d01647910d3bfba61d"
+    },
+    "transport-measurement_divider_tb-xelab.txt": {
+      "raw_sha256": "7f71076961f425f0e8182a7f6244b9afe6af7867f0530c85c56ef632c48282a5",
+      "public_sha256": "6c00c1068a89cae984582315c55501d3e76f502f43efe708c6980962b1adf25d"
+    },
+    "transport-measurement_divider_tb-xsim.txt": {
+      "raw_sha256": "b0d0ec2141feca4278a0d995f08bb7aed74254b9fefa00c6f7a1eeb41c138374",
+      "public_sha256": "a6bd141ca20383f3ee92eb29872bc02e72962926723fcc113174619dd4ab2d82"
+    },
+    "transport-measurement_divider_tb-xvlog.txt": {
+      "raw_sha256": "8d49feaf9e62a51d33dc971cc5bf84b22faf2e29237c4661d3e2c14f9970c462",
+      "public_sha256": "9fd35db5809c5f32bd2e78ca8de2b1fc6c1bc8f9fbeed4a90f1d1f4541305427"
+    },
+    "transport-measurement_session_tb-xelab.txt": {
+      "raw_sha256": "0df67dbc0d345930d80df8feb0a80e06b021bf8ff8489a13bac26863718e7da2",
+      "public_sha256": "5801290572c84a8157db6b04e4be666fd62b738d2da1312f5332d57f4ae6734b"
+    },
+    "transport-measurement_session_tb-xsim.txt": {
+      "raw_sha256": "72b1c9a6865fb3d4c3c344e37ddac017759c0062044a74e5630bc2a944ddda0f",
+      "public_sha256": "ef35fc0ed1509e1216ef0eddbbb5c72bcb3762abc2a282f805e029193f429f08"
+    },
+    "transport-measurement_session_tb-xvlog.txt": {
+      "raw_sha256": "9997fb27626fbd6f27eb7edb05e4ba662ac0a1b7440c2ee79fcd0195db16e85f",
+      "public_sha256": "9f6f6b506e4f40003e13689a9c74ceb1f4ada65b2721ca6f035de9b79f90990f"
+    },
+    "transport-vision_cdc_tb-xelab.txt": {
+      "raw_sha256": "f0b4cd2765cfb12db188e17b8794a415c1c70a0cdd6b394907e563960b9dc091",
+      "public_sha256": "9f04c867e23d76705b0c357aeb6d16990e313e5f22aeed7a6a839a20fb1ae775"
+    },
+    "transport-vision_cdc_tb-xsim.txt": {
+      "raw_sha256": "e35204765bb3aa70466132af9b36a7aa5768314499ecd5e6fb6eaed7c7e7962d",
+      "public_sha256": "0bd57c4580ad8e73993cc3699074f440a92c4db983196996c653abb648bce699"
+    },
+    "transport-vision_cdc_tb-xvlog.txt": {
+      "raw_sha256": "71818702303cd8376fd28ecee7ada955dee1879ea5f24d4022df311a54ad0a74",
+      "public_sha256": "5a15a63c113f2f203079c63e710ad6d49e6cbbcafc719e1640414c8618c4f031"
+    },
+    "unittest.txt": {
+      "raw_sha256": "a18b74983d4e29ae1492180f978a1dd9c9c35837d81b368b323374ae8935ceeb",
+      "public_sha256": "c1e253b7b70a7684a6534ac4df79a10d40f67c568fac372d0c70afdb64b7023a"
+    }
+  }
+}

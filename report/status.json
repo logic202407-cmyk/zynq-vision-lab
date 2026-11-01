@@ -218,6 +218,20 @@
       "verified_commit": "6a76f5a0e553dfa2cc096dc2c86ce05cfdb0cb66",
       "tool_version": "Vivado 2024.2 XSim and OOC route; ARMCC 5.06u5; Python 3.12; GCC 4.9.2",
       "reviewer": "Codex self-checking offline acceptance; independent reproduction pending"
+    },
+    {
+      "id": "c1_cdc_board_readiness_review",
+      "status": "simulated",
+      "verified_commit": "6a76f5a0e553dfa2cc096dc2c86ce05cfdb0cb66",
+      "tool_version": "Vivado XSim 2024.2; Python 3.12.4",
+      "reviewer": "Codex offline self-check; physical and independent review pending",
+      "evidence": [
+        "docs/c1_board_readiness.md",
+        "report/experiments/2026-11-01-c1-readiness.md",
+        "report/evidence/c1-readiness/audit.json",
+        "report/evidence/c1-readiness/cdc-run2-result.json"
+      ],
+      "note": "219 historical routed CDC payload paths audited without waiver; 5 full-width clock/phase cases passed. Vendor clock references verified, not measured. Epoch interval provider and guards remain planned; board clock/IO/reset/electrical/epoch blockers remain. No hardware actions."
     }
   ]
 }

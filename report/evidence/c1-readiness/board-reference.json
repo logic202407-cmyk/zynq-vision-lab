@@ -1,0 +1,25 @@
+{
+  "status": "vendor_reference_not_measurement",
+  "documents": [
+    {
+      "id": "base_v12",
+      "sha256": "a35a297ed7b5aad7f5a20b162a3b543d98b3eb976e9e8e613814d8e2ed45ae3f",
+      "matches_prior_index": true
+    },
+    {
+      "id": "core_v11",
+      "sha256": "3c34898ce30107ae2012102d7d7de95a8c3450eea72733d1ebf1db98a92df516",
+      "matches_prior_index": true
+    }
+  ],
+  "members": [
+    {
+      "member": "XC7Z100/50_ov5640_udp_pc/prj/ov5640_udp_pc.srcs/constrs_1/new/ov5640_udp_pc.xdc",
+      "sha256": "0cb8d2b03c6cceede2249cd05d999ec9331b0b4cf23b47f1b58d9c285a521a26"
+    },
+    {
+      "member": "XC7Z100/50_ov5640_udp_pc/rtl/ov5640_udp_pc.v",
+      "sha256": "d1f47b7ca2b22e0d59bafd5fd9ecb92bbdcb38f40cb3904c94c5c50c51f4bebb"
+    }
+  ]
+}

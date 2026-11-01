@@ -1,0 +1,2 @@
+ERROR: c1_cdc_board_readiness_review: verified stages require a full source commit SHA
+ERROR: c1_cdc_board_readiness_review: verified stages require tool_version and reviewer

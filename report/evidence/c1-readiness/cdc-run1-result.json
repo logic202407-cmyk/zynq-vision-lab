@@ -1,0 +1,70 @@
+[
+  {
+    "source_half_ns": 7,
+    "destination_half_ns": 5,
+    "phase_ns": 0,
+    "commands": [
+      {
+        "command": [
+          "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+          "vision_snapshot_cdc.v",
+          "vision_cdc_tb.v"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+          "vision_cdc_tb",
+          "-s",
+          "cdc"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+          "cdc",
+          "-tclbatch",
+          "run.tcl"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "verdict": "PASS"
+  },
+  {
+    "source_half_ns": 3,
+    "destination_half_ns": 11,
+    "phase_ns": 2,
+    "commands": [
+      {
+        "command": [
+          "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+          "vision_snapshot_cdc.v",
+          "vision_cdc_tb.v"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+          "vision_cdc_tb",
+          "-s",
+          "cdc"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+          "cdc",
+          "-tclbatch",
+          "run.tcl"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "verdict": "FAIL"
+  }
+]

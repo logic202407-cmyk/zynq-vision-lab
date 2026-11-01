@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "testbenches": 4,
+  "divider_vectors": 64,
+  "exit_code": 0,
+  "hardware_actions": []
+}

@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/c1-readiness/cdc-run2/3/vision_snapshot_cdc.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_snapshot_cdc
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/c1-readiness/cdc-run2/3/vision_cdc_tb.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_cdc_tb
