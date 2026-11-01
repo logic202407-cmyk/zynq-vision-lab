@@ -1,0 +1,138 @@
+{
+  "cases": [
+    {
+      "case": "convergence",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\tools\\check_c1_loop.py",
+        "--stage",
+        "R:\\evidence\\c1-loop\\final2",
+        "--built",
+        "--case",
+        "convergence"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "openmv_loss",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\tools\\check_c1_loop.py",
+        "--stage",
+        "R:\\evidence\\c1-loop\\final2",
+        "--built",
+        "--case",
+        "openmv_loss"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "primary_loss",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\tools\\check_c1_loop.py",
+        "--stage",
+        "R:\\evidence\\c1-loop\\final2",
+        "--built",
+        "--case",
+        "primary_loss"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "invalid_target",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\tools\\check_c1_loop.py",
+        "--stage",
+        "R:\\evidence\\c1-loop\\final2",
+        "--built",
+        "--case",
+        "invalid_target"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "malformed_openmv",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\tools\\check_c1_loop.py",
+        "--stage",
+        "R:\\evidence\\c1-loop\\final2",
+        "--built",
+        "--case",
+        "malformed_openmv"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "scene_revoked",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\tools\\check_c1_loop.py",
+        "--stage",
+        "R:\\evidence\\c1-loop\\final2",
+        "--built",
+        "--case",
+        "scene_revoked"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "range_guard",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\tools\\check_c1_loop.py",
+        "--stage",
+        "R:\\evidence\\c1-loop\\final2",
+        "--built",
+        "--case",
+        "range_guard"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "bad_feedback_crc",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\tools\\check_c1_loop.py",
+        "--stage",
+        "R:\\evidence\\c1-loop\\final2",
+        "--built",
+        "--case",
+        "bad_feedback_crc"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "ack_loss",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\tools\\check_c1_loop.py",
+        "--stage",
+        "R:\\evidence\\c1-loop\\final2",
+        "--built",
+        "--case",
+        "ack_loss"
+      ],
+      "exit_code": 0
+    },
+    {
+      "case": "fpga_reset",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\c1-repo\\tools\\check_c1_loop.py",
+        "--stage",
+        "R:\\evidence\\c1-loop\\final2",
+        "--built",
+        "--case",
+        "fpga_reset"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "passed": 10,
+  "failed": 0,
+  "wall_seconds": 238.73399999999674,
+  "hardware_actions": []
+}

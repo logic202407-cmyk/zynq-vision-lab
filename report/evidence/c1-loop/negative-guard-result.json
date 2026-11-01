@@ -1,0 +1,35 @@
+{
+  "verdict": "EXPECTED_FAIL_OLD_RTL",
+  "reason": "Active start incorrectly renewed the feedback deadline before guard fix",
+  "commands": [
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+        "uart_tx_8n1.v",
+        "uart_rx.v",
+        "gimbal1_visual_loop.v",
+        "visual_loop_tb.v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+        "visual_loop_tb",
+        "-s",
+        "negative"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+        "negative",
+        "-tclbatch",
+        "run.tcl"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "hardware_actions": []
+}

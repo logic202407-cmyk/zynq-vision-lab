@@ -1,0 +1,21 @@
+
+****** xsim v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Sun Nov  1 19:13:49 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/negative/xsim_script.tcl
+# xsim {negative} -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+Fatal: stale feedback lease
+Time: 252981100 ns  Iteration: 0  Process: /visual_loop_tb/Initial42_9  Scope: visual_loop_tb  File: R:/evidence/c1-loop/start-guard-negative/visual_loop_tb.v Line: 51
+$finish called at time : 252981100 ns
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:19 . Memory (MB): peak = 196.273 ; gain = 0.000
+## quit
+INFO: xsimkernel Simulation Memory Usage: 30640 KB (Peak: 30640 KB), Simulation CPU Usage: 19233 ms
+INFO: [Common 17-206] Exiting xsim at Sun Nov  1 19:14:10 2026...

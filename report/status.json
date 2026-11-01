@@ -232,6 +232,16 @@
         "report/evidence/c1-readiness/cdc-run2-result.json"
       ],
       "note": "219 historical routed CDC payload paths audited without waiver; 5 full-width clock/phase cases passed. Vendor clock references verified, not measured. Epoch interval provider and guards remain planned; board clock/IO/reset/electrical/epoch blockers remain. No hardware actions."
+    },
+    {
+      "id": "c1_laser_off_visual_loop",
+      "status": "implemented",
+      "evidence": [
+        "docs/c1_laser_off_visual_loop.md",
+        "report/experiments/2026-11-01-c1-laser-off-loop.md",
+        "report/evidence/c1-loop/coupled-suite.json"
+      ],
+      "note": "Offline single-target camera centering candidate; 10 coupled real-C/XSim cases pass. Commit-pinned verification receipt follows source commit. No laser or hardware action; calibration/epoch/board-clock blockers remain."
     }
   ]
 }

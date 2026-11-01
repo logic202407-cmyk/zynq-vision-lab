@@ -1,0 +1,30 @@
+[
+  {
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+      "uart_rx.v",
+      "uart_tx_8n1.v",
+      "gimbal1_visual_loop.v",
+      "visual_loop_tb.v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+      "visual_loop_tb",
+      "-s",
+      "loop"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+      "loop",
+      "-tclbatch",
+      "run.tcl"
+    ],
+    "exit_code": 0
+  }
+]

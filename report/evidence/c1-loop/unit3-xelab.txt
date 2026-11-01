@@ -1,0 +1,18 @@
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Vivado/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe visual_loop_tb -s loop
+Multi-threading is on. Using 22 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'command' remains unconnected for this instance [R:/evidence/c1-loop/unit3/visual_loop_tb.v:12]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.uart_tx_8n1(CLOCK_HZ=100000000)
+Compiling module work.uart_rx(CLOCK_HZ=100000000)
+Compiling module work.gimbal1_visual_loop(PAN_SIGN=1,T...
+Compiling module work.gimbal1_visual_loop_default
+Compiling module work.visual_loop_tb
+Built simulation snapshot loop

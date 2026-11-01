@@ -1,0 +1,20 @@
+loop progress 100000 us state 4 loop 8 PWM 0
+loop progress 200000 us state 5 loop 18 PWM 0
+loop progress 300000 us state 6 loop 18 PWM 0
+{
+  "verdict": "PASS",
+  "case": "bad_feedback_crc",
+  "checks": [
+    "reset_query_binding_PWM_off",
+    "explicit_arm_does_not_enable_PWM",
+    "real_red_stats_CDC_M2_real_C_F1_UART_RX_without_motion",
+    "bad_feedback_crc_stops_and_never_automatically_rearms",
+    "FPGA_generates_protected_commands_no_laser_no_other_gimbal"
+  ],
+  "count": 5,
+  "exit_code": 0,
+  "wall_seconds": 13.062000000005355,
+  "simulated_us": 352412,
+  "hardware_actions": [],
+  "limitation": "Synthetic calibrated plant and RGB565 stimulus; no physical camera, mechanical or optical claim"
+}

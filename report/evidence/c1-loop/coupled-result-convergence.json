@@ -1,0 +1,19 @@
+{
+  "verdict": "PASS",
+  "case": "convergence",
+  "checks": [
+    "reset_query_binding_PWM_off",
+    "explicit_arm_does_not_enable_PWM",
+    "real_red_stats_CDC_M2_real_C_F1_UART_RX_without_motion",
+    "both_axes_converge_synthetic_plant_other_gimbals_off",
+    "deadband_no_extra_motion_requests",
+    "explicit_STOP_registers_off",
+    "FPGA_generates_protected_commands_no_laser_no_other_gimbal"
+  ],
+  "count": 7,
+  "exit_code": 0,
+  "wall_seconds": 32.13999999999942,
+  "simulated_us": 953014,
+  "hardware_actions": [],
+  "limitation": "Synthetic calibrated plant and RGB565 stimulus; no physical camera, mechanical or optical claim"
+}

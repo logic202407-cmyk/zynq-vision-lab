@@ -1,0 +1,264 @@
+{
+  "scope": "build only; not programmed or hardware tested",
+  "compiler": "Product: MDK Plus 5.43\r\nComponent: ARM Compiler 5.06 update 5 (build 528)\r\nTool: armcc [4d3621]\r\nFor support see http://www.arm.com/support\r\nSoftware supplied by: ARM Limited",
+  "console_usart": 3,
+  "s1ack1": true,
+  "c1_observations": true,
+  "c1_closed_loop": true,
+  "source_sha256": {
+    "stm32_skystar_tracking\\User\\board.c": "625f1d60c7203216ddcf9b3aedf79253b04a84dfcee446ed8c9e8cfd10f632fc",
+    "stm32_skystar_tracking\\User\\board.h": "d8a80fb0a8c0b1647f73b56b634df6458196d7910f56777a8b1e207cf6e11bab",
+    "stm32_skystar_tracking\\User\\c1_feedback.h": "d493c0483272e87c49f583f55928bee58182a92e29f5bd6349a10fdf7dcf81a0",
+    "stm32_skystar_tracking\\User\\gimbal_registry.c": "947df4a3752412d9517f268db37f6dc0f62f0ccd85358b6aad3213291268db96",
+    "stm32_skystar_tracking\\User\\gimbal_registry.h": "04e7ae2dfaa53513d9b964a20b0de9bc07cd668e724053511d90c5d65ca4d8a1",
+    "stm32_skystar_tracking\\User\\main.c": "0ff2323bab6e4a797764aa0f04023c8ffbcb529b9e799987078137525824f565",
+    "stm32_skystar_tracking\\User\\s1ack.h": "a70d636465c9d0858ad444516cf1ab79a247c36467e38f95f5b3605cf4cb5101",
+    "stm32_skystar_tracking\\User\\safety.c": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+    "stm32_skystar_tracking\\User\\safety.h": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+    "stm32_skystar_tracking\\User\\tracking.c": "4e5aa8fe89f9038c6e074e9eb50f7a4a860d3c0d93502ff2e276f3e214d10429",
+    "stm32_skystar_tracking\\User\\tracking.h": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819",
+    "stm32_skystar_tracking\\User\\vision_measurement.c": "4432a9d25c30e0ca2268bf22d2f5fdfeec850f0fb8bb3bd5f7ee60053bc7b6ff",
+    "stm32_skystar_tracking\\User\\vision_measurement.h": "e4bd9cac28245a6428bcbf3290e95edc8936867af2d965e9555e628fb10c5630",
+    "stm32_project\\User\\pid.c": "a8c2aaf9a13ee6da79e239c6326cb73dc609d4fc020044226de571ffd4b6109b",
+    "stm32_project\\User\\pid.h": "9165579899b287df4be202e21700378945bee0a700ce787606d12f062c03521c",
+    "stm32_skystar_tracking\\startup.s": "3a3d38a7cc71538d12242d3aa13d77056ea31b7222d1370004fdbbd33b182ae0",
+    "stm32_skystar_tracking\\firmware.sct": "78a656f401eccf0cc8ee0d734b0a85759359c977a2e47942ddf9c2c4420ed134"
+  },
+  "artifacts": {
+    "bin.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "board.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "firmware.map": "01b05dfd1df3f66e3322d1eb126bea964fc4c91a74babe98401411e05b139c56",
+    "gimbal_registry.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "hex.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "link.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main.log": "d22261c056873e20c04ed240ab1afe5f80792d87e667a8bf5ac8c1c7500acde6",
+    "pid.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "safety.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "skystar_tracking.axf": "983dadcb94ac04f02808570b013cf302c68a22686b18f7234e174e19b71068cf",
+    "skystar_tracking.bin": "d09c81aad7996bc04e8dc88e25eef3662d59b97e5113195b05e0c2ac4fc70120",
+    "skystar_tracking.hex": "419710ac8dd587df6b20223ccb27b4e95a3269f19d3c4555dd456dcd574a0799",
+    "startup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tracking.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "version.log": "6791fc2131874cb274e753b109ad1523ea1fd4edd7cfac7101834a93ffa9def7",
+    "vision_measurement.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "commands": [
+    {
+      "name": "version",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\armcc.exe",
+        "--vsn"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "board",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\armcc.exe",
+        "--cpu=Cortex-M4",
+        "--fpu=SoftVFP",
+        "--library_type=microlib",
+        "-DCONSOLE_USART=3",
+        "--c99",
+        "-O1",
+        "--split_sections",
+        "-I.",
+        "-c",
+        "board.c",
+        "-o",
+        "board.o",
+        "-DS1ACK1",
+        "-DC1_OBSERVATIONS",
+        "-DC1_CLOSED_LOOP"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "gimbal_registry",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\armcc.exe",
+        "--cpu=Cortex-M4",
+        "--fpu=SoftVFP",
+        "--library_type=microlib",
+        "-DCONSOLE_USART=3",
+        "--c99",
+        "-O1",
+        "--split_sections",
+        "-I.",
+        "-c",
+        "gimbal_registry.c",
+        "-o",
+        "gimbal_registry.o",
+        "-DS1ACK1",
+        "-DC1_OBSERVATIONS",
+        "-DC1_CLOSED_LOOP"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "main",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\armcc.exe",
+        "--cpu=Cortex-M4",
+        "--fpu=SoftVFP",
+        "--library_type=microlib",
+        "-DCONSOLE_USART=3",
+        "--c99",
+        "-O1",
+        "--split_sections",
+        "-I.",
+        "-c",
+        "main.c",
+        "-o",
+        "main.o",
+        "-DS1ACK1",
+        "-DC1_OBSERVATIONS",
+        "-DC1_CLOSED_LOOP"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "pid",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\armcc.exe",
+        "--cpu=Cortex-M4",
+        "--fpu=SoftVFP",
+        "--library_type=microlib",
+        "-DCONSOLE_USART=3",
+        "--c99",
+        "-O1",
+        "--split_sections",
+        "-I.",
+        "-c",
+        "pid.c",
+        "-o",
+        "pid.o",
+        "-DS1ACK1",
+        "-DC1_OBSERVATIONS",
+        "-DC1_CLOSED_LOOP"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "safety",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\armcc.exe",
+        "--cpu=Cortex-M4",
+        "--fpu=SoftVFP",
+        "--library_type=microlib",
+        "-DCONSOLE_USART=3",
+        "--c99",
+        "-O1",
+        "--split_sections",
+        "-I.",
+        "-c",
+        "safety.c",
+        "-o",
+        "safety.o",
+        "-DS1ACK1",
+        "-DC1_OBSERVATIONS",
+        "-DC1_CLOSED_LOOP"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "tracking",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\armcc.exe",
+        "--cpu=Cortex-M4",
+        "--fpu=SoftVFP",
+        "--library_type=microlib",
+        "-DCONSOLE_USART=3",
+        "--c99",
+        "-O1",
+        "--split_sections",
+        "-I.",
+        "-c",
+        "tracking.c",
+        "-o",
+        "tracking.o",
+        "-DS1ACK1",
+        "-DC1_OBSERVATIONS",
+        "-DC1_CLOSED_LOOP"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "vision_measurement",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\armcc.exe",
+        "--cpu=Cortex-M4",
+        "--fpu=SoftVFP",
+        "--library_type=microlib",
+        "-DCONSOLE_USART=3",
+        "--c99",
+        "-O1",
+        "--split_sections",
+        "-I.",
+        "-c",
+        "vision_measurement.c",
+        "-o",
+        "vision_measurement.o",
+        "-DS1ACK1",
+        "-DC1_OBSERVATIONS",
+        "-DC1_CLOSED_LOOP"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "startup",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\armasm.exe",
+        "--cpu=Cortex-M4",
+        "startup.s",
+        "-o",
+        "startup.o"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "link",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\armlink.exe",
+        "--cpu=Cortex-M4",
+        "--library_type=microlib",
+        "--scatter=firmware.sct",
+        "--map",
+        "--info=sizes",
+        "--list=firmware.map",
+        "--output=skystar_tracking.axf",
+        "startup.o",
+        "board.o",
+        "gimbal_registry.o",
+        "main.o",
+        "pid.o",
+        "safety.o",
+        "tracking.o",
+        "vision_measurement.o"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "hex",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\fromelf.exe",
+        "--i32combined",
+        "--output=skystar_tracking.hex",
+        "skystar_tracking.axf"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "bin",
+      "command": [
+        "D:\\Keil_ARM\\ARM\\ARMCC\\bin\\fromelf.exe",
+        "--bin",
+        "--output=skystar_tracking.bin",
+        "skystar_tracking.axf"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "errors": 0,
+  "warnings": 0
+}

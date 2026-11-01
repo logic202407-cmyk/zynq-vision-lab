@@ -4,6 +4,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#if defined(C1_CLOSED_LOOP) && (!defined(C1_OBSERVATIONS) || !defined(S1ACK1))
+#error C1_CLOSED_LOOP_requires_C1_OBSERVATIONS_and_S1ACK1
+#endif
+
 #ifdef C1_OBSERVATIONS
 #include "gimbal_registry.h"
 #include "vision_measurement.h"
@@ -174,10 +178,18 @@ static void poll_safety(uint32_t now)
     safety_tick(&guardian,&control,now);
     if (before!=SAFE_FAULT && guardian.state==SAFE_FAULT) disarm_queues();
 }
+#if defined(C1_CLOSED_LOOP) && defined(C1_OBSERVATIONS)
+#include "c1_feedback.h"
+#endif
 static void vision_byte(uint8_t byte, uint32_t received, uint32_t now)
 {
 #ifdef C1_OBSERVATIONS
-    (void)gimbal_openmv_byte(&observation_devices,0,byte,received,now);
+    int observed=gimbal_openmv_byte(&observation_devices,0,byte,received,now);
+#ifdef C1_CLOSED_LOOP
+    if(observed)c1_feedback(now);
+#else
+    (void)observed;
+#endif
 #endif
     if (guardian.state==SAFE_AUTO) {
         uint32_t rejected=control.rejected;

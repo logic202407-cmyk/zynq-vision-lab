@@ -1,0 +1,41 @@
+{
+  "tool": "Vivado 2024.2",
+  "commands": [
+    {
+      "command": "source build/check_c1_loop.tcl",
+      "exit_code": 0
+    },
+    {
+      "command": "opt_design",
+      "exit_code": 0
+    },
+    {
+      "command": "place_design",
+      "exit_code": 0
+    },
+    {
+      "command": "phys_opt_design",
+      "exit_code": 0
+    },
+    {
+      "command": "route_design",
+      "exit_code": 0
+    },
+    {
+      "command": "report_timing_summary; report_cdc; report_drc; report_utilization; report_bus_skew",
+      "exit_code": 0
+    }
+  ],
+  "earlier_mcp_wait_timeout_seconds": 300,
+  "earlier_source_actual_elapsed_seconds": 304.183,
+  "routed_wns_ns": 0.2,
+  "routed_whs_ns": 0.094,
+  "bus_skew_ns": 0.641,
+  "latches": 0,
+  "limitations": [
+    "OOC candidate clocks only",
+    "488 no_input_delay, 173 no_output_delay",
+    "ZPS7-1, RTSTAT-10",
+    "No hardware or bitstream"
+  ]
+}

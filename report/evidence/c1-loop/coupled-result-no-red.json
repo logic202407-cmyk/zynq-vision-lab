@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "case": "primary_no_red_while_OpenMV_valid",
+  "exit_code": 0,
+  "wall_seconds": 14.297000000005937,
+  "simulated_us": 400512,
+  "hardware_actions": [],
+  "harness_sha256": "aa126d12c161aeb069f2736d51c42a33476ece4b5126eab971547e525e671d63"
+}
