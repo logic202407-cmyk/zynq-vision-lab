@@ -1,0 +1,11 @@
+{
+  "flash_sha256": "043e238a765f7cfbc62596a50e53c8ffb6b188a99357b0ebede251725d67589f",
+  "old_image_match": false,
+  "first_16k_ff": true,
+  "flash_sr": "0x0",
+  "flash_cr": "0x2",
+  "flash_optcr": "0xfffaaed",
+  "dhcsr": "0x1090000",
+  "tim4_ccer": "0x0",
+  "cpuid": "0x410fc241"
+}

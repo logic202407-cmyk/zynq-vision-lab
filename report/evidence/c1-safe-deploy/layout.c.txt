@@ -1,0 +1,3 @@
+#include <stddef.h>
+#include "safety.h"
+const unsigned layout_probe[]={sizeof(safe_state_t),sizeof(safe_reason_t),offsetof(safety_t,state),offsetof(safety_t,reason),sizeof(safety_t)};

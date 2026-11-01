@@ -1,0 +1,23 @@
+{
+  "started_at_utc": "2026-11-01T13:08:01.874926+00:00",
+  "requested_seconds": 5,
+  "elapsed_seconds": 5.0,
+  "interrupted": false,
+  "complete_frames": 147,
+  "incomplete_frames": 0,
+  "malformed_datagrams": 2,
+  "orphan_rows": 937,
+  "received_datagrams": 71950,
+  "received_payload_bytes": 92102000,
+  "other_source_datagrams": 0,
+  "max_complete_frame_gap_seconds": 0.047,
+  "intervals": [
+    {
+      "elapsed_seconds": 5.0,
+      "complete_frames": 147,
+      "new_frames": 147,
+      "incomplete_frames": 0,
+      "malformed_datagrams": 2
+    }
+  ]
+}

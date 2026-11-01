@@ -1,0 +1,21 @@
+import sys,struct,json,time,hashlib
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from elftools.elf.elffile import ELFFile
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+p=Path('R:/evidence/c1-safe-deploy-20261101');b=Path('R:/evidence/c1-loop/arm/latest-usart3-s1ack1-c1-loop')
+with (p/'layout.o').open('rb') as f:
+ e=ELFFile(f);s=e.get_section_by_name('.symtab').get_symbol_by_name('layout_probe')[0];d=e.get_section(s['st_shndx']).data()[s['st_value']:s['st_value']+20];v=struct.unpack('<5I',d)
+layout=dict(zip(['state_size','reason_size','state_offset','reason_offset','struct_size'],v));(p/'arm-layout.json').write_text(json.dumps(layout,indent=2))
+with (b/'skystar_tracking.axf').open('rb') as f:
+ e=ELFFile(f);st=e.get_section_by_name('.symtab');add={n:st.get_symbol_by_name(n)[0]['st_value'] for n in ['guardian','milliseconds']};print('Symbol names located',list(add))
+l=STLink(STLinkUSBInterface.get_all_connected_devices()[0]);l.open();l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+def rd(a,n):return bytes(l.read_mem32(a,n,0,0))
+r={'layout':layout,'observations':[]}
+try:
+ app=(b/'skystar_tracking.bin').read_bytes();orig=Path('R:/evidence/c1-preflight-20261101/backup/flash-read1.bin').read_bytes();expected=app+orig[len(app):];current=b''.join(rd(0x08000000+i,4096) for i in range(0,512*1024,4096));(p/'deployed-full-flash.bin').write_bytes(current);r['whole_flash_matches_expected']=current==expected;r['whole_flash_sha256']=hashlib.sha256(current).hexdigest();assert current==expected
+ for i in range(10):
+  g=rd(add['guardian'],layout['struct_size']);state=int.from_bytes(g[layout['state_offset']:layout['state_offset']+layout['state_size']],'little');reason=int.from_bytes(g[layout['reason_offset']:layout['reason_offset']+layout['reason_size']],'little');cc=int.from_bytes(rd(0x40000820,4),'little');ms=int.from_bytes(rd(add['milliseconds'],4),'little');r['observations'].append(dict(state=state,reason=reason,ccer=cc,milliseconds=ms));assert state==0 and reason==0 and cc==0;time.sleep(.25)
+ assert r['observations'][-1]['milliseconds']>r['observations'][0]['milliseconds'];r['verdict']='PASS'
+finally:l.close();(p/'postdeploy-verified.json').write_text(json.dumps(r,indent=2));print(json.dumps(r,indent=2))

@@ -1,0 +1,7 @@
+{
+  "state_size": 1,
+  "reason_size": 1,
+  "state_offset": 0,
+  "reason_offset": 1,
+  "struct_size": 36
+}

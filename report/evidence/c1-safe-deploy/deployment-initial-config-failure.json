@@ -1,0 +1,12 @@
+{
+  "target": "stm32f407vetx",
+  "candidate_sha256": "d09c81aad7996bc04e8dc88e25eef3662d59b97e5113195b05e0c2ac4fc70120",
+  "candidate_bytes": 12712,
+  "flash_start": "0x08000000",
+  "erase": "sector only, preserve unwritten bytes",
+  "motor_laser_power": "user confirmed disconnected",
+  "motion_commands": false,
+  "stage": "preflight",
+  "verdict": "FAIL",
+  "error": "Traceback (most recent call last):\n  File \"R:\\evidence\\c1-safe-deploy-20261101\\deploy_safe.py\", line 10, in <module>\n    session=ConnectHelper.session_with_chosen_probe(blocking=False,return_first=False,target_override='stm32f407vetx',pack=str(out/'Keil.STM32F4xx_DFP.3.1.1.pack'),connect_mode='attach',frequency=1000000,project_dir=str(out),config_file=False,auto_unlock=False)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Codex/tools/stm32-bench\\pyocd\\core\\helpers.py\", line 272, in session_with_chosen_probe\n    return Session(probe, auto_open=auto_open, options=options, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Codex/tools/stm32-bench\\pyocd\\core\\session.py\", line 231, in __init__\n    config = self._get_config()\n             ^^^^^^^^^^^^^^^^^^\n  File \"D:\\Codex/tools/stm32-bench\\pyocd\\core\\session.py\", line 269, in _get_config\n    configPath = self.find_user_file('config_file', _CONFIG_FILE_NAMES)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Codex/tools/stm32-bench\\pyocd\\core\\session.py\", line 361, in find_user_file\n    filePath = os.path.expanduser(filePath)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen ntpath>\", line 354, in expanduser\nTypeError: expected str, bytes or os.PathLike object, not bool\n"
+}

@@ -246,6 +246,19 @@
       "verified_commit": "2a9a1d67b9dfe0c00beafdcbb8cfd7d2d144fdbb",
       "tool_version": "Vivado/XSim 2024.2; ARMCC 5.06u5; Python 3.12.4; GCC 4.9.2",
       "reviewer": "Codex offline self-check; independent reproduction and hardware verification pending"
+    },
+    {
+      "id": "c1_stm32_safe_boot_uart_diagnostic",
+      "status": "board_verified",
+      "verified_commit": "2a9a1d67b9dfe0c00beafdcbb8cfd7d2d144fdbb",
+      "tool_version": "ARMCC 5.06u5; pyOCD 0.46.0 with Keil STM32F4xx_DFP 3.1.1; Vivado 2024.2",
+      "reviewer": "Codex automatic SWD and serial checks; independent human reproduction pending",
+      "evidence": [
+        "report/experiments/2026-11-01-c1-safe-deployment.md",
+        "report/evidence/c1-safe-deploy/postdeploy-verified.json",
+        "report/evidence/c1-safe-deploy/uart-safe-result.json"
+      ],
+      "note": "Limited no-power diagnostic only: candidate programmed and whole Flash verified; 11 UART/state/register checks with PC via transparent bridge pass. PWM stayed OFF throughout; no active PWM stop timing, mechanics, FPGA autonomy or optical control verified. Initial erase timeout and recovery retained. Camera bitstream restored afterwards; integrated board top and epoch remain blockers."
     }
   ]
 }

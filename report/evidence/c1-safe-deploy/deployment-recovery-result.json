@@ -1,0 +1,59 @@
+{
+  "target": "stm32f407vetx",
+  "candidate_sha256": "d09c81aad7996bc04e8dc88e25eef3662d59b97e5113195b05e0c2ac4fc70120",
+  "candidate_bytes": 12712,
+  "flash_start": "0x08000000",
+  "erase": "sector only, preserve unwritten bytes",
+  "motor_laser_power": "user confirmed disconnected",
+  "motion_commands": false,
+  "stage": "complete",
+  "original_backup_sha256": "568aad198da3a3007e842d1cfa4761ce8c671fcaee6a07cb299e2b8ff3878dba",
+  "readback_sha256": "d09c81aad7996bc04e8dc88e25eef3662d59b97e5113195b05e0c2ac4fc70120",
+  "readback_match": true,
+  "observations": [
+    {
+      "sample": 0,
+      "tim4_ccer": 0,
+      "systick_ctrl": 65543,
+      "safety_state": 0,
+      "safety_reason": 3701455200
+    },
+    {
+      "sample": 1,
+      "tim4_ccer": 0,
+      "systick_ctrl": 65543,
+      "safety_state": 0,
+      "safety_reason": 3701455200
+    },
+    {
+      "sample": 2,
+      "tim4_ccer": 0,
+      "systick_ctrl": 65543,
+      "safety_state": 0,
+      "safety_reason": 3701455200
+    },
+    {
+      "sample": 3,
+      "tim4_ccer": 0,
+      "systick_ctrl": 65543,
+      "safety_state": 0,
+      "safety_reason": 3701455200
+    },
+    {
+      "sample": 4,
+      "tim4_ccer": 0,
+      "systick_ctrl": 65543,
+      "safety_state": 0,
+      "safety_reason": 3701455200
+    },
+    {
+      "sample": 5,
+      "tim4_ccer": 0,
+      "systick_ctrl": 65543,
+      "safety_state": 0,
+      "safety_reason": 3701455200
+    }
+  ],
+  "verdict": "PASS",
+  "limitation": "Intermediate safety_reason samples used wrong enum offset; superseded by ARM-layout-aware postdeploy-verified.json"
+}

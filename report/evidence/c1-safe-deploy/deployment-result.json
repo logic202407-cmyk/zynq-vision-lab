@@ -1,0 +1,13 @@
+{
+  "target": "stm32f407vetx",
+  "candidate_sha256": "d09c81aad7996bc04e8dc88e25eef3662d59b97e5113195b05e0c2ac4fc70120",
+  "candidate_bytes": 12712,
+  "flash_start": "0x08000000",
+  "erase": "sector only, preserve unwritten bytes",
+  "motor_laser_power": "user confirmed disconnected",
+  "motion_commands": false,
+  "stage": "programming",
+  "backup_sha256": "568aad198da3a3007e842d1cfa4761ce8c671fcaee6a07cb299e2b8ff3878dba",
+  "verdict": "FAIL",
+  "error": "Traceback (most recent call last):\n  File \"R:\\evidence\\c1-safe-deploy-20261101\\deploy_safe.py\", line 17, in <module>\n    FileProgrammer(session,chip_erase='sector',smart_flash=True,trust_crc=False,keep_unwritten=True).program(str(b/'skystar_tracking.bin'),file_format='bin',base_address=0x08000000)\n  File \"D:\\Codex/tools/stm32-bench\\pyocd\\flash\\file_programmer.py\", line 199, in program\n    self.commit()\n  File \"D:\\Codex/tools/stm32-bench\\pyocd\\flash\\file_programmer.py\", line 173, in commit\n    self._loader.commit()\n  File \"D:\\Codex/tools/stm32-bench\\pyocd\\flash\\loader.py\", line 299, in commit\n    builder.erase(chip_erase=self._chip_erase,\n  File \"D:\\Codex/tools/stm32-bench\\pyocd\\flash\\builder.py\", line 536, in erase\n    self._erase_sectors(progress_cb)\n  File \"D:\\Codex/tools/stm32-bench\\pyocd\\flash\\builder.py\", line 874, in _erase_sectors\n    self.flash.erase_sector(addr)\n  File \"D:\\Codex/tools/stm32-bench\\pyocd\\flash\\flash.py\", line 383, in erase_sector\n    raise FlashEraseFailure('flash erase sector timed out')\npyocd.core.exceptions.FlashEraseFailure: flash erase sector timed out\n"
+}

@@ -1,0 +1,74 @@
+{
+  "layout": {
+    "state_size": 1,
+    "reason_size": 1,
+    "state_offset": 0,
+    "reason_offset": 1,
+    "struct_size": 36
+  },
+  "observations": [
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 55731
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 55985
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 56237
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 56491
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 56743
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 56997
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 57254
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 57517
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 57772
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 58025
+    }
+  ],
+  "whole_flash_matches_expected": true,
+  "whole_flash_sha256": "dbc484d6595f6d8dff60ab86e89dcce9ddbc25ed5ca6907f51cace25c090ecd1",
+  "verdict": "PASS"
+}

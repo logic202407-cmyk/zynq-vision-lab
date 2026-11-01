@@ -1,0 +1,63 @@
+import sys,time,json,binascii,secrets
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench');sys.path.insert(0,'R:/c1-repo')
+import serial
+from elftools.elf.elffile import ELFFile
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+from src.prototype.skystar_openmv.safety_protocol import encode
+out=Path(__file__).parent
+with Path('R:/evidence/c1-loop/arm/latest-usart3-s1ack1-c1-loop/skystar_tracking.axf').open('rb') as f:
+ e=ELFFile(f);a=e.get_section_by_name('.symtab').get_symbol_by_name('guardian')[0]['st_value']
+l=STLink(STLinkUSBInterface.get_all_connected_devices()[0]);l.open();l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+s=serial.Serial(port=None,baudrate=115200,timeout=.02);s.port='COM14';s.dtr=False;s.rts=False
+wire=[];checks=[];pending=bytearray()
+def frame(body):
+ b=body.encode();return b+('*%04x\n'%binascii.crc_hqx(b,65535)).encode()
+def collect(seconds):
+ end=time.monotonic()+seconds;lines=[]
+ while time.monotonic()<end:
+  pending.extend(s.read(4096))
+  while b'\n' in pending:
+   b,_,rest=pending.partition(b'\n');pending[:]=rest;text=b.rstrip(b'\r').decode('ascii',errors='replace');lines.append(text);wire.append(dict(direction='RX',text=text,at=time.monotonic()))
+ return lines
+def send(b,seconds=.12):
+ s.write(b);s.flush();wire.append(dict(direction='TX',text=b.decode(),at=time.monotonic()));return collect(seconds)
+def snapshot():
+ g=bytes(l.read_mem32(a,4,0,0));cc=int.from_bytes(bytes(l.read_mem32(0x40000820,4,0,0)),'little');return dict(state=g[0],reason=g[1],ccer=cc)
+def check(name,state,reason=None):
+ x=snapshot();assert x['state']==state and x['ccer']==0,(name,x)
+ if reason is not None:assert x['reason']==reason,(name,x)
+ checks.append(dict(name=name,verdict='PASS',**x))
+def sync():
+ q=secrets.token_hex(16);lines=send(frame('s1q '+q+' st'),.16)
+ for text in lines:
+  if text.startswith('S1SYNC '+q+' S1ACK1 '):
+   body,crc=text.rsplit('*',1);assert binascii.crc_hqx(body.encode(),65535)==int(crc,16);return int(body.split()[3],16)
+ raise AssertionError('No correlated S1SYNC')
+def arm(n):
+ b=encode(n,0,'arm');lines=send(b)
+ reqcrc=b.decode().split('*')[1].strip()
+ for text in lines:
+  if text.startswith('S1ACK S %016x 0 %s arm ACCEPT REG '%(n,reqcrc)):
+   body,crc=text.rsplit('*',1);assert binascii.crc_hqx(body.encode(),65535)==int(crc,16);return
+ raise AssertionError('No correlated ARM acceptance')
+r={'scope':'PC commands via existing FPGA transparent bridge, not FPGA autonomous decisions','no_position_auto_home_or_light_commands':True,'checks':checks}
+try:
+ s.open();collect(.2);n=sync();check('query does not arm',0)
+ arm(n);check('explicit arm leaves PWM OFF',1)
+ send(encode(n,1,'hb'));check('fresh heartbeat leaves PWM OFF',1)
+ collect(.65);check('MCU local lease expires',4,3)
+ send(encode(n,2,'hb'));check('old session data does not recover',4,3)
+ new=sync();assert new!=n;arm(new);check('explicit fresh rearm leaves PWM OFF',1)
+ send(b'stop\r\n');check('STOP disables permission',0,1)
+ send(b's1 ');collect(.26);check('partial command expires',4,4)
+ send(b'\n');collect(.1);check('newline does not clear fault',4,4)
+ new=sync();arm(new);check('explicit recovery after partial fault',1)
+ send(b'stop\r\n');check('final STOP PWM OFF',0,1);r['verdict']='PASS'
+except Exception as e:
+ import traceback;r['verdict']='FAIL';r['error']=traceback.format_exc()
+finally:
+ try:send(b'\nstop\r\n',.15)
+ except Exception:pass
+ r['final_registers']=snapshot();s.close();l.close();(out/'uart-safe-result.json').write_text(json.dumps(r,indent=2));(out/'uart-wire-private.json').write_text(json.dumps(wire,indent=2));print(json.dumps(r,indent=2))

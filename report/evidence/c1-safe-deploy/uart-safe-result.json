@@ -1,0 +1,89 @@
+{
+  "scope": "PC commands via existing FPGA transparent bridge, not FPGA autonomous decisions",
+  "no_position_auto_home_or_light_commands": true,
+  "checks": [
+    {
+      "name": "query does not arm",
+      "verdict": "PASS",
+      "state": 0,
+      "reason": 0,
+      "ccer": 0
+    },
+    {
+      "name": "explicit arm leaves PWM OFF",
+      "verdict": "PASS",
+      "state": 1,
+      "reason": 2,
+      "ccer": 0
+    },
+    {
+      "name": "fresh heartbeat leaves PWM OFF",
+      "verdict": "PASS",
+      "state": 1,
+      "reason": 2,
+      "ccer": 0
+    },
+    {
+      "name": "MCU local lease expires",
+      "verdict": "PASS",
+      "state": 4,
+      "reason": 3,
+      "ccer": 0
+    },
+    {
+      "name": "old session data does not recover",
+      "verdict": "PASS",
+      "state": 4,
+      "reason": 3,
+      "ccer": 0
+    },
+    {
+      "name": "explicit fresh rearm leaves PWM OFF",
+      "verdict": "PASS",
+      "state": 1,
+      "reason": 2,
+      "ccer": 0
+    },
+    {
+      "name": "STOP disables permission",
+      "verdict": "PASS",
+      "state": 0,
+      "reason": 1,
+      "ccer": 0
+    },
+    {
+      "name": "partial command expires",
+      "verdict": "PASS",
+      "state": 4,
+      "reason": 4,
+      "ccer": 0
+    },
+    {
+      "name": "newline does not clear fault",
+      "verdict": "PASS",
+      "state": 4,
+      "reason": 4,
+      "ccer": 0
+    },
+    {
+      "name": "explicit recovery after partial fault",
+      "verdict": "PASS",
+      "state": 1,
+      "reason": 2,
+      "ccer": 0
+    },
+    {
+      "name": "final STOP PWM OFF",
+      "verdict": "PASS",
+      "state": 0,
+      "reason": 1,
+      "ccer": 0
+    }
+  ],
+  "verdict": "PASS",
+  "final_registers": {
+    "state": 0,
+    "reason": 1,
+    "ccer": 0
+  }
+}
