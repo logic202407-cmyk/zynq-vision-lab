@@ -2,6 +2,7 @@
 API void c1_init(void){
  model_init();gimbal_registry_init(&observation_devices);memset(&observations,0,sizeof(observations));
  measurement_bind(&observations,0,0,1);
+ observation_nonce_hi=guardian.nonce_hi;observation_nonce_lo=guardian.nonce_lo;
 }
 API unsigned c1_accepted(void){return observations.camera[0].accepted;}
 API unsigned c1_flags(void){return observations.camera[0].value.flags;}

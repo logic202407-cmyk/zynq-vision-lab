@@ -1,0 +1,1 @@
+{"verdict": "PASS", "exit_code": 0, "count": 12, "cases": ["correct_bind_ACK_stopped", "duplicate_bind_does_not_rewind", "older_binding_rejected", "old_measurement_session_rejected", "reject_zero", "reject_nonce", "reject_crc", "reject_extra", "reject_uppercase", "no_ACK_space_no_bind", "armed_cannot_rebind", "MCU_reset_old_nonce_rejected"], "hardware_actions": []}

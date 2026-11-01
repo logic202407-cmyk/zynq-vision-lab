@@ -1,0 +1,20 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/c1-link/run1/uart_tx_8n1.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_tx_8n1
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/c1-link/run1/uart_rx.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/c1-link/run1/zynq_motion_s1.v" into library work
+INFO: [VRFC 10-311] analyzing module zynq_motion_s1
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/c1-link/run1/vision_measurement_tx.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_measurement_tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/c1-link/run1/vision_snapshot_cdc.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_snapshot_cdc
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/c1-link/run1/uart_line_queue.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_line_queue
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/c1-link/run1/uart_line_scheduler.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_line_scheduler
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/c1-link/run1/measurement_session.v" into library work
+INFO: [VRFC 10-311] analyzing module measurement_session
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/c1-link/run1/zynq_vision_link.v" into library work
+INFO: [VRFC 10-311] analyzing module zynq_vision_link
+ERROR: [VRFC 10-2938] 'mbusy' is already implicitly declared on line 22 [R:/evidence/c1-link/run1/zynq_vision_link.v:31]
+ERROR: [VRFC 10-8530] module 'zynq_vision_link' is ignored due to previous errors [R:/evidence/c1-link/run1/zynq_vision_link.v:4]

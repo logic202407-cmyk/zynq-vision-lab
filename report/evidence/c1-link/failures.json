@@ -1,0 +1,39 @@
+[
+  {
+    "run": "run1",
+    "exit_code": 1,
+    "cause": "implicit mbusy redeclaration",
+    "fix": "declare before first use"
+  },
+  {
+    "run": "run2",
+    "exit_code": 1,
+    "cause": "R:/D: path alias in hash collection",
+    "fix": "resolve __file__; compile substeps had succeeded"
+  },
+  {
+    "run": "run3",
+    "exit_code": 1,
+    "cause": "test method frame shadowed inherited frame state",
+    "fix": "rename test method camera_capture"
+  },
+  {
+    "run": "run4",
+    "exit_code": 1,
+    "cause": "test query before ownership acquired",
+    "fix": "wait for owner; no production FSM change"
+  },
+  {
+    "run": "transport1",
+    "exit_code": 1,
+    "cause": "missing expected final byte before deliberate stall",
+    "fix": "explicitly assert ninth byte and subsequent idle lock"
+  },
+  {
+    "run": "initial synthesis",
+    "tool_exit_code": 0,
+    "cdc_critical": 2,
+    "wns_ns": -18.875,
+    "fix": "ungated synchronizer chains and iterative centroid division"
+  }
+]

@@ -9,18 +9,44 @@
 #include "vision_measurement.h"
 static gimbal_registry_t observation_devices;
 static measurement_store_t observations;
+static uint32_t observation_nonce_hi,observation_nonce_lo;
 static int c1_hex(char c){if(c>='0'&&c<='9')return c-'0';if(c>='a'&&c<='f')return c-'a'+10;return -1;}
+static int c1_line(const char *s,uint32_t rx,uint32_t now);
+#endif
+static tracking_t control;
+static vision_parser_t parser;
+static safety_t guardian;
+#ifdef C1_OBSERVATIONS
+static void c1_expire(uint32_t now){
+ measurement_slot_t *slot=&observations.camera[0];
+ if(slot->session_bound&&(observation_nonce_hi!=guardian.nonce_hi||observation_nonce_lo!=guardian.nonce_lo))memset(&observations,0,sizeof(observations));
+ measurement_tick(&observations,now);
+}
 static int c1_line(const char *s,uint32_t rx,uint32_t now){
- uint8_t packet[M2_BYTES];unsigned i;int a,b;
+ uint8_t packet[M2_BYTES];unsigned i;int a,b;uint32_t words[4]={0,0,0,0};
+ uint16_t crc=0;char response[48];measurement_slot_t *slot=&observations.camera[0];
+ c1_expire(now);
+ if(!strncmp(s,"v2b ",4)){
+  if(strlen(s)!=42||s[20]!=' '||s[37]!='*'||guardian.state!=SAFE_STOPPED||control.outputs||
+     (uint32_t)(now-rx)>=SAFETY_COMMAND_MS)return 1;
+  for(i=0;i<32;i++){a=c1_hex(s[4+i+(i>=16)]);if(a<0)return 1;words[i/8]=(words[i/8]<<4)|(unsigned)a;}
+  for(i=38;i<42;i++){a=c1_hex(s[i]);if(a<0)return 1;crc=(uint16_t)((crc<<4)|a);}
+  if(crc!=safety_crc(s,37)||!guardian.entropy_ok||words[0]!=guardian.nonce_hi||words[1]!=guardian.nonce_lo||(!words[2]&&!words[3]))return 1;
+  if(slot->session_bound&&(words[2]<slot->session_hi||(words[2]==slot->session_hi&&words[3]<slot->session_lo)))return 1;
+  memcpy(response,s,37);memcpy(response,"V2A ",4);
+  (void)snprintf(response+37,sizeof(response)-37,"*%04x\n",safety_crc(response,37));
+  if(!board_send(response))return 1; /* No ACK capacity: do not install session. */
+  if(!slot->session_bound||words[2]!=slot->session_hi||words[3]!=slot->session_lo)
+   (void)measurement_bind(&observations,0,words[2],words[3]);
+  observation_nonce_hi=guardian.nonce_hi;observation_nonce_lo=guardian.nonce_lo;
+  return 1; /* Duplicate binding is idempotent; never rewind frame sequence. */
+ }
  if(strncmp(s,"v2 ",3))return 0;
  if(strlen(s)!=111)return 1;
  for(i=0;i<M2_BYTES;i++){a=c1_hex(s[3+i*2]);b=c1_hex(s[4+i*2]);if(a<0||b<0)return 1;packet[i]=(uint8_t)(a*16+b);}
  (void)measurement_receive(&observations,packet,M2_BYTES,rx,now);return 1;
 }
 #endif
-static tracking_t control;
-static vision_parser_t parser;
-static safety_t guardian;
 #ifdef C1_OBSERVATIONS
 static char line[128];
 #else
@@ -184,7 +210,7 @@ int main(void)
         board_outputs(safety_armed(&guardian) && control.outputs,control.pan_us,control.tilt_us);
         if ((uint32_t)(now-last_status)>=100u) { last_status=now; status(); }
         #ifdef C1_OBSERVATIONS
-        measurement_tick(&observations,now);gimbal_registry_tick(&observation_devices,now);
+        c1_expire(now);gimbal_registry_tick(&observation_devices,now);
         (void)gimbal_record_targets(&observation_devices,0,control.pan_us,control.tilt_us);
         observation_devices.devices[0].safety_snapshot=guardian;
         observation_devices.devices[0].pwm_enabled=(uint8_t)(safety_armed(&guardian)&&control.outputs);

@@ -15,13 +15,13 @@ module vision_measurement_tx(
 );
  reg [431:0] packet;
  reg [6:0] pos;reg active;reg [15:0] crc;reg[5:0] crc_pos;reg preparing;
+ reg dividing;reg[4:0] div_step;reg[27:0] qx,qy;reg[19:0] rx,ry,den;
+ wire[19:0] nx={rx[18:0],qx[27]},ny={ry[18:0],qy[27]};
  wire good=complete&&target&&(count!=0);
- wire [15:0] cx=good?sum_x/count:16'd0;
- wire [15:0] cy=good?sum_y/count:16'd0;
  function [15:0] crcbyte;input[15:0] c;input[7:0] b;integer i;reg[15:0] v;
  begin v=c^{b,8'b0};for(i=0;i<8;i=i+1)v=v[15]?(v<<1)^16'h1021:v<<1;crcbyte=v;end endfunction
  function[7:0] hexchar;input[3:0] v;begin hexchar=v<10?8'd48+v:8'd87+v;end endfunction
- assign valid=active&&!preparing;assign busy=active;
+ assign valid=active&&!preparing&&!dividing;assign busy=active;
  always @* begin
   data=0;
   if(pos==0)data="v";else if(pos==1)data="2";else if(pos==2)data=" ";
@@ -29,7 +29,7 @@ module vision_measurement_tx(
   else if(pos>=3&&pos<111)data=hexchar(packet[431-(pos-3)*4 -:4]);
  end
  always @(posedge clk or negedge rst_n)begin
-  if(!rst_n)begin packet<=0;pos<=0;active<=0;preparing<=0;crc<=16'hffff;crc_pos<=0;done<=0;dropped<=0;end
+  if(!rst_n)begin packet<=0;pos<=0;active<=0;preparing<=0;crc<=16'hffff;crc_pos<=0;done<=0;dropped<=0;dividing<=0;div_step<=0;qx<=0;qy<=0;rx<=0;ry<=0;den<=0;end
   else begin
    done<=0;
    if(capture)begin
@@ -38,11 +38,18 @@ module vision_measurement_tx(
      packet<={16'ha55a,8'd2,8'd1,camera_id,{5'b0,timestamp_valid,good,complete},8'd1,mask_version,
        session_id,frame_seq,(timestamp_valid?capture_tick:32'd0),width,height,
        (good?{13'b0,count}:32'd0),(good?{4'b0,sum_x}:32'd0),(good?{4'b0,sum_y}:32'd0),
-       (good?{6'b0,xmin}:16'd0),(good?{7'b0,ymin}:16'd0),(good?{6'b0,xmax}:16'd0),(good?{7'b0,ymax}:16'd0),cx,cy,16'd0};
-     pos<=0;active<=1;preparing<=1;crc<=16'hffff;crc_pos<=0;
+       (good?{6'b0,xmin}:16'd0),(good?{7'b0,ymin}:16'd0),(good?{6'b0,xmax}:16'd0),(good?{7'b0,ymax}:16'd0),16'd0,16'd0,16'd0};
+     pos<=0;active<=1;preparing<=!good;crc<=16'hffff;crc_pos<=0;
+     dividing<=good;div_step<=0;qx<=sum_x;qy<=sum_y;rx<=0;ry<=0;den<={1'b0,count};
     end
    end
-   if(preparing)begin
+   if(dividing)begin
+    rx<=nx>=den?nx-den:nx;ry<=ny>=den?ny-den:ny;
+    qx<={qx[26:0],nx>=den};qy<={qy[26:0],ny>=den};div_step<=div_step+1;
+    if(div_step==27)begin
+     packet[47:32]<={qx[14:0],nx>=den};packet[31:16]<={qy[14:0],ny>=den};dividing<=0;preparing<=1;
+    end
+   end else if(preparing)begin
     crc<=crcbyte(crc,packet[431-crc_pos*8 -:8]);
     if(crc_pos==51)begin packet[15:0]<=crcbyte(crc,packet[23:16]);preparing<=0;end
     else crc_pos<=crc_pos+1;

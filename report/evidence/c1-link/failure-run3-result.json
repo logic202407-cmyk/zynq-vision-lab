@@ -1,0 +1,10 @@
+{
+  "verdict": "FAIL",
+  "exit_code": 1,
+  "cases": [
+    "reset_unbound_no_boot_traffic",
+    "nonce_crc_correlated_binding"
+  ],
+  "error": "Traceback (most recent call last):\n  File \"R:\\c1-repo\\tools\\check_c1_link.py\", line 52, in run\n    c.frame(1);c.until(lambda:c.lib.c1_accepted()==1);assert c.lib.c1_sequence()==1 and c.lib.model_reg(0x40000820)==0\n    ^^^^^^^^^^\nTypeError: 'NoneType' object is not callable\n",
+  "simulated_us": 37608
+}

@@ -1,0 +1,15 @@
+{
+  "verdict": "FAIL",
+  "exit_code": 1,
+  "cases": [
+    "reset_unbound_no_boot_traffic",
+    "nonce_crc_correlated_binding",
+    "async_camera_CDC_UART_actual_C",
+    "B2_arm_independent_axes_shared_TX",
+    "stop_during_measurement_no_byte_splice",
+    "complete_lines_only",
+    "MCU_reset_unbinds"
+  ],
+  "error": "Traceback (most recent call last):\n  File \"R:\\c1-repo\\tools\\check_c1_link.py\", line 65, in run\n    c.pulse(1);c.until(lambda:c.state==3);assert not c.vstatus()&1\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"R:\\c1-repo\\tools\\check_motion_cosim.py\", line 109, in until\n    if self.us-start>=budget:raise AssertionError(('deadline',self.us,self.status,self.lines,bytes(self.from_mcu).decode(errors='replace')))\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('deadline', 295423, 16, ['s1q 00000000000000000000000012345678 st*ba0d\\n', 'v2b 1234000112340002 0000000000000001*79c4\\n', 'v2 a55a02010007010100000000000000010000000100000001028001e0000000020000003c00000050000a00140032003c001e00284f64\\n', 's1q 00000000000000000000000012345679 st*ccb9\\n', 's1 1234000112340002 0 arm*ec90\\n', 's1 1234000112340002 1 pan 1550*f20c\\n', 's1 1234000112340002 2 tlt 1540*0913\\n', 'v2 a55a02010007010100000000000000010000000200000002028001e0000000020000003c00000050000a00140032003c001e0028c82a\\n', 's1q 0000000000000000000000001234567a stop*7d9e\\n'], 'SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\\r\\nS1SYNC 00000000000000000000000012345678 S1ACK1 1234000112340002 stopped boot 1500 1500 0 0 0*2dd6\\nS1STAT SAFE stopped WHY boot NONCE 1234000112340002 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1\\r\\nV2A 1234000112340002 0000000000000001*8d28\\nS1SYNC 00000000000000000000000012345679 S1ACK1 1234000112340002 stopped boot 1500 1500 0 0 0*b1b1\\nS1STAT SAFE stopped WHY boot NONCE 1234000112340002 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1\\r\\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\\nS1STAT SAFE manual WHY ready NONCE 1234000112340002 SEQ 1 TX_DROP 0 FW 15 CAP S1ACK1\\r\\nS1STAT SAFE manual WHY ready NONCE 1234000112340002 SEQ 1 TX_DROP 0 FW 15 CAP S1ACK1\\r\\nS1ACK S 1234000112340002 2 0913 tlt ACCEPT REG 1234000112340002 manual ready none 1550 1540 3 1550 1540*a280\\nS1ACK Q 0000000000000000000000001234567a - - stop ACCEPT REG 1234000112340003 stopped stop none 1550 1540 0 1550 1540*aa07\\nSSKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\\r\\nS1STAT SAFE stopped WHY boot NONCE 1234010112340102 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1\\r\\n')\n",
+  "simulated_us": 295423
+}

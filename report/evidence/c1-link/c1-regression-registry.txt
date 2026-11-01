@@ -1,0 +1,1 @@
+C1_REGISTRY_PASS isolation, quadrants, loss, bounds, timeout, six-resource table; no hardware

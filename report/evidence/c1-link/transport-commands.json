@@ -1,0 +1,134 @@
+[
+  {
+    "top": "vision_cdc_tb",
+    "name": "xvlog",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+      "vision_snapshot_cdc.v",
+      "vision_cdc_tb.v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "top": "vision_cdc_tb",
+    "name": "xelab",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+      "vision_cdc_tb",
+      "-s",
+      "vision_cdc_tb"
+    ],
+    "exit_code": 0
+  },
+  {
+    "top": "vision_cdc_tb",
+    "name": "xsim",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+      "vision_cdc_tb",
+      "-tclbatch",
+      "run.tcl"
+    ],
+    "exit_code": 0
+  },
+  {
+    "top": "line_scheduler_tb",
+    "name": "xvlog",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+      "uart_line_scheduler.v",
+      "uart_tx_8n1.v",
+      "uart_rx.v",
+      "line_scheduler_tb.v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "top": "line_scheduler_tb",
+    "name": "xelab",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+      "line_scheduler_tb",
+      "-s",
+      "line_scheduler_tb"
+    ],
+    "exit_code": 0
+  },
+  {
+    "top": "line_scheduler_tb",
+    "name": "xsim",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+      "line_scheduler_tb",
+      "-tclbatch",
+      "run.tcl"
+    ],
+    "exit_code": 0
+  },
+  {
+    "top": "measurement_divider_tb",
+    "name": "xvlog",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+      "vision_measurement_tx.v",
+      "measurement_divider_tb.v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "top": "measurement_divider_tb",
+    "name": "xelab",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+      "measurement_divider_tb",
+      "-s",
+      "measurement_divider_tb"
+    ],
+    "exit_code": 0
+  },
+  {
+    "top": "measurement_divider_tb",
+    "name": "xsim",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+      "measurement_divider_tb",
+      "-tclbatch",
+      "run.tcl"
+    ],
+    "exit_code": 0
+  },
+  {
+    "top": "measurement_session_tb",
+    "name": "xvlog",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+      "measurement_session.v",
+      "uart_tx_8n1.v",
+      "uart_rx.v",
+      "measurement_session_tb.v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "top": "measurement_session_tb",
+    "name": "xelab",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+      "measurement_session_tb",
+      "-s",
+      "measurement_session_tb"
+    ],
+    "exit_code": 0
+  },
+  {
+    "top": "measurement_session_tb",
+    "name": "xsim",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+      "measurement_session_tb",
+      "-tclbatch",
+      "run.tcl"
+    ],
+    "exit_code": 0
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "baseline": "aab153143271b381d260c1e8a93590622fc50c15",
+  "unchanged_paths": [
+    "src/rtl/zynq_motion_s1.v",
+    "src/rtl/uart_tx_8n1.v",
+    "src/rtl/uart_rx.v",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.c",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.c",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/tracking.c",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.c",
+    "src/prototype/skystar_openmv/openmv_main.py"
+  ],
+  "diff_exit_code": 0
+}

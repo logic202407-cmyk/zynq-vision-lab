@@ -205,6 +205,16 @@
       "verified_commit": "d6179706ce54961a20c3943eae3fc2b51e496b55",
       "tool_version": "Vivado 2024.2; ARMCC 5.06u5; Python 3.12.4; GCC 4.9.2",
       "reviewer": "Codex offline self-checks; independent human reproduction pending"
+    },
+    {
+      "id": "c1_visual_shared_link",
+      "status": "implemented",
+      "evidence": [
+        "src/rtl/zynq_vision_link.v",
+        "docs/c1_visual_link.md",
+        "report/experiments/2026-11-01-c1-visual-link.md"
+      ],
+      "note": "Concurrent offline link candidate: atomic camera CDC, single serialized UART with control priority, UART nonce discovery and explicit observation-session binding. Three-gimbal states and B2 safety retained. No hardware actions; actual clocks, IO and epoch provider remain unresolved. Verified source receipt follows."
     }
   ]
 }

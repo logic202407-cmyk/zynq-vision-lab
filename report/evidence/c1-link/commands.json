@@ -1,0 +1,80 @@
+[
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "tools/check_c1_session.py",
+      "--stage",
+      "R:/evidence/c1-link/final"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "tools/check_s1ack_c.py",
+      "--stage",
+      "R:/evidence/c1-link/final"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "tools/check_repository.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "tools/check_c1_link.py",
+      "--stage",
+      "R:/evidence/c1-link/final"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "tools/check_c1_transport.py",
+      "--stage",
+      "R:/evidence/c1-link/transport5"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "tools/check_c1.py",
+      "--stage",
+      "R:/evidence/c1-link/c1-final"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "Vivado MCP",
+      "source R:/c1-repo/build/check_c1_link.tcl"
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "Vivado MCP",
+      "source R:/c1-repo/build/check_c1_link_route.tcl"
+    ],
+    "exit_code": 0
+  }
+]

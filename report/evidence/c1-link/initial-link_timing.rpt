@@ -1,0 +1,2132 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Nov  1 17:53:31 2026
+| Host : REDACTED
+| Command      : report_timing_summary -report_unconstrained -file link_timing.rpt
+| Design       : zynq_vision_link
+| Device       : 7z100-ffg900
+| Speed File   : -2  PRODUCTION 1.12 2019-11-22
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze
+  Name    Max Paths  Min Paths
+  ------  ---------  ---------
+  Slow    Yes        Yes
+  Fast    Yes        Yes
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (505)
+6. checking no_output_delay (138)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (505)
+--------------------------------
+ There are 505 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (138)
+---------------------------------
+ There are 138 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------
+    -18.875     -364.455                     37                18028        0.090        0.000                      0                17809        4.232        0.000                       0                  8990
+
+
+Timing constraints are not met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock             Waveform(ns)       Period(ns)      Frequency(MHz)
+-----             ------------       ----------      --------------
+candidate_camera  {0.000 7.000}      14.000          71.429
+candidate_sys     {0.000 5.000}      10.000          100.000
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock                 WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints
+-----                 -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------
+candidate_camera       12.530        0.000                      0                  286        0.121        0.000                      0                  286        6.650        0.000                       0                   256
+candidate_sys         -18.875     -364.455                     37                16794        0.090        0.000                      0                16794        4.232        0.000                       0                  8734
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock        To Clock              WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints
+----------        --------              -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------
+candidate_camera  candidate_sys           9.488        0.000                      0                  219
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group         From Clock         To Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints
+----------         ----------         --------               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------
+**async_default**  candidate_sys      candidate_sys            9.078        0.000                      0                  729        0.340        0.000                      0                  729
+
+
+------------------------------------------------------------------------------------------------
+| User Ignored Path Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group        From Clock        To Clock
+----------        ----------        --------
+(none)            candidate_camera  candidate_camera
+(none)            candidate_sys     candidate_camera
+(none)            candidate_camera  candidate_sys
+(none)            candidate_sys     candidate_sys
+
+
+------------------------------------------------------------------------------------------------
+| Unconstrained Path Table
+| ------------------------
+------------------------------------------------------------------------------------------------
+
+Path Group        From Clock        To Clock
+----------        ----------        --------
+(none)
+(none)            candidate_camera
+(none)            candidate_sys
+(none)                              candidate_camera
+(none)                              candidate_sys
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  candidate_camera
+  To Clock:  candidate_camera
+
+Setup :            0  Failing Endpoints,  Worst Slack       12.530ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.121ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        6.650ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             12.530ns  (required time - arrival time)
+  Source:                 cdc/sr_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Destination:            cdc/dropped_reg[29]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Path Group:             candidate_camera
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            14.000ns  (candidate_camera rise@14.000ns - candidate_camera rise@0.000ns)
+  Data Path Delay:        1.484ns  (logic 1.135ns (76.482%)  route 0.349ns (23.518%))
+  Logic Levels:           9  (CARRY4=8 LUT2=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.510ns = ( 14.510 - 14.000 )
+    Source Clock Delay      (SCD):    0.537ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.537     0.537    cdc/camera_clk
+                         FDCE                                         r  cdc/sr_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.259     0.796 r  cdc/sr_reg[1]/Q
+                         net (fo=38, unplaced)        0.342     1.138    cdc/sr[1]
+                         LUT2 (Prop_lut2_I0_O)        0.123     1.261 r  cdc/dropped[3]_i_4/O
+                         net (fo=1, unplaced)         0.000     1.261    cdc/dropped[3]_i_4_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256     1.517 r  cdc/dropped_reg[3]_i_1__0/CO[3]
+                         net (fo=1, unplaced)         0.007     1.524    cdc/dropped_reg[3]_i_1__0_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.578 r  cdc/dropped_reg[7]_i_1__0/CO[3]
+                         net (fo=1, unplaced)         0.000     1.578    cdc/dropped_reg[7]_i_1__0_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.632 r  cdc/dropped_reg[11]_i_1__0/CO[3]
+                         net (fo=1, unplaced)         0.000     1.632    cdc/dropped_reg[11]_i_1__0_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.686 r  cdc/dropped_reg[15]_i_1__0/CO[3]
+                         net (fo=1, unplaced)         0.000     1.686    cdc/dropped_reg[15]_i_1__0_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.740 r  cdc/dropped_reg[19]_i_1__0/CO[3]
+                         net (fo=1, unplaced)         0.000     1.740    cdc/dropped_reg[19]_i_1__0_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.794 r  cdc/dropped_reg[23]_i_1__0/CO[3]
+                         net (fo=1, unplaced)         0.000     1.794    cdc/dropped_reg[23]_i_1__0_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.848 r  cdc/dropped_reg[27]_i_1__0/CO[3]
+                         net (fo=1, unplaced)         0.000     1.848    cdc/dropped_reg[27]_i_1__0_n_0
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.173     2.021 r  cdc/dropped_reg[31]_i_2__0/O[1]
+                         net (fo=1, unplaced)         0.000     2.021    cdc/dropped_reg[31]_i_2__0_n_6
+                         FDCE                                         r  cdc/dropped_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_camera rise edge)
+                                                     14.000    14.000 r
+                                                      0.000    14.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.510    14.510    cdc/camera_clk
+                         FDCE                                         r  cdc/dropped_reg[29]/C
+                         clock pessimism              0.000    14.510
+                         clock uncertainty           -0.035    14.475
+                         FDCE (Setup_fdce_C_D)        0.076    14.551    cdc/dropped_reg[29]
+  -------------------------------------------------------------------
+                         required time                         14.551
+                         arrival time                          -2.021
+  -------------------------------------------------------------------
+                         slack                                 12.530
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.121ns  (arrival time - required time)
+  Source:                 cdc/sr_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Destination:            cdc/sr_reg[1]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Path Group:             candidate_camera
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (candidate_camera rise@0.000ns - candidate_camera rise@0.000ns)
+  Data Path Delay:        0.172ns  (logic 0.118ns (68.583%)  route 0.054ns (31.417%))
+  Logic Levels:           0
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.280ns
+    Source Clock Delay      (SCD):    0.266ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.266     0.266    cdc/camera_clk
+                         FDCE                                         r  cdc/sr_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.118     0.384 r  cdc/sr_reg[0]/Q
+                         net (fo=1, unplaced)         0.054     0.438    cdc/sr[0]
+                         FDCE                                         r  cdc/sr_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.280     0.280    cdc/camera_clk
+                         FDCE                                         r  cdc/sr_reg[1]/C
+                         clock pessimism              0.000     0.280
+                         FDCE (Hold_fdce_C_D)         0.037     0.317    cdc/sr_reg[1]
+  -------------------------------------------------------------------
+                         required time                         -0.317
+                         arrival time                           0.438
+  -------------------------------------------------------------------
+                         slack                                  0.121
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         candidate_camera
+Waveform(ns):       { 0.000 7.000 }
+Period(ns):         14.000
+Sources:            { camera_clk }
+
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period        n/a     FDCE/C   n/a            0.700         14.000      13.300               cdc/ack_sync_reg[0]/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.350         7.000       6.650                cdc/ack_sync_reg[0]/C
+High Pulse Width  Slow    FDCE/C   n/a            0.350         7.000       6.650                cdc/ack_sync_reg[0]/C
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  candidate_sys
+  To Clock:  candidate_sys
+
+Setup :           37  Failing Endpoints,  Worst Slack      -18.875ns,  Total Violation     -364.455ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.090ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        4.232ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (VIOLATED) :        -18.875ns  (required time - arrival time)
+  Source:                 cdc/dst_data_reg[94]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            measurement/packet_reg[16]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             candidate_sys
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (candidate_sys rise@10.000ns - candidate_sys rise@0.000ns)
+  Data Path Delay:        28.849ns  (logic 20.786ns (72.051%)  route 8.063ns (27.949%))
+  Logic Levels:           194  (CARRY4=166 LUT2=1 LUT3=26 LUT5=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.510ns = ( 10.510 - 10.000 )
+    Source Clock Delay      (SCD):    0.537ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.537     0.537    cdc/clk
+                         FDCE                                         r  cdc/dst_data_reg[94]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.223     0.760 r  cdc/dst_data_reg[94]/Q
+                         net (fo=58, unplaced)        0.353     1.113    cdc/Q[56]
+                         LUT2 (Prop_lut2_I0_O)        0.123     1.236 r  cdc/packet[31]_i_355/O
+                         net (fo=1, unplaced)         0.000     1.236    measurement/packet_reg[31]_i_286_0[0]
+                         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.246     1.482 r  measurement/packet_reg[31]_i_311/CO[3]
+                         net (fo=1, unplaced)         0.007     1.489    measurement/packet_reg[31]_i_311_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.543 r  measurement/packet_reg[31]_i_306/CO[3]
+                         net (fo=1, unplaced)         0.000     1.543    measurement/packet_reg[31]_i_306_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.597 r  measurement/packet_reg[31]_i_301/CO[3]
+                         net (fo=1, unplaced)         0.000     1.597    measurement/packet_reg[31]_i_301_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.651 r  measurement/packet_reg[31]_i_296/CO[3]
+                         net (fo=1, unplaced)         0.000     1.651    measurement/packet_reg[31]_i_296_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.705 r  measurement/packet_reg[31]_i_294/CO[3]
+                         net (fo=22, unplaced)        0.496     2.201    measurement/packet_reg[31]_i_294_n_0
+                         CARRY4 (Prop_carry4_CYINIT_CO[3])
+                                                      0.297     2.498 r  measurement/packet_reg[31]_i_286/CO[3]
+                         net (fo=1, unplaced)         0.007     2.505    measurement/packet_reg[31]_i_286_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     2.559 r  measurement/packet_reg[31]_i_281/CO[3]
+                         net (fo=1, unplaced)         0.000     2.559    measurement/packet_reg[31]_i_281_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     2.613 r  measurement/packet_reg[31]_i_276/CO[3]
+                         net (fo=1, unplaced)         0.000     2.613    measurement/packet_reg[31]_i_276_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     2.667 r  measurement/packet_reg[31]_i_271/CO[3]
+                         net (fo=1, unplaced)         0.000     2.667    measurement/packet_reg[31]_i_271_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     2.721 r  measurement/packet_reg[31]_i_270/CO[3]
+                         net (fo=1, unplaced)         0.000     2.721    measurement/packet_reg[31]_i_270_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147     2.868 r  measurement/packet_reg[31]_i_268/CO[0]
+                         net (fo=22, unplaced)        0.253     3.121    measurement/packet_reg[31]_i_268_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.128     3.249 r  measurement/packet[31]_i_293/O
+                         net (fo=1, unplaced)         0.000     3.249    measurement/packet[31]_i_293_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256     3.505 r  measurement/packet_reg[31]_i_260/CO[3]
+                         net (fo=1, unplaced)         0.007     3.512    measurement/packet_reg[31]_i_260_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.566 r  measurement/packet_reg[31]_i_255/CO[3]
+                         net (fo=1, unplaced)         0.000     3.566    measurement/packet_reg[31]_i_255_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.620 r  measurement/packet_reg[31]_i_250/CO[3]
+                         net (fo=1, unplaced)         0.000     3.620    measurement/packet_reg[31]_i_250_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.674 r  measurement/packet_reg[31]_i_245/CO[3]
+                         net (fo=1, unplaced)         0.000     3.674    measurement/packet_reg[31]_i_245_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.728 r  measurement/packet_reg[31]_i_244/CO[3]
+                         net (fo=1, unplaced)         0.000     3.728    measurement/packet_reg[31]_i_244_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147     3.875 r  measurement/packet_reg[31]_i_242/CO[0]
+                         net (fo=22, unplaced)        0.253     4.128    measurement/packet_reg[31]_i_242_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.128     4.256 r  measurement/packet[31]_i_267/O
+                         net (fo=1, unplaced)         0.000     4.256    measurement/packet[31]_i_267_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256     4.512 r  measurement/packet_reg[31]_i_234/CO[3]
+                         net (fo=1, unplaced)         0.007     4.519    measurement/packet_reg[31]_i_234_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.573 r  measurement/packet_reg[31]_i_229/CO[3]
+                         net (fo=1, unplaced)         0.000     4.573    measurement/packet_reg[31]_i_229_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.627 r  measurement/packet_reg[31]_i_224/CO[3]
+                         net (fo=1, unplaced)         0.000     4.627    measurement/packet_reg[31]_i_224_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.681 r  measurement/packet_reg[31]_i_219/CO[3]
+                         net (fo=1, unplaced)         0.000     4.681    measurement/packet_reg[31]_i_219_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.735 r  measurement/packet_reg[31]_i_218/CO[3]
+                         net (fo=1, unplaced)         0.000     4.735    measurement/packet_reg[31]_i_218_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147     4.882 r  measurement/packet_reg[31]_i_216/CO[0]
+                         net (fo=22, unplaced)        0.253     5.135    measurement/packet_reg[31]_i_216_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.128     5.263 r  measurement/packet[31]_i_241/O
+                         net (fo=1, unplaced)         0.000     5.263    measurement/packet[31]_i_241_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256     5.519 r  measurement/packet_reg[31]_i_208/CO[3]
+                         net (fo=1, unplaced)         0.007     5.526    measurement/packet_reg[31]_i_208_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     5.580 r  measurement/packet_reg[31]_i_203/CO[3]
+                         net (fo=1, unplaced)         0.000     5.580    measurement/packet_reg[31]_i_203_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     5.634 r  measurement/packet_reg[31]_i_198/CO[3]
+                         net (fo=1, unplaced)         0.000     5.634    measurement/packet_reg[31]_i_198_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     5.688 r  measurement/packet_reg[31]_i_193/CO[3]
+                         net (fo=1, unplaced)         0.000     5.688    measurement/packet_reg[31]_i_193_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     5.742 r  measurement/packet_reg[31]_i_192/CO[3]
+                         net (fo=1, unplaced)         0.000     5.742    measurement/packet_reg[31]_i_192_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147     5.889 r  measurement/packet_reg[31]_i_190/CO[0]
+                         net (fo=22, unplaced)        0.253     6.142    measurement/packet_reg[31]_i_190_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.128     6.270 r  measurement/packet[31]_i_215/O
+                         net (fo=1, unplaced)         0.000     6.270    measurement/packet[31]_i_215_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256     6.526 r  measurement/packet_reg[31]_i_182/CO[3]
+                         net (fo=1, unplaced)         0.007     6.533    measurement/packet_reg[31]_i_182_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     6.587 r  measurement/packet_reg[31]_i_177/CO[3]
+                         net (fo=1, unplaced)         0.000     6.587    measurement/packet_reg[31]_i_177_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     6.641 r  measurement/packet_reg[31]_i_172/CO[3]
+                         net (fo=1, unplaced)         0.000     6.641    measurement/packet_reg[31]_i_172_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     6.695 r  measurement/packet_reg[31]_i_167/CO[3]
+                         net (fo=1, unplaced)         0.000     6.695    measurement/packet_reg[31]_i_167_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     6.749 r  measurement/packet_reg[31]_i_166/CO[3]
+                         net (fo=1, unplaced)         0.000     6.749    measurement/packet_reg[31]_i_166_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147     6.896 r  measurement/packet_reg[31]_i_164/CO[0]
+                         net (fo=22, unplaced)        0.253     7.149    measurement/packet_reg[31]_i_164_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.128     7.277 r  measurement/packet[31]_i_189/O
+                         net (fo=1, unplaced)         0.000     7.277    measurement/packet[31]_i_189_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256     7.533 r  measurement/packet_reg[31]_i_156/CO[3]
+                         net (fo=1, unplaced)         0.007     7.540    measurement/packet_reg[31]_i_156_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     7.594 r  measurement/packet_reg[31]_i_151/CO[3]
+                         net (fo=1, unplaced)         0.000     7.594    measurement/packet_reg[31]_i_151_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     7.648 r  measurement/packet_reg[31]_i_146/CO[3]
+                         net (fo=1, unplaced)         0.000     7.648    measurement/packet_reg[31]_i_146_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     7.702 r  measurement/packet_reg[31]_i_141/CO[3]
+                         net (fo=1, unplaced)         0.000     7.702    measurement/packet_reg[31]_i_141_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     7.756 r  measurement/packet_reg[31]_i_140/CO[3]
+                         net (fo=1, unplaced)         0.000     7.756    measurement/packet_reg[31]_i_140_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147     7.903 r  measurement/packet_reg[31]_i_138/CO[0]
+                         net (fo=22, unplaced)        0.253     8.156    measurement/packet_reg[31]_i_138_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.128     8.284 r  measurement/packet[31]_i_163/O
+                         net (fo=1, unplaced)         0.000     8.284    measurement/packet[31]_i_163_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256     8.540 r  measurement/packet_reg[31]_i_130/CO[3]
+                         net (fo=1, unplaced)         0.007     8.547    measurement/packet_reg[31]_i_130_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     8.601 r  measurement/packet_reg[31]_i_125/CO[3]
+                         net (fo=1, unplaced)         0.000     8.601    measurement/packet_reg[31]_i_125_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     8.655 r  measurement/packet_reg[31]_i_120/CO[3]
+                         net (fo=1, unplaced)         0.000     8.655    measurement/packet_reg[31]_i_120_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     8.709 r  measurement/packet_reg[31]_i_115/CO[3]
+                         net (fo=1, unplaced)         0.000     8.709    measurement/packet_reg[31]_i_115_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     8.763 r  measurement/packet_reg[31]_i_114/CO[3]
+                         net (fo=1, unplaced)         0.000     8.763    measurement/packet_reg[31]_i_114_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147     8.910 r  measurement/packet_reg[31]_i_100/CO[0]
+                         net (fo=22, unplaced)        0.253     9.163    measurement/packet_reg[31]_i_100_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.128     9.291 r  measurement/packet[31]_i_137/O
+                         net (fo=1, unplaced)         0.000     9.291    measurement/packet[31]_i_137_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256     9.547 r  measurement/packet_reg[31]_i_95/CO[3]
+                         net (fo=1, unplaced)         0.007     9.554    measurement/packet_reg[31]_i_95_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     9.608 r  measurement/packet_reg[31]_i_90/CO[3]
+                         net (fo=1, unplaced)         0.000     9.608    measurement/packet_reg[31]_i_90_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     9.662 r  measurement/packet_reg[31]_i_85/CO[3]
+                         net (fo=1, unplaced)         0.000     9.662    measurement/packet_reg[31]_i_85_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     9.716 r  measurement/packet_reg[31]_i_80/CO[3]
+                         net (fo=1, unplaced)         0.000     9.716    measurement/packet_reg[31]_i_80_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     9.770 r  measurement/packet_reg[31]_i_79/CO[3]
+                         net (fo=1, unplaced)         0.000     9.770    measurement/packet_reg[31]_i_79_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147     9.917 r  measurement/packet_reg[31]_i_61/CO[0]
+                         net (fo=22, unplaced)        0.253    10.170    measurement/packet_reg[31]_i_61_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.128    10.298 r  measurement/packet[31]_i_113/O
+                         net (fo=1, unplaced)         0.000    10.298    measurement/packet[31]_i_113_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    10.554 r  measurement/packet_reg[31]_i_74/CO[3]
+                         net (fo=1, unplaced)         0.007    10.561    measurement/packet_reg[31]_i_74_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    10.615 r  measurement/packet_reg[31]_i_56/CO[3]
+                         net (fo=1, unplaced)         0.000    10.615    measurement/packet_reg[31]_i_56_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    10.669 r  measurement/packet_reg[31]_i_51/CO[3]
+                         net (fo=1, unplaced)         0.000    10.669    measurement/packet_reg[31]_i_51_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    10.723 r  measurement/packet_reg[31]_i_46/CO[3]
+                         net (fo=1, unplaced)         0.000    10.723    measurement/packet_reg[31]_i_46_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    10.777 r  measurement/packet_reg[31]_i_45/CO[3]
+                         net (fo=1, unplaced)         0.000    10.777    measurement/packet_reg[31]_i_45_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    10.924 r  measurement/packet_reg[31]_i_32/CO[0]
+                         net (fo=22, unplaced)        0.253    11.177    measurement/packet_reg[31]_i_32_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.128    11.305 r  measurement/packet[31]_i_110/O
+                         net (fo=1, unplaced)         0.000    11.305    measurement/packet[31]_i_110_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    11.561 r  measurement/packet_reg[31]_i_69/CO[3]
+                         net (fo=1, unplaced)         0.007    11.568    measurement/packet_reg[31]_i_69_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    11.622 r  measurement/packet_reg[31]_i_40/CO[3]
+                         net (fo=1, unplaced)         0.000    11.622    measurement/packet_reg[31]_i_40_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    11.676 r  measurement/packet_reg[31]_i_27/CO[3]
+                         net (fo=1, unplaced)         0.000    11.676    measurement/packet_reg[31]_i_27_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    11.730 r  measurement/packet_reg[31]_i_22/CO[3]
+                         net (fo=1, unplaced)         0.000    11.730    measurement/packet_reg[31]_i_22_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    11.784 r  measurement/packet_reg[31]_i_21/CO[3]
+                         net (fo=1, unplaced)         0.000    11.784    measurement/packet_reg[31]_i_21_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    11.931 r  measurement/packet_reg[31]_i_13/CO[0]
+                         net (fo=22, unplaced)        0.253    12.184    measurement/packet_reg[31]_i_13_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.128    12.312 r  measurement/packet[31]_i_107/O
+                         net (fo=1, unplaced)         0.000    12.312    measurement/packet[31]_i_107_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    12.568 r  measurement/packet_reg[31]_i_64/CO[3]
+                         net (fo=1, unplaced)         0.007    12.575    measurement/packet_reg[31]_i_64_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    12.629 r  measurement/packet_reg[31]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.000    12.629    measurement/packet_reg[31]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    12.683 r  measurement/packet_reg[31]_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000    12.683    measurement/packet_reg[31]_i_16_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    12.737 r  measurement/packet_reg[31]_i_8/CO[3]
+                         net (fo=1, unplaced)         0.000    12.737    measurement/packet_reg[31]_i_8_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    12.791 r  measurement/packet_reg[31]_i_7/CO[3]
+                         net (fo=1, unplaced)         0.000    12.791    measurement/packet_reg[31]_i_7_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    12.938 r  measurement/packet_reg[31]_i_4/CO[0]
+                         net (fo=22, unplaced)        0.253    13.191    measurement/packet_reg[31]_i_4_n_3
+                         LUT3 (Prop_lut3_I0_O)        0.128    13.319 r  measurement/packet[31]_i_104/O
+                         net (fo=1, unplaced)         0.000    13.319    measurement/packet[31]_i_104_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    13.575 r  measurement/packet_reg[31]_i_63/CO[3]
+                         net (fo=1, unplaced)         0.007    13.582    measurement/packet_reg[31]_i_63_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    13.636 r  measurement/packet_reg[31]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.000    13.636    measurement/packet_reg[31]_i_34_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    13.690 r  measurement/packet_reg[31]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    13.690    measurement/packet_reg[31]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    13.744 r  measurement/packet_reg[31]_i_6/CO[3]
+                         net (fo=1, unplaced)         0.000    13.744    measurement/packet_reg[31]_i_6_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    13.798 r  measurement/packet_reg[31]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    13.798    measurement/packet_reg[31]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    13.945 r  measurement/packet_reg[31]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    14.199    measurement/cy0[15]
+                         LUT3 (Prop_lut3_I0_O)        0.128    14.327 r  measurement/packet[30]_i_27/O
+                         net (fo=1, unplaced)         0.000    14.327    measurement/packet[30]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    14.583 r  measurement/packet_reg[30]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    14.590    measurement/packet_reg[30]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    14.644 r  measurement/packet_reg[30]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    14.644    measurement/packet_reg[30]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    14.698 r  measurement/packet_reg[30]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    14.698    measurement/packet_reg[30]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    14.752 r  measurement/packet_reg[30]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    14.752    measurement/packet_reg[30]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    14.806 r  measurement/packet_reg[30]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    14.806    measurement/packet_reg[30]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    14.953 r  measurement/packet_reg[30]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    15.207    measurement/cy0[14]
+                         LUT3 (Prop_lut3_I0_O)        0.128    15.335 r  measurement/packet[29]_i_27/O
+                         net (fo=1, unplaced)         0.000    15.335    measurement/packet[29]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    15.591 r  measurement/packet_reg[29]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    15.598    measurement/packet_reg[29]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    15.652 r  measurement/packet_reg[29]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    15.652    measurement/packet_reg[29]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    15.706 r  measurement/packet_reg[29]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    15.706    measurement/packet_reg[29]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    15.760 r  measurement/packet_reg[29]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    15.760    measurement/packet_reg[29]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    15.814 r  measurement/packet_reg[29]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    15.814    measurement/packet_reg[29]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    15.961 r  measurement/packet_reg[29]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    16.215    measurement/cy0[13]
+                         LUT3 (Prop_lut3_I0_O)        0.128    16.343 r  measurement/packet[28]_i_27/O
+                         net (fo=1, unplaced)         0.000    16.343    measurement/packet[28]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    16.599 r  measurement/packet_reg[28]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    16.606    measurement/packet_reg[28]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    16.660 r  measurement/packet_reg[28]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    16.660    measurement/packet_reg[28]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    16.714 r  measurement/packet_reg[28]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    16.714    measurement/packet_reg[28]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    16.768 r  measurement/packet_reg[28]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    16.768    measurement/packet_reg[28]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    16.822 r  measurement/packet_reg[28]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    16.822    measurement/packet_reg[28]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    16.969 r  measurement/packet_reg[28]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    17.223    measurement/cy0[12]
+                         LUT3 (Prop_lut3_I0_O)        0.128    17.351 r  measurement/packet[27]_i_27/O
+                         net (fo=1, unplaced)         0.000    17.351    measurement/packet[27]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    17.607 r  measurement/packet_reg[27]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    17.614    measurement/packet_reg[27]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    17.668 r  measurement/packet_reg[27]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    17.668    measurement/packet_reg[27]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    17.722 r  measurement/packet_reg[27]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    17.722    measurement/packet_reg[27]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    17.776 r  measurement/packet_reg[27]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    17.776    measurement/packet_reg[27]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    17.830 r  measurement/packet_reg[27]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    17.830    measurement/packet_reg[27]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    17.977 r  measurement/packet_reg[27]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    18.231    measurement/cy0[11]
+                         LUT3 (Prop_lut3_I0_O)        0.128    18.359 r  measurement/packet[26]_i_27/O
+                         net (fo=1, unplaced)         0.000    18.359    measurement/packet[26]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    18.615 r  measurement/packet_reg[26]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    18.622    measurement/packet_reg[26]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    18.676 r  measurement/packet_reg[26]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    18.676    measurement/packet_reg[26]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    18.730 r  measurement/packet_reg[26]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    18.730    measurement/packet_reg[26]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    18.784 r  measurement/packet_reg[26]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    18.784    measurement/packet_reg[26]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    18.838 r  measurement/packet_reg[26]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    18.838    measurement/packet_reg[26]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    18.985 r  measurement/packet_reg[26]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    19.239    measurement/cy0[10]
+                         LUT3 (Prop_lut3_I0_O)        0.128    19.367 r  measurement/packet[25]_i_27/O
+                         net (fo=1, unplaced)         0.000    19.367    measurement/packet[25]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    19.623 r  measurement/packet_reg[25]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    19.630    measurement/packet_reg[25]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    19.684 r  measurement/packet_reg[25]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    19.684    measurement/packet_reg[25]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    19.738 r  measurement/packet_reg[25]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    19.738    measurement/packet_reg[25]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    19.792 r  measurement/packet_reg[25]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    19.792    measurement/packet_reg[25]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    19.846 r  measurement/packet_reg[25]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    19.846    measurement/packet_reg[25]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    19.993 r  measurement/packet_reg[25]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    20.247    measurement/cy0[9]
+                         LUT3 (Prop_lut3_I0_O)        0.128    20.375 r  measurement/packet[24]_i_27/O
+                         net (fo=1, unplaced)         0.000    20.375    measurement/packet[24]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    20.631 r  measurement/packet_reg[24]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    20.638    measurement/packet_reg[24]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    20.692 r  measurement/packet_reg[24]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    20.692    measurement/packet_reg[24]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    20.746 r  measurement/packet_reg[24]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    20.746    measurement/packet_reg[24]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    20.800 r  measurement/packet_reg[24]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    20.800    measurement/packet_reg[24]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    20.854 r  measurement/packet_reg[24]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    20.854    measurement/packet_reg[24]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    21.001 r  measurement/packet_reg[24]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    21.255    measurement/cy0[8]
+                         LUT3 (Prop_lut3_I0_O)        0.128    21.383 r  measurement/packet[23]_i_27/O
+                         net (fo=1, unplaced)         0.000    21.383    measurement/packet[23]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    21.639 r  measurement/packet_reg[23]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    21.646    measurement/packet_reg[23]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    21.700 r  measurement/packet_reg[23]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    21.700    measurement/packet_reg[23]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    21.754 r  measurement/packet_reg[23]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    21.754    measurement/packet_reg[23]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    21.808 r  measurement/packet_reg[23]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    21.808    measurement/packet_reg[23]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    21.862 r  measurement/packet_reg[23]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    21.862    measurement/packet_reg[23]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    22.009 r  measurement/packet_reg[23]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    22.263    measurement/cy0[7]
+                         LUT3 (Prop_lut3_I0_O)        0.128    22.391 r  measurement/packet[22]_i_27/O
+                         net (fo=1, unplaced)         0.000    22.391    measurement/packet[22]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    22.647 r  measurement/packet_reg[22]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    22.654    measurement/packet_reg[22]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    22.708 r  measurement/packet_reg[22]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    22.708    measurement/packet_reg[22]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    22.762 r  measurement/packet_reg[22]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    22.762    measurement/packet_reg[22]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    22.816 r  measurement/packet_reg[22]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    22.816    measurement/packet_reg[22]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    22.870 r  measurement/packet_reg[22]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    22.870    measurement/packet_reg[22]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    23.017 r  measurement/packet_reg[22]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    23.271    measurement/cy0[6]
+                         LUT3 (Prop_lut3_I0_O)        0.128    23.399 r  measurement/packet[21]_i_27/O
+                         net (fo=1, unplaced)         0.000    23.399    measurement/packet[21]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    23.655 r  measurement/packet_reg[21]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    23.662    measurement/packet_reg[21]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    23.716 r  measurement/packet_reg[21]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    23.716    measurement/packet_reg[21]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    23.770 r  measurement/packet_reg[21]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    23.770    measurement/packet_reg[21]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    23.824 r  measurement/packet_reg[21]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    23.824    measurement/packet_reg[21]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    23.878 r  measurement/packet_reg[21]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    23.878    measurement/packet_reg[21]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    24.025 r  measurement/packet_reg[21]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    24.279    measurement/cy0[5]
+                         LUT3 (Prop_lut3_I0_O)        0.128    24.407 r  measurement/packet[20]_i_27/O
+                         net (fo=1, unplaced)         0.000    24.407    measurement/packet[20]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    24.663 r  measurement/packet_reg[20]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    24.670    measurement/packet_reg[20]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    24.724 r  measurement/packet_reg[20]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    24.724    measurement/packet_reg[20]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    24.778 r  measurement/packet_reg[20]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    24.778    measurement/packet_reg[20]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    24.832 r  measurement/packet_reg[20]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    24.832    measurement/packet_reg[20]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    24.886 r  measurement/packet_reg[20]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    24.886    measurement/packet_reg[20]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    25.033 r  measurement/packet_reg[20]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    25.287    measurement/cy0[4]
+                         LUT3 (Prop_lut3_I0_O)        0.128    25.415 r  measurement/packet[19]_i_27/O
+                         net (fo=1, unplaced)         0.000    25.415    measurement/packet[19]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    25.671 r  measurement/packet_reg[19]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    25.678    measurement/packet_reg[19]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    25.732 r  measurement/packet_reg[19]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    25.732    measurement/packet_reg[19]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    25.786 r  measurement/packet_reg[19]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    25.786    measurement/packet_reg[19]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    25.840 r  measurement/packet_reg[19]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    25.840    measurement/packet_reg[19]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    25.894 r  measurement/packet_reg[19]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    25.894    measurement/packet_reg[19]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    26.041 r  measurement/packet_reg[19]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    26.295    measurement/cy0[3]
+                         LUT3 (Prop_lut3_I0_O)        0.128    26.423 r  measurement/packet[18]_i_27/O
+                         net (fo=1, unplaced)         0.000    26.423    measurement/packet[18]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    26.679 r  measurement/packet_reg[18]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    26.686    measurement/packet_reg[18]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    26.740 r  measurement/packet_reg[18]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    26.740    measurement/packet_reg[18]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    26.794 r  measurement/packet_reg[18]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    26.794    measurement/packet_reg[18]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    26.848 r  measurement/packet_reg[18]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    26.848    measurement/packet_reg[18]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    26.902 r  measurement/packet_reg[18]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    26.902    measurement/packet_reg[18]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    27.049 r  measurement/packet_reg[18]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    27.303    measurement/cy0[2]
+                         LUT3 (Prop_lut3_I0_O)        0.128    27.431 r  measurement/packet[17]_i_27/O
+                         net (fo=1, unplaced)         0.000    27.431    measurement/packet[17]_i_27_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    27.687 r  measurement/packet_reg[17]_i_20/CO[3]
+                         net (fo=1, unplaced)         0.007    27.694    measurement/packet_reg[17]_i_20_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    27.748 r  measurement/packet_reg[17]_i_15/CO[3]
+                         net (fo=1, unplaced)         0.000    27.748    measurement/packet_reg[17]_i_15_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    27.802 r  measurement/packet_reg[17]_i_10/CO[3]
+                         net (fo=1, unplaced)         0.000    27.802    measurement/packet_reg[17]_i_10_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    27.856 r  measurement/packet_reg[17]_i_5/CO[3]
+                         net (fo=1, unplaced)         0.000    27.856    measurement/packet_reg[17]_i_5_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    27.910 r  measurement/packet_reg[17]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    27.910    measurement/packet_reg[17]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.147    28.057 r  measurement/packet_reg[17]_i_2/CO[0]
+                         net (fo=23, unplaced)        0.254    28.311    measurement/cy0[1]
+                         LUT3 (Prop_lut3_I0_O)        0.128    28.439 r  measurement/packet[16]_i_25/O
+                         net (fo=1, unplaced)         0.000    28.439    measurement/packet[16]_i_25_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256    28.695 r  measurement/packet_reg[16]_i_18/CO[3]
+                         net (fo=1, unplaced)         0.007    28.702    measurement/packet_reg[16]_i_18_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    28.756 r  measurement/packet_reg[16]_i_13/CO[3]
+                         net (fo=1, unplaced)         0.000    28.756    measurement/packet_reg[16]_i_13_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    28.810 r  measurement/packet_reg[16]_i_8/CO[3]
+                         net (fo=1, unplaced)         0.000    28.810    measurement/packet_reg[16]_i_8_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    28.864 r  measurement/packet_reg[16]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000    28.864    measurement/packet_reg[16]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054    28.918 r  measurement/packet_reg[16]_i_2/CO[3]
+                         net (fo=1, unplaced)         0.425    29.343    cdc/cy0[0]
+                         LUT5 (Prop_lut5_I4_O)        0.043    29.386 r  cdc/packet[16]_i_1/O
+                         net (fo=1, unplaced)         0.000    29.386    measurement/D[0]
+                         FDCE                                         r  measurement/packet_reg[16]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_sys rise edge)
+                                                     10.000    10.000 r
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=8733, unset)         0.510    10.510    measurement/clk
+                         FDCE                                         r  measurement/packet_reg[16]/C
+                         clock pessimism              0.000    10.510
+                         clock uncertainty           -0.035    10.475
+                         FDCE (Setup_fdce_C_D)        0.036    10.511    measurement/packet_reg[16]
+  -------------------------------------------------------------------
+                         required time                         10.511
+                         arrival time                         -29.386
+  -------------------------------------------------------------------
+                         slack                                -18.875
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.090ns  (arrival time - required time)
+  Source:                 motion/outlen_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            motion/outbuf_reg_0_63_0_2/RAMA/WADR1
+                            (rising edge-triggered cell RAMD64E clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             candidate_sys
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (candidate_sys rise@0.000ns - candidate_sys rise@0.000ns)
+  Data Path Delay:        0.362ns  (logic 0.100ns (27.637%)  route 0.262ns (72.363%))
+  Logic Levels:           0
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.280ns
+    Source Clock Delay      (SCD):    0.266ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.266     0.266    motion/clk
+                         FDCE                                         r  motion/outlen_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.100     0.366 r  motion/outlen_reg[1]/Q
+                         net (fo=50, unplaced)        0.262     0.628    motion/outbuf_reg_0_63_0_2/ADDRD1
+                         RAMD64E                                      r  motion/outbuf_reg_0_63_0_2/RAMA/WADR1
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.280     0.280    motion/outbuf_reg_0_63_0_2/WCLK
+                         RAMD64E                                      r  motion/outbuf_reg_0_63_0_2/RAMA/CLK
+                         clock pessimism              0.000     0.280
+                         RAMD64E (Hold_ramd64e_CLK_WADR1)
+                                                      0.258     0.538    motion/outbuf_reg_0_63_0_2/RAMA
+  -------------------------------------------------------------------
+                         required time                         -0.538
+                         arrival time                           0.628
+  -------------------------------------------------------------------
+                         slack                                  0.090
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         candidate_sys
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { clk }
+
+Check Type        Corner  Lib Pin      Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period        n/a     FDPE/C       n/a            0.700         10.000      9.300                config_reset_n_reg_inv/C
+Low Pulse Width   Slow    RAMD64E/CLK  n/a            0.768         5.000       4.232                motion/outbuf_reg_0_63_0_2/RAMA/CLK
+High Pulse Width  Slow    RAMD64E/CLK  n/a            0.768         5.000       4.232                motion/outbuf_reg_0_63_0_2/RAMA/CLK
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  candidate_camera
+  To Clock:  candidate_sys
+
+Setup :            0  Failing Endpoints,  Worst Slack        9.488ns,  Total Violation        0.000ns
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             9.488ns  (required time - arrival time)
+  Source:                 cdc/holding_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Destination:            cdc/dst_data_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             candidate_sys
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (MaxDelay Path 10.000ns)
+  Data Path Delay:        0.412ns  (logic 0.223ns (54.126%)  route 0.189ns (45.874%))
+  Logic Levels:           0
+  Timing Exception:       MaxDelay Path 10.000ns -datapath_only
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  cdc/holding_reg[0]/C
+                         FDCE (Prop_fdce_C_Q)         0.223     0.223 r  cdc/holding_reg[0]/Q
+                         net (fo=1, unplaced)         0.189     0.412    cdc/holding[0]
+                         FDCE                                         r  cdc/dst_data_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         max delay                   10.000    10.000
+                         FDCE (Setup_fdce_C_D)       -0.100     9.900    cdc/dst_data_reg[0]
+  -------------------------------------------------------------------
+                         required time                          9.900
+                         arrival time                          -0.412
+  -------------------------------------------------------------------
+                         slack                                  9.488
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+Path Group:  **async_default**
+From Clock:  candidate_sys
+  To Clock:  candidate_sys
+
+Setup :            0  Failing Endpoints,  Worst Slack        9.078ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.340ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             9.078ns  (required time - arrival time)
+  Source:                 encoder_reset_n_reg_inv/C
+                            (rising edge-triggered cell FDPE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            measurement/active_reg/CLR
+                            (recovery check against rising-edge clock candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             **async_default**
+  Path Type:              Recovery (Max at Slow Process Corner)
+  Requirement:            10.000ns  (candidate_sys rise@10.000ns - candidate_sys rise@0.000ns)
+  Data Path Delay:        0.566ns  (logic 0.223ns (39.399%)  route 0.343ns (60.601%))
+  Logic Levels:           0
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.510ns = ( 10.510 - 10.000 )
+    Source Clock Delay      (SCD):    0.537ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.537     0.537    clk
+                         FDPE                                         r  encoder_reset_n_reg_inv/C
+  -------------------------------------------------------------------    -------------------
+                         FDPE (Prop_fdpe_C_Q)         0.223     0.760 f  encoder_reset_n_reg_inv/Q
+                         net (fo=395, unplaced)       0.343     1.103    measurement/encoder_reset_n
+                         FDCE                                         f  measurement/active_reg/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_sys rise edge)
+                                                     10.000    10.000 r
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=8733, unset)         0.510    10.510    measurement/clk
+                         FDCE                                         r  measurement/active_reg/C
+                         clock pessimism              0.000    10.510
+                         clock uncertainty           -0.035    10.475
+                         FDCE (Recov_fdce_C_CLR)     -0.294    10.181    measurement/active_reg
+  -------------------------------------------------------------------
+                         required time                         10.181
+                         arrival time                          -1.103
+  -------------------------------------------------------------------
+                         slack                                  9.078
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.340ns  (arrival time - required time)
+  Source:                 config_reset_n_reg_inv/C
+                            (rising edge-triggered cell FDPE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            config_link/age_reg[0]/CLR
+                            (removal check against rising-edge clock candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             **async_default**
+  Path Type:              Removal (Min at Fast Process Corner)
+  Requirement:            0.000ns  (candidate_sys rise@0.000ns - candidate_sys rise@0.000ns)
+  Data Path Delay:        0.268ns  (logic 0.100ns (37.298%)  route 0.168ns (62.702%))
+  Logic Levels:           0
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.280ns
+    Source Clock Delay      (SCD):    0.266ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.266     0.266    clk
+                         FDPE                                         r  config_reset_n_reg_inv/C
+  -------------------------------------------------------------------    -------------------
+                         FDPE (Prop_fdpe_C_Q)         0.100     0.366 f  config_reset_n_reg_inv/Q
+                         net (fo=334, unplaced)       0.168     0.534    config_link/config_reset_n
+                         FDCE                                         f  config_link/age_reg[0]/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.280     0.280    config_link/clk
+                         FDCE                                         r  config_link/age_reg[0]/C
+                         clock pessimism              0.000     0.280
+                         FDCE (Remov_fdce_C_CLR)     -0.086     0.194    config_link/age_reg[0]
+  -------------------------------------------------------------------
+                         required time                         -0.194
+                         arrival time                           0.534
+  -------------------------------------------------------------------
+                         slack                                  0.340
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  candidate_camera
+  To Clock:  candidate_camera
+
+Max Delay             1 Endpoint
+Min Delay             1 Endpoint
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 cdc/sr_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Destination:            cdc/ack_sync_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.724ns  (logic 0.382ns (52.762%)  route 0.342ns (47.238%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.510ns
+    Source Clock Delay      (SCD):    0.537ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.537     0.537    cdc/camera_clk
+                         FDCE                                         r  cdc/sr_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.259     0.796 r  cdc/sr_reg[1]/Q
+                         net (fo=38, unplaced)        0.342     1.138    cdc/sr[1]
+                         LUT2 (Prop_lut2_I0_O)        0.123     1.261 r  cdc/ack_sync[0]_i_1/O
+                         net (fo=1, unplaced)         0.000     1.261    cdc/ack_sync[0]_i_1_n_0
+                         FDCE                                         r  cdc/ack_sync_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.510     0.510    cdc/camera_clk
+                         FDCE                                         r  cdc/ack_sync_reg[0]/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 cdc/sr_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Destination:            cdc/ack_sync_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.352ns  (logic 0.182ns (51.763%)  route 0.170ns (48.237%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.280ns
+    Source Clock Delay      (SCD):    0.266ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.266     0.266    cdc/camera_clk
+                         FDCE                                         r  cdc/sr_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.118     0.384 r  cdc/sr_reg[1]/Q
+                         net (fo=38, unplaced)        0.170     0.554    cdc/sr[1]
+                         LUT2 (Prop_lut2_I0_O)        0.064     0.618 r  cdc/ack_sync[0]_i_1/O
+                         net (fo=1, unplaced)         0.000     0.618    cdc/ack_sync[0]_i_1_n_0
+                         FDCE                                         r  cdc/ack_sync_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.280     0.280    cdc/camera_clk
+                         FDCE                                         r  cdc/ack_sync_reg[0]/C
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  candidate_sys
+  To Clock:  candidate_camera
+
+Max Delay             1 Endpoint
+Min Delay             1 Endpoint
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 cdc/ack_reg/C
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            cdc/ack_sync_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.561ns  (logic 0.346ns (61.676%)  route 0.215ns (38.324%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.510ns
+    Source Clock Delay      (SCD):    0.537ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.537     0.537    cdc/clk
+                         FDCE                                         r  cdc/ack_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.223     0.760 r  cdc/ack_reg/Q
+                         net (fo=4, unplaced)         0.215     0.975    cdc/ack
+                         LUT2 (Prop_lut2_I1_O)        0.123     1.098 r  cdc/ack_sync[0]_i_1/O
+                         net (fo=1, unplaced)         0.000     1.098    cdc/ack_sync[0]_i_1_n_0
+                         FDCE                                         r  cdc/ack_sync_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.510     0.510    cdc/camera_clk
+                         FDCE                                         r  cdc/ack_sync_reg[0]/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 cdc/ack_reg/C
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            cdc/ack_sync_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.271ns  (logic 0.164ns (60.602%)  route 0.107ns (39.398%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.280ns
+    Source Clock Delay      (SCD):    0.266ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.266     0.266    cdc/clk
+                         FDCE                                         r  cdc/ack_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.100     0.366 r  cdc/ack_reg/Q
+                         net (fo=4, unplaced)         0.107     0.473    cdc/ack
+                         LUT2 (Prop_lut2_I1_O)        0.064     0.537 r  cdc/ack_sync[0]_i_1/O
+                         net (fo=1, unplaced)         0.000     0.537    cdc/ack_sync[0]_i_1_n_0
+                         FDCE                                         r  cdc/ack_sync_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.280     0.280    cdc/camera_clk
+                         FDCE                                         r  cdc/ack_sync_reg[0]/C
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  candidate_camera
+  To Clock:  candidate_sys
+
+Max Delay             1 Endpoint
+Min Delay           220 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 cdc/request_reg/C
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Destination:            cdc/req_sync_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.637ns  (logic 0.346ns (54.317%)  route 0.291ns (45.683%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.510ns
+    Source Clock Delay      (SCD):    0.537ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.537     0.537    cdc/camera_clk
+                         FDCE                                         r  cdc/request_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.223     0.760 r  cdc/request_reg/Q
+                         net (fo=4, unplaced)         0.291     1.051    cdc/request_reg_n_0
+                         LUT2 (Prop_lut2_I0_O)        0.123     1.174 r  cdc/req_sync[0]_i_1/O
+                         net (fo=1, unplaced)         0.000     1.174    cdc/req_sync[0]_i_1_n_0
+                         FDCE                                         r  cdc/req_sync_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.510     0.510    cdc/clk
+                         FDCE                                         r  cdc/req_sync_reg[0]/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 cdc/holding_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Destination:            cdc/dst_data_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.194ns  (logic 0.100ns (51.619%)  route 0.094ns (48.381%))
+  Logic Levels:           0
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.280ns
+    Source Clock Delay      (SCD):    0.266ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.266     0.266    cdc/camera_clk
+                         FDCE                                         r  cdc/holding_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.100     0.366 r  cdc/holding_reg[0]/Q
+                         net (fo=1, unplaced)         0.094     0.460    cdc/holding[0]
+                         FDCE                                         r  cdc/dst_data_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.280     0.280    cdc/clk
+                         FDCE                                         r  cdc/dst_data_reg[0]/C
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  candidate_sys
+  To Clock:  candidate_sys
+
+Max Delay             1 Endpoint
+Min Delay             1 Endpoint
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 cdc/dr_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            cdc/req_sync_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.601ns  (logic 0.382ns (63.561%)  route 0.219ns (36.439%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.510ns
+    Source Clock Delay      (SCD):    0.537ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.537     0.537    cdc/clk
+                         FDCE                                         r  cdc/dr_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.259     0.796 r  cdc/dr_reg[1]/Q
+                         net (fo=5, unplaced)         0.219     1.015    cdc/dr[1]
+                         LUT2 (Prop_lut2_I1_O)        0.123     1.138 r  cdc/req_sync[0]_i_1/O
+                         net (fo=1, unplaced)         0.000     1.138    cdc/req_sync[0]_i_1_n_0
+                         FDCE                                         r  cdc/req_sync_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.510     0.510    cdc/clk
+                         FDCE                                         r  cdc/req_sync_reg[0]/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 cdc/dr_reg[1]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            cdc/req_sync_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.291ns  (logic 0.182ns (62.628%)  route 0.109ns (37.372%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.280ns
+    Source Clock Delay      (SCD):    0.266ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.266     0.266    cdc/clk
+                         FDCE                                         r  cdc/dr_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.118     0.384 r  cdc/dr_reg[1]/Q
+                         net (fo=5, unplaced)         0.109     0.493    cdc/dr[1]
+                         LUT2 (Prop_lut2_I1_O)        0.064     0.557 r  cdc/req_sync[0]_i_1/O
+                         net (fo=1, unplaced)         0.000     0.557    cdc/req_sync[0]_i_1_n_0
+                         FDCE                                         r  cdc/req_sync_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.280     0.280    cdc/clk
+                         FDCE                                         r  cdc/req_sync_reg[0]/C
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:
+  To Clock:
+
+Max Delay             2 Endpoints
+Min Delay             2 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 reset_n
+                            (input port)
+  Destination:            mcu_tx
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        1.117ns  (logic 0.043ns (3.850%)  route 1.074ns (96.150%))
+  Logic Levels:           1  (LUT5=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 f  reset_n (IN)
+                         net (fo=181, unset)          0.537     0.537    scheduler/serializer/reset_n
+                         LUT5 (Prop_lut5_I4_O)        0.043     0.580 r  scheduler/serializer/mcu_tx_INST_0/O
+                         net (fo=0)                   0.537     1.117    mcu_tx
+                                                                      r  mcu_tx (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 mcu_rx
+                            (input port)
+  Destination:            pc_tx
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.266ns  (logic 0.000ns (0.000%)  route 0.266ns (100.000%))
+  Logic Levels:           0
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  mcu_rx (IN)
+                         net (fo=2, unset)            0.266     0.266    mcu_rx
+                                                                      r  pc_tx (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  candidate_camera
+  To Clock:
+
+Max Delay            32 Endpoints
+Min Delay            32 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 cdc/dropped_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Destination:            camera_dropped[0]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        0.796ns  (logic 0.259ns (32.538%)  route 0.537ns (67.462%))
+  Logic Levels:           0
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.537     0.537    cdc/camera_clk
+                         FDCE                                         r  cdc/dropped_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.259     0.796 r  cdc/dropped_reg[0]/Q
+                         net (fo=1, unset)            0.537     1.333    camera_dropped[0]
+                                                                      r  camera_dropped[0] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 cdc/dropped_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Destination:            camera_dropped[0]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.384ns  (logic 0.118ns (30.705%)  route 0.266ns (69.295%))
+  Logic Levels:           0
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.266     0.266    cdc/camera_clk
+                         FDCE                                         r  cdc/dropped_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.118     0.384 r  cdc/dropped_reg[0]/Q
+                         net (fo=1, unset)            0.266     0.651    camera_dropped[0]
+                                                                      r  camera_dropped[0] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  candidate_sys
+  To Clock:
+
+Max Delay           106 Endpoints
+Min Delay           106 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 scheduler/serializer/frame_reg[3]/C
+                            (rising edge-triggered cell FDPE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            mcu_tx
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        2.036ns  (logic 0.432ns (21.218%)  route 1.604ns (78.782%))
+  Logic Levels:           3  (LUT5=1 LUT6=2)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.537     0.537    scheduler/serializer/clk
+                         FDPE                                         r  scheduler/serializer/frame_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+                         FDPE (Prop_fdpe_C_Q)         0.223     0.760 r  scheduler/serializer/frame_reg[3]/Q
+                         net (fo=1, unplaced)         0.527     1.287    scheduler/serializer/frame_reg_n_0_[3]
+                         LUT6 (Prop_lut6_I0_O)        0.123     1.410 r  scheduler/serializer/mcu_tx_INST_0_i_3/O
+                         net (fo=1, unplaced)         0.270     1.680    scheduler/serializer/mcu_tx_INST_0_i_3_n_0
+                         LUT6 (Prop_lut6_I5_O)        0.043     1.723 r  scheduler/serializer/mcu_tx_INST_0_i_1/O
+                         net (fo=1, unplaced)         0.270     1.993    scheduler/serializer/mcu_tx_INST_0_i_1_n_0
+                         LUT5 (Prop_lut5_I3_O)        0.043     2.036 r  scheduler/serializer/mcu_tx_INST_0/O
+                         net (fo=0)                   0.537     2.573    mcu_tx
+                                                                      r  mcu_tx (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 motion/owner_reg/C
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            owner
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.366ns  (logic 0.100ns (27.300%)  route 0.266ns (72.700%))
+  Logic Levels:           0
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.266     0.266    motion/clk
+                         FDCE                                         r  motion/owner_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.100     0.366 r  motion/owner_reg/Q
+                         net (fo=14, unset)           0.266     0.633    owner
+                                                                      r  owner (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:
+  To Clock:  candidate_camera
+
+Max Delay           727 Endpoints
+Min Delay           727 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 camera_reset_n
+                            (input port)
+  Destination:            cdc/ack_sync_reg[0]/CLR
+                            (recovery check against rising-edge clock candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Path Group:             (none)
+  Path Type:              Recovery (Max at Slow Process Corner)
+  Data Path Delay:        1.107ns  (logic 0.043ns (3.884%)  route 1.064ns (96.116%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.510ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.510ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  camera_reset_n (IN)
+                         net (fo=0)                   0.537     0.537    cdc/camera_reset_n
+                         LUT2 (Prop_lut2_I1_O)        0.043     0.580 f  cdc/dropped[31]_i_3/O
+                         net (fo=482, unplaced)       0.527     1.107    cdc/reset_n_0
+                         FDCE                                         f  cdc/ack_sync_reg[0]/CLR
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.510     0.510    cdc/camera_clk
+                         FDCE                                         r  cdc/ack_sync_reg[0]/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 camera_snapshot[0]
+                            (input port)
+  Destination:            cdc/holding_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_camera  {rise@0.000ns fall@7.000ns period=14.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.266ns  (logic 0.000ns (0.000%)  route 0.266ns (100.000%))
+  Logic Levels:           0
+  Clock Path Skew:        0.280ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.280ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  camera_snapshot[0] (IN)
+                         net (fo=0)                   0.266     0.266    cdc/camera_snapshot[0]
+                         FDCE                                         r  cdc/holding_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_camera rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  camera_clk (IN)
+                         net (fo=255, unset)          0.280     0.280    cdc/camera_clk
+                         FDCE                                         r  cdc/holding_reg[0]/C
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:
+  To Clock:  candidate_sys
+
+Max Delay         10081 Endpoints
+Min Delay         10081 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 epoch[4]
+                            (input port)
+  Destination:            motion/qid_reg[124]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        5.470ns  (logic 3.259ns (59.580%)  route 2.211ns (40.420%))
+  Logic Levels:           47  (CARRY4=42 LUT3=1 LUT4=1 LUT5=1 LUT6=2)
+  Clock Path Skew:        0.510ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.510ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  epoch[4] (IN)
+                         net (fo=4, unset)            0.537     0.537    motion/epoch[4]
+                         LUT6 (Prop_lut6_I4_O)        0.043     0.580 r  motion/calc_crc[15]_i_155/O
+                         net (fo=1, unplaced)         0.000     0.580    motion/calc_crc[15]_i_155_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.256     0.836 r  motion/calc_crc_reg[15]_i_144/CO[3]
+                         net (fo=1, unplaced)         0.007     0.843    motion/calc_crc_reg[15]_i_144_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     0.897 r  motion/calc_crc_reg[15]_i_134/CO[3]
+                         net (fo=1, unplaced)         0.000     0.897    motion/calc_crc_reg[15]_i_134_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     0.951 r  motion/calc_crc_reg[15]_i_124/CO[3]
+                         net (fo=1, unplaced)         0.000     0.951    motion/calc_crc_reg[15]_i_124_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.005 r  motion/calc_crc_reg[15]_i_114/CO[3]
+                         net (fo=1, unplaced)         0.000     1.005    motion/calc_crc_reg[15]_i_114_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.059 r  motion/calc_crc_reg[15]_i_104/CO[3]
+                         net (fo=1, unplaced)         0.000     1.059    motion/calc_crc_reg[15]_i_104_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.113 r  motion/calc_crc_reg[15]_i_94/CO[3]
+                         net (fo=1, unplaced)         0.000     1.113    motion/calc_crc_reg[15]_i_94_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.167 r  motion/calc_crc_reg[15]_i_84/CO[3]
+                         net (fo=1, unplaced)         0.000     1.167    motion/calc_crc_reg[15]_i_84_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.221 r  motion/calc_crc_reg[15]_i_74/CO[3]
+                         net (fo=1, unplaced)         0.000     1.221    motion/calc_crc_reg[15]_i_74_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.275 r  motion/calc_crc_reg[15]_i_55/CO[3]
+                         net (fo=1, unplaced)         0.000     1.275    motion/calc_crc_reg[15]_i_55_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     1.329 r  motion/calc_crc_reg[15]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.000     1.329    motion/calc_crc_reg[15]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.124     1.453 r  motion/calc_crc_reg[15]_i_19/CO[2]
+                         net (fo=1, unplaced)         0.270     1.723    motion/state2288_in
+                         LUT5 (Prop_lut5_I3_O)        0.128     1.851 r  motion/calc_crc[15]_i_8/O
+                         net (fo=26, unplaced)        0.336     2.187    motion/p_2_in
+                         LUT4 (Prop_lut4_I0_O)        0.043     2.230 r  motion/qid[0]_i_4/O
+                         net (fo=256, unplaced)       0.393     2.623    motion/qid[0]_i_4_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.043     2.666 r  motion/qid[4]_i_7/O
+                         net (fo=1, unplaced)         0.359     3.025    motion/qid[4]_i_7_n_0
+                         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.289     3.314 r  motion/qid_reg[4]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.007     3.321    motion/qid_reg[4]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.375 r  motion/qid_reg[8]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.375    motion/qid_reg[8]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.429 r  motion/qid_reg[12]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.429    motion/qid_reg[12]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.483 r  motion/qid_reg[16]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.483    motion/qid_reg[16]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.537 r  motion/qid_reg[20]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.537    motion/qid_reg[20]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.591 r  motion/qid_reg[24]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.591    motion/qid_reg[24]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.645 r  motion/qid_reg[28]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.645    motion/qid_reg[28]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.699 r  motion/qid_reg[32]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.699    motion/qid_reg[32]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.753 r  motion/qid_reg[36]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.753    motion/qid_reg[36]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.807 r  motion/qid_reg[40]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.807    motion/qid_reg[40]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.861 r  motion/qid_reg[44]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.861    motion/qid_reg[44]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.915 r  motion/qid_reg[48]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.915    motion/qid_reg[48]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     3.969 r  motion/qid_reg[52]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     3.969    motion/qid_reg[52]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.023 r  motion/qid_reg[56]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.023    motion/qid_reg[56]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.077 r  motion/qid_reg[60]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.077    motion/qid_reg[60]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.131 r  motion/qid_reg[64]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.131    motion/qid_reg[64]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.185 r  motion/qid_reg[68]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.185    motion/qid_reg[68]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.239 r  motion/qid_reg[72]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.239    motion/qid_reg[72]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.293 r  motion/qid_reg[76]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.293    motion/qid_reg[76]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.347 r  motion/qid_reg[80]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.347    motion/qid_reg[80]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.401 r  motion/qid_reg[84]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.401    motion/qid_reg[84]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.455 r  motion/qid_reg[88]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.455    motion/qid_reg[88]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.509 r  motion/qid_reg[92]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.509    motion/qid_reg[92]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.563 r  motion/qid_reg[96]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.563    motion/qid_reg[96]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.617 r  motion/qid_reg[100]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.617    motion/qid_reg[100]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.671 r  motion/qid_reg[104]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.671    motion/qid_reg[104]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.725 r  motion/qid_reg[108]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.725    motion/qid_reg[108]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.779 r  motion/qid_reg[112]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.779    motion/qid_reg[112]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.833 r  motion/qid_reg[116]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.833    motion/qid_reg[116]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.054     4.887 r  motion/qid_reg[120]_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     4.887    motion/qid_reg[120]_i_3_n_0
+                         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.157     5.044 r  motion/qid_reg[124]_i_3/O[3]
+                         net (fo=2, unplaced)         0.302     5.346    motion/qid0[124]
+                         LUT3 (Prop_lut3_I2_O)        0.124     5.470 r  motion/qid[124]_i_1/O
+                         net (fo=1, unplaced)         0.000     5.470    motion/qid[124]_i_1_n_0
+                         FDCE                                         r  motion/qid_reg[124]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.510     0.510    motion/clk
+                         FDCE                                         r  motion/qid_reg[124]/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 config_session[0]
+                            (input port)
+  Destination:            config_link/bound_session_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by candidate_sys  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.266ns  (logic 0.000ns (0.000%)  route 0.266ns (100.000%))
+  Logic Levels:           0
+  Clock Path Skew:        0.280ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.280ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  config_session[0] (IN)
+                         net (fo=1, unset)            0.266     0.266    config_link/config_session[0]
+                         FDCE                                         r  config_link/bound_session_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock candidate_sys rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=8733, unset)         0.280     0.280    config_link/clk
+                         FDCE                                         r  config_link/bound_session_reg[0]/C

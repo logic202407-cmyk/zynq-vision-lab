@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# xsim v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Sun Nov  1 17:59:23 2026
+# Process ID         : 51392
+# Current directory  : R:/evidence/c1-link/transport5
+# Command line       : xsim.exe -mode tcl -source {xsim.dir/line_scheduler_tb/xsim_script.tcl}
+# Log file           : R:/evidence/c1-link/transport5/xsim.log
+# Journal file       : R:/evidence/c1-link/transport5\xsim.jou
+# Running On         : REDACTED_HOST
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i7-14650HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 24
+# Host memory        : 16944 MB
+# Swap memory        : 30064 MB
+# Total Virtual      : 47009 MB
+# Available Virtual  : 13996 MB
+#-----------------------------------------------------------
+source xsim.dir/line_scheduler_tb/xsim_script.tcl
+# xsim {line_scheduler_tb} -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+C1_SCHEDULER_PASS whole_lines control_priority single_TX stall_lock reset_high
+$finish called at time : 218535 ns : File "R:/evidence/c1-link/transport5/line_scheduler_tb.v" Line 27
+## quit
+INFO: [Common 17-206] Exiting xsim at Sun Nov  1 17:59:25 2026...

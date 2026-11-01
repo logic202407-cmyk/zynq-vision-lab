@@ -1,0 +1,14 @@
+{
+  "tools/check_c1_link.py": {
+    "before_sha256": "e08f0346a3c30361622d34050a944feb4305c5261814ae467b0fa934d7dc2551",
+    "after_sha256": "35ce3883e904663e02bd718ea8cdee886e9b59925524e566c2dd998823a3b2e3",
+    "AST_identical": true,
+    "change": "remove final blank line only"
+  },
+  "tools/check_c1_session.py": {
+    "before_sha256": "9d4ae2ec30ab55f6083fd3f401a171016202e8d9381a628df966ca55afcbb627",
+    "after_sha256": "9a392b73b3a8dca727d584d98bd9766a9523cba8f54f3cfaaef30e02b8c412c8",
+    "AST_identical": true,
+    "change": "remove final blank line only"
+  }
+}

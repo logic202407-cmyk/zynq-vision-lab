@@ -1,0 +1,18 @@
+{
+  "tool": "Vivado 2024.2",
+  "synthesis_exit_code": 0,
+  "route_exit_code": 0,
+  "wns_ns": 0.221,
+  "whs_ns": 0.094,
+  "lut": 18379,
+  "ff": 10024,
+  "latch": 0,
+  "bus_skew_ns": 0.726,
+  "bus_skew_requirement_ns": 10,
+  "cdc_info": 2,
+  "cdc_warning": 219,
+  "no_input_delay": 505,
+  "no_output_delay": 138,
+  "board_verified": false,
+  "hardware_actions": []
+}

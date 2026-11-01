@@ -1,0 +1,14 @@
+{
+  "scope": "concurrent XSim and actual C/register model; no hardware",
+  "coupled": 16,
+  "transport_testbenches": 4,
+  "divider_vectors": 64,
+  "session_C": 12,
+  "safety_C": 26,
+  "c1_regression": 15,
+  "python": 49,
+  "arm_errors": 0,
+  "arm_warnings": 0,
+  "hardware_actions": [],
+  "exit_code": 0
+}
