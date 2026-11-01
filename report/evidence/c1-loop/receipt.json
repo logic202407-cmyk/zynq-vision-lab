@@ -1,0 +1,33 @@
+{
+  "source_commit": "2a9a1d67b9dfe0c00beafdcbb8cfd7d2d144fdbb",
+  "git_blob_sha256": {
+    "build/check_c1_loop.tcl": "cfc451822d66696d44db2e6f09d1b17769735cc3c29e3948e041e4078bb0d4e1",
+    "build/check_c1_loop_route.tcl": "b038947834f94a55ded7f2aadc754f6c2d27d31e48cc3f91bb5d0bb508b938cc",
+    "sim/c1/loop_adapter.c": "29fde85563841a067b1032a47fd91255e866601be829027c15c725b9e661fe86",
+    "sim/c1/loop_c_bridge_tb.v": "ad99cb173e9a21d582f8bb2e4ee9d428e4e34921ebb96c387694dc934dae8af9",
+    "sim/c1/visual_loop_tb.v": "222bccda36d3ee6705b8133baec15bb3196e2cbcbfd425db9482331c7bafc561",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/c1_feedback.h": "d493c0483272e87c49f583f55928bee58182a92e29f5bd6349a10fdf7dcf81a0",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c": "718262cca39f2d84fbf0bd6ec773d0b86aa1a404285baf74dd89cbbd473a3d64",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/build.py": "0e1d0d3aecedbb3ec94c1248655755a9a1609f2e6d6f961cf9d1f7ac7d5b713a",
+    "src/rtl/gimbal1_visual_loop.v": "45fc661defff325968d2a254bfde52a4cd38037194be0b5d11e337833ef6f514",
+    "src/rtl/zynq_gimbal1_loop.v": "92847f7ed8698e22be0f5384c60de7e22b211e773303fd31ffa32a162fed8a3f",
+    "tools/check_c1_loop.py": "bf2c18ea082302df9d3d20ed245238faa10e96f0a9a6dd5fb147d596ba89cd7d",
+    "tools/check_c1_loop_no_red.py": "aa126d12c161aeb069f2736d51c42a33476ece4b5126eab971547e525e671d63",
+    "tools/check_visual_loop_rtl.py": "2c7557c98e85711a01dced6a165f05f9ccb46c3f6d9615deca62276efaf18c3a",
+    "tools/run_c1_loop_acceptance.py": "08012164dc2f188d7372c4c21951a59469295af731007fa9bac4beb3577a47d9"
+  },
+  "working_tree_hash_manifest": "coupled-source-sha256.json",
+  "tests": {
+    "coupled": 10,
+    "supplemental_no_red": 1,
+    "focused_rtl": 11,
+    "safety_c": 26,
+    "session_c": 12,
+    "python": 54
+  },
+  "tool_versions": "Vivado/XSim 2024.2; ARMCC 5.06u5; Python 3.12.4; GCC 4.9.2",
+  "hardware_actions": [],
+  "board_verified": false,
+  "scope": "Synthetic RGB565 and OpenMV plant, actual RTL and STM32 C/register model; no real image/mechanics",
+  "ooc_wns_ns": 0.2
+}

@@ -235,13 +235,17 @@
     },
     {
       "id": "c1_laser_off_visual_loop",
-      "status": "implemented",
+      "status": "simulated",
       "evidence": [
         "docs/c1_laser_off_visual_loop.md",
         "report/experiments/2026-11-01-c1-laser-off-loop.md",
-        "report/evidence/c1-loop/coupled-suite.json"
+        "report/evidence/c1-loop/coupled-suite.json",
+        "report/evidence/c1-loop/receipt.json"
       ],
-      "note": "Offline single-target camera centering candidate; 10 coupled real-C/XSim cases pass. Commit-pinned verification receipt follows source commit. No laser or hardware action; calibration/epoch/board-clock blockers remain."
+      "note": "10 coupled real-C/XSim scenarios plus 1 no-red case, 11 focused RTL checks, 26 safety and 12 session C cases, 54 Python tests passed. OOC route only; no laser/hardware action. Single target visible in both cameras assumed; calibration, epoch and board IO/clock blockers remain.",
+      "verified_commit": "2a9a1d67b9dfe0c00beafdcbb8cfd7d2d144fdbb",
+      "tool_version": "Vivado/XSim 2024.2; ARMCC 5.06u5; Python 3.12.4; GCC 4.9.2",
+      "reviewer": "Codex offline self-check; independent reproduction and hardware verification pending"
     }
   ]
 }
