@@ -195,13 +195,16 @@
     },
     {
       "id": "c1_three_gimbal_observations",
-      "status": "implemented",
+      "status": "simulated",
       "evidence": [
         "docs/c1_three_gimbal_vision.md",
         "report/experiments/2026-11-01-c1-three-gimbal-integration.md",
         "report/evidence/c1-integration/result.json"
       ],
-      "note": "Offline candidate: three isolated observation contexts, measurement codec and replay UI. Not six-axis hardware control; board-level CDC, UART ownership scheduling, session configuration, extra PWM/UART resources and real clock unresolved. No hardware actions. Source commit receipt follows."
+      "note": "Offline candidate: three isolated observation contexts, measurement codec and replay UI. Not six-axis hardware control; board-level CDC, UART ownership scheduling, session configuration, extra PWM/UART resources and real clock unresolved. No hardware actions. 15 C1 checks, 22 B2 coupled scenarios, 26 C safety cases and 49 Python tests pass; OOC implementation only, no board timing or hardware claim.",
+      "verified_commit": "d6179706ce54961a20c3943eae3fc2b51e496b55",
+      "tool_version": "Vivado 2024.2; ARMCC 5.06u5; Python 3.12.4; GCC 4.9.2",
+      "reviewer": "Codex offline self-checks; independent human reproduction pending"
     }
   ]
 }
