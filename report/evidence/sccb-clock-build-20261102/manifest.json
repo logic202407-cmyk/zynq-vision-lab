@@ -12,6 +12,7 @@
     "private-artifact-sha256.json": "93249a2da4189d6ee24a9db335ce6faee0946afa6ea347f9b35e8bb8a97b69f4",
     "private-inputs-sha256.json": "956bae4f76a1182b825197354cbe2f6debe7e886fc11a936b812a3cee6aba65b",
     "README.md": "6581249f39f33cf5dabb6bb18e38048c781b57409e6ff9fce816f7541ecad049",
+    "receipt.json": "3a8fb0e5e3cbf4519f7b3676f9787f50df2d55623030a2e508ac4b7a26c337a4",
     "routed_bus_skew.rpt": "9e3606dea6f9be72dd4cbfb7afbb4b0989fd3d1c9011131cf511167c71944b25",
     "routed_cdc.rpt": "cbf46da03060bf2e8cffc9ef099bb30dc1d8599322e853601e0ea0b47d6493a0",
     "routed_check_timing.rpt": "6bed19cf8f175bcd0adafd02dfb4cc3338de350f26e7fae30fbf6c79fa85dd9c",
