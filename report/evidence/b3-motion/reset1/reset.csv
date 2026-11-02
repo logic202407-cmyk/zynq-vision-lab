@@ -1,0 +1,5 @@
+case,category,position,state,op,tx_bit,rx_byte,rx_bit
+0,0,0,0,0,0,-1,-1
+1,0,1,1,0,0,-1,-1
+2,0,2,2,0,9,0,0
+3,0,3,3,0,9,97,9

@@ -1,0 +1,16 @@
+test_complete_fixture_only (test_b3_gate_receipt.GateReceiptChecks.test_complete_fixture_only) ... ok
+test_reject_incomplete_or_unsafe_register_evidence (test_b3_gate_receipt.GateReceiptChecks.test_reject_incomplete_or_unsafe_register_evidence) ... ok
+test_reject_missing_or_mismatched_protocol (test_b3_gate_receipt.GateReceiptChecks.test_reject_missing_or_mismatched_protocol) ... FAIL
+
+======================================================================
+FAIL: test_reject_missing_or_mismatched_protocol (test_b3_gate_receipt.GateReceiptChecks.test_reject_missing_or_mismatched_protocol)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>\tests\test_b3_gate_receipt.py", line 34, in test_reject_missing_or_mismatched_protocol
+    with self.assertRaises(AssertionError):
+AssertionError: AssertionError not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+FAILED (failures=1)

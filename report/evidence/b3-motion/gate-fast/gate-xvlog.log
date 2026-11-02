@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/b3-motion/gate-fast/motion_func.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-311] analyzing module uart_tx_8n1
+INFO: [VRFC 10-311] analyzing module zynq_motion_s1
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/b3-motion/gate-fast/gate_tb.v" into library work
+INFO: [VRFC 10-311] analyzing module b3_gate_bridge_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "R:/evidence/b3-motion/gate-fast/glbl.v" into library work

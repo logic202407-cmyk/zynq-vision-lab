@@ -1,0 +1,42 @@
+[
+  {
+    "case": "normal",
+    "exit_code": 0
+  },
+  {
+    "case": "ack_loss",
+    "exit_code": 0
+  },
+  {
+    "case": "link_loss",
+    "exit_code": 0
+  },
+  {
+    "case": "fpga_reset",
+    "exit_code": 0
+  },
+  {
+    "case": "mcu_reset",
+    "exit_code": 0
+  },
+  {
+    "case": "busy_repeat",
+    "exit_code": 0
+  },
+  {
+    "case": "pc_handoff",
+    "exit_code": 0
+  },
+  {
+    "case": "handoff_unconfirmed",
+    "exit_code": 0
+  },
+  {
+    "case": "range",
+    "exit_code": 0
+  },
+  {
+    "case": "stale_sync",
+    "exit_code": 0
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "port": 1,
+    "command": [
+      "D:/Dev-Cpp/MinGW64/bin/gcc.exe",
+      "-std=c99",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-DBOARD_HOST_TEST",
+      "-DCONSOLE_USART=1",
+      "-ID:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User",
+      "-ID:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_project\\User",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\tests\\host_checks.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\tracking.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\safety.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_project\\User\\pid.c",
+      "-o",
+      "R:\\evidence\\b3-motion\\frozen\\checks1.exe"
+    ],
+    "compile_exit": 0,
+    "run_exit": 0,
+    "assertions": 35235
+  },
+  {
+    "port": 3,
+    "command": [
+      "D:/Dev-Cpp/MinGW64/bin/gcc.exe",
+      "-std=c99",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-DBOARD_HOST_TEST",
+      "-DCONSOLE_USART=3",
+      "-ID:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User",
+      "-ID:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_project\\User",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\tests\\host_checks.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\tracking.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\safety.c",
+      "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\repo\\src\\prototype\\skystar_openmv\\stm32_project\\User\\pid.c",
+      "-o",
+      "R:\\evidence\\b3-motion\\frozen\\checks3.exe"
+    ],
+    "compile_exit": 0,
+    "run_exit": 0,
+    "assertions": 35238
+  }
+]

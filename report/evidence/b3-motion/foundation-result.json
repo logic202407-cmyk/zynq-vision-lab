@@ -1,0 +1,30 @@
+{
+  "scope": "repository and test-tool checks; not hardware",
+  "python_tests": 46,
+  "failed": 0,
+  "steps": [
+    {
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-B",
+        "tools/check_repository.py"
+      ],
+      "exit_code": 0,
+      "log": "repository-final.log"
+    },
+    {
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "python-final.log"
+    }
+  ]
+}

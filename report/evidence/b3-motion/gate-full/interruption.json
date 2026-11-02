@@ -1,0 +1,34 @@
+{
+  "verdict": "INCOMPLETE_INTERRUPTED",
+  "exit_code": null,
+  "scope": "original routed functional netlist plus actual STM32 C",
+  "reason": "Execution host generation changed; recorded simulator process no longer exists and no final result was written. Exact process termination cause is unknown.",
+  "command": [
+    "D:/Python312/python.exe",
+    "-B",
+    "tools/check_b3_gate_cosim.py",
+    "--stage",
+    "R:/evidence/b3-motion/gate-full",
+    "--netlist",
+    "R:/evidence/b2-motion/ooc-prefetch/motion_func.v",
+    "--seconds",
+    "21600",
+    "--fast"
+  ],
+  "last_progress": {
+    "simulated_us": 91012,
+    "wall_seconds": 4011.938000000002,
+    "state": 5,
+    "requests": [
+      "s1q 00000000000000000000000012345678 st*ba0d\n",
+      "s1q 00000000000000000000000012345679 st*ccb9\n",
+      "s1 1234000112340002 0 arm*ec90\n",
+      "s1 1234000112340002 1 pan 1550*f20c\n",
+      "s1 1234000112340002 2 tlt 1550*3a22\n",
+      "s1 1234000112340002 3 pan 1500*d373\n"
+    ]
+  },
+  "netlist_sha256": "8e76144c7eb73d9ac67f2cff47b6ad24a88dddfe894b4211c58e5f953cf48307",
+  "full_flow_pass": false,
+  "hardware_actions": []
+}

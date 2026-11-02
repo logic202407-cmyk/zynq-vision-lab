@@ -94,7 +94,12 @@ static void console_feed(uint8_t byte, uint32_t received, uint32_t now)
                      strstr(line," hb*")==0))) flush_vision();
                 if (!accepted) (void)board_send("ERROR guarded_command\r\n");
                 if (!safety_armed(&guardian)) disarm_queues();
-                else if (accepted && !board_guard_refresh(guardian.live_ms)) trip(SAFE_LINK_TIMEOUT);
+                else if (accepted && !board_guard_refresh(guardian.live_ms)) {
+                    /* An ISR may already have latched UART/KEY before refresh.
+                     * Consume that cause before considering a lease fallback. */
+                    poll_safety(board_ms());
+                    if (safety_armed(&guardian)) trip(SAFE_LINK_TIMEOUT);
+                }
 #ifdef S1ACK1
                 poll_safety(now);
                 board_outputs(safety_armed(&guardian)&&control.outputs,control.pan_us,control.tilt_us);

@@ -1,0 +1,43 @@
+{
+  "scope": "B2 existing routed design reused; no new synthesis, bitstream, JTAG or hardware",
+  "rtl_matches": [
+    {
+      "file": "src/rtl/uart_tx_8n1.v",
+      "current_sha256": "1cb9b21a239380e46b2e1eb40310b5bd69aee54565084224b9d74aff6546d58f",
+      "build_input_sha256": "1cb9b21a239380e46b2e1eb40310b5bd69aee54565084224b9d74aff6546d58f",
+      "equal": true
+    },
+    {
+      "file": "src/rtl/uart_rx.v",
+      "current_sha256": "bd821bc063edd8e5e88088d34916ddab0d7ac7a35320823944c25b852fca2324",
+      "build_input_sha256": "bd821bc063edd8e5e88088d34916ddab0d7ac7a35320823944c25b852fca2324",
+      "equal": true
+    },
+    {
+      "file": "src/rtl/zynq_motion_s1.v",
+      "current_sha256": "ae43560fc53ca3bc362541b3a21b314a54ea4b992dfd52aef39e74f7f418081a",
+      "build_input_sha256": "ae43560fc53ca3bc362541b3a21b314a54ea4b992dfd52aef39e74f7f418081a",
+      "equal": true
+    }
+  ],
+  "private_artifacts_sha256": {
+    "motion_func.v": "8e76144c7eb73d9ac67f2cff47b6ad24a88dddfe894b4211c58e5f953cf48307",
+    "motion_ooc.dcp": "e901b13ddb806135fe7aaf9a99f148869303b4b8fd45216d8505164585442e55"
+  },
+  "source_checks_exit": 0,
+  "reports_match": {
+    "timing.rpt": false,
+    "route_status.rpt": false,
+    "utilization.rpt": false,
+    "structural_drc.rpt": false,
+    "implementation_pass.txt": true
+  },
+  "normalization": "remove Host line, rstrip line whitespace, strip terminal empty lines only",
+  "reports_match_after_public_sanitization": {
+    "timing.rpt": true,
+    "route_status.rpt": true,
+    "utilization.rpt": true,
+    "structural_drc.rpt": true,
+    "implementation_pass.txt": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "injections": 154,
+  "semantic_phases": 11,
+  "tx_injections": 84,
+  "rx_injections": 58,
+  "ownership_injections": 1,
+  "scope": "Actual RTL, scripted UART replies; all 10 serial phases of each ACK CRC character; not MCU C or analog metastability",
+  "exit_code": 0
+}

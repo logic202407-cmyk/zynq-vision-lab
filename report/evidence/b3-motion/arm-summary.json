@@ -1,0 +1,26 @@
+{
+  "scope": "compile/link only, never flashed",
+  "tool": "ARMCC5.06u5 build528",
+  "errors": 0,
+  "warnings": 0,
+  "source_sha256": {
+    "stm32_skystar_tracking\\User\\board.c": "625f1d60c7203216ddcf9b3aedf79253b04a84dfcee446ed8c9e8cfd10f632fc",
+    "stm32_skystar_tracking\\User\\board.h": "d8a80fb0a8c0b1647f73b56b634df6458196d7910f56777a8b1e207cf6e11bab",
+    "stm32_skystar_tracking\\User\\main.c": "14ef2b526a4f057afb5129d56ad5eeb4c0be283436fef1e74e306bdb026a80e8",
+    "stm32_skystar_tracking\\User\\s1ack.h": "a70d636465c9d0858ad444516cf1ab79a247c36467e38f95f5b3605cf4cb5101",
+    "stm32_skystar_tracking\\User\\safety.c": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+    "stm32_skystar_tracking\\User\\safety.h": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+    "stm32_skystar_tracking\\User\\tracking.c": "4e5aa8fe89f9038c6e074e9eb50f7a4a860d3c0d93502ff2e276f3e214d10429",
+    "stm32_skystar_tracking\\User\\tracking.h": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819",
+    "stm32_project\\User\\pid.c": "a8c2aaf9a13ee6da79e239c6326cb73dc609d4fc020044226de571ffd4b6109b",
+    "stm32_project\\User\\pid.h": "9165579899b287df4be202e21700378945bee0a700ce787606d12f062c03521c",
+    "stm32_skystar_tracking\\startup.s": "3a3d38a7cc71538d12242d3aa13d77056ea31b7222d1370004fdbbd33b182ae0",
+    "stm32_skystar_tracking\\firmware.sct": "78a656f401eccf0cc8ee0d734b0a85759359c977a2e47942ddf9c2c4420ed134"
+  },
+  "artifact_sha256": {
+    "skystar_tracking.axf": "0cacb550c0efc00332b1be5e258df2922df3ce6ec34e04ca1d857064618c527a",
+    "skystar_tracking.bin": "57e989abb765003bf949ea841fee5def88dd71efd6724b9440a54c66315530cb",
+    "skystar_tracking.hex": "7d2479bd8b1fd44aa10e5b938ca4f3acef87d3e3a38f1f34fe2e83c217902e90"
+  },
+  "exit_code": 0
+}

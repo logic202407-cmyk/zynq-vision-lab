@@ -1,0 +1,14 @@
+{
+  "case": "repeated_epoch",
+  "expected": "old sync must not be accepted",
+  "observed_state": 3,
+  "replay_rejected": false,
+  "exit_code": 1,
+  "scope": "test fixture replay; not hardware entropy",
+  "requests": [
+    "s1q 00000000000000000000000012345678 st*ba0d\n",
+    "s1q 00000000000000000000000012345678 st*ba0d\n"
+  ],
+  "replayed": "S1SYNC 00000000000000000000000012345678 S1ACK1 1234000112340002 stopped boot 1500 1500 0 0 0*2dd6\n",
+  "source": "unchanged B2 RTL and actual C-generated initial S1SYNC"
+}

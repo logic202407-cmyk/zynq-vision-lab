@@ -1,0 +1,37 @@
+{
+  "tool": "Vivado XSim2024.2",
+  "sources": {
+    "src/rtl/uart_tx_8n1.v": "1cb9b21a239380e46b2e1eb40310b5bd69aee54565084224b9d74aff6546d58f",
+    "src/rtl/uart_rx.v": "bd821bc063edd8e5e88088d34916ddab0d7ac7a35320823944c25b852fca2324",
+    "sim/b3_uart_tolerance_tb.v": "4ea66e699b173d2814d044df5b3e7977082b54ff0f18dc15cb7710adc6255322"
+  },
+  "steps": [
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+        "uart_tx_8n1.v",
+        "uart_rx.v",
+        "b3_uart_tolerance_tb.v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+        "b3_uart_tolerance_tb",
+        "-s",
+        "test"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+        "test",
+        "-tclbatch",
+        "run.tcl"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

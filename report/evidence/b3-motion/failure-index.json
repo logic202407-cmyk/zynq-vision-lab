@@ -1,0 +1,72 @@
+[
+  {
+    "run": "uart1",
+    "classification": "refined boundary fixture",
+    "outcome": "passed but positive point was +2.024774%, refined in uart2"
+  },
+  {
+    "run": "uart2",
+    "classification": "observed out-of-required-range errors",
+    "outcome": "7 rows retained; relative +/-2% acceptance rows all pass"
+  },
+  {
+    "run": "reset1",
+    "classification": "testbench defect",
+    "outcome": "blocking response serializer missed next TX start; failed and preserved"
+  },
+  {
+    "run": "reset2",
+    "classification": "testbench defect",
+    "outcome": "unsized watchdog integer overflow caused early timeout; failed and preserved"
+  },
+  {
+    "run": "reset3",
+    "classification": "interrupted",
+    "outcome": "no final verdict or exit; UNKNOWN"
+  },
+  {
+    "run": "interrupt1",
+    "classification": "fixture defect",
+    "outcome": "110 pass/50 fail with invalid overflow queue fixture; not 50 production defects"
+  },
+  {
+    "run": "interrupt2",
+    "classification": "production defect",
+    "outcome": "142 pass/18 fail first cause attribution; fixed in main.c"
+  },
+  {
+    "run": "epoch1/epoch-repeat-unframed-fixture.json",
+    "classification": "superseded replay fixture",
+    "outcome": "old frame concatenated with residue; cannot claim replay rejection"
+  },
+  {
+    "run": "epoch1/epoch-repeat.json",
+    "classification": "unresolved hardware contract",
+    "outcome": "old session sync accepted under reused epoch; exit 1; HARDWARE BLOCKER"
+  },
+  {
+    "run": "gate1",
+    "classification": "interrupted",
+    "outcome": "no final verdict or exit; UNKNOWN"
+  },
+  {
+    "run": "gate2",
+    "classification": "wall budget exhausted",
+    "outcome": "exit 2 INCOMPLETE, not PASS"
+  },
+  {
+    "run": "gate-fast",
+    "classification": "wall budget exhausted",
+    "outcome": "exit 2 INCOMPLETE, not PASS"
+  },
+  {
+    "run": "receipt-checker-before",
+    "classification": "checker defect",
+    "outcome": "2 pass/1 fail; missing final LF check fixed; synthetic fixture only"
+  },
+  {
+    "run": "gate-full",
+    "classification": "interrupted without terminal receipt",
+    "outcome": "91.012 ms last progress; 6 requests through PAN return; full flow NOT VERIFIED; exit unknown"
+  }
+]

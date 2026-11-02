@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS",
+  "injections": 114,
+  "semantic_phases": 11,
+  "tx_injections": 84,
+  "rx_injections": 18,
+  "ownership_injections": 1,
+  "scope": "actual RTL scripted UART replies, not MCU C; selected bit positions, not analog metastability",
+  "exit_code": 0
+}

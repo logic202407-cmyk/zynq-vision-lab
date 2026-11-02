@@ -1,0 +1,16 @@
+{
+  "command": [
+    "D:/Python312/python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_b3_gate_receipt.py",
+    "-v"
+  ],
+  "exit_code": 1,
+  "scope": "synthetic evidence-checker unit tests, not netlist simulation"
+}
