@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-01",
+  "updated_on": "2026-11-02",
   "project_stage": "pl_camera_prototype",
   "components": [
     {
@@ -299,6 +299,20 @@
       "verified_commit": "b5c26bc36ecca439fbb67588d50874b5a4058cbe",
       "tool_version": "Vivado/XSim 2024.2; Python 3.12.4",
       "reviewer": "Codex self-checking source contract, actual-driver simulation and full-top report audit; independent reproduction pending"
+    },
+    {
+      "id": "c1_live_recovery_20261102",
+      "status": "board_verified",
+      "verified_commit": "91ff049041f9e094a34a53e73f98d46a9b0281bf",
+      "tool_version": "ARMCC 5.06u5; Vivado/hw_server 2024.2; pyOCD 0.46.0; OpenMV IDE/firmware 5.0.0",
+      "reviewer": "Codex live Flash/register/UART/UDP/IDE diagnostics with user power confirmation; independent reproduction pending",
+      "evidence": [
+        "report/experiments/2026-11-02-c1-live-recovery.md",
+        "report/evidence/c1-live-recovery-20261102/restore-result.json",
+        "report/evidence/c1-live-recovery-20261102/two-camera-transport.json",
+        "report/evidence/c1-live-recovery-20261102/stop-result.json"
+      ],
+      "note": "LIMITED no-power recovery only: initial Flash mismatched the known candidate; 512KiB double backup, sector-only safe firmware restore and full readback pass. FPGA video and 108 matching UDP/MCU samples, 181 CRC-good F1 lines recovered; target identity UNCONFIRMED. PWM registers remained OFF. No ARM/motion/laser. Epoch, clock/IO/CDC, mechanical signs and identity remain motion blockers. ARMCC warning audit: 0 errors, 1 unreachable-code warning; build.py incorrectly summarized 0. No powered or waveform stop acceptance."
     }
   ]
 }

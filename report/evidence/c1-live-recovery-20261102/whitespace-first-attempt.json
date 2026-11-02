@@ -1,0 +1,7 @@
+{
+  "command": "git diff --cached --check",
+  "exit_code": 2,
+  "scope": "Initial staging, before trimming trailing empty lines in public log copies",
+  "log": "whitespace-first-attempt.txt",
+  "resolution": "Retain original private logs; normalize public text formatting only, then recheck staged diff"
+}

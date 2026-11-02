@@ -1,0 +1,3 @@
+report/evidence/c1-live-recovery-20261102/arm-main-compiler.txt:8: new blank line at EOF.
+report/evidence/c1-live-recovery-20261102/arm-version.txt:10: new blank line at EOF.
+report/evidence/c1-live-recovery-20261102/stm32-usart3-host.txt:8: new blank line at EOF.

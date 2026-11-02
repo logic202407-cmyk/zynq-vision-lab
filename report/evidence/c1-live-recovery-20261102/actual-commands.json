@@ -1,0 +1,50 @@
+{
+  "commands": [
+    {
+      "command": "python capture_readonly.py",
+      "exit_code": 0,
+      "scope": "no reset, halt or target memory write"
+    },
+    {
+      "command": "python identify_target_readonly.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python stm32_skystar_tracking/build.py --console-usart 3 --s1ack1 --c1-observations --c1-closed-loop --output-root <private-D-stage>",
+      "exit_code": 0,
+      "errors": 0,
+      "warnings": 1,
+      "original_build_reported_warnings": 0,
+      "warning_audit": "compiler-audit.json"
+    },
+    {
+      "command": "python stm32_skystar_tracking/tests/run_checks.py --console-usart 3",
+      "exit_code": 0,
+      "assertions": 35238
+    },
+    {
+      "command": "python restore_safe_firmware.py",
+      "exit_code": 0,
+      "scope": "first-sector programming after explicit current power-off confirmation"
+    },
+    {
+      "command": "Vivado write_bitstream / program_hw_devices (observation candidate only)",
+      "exit_code": 0
+    },
+    {
+      "command": "OpenMV IDE 5.0.0 finite RAM script; firmware update declined",
+      "scope": "no camera Flash write; UART observation bytes only"
+    },
+    {
+      "command": "python observe_two_cameras.py",
+      "exit_code": 0,
+      "scope": "transport metrics only; does not verify target identity"
+    },
+    {
+      "command": "python verify_stop.py",
+      "exit_code": 0
+    }
+  ],
+  "physical_motion_commands": [],
+  "laser_control_commands": []
+}

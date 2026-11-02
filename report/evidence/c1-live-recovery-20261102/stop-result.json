@@ -1,0 +1,727 @@
+{
+  "verdict": "PASS",
+  "scope": "Actual FPGA STOP correlation and real MCU register checks; already-off outputs, no powered stop timing proof",
+  "correlated_stop_acks": [
+    {
+      "crc_ok": true,
+      "state": "stopped",
+      "pwm_mask": 0
+    }
+  ],
+  "samples": [
+    {
+      "seconds": 0.031000000017229468,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3567,
+      "milliseconds": 960242
+    },
+    {
+      "seconds": 0.2340000000258442,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3569,
+      "milliseconds": 960444
+    },
+    {
+      "seconds": 0.4370000000053551,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3571,
+      "milliseconds": 960647
+    },
+    {
+      "seconds": 0.6400000000139698,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3572,
+      "milliseconds": 960851
+    },
+    {
+      "seconds": 0.875,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3574,
+      "milliseconds": 961084
+    },
+    {
+      "seconds": 1.062000000005355,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3576,
+      "milliseconds": 961287
+    },
+    {
+      "seconds": 1.2650000000139698,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3578,
+      "milliseconds": 961478
+    },
+    {
+      "seconds": 1.4840000000258442,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3580,
+      "milliseconds": 961706
+    },
+    {
+      "seconds": 1.687000000005355,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3582,
+      "milliseconds": 961901
+    },
+    {
+      "seconds": 1.8900000000139698,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3583,
+      "milliseconds": 962110
+    },
+    {
+      "seconds": 2.0940000000118744,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3585,
+      "milliseconds": 962316
+    },
+    {
+      "seconds": 2.2810000000172295,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3587,
+      "milliseconds": 962508
+    },
+    {
+      "seconds": 2.484000000025844,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3589,
+      "milliseconds": 962711
+    },
+    {
+      "seconds": 2.687000000005355,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3590,
+      "milliseconds": 962916
+    },
+    {
+      "seconds": 2.89000000001397,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3592,
+      "milliseconds": 963120
+    },
+    {
+      "seconds": 3.0940000000118744,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3594,
+      "milliseconds": 963322
+    },
+    {
+      "seconds": 3.297000000020489,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3596,
+      "milliseconds": 963525
+    },
+    {
+      "seconds": 3.51500000001397,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3598,
+      "milliseconds": 963733
+    },
+    {
+      "seconds": 3.7030000000086147,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3599,
+      "milliseconds": 963933
+    },
+    {
+      "seconds": 3.9060000000172295,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3601,
+      "milliseconds": 964134
+    },
+    {
+      "seconds": 4.109000000025844,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3603,
+      "milliseconds": 964337
+    },
+    {
+      "seconds": 4.312000000005355,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3605,
+      "milliseconds": 964542
+    },
+    {
+      "seconds": 4.51500000001397,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3606,
+      "milliseconds": 964740
+    },
+    {
+      "seconds": 4.719000000011874,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3608,
+      "milliseconds": 964944
+    },
+    {
+      "seconds": 4.922000000020489,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3610,
+      "milliseconds": 965147
+    },
+    {
+      "seconds": 5.125,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3612,
+      "milliseconds": 965351
+    },
+    {
+      "seconds": 5.344000000011874,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3614,
+      "milliseconds": 965574
+    },
+    {
+      "seconds": 5.547000000020489,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3615,
+      "milliseconds": 965779
+    },
+    {
+      "seconds": 5.75,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3617,
+      "milliseconds": 965980
+    },
+    {
+      "seconds": 5.953000000008615,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3619,
+      "milliseconds": 966185
+    },
+    {
+      "seconds": 6.1560000000172295,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3621,
+      "milliseconds": 966401
+    },
+    {
+      "seconds": 6.359000000025844,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3623,
+      "milliseconds": 966594
+    },
+    {
+      "seconds": 6.562000000005355,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3624,
+      "milliseconds": 966805
+    },
+    {
+      "seconds": 6.7810000000172295,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3626,
+      "milliseconds": 967016
+    },
+    {
+      "seconds": 6.969000000011874,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3628,
+      "milliseconds": 967210
+    },
+    {
+      "seconds": 7.172000000020489,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3630,
+      "milliseconds": 967408
+    },
+    {
+      "seconds": 7.375,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3632,
+      "milliseconds": 967611
+    },
+    {
+      "seconds": 7.578000000008615,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3633,
+      "milliseconds": 967815
+    },
+    {
+      "seconds": 7.7810000000172295,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3635,
+      "milliseconds": 968020
+    },
+    {
+      "seconds": 8.0,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3637,
+      "milliseconds": 968227
+    },
+    {
+      "seconds": 8.187000000005355,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3639,
+      "milliseconds": 968428
+    },
+    {
+      "seconds": 8.39000000001397,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3640,
+      "milliseconds": 968632
+    },
+    {
+      "seconds": 8.594000000011874,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3642,
+      "milliseconds": 968833
+    },
+    {
+      "seconds": 8.797000000020489,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3644,
+      "milliseconds": 969038
+    },
+    {
+      "seconds": 9.0,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3646,
+      "milliseconds": 969238
+    },
+    {
+      "seconds": 9.203000000008615,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3647,
+      "milliseconds": 969437
+    },
+    {
+      "seconds": 9.40600000001723,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3649,
+      "milliseconds": 969640
+    },
+    {
+      "seconds": 9.609000000025844,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3651,
+      "milliseconds": 969843
+    },
+    {
+      "seconds": 9.812000000005355,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3653,
+      "milliseconds": 970048
+    },
+    {
+      "seconds": 10.01500000001397,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3655,
+      "milliseconds": 970251
+    },
+    {
+      "seconds": 10.234000000025844,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3657,
+      "milliseconds": 970470
+    },
+    {
+      "seconds": 10.437000000005355,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3658,
+      "milliseconds": 970677
+    },
+    {
+      "seconds": 10.64000000001397,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3660,
+      "milliseconds": 970878
+    },
+    {
+      "seconds": 10.844000000011874,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3662,
+      "milliseconds": 971082
+    },
+    {
+      "seconds": 11.047000000020489,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3664,
+      "milliseconds": 971285
+    },
+    {
+      "seconds": 11.25,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3665,
+      "milliseconds": 971488
+    },
+    {
+      "seconds": 11.453000000008615,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3667,
+      "milliseconds": 971689
+    },
+    {
+      "seconds": 11.65600000001723,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3669,
+      "milliseconds": 971895
+    },
+    {
+      "seconds": 11.859000000025844,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3671,
+      "milliseconds": 972096
+    },
+    {
+      "seconds": 12.062000000005355,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3672,
+      "milliseconds": 972299
+    },
+    {
+      "seconds": 12.26500000001397,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3674,
+      "milliseconds": 972502
+    },
+    {
+      "seconds": 12.484000000025844,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3676,
+      "milliseconds": 972720
+    },
+    {
+      "seconds": 12.672000000020489,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3678,
+      "milliseconds": 972920
+    },
+    {
+      "seconds": 12.875,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3680,
+      "milliseconds": 973122
+    },
+    {
+      "seconds": 13.078000000008615,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3681,
+      "milliseconds": 973327
+    },
+    {
+      "seconds": 13.28100000001723,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3683,
+      "milliseconds": 973528
+    },
+    {
+      "seconds": 13.484000000025844,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3685,
+      "milliseconds": 973729
+    },
+    {
+      "seconds": 13.687000000005355,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3687,
+      "milliseconds": 973930
+    },
+    {
+      "seconds": 13.89000000001397,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3689,
+      "milliseconds": 974131
+    },
+    {
+      "seconds": 14.094000000011874,
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "accepted": 3690,
+      "milliseconds": 974345
+    },
+    {
+      "seconds": 14.297000000020489,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 974545
+    },
+    {
+      "seconds": 14.5,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 974745
+    },
+    {
+      "seconds": 14.703000000008615,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 974952
+    },
+    {
+      "seconds": 14.90600000001723,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 975148
+    },
+    {
+      "seconds": 15.14000000001397,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 975381
+    },
+    {
+      "seconds": 15.344000000011874,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 975588
+    },
+    {
+      "seconds": 15.547000000020489,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 975791
+    },
+    {
+      "seconds": 15.75,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 975995
+    },
+    {
+      "seconds": 15.953000000008615,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 976200
+    },
+    {
+      "seconds": 16.15600000001723,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 976405
+    },
+    {
+      "seconds": 16.359000000025844,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 976609
+    },
+    {
+      "seconds": 16.562000000005355,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 976813
+    },
+    {
+      "seconds": 16.76500000001397,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 977017
+    },
+    {
+      "seconds": 16.969000000011874,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 977222
+    },
+    {
+      "seconds": 17.17200000002049,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 977424
+    },
+    {
+      "seconds": 17.375,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 977630
+    },
+    {
+      "seconds": 17.578000000008615,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 977834
+    },
+    {
+      "seconds": 17.78100000001723,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 978039
+    },
+    {
+      "seconds": 17.984000000025844,
+      "state": 0,
+      "reason": 1,
+      "ccer": 0,
+      "accepted": 3691,
+      "milliseconds": 978244
+    }
+  ],
+  "uart_tx_bytes": 0,
+  "motion_commands": []
+}

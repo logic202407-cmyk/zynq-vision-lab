@@ -1,0 +1,34 @@
+{
+  "scope": "live read-only Flash/register capture, not motion acceptance",
+  "actions": [],
+  "hardware_writes": [],
+  "user_laser_power": "physically disconnected per current user confirmation",
+  "user_servo_power": "connected",
+  "before": {
+    "dhcsr": 50397184,
+    "tim4_cr1": 0,
+    "tim4_ccer": 0,
+    "ccr1": 0,
+    "ccr2": 0,
+    "ccr3": 0,
+    "ccr4": 0
+  },
+  "flash_bytes": 524288,
+  "two_reads_equal": true,
+  "flash_sha256": "8e000ef6c1c5d59af4bee2e24fb19d4a2e63c0fd0c2f7d735775ad4eac1ab000",
+  "known_candidate_prefix_match": false,
+  "known_candidate_bytes": 12712,
+  "known_candidate_sha256": "d09c81aad7996bc04e8dc88e25eef3662d59b97e5113195b05e0c2ac4fc70120",
+  "after": {
+    "dhcsr": 16842752,
+    "tim4_cr1": 0,
+    "tim4_ccer": 0,
+    "ccr1": 0,
+    "ccr2": 0,
+    "ccr3": 0,
+    "ccr4": 0
+  },
+  "core_halted_before": false,
+  "core_halted_after": false,
+  "capture": "PASS"
+}

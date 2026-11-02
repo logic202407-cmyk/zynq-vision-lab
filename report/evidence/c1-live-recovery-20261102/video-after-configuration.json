@@ -1,0 +1,161 @@
+{
+  "scope": "Live FPGA camera UDP diagnostic only; not tracking",
+  "seconds": 8.14000000001397,
+  "completed": 206,
+  "incomplete": 0,
+  "malformed": 1,
+  "valid_target_frames": 206,
+  "measurement_samples": [
+    {
+      "frame_seq": 1227,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 8827,
+      "sum_x": 2867135,
+      "sum_y": 2038266,
+      "bbox": [
+        260,
+        188,
+        389,
+        275
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 1228,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 8837,
+      "sum_x": 2870394,
+      "sum_y": 2040472,
+      "bbox": [
+        260,
+        188,
+        389,
+        275
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 1229,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 8840,
+      "sum_x": 2871412,
+      "sum_y": 2041255,
+      "bbox": [
+        260,
+        188,
+        389,
+        275
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 1230,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 8839,
+      "sum_x": 2870933,
+      "sum_y": 2040887,
+      "bbox": [
+        260,
+        188,
+        389,
+        275
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 1231,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 8838,
+      "sum_x": 2870459,
+      "sum_y": 2040931,
+      "bbox": [
+        260,
+        188,
+        389,
+        275
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 1232,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 8837,
+      "sum_x": 2870455,
+      "sum_y": 2040664,
+      "bbox": [
+        260,
+        188,
+        389,
+        275
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 1233,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 8837,
+      "sum_x": 2870568,
+      "sum_y": 2040463,
+      "bbox": [
+        260,
+        188,
+        389,
+        275
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 1234,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 8834,
+      "sum_x": 2869467,
+      "sum_y": 2039780,
+      "bbox": [
+        260,
+        188,
+        389,
+        275
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 1235,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 8843,
+      "sum_x": 2872273,
+      "sum_y": 2042379,
+      "bbox": [
+        260,
+        188,
+        389,
+        275
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 1236,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 8839,
+      "sum_x": 2870894,
+      "sum_y": 2041173,
+      "bbox": [
+        260,
+        188,
+        389,
+        275
+      ],
+      "mask_version": 2
+    }
+  ],
+  "verdict": "PASS"
+}

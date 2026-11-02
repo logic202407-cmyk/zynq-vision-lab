@@ -1,0 +1,17 @@
+{
+  "errors": 0,
+  "warnings": 1,
+  "build_reported_warnings": 0,
+  "build_report_is_inaccurate": true,
+  "diagnostics": [
+    {
+      "log": "main.log",
+      "diagnostic": "\"main.c\", line 88: Warning:  #111-D: statement is unreachable"
+    }
+  ],
+  "source": "main.c:77-88; S1ACK1 early return precedes compiled legacy telemetry",
+  "counter_defect": "build.py case-sensitive warning regex misses ARMCC Warning and records fixed zero",
+  "action": "Correct report; retain raw log. No controller/build source change or repeat flashing.",
+  "original_private_main_log_sha256": "d22261c056873e20c04ed240ab1afe5f80792d87e667a8bf5ac8c1c7500acde6",
+  "fixture_nonce_policy": "Host C test log uses a synthetic test nonce, never a live session value."
+}

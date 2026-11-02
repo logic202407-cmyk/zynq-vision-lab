@@ -1,0 +1,132 @@
+{
+  "source_commit": "91ff049041f9e094a34a53e73f98d46a9b0281bf",
+  "source_files": {
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.c": {
+      "sha256": "625f1d60c7203216ddcf9b3aedf79253b04a84dfcee446ed8c9e8cfd10f632fc",
+      "git_blob": "5ad103f630afae52f1289855512aebcb0f432af8"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.h": {
+      "sha256": "d8a80fb0a8c0b1647f73b56b634df6458196d7910f56777a8b1e207cf6e11bab",
+      "git_blob": "8890f69217cd1450eb9790a4c75c0f27f3515cdb"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/c1_feedback.h": {
+      "sha256": "f2d8d57d0ed96432b56c1e54336e1a18ad32f957c6b0eb7a969826475f8c50ef",
+      "git_blob": "9aa9c39f16034dc091ec740461d5ee29a249c6ab"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.c": {
+      "sha256": "c52c3eed7e5e708dd746ff5110c22548eb8a6d4ff336e2a9ca6725974d23bf56",
+      "git_blob": "be51c7b5c5b8545910637934962041a9963c83a1"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.h": {
+      "sha256": "61a9956a6fbdf872bbd217cdf216640276634dfccd9bb36c02423f202fd83241",
+      "git_blob": "3a2ab88847b0aeed40c317417065853823ca5e48"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c": {
+      "sha256": "ae1d98f152a6ed5f7422b3b1ea8aa036b7857e511e8f334197695e31b8a49a42",
+      "git_blob": "ce27c4255141d5016808f8b8e29de39eb7df9a45"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/s1ack.h": {
+      "sha256": "a70d636465c9d0858ad444516cf1ab79a247c36467e38f95f5b3605cf4cb5101",
+      "git_blob": "1585ea46e81d44d39372e3c6b215ca2ced8d43bf"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.c": {
+      "sha256": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+      "git_blob": "e613b4ef15109c287598fed222d904581b2f93fb"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.h": {
+      "sha256": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+      "git_blob": "68959c118baf7bdfdff7001751ec7205bd9ced1e"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/tracking.c": {
+      "sha256": "4e5aa8fe89f9038c6e074e9eb50f7a4a860d3c0d93502ff2e276f3e214d10429",
+      "git_blob": "782842f9c9964e1aa11a33ffc4f1476b41701a62"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/tracking.h": {
+      "sha256": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819",
+      "git_blob": "9c6e60d3a2e766957875afdbc089a9596a5555c6"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/vision_measurement.c": {
+      "sha256": "50007c160f645a27175e04a044a829cac5ccf1d135fccb0bc45f6f909eab5252",
+      "git_blob": "dd42f4802b1a2c965ff4976958500a5b2670737c"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/vision_measurement.h": {
+      "sha256": "cb9f9b813feff12fd5420b7c4a59fa2aa50f3a5b1764af2f3fea2e3ba4c3891a",
+      "git_blob": "5c7f210be83cdd5355f26720c32817f8231a97f4"
+    },
+    "src/prototype/skystar_openmv/stm32_project/User/pid.c": {
+      "sha256": "a8c2aaf9a13ee6da79e239c6326cb73dc609d4fc020044226de571ffd4b6109b",
+      "git_blob": "b8131bbaf8a39c607e1efc5ff1ae2b1d60a8433b"
+    },
+    "src/prototype/skystar_openmv/stm32_project/User/pid.h": {
+      "sha256": "9165579899b287df4be202e21700378945bee0a700ce787606d12f062c03521c",
+      "git_blob": "677464fd7e0f190107eeb5320ceeef73fa4537dd"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/startup.s": {
+      "sha256": "3a3d38a7cc71538d12242d3aa13d77056ea31b7222d1370004fdbbd33b182ae0",
+      "git_blob": "68ca4f5344a931a634f8f662a4bcbe718346a64c"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/firmware.sct": {
+      "sha256": "78a656f401eccf0cc8ee0d734b0a85759359c977a2e47942ddf9c2c4420ed134",
+      "git_blob": "cf5bc53fa6aa498e1d6d24f6fca572ebb6636d08"
+    },
+    "src/rtl/c1_observation_link.v": {
+      "sha256": "7661cec94eed4a0cbc8de81898fac23a87557df18aab97feba6502f7e125a374",
+      "git_blob": "47ee174a3ff9747038bc0f577260433bc3c842bb"
+    },
+    "src/rtl/zynq_motion_s1.v": {
+      "sha256": "8026a2e3f046458a85ca04971dedeadedae84ccaf0e5a64e7430f12dba7039b8",
+      "git_blob": "eec986c591d5084e91f5338670f359735d9c4605"
+    },
+    "src/rtl/uart_tx_8n1.v": {
+      "sha256": "dd7b762d8d5b0812cae5eb2001b03c74e00a5fe1000592b685210aa213e45ad8",
+      "git_blob": "30a5364d9aa3b305164a0db669c478f7e85fc7e8"
+    },
+    "src/rtl/uart_rx.v": {
+      "sha256": "ab32ce229c2bbc484f75833be4f0c81f1a6aa3329bcafa88d081568a2711c712",
+      "git_blob": "e059c622ee2190d1c950594b10628a47df7de752"
+    },
+    "src/rtl/zynq_uart_bridge.v": {
+      "sha256": "62b30c71d626baa48cca7702074ab44b5895721a2648ba88cb911ebf64238895",
+      "git_blob": "2a7781664eac7611c9c76886cfb935452c9be56f"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/build.py": {
+      "sha256": "e9b0686015b10b769176fb29be7a7973025bbe0ff277db344bc356006bd17185",
+      "git_blob": "7deab8ce2b10af678a5df47085b7a4e01d8717f6"
+    },
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/tests/run_checks.py": {
+      "sha256": "05d5c1091353e68de398470576efed0339bdd3815be8f47993e9e7fa1df71241",
+      "git_blob": "2b3e75225cc787a79f36963dc97d94130d1db4c8"
+    }
+  },
+  "evidence_files": {
+    "actual-commands.json": "368fa403852b0a97a2e94564ce15867c6bd46413394a74ca506f2b7b91424fec",
+    "arm-build.json": "80c5d888fc31c2fcfb770f4a6b0d6dd86645830b86ec59724730e366ff63bb74",
+    "arm-main-compiler.txt": "d61790edfc2f7490e7576dac298e9e76ff0d1530fc5ae5eb58d77cd31287ea62",
+    "arm-version.txt": "2a2379c3646f520ae00623c6fe84420ac9858e8f00e00212486f1545d571928f",
+    "compiler-audit.json": "428036bd4fd9a19bef65e43145bf33835b9031301a426273031ef42c8366bf2d",
+    "delivery-validation.json": "c5e52fb4b85ecf42ee87dbf4374f26ac9279d20ad36090a1c9e3ebd04a7f2fd7",
+    "diff-whitespace.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fpga-configuration.json": "599315a77a84befef144521161ae05a9abee9a395ed35153d0cb0f5ff097cad7",
+    "identity-assessment.json": "d72a621799b09dcb2deb9485251ec78061567d339856ea480f0d010af17644e9",
+    "offline-checks.json": "2a9231eafadc7783256adc9612e1468a2fef8fde602cea23aaac6ef418cec570",
+    "passive-ports.json": "23038c1805555c68da7595afe3896430a95d8f131e55828bf033706c9cfe3d03",
+    "private-script-sha256.json": "d94649370e2669f00581dde961b4bb11e69e625d457041683c5c831d5bb5e617",
+    "python-unit.txt": "9b0cc33b04acf9c13eb8d2a9385213c9ac0ef5169443e997dcfcf76ffcde646b",
+    "README.md": "1ec8866e75324da721b9a8bc70f4962dc8851873533e7dbcff9cf634cc628b22",
+    "readonly-capture.json": "93cf4ea9bb99e2592b6529e7e36395d5b17fd72dbacc6b5c38b72d0c06c076d4",
+    "repository.txt": "c1ac354feb06f13f58127b86ac31570ec4e99bf345d682993d787b18d92d8201",
+    "restore-result.json": "58fad5c20ccf326f8e35be6d0d6b0b7e9fb6dd0e25e68a78e934d5456f426205",
+    "stm32-usart3-host.txt": "200400b0162ad9591ba50e65b837d6c2c2c781f60065f16d6b612ad9f4d1a401",
+    "stop-result.json": "13f607e95966f05e6f4d911954581a8bb0b5f28c05fc0de4e99fec27eaf72e77",
+    "target-type.json": "cb44b49c4ab3e4f03c941ef836d6b1471564195438fe093394fa623d9bebff63",
+    "two-camera-transport.json": "2e943634fa8cd3d2f879483ee0a6378b8b549df8db56c3d63428219474cc7319",
+    "video-after-configuration.json": "1ca94782fcec1c24186bdde29a379206ef97b23d245e00df12e8045a0329960f",
+    "video-before-configuration.json": "ddabd91652b3154532722b357d0717e68782c09d14e3785aaa25ebc37801aa0a",
+    "whitespace-first-attempt.json": "318bef0c26d5183e90630762019be4433609adf04afa567a65841de37d501b30",
+    "whitespace-first-attempt.txt": "0d2719768386def18cc0398b1cee636c3741b61ba1558d1f63e5c1a4c47e49de"
+  },
+  "manifest_excludes_itself": true,
+  "public_log_normalization": "UTF-8 LF; trailing empty lines trimmed for Git whitespace checks. Original capture copies remain private.",
+  "scope": "Limited unpowered recovery, video/measurement transport, already-off STOP; not motion acceptance",
+  "runtime_identifier_scan": "PASS; no current diagnostic ID values in public evidence"
+}

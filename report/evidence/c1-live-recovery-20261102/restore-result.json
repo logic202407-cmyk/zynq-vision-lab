@@ -1,0 +1,70 @@
+{
+  "candidate_sha256": "8e9ec97c98c9784d85f3cfe3f26365a1c042b361efcf17dbe06212ae64eb3d26",
+  "candidate_bytes": 12728,
+  "backup_sha256": "8e000ef6c1c5d59af4bee2e24fb19d4a2e63c0fd0c2f7d735775ad4eac1ab000",
+  "layout": {
+    "state_size": 1,
+    "reason_size": 1,
+    "state_offset": 0,
+    "reason_offset": 1,
+    "struct_size": 36
+  },
+  "power_confirmation": "Current user confirmed laser and servo power physically disconnected",
+  "stage": "complete",
+  "erase": "first 16KiB sector only; preserve all other Flash bytes",
+  "motion_commands": [],
+  "whole_flash_matches": true,
+  "deployed_sha256": "bed5e5824a006c8e2bc6ee9e86f6581d4698940fdd0340a46d12ef332817226f",
+  "samples": [
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 1109
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 1364
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 1619
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 1874
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 2129
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 2383
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 2639
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 2894
+    }
+  ],
+  "boot_state_clean": true,
+  "verdict": "PASS"
+}

@@ -1,0 +1,69 @@
+{
+  "scope": "Offline checks only; not motion or electrical acceptance",
+  "source_commit": "91ff049041f9e094a34a53e73f98d46a9b0281bf",
+  "python": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+  "commands": [
+    {
+      "name": "repository",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-X",
+        "utf8",
+        "tools/check_repository.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.922,
+      "log": "repository.txt",
+      "log_sha256": "c1ac354feb06f13f58127b86ac31570ec4e99bf345d682993d787b18d92d8201"
+    },
+    {
+      "name": "python-unit",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.453,
+      "log": "python-unit.txt",
+      "log_sha256": "9b0cc33b04acf9c13eb8d2a9385213c9ac0ef5169443e997dcfcf76ffcde646b"
+    },
+    {
+      "name": "stm32-usart3-host",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-X",
+        "utf8",
+        "src/prototype/skystar_openmv/stm32_skystar_tracking/tests/run_checks.py",
+        "--console-usart",
+        "3"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.953,
+      "log": "stm32-usart3-host.txt",
+      "log_sha256": "200400b0162ad9591ba50e65b837d6c2c2c781f60065f16d6b612ad9f4d1a401"
+    },
+    {
+      "name": "diff-whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.078,
+      "log": "diff-whitespace.txt",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "host_compiler": "gcc.exe (tdm64-1) 4.9.2",
+  "python_test_count": 70,
+  "stm32_assertion_count": 35238,
+  "public_log_normalization": "UTF-8 LF; trailing empty lines trimmed for Git whitespace checks. Original capture copies remain private."
+}

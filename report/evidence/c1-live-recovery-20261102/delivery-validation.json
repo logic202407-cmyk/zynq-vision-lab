@@ -1,0 +1,27 @@
+{
+  "scope": "Documentation, privacy-filtered recovery evidence, staged whitespace and repository links; not motion acceptance",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "D:/Python312/python.exe",
+        "-X",
+        "utf8",
+        "tools/check_repository.py"
+      ],
+      "exit_code": 0,
+      "output": "PASS: repository foundations, local links, and claim-ledger checks.\r\nNot verified: FPGA simulation, synthesis/implementation, board behavior, performance, or all private data.\r\n"
+    }
+  ],
+  "staged_evidence_hash_check": "PASS: all indexed evidence bytes matched manifest at review",
+  "controller_source_changes": false
+}

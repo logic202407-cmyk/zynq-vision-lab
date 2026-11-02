@@ -1,0 +1,19 @@
+{
+  "tool": "Vivado 2024.2 / matching hw_server 2024.2",
+  "source_commit": "91ff049041f9e094a34a53e73f98d46a9b0281bf",
+  "device": "XC7Z100",
+  "bitstream_sha256": "541cd6129a1646c7fc935da0cdc3a32f54d332631f37002a843495ec4c445510",
+  "bitstream_bytes": 17416457,
+  "bitgen_exit_code": 0,
+  "bitgen_seconds": 20.892,
+  "configuration_exit_code": 0,
+  "configuration_seconds": 14.575,
+  "startup": "HIGH",
+  "fpga_flash_written": false,
+  "vio_cores": 1,
+  "final_status": "0x50",
+  "final_control": "0x02",
+  "motion_entry": "hardware-disabled",
+  "optical_ports": "none",
+  "scope": "Volatile JTAG read-only observation candidate; not autonomous motion acceptance"
+}

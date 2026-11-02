@@ -1,0 +1,10 @@
+{
+  "transport_result": "PASS",
+  "source_result": "two-camera-result-private.json",
+  "target_identity": "UNCONFIRMED",
+  "observation": "OpenMV selected a small upper-left red/skin-like region; the paper red circle was not fully visible. Numerical validity is insufficient to prove same-target identity.",
+  "autonomous_tracking": "NOT_STARTED",
+  "laser_output": "PHYSICALLY_DISCONNECTED",
+  "motion_commands": [],
+  "user_scene_adjustment": "requested; pending confirmation"
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "port": "COM14",
+    "transmitted_bytes": 0,
+    "received_bytes": 2150,
+    "status_lines": 25,
+    "fw15": true
+  },
+  {
+    "port": "COM10",
+    "transmitted_bytes": 0,
+    "error": "SerialException"
+  }
+]

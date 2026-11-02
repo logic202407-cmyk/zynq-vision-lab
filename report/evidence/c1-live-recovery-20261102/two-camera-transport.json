@@ -1,0 +1,16 @@
+{
+  "scope": "No-power actual two-camera observation only; not autonomous tracking",
+  "complete_frames": 314,
+  "incomplete_frames": 0,
+  "malformed": 1,
+  "same_frame_matches": 108,
+  "mismatches": 0,
+  "feedback_lines": 181,
+  "feedback_crc_errors": 0,
+  "both_valid_samples": 106,
+  "pwm_all_off": true,
+  "error": null,
+  "verdict": "TRANSPORT_PASS_IDENTITY_UNCONFIRMED",
+  "target_identity": "UNCONFIRMED; OpenMV upper-left partial color region was not a fully visible confirmed paper circle",
+  "sample_count": 110
+}

@@ -1,0 +1,14 @@
+{
+  "capture_readonly.py": "053fd27a6a8e738105eafc939618e4f34b87409adba98c337984648ea1be90ed",
+  "capture_video.py": "b4792f0294a89996d35c15179e04fed585ff902c89bc657a507d8e271e3ffaaf",
+  "click_ide.py": "fb075a54281ab22e682cf63a416614297af96447a95c9aaa5421906febf3319f",
+  "export_recovery.py": "4735d57558031ff571626d31080d3c1a21930138d5f16a3490a286c749d3c9ae",
+  "finalize_delivery.py": "a2ca2c46a985359322ee762ef6ada095cc462e9ae4bbedc2d35cebea974c69fc",
+  "focus_ide.py": "9ceab6ff80c76a0ddb35e9350abaf3a597b8984cad0eda6723ec8cc8e71189f4",
+  "identify_target_readonly.py": "3bfdaeca39404ea2bdfcae2dead35b87ffa8cbb2a4fcf14268777f85a0fdb336",
+  "observe_two_cameras.py": "90abdf1f89ee757a2242205538a9ddf9649c590270a4ee69529cf54e8851096b",
+  "passive_ports.py": "2e2efbda3e18e3303e28978b9307b169a754ea2a86b7c334b96979e69b395a45",
+  "restore_safe_firmware.py": "d5010f03bfbe78fe701fc8897c5957f2cecce727630f4efe9bbeedb04ca0a5e3",
+  "run_delivery_checks.py": "2da47dcaeec46ea53bdcb542ae3b4d5715204f2dfada7116f58b9b5e924ae87f",
+  "verify_stop.py": "eebe87eb2323c657b8af4de1dede7a2fc1cc83bafeb4d7cdc11fbc2aae2d1af2"
+}

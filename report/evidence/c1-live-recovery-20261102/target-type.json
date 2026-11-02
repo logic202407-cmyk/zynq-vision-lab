@@ -1,0 +1,9 @@
+{
+  "arm_part": "0xc24",
+  "device_type_id": "0x413",
+  "likely_stm32f405_f407_family": true,
+  "flash_kib": 512,
+  "tim4_ccer": 0,
+  "core_halted": false,
+  "scope": "Architecture and device-type registers only; no unique ID, halt, reset or writes"
+}

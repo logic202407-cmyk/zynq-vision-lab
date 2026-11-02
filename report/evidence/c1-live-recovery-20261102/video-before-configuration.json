@@ -1,0 +1,10 @@
+{
+  "source": "Recovered from actual tool execution receipt; original result filename was reused by a subsequent capture",
+  "scope": "Live FPGA camera UDP diagnostic before FPGA recovery",
+  "seconds": 8.03100000001723,
+  "completed": 0,
+  "incomplete": 0,
+  "malformed": 0,
+  "valid_target_frames": 0,
+  "verdict": "NO_FRAMES"
+}
