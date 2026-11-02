@@ -1,0 +1,110 @@
+{
+  "environment": {
+    "Python": "3.12.4",
+    "pyOCD": "0.46.0",
+    "Vivado": "2024.2",
+    "TEMP": "R:/evidence/c1-vision-qualification-20261102/temp",
+    "TMP": "R:/evidence/c1-vision-qualification-20261102/temp",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONUTF8": "1"
+  },
+  "commands": [
+    {
+      "command": [
+        "D:/Python312/python.exe",
+        "R:\\evidence\\c1-vision-qualification-20261102\\deploy_quality_candidate.py"
+      ],
+      "actual_exit_code": 0,
+      "exit_code_source": "Observed exec/write_stdin completion, not inferred from data",
+      "result": "preflight.json",
+      "private_script_sha256_at_export": "266fb3ad1ef24d71bf40cfa2075a3927a02f12c3f78e95c75ed491e859a48384",
+      "script_hash_scope": "Preflight occurred before metadata-only script update; execution-time script hash was not captured. Current retained file hash only."
+    },
+    {
+      "command": [
+        "D:/Python312/python.exe",
+        "R:\\evidence\\c1-vision-qualification-20261102\\deploy_quality_candidate.py",
+        "--program-approved"
+      ],
+      "actual_exit_code": 0,
+      "exit_code_source": "Observed exec/write_stdin completion, not inferred from data",
+      "result": "deployment-result.json",
+      "private_script_sha256_at_export": "266fb3ad1ef24d71bf40cfa2075a3927a02f12c3f78e95c75ed491e859a48384",
+      "script_hash_scope": "Current file matches executed programming/observation script"
+    },
+    {
+      "command": [
+        "D:/Python312/python.exe",
+        "R:\\evidence\\c1-vision-deploy-20261102\\passive_read.py",
+        "passive01"
+      ],
+      "actual_exit_code": 0,
+      "exit_code_source": "Observed exec/write_stdin completion, not inferred from data",
+      "result": "passive01-result.json",
+      "private_script_sha256_at_export": "cd1cfbffb6ab97716499e7360d860b405efc630a233f4f666b15443ed9623410",
+      "script_hash_scope": "Current file matches executed programming/observation script"
+    },
+    {
+      "command": [
+        "D:/Python312/python.exe",
+        "R:\\evidence\\c1-vision-deploy-20261102\\passive_read.py",
+        "passive02"
+      ],
+      "actual_exit_code": 0,
+      "exit_code_source": "Observed exec/write_stdin completion, not inferred from data",
+      "result": "passive02-result.json",
+      "private_script_sha256_at_export": "cd1cfbffb6ab97716499e7360d860b405efc630a233f4f666b15443ed9623410",
+      "script_hash_scope": "Current file matches executed programming/observation script"
+    },
+    {
+      "command": [
+        "D:/Python312/python.exe",
+        "R:\\evidence\\c1-vision-deploy-20261102\\capture_video.py"
+      ],
+      "actual_exit_code": 0,
+      "exit_code_source": "Observed exec/write_stdin completion, not inferred from data",
+      "result": "video-result.json",
+      "private_script_sha256_at_export": "75d41114842779c3b277d9d6f21ef8843a6ab379d3f12af7ce473dda1f930f71",
+      "script_hash_scope": "Current file matches executed programming/observation script"
+    },
+    {
+      "command": [
+        "D:/Python312/python.exe",
+        "R:\\evidence\\c1-vision-deploy-20261102\\final_readonly.py"
+      ],
+      "actual_exit_code": 0,
+      "exit_code_source": "Observed exec/write_stdin completion, not inferred from data",
+      "result": "final-readonly.json",
+      "private_script_sha256_at_export": "fbc3eaea466739d9ced9d5b2457eb182db6aa0dfde9de167a40dfdd9b7b79b0c",
+      "script_hash_scope": "Current file matches executed programming/observation script"
+    }
+  ],
+  "hardware_test_scope": "No-power candidate programming, boot and passive communications; no ARM or motion",
+  "failed_jtag_commands": [
+    {
+      "command": "refresh_hw_vio -update_output_values [get_hw_vios]; puts \"CONTROLS:[get_property OUTPUT_VALUE [get_hw_probes c1_controls -of_objects [get_hw_vios]]]\"; puts \"STATUS:[get_property INPUT_VALUE [get_hw_probes c1_status -of_objects [get_hw_vios]]]\"",
+      "exit_code": 1,
+      "error": "Xicom50-38 / Labtools27-3176"
+    },
+    {
+      "command": "refresh_hw_device -update_hw_probes true [get_hw_devices -filter {PART == xc7z100}]; puts \"VIO_COUNT:[llength [get_hw_vios -quiet]]\"",
+      "exit_code": 1,
+      "error": "Labtools27-2312"
+    },
+    {
+      "command": "disconnect_hw_server; connect_hw_server -url localhost:3121; open_hw_target; refresh_hw_device -update_hw_probes true [get_hw_devices -filter {PART == xc7z100}]; puts \"VIO_COUNT:[llength [get_hw_vios -quiet]]\"",
+      "exit_code": 1,
+      "error": "Labtoolstcl44-494 target may be locked"
+    },
+    {
+      "command": "connect_hw_server; open_hw_target; refresh_hw_device -update_hw_probes true [get_hw_devices -filter {PART == xc7z100}]; puts \"VIO_COUNT:[llength [get_hw_vios -quiet]]\"",
+      "exit_code": 1,
+      "error": "Same target unavailable after local2024.2 server restart"
+    },
+    {
+      "command": "set targets [get_hw_targets -quiet]; puts \"TARGET_COUNT:[llength $targets]\"; if {[llength $targets] != 1} {error \"Expected one target; no selection\"}; open_hw_target [lindex $targets 0]; refresh_hw_device -update_hw_probes true [get_hw_devices -filter {PART == xc7z100}]; puts \"VIO_COUNT:[llength [get_hw_vios -quiet]]\"",
+      "exit_code": 1,
+      "error": "TARGET_COUNT:0; selection stopped"
+    }
+  ]
+}

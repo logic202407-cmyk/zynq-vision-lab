@@ -1,0 +1,16 @@
+{
+  "overall": "PARTIAL",
+  "programming": "PASS",
+  "full_flash_readback": "PASS",
+  "boot_pwm_off": "PASS",
+  "uart_passive_status": "PASS",
+  "existing_udp_camera": "PASS_WITH_2_MALFORMED_DATAGRAMS",
+  "fpga_correlated_query": "BLOCKED_JTAG",
+  "new_measurement_binding": "NOT_EXECUTED",
+  "fpga_correlated_stop": "NOT_EXECUTED",
+  "new_openmv_uart_feedback": "NOT_EXECUTED",
+  "powered_stop_waveform": "NOT_TESTED",
+  "autonomous_motion": "NOT_AUTHORIZED_NOT_TESTED",
+  "optical_control": "NOT_IMPLEMENTED_NOT_EXECUTED",
+  "pwm_register_note": "OFF samples do not establish a waveform or mechanical position"
+}

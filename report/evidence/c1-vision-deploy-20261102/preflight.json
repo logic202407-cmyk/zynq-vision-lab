@@ -1,0 +1,50 @@
+{
+  "scope": "Read-only preflight",
+  "source_commit": "e8c32b99c4717600705901137c6aaccf88ec3257",
+  "candidate_application_sha256": "70a3ad2f0117cb9425d47db79eaad32e0c727ed9936665e2b2bef45599e44812",
+  "candidate_bytes": 12836,
+  "prior_flash_sha256": "bed5e5824a006c8e2bc6ee9e86f6581d4698940fdd0340a46d12ef332817226f",
+  "authorization": "User explicitly approved this SHA, first16KiB sector only, servo and laser power physically disconnected",
+  "pwm_enable_authorized": false,
+  "motion_commands": [],
+  "actual_actions": [],
+  "serial_devices": [
+    {
+      "port": "COM12",
+      "vid": 14277,
+      "pid": 4682
+    },
+    {
+      "port": "COM14",
+      "vid": 6790,
+      "pid": 29987
+    },
+    {
+      "port": "COM3",
+      "vid": null,
+      "pid": null
+    },
+    {
+      "port": "COM6",
+      "vid": null,
+      "pid": null
+    },
+    {
+      "port": "COM4",
+      "vid": null,
+      "pid": null
+    },
+    {
+      "port": "COM5",
+      "vid": null,
+      "pid": null
+    }
+  ],
+  "uart_monitor_present": true,
+  "device_type": "0x413",
+  "arm_part": "0xc24",
+  "flash_kib": 512,
+  "fresh_double_backup_equal": true,
+  "stage": "complete",
+  "verdict": "PASS"
+}

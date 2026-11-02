@@ -1,0 +1,30 @@
+{
+  "source_commit": "e8c32b99c4717600705901137c6aaccf88ec3257",
+  "previous_delivery_commit": "ebd676709544efb49869238e42792e886fc06dba",
+  "candidate_application_sha256": "70a3ad2f0117cb9425d47db79eaad32e0c727ed9936665e2b2bef45599e44812",
+  "actual_full_flash_sha256": "61b59cdbdbbbac3e57b847aec63f1f2bb570c3809e026dc0a24246059141471b",
+  "prior_full_flash_sha256": "bed5e5824a006c8e2bc6ee9e86f6581d4698940fdd0340a46d12ef332817226f",
+  "private_jtag_snapshot_sha256": "65e5671daa46f477bcac4b14daf8eb6f02ee6ccf6be45dae356efea3dab0aa96",
+  "public_evidence_sha256": {
+    "commands.json": "291357233aa31e68d571dcb52295d23e7e5998e62959fb7dfa0baa6af5263449",
+    "debug-server-restart.json": "50c1ab396a8b3a542456e0551e069b3b1352adea3d8d78fa9da674fc6aa66443",
+    "delivery-checks.json": "386a2c9b958a13dbdfa86581661373a46f75395ea7d1cd5cb4b65891c4c5533c",
+    "deployment-result.json": "79697ef07c001b832e957bd53820f7040ae7f883e9a51dcb3d6125be676c8b09",
+    "export-initial-failure.json": "b80188b570fba1f9e9cd8da3b764db8e04152118b965e9dab02502fae104909a",
+    "final-readonly.json": "77ae2f26d565f1297f9833de5568536adef91b2b2651cfd680081cbbd5e27bee",
+    "jtag-failures.txt": "91806af17aeae261be4055412d94dfe825cc9600ecf550983198d42f84f695ce",
+    "outcome.json": "59239c6db6eaec55ffdd7f4fa8519145975b37ca010e37332d57b3f9e2e6cd31",
+    "passive01-result.json": "f2af1e10b0b43d9794947e446ab5eef61c0e0ef69edf94d597373b15718d673e",
+    "passive02-result.json": "a7696ebaf0de03742a75dc9ad3f6b6574f931d9e82314a5e3c4a3efc3e29f731",
+    "preflight.json": "783c8fa3afd17f82fb2cdd9ce0021077767775ee281d2d811444b845efb001f5",
+    "program-console.txt": "6bc30b0d89ab76152121072958d8910a100c9b27f7755f2af29817afc9f2b421",
+    "python-delivery.txt": "0a503ae80a5db00fe39933bd1ea644d8b8090b0b5dcf9d1ea35da8f7280e8193",
+    "README.md": "82b8d40d494bc5d008884ca87e405c1eb0f70d06967789d4c93c3d3ab3bdc97a",
+    "repository-delivery.txt": "c1ac354feb06f13f58127b86ac31570ec4e99bf345d682993d787b18d92d8201",
+    "video-result.json": "b723524b94b6790e1333512cdbedac45c328c7a47443ef664938086e0f65be32"
+  },
+  "excludes": [
+    "manifest.json"
+  ],
+  "scope": "Actual unpowered STM32 programming and passive receive; partial communication acceptance, no motion or waveform claim"
+}

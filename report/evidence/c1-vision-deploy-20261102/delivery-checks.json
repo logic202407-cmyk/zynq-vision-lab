@@ -1,0 +1,26 @@
+[
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "actual_exit_code": 0,
+    "seconds": 2.813,
+    "log": "python-delivery.txt",
+    "actual_test_count": 96
+  },
+  {
+    "command": [
+      "D:\\Python312\\python.exe",
+      "tools/check_repository.py"
+    ],
+    "actual_exit_code": 0,
+    "seconds": 1.14,
+    "log": "repository-delivery.txt"
+  }
+]

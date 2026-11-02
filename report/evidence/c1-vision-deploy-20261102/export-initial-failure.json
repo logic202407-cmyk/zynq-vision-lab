@@ -1,0 +1,10 @@
+{
+  "actual_exit_code": 1,
+  "script_sha256": "7fbcb3fd3d224d0dc507430496d994ce099138bb931edfe78378d350d3f90126",
+  "error": "AssertionError: assumed exactly 60 samples per 12s passive run",
+  "actual_samples": {
+    "passive01": 59,
+    "passive02": 59
+  },
+  "correction": "Record actual sample count; do not infer count from nominal sampling period. Hardware PWM-off assertions unchanged."
+}

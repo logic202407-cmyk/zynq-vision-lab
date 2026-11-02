@@ -365,6 +365,21 @@
         "report/evidence/c1-vision-qualification-20261102/receipt.json"
       ],
       "note": "UNFLASHED quality candidate: Python96/96, C quality12, actual RTL/C6 scenarios32 checks, host USART1/3 each35238 assertions, two ARMCC builds0 errors0 warnings. Finite30s image-only OpenMV RAM run completed on stationary paper circle; edge/ambiguity hardware tests NOT performed. Old MCU image unchanged, CCER=0, fresh double full-Flash backup equal. No new production RTL, synthesis, bitstream, programming, PWM enable or motion. Existing S1ACK1/500ms lease/200ms partial timeout/dual-channel semantics retained. Profile/installation geometry, mechanical direction, actual PWM waveform, trusted epoch full-path persistence and board CDC/I/O remain open. Only a multimeter is available; no motion authorization or hardware readiness claim."
+    },
+    {
+      "id": "c1_quality_unpowered_deployment_20261102",
+      "status": "board_verified",
+      "verified_commit": "e8c32b99c4717600705901137c6aaccf88ec3257",
+      "tool_version": "Python3.12.4; pyOCD0.46.0; Vivado/hw_server2024.2",
+      "reviewer": "Codex actual first-sector programming and complete readback; independent reproduction pending",
+      "evidence": [
+        "report/experiments/2026-11-02-c1-quality-unpowered-deploy.md",
+        "report/evidence/c1-vision-deploy-20261102/deployment-result.json",
+        "report/evidence/c1-vision-deploy-20261102/final-readonly.json",
+        "report/evidence/c1-vision-deploy-20261102/outcome.json",
+        "report/evidence/c1-vision-deploy-20261102/jtag-failures.txt"
+      ],
+      "note": "LIMITED deployment only: approved app70a3ad2f now programmed; first16KiB only, complete512KiB exact match61b59cdb, tail preserved. Boot12 samples state0/reason0/CCER0; final independent full readback passes. Two12s passive UART runs each120 statuses and59 PWM-off SWD samples; UDP261 complete/0 incomplete/2 malformed. MCU measurement binding absent and OpenMV frames0. JTAG unavailable after reconnect/server restart, current target count0: new correlated query/binding/STOP NOT executed. No ARM/PWM enable/motion, no FPGA reconfiguration or OpenMV Flash writes. This does not upgrade candidate quality to end-to-end board verification; offline checkpoint unflashed notes describe its earlier snapshot. Multimeter only, waveform and original epoch/CDC/I/O/calibration gaps remain."
     }
   ]
 }

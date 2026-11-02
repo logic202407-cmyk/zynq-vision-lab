@@ -1,0 +1,5 @@
+{
+  "before": "2026-11-02T21:48:48.1427720+08:00",
+  "scope": "Restart unresponsive local 2024.2 debug server only; no FPGA configuration or power action",
+  "reason": "Repeated device unavailable and JTAG lock after user reconnected cable"
+}

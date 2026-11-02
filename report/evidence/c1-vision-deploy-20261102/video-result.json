@@ -1,0 +1,312 @@
+{
+  "scope": "Existing FPGA OV5640 UDP only, not MCU measurement acceptance or tracking",
+  "seconds": 10.047,
+  "complete_frames": 261,
+  "incomplete_frames": 0,
+  "malformed": 2,
+  "valid_target_frames": 261,
+  "measurement_samples": [
+    {
+      "frame_seq": 348946,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20230,
+      "sum_x": 1731412,
+      "sum_y": 2900373,
+      "bbox": [
+        5,
+        61,
+        633,
+        403
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348947,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20305,
+      "sum_x": 1738348,
+      "sum_y": 2926272,
+      "bbox": [
+        6,
+        61,
+        625,
+        407
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348948,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20565,
+      "sum_x": 1764484,
+      "sum_y": 2969230,
+      "bbox": [
+        4,
+        61,
+        627,
+        406
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348949,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20130,
+      "sum_x": 1723965,
+      "sum_y": 2888202,
+      "bbox": [
+        6,
+        61,
+        625,
+        407
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348950,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20525,
+      "sum_x": 1764276,
+      "sum_y": 2963333,
+      "bbox": [
+        4,
+        61,
+        615,
+        408
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348951,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20595,
+      "sum_x": 1771206,
+      "sum_y": 2978471,
+      "bbox": [
+        4,
+        61,
+        632,
+        406
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348952,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20563,
+      "sum_x": 1782265,
+      "sum_y": 2981035,
+      "bbox": [
+        5,
+        61,
+        609,
+        406
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348953,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 19893,
+      "sum_x": 1712300,
+      "sum_y": 2848722,
+      "bbox": [
+        5,
+        61,
+        626,
+        406
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348954,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20592,
+      "sum_x": 1787921,
+      "sum_y": 2970628,
+      "bbox": [
+        4,
+        61,
+        616,
+        406
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348955,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20018,
+      "sum_x": 1713489,
+      "sum_y": 2874887,
+      "bbox": [
+        4,
+        61,
+        594,
+        405
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348956,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20662,
+      "sum_x": 1798088,
+      "sum_y": 2991556,
+      "bbox": [
+        4,
+        61,
+        627,
+        406
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348957,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20188,
+      "sum_x": 1724674,
+      "sum_y": 2903690,
+      "bbox": [
+        5,
+        61,
+        631,
+        407
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348958,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20601,
+      "sum_x": 1781340,
+      "sum_y": 2983524,
+      "bbox": [
+        4,
+        61,
+        615,
+        407
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348959,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20157,
+      "sum_x": 1731147,
+      "sum_y": 2899878,
+      "bbox": [
+        5,
+        61,
+        625,
+        406
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348960,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20294,
+      "sum_x": 1745170,
+      "sum_y": 2925559,
+      "bbox": [
+        5,
+        61,
+        627,
+        406
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348961,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20182,
+      "sum_x": 1722116,
+      "sum_y": 2899859,
+      "bbox": [
+        5,
+        61,
+        551,
+        406
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348962,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20409,
+      "sum_x": 1746193,
+      "sum_y": 2934979,
+      "bbox": [
+        4,
+        61,
+        623,
+        406
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348963,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20254,
+      "sum_x": 1748943,
+      "sum_y": 2916514,
+      "bbox": [
+        4,
+        61,
+        626,
+        406
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348964,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20242,
+      "sum_x": 1730808,
+      "sum_y": 2911867,
+      "bbox": [
+        4,
+        61,
+        615,
+        407
+      ],
+      "mask_version": 2
+    },
+    {
+      "frame_seq": 348965,
+      "frame_complete": true,
+      "target_valid": true,
+      "count": 20543,
+      "sum_x": 1755666,
+      "sum_y": 2967863,
+      "bbox": [
+        4,
+        61,
+        602,
+        406
+      ],
+      "mask_version": 2
+    }
+  ],
+  "error": null,
+  "verdict": "PASS"
+}

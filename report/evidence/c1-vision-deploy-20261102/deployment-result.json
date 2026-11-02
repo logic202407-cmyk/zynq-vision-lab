@@ -1,0 +1,135 @@
+{
+  "scope": "User-approved no-power first-sector STM32 programming and readback only",
+  "source_commit": "e8c32b99c4717600705901137c6aaccf88ec3257",
+  "candidate_application_sha256": "70a3ad2f0117cb9425d47db79eaad32e0c727ed9936665e2b2bef45599e44812",
+  "candidate_bytes": 12836,
+  "prior_flash_sha256": "bed5e5824a006c8e2bc6ee9e86f6581d4698940fdd0340a46d12ef332817226f",
+  "authorization": "User explicitly approved this SHA, first16KiB sector only, servo and laser power physically disconnected",
+  "pwm_enable_authorized": false,
+  "motion_commands": [],
+  "actual_actions": [
+    "reset_and_halt",
+    "program_first_16KiB_sector",
+    "reset_verified_application"
+  ],
+  "serial_devices": [
+    {
+      "port": "COM12",
+      "vid": 14277,
+      "pid": 4682
+    },
+    {
+      "port": "COM14",
+      "vid": 6790,
+      "pid": 29987
+    },
+    {
+      "port": "COM3",
+      "vid": null,
+      "pid": null
+    },
+    {
+      "port": "COM6",
+      "vid": null,
+      "pid": null
+    },
+    {
+      "port": "COM4",
+      "vid": null,
+      "pid": null
+    },
+    {
+      "port": "COM5",
+      "vid": null,
+      "pid": null
+    }
+  ],
+  "uart_monitor_present": true,
+  "pyocd_version": "0.46.0",
+  "device_type": "0x413",
+  "arm_part": "0xc24",
+  "flash_kib": 512,
+  "fresh_double_backup_equal": true,
+  "stage": "complete",
+  "readback_full_sha256": "61b59cdbdbbbac3e57b847aec63f1f2bb570c3809e026dc0a24246059141471b",
+  "whole_flash_matches": true,
+  "tail_preserved": true,
+  "boot_samples": [
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 1103
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 1356
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 1612
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 1865
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 2118
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 2371
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 2624
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 2877
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 3130
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 3384
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 3636
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "ccer": 0,
+      "milliseconds": 3891
+    }
+  ],
+  "boot_stopped": true,
+  "boot_reason_zero": true,
+  "core_running": true,
+  "verdict": "PASS"
+}
