@@ -276,13 +276,16 @@
     },
     {
       "id": "c1_reset_qid_hardening",
-      "status": "implemented",
+      "status": "simulated",
       "evidence": [
         "docs/c1_reset_epoch_hardening.md",
         "report/experiments/2026-11-01-c1-reset-hardening.md",
         "report/evidence/c1-reset-hardening/README.md"
       ],
-      "note": "Offline reset/QID repair with passing XSim/real-C/OOC evidence. Await source-commit pin. Not deployed; epoch provider, complete vendor board CDC/IO and physical measurement remain blockers."
+      "note": "Offline reset/QID repair only: passing XSim/real-C and reset-context OOC route, zero CDC Critical with 219 payload warnings retained. Not deployed. Persistent epoch, full vendor board CDC/IO and physical measurement remain blockers.",
+      "verified_commit": "cd59c229a65bd1871d03221bf55c7ba12a600b62",
+      "tool_version": "Vivado/XSim 2024.2; Python 3.12.4; GCC 4.9.2",
+      "reviewer": "Codex offline assertions and report review; independent reproduction pending"
     }
   ]
 }

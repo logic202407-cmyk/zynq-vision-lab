@@ -1,0 +1,21 @@
+{
+  "source_commit": "cd59c229a65bd1871d03221bf55c7ba12a600b62",
+  "git_blob_sha256": {
+    "board/skystar_f407/c1_observation_insert.vh": "8dfe6fbba98282dbb1d43172973d35e0dbba05acc186b776e48a265f51ad7446",
+    "build/check_reset_cdc.tcl": "8f0c133f65c4a44ecda535499d8969c3c70e34b7b61dda3c8ba4b63700ea711f",
+    "sim/c1/observation_local_reset_bridge_tb.v": "6a99e1da52eea6e5211be81bddbb97a075c4f1d284431ef6b257bbb17a3336c9",
+    "sim/c1/observation_reset_tree_tb.v": "47fa3d5908287b60e8017886704969147d89ffd2162eb6e9d8d20ca320f83f55",
+    "sim/c1/reset_cdc_audit_top.v": "2b7c50a80bff48ae11291e0ec02f98158b3144aa7fc3830de7b6d3a703b14672",
+    "sim/c1/vision_cdc_reset_tb.v": "4108ae810c84b5798663c03005171d187c65dcfc637425405b3c0153c4a6c0ce",
+    "src/rtl/c1_observation_link.v": "b2cc851d7175e14c2d196936f659de9e808d1e927a84a4e6ad6c80e187c6df3c",
+    "src/rtl/vision_snapshot_cdc.v": "c33810aa73c7189b770ca191b635a82d3e5e8eb6f407eae89c14ef88db023146",
+    "src/rtl/zynq_motion_s1.v": "3aeb29852a1784647eaa421fce922cbc76f846311995d2d8bb51954f95a83ec0",
+    "src/rtl/zynq_vision_link.v": "e609ad7c6de1bf1b242126585149e094efcebce193c312442e6d2806d185c9d0",
+    "tools/check_c1_observation_board.py": "d6794bf6cfc4621dc049cf7a2a0cf06a8c570ee4bff8beff709943de1756c86c",
+    "tools/check_c1_reset_hardening.py": "223d27a72275233c5a397d075d940b2ee4a913c977ae8ca257896f373af6c0f6",
+    "tools/check_c1_reset_tree.py": "02b499d21df4b4afcda1561776815d53b902a5a5f9f9021426d3ca8021867762"
+  },
+  "b3_archive_commit": "3f96673db2dcb8029ec63bc81b4a352af644b694",
+  "hardware_actions": [],
+  "scope": "Offline candidate only; no hardware acceptance"
+}

@@ -730,4 +730,3 @@ Row  ID      Severity  Description                                         Depth
 441  CDC-7   Critical  Asynchronous reset unknown CDC circuitry                0  None                     c1_cam_release_reg[1]/C                     c1_observation/link/cdc/dst_valid_reg/CLR
 442  CDC-3   Info      1-bit synchronized with ASYNC_REG property              2  False Path               c1_observation/link/cdc/request_reg/C       c1_observation/link/cdc/req_sync_reg[0]/D
 443  CDC-7   Critical  Asynchronous reset unknown CDC circuitry                0  None                     c1_cam_release_reg[1]/C                     c1_observation/link/config_reset_n_reg_inv/PRE
-

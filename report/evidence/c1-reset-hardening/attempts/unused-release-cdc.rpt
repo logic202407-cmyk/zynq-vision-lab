@@ -256,4 +256,3 @@ Row  ID      Severity  Description                                         Depth
 219  CDC-15  Warning   Clock enable controlled CDC structure detected          0  Max Delay Datapath Only  c1_observation/link/cdc/holding_reg[217]/C  c1_observation/link/cdc/dst_data_reg[217]/D
 220  CDC-15  Warning   Clock enable controlled CDC structure detected          0  Max Delay Datapath Only  c1_observation/link/cdc/holding_reg[218]/C  c1_observation/link/cdc/dst_data_reg[218]/D
 221  CDC-3   Info      1-bit synchronized with ASYNC_REG property              2  False Path               c1_observation/link/cdc/request_reg/C       c1_observation/link/cdc/req_sync_reg[0]/D
-

@@ -35,14 +35,12 @@ Table of Contents
 2. REPORT DETAILS
 -----------------
 RTSTAT-10#1 Warning
-No routable loads  
+No routable loads
 2 net(s) have no routable loads. The problem bus(es) and/or net(s) are c1_observation/link/motion/fault
 c1_observation/link/scheduler/serializer/tx.
 Related violations: <none>
 
 ZPS7-1#1 Warning
-PS7 block required  
+PS7 block required
 The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
 Related violations: <none>
-
-

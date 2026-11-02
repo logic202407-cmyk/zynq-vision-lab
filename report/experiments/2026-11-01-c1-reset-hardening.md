@@ -52,4 +52,4 @@ epoch 仅增加数值保护，**持久化提供者仍为 HARDWARE BLOCKER**。`l
 
 结论：本轮修复候选可供离线复核，仍不能申请自主运动实机验收。后续优先关闭完整板级时序/厂商 CDC 与可靠 epoch 提供者，保留激光和舵机动力断开。
 
-版本提交与远端核验见后续版本回执；报告不自填尚不存在的 commit SHA。
+修复源码提交：`cd59c229a65bd1871d03221bf55c7ba12a600b62`；[版本回执](../evidence/c1-reset-hardening/receipt.json)记录 Git 对象 SHA-256。日志以 .txt 入库，主机信息及尾部空白脱敏；原始日志仍在 D 盘。

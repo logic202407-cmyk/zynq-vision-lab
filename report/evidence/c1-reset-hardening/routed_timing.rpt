@@ -29,11 +29,11 @@ Timing Summary Report
   Merge Timing Exceptions                    :  Yes
   Inter-SLR Compensation                     :  Conservative
 
-  Corner  Analyze    Analyze    
-  Name    Max Paths  Min Paths  
-  ------  ---------  ---------  
-  Slow    Yes        Yes        
-  Fast    Yes        Yes        
+  Corner  Analyze    Analyze
+  Name    Max Paths  Min Paths
+  ------  ---------  ---------
+  Slow    Yes        Yes
+  Fast    Yes        Yes
 
 
 ------------------------------------------------------------------------------------------------
@@ -136,9 +136,9 @@ Table of Contents
 | ---------------------
 ------------------------------------------------------------------------------------------------
 
-    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
-    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      5.259        0.000                      0                28538        0.082        0.000                      0                28319        9.232        0.000                       0                 10142  
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------
+      5.259        0.000                      0                28538        0.082        0.000                      0                28319        9.232        0.000                       0                 10142
 
 
 All user specified timing constraints are met.
@@ -151,8 +151,8 @@ All user specified timing constraints are met.
 
 Clock   Waveform(ns)       Period(ns)      Frequency(MHz)
 -----   ------------       ----------      --------------
-camera  {0.000 10.000}     20.000          50.000          
-system  {0.000 10.000}     20.000          50.000          
+camera  {0.000 10.000}     20.000          50.000
+system  {0.000 10.000}     20.000          50.000
 
 
 ------------------------------------------------------------------------------------------------
@@ -160,10 +160,10 @@ system  {0.000 10.000}     20.000          50.000
 | -----------------
 ------------------------------------------------------------------------------------------------
 
-Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
------             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-camera             15.936        0.000                      0                  505        0.082        0.000                      0                  505        9.600        0.000                       0                   476  
-system              5.259        0.000                      0                18713        0.094        0.000                      0                18713        9.232        0.000                       0                  9666  
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------
+camera             15.936        0.000                      0                  505        0.082        0.000                      0                  505        9.600        0.000                       0                   476
+system              5.259        0.000                      0                18713        0.094        0.000                      0                18713        9.232        0.000                       0                  9666
 
 
 ------------------------------------------------------------------------------------------------
@@ -171,9 +171,9 @@ system              5.259        0.000                      0                187
 | -----------------
 ------------------------------------------------------------------------------------------------
 
-From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
-----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
-camera        system             18.984        0.000                      0                  219                                                                        
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------
+camera        system             18.984        0.000                      0                  219
 
 
 ------------------------------------------------------------------------------------------------
@@ -181,11 +181,11 @@ camera        system             18.984        0.000                      0     
 | -----------------------
 ------------------------------------------------------------------------------------------------
 
-Path Group         From Clock         To Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
-----------         ----------         --------               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
-**async_default**  camera             camera                  15.607        0.000                      0                  474        0.582        0.000                      0                  474  
-**async_default**  system             camera                  10.266        0.000                      0                    2        5.242        0.000                      0                    2  
-**async_default**  system             system                   8.628        0.000                      0                 8625        0.320        0.000                      0                 8625  
+Path Group         From Clock         To Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints
+----------         ----------         --------               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------
+**async_default**  camera             camera                  15.607        0.000                      0                  474        0.582        0.000                      0                  474
+**async_default**  system             camera                  10.266        0.000                      0                    2        5.242        0.000                      0                    2
+**async_default**  system             system                   8.628        0.000                      0                 8625        0.320        0.000                      0                 8625
 
 
 ------------------------------------------------------------------------------------------------
@@ -193,10 +193,10 @@ Path Group         From Clock         To Clock               WNS(ns)      TNS(ns
 | -----------------------
 ------------------------------------------------------------------------------------------------
 
-Path Group    From Clock    To Clock    
-----------    ----------    --------    
-(none)        system        camera        
-(none)        camera        system        
+Path Group    From Clock    To Clock
+----------    ----------    --------
+(none)        system        camera
+(none)        camera        system
 
 
 ------------------------------------------------------------------------------------------------
@@ -204,13 +204,13 @@ Path Group    From Clock    To Clock
 | ------------------------
 ------------------------------------------------------------------------------------------------
 
-Path Group    From Clock    To Clock    
-----------    ----------    --------    
-(none)                                    
-(none)        camera                      
-(none)        system                      
-(none)                      camera        
-(none)                      system        
+Path Group    From Clock    To Clock
+----------    ----------    --------
+(none)
+(none)        camera
+(none)        system
+(none)                      camera
+(none)                      system
 
 
 ------------------------------------------------------------------------------------------------
@@ -242,7 +242,7 @@ Slack (MET) :             15.936ns  (required time - arrival time)
   Data Path Delay:        3.801ns  (logic 0.362ns (9.524%)  route 3.439ns (90.476%))
   Logic Levels:           1  (LUT4=1)
   Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    0.510ns = ( 20.510 - 20.000 ) 
+    Destination Clock Delay (DCD):    0.510ns = ( 20.510 - 20.000 )
     Source Clock Delay      (SCD):    0.537ns
     Clock Pessimism Removal (CPR):    0.000ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -253,7 +253,7 @@ Slack (MET) :             15.936ns  (required time - arrival time)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.537     0.537    cam_pclk
     SLICE_X18Y72         FDCE                                         r  sample_strobe_reg/C
@@ -265,18 +265,18 @@ Slack (MET) :             15.936ns  (required time - arrival time)
     SLICE_X40Y64         FDCE                                         r  c1_observation/link/cdc/holding_reg[132]/CE
   -------------------------------------------------------------------    -------------------
 
-                         (clock camera rise edge)    20.000    20.000 r  
+                         (clock camera rise edge)    20.000    20.000 r
                                                       0.000    20.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.510    20.510    c1_observation/link/cdc/cam_pclk
     SLICE_X40Y64         FDCE                                         r  c1_observation/link/cdc/holding_reg[132]/C
-                         clock pessimism              0.000    20.510    
-                         clock uncertainty           -0.035    20.475    
+                         clock pessimism              0.000    20.510
+                         clock uncertainty           -0.035    20.475
     SLICE_X40Y64         FDCE (Setup_fdce_C_CE)      -0.201    20.274    c1_observation/link/cdc/holding_reg[132]
   -------------------------------------------------------------------
-                         required time                         20.274    
-                         arrival time                          -4.338    
+                         required time                         20.274
+                         arrival time                          -4.338
   -------------------------------------------------------------------
-                         slack                                 15.936    
+                         slack                                 15.936
 
 
 
@@ -293,7 +293,7 @@ Slack (MET) :             0.082ns  (arrival time - required time)
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (camera rise@0.000ns - camera rise@0.000ns)
   Data Path Delay:        0.155ns  (logic 0.100ns (64.712%)  route 0.055ns (35.288%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Path Skew:        0.014ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    0.280ns
     Source Clock Delay      (SCD):    0.266ns
@@ -301,7 +301,7 @@ Slack (MET) :             0.082ns  (arrival time - required time)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.266     0.266    cam_pclk
     SLICE_X9Y58          FDCE                                         r  camera_sample_reg[187]/C
@@ -311,17 +311,17 @@ Slack (MET) :             0.082ns  (arrival time - required time)
     SLICE_X8Y58          FDCE                                         r  c1_observation/link/cdc/holding_reg[187]/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.280     0.280    c1_observation/link/cdc/cam_pclk
     SLICE_X8Y58          FDCE                                         r  c1_observation/link/cdc/holding_reg[187]/C
-                         clock pessimism              0.000     0.280    
+                         clock pessimism              0.000     0.280
     SLICE_X8Y58          FDCE (Hold_fdce_C_D)         0.059     0.339    c1_observation/link/cdc/holding_reg[187]
   -------------------------------------------------------------------
-                         required time                         -0.339    
-                         arrival time                           0.421    
+                         required time                         -0.339
+                         arrival time                           0.421
   -------------------------------------------------------------------
-                         slack                                  0.082    
+                         slack                                  0.082
 
 
 
@@ -364,7 +364,7 @@ Slack (MET) :             5.259ns  (required time - arrival time)
   Data Path Delay:        14.711ns  (logic 0.494ns (3.358%)  route 14.217ns (96.642%))
   Logic Levels:           4  (LUT2=1 LUT4=2 LUT6=1)
   Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    0.510ns = ( 20.510 - 20.000 ) 
+    Destination Clock Delay (DCD):    0.510ns = ( 20.510 - 20.000 )
     Source Clock Delay      (SCD):    0.537ns
     Clock Pessimism Removal (CPR):    0.000ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -375,7 +375,7 @@ Slack (MET) :             5.259ns  (required time - arrival time)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.537     0.537    c1_observation/link/motion/clk_50m
     SLICE_X45Y110        FDCE                                         r  c1_observation/link/motion/ti_reg[30]_rep__1/C
@@ -393,18 +393,18 @@ Slack (MET) :             5.259ns  (required time - arrival time)
     SLICE_X67Y144        FDCE                                         r  c1_observation/link/motion/tok_reg[8][194]/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock system rise edge)    20.000    20.000 r  
+                         (clock system rise edge)    20.000    20.000 r
                                                       0.000    20.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.510    20.510    c1_observation/link/motion/clk_50m
     SLICE_X67Y144        FDCE                                         r  c1_observation/link/motion/tok_reg[8][194]/C
-                         clock pessimism              0.000    20.510    
-                         clock uncertainty           -0.035    20.475    
+                         clock pessimism              0.000    20.510
+                         clock uncertainty           -0.035    20.475
     SLICE_X67Y144        FDCE (Setup_fdce_C_D)        0.033    20.508    c1_observation/link/motion/tok_reg[8][194]
   -------------------------------------------------------------------
-                         required time                         20.508    
-                         arrival time                         -15.248    
+                         required time                         20.508
+                         arrival time                         -15.248
   -------------------------------------------------------------------
-                         slack                                  5.259    
+                         slack                                  5.259
 
 
 
@@ -421,7 +421,7 @@ Slack (MET) :             0.094ns  (arrival time - required time)
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (system rise@0.000ns - system rise@0.000ns)
   Data Path Delay:        0.155ns  (logic 0.100ns (64.566%)  route 0.055ns (35.434%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Path Skew:        0.014ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    0.280ns
     Source Clock Delay      (SCD):    0.266ns
@@ -429,7 +429,7 @@ Slack (MET) :             0.094ns  (arrival time - required time)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.266     0.266    c1_observation/link/config_link/rx/clk_50m
     SLICE_X21Y74         FDPE                                         r  c1_observation/link/config_link/rx/meta_reg/C
@@ -439,17 +439,17 @@ Slack (MET) :             0.094ns  (arrival time - required time)
     SLICE_X21Y74         FDPE                                         r  c1_observation/link/config_link/rx/synced_reg/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.280     0.280    c1_observation/link/config_link/rx/clk_50m
     SLICE_X21Y74         FDPE                                         r  c1_observation/link/config_link/rx/synced_reg/C
-                         clock pessimism              0.000     0.280    
+                         clock pessimism              0.000     0.280
     SLICE_X21Y74         FDPE (Hold_fdpe_C_D)         0.047     0.327    c1_observation/link/config_link/rx/synced_reg
   -------------------------------------------------------------------
-                         required time                         -0.327    
-                         arrival time                           0.421    
+                         required time                         -0.327
+                         arrival time                           0.421
   -------------------------------------------------------------------
-                         slack                                  0.094    
+                         slack                                  0.094
 
 
 
@@ -489,7 +489,7 @@ Slack (MET) :             18.984ns  (required time - arrival time)
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            20.000ns  (MaxDelay Path 20.000ns)
   Data Path Delay:        0.923ns  (logic 0.204ns (22.098%)  route 0.719ns (77.902%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Timing Exception:       MaxDelay Path 20.000ns -datapath_only
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -500,13 +500,13 @@ Slack (MET) :             18.984ns  (required time - arrival time)
     SLICE_X25Y60         FDCE                                         r  c1_observation/link/cdc/dst_data_reg[213]/D
   -------------------------------------------------------------------    -------------------
 
-                         max delay                   20.000    20.000    
+                         max delay                   20.000    20.000
     SLICE_X25Y60         FDCE (Setup_fdce_C_D)       -0.093    19.907    c1_observation/link/cdc/dst_data_reg[213]
   -------------------------------------------------------------------
-                         required time                         19.907    
-                         arrival time                          -0.923    
+                         required time                         19.907
+                         arrival time                          -0.923
   -------------------------------------------------------------------
-                         slack                                 18.984    
+                         slack                                 18.984
 
 
 
@@ -535,7 +535,7 @@ Slack (MET) :             15.607ns  (required time - arrival time)
   Data Path Delay:        4.030ns  (logic 0.333ns (8.263%)  route 3.697ns (91.737%))
   Logic Levels:           1  (LUT1=1)
   Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    0.510ns = ( 20.510 - 20.000 ) 
+    Destination Clock Delay (DCD):    0.510ns = ( 20.510 - 20.000 )
     Source Clock Delay      (SCD):    0.537ns
     Clock Pessimism Removal (CPR):    0.000ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -546,7 +546,7 @@ Slack (MET) :             15.607ns  (required time - arrival time)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.537     0.537    cam_pclk
     SLICE_X19Y72         FDCE                                         r  c1_cam_release_reg[1]/C
@@ -558,18 +558,18 @@ Slack (MET) :             15.607ns  (required time - arrival time)
     SLICE_X40Y65         FDCE                                         f  camera_sample_reg[132]/CLR
   -------------------------------------------------------------------    -------------------
 
-                         (clock camera rise edge)    20.000    20.000 r  
+                         (clock camera rise edge)    20.000    20.000 r
                                                       0.000    20.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.510    20.510    cam_pclk
     SLICE_X40Y65         FDCE                                         r  camera_sample_reg[132]/C
-                         clock pessimism              0.000    20.510    
-                         clock uncertainty           -0.035    20.475    
+                         clock pessimism              0.000    20.510
+                         clock uncertainty           -0.035    20.475
     SLICE_X40Y65         FDCE (Recov_fdce_C_CLR)     -0.301    20.174    camera_sample_reg[132]
   -------------------------------------------------------------------
-                         required time                         20.174    
-                         arrival time                          -4.567    
+                         required time                         20.174
+                         arrival time                          -4.567
   -------------------------------------------------------------------
-                         slack                                 15.607    
+                         slack                                 15.607
 
 
 
@@ -594,7 +594,7 @@ Slack (MET) :             0.582ns  (arrival time - required time)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.266     0.266    cam_pclk
     SLICE_X19Y72         FDCE                                         r  c1_cam_release_reg[1]/C
@@ -606,17 +606,17 @@ Slack (MET) :             0.582ns  (arrival time - required time)
     SLICE_X14Y72         FDCE                                         f  c1_observation/link/cdc/holding_reg[196]/CLR
   -------------------------------------------------------------------    -------------------
 
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.280     0.280    c1_observation/link/cdc/cam_pclk
     SLICE_X14Y72         FDCE                                         r  c1_observation/link/cdc/holding_reg[196]/C
-                         clock pessimism              0.000     0.280    
+                         clock pessimism              0.000     0.280
     SLICE_X14Y72         FDCE (Remov_fdce_C_CLR)     -0.090     0.190    c1_observation/link/cdc/holding_reg[196]
   -------------------------------------------------------------------
-                         required time                         -0.190    
-                         arrival time                           0.772    
+                         required time                         -0.190
+                         arrival time                           0.772
   -------------------------------------------------------------------
-                         slack                                  0.582    
+                         slack                                  0.582
 
 
 
@@ -645,7 +645,7 @@ Slack (MET) :             10.266ns  (required time - arrival time)
   Data Path Delay:        9.459ns  (logic 0.330ns (3.489%)  route 9.129ns (96.511%))
   Logic Levels:           1  (LUT1=1)
   Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    0.510ns = ( 20.510 - 20.000 ) 
+    Destination Clock Delay (DCD):    0.510ns = ( 20.510 - 20.000 )
     Source Clock Delay      (SCD):    0.537ns
     Clock Pessimism Removal (CPR):    0.000ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -657,7 +657,7 @@ Slack (MET) :             10.266ns  (required time - arrival time)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.537     0.537    clk_50m
     SLICE_X17Y129        FDCE                                         r  c1_sys_release_reg[1]/C
@@ -669,18 +669,18 @@ Slack (MET) :             10.266ns  (required time - arrival time)
     SLICE_X19Y72         FDCE                                         f  c1_cam_release_reg[0]/CLR
   -------------------------------------------------------------------    -------------------
 
-                         (clock camera rise edge)    20.000    20.000 r  
+                         (clock camera rise edge)    20.000    20.000 r
                                                       0.000    20.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.510    20.510    cam_pclk
     SLICE_X19Y72         FDCE                                         r  c1_cam_release_reg[0]/C
-                         clock pessimism              0.000    20.510    
-                         clock uncertainty           -0.035    20.475    
+                         clock pessimism              0.000    20.510
+                         clock uncertainty           -0.035    20.475
     SLICE_X19Y72         FDCE (Recov_fdce_C_CLR)     -0.212    20.263    c1_cam_release_reg[0]
   -------------------------------------------------------------------
-                         required time                         20.263    
-                         arrival time                          -9.996    
+                         required time                         20.263
+                         arrival time                          -9.996
   -------------------------------------------------------------------
-                         slack                                 10.266    
+                         slack                                 10.266
 
 
 
@@ -711,7 +711,7 @@ Slack (MET) :             5.242ns  (arrival time - required time)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.266     0.266    clk_50m
     SLICE_X17Y129        FDCE                                         r  c1_sys_release_reg[1]/C
@@ -723,18 +723,18 @@ Slack (MET) :             5.242ns  (arrival time - required time)
     SLICE_X19Y72         FDCE                                         f  c1_cam_release_reg[0]/CLR
   -------------------------------------------------------------------    -------------------
 
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.280     0.280    cam_pclk
     SLICE_X19Y72         FDCE                                         r  c1_cam_release_reg[0]/C
-                         clock pessimism              0.000     0.280    
-                         clock uncertainty            0.035     0.316    
+                         clock pessimism              0.000     0.280
+                         clock uncertainty            0.035     0.316
     SLICE_X19Y72         FDCE (Remov_fdce_C_CLR)     -0.069     0.247    c1_cam_release_reg[0]
   -------------------------------------------------------------------
-                         required time                         -0.247    
-                         arrival time                           5.489    
+                         required time                         -0.247
+                         arrival time                           5.489
   -------------------------------------------------------------------
-                         slack                                  5.242    
+                         slack                                  5.242
 
 
 
@@ -763,7 +763,7 @@ Slack (MET) :             8.628ns  (required time - arrival time)
   Data Path Delay:        11.098ns  (logic 0.330ns (2.974%)  route 10.768ns (97.026%))
   Logic Levels:           1  (LUT1=1)
   Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    0.510ns = ( 20.510 - 20.000 ) 
+    Destination Clock Delay (DCD):    0.510ns = ( 20.510 - 20.000 )
     Source Clock Delay      (SCD):    0.537ns
     Clock Pessimism Removal (CPR):    0.000ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -774,7 +774,7 @@ Slack (MET) :             8.628ns  (required time - arrival time)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.537     0.537    clk_50m
     SLICE_X17Y129        FDCE                                         r  c1_sys_release_reg[1]/C
@@ -786,18 +786,18 @@ Slack (MET) :             8.628ns  (required time - arrival time)
     SLICE_X97Y124        FDCE                                         f  c1_observation/link/motion/tok_reg[17][104]/CLR
   -------------------------------------------------------------------    -------------------
 
-                         (clock system rise edge)    20.000    20.000 r  
+                         (clock system rise edge)    20.000    20.000 r
                                                       0.000    20.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.510    20.510    c1_observation/link/motion/clk_50m
     SLICE_X97Y124        FDCE                                         r  c1_observation/link/motion/tok_reg[17][104]/C
-                         clock pessimism              0.000    20.510    
-                         clock uncertainty           -0.035    20.475    
+                         clock pessimism              0.000    20.510
+                         clock uncertainty           -0.035    20.475
     SLICE_X97Y124        FDCE (Recov_fdce_C_CLR)     -0.212    20.263    c1_observation/link/motion/tok_reg[17][104]
   -------------------------------------------------------------------
-                         required time                         20.263    
-                         arrival time                         -11.635    
+                         required time                         20.263
+                         arrival time                         -11.635
   -------------------------------------------------------------------
-                         slack                                  8.628    
+                         slack                                  8.628
 
 
 
@@ -814,7 +814,7 @@ Slack (MET) :             0.320ns  (arrival time - required time)
   Path Type:              Removal (Min at Fast Process Corner)
   Requirement:            0.000ns  (system rise@0.000ns - system rise@0.000ns)
   Data Path Delay:        0.284ns  (logic 0.118ns (41.598%)  route 0.166ns (58.402%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Path Skew:        0.014ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    0.280ns
     Source Clock Delay      (SCD):    0.266ns
@@ -822,7 +822,7 @@ Slack (MET) :             0.320ns  (arrival time - required time)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.266     0.266    c1_observation/link/clk_50m
     SLICE_X30Y80         FDPE                                         r  c1_observation/link/config_reset_n_reg_inv/C
@@ -832,17 +832,17 @@ Slack (MET) :             0.320ns  (arrival time - required time)
     SLICE_X26Y80         FDCE                                         f  c1_observation/link/config_link/rx/ticks_reg[25]/CLR
   -------------------------------------------------------------------    -------------------
 
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.280     0.280    c1_observation/link/config_link/rx/clk_50m
     SLICE_X26Y80         FDCE                                         r  c1_observation/link/config_link/rx/ticks_reg[25]/C
-                         clock pessimism              0.000     0.280    
+                         clock pessimism              0.000     0.280
     SLICE_X26Y80         FDCE (Remov_fdce_C_CLR)     -0.050     0.230    c1_observation/link/config_link/rx/ticks_reg[25]
   -------------------------------------------------------------------
-                         required time                         -0.230    
-                         arrival time                           0.550    
+                         required time                         -0.230
+                         arrival time                           0.550
   -------------------------------------------------------------------
-                         slack                                  0.320    
+                         slack                                  0.320
 
 
 
@@ -868,7 +868,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Setup (Max at Slow Process Corner)
   Data Path Delay:        0.817ns  (logic 0.259ns (31.706%)  route 0.558ns (68.294%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.510ns
     Source Clock Delay      (SCD):    0.537ns
@@ -882,7 +882,7 @@ Slack:                    inf
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.537     0.537    c1_observation/link/cdc/clk_50m
     SLICE_X18Y71         FDCE                                         r  c1_observation/link/cdc/ack_reg/C
@@ -892,7 +892,7 @@ Slack:                    inf
     SLICE_X18Y72         FDCE                                         r  c1_observation/link/cdc/ack_sync_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.510     0.510    c1_observation/link/cdc/cam_pclk
     SLICE_X18Y72         FDCE                                         r  c1_observation/link/cdc/ack_sync_reg[0]/C
@@ -911,7 +911,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Hold (Min at Fast Process Corner)
   Data Path Delay:        0.420ns  (logic 0.118ns (28.103%)  route 0.302ns (71.897%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Path Skew:        0.014ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    0.280ns
     Source Clock Delay      (SCD):    0.266ns
@@ -925,7 +925,7 @@ Slack:                    inf
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.266     0.266    c1_observation/link/cdc/clk_50m
     SLICE_X18Y71         FDCE                                         r  c1_observation/link/cdc/ack_reg/C
@@ -935,7 +935,7 @@ Slack:                    inf
     SLICE_X18Y72         FDCE                                         r  c1_observation/link/cdc/ack_sync_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.280     0.280    c1_observation/link/cdc/cam_pclk
     SLICE_X18Y72         FDCE                                         r  c1_observation/link/cdc/ack_sync_reg[0]/C
@@ -964,7 +964,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Setup (Max at Slow Process Corner)
   Data Path Delay:        0.482ns  (logic 0.259ns (53.755%)  route 0.223ns (46.245%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.510ns
     Source Clock Delay      (SCD):    0.537ns
@@ -978,7 +978,7 @@ Slack:                    inf
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.537     0.537    c1_observation/link/cdc/cam_pclk
     SLICE_X18Y72         FDCE                                         r  c1_observation/link/cdc/request_reg/C
@@ -988,7 +988,7 @@ Slack:                    inf
     SLICE_X18Y71         FDCE                                         r  c1_observation/link/cdc/req_sync_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.510     0.510    c1_observation/link/cdc/clk_50m
     SLICE_X18Y71         FDCE                                         r  c1_observation/link/cdc/req_sync_reg[0]/C
@@ -1007,7 +1007,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Hold (Min at Fast Process Corner)
   Data Path Delay:        0.154ns  (logic 0.100ns (65.134%)  route 0.054ns (34.866%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Path Skew:        0.014ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    0.280ns
     Source Clock Delay      (SCD):    0.266ns
@@ -1021,7 +1021,7 @@ Slack:                    inf
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.266     0.266    c1_observation/link/cdc/cam_pclk
     SLICE_X3Y58          FDCE                                         r  c1_observation/link/cdc/holding_reg[59]/C
@@ -1031,7 +1031,7 @@ Slack:                    inf
     SLICE_X2Y58          FDCE                                         r  c1_observation/link/cdc/dst_data_reg[59]/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.280     0.280    c1_observation/link/cdc/clk_50m
     SLICE_X2Y58          FDCE                                         r  c1_observation/link/cdc/dst_data_reg[59]/C
@@ -1042,8 +1042,8 @@ Slack:                    inf
 
 --------------------------------------------------------------------------------------
 Path Group:  (none)
-From Clock:  
-  To Clock:  
+From Clock:
+  To Clock:
 
 Max Delay             1 Endpoint
 Min Delay             1 Endpoint
@@ -1060,7 +1060,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
   Data Path Delay:        0.537ns  (logic 0.000ns (0.000%)  route 0.537ns (100.000%))
-  Logic Levels:           0  
+  Logic Levels:           0
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1083,7 +1083,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
   Data Path Delay:        0.266ns  (logic 0.000ns (0.000%)  route 0.266ns (100.000%))
-  Logic Levels:           0  
+  Logic Levels:           0
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1099,7 +1099,7 @@ Slack:                    inf
 --------------------------------------------------------------------------------------
 Path Group:  (none)
 From Clock:  camera
-  To Clock:  
+  To Clock:
 
 Max Delay            32 Endpoints
 Min Delay            32 Endpoints
@@ -1116,7 +1116,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
   Data Path Delay:        0.796ns  (logic 0.259ns (32.538%)  route 0.537ns (67.462%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.050ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -1125,7 +1125,7 @@ Slack:                    inf
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.537     0.537    c1_observation/link/cdc/cam_pclk
     SLICE_X18Y82         FDCE                                         r  c1_observation/link/cdc/dropped_reg[0]/C
@@ -1149,7 +1149,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
   Data Path Delay:        0.384ns  (logic 0.118ns (30.705%)  route 0.266ns (69.295%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.050ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -1158,7 +1158,7 @@ Slack:                    inf
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.266     0.266    c1_observation/link/cdc/cam_pclk
     SLICE_X18Y82         FDCE                                         r  c1_observation/link/cdc/dropped_reg[0]/C
@@ -1175,7 +1175,7 @@ Slack:                    inf
 --------------------------------------------------------------------------------------
 Path Group:  (none)
 From Clock:  system
-  To Clock:  
+  To Clock:
 
 Max Delay            40 Endpoints
 Min Delay            40 Endpoints
@@ -1201,7 +1201,7 @@ Slack:                    inf
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.537     0.537    clk_50m
     SLICE_X17Y129        FDCE                                         r  c1_sys_release_reg[1]/C
@@ -1227,7 +1227,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
   Data Path Delay:        0.366ns  (logic 0.100ns (27.300%)  route 0.266ns (72.700%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.050ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -1236,7 +1236,7 @@ Slack:                    inf
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.266     0.266    c1_observation/link/config_link/clk_50m
     SLICE_X31Y74         FDCE                                         r  c1_observation/link/config_link/active_reg/C
@@ -1252,7 +1252,7 @@ Slack:                    inf
 
 --------------------------------------------------------------------------------------
 Path Group:  (none)
-From Clock:  
+From Clock:
   To Clock:  camera
 
 Max Delay           220 Endpoints
@@ -1270,7 +1270,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Setup (Max at Slow Process Corner)
   Data Path Delay:        0.537ns  (logic 0.000ns (0.000%)  route 0.537ns (100.000%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Path Skew:        0.510ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.510ns
     Source Clock Delay      (SCD):    0.000ns
@@ -1288,7 +1288,7 @@ Slack:                    inf
     SLICE_X9Y72          FDCE                                         r  camera_sample_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.510     0.510    cam_pclk
     SLICE_X9Y72          FDCE                                         r  camera_sample_reg[0]/C
@@ -1307,7 +1307,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Hold (Min at Fast Process Corner)
   Data Path Delay:        0.266ns  (logic 0.000ns (0.000%)  route 0.266ns (100.000%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Path Skew:        0.280ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    0.280ns
     Source Clock Delay      (SCD):    0.000ns
@@ -1320,7 +1320,7 @@ Slack:                    inf
     SLICE_X9Y72          FDCE                                         r  camera_sample_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock camera rise edge)     0.000     0.000 r  
+                         (clock camera rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  cam_pclk (IN)
                          net (fo=475, unset)          0.280     0.280    cam_pclk
     SLICE_X9Y72          FDCE                                         r  camera_sample_reg[0]/C
@@ -1331,7 +1331,7 @@ Slack:                    inf
 
 --------------------------------------------------------------------------------------
 Path Group:  (none)
-From Clock:  
+From Clock:
   To Clock:  system
 
 Max Delay          1348 Endpoints
@@ -1431,7 +1431,7 @@ Slack:                    inf
     SLICE_X26Y141        FDCE                                         r  c1_observation/link/motion/last_epoch_reg[127]/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.510     0.510    c1_observation/link/motion/clk_50m
     SLICE_X26Y141        FDCE                                         r  c1_observation/link/motion/last_epoch_reg[127]/C
@@ -1450,7 +1450,7 @@ Slack:                    inf
   Path Group:             (none)
   Path Type:              Hold (Min at Fast Process Corner)
   Data Path Delay:        0.266ns  (logic 0.000ns (0.000%)  route 0.266ns (100.000%))
-  Logic Levels:           0  
+  Logic Levels:           0
   Clock Path Skew:        0.280ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    0.280ns
     Source Clock Delay      (SCD):    0.000ns
@@ -1463,12 +1463,7 @@ Slack:                    inf
     SLICE_X16Y129        FDRE                                         r  c1_controls_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
-                         (clock system rise edge)     0.000     0.000 r  
+                         (clock system rise edge)     0.000     0.000 r
                                                       0.000     0.000 r  clk_50m (IN)
                          net (fo=9665, unset)         0.280     0.280    clk_50m
     SLICE_X16Y129        FDRE                                         r  c1_controls_reg[0]/C
-
-
-
-
-

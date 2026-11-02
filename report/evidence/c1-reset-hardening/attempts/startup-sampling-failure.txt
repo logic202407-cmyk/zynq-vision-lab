@@ -1,0 +1,19 @@
+
+****** xsim v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Sun Nov  1 22:09:11 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tree/xsim_script.tcl
+# xsim {tree} -autoloadwcfg -tclbatch {run.tcl}
+Time resolution is 1 ps
+source run.tcl
+## run all
+Fatal: unsolicited UART output
+Time: 0 ps  Iteration: 0  Process: /observation_reset_tree_tb/Always17_39  Scope: observation_reset_tree_tb  File: R:/evidence/c1-reset-hardening-20261101/reset-tree/observation_reset_tree_tb.v Line: 17
+$finish called at time : 0 fs
+## quit
+INFO: [Common 17-206] Exiting xsim at Sun Nov  1 22:09:13 2026...
