@@ -342,6 +342,29 @@
         "report/evidence/c1-target-epoch-20261102/offline-checks.json"
       ],
       "note": "Offline only: 15 new Python tests included in 85/85 total; epoch allocator XSim37; OOC synth/route succeeds, 20ns reference WNS15.117/WHS0.149, 260/133 missing I/O delays, ZPS7-1. Existing RTL/real-C convergence7 and reset-fault5 pass; STM32 host35238 assertions pass. Both-journal rollback and old grant replay across reset remain demonstrated limitations. Calibration BLOCKED, production_ready false, allocator not wired into B2, no new source deployed. Existing full-board CDC/IO/epoch blockers remain."
+    },
+    {
+      "id": "c1_vision_quality_candidate_20261102",
+      "status": "simulated",
+      "verified_commit": "e8c32b99c4717600705901137c6aaccf88ec3257",
+      "tool_version": "Vivado/XSim 2024.2; Python 3.12.4; GCC 4.9.2; ARMCC 5.06u5; OpenMV IDE 5.0.0",
+      "reviewer": "Codex actual offline checks and limited normal-scene RAM observation; independent reproduction pending",
+      "evidence": [
+        "docs/c1_vision_qualification.md",
+        "report/experiments/2026-11-02-c1-vision-qualification.md",
+        "report/evidence/c1-vision-qualification-20261102/final-checks.json",
+        "report/evidence/c1-vision-qualification-20261102/result-convergence.json",
+        "report/evidence/c1-vision-qualification-20261102/result-primary_edge.json",
+        "report/evidence/c1-vision-qualification-20261102/result-primary_sparse.json",
+        "report/evidence/c1-vision-qualification-20261102/result-openmv_edge.json",
+        "report/evidence/c1-vision-qualification-20261102/result-openmv_ambiguous.json",
+        "report/evidence/c1-vision-qualification-20261102/result-fpga_reset.json",
+        "report/evidence/c1-vision-qualification-20261102/live-ram-observation.json",
+        "report/evidence/c1-vision-qualification-20261102/final-readonly.json",
+        "report/evidence/c1-vision-qualification-20261102/flash-review.json",
+        "report/evidence/c1-vision-qualification-20261102/receipt.json"
+      ],
+      "note": "UNFLASHED quality candidate: Python96/96, C quality12, actual RTL/C6 scenarios32 checks, host USART1/3 each35238 assertions, two ARMCC builds0 errors0 warnings. Finite30s image-only OpenMV RAM run completed on stationary paper circle; edge/ambiguity hardware tests NOT performed. Old MCU image unchanged, CCER=0, fresh double full-Flash backup equal. No new production RTL, synthesis, bitstream, programming, PWM enable or motion. Existing S1ACK1/500ms lease/200ms partial timeout/dual-channel semantics retained. Profile/installation geometry, mechanical direction, actual PWM waveform, trusted epoch full-path persistence and board CDC/I/O remain open. Only a multimeter is available; no motion authorization or hardware readiness claim."
     }
   ]
 }
