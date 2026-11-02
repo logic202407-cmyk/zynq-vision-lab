@@ -313,6 +313,35 @@
         "report/evidence/c1-live-recovery-20261102/stop-result.json"
       ],
       "note": "LIMITED no-power recovery only: initial Flash mismatched the known candidate; 512KiB double backup, sector-only safe firmware restore and full readback pass. FPGA video and 108 matching UDP/MCU samples, 181 CRC-good F1 lines recovered; target identity UNCONFIRMED. PWM registers remained OFF. No ARM/motion/laser. Epoch, clock/IO/CDC, mechanical signs and identity remain motion blockers. ARMCC warning audit: 0 errors, 1 unreachable-code warning; build.py incorrectly summarized 0. No powered or waveform stop acceptance."
+    },
+    {
+      "id": "c1_single_target_observation_20261102",
+      "status": "board_verified",
+      "verified_commit": "91ff049041f9e094a34a53e73f98d46a9b0281bf",
+      "tool_version": "Vivado/XSim 2024.2; Python 3.12.4; GCC 4.9.2",
+      "reviewer": "Codex actual diagnostics and self-checking offline tests; independent reproduction pending",
+      "evidence": [
+        "report/experiments/2026-11-02-c1-target-epoch.md",
+        "report/evidence/c1-target-epoch-20261102/observed-scene.json",
+        "report/evidence/c1-target-epoch-20261102/retry-transport.json",
+        "report/evidence/c1-target-epoch-20261102/retry-stop.json"
+      ],
+      "note": "LIMITED existing observation bitstream only: two private views selected the human-designated paper circle; 70s manual paper movement yielded 1834 complete frames, 639 matching UDP/MCU samples and 1096 CRC-good F1 lines. Four incomplete frames and one malformed packet retained. Real PWM remained OFF; correlated STOP verified. No automated identity, geometric/mechanical calibration, ARM, motion, JTAG reconfiguration or Flash writes."
+    },
+    {
+      "id": "c1_calibration_epoch_candidates_20261102",
+      "status": "simulated",
+      "verified_commit": "eaab330ab80ee98caa1d21f38d5242ce0ae4d313",
+      "tool_version": "Vivado/XSim 2024.2; Python 3.12.4; GCC 4.9.2",
+      "reviewer": "Codex actual diagnostics and self-checking offline tests; independent reproduction pending",
+      "evidence": [
+        "docs/c1_target_calibration_epoch.md",
+        "report/experiments/2026-11-02-c1-target-epoch.md",
+        "report/evidence/c1-target-epoch-20261102/epoch-simulation.txt",
+        "report/evidence/c1-target-epoch-20261102/epoch-tool-run.json",
+        "report/evidence/c1-target-epoch-20261102/offline-checks.json"
+      ],
+      "note": "Offline only: 15 new Python tests included in 85/85 total; epoch allocator XSim37; OOC synth/route succeeds, 20ns reference WNS15.117/WHS0.149, 260/133 missing I/O delays, ZPS7-1. Existing RTL/real-C convergence7 and reset-fault5 pass; STM32 host35238 assertions pass. Both-journal rollback and old grant replay across reset remain demonstrated limitations. Calibration BLOCKED, production_ready false, allocator not wired into B2, no new source deployed. Existing full-board CDC/IO/epoch blockers remain."
     }
   ]
 }

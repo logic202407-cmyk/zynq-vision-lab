@@ -1,0 +1,27 @@
+{
+  "status": "PAPER_MOVEMENT_OBSERVED",
+  "sample_count": 640,
+  "valid_samples": 633,
+  "fpga_cx_range": [
+    125.01801242236024,
+    595.3333333333334
+  ],
+  "fpga_cy_range": [
+    26,
+    323
+  ],
+  "openmv_dx_range": [
+    -73,
+    13
+  ],
+  "openmv_dy_range": [
+    -24,
+    34
+  ],
+  "zero_lag_x_correlation": -0.7299755569096388,
+  "mechanical_calibration": false,
+  "cross_camera_transform_verified": false,
+  "servo_motion": false,
+  "note": "Both streams responded to manual paper motion. Vertical movement/viewpoint change prevents pure horizontal calibration; no axis sign inferred.",
+  "trajectory_plot": "retry-trajectory.png"
+}

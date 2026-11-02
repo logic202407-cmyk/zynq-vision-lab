@@ -1,0 +1,8 @@
+{
+  "tested_implementation_commit": "eaab330ab80ee98caa1d21f38d5242ce0ae4d313",
+  "observation_bitstream_source_commit": "91ff049041f9e094a34a53e73f98d46a9b0281bf",
+  "manifest_sha256": "ebc07e92f8fcafb1253cbbacf3a8fa2dd42d944a870f6255b03c7008eb8986df",
+  "evidence_scope": "Post-commit observation/evidence receipt; implementation unchanged since tested source commit",
+  "permission": "No motion authorization; servo and laser power remain user-confirmed disconnected",
+  "hardware_motion_ready": false
+}

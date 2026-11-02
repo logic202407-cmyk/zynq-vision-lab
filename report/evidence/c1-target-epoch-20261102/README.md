@@ -5,6 +5,8 @@
 - [Static transport](static-transport.json), [paper observation](paper-transport.json),
   [insufficient excitation](paper-motion-analysis.json): no geometric fit certified.
 - [Static STOP](static-stop.json), [final STOP](paper-stop.json): already-off outputs only.
+- [70-second retry](retry-transport.json), [observed paper movement](retry-analysis.json),
+  [final retry STOP](retry-stop.json), [numeric trajectory](retry-trajectory.png), [CSV](retry-trajectory.csv).
 - [Pending calibration rejection](calibration-assessment.json): expected BLOCKED, exit 2.
 - [XSim transcript](epoch-simulation.txt), [OOC run](epoch-tool-run.json),
   [timing](epoch-timing.rpt), [DRC](epoch-drc.rpt), [utilization](epoch-utilization.rpt).
