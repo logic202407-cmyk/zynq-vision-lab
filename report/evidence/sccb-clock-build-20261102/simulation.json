@@ -1,0 +1,84 @@
+{
+  "verdict": "PASS",
+  "negative_controls": 2,
+  "waveform_benches": 1,
+  "commands": [
+    {
+      "case": "top_rate_changed",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-I",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\clock-repo\\tools\\c1_sccb_contract.py",
+        "--vendor",
+        "R:\\evidence\\c1-sccb-clock-20261102\\simulation-release\\top_rate_changed",
+        "--output",
+        "R:\\evidence\\c1-sccb-clock-20261102\\simulation-release\\top_rate_changed\\rejected.json"
+      ],
+      "exit_code": 2,
+      "expected_exit": 2
+    },
+    {
+      "case": "driver_changed",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-I",
+        "D:\\\u5d4c\u5165\u5f0f\u6bd4\u8d5b\u8d44\u6599\\Zynq_SkyStar_UART_20261031\\clock-repo\\tools\\c1_sccb_contract.py",
+        "--vendor",
+        "R:\\evidence\\c1-sccb-clock-20261102\\simulation-release\\driver_changed",
+        "--output",
+        "R:\\evidence\\c1-sccb-clock-20261102\\simulation-release\\driver_changed\\rejected.json"
+      ],
+      "exit_code": 2,
+      "expected_exit": 2
+    },
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+        "i2c_dri.v",
+        "sccb_divider_tb.v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+        "sccb_divider_tb",
+        "--timescale",
+        "1ns/1ps",
+        "-s",
+        "divider"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+        "divider",
+        "-tclbatch",
+        "run.tcl"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "contract": {
+    "parent_hz": 50000000,
+    "sccb_bit_hz": 250000,
+    "divider": 50,
+    "half_parent_cycles": 25,
+    "period_ns": 1000,
+    "source_pin": "u_i2c_dri/dri_clk_reg/C",
+    "target_pin": "u_i2c_dri/dri_clk_reg/Q",
+    "measured": false,
+    "source_sha256": {
+      "rtl/ov5640/i2c_dri.v": "3e5ceea17dd403f69f3245272a147227f9bb55ae8868d9dee95f20e1ec1e62ad",
+      "rtl/ov5640_udp_pc.v": "2be28a8499d96cfbf4d33b69db9c288882578bb104d7945de107d3d11917367e"
+    }
+  },
+  "source_sha256": {
+    "tools/c1_sccb_contract.py": "4948f799941766b64fc25c2cad1b9a1f036fe2a11b89cb951320e9268e75efc7",
+    "tools/check_c1_sccb.py": "befdad555f464c11c9111edec404ba8053a5d7537aba7c0b900a9ef3efe35f50",
+    "sim/c1/sccb_divider_tb.v": "e92c0000a82f26e64052cd40e7e7e0e73bb111ded0275fd94da9c41cc6d39b8f"
+  },
+  "hardware_actions": [],
+  "limitation": "Digital divider simulation only, not measured frequency/phase or SCCB electrical timing"
+}

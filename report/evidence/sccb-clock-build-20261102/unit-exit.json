@@ -1,0 +1,14 @@
+{
+  "command": [
+    "D:/Python312/python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "exit_code": 0
+}

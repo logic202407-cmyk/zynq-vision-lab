@@ -1,5 +1,6 @@
 # C1 上板门槛：CDC、时钟、I/O 与 epoch
 
+更新：SCCB 分频时钟已进入正常构建并重新布局布线；90 无时钟与 227 未约束内部端点清零，仍有两项 FIFO CDC Critical、TIMING-6/7、17/8 I/O 延迟及 epoch 阻塞。见 [本轮报告](../report/experiments/2026-11-02-sccb-clock-build.md)。
 更新：下文保留初次离线审查的时点。随后已有[同位流只观测板测](c1_board_observation.md)，
 最新[复位/QID 修复候选](c1_reset_epoch_hardening.md)仍只做离线验收。历史“未集成”描述
 不能覆盖新的只观测证据，也不能将只观测板测升级为运动验收。

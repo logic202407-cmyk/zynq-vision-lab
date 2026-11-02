@@ -286,6 +286,16 @@
       "verified_commit": "cd59c229a65bd1871d03221bf55c7ba12a600b62",
       "tool_version": "Vivado/XSim 2024.2; Python 3.12.4; GCC 4.9.2",
       "reviewer": "Codex offline assertions and report review; independent reproduction pending"
+    },
+    {
+      "id": "c1_sccb_generated_clock_build",
+      "status": "implemented",
+      "evidence": [
+        "docs/c1_sccb_build_contract.md",
+        "report/experiments/2026-11-02-sccb-clock-build.md",
+        "report/evidence/sccb-clock-build-20261102/audit.json"
+      ],
+      "note": "Guarded source-derived clock in normal full-board build. Offline route and digital divider assertions passed. Await source commit pin. Two FIFO Criticals, external IO timing and persistent epoch remain blockers. No hardware."
     }
   ]
 }

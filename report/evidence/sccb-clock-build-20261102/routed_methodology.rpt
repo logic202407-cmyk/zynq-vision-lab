@@ -1,0 +1,309 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Mon Nov  2 17:39:44 2026
+| Host : [redacted workstation]
+| Command      : report_methodology -file routed_methodology.rpt
+| Design       : ov5640_udp_pc
+| Device       : xc7z100ffg900-2
+| Speed File   : -2
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: impl_1
+      Design limits: <entire design considered>
+             Max checks: <unlimited>
+             Checks found: 45
++-----------+------------------+-----------------------------------------------------------+--------+
+| Rule      | Severity         | Description                                               | Checks |
++-----------+------------------+-----------------------------------------------------------+--------+
+| TIMING-6  | Critical Warning | No common primary clock between related clocks            | 1      |
+| TIMING-7  | Critical Warning | No common node between related clocks                     | 1      |
+| HPDR-1    | Warning          | Port pin direction inconsistency                          | 1      |
+| LUTAR-1   | Warning          | LUT drives async reset alert                              | 6      |
+| PDRC-190  | Warning          | Suboptimally placed synchronized register chain           | 1      |
+| SYNTH-5   | Warning          | Mapped onto distributed RAM because of timing constraints | 4      |
+| TIMING-18 | Warning          | Missing input or output delay                             | 21     |
+| XDCC-1    | Warning          | Scoped Clock constraint overwritten with the same name    | 1      |
+| XDCC-4    | Warning          | User Clock constraint overwritten with the same name      | 4      |
+| XDCC-7    | Warning          | Scoped Clock constraint overwritten on the same source    | 1      |
+| XDCC-8    | Warning          | User Clock constraint overwritten on the same source      | 4      |
++-----------+------------------+-----------------------------------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-6#1 Critical Warning
+No common primary clock between related clocks
+The clocks clk_out1_clk_wiz_0 and cam_pclk are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks cam_pclk]
+Related violations: <none>
+
+TIMING-7#1 Critical Warning
+No common node between related clocks
+The clocks clk_out1_clk_wiz_0 and cam_pclk are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks cam_pclk]
+Related violations: <none>
+
+HPDR-1#1 Warning
+Port pin direction inconsistency
+Hierarchical port(pin) cam_sda direction INOUT is not consistent with the directions of the cell pins/ports found at that level of the netlist hierarchy. Please review the design and consider changing the port(pin) direction. Both drivers and loads were expected for the net (cam_sda) connected to this Port, but both were not found.
+Related violations: <none>
+
+LUTAR-1#1 Warning
+LUT drives async reset alert
+LUT cell c1_sys_release[1]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) c1_sys_release_reg[0]/CLR, c1_sys_release_reg[1]/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#3 Warning
+LUT drives async reset alert
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#4 Warning
+LUT drives async reset alert
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#5 Warning
+LUT drives async reset alert
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_3_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#6 Warning
+LUT drives async reset alert
+LUT cell u_eth_top/u_arp/u_arp_rx/i2c_exec_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) u_img_data_pkt/img_vsync_txc_d2_reg/CLR,
+u_img_data_pkt/tx_busy_flag_reg/CLR,
+u_img_data_pkt/udp_tx_byte_num_reg[10]/CLR,
+u_img_data_pkt/udp_tx_byte_num_reg[5]/CLR,
+u_img_data_pkt/udp_tx_start_en_reg/CLR,
+u_img_data_pkt/wr_fifo_data_reg[0]/CLR,
+u_img_data_pkt/wr_fifo_data_reg[1]/CLR,
+u_img_data_pkt/wr_fifo_data_reg[2]/CLR,
+u_img_data_pkt/wr_fifo_data_reg[3]/CLR,
+u_img_data_pkt/wr_fifo_data_reg[4]/CLR,
+u_img_data_pkt/wr_fifo_data_reg[5]/CLR,
+u_img_data_pkt/wr_fifo_data_reg[6]/CLR,
+u_img_data_pkt/wr_fifo_data_reg[7]/CLR, u_img_data_pkt/wr_fifo_en_reg/CLR,
+u_start_transfer_ctrl/transfer_flag_reg/CLR (the first 15 of 907 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+PDRC-190#1 Warning
+Suboptimally placed synchronized register chain
+The FDRE cell u_img_data_pkt/async_fifo_2048x8b_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg in site SLICE_X199Y298 is part of a synchronized register chain that is suboptimally placed as the load FDSE cell u_img_data_pkt/async_fifo_2048x8b_inst/U0/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg is not placed in the same (SLICE) site.
+Related violations: <none>
+
+SYNTH-5#1 Warning
+Mapped onto distributed RAM because of timing constraints
+The instance u_pl_red_stats/g_spatial.u_majority/line_one_reg_0_255_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+SYNTH-5#2 Warning
+Mapped onto distributed RAM because of timing constraints
+The instance u_pl_red_stats/g_spatial.u_majority/line_one_reg_256_511_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+SYNTH-5#3 Warning
+Mapped onto distributed RAM because of timing constraints
+The instance u_pl_red_stats/g_spatial.u_majority/line_two_reg_0_255_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+SYNTH-5#4 Warning
+Mapped onto distributed RAM because of timing constraints
+The instance u_pl_red_stats/g_spatial.u_majority/line_two_reg_256_511_0_0 is implemented as distributed LUT RAM for the following reason: The timing constraints suggest that the chosen mapping will yield a better timing.
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay
+An input delay is missing on cam_data[0] relative to the rising and/or falling clock edge(s) of cam_pclk.
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay
+An input delay is missing on cam_data[1] relative to the rising and/or falling clock edge(s) of cam_pclk.
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay
+An input delay is missing on cam_data[2] relative to the rising and/or falling clock edge(s) of cam_pclk.
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay
+An input delay is missing on cam_data[3] relative to the rising and/or falling clock edge(s) of cam_pclk.
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay
+An input delay is missing on cam_data[4] relative to the rising and/or falling clock edge(s) of cam_pclk.
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay
+An input delay is missing on cam_data[5] relative to the rising and/or falling clock edge(s) of cam_pclk.
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay
+An input delay is missing on cam_data[6] relative to the rising and/or falling clock edge(s) of cam_pclk.
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay
+An input delay is missing on cam_data[7] relative to the rising and/or falling clock edge(s) of cam_pclk.
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay
+An input delay is missing on cam_href relative to the rising and/or falling clock edge(s) of cam_pclk.
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay
+An input delay is missing on cam_vsync relative to the rising and/or falling clock edge(s) of cam_pclk, eth_rxc.
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay
+An input delay is missing on eth_rx_ctl relative to the rising and/or falling clock edge(s) of eth_rxc.
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay
+An input delay is missing on eth_rxd[0] relative to the rising and/or falling clock edge(s) of eth_rxc.
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay
+An input delay is missing on eth_rxd[1] relative to the rising and/or falling clock edge(s) of eth_rxc.
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay
+An input delay is missing on eth_rxd[2] relative to the rising and/or falling clock edge(s) of eth_rxc.
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay
+An input delay is missing on eth_rxd[3] relative to the rising and/or falling clock edge(s) of eth_rxc.
+Related violations: <none>
+
+TIMING-18#16 Warning
+Missing input or output delay
+An input delay is missing on sys_rst_n relative to the rising and/or falling clock edge(s) of cam_pclk, eth_rxc.
+Related violations: <none>
+
+TIMING-18#17 Warning
+Missing input or output delay
+An output delay is missing on eth_tx_ctl relative to the rising and/or falling clock edge(s) of eth_rxc.
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay
+An output delay is missing on eth_txd[0] relative to the rising and/or falling clock edge(s) of eth_rxc.
+Related violations: <none>
+
+TIMING-18#19 Warning
+Missing input or output delay
+An output delay is missing on eth_txd[1] relative to the rising and/or falling clock edge(s) of eth_rxc.
+Related violations: <none>
+
+TIMING-18#20 Warning
+Missing input or output delay
+An output delay is missing on eth_txd[2] relative to the rising and/or falling clock edge(s) of eth_rxc.
+Related violations: <none>
+
+TIMING-18#21 Warning
+Missing input or output delay
+An output delay is missing on eth_txd[3] relative to the rising and/or falling clock edge(s) of eth_rxc.
+Related violations: <none>
+
+XDCC-1#1 Warning
+Scoped Clock constraint overwritten with the same name
+A new clock constraint create_clock overrides a previous scoped clock constraint with the same name. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -waveform {0.000 5.000} [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/vendor/ov5640_udp_pc.xdc (Line: 1))
+Previous: create_clock -period 10.000 [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc (Line: 53))
+Related violations: <none>
+
+XDCC-4#1 Warning
+User Clock constraint overwritten with the same name
+A new clock constraint create_clock overrides a previous user clock constraint with the same name.
+New: create_clock -period 10.000 -waveform {0.000 5.000} [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/c1_synth_timing.xdc (Line: 33))
+Previous: create_clock -period 10.000 [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/c1_synth_timing.xdc (Line: 12))
+Related violations: <none>
+
+XDCC-4#2 Warning
+User Clock constraint overwritten with the same name
+A new clock constraint create_clock overrides a previous user clock constraint with the same name.
+New: create_clock -period 10.000 [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/c1_synth_timing.xdc (Line: 12))
+Previous: create_clock -period 10.000 -waveform {0.000 5.000} [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/vendor/ov5640_udp_pc.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-4#3 Warning
+User Clock constraint overwritten with the same name
+A new clock constraint create_clock overrides a previous user clock constraint with the same name.
+New: create_clock -period 20.000 -waveform {0.000 10.000} [get_ports cam_pclk] (Source: R:/evidence/c1-sccb-clock-20261102/c1_synth_timing.xdc (Line: 35))
+Previous: create_clock -period 20.000 -waveform {0.000 10.000} [get_ports cam_pclk] (Source: R:/evidence/c1-sccb-clock-20261102/vendor/ov5640_udp_pc.xdc (Line: 3))
+Related violations: <none>
+
+XDCC-4#4 Warning
+User Clock constraint overwritten with the same name
+A new clock constraint create_clock overrides a previous user clock constraint with the same name.
+New: create_clock -period 8.000 -waveform {0.000 4.000} [get_ports eth_rxc] (Source: R:/evidence/c1-sccb-clock-20261102/c1_synth_timing.xdc (Line: 34))
+Previous: create_clock -period 8.000 -waveform {0.000 4.000} [get_ports eth_rxc] (Source: R:/evidence/c1-sccb-clock-20261102/vendor/ov5640_udp_pc.xdc (Line: 2))
+Related violations: <none>
+
+XDCC-7#1 Warning
+Scoped Clock constraint overwritten on the same source
+A new clock constraint create_clock overrides a previous scoped clock constraint defined on the same source. It is not recommended to override a scoped (typically an IP) clock constraint and could result in unexpected behaviors.
+New: create_clock -period 10.000 -waveform {0.000 5.000} [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/vendor/ov5640_udp_pc.xdc (Line: 1))
+Previous: create_clock -period 10.000 [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc (Line: 53))
+Related violations: <none>
+
+XDCC-8#1 Warning
+User Clock constraint overwritten on the same source
+A new clock constraint create_clock overrides a previous user clock constraint defined on the same source.
+New: create_clock -period 10.000 -waveform {0.000 5.000} [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/c1_synth_timing.xdc (Line: 33))
+Previous: create_clock -period 10.000 [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/c1_synth_timing.xdc (Line: 12))
+Related violations: <none>
+
+XDCC-8#2 Warning
+User Clock constraint overwritten on the same source
+A new clock constraint create_clock overrides a previous user clock constraint defined on the same source.
+New: create_clock -period 10.000 [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/c1_synth_timing.xdc (Line: 12))
+Previous: create_clock -period 10.000 -waveform {0.000 5.000} [get_ports sys_clk_p] (Source: R:/evidence/c1-sccb-clock-20261102/vendor/ov5640_udp_pc.xdc (Line: 1))
+Related violations: <none>
+
+XDCC-8#3 Warning
+User Clock constraint overwritten on the same source
+A new clock constraint create_clock overrides a previous user clock constraint defined on the same source.
+New: create_clock -period 20.000 -waveform {0.000 10.000} [get_ports cam_pclk] (Source: R:/evidence/c1-sccb-clock-20261102/c1_synth_timing.xdc (Line: 35))
+Previous: create_clock -period 20.000 -waveform {0.000 10.000} [get_ports cam_pclk] (Source: R:/evidence/c1-sccb-clock-20261102/vendor/ov5640_udp_pc.xdc (Line: 3))
+Related violations: <none>
+
+XDCC-8#4 Warning
+User Clock constraint overwritten on the same source
+A new clock constraint create_clock overrides a previous user clock constraint defined on the same source.
+New: create_clock -period 8.000 -waveform {0.000 4.000} [get_ports eth_rxc] (Source: R:/evidence/c1-sccb-clock-20261102/c1_synth_timing.xdc (Line: 34))
+Previous: create_clock -period 8.000 -waveform {0.000 4.000} [get_ports eth_rxc] (Source: R:/evidence/c1-sccb-clock-20261102/vendor/ov5640_udp_pc.xdc (Line: 2))
+Related violations: <none>

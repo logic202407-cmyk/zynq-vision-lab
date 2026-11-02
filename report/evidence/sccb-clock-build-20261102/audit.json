@@ -1,0 +1,107 @@
+{
+  "cdc": {
+    "CDC-3": {
+      "severity": "Info",
+      "count": 13
+    },
+    "CDC-9": {
+      "severity": "Info",
+      "count": 3
+    },
+    "CDC-10": {
+      "severity": "Critical",
+      "count": 2
+    },
+    "CDC-15": {
+      "severity": "Warning",
+      "count": 180
+    }
+  },
+  "critical_rows": [
+    "2  CDC-10  Critical  Combinational logic detected before a synchronizer      5  False Path  u_start_transfer_ctrl/transfer_flag_reg/C  <hidden>",
+    "2  CDC-10  Critical  Combinational logic detected before a synchronizer      5  False Path  u_img_data_pkt/img_vsync_d1_reg/C  <hidden>"
+  ],
+  "timing_coverage": {
+    "no_clock": 0,
+    "unconstrained_internal_endpoints": 0,
+    "no_input_delay": 17,
+    "no_output_delay": 8
+  },
+  "constrained_slack_ns": {
+    "WNS": 2.024,
+    "TNS": 0.0,
+    "WHS": 0.06,
+    "THS": 0.0
+  },
+  "report_blockers": [
+    "CDC_CRITICAL",
+    "NO_INPUT_DELAY",
+    "NO_OUTPUT_DELAY",
+    "METHODOLOGY_CRITICAL_WARNING"
+  ],
+  "physical_validation": "not performed",
+  "board_signoff": false,
+  "hardware_actions": [],
+  "source_commit_base": "128740392376d304b74d00c40cfe126a896b6366",
+  "build_exit_code": 0,
+  "build_seconds": 779.549,
+  "methodology_rules": [
+    {
+      "rule": "TIMING-6",
+      "severity": "Critical Warning",
+      "count": 1
+    },
+    {
+      "rule": "TIMING-7",
+      "severity": "Critical Warning",
+      "count": 1
+    },
+    {
+      "rule": "HPDR-1",
+      "severity": "Warning",
+      "count": 1
+    },
+    {
+      "rule": "LUTAR-1",
+      "severity": "Warning",
+      "count": 6
+    },
+    {
+      "rule": "PDRC-190",
+      "severity": "Warning",
+      "count": 1
+    },
+    {
+      "rule": "SYNTH-5",
+      "severity": "Warning",
+      "count": 4
+    },
+    {
+      "rule": "TIMING-18",
+      "severity": "Warning",
+      "count": 21
+    },
+    {
+      "rule": "XDCC-1",
+      "severity": "Warning",
+      "count": 1
+    },
+    {
+      "rule": "XDCC-4",
+      "severity": "Warning",
+      "count": 4
+    },
+    {
+      "rule": "XDCC-7",
+      "severity": "Warning",
+      "count": 1
+    },
+    {
+      "rule": "XDCC-8",
+      "severity": "Warning",
+      "count": 4
+    }
+  ],
+  "methodology_critical_warnings": 2,
+  "scope": "Full private vendor top rebuilt with guarded generated clock; no bitstream or hardware"
+}

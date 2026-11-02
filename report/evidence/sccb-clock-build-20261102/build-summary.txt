@@ -1,0 +1,30 @@
+puts "VSCSTART" ; set exitCode [catch {source R:/clock-repo/build/build_c1_observation_board.tcl} result] ; catch {flush stdout} ; catch {flush stderr} ; puts $result ; puts "VSCEND:$exitCode"
+    assert _sre.MAGIC == MAGIC, "SRE module mismatch"
+AssertionError: SRE module mismatch
+VSCEND:1
+puts "VSCSTART" ; set exitCode [catch {source R:/clock-repo/build/build_c1_observation_board.tcl} result] ; catch {flush stdout} ; catch {flush stderr} ; puts $result ; puts "VSCEND:$exitCode"
+SCCB_SOURCE_CONTRACT_PASS divide_by=50 parent_period=20ns
+Synthesis finished with 0 errors, 0 critical warnings and 32 warnings.
+472 Infos, 91 Warnings, 0 Critical Warnings and 0 Errors encountered.
+##  puts SCCB_GENERATED_CLOCK_BOUND_TO_REVIEWED_SOURCE
+SCCB_GENERATED_CLOCK_BOUND_TO_REVIEWED_SOURCE
+14 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
+52 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=3.387 | TNS=0.000 |
+INFO: [Place 30-746] Post Placement Timing Summary WNS=3.387. For the most accurate timing information please run report_timing.
+88 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+INFO: [Vivado_Tcl 4-2279] Estimated Timing Summary | WNS= 3.387 | TNS= 0.000 |
+99 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.542  | TNS=0.000  | WHS=-1.745 | THS=-385.275|
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.542  | TNS=0.000  | WHS=-3.225 | THS=-10.901|
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.150  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.150  | TNS=0.000  | WHS=-3.181 | THS=-6.363 |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=2.022  | TNS=0.000  | WHS=0.059  | THS=0.000  |
+111 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+128 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
+# puts C1_OBSERVE_ROUTED_NO_PROGRAMMING
+C1_OBSERVE_ROUTED_NO_PROGRAMMING
+VSCEND:0
+puts "VSCSTART" ; set exitCode [catch {report_methodology -file routed_methodology.rpt; get_property PERIOD [get_clocks c1_sccb_driver]} result] ; catch {flush stdout} ; catch {flush stderr} ; puts $result ; puts "VSCEND:$exitCode"
+VSCEND:0

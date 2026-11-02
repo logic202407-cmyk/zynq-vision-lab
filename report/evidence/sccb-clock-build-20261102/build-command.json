@@ -1,0 +1,7 @@
+{
+  "command": "source R:/clock-repo/build/build_c1_observation_board.tcl",
+  "exit_code": 0,
+  "wall_seconds": 779.549,
+  "tool": "Vivado 2024.2",
+  "hardware_actions": []
+}

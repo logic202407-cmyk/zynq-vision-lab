@@ -1,0 +1,10 @@
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Vivado/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe sccb_divider_tb -s divider
+Multi-threading is on. Using 22 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+ERROR: [XSIM 43-4099] "R:/evidence/c1-sccb-clock-20261102/simulation/waveform/i2c_dri.v" Line 24. Module i2c_dri(CLK_FREQ=50000000,I2C_FREQ=250000) doesn't have a timescale but at least one module in design has a timescale.

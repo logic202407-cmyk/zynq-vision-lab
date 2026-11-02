@@ -1,0 +1,14 @@
+{
+  "parent_hz": 50000000,
+  "sccb_bit_hz": 250000,
+  "divider": 50,
+  "half_parent_cycles": 25,
+  "period_ns": 1000,
+  "source_pin": "u_i2c_dri/dri_clk_reg/C",
+  "target_pin": "u_i2c_dri/dri_clk_reg/Q",
+  "measured": false,
+  "source_sha256": {
+    "rtl/ov5640/i2c_dri.v": "3e5ceea17dd403f69f3245272a147227f9bb55ae8868d9dee95f20e1ec1e62ad",
+    "rtl/ov5640_udp_pc.v": "2be28a8499d96cfbf4d33b69db9c288882578bb104d7945de107d3d11917367e"
+  }
+}

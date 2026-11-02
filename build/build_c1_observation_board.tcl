@@ -3,6 +3,10 @@
 set repo [file normalize [file join [file dirname [info script]] ..]]
 set private [file normalize [file join [pwd] vendor]]
 if {![file exists $private/source-sha256.json]} {error {Prepare private vendor integration first}}
+set c1_python D:/Python312/python.exe
+if {[info exists ::env(C1_PYTHON)]} {set c1_python $::env(C1_PYTHON)}
+# Vivado exports its bundled Python environment; isolate the selected interpreter.
+puts [exec $c1_python -I $repo/tools/c1_sccb_contract.py --vendor $private --output [file join [pwd] clock-contract.json]]
 create_project c1_observe ./project -part xc7z100ffg900-2
 set_property target_language Verilog [current_project]
 set_property simulator_language Mixed [current_project]
@@ -24,6 +28,8 @@ if {[get_property PROGRESS [get_runs synth_1]] ne {100%}} {error {Synthesis fail
 open_run synth_1
 source $repo/build/c1_cdc_constraints.tcl
 c1_mailbox_constraints c1_observation/link/cdc 20
+source $repo/build/c1_sccb_clock.tcl
+c1_sccb_clock
 report_clocks -file clocks.rpt
 report_cdc -details -file synthesis_cdc.rpt
 report_drc -file synthesis_drc.rpt
@@ -43,6 +49,8 @@ report_cdc -details -file routed_cdc.rpt
 report_bus_skew -file routed_bus_skew.rpt
 report_drc -file routed_drc.rpt
 report_utilization -file routed_utilization.rpt
+check_timing -verbose -file routed_check_timing.rpt
+report_clocks -file routed_clocks.rpt
 write_checkpoint -force c1_observe_routed.dcp
 write_debug_probes -force c1_observe.ltx
 puts C1_OBSERVE_ROUTED_NO_PROGRAMMING
