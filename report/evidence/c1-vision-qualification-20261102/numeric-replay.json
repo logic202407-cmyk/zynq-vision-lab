@@ -1,0 +1,59 @@
+{
+  "scope": "Offline counterfactual: candidate not deployed; not a physical tracking acceptance",
+  "command": [
+    "C:\\Strawberry\\c\\bin\\gcc.exe",
+    "-shared",
+    "-std=c99",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-O2",
+    "-ID:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\clock-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User",
+    "D:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\clock-repo\\sim\\c1\\quality_replay.c",
+    "-o",
+    "R:\\evidence\\c1-vision-qualification-20261102\\numeric-replay\\quality.dll"
+  ],
+  "compile_exit_code": 0,
+  "width": 640,
+  "height": 480,
+  "samples": 640,
+  "count_range": [
+    0,
+    12016
+  ],
+  "reasons": {
+    "usable": 638,
+    "incomplete": 1,
+    "sparse": 1
+  },
+  "rejected": [
+    {
+      "index": 615,
+      "reason": 2,
+      "count": 3,
+      "bbox": [
+        595,
+        323,
+        596,
+        324
+      ]
+    },
+    {
+      "index": 618,
+      "reason": 1,
+      "count": 0,
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "input_sha256": "7c92cc30042c597bb42ffd36138666d328c1fcc5c38b850f5c9ed77d8460f3ee",
+  "source_sha256": {
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/c1_quality.h": "340353ddcda52f7fc985dc6dd794ffdf7c6a517d57c7a358bd3c60f5775d1426",
+    "sim/c1/quality_replay.c": "1e23557fd366c85cbb6ecc6df4129786dec61b06d7c41ea61b60ba9d93e1e27e",
+    "tools/replay_c1_quality.py": "f46498065e601b8519e4aaee69948104fd098e76f4e7a0dba8785f46cae01167"
+  }
+}

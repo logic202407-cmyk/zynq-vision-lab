@@ -1,0 +1,9 @@
+{
+  "scope": "Read-only image and registers; no halt/reset/programming",
+  "unchanged_deployed_application": true,
+  "application_sha256": "8e9ec97c98c9784d85f3cfe3f26365a1c042b361efcf17dbe06212ae64eb3d26",
+  "actual_tim4_ccer": 0,
+  "new_candidate_programmed": false,
+  "safety_state": 0,
+  "safety_reason": 1
+}

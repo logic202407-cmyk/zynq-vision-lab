@@ -1,0 +1,5 @@
+{
+  "exit_code": 1,
+  "reason": "R alias __file__ was not resolved before comparing to physical D root",
+  "correction": "resolve both paths before relative_to; script generation itself was finite and no device was accessed"
+}

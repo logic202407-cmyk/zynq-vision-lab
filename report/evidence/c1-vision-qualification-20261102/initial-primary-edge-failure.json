@@ -1,0 +1,11 @@
+{
+  "verdict": "FAIL",
+  "case": "primary_edge",
+  "checks": [
+    "reset_query_binding_PWM_off",
+    "explicit_arm_does_not_enable_PWM",
+    "real_red_stats_CDC_M2_real_C_F1_UART_RX_without_motion"
+  ],
+  "error": "Traceback (most recent call last):\n  File \"R:\\clock-repo\\tools\\check_c1_loop.py\", line 122, in run\n    if case=='primary_edge':assert c.lib.loop_primary_quality()==3\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+  "exit_code": 1
+}

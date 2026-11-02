@@ -1,0 +1,82 @@
+[
+  {
+    "case": "primary_sparse",
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-X",
+      "utf8",
+      "tools/check_c1_loop.py",
+      "--stage",
+      "R:\\evidence\\c1-vision-qualification-20261102\\coupled-final",
+      "--built",
+      "--case",
+      "primary_sparse"
+    ],
+    "exit_code": 0,
+    "seconds": 68.60899999999674
+  },
+  {
+    "case": "openmv_edge",
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-X",
+      "utf8",
+      "tools/check_c1_loop.py",
+      "--stage",
+      "R:\\evidence\\c1-vision-qualification-20261102\\coupled-final",
+      "--built",
+      "--case",
+      "openmv_edge"
+    ],
+    "exit_code": 0,
+    "seconds": 66.82800000000861
+  },
+  {
+    "case": "openmv_ambiguous",
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-X",
+      "utf8",
+      "tools/check_c1_loop.py",
+      "--stage",
+      "R:\\evidence\\c1-vision-qualification-20261102\\coupled-final",
+      "--built",
+      "--case",
+      "openmv_ambiguous"
+    ],
+    "exit_code": 0,
+    "seconds": 63.89100000000326
+  },
+  {
+    "case": "convergence",
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-X",
+      "utf8",
+      "tools/check_c1_loop.py",
+      "--stage",
+      "R:\\evidence\\c1-vision-qualification-20261102\\coupled-final",
+      "--built",
+      "--case",
+      "convergence"
+    ],
+    "exit_code": 0,
+    "seconds": 94.25
+  },
+  {
+    "case": "fpga_reset",
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-X",
+      "utf8",
+      "tools/check_c1_loop.py",
+      "--stage",
+      "R:\\evidence\\c1-vision-qualification-20261102\\coupled-final",
+      "--built",
+      "--case",
+      "fpga_reset"
+    ],
+    "exit_code": 0,
+    "seconds": 43.98399999999674
+  }
+]

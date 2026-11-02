@@ -1,0 +1,18 @@
+{
+  "scope": "Generation only; finite image-only RAM script, not uploaded or executed by this tool",
+  "seconds": 30,
+  "bench_threshold": [
+    10,
+    80,
+    20,
+    90,
+    -10,
+    80
+  ],
+  "script_sha256": "93f2b6b1c49f6746874f528c1c75de7a96320c6e442c7484b12de04ce89df6cd",
+  "source_sha256": {
+    "src/prototype/skystar_openmv/red_target_policy.py": "b28b616032f9548373cff4f4945d789e85e65624b2ef5ee2ca946415194b48e5",
+    "src/prototype/skystar_openmv/openmv_main.py": "8f5a1eeedaeee469559f55888421a3d85cd31b40cd01d52bfd95b77967de1fd7",
+    "tools/build_openmv_quality_diagnostic.py": "8c03490f5f2d9f1625a3d02aafd917a7465f898b6605d77e8cf9c6a8ab5b5c59"
+  }
+}

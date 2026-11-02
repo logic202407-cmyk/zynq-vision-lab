@@ -2,6 +2,7 @@
  * No actuator, laser, authorization or lease operation is permitted here. */
 #ifndef C1_FEEDBACK_H
 #define C1_FEEDBACK_H
+#include "c1_quality.h"
 static uint32_t feedback_last_ms;
 static void c1_feedback(uint32_t now)
 {
@@ -11,7 +12,7 @@ static void c1_feedback(uint32_t now)
     c1_expire(now);
     if (!p->session_bound) return;
     valid=v->valid && (uint32_t)(now-v->received_ms)<FRAME_TIMEOUT_MS &&
-          p->fresh && (p->value.flags&3u)==3u;
+          p->fresh && c1_primary_quality(&p->value)==C1_QUALITY_OK;
     /* Limit valid observations to 20 Hz, and reserve capacity for control ACKs.
      * Invalid complete observations bypass rate limiting; full TX fails closed
      * at the FPGA's independent observation deadline. */

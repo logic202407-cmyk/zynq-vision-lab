@@ -1,0 +1,65 @@
+[
+  {
+    "name": "c-build",
+    "command": [
+      "D:/Dev-Cpp/MinGW64/bin/gcc.exe",
+      "-shared",
+      "-std=c99",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-O2",
+      "-DBOARD_HOST_TEST",
+      "-DS1ACK1",
+      "-DC1_OBSERVATIONS",
+      "-DC1_CLOSED_LOOP",
+      "-DCONSOLE_USART=3",
+      "-ID:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\clock-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User",
+      "-ID:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\clock-repo\\src\\prototype\\skystar_openmv\\stm32_project\\User",
+      "D:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\clock-repo\\sim\\c1\\loop_adapter.c",
+      "D:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\clock-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\tracking.c",
+      "D:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\clock-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\safety.c",
+      "D:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\clock-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\gimbal_registry.c",
+      "D:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\clock-repo\\src\\prototype\\skystar_openmv\\stm32_skystar_tracking\\User\\vision_measurement.c",
+      "D:\\嵌入式比赛资料\\Zynq_SkyStar_UART_20261031\\clock-repo\\src\\prototype\\skystar_openmv\\stm32_project\\User\\pid.c",
+      "-o",
+      "stm32.dll"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "xvlog",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+      "uart_tx_8n1.v",
+      "uart_rx.v",
+      "zynq_motion_s1.v",
+      "vision_measurement_tx.v",
+      "vision_snapshot_cdc.v",
+      "uart_line_queue.v",
+      "uart_line_scheduler.v",
+      "measurement_nonce_observer.v",
+      "measurement_session.v",
+      "zynq_vision_link.v",
+      "gimbal1_visual_loop.v",
+      "zynq_gimbal1_loop.v",
+      "red_pixel_mask.v",
+      "red_frame_stats.v",
+      "motion_c_bridge_tb.v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "xelab",
+    "command": [
+      "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+      "motion_c_bridge_tb",
+      "-debug",
+      "all",
+      "-dll",
+      "-s",
+      "coupled"
+    ],
+    "exit_code": 0
+  }
+]

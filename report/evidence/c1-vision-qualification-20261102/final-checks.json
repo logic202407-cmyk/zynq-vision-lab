@@ -1,0 +1,33 @@
+{
+  "python": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+  "temp": "R:\\evidence\\c1-vision-qualification-20261102\\temp",
+  "commands": [
+    {
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 3.062000000005355,
+      "log": "python-final.txt"
+    },
+    {
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-X",
+        "utf8",
+        "tools/check_repository.py"
+      ],
+      "exit_code": 0,
+      "seconds": 1.187999999994645,
+      "log": "repository-final.txt"
+    }
+  ]
+}

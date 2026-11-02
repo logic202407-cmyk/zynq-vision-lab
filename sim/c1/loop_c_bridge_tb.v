@@ -2,7 +2,7 @@
 // Camera stimulus is a rendered RGB565 frame, not precomputed centroid input.
 module motion_c_bridge_tb(input wire mcu_rx,input wire[153:0] controls,
  input wire[130:0] vision_controls,input wire[31:0] camera_frame,
- input wire[2:0] loop_controls,
+ input wire[4:0] loop_controls,
  output wire[104:0] bridge_sample,output wire[65:0] vision_status,
  output wire[34:0] loop_status);
  // Additional 10 MHz parameter coverage; UART remains 115200 baud.
@@ -17,7 +17,11 @@ module motion_c_bridge_tb(input wire mcu_rx,input wire[153:0] controls,
    if(x==31)begin x<=0;if(y==23)begin y<=0;busy<=0;end else y<=y+1;end else x<=x+1;
   end
  end
- wire hit=x>=10&&x<=17&&y>=8&&y<=15&&!loop_controls[2];
+ // Synthetic scene cases: ordinary 8x8 red, edge-clipped 8x8, one red pixel.
+ // The actual red statistics RTL still computes each frame unchanged.
+ wire hit=!loop_controls[2]&&((loop_controls[4]&&x==10&&y==8)||
+ (!loop_controls[4]&&y>=8&&y<=15&&
+ ((loop_controls[3]&&x<=7)||(!loop_controls[3]&&x>=10&&x<=17))));
  wire[15:0] rgb=hit?16'hf800:16'h0000;
  wire result,complete,target;wire[18:0] pixels;wire[27:0] sx,sy;
  wire[9:0] xmin,xmax;wire[8:0] ymin,ymax;

@@ -14,6 +14,10 @@ ROOT = Path(__file__).resolve().parent
 TOOLS = Path(os.environ.get('ARMCC_BIN', 'D:/Keil_ARM/ARM/ARMCC/bin'))
 
 
+def diagnostics_present(text):
+    return bool(re.search(r'\b(?:warning|error)\s*:', text, re.IGNORECASE))
+
+
 def build(console_usart=1, output_root=None, s1ack1=False, c1_observations=False, c1_closed_loop=False):
     if console_usart not in (1, 3):
         raise ValueError("console_usart must be 1 or 3")
@@ -32,7 +36,7 @@ def build(console_usart=1, output_root=None, s1ack1=False, c1_observations=False
         text = (result.stdout + result.stderr).decode('utf-8', 'replace')
         (stage / (name + '.log')).write_text(text, encoding='utf-8')
         logs.append({'name': name, 'command': [str(x) for x in args], 'exit_code': result.returncode})
-        if result.returncode or re.search(r'\bwarning\s*:|\berror\s*:|\bError:', text):
+        if result.returncode or diagnostics_present(text):
             raise RuntimeError(str(stage / (name + '.log')) + '\n' + text)
         return text
 

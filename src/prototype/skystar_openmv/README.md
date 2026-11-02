@@ -1,5 +1,13 @@
 # SkyStar F407 + OpenMV single-marker tracking
 
+**2026-11-02 quality candidate:** the [new observation-quality candidate](../../../docs/c1_vision_qualification.md)
+supersedes the largest-blob selection described in the historical bench notes below.
+It rejects multiple eligible blobs and clipped targets, and requires stable acquisition.
+The MCU candidate qualifies F1 control observations while retaining raw M2 measurements.
+These controller changes are unflashed; only a finite image-only RAM diagnostic was run.
+Persistent OpenMV deployment needs both `openmv_main.py` and `red_target_policy.py`;
+do not overwrite either camera file as part of this offline check.
+
 **Later bench update (2026-10-31):** the board was flashed with a locally prepared USART3 variant for the [Zynq–SkyStar UART and gimbal test](../../../report/experiments/2026-10-31-zynq-skystar-uart-gimbal.md). The old private USART3 bench source is not included. The new v14 candidate below supports an explicit USART3 build but has not been flashed in this hardening run; it must not be confused with the earlier bench binary.
 
 2026-10-31: single red paper target, one two-axis gimbal, no emitter control. OpenMV detects the largest eligible red blob and sends signed offsets from the 160×120 image centre over UART3 to the SkyStar STM32F407. The STM32 reuses the original local PID implementation and controls PAN and TILT. The LAB threshold in `openmv_main.py` is specific to the user's lighting and needs to be calibrated for other scenes.

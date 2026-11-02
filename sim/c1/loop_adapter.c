@@ -7,3 +7,4 @@ API unsigned loop_vision_frames(void){return observation_devices.devices[0].cont
 API unsigned loop_other_outputs(void){return observation_devices.devices[1].control.outputs|observation_devices.devices[2].control.outputs;}
 API unsigned loop_primary_count(void){return observations.camera[0].value.count;}
 API unsigned loop_primary_cx(void){return observations.camera[0].value.cx;}
+API unsigned loop_primary_quality(void){return c1_primary_quality(&observations.camera[0].value);}

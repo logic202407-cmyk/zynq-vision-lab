@@ -1,0 +1,16 @@
+{
+  "compile_command": [
+    "D:/Dev-Cpp/MinGW64/bin/gcc.exe",
+    "-std=c99",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-O2",
+    "-Isrc/prototype/skystar_openmv/stm32_skystar_tracking/User",
+    "sim/c1/quality_checks.c",
+    "-o",
+    "R:\\evidence\\c1-vision-qualification-20261102\\quality_checks.exe"
+  ],
+  "compile_exit_code": 0,
+  "scope": "12 checks against actual candidate C quality header; no hardware"
+}

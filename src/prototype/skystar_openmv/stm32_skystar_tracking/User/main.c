@@ -83,7 +83,7 @@ static void status(void)
         (unsigned long)guardian.sequence,(unsigned long)tx_dropped);
     if(n<0 || n>=128 || !board_send(text)) ++tx_dropped;
     return;
-#endif
+#else
     /* FRAME is local to legacy vision reception, not an end-to-end frame ID. */
     n=snprintf(text,sizeof(text),"P0V 1 STATE %s MODE %s VALID %u ENABLED %u DX %d DY %d PAN %u TLT %u REQ_PAN %u REQ_TLT %u SESSION 1 FRAME %lu RX_MS %lu SOURCE_MS 0 REJECT %s BAD %lu PARSE_BAD %lu PKP %ld PKI %ld PKD %ld TKP %ld TKI %ld TKD %ld\r\n",
         control.valid ? "tracking":"waiting",control.automatic ? "auto":"manual",
@@ -100,6 +100,7 @@ static void status(void)
         (unsigned long)guardian.nonce_hi,(unsigned long)guardian.nonce_lo,
         (unsigned long)guardian.sequence,(unsigned long)tx_dropped);
     if(n<0 || n>=(int)sizeof(text) || !board_send(text)) ++tx_dropped;
+#endif
 }
 static void console_expire(uint32_t now)
 {

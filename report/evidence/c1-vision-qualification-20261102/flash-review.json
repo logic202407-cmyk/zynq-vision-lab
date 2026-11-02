@@ -1,0 +1,16 @@
+{
+  "scope": "READ ONLY + private file preparation; user approval still required for programming",
+  "flash_bytes": 524288,
+  "double_backup_equal": true,
+  "current_flash_sha256": "bed5e5824a006c8e2bc6ee9e86f6581d4698940fdd0340a46d12ef332817226f",
+  "candidate_bytes": 12836,
+  "candidate_application_sha256": "70a3ad2f0117cb9425d47db79eaad32e0c727ed9936665e2b2bef45599e44812",
+  "proposed_full_flash_sha256": "61b59cdbdbbbac3e57b847aec63f1f2bb570c3809e026dc0a24246059141471b",
+  "proposed_sector_sha256": "88d45a0d2863bb22128e81e85036ffe585e5471bbce72f88038f4216d1f1b0a0",
+  "planned_write": "First 16KiB sector only; preserve original bytes after new application",
+  "actual_hardware_writes": [],
+  "actual_halts": [],
+  "actual_resets": [],
+  "actual_pwm_ccer": 0,
+  "programming_authorized": false
+}

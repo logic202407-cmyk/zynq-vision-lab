@@ -1,0 +1,48 @@
+{
+  "scope": "Finite image-only RAM run in local OpenMV IDE 5.0.0; not persistent deployment",
+  "script_sha256": "93f2b6b1c49f6746874f528c1c75de7a96320c6e442c7484b12de04ce89df6cd",
+  "completed": true,
+  "terminal_end_marker": "QUALITY_IMAGE_DIAGNOSTIC_DONE",
+  "physical_scene": "Human-designated stationary paper red circle",
+  "image_review": "Explicit bench profile bounded complete circle with a green reticle",
+  "evidence_kind": "Manual reading of private IDE screenshot and terminal; not an aggregate accuracy measurement",
+  "terminal_examples": [
+    {
+      "profile": "repository_default",
+      "reason": "WARMUP",
+      "candidates": 1,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "profile": "repository_default",
+      "reason": "VALID",
+      "candidates": 1,
+      "offset": [
+        -2,
+        21,
+        1
+      ]
+    },
+    {
+      "profile": "explicit_bench_reference",
+      "reason": "VALID",
+      "candidates": 1,
+      "offset": [
+        1,
+        31,
+        1
+      ]
+    }
+  ],
+  "defaults_changed": false,
+  "uart_created": false,
+  "pwm_created": false,
+  "camera_filesystem_written": false,
+  "actual_flip_values": "UNKNOWN; supplementary getter script generated but not executed in connected instance",
+  "hardware_edge_ambiguity_tests": "NOT PERFORMED",
+  "private_images_uploaded": false
+}

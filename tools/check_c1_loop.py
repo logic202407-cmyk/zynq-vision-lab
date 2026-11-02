@@ -2,9 +2,14 @@
 No serial ports or devices. Python supplies camera/plant stimuli, never commands.
 """
 import argparse,ctypes as C,hashlib,json,shutil,struct,subprocess,time,traceback
+import importlib.util
+from types import SimpleNamespace
 from pathlib import Path
 from check_c1_link import Link,SOURCES,ROOT,FW,VB
 from check_motion_cosim import Logic
+POLICY_PATH=ROOT/'src/prototype/skystar_openmv/red_target_policy.py'
+_policy_spec=importlib.util.spec_from_file_location('actual_red_target_policy',POLICY_PATH)
+_policy=importlib.util.module_from_spec(_policy_spec);_policy_spec.loader.exec_module(_policy)
 
 def build(stage):
  stage.mkdir(parents=True,exist_ok=False)
@@ -27,7 +32,7 @@ def build(stage):
   assert p.returncode==0,(name,p.stdout,p.stderr)
  inputs=[ROOT/'src/rtl'/n for n in sources]+list((FW/'User').glob('*.[ch]'))+[
  ROOT/'sim/c1/loop_adapter.c',ROOT/'sim/c1/loop_c_bridge_tb.v',ROOT/'sim/c1/link_adapter.c',ROOT/'sim/cosim/stm32_adapter.c',
- ROOT/'tools/check_c1_link.py',ROOT/'tools/check_motion_cosim.py',ROOT/'tools/xsim_c_bridge.py',Path(__file__).resolve()]
+ ROOT/'tools/check_c1_link.py',ROOT/'tools/check_motion_cosim.py',ROOT/'tools/xsim_c_bridge.py',POLICY_PATH,Path(__file__).resolve()]
  (stage/'source-sha256.json').write_text(json.dumps({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs},indent=2))
 
 class Loop(Link):
@@ -35,6 +40,8 @@ class Loop(Link):
   self.pump=False;self.camera_on=True;self.openmv_on=True;self.no_target=False
   self.events=[];self.next_frame=0;self.frame_seq=0;self.camera_clear=0
   self.plant=[];self.bad_openmv=False;self.goal=(1530,1520);self.freeze_plant=False
+  self.openmv_scene='normal';self.target_policy=_policy.RedTargetPolicy()
+  self.quality_trace=[]
   super().__init__(stage)
   self.put('loop_controls',2,1)
  def lstatus(self):
@@ -52,17 +59,26 @@ class Loop(Link):
     if self.openmv_on:
      pan,tilt=self.lib.model_pan(),self.lib.model_tilt()
      dx,dy=(30,20) if self.freeze_plant else (self.goal[0]-pan,self.goal[1]-tilt)
-     valid=not self.no_target
-     if not valid:dx=dy=0
+     cx,cy=80+dx,60-dy
+     blob=SimpleNamespace(area=144,rect=(cx-6,cy-6,12,12),cx=cx,cy=cy)
+     blobs=[] if self.no_target else [blob]
+     if self.openmv_scene=='edge':blobs=[SimpleNamespace(area=144,rect=(0,35,12,12),cx=6,cy=41)]
+     elif self.openmv_scene=='ambiguous':blobs.append(SimpleNamespace(area=400,rect=(10,10,20,20),cx=20,cy=20))
+     selected=self.target_policy.choose(blobs)
+     dx,dy,valid=_policy.target_offsets(selected)
      data=struct.pack('<BBhhBB',0xaa,0xff,dx,dy,int(valid),0xee)
      if self.bad_openmv:data=data[:-1]+b'\x00'
      self.events.extend((self.us+12000+(i+1)*87,b) for i,b in enumerate(data))
-     self.plant.append(dict(us=self.us,pan=pan,tilt=tilt,dx=dx,dy=dy,valid=valid))
+     self.plant.append(dict(us=self.us,pan=pan,tilt=tilt,dx=dx,dy=dy,valid=valid,quality=self.target_policy.reason))
    if self.camera_clear and self.us>=self.camera_clear:
     self.vision();self.camera_clear=0
    while self.events and self.events[0][0]<=self.us:
     _,b=self.events.pop(0);self.lib.model_vision_receive(b,0)
    super().advance(1)
+   if self.us%1000==0:
+    quality=int(self.lib.loop_primary_quality())
+    if not self.quality_trace or self.quality_trace[-1]['quality']!=quality:
+     self.quality_trace.append(dict(us=self.us,quality=quality,count=int(self.lib.loop_primary_count())))
    if self.us%100000==0:
     print('loop progress',self.us,'us','state',self.state,'loop',self.lstatus(),
           'PWM',self.lib.model_reg(0x40000820),flush=True)
@@ -75,7 +91,7 @@ def run(stage,case):
   c.arm();assert c.lib.model_reg(0x40000820)==0
   passed.append('explicit_arm_does_not_enable_PWM')
   c.pump=True;c.next_frame=c.us
-  c.advance(40000)
+  c.advance(160000) # Three genuine policy frames, no motion during acquisition.
   assert c.lib.loop_primary_count()==64 and c.lib.loop_primary_cx()==13
   assert c.lib.loop_vision_frames()>0 and c.lstatus()>>3>0
   assert c.lib.model_reg(0x40000820)==0
@@ -101,11 +117,23 @@ def run(stage,case):
    elif case=='bad_feedback_crc':c.corrupt=True
    elif case=='ack_loss':c.drop=True
    elif case=='fpga_reset':c.setbit(0,0);c.advance(20);c.setbit(0,1);c.pump=False
+   elif case=='primary_edge':c.put('loop_controls',10,1)
+   elif case=='primary_sparse':c.put('loop_controls',18,1)
+   elif case=='openmv_edge':c.openmv_scene='edge'
+   elif case=='openmv_ambiguous':c.openmv_scene='ambiguous'
    else:raise ValueError(case)
    c.until(lambda:c.lib.model_reg(0x40000820)==0,1500000 if case=='range_guard' else 650000)
    assert c.lib.model_reg(0x40000820)==0,(case,c.status,c.lstatus())
+   # STOP may rotate the MCU nonce and clear the observation store. Check the
+   # actual rejection before STOP, independently of final PWM-off evidence.
+   if case=='primary_edge':assert any(x['quality']==3 for x in c.quality_trace),c.quality_trace
+   elif case=='primary_sparse':assert any(x['quality']==2 for x in c.quality_trace),c.quality_trace
+   elif case=='openmv_edge':assert c.target_policy.reason=='EDGE'
+   elif case=='openmv_ambiguous':assert c.target_policy.reason=='AMBIGUOUS'
    count=sum((' pan ' in x or ' tlt ' in x) for x in c.lines)
    c.openmv_on=True;c.camera_on=True;c.no_target=False;c.bad_openmv=False;c.corrupt=False;c.drop=False
+   c.openmv_scene='normal'
+   if case in ('primary_edge','primary_sparse'):c.put('loop_controls',2,1)
    c.advance(180000)
    assert c.lib.model_reg(0x40000820)==0
    assert count==sum((' pan ' in x or ' tlt ' in x) for x in c.lines)
@@ -123,7 +151,7 @@ def run(stage,case):
   raise
  finally:
   (stage/('result-'+case+'.json')).write_text(json.dumps(result,indent=2))
-  (stage/('wire-'+case+'.json')).write_text(json.dumps(dict(to_mcu=c.lines,from_mcu=bytes(c.from_mcu).decode(errors='replace'),trace=c.trace,plant=c.plant),indent=2))
+  (stage/('wire-'+case+'.json')).write_text(json.dumps(dict(to_mcu=c.lines,from_mcu=bytes(c.from_mcu).decode(errors='replace'),trace=c.trace,plant=c.plant,quality_trace=c.quality_trace),indent=2))
   c.close()
  print(json.dumps(result,indent=2))
 

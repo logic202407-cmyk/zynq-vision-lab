@@ -1,0 +1,61 @@
+[
+  {
+    "name": "arm-legacy",
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-X",
+      "utf8",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/build.py",
+      "--console-usart",
+      "1",
+      "--output-root",
+      "R:\\evidence\\c1-vision-qualification-20261102\\arm"
+    ],
+    "exit_code": 0,
+    "seconds": 2.75
+  },
+  {
+    "name": "arm-safe-c1",
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-X",
+      "utf8",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/build.py",
+      "--console-usart",
+      "3",
+      "--s1ack1",
+      "--c1-observations",
+      "--c1-closed-loop",
+      "--output-root",
+      "R:\\evidence\\c1-vision-qualification-20261102\\arm"
+    ],
+    "exit_code": 0,
+    "seconds": 1.1719999999913853
+  },
+  {
+    "name": "host-usart1",
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-X",
+      "utf8",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/tests/run_checks.py",
+      "--console-usart",
+      "1"
+    ],
+    "exit_code": 0,
+    "seconds": 2.6560000000172295
+  },
+  {
+    "name": "host-usart3",
+    "command": [
+      "D:\\Python312\\python.exe",
+      "-X",
+      "utf8",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/tests/run_checks.py",
+      "--console-usart",
+      "3"
+    ],
+    "exit_code": 0,
+    "seconds": 2.1410000000032596
+  }
+]

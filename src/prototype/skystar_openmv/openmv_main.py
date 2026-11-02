@@ -1,7 +1,7 @@
 
 # OpenMV 二维云台单目标持续追踪
 # v1 原始脚本备份: openmv_main_v1.py
-# 每帧选择像素数最多的红色色块，持续输出坐标；丢失时发送无效帧。
+# 单红色色块且完整在画面内、稳定取得后输出坐标；无效/歧义时发送无效帧。
 # 硬件: OpenMV H7 Plus
 # 分辨率: QQVGA 160x120, 中心 (80, 60)
 # 协议: 8字节定长帧
@@ -23,6 +23,7 @@
 
 import sensor, image, time, ustruct
 from pyb import UART
+from red_target_policy import RedTargetPolicy, blob_value, target_offsets
 
 # ===== 优化开关 =====
 DEBUG_DRAW = True  # 显示当前目标红框和状态; 串口通信本身不受影响
@@ -45,6 +46,8 @@ red_threshold =(32, 43, 13, 51, 4, 52)
 PIXELS_THRESHOLD = 8     # find_blobs 的像素门限
 AREA_THRESHOLD   = 8     # find_blobs 的面积门限
 MIN_BLOB_AREA    = 20    # 小于该面积的色块直接忽略
+FRAME_BORDER    = 1     # 边框必须完整保留在画面内；不是机械限位
+STABLE_FRAMES   = 3     # 重新取得有效观测；不会重新授权 FPGA/STM32
 # ===== 串口初始化 =====
 uart = UART(3, 115200)
 
@@ -53,6 +56,7 @@ CENTER_X = 80    # 160/2
 CENTER_Y = 60    # 120/2
 
 clock = time.clock()
+target_policy = RedTargetPolicy(min_area=MIN_BLOB_AREA, border=FRAME_BORDER, stable_frames=STABLE_FRAMES)
 
 while True:
     clock.tick()
@@ -63,22 +67,21 @@ while True:
                            area_threshold=AREA_THRESHOLD,
                            merge=False)
 
-    candidates = [b for b in blobs if b.area >= MIN_BLOB_AREA]
-    current_blob = max(candidates, key=lambda b: b.pixels) if candidates else None
+    candidates = [b for b in blobs if blob_value(b, 'area') >= MIN_BLOB_AREA]
+    current_blob = target_policy.choose(candidates, 160, 120)
 
     if DEBUG_DRAW and DRAW_CANDIDATES:
         for blob in candidates:
-            img.draw_rectangle(blob.rect, color=(0, 255, 0))
+            img.draw_rectangle(blob_value(blob, 'rect'), color=(0, 255, 0))
 
     if current_blob is not None:
 
         # 直接把原始偏差发出去; 滤波统一在 STM32 侧做, 避免两层滤波叠加延迟
-        dx = current_blob.cx - CENTER_X
-        dy = CENTER_Y - current_blob.cy
+        dx, dy, flag = target_offsets(current_blob)
 
         if DEBUG_DRAW:
-            img.draw_rectangle(current_blob.rect, color=(255, 0, 0))
-            img.draw_cross((current_blob.cx, current_blob.cy), color=(255, 0, 0))
+            img.draw_rectangle(blob_value(current_blob, 'rect'), color=(255, 0, 0))
+            img.draw_cross((blob_value(current_blob, 'cx'), blob_value(current_blob, 'cy')), color=(255, 0, 0))
         if DEBUG_DRAW or PRINT_FPS:
             img.draw_string((2, 14), "dx=%d dy=%d" % (dx, dy), color=(255, 255, 0))
 
@@ -88,7 +91,7 @@ while True:
         flag = 0x00
 
     if DEBUG_DRAW:
-        label = "TRACK" if current_blob is not None else "LOST"
+        label = target_policy.reason
         img.draw_string((2, 2), label, color=(255, 255, 0))
 
     data = ustruct.pack("<BBhhBB", 0xAA, 0xFF, dx, dy, flag, 0xEE)
