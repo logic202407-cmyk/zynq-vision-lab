@@ -1,0 +1,59 @@
+{
+  "scope": "No-power actual FPGA/STM32 and finite OpenMV RAM feedback attempt; no motion or waveform test",
+  "openmv_ram_script_sha256": "fe0e5fb8608a25aa5906b6d70d6b443a7cd0107d11f7fe36393d955849605a45",
+  "openmv_profile": "repository default LAB (32,43,13,51,4,52); frame inspection showed only part of circle covered",
+  "responses": [
+    {
+      "kind": "S1SYNC",
+      "crc_ok": true,
+      "identity_matches": true
+    },
+    {
+      "kind": "V2A",
+      "crc_ok": true,
+      "identity_matches": true
+    },
+    {
+      "kind": "S1ACK",
+      "crc_ok": true,
+      "identity_matches": true,
+      "fields": [
+        "stop",
+        "ACCEPT",
+        "REG",
+        "stopped",
+        "stop",
+        "none",
+        "1500",
+        "1500",
+        "0",
+        "1500",
+        "1500"
+      ]
+    }
+  ],
+  "sample_count": 172,
+  "max_primary_accepted": 71,
+  "primary_bound_seen": true,
+  "max_openmv_frames": 0,
+  "f1_lines": 0,
+  "uart_tx_bytes": 0,
+  "pwm_off_all": true,
+  "final_states": [
+    [
+      0,
+      1,
+      0
+    ]
+  ],
+  "pa3_sampling": {
+    "scope": "Read-only sampled PA3 input, not a waveform or proof of no signal",
+    "samples": 1500,
+    "high": 1500,
+    "low": 0,
+    "seconds": 4.094,
+    "no_halt_reset_writes": true
+  },
+  "result": "PARTIAL: OpenMV-to-MCU reception not demonstrated",
+  "raw_uart_private_sha256": "c7d998f121dc26d7fa2e8723890690c7ed89487497a55d6b8a3adc19f061e6fd"
+}
