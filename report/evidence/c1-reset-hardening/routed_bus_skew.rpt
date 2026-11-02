@@ -1,0 +1,112 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Sun Nov  1 22:29:41 2026
+| Host : [redacted workstation]
+| Command      : report_bus_skew -file routed_bus_skew.rpt
+| Design       : reset_cdc_audit_top
+| Device       : 7z100-ffg900
+| Speed File   : -2  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Bus Skew Report
+
+Table of Contents
+-----------------
+1. Bus Skew Report Summary
+2. Bus Skew Report Per Constraint
+
+1. Bus Skew Report Summary
+--------------------------
+
+Id  Position  From                            To                              Corner  Requirement(ns)  Actual(ns)  Slack(ns)
+--  --------  ------------------------------  ------------------------------  ------  ---------------  ----------  ---------
+1   4         [get_cells -hier -filter {NAME =~ c1_observation/link/cdc/holding_reg* && IS_SEQUENTIAL}]
+                                              [get_cells -hier -filter {NAME =~ c1_observation/link/cdc/dst_data_reg* && IS_SEQUENTIAL}]
+                                                                              Slow             20.000       0.954     19.046
+
+
+2. Bus Skew Report Per Constraint
+---------------------------------
+
+Id: 1
+set_bus_skew -from [get_cells -hier -filter {NAME =~ c1_observation/link/cdc/holding_reg* && IS_SEQUENTIAL}] -to [get_cells -hier -filter {NAME =~ c1_observation/link/cdc/dst_data_reg* && IS_SEQUENTIAL}] 20.000
+Requirement: 20.000ns
+Endpoints: 219
+
+From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
+--------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
+camera                system                c1_observation/link/cdc/dst_data_reg[213]/D
+                                                                            c1_observation/link/cdc/dst_data_reg[59]/D
+                                                                                                            Slow         0.954     19.046
+
+
+Slack (MET) :             19.046ns  (requirement - actual skew)
+  Endpoint Source:        c1_observation/link/cdc/holding_reg[213]/C
+                            (rising edge-triggered cell FDCE clocked by camera)
+  Endpoint Destination:   c1_observation/link/cdc/dst_data_reg[213]/D
+                            (rising edge-triggered cell FDCE clocked by system)
+  Reference Source:       c1_observation/link/cdc/holding_reg[59]/C
+                            (rising edge-triggered cell FDCE clocked by camera)
+  Reference Destination:  c1_observation/link/cdc/dst_data_reg[59]/D
+                            (rising edge-triggered cell FDCE clocked by system)
+  Path Type:              Bus Skew (Max at Slow Process Corner)
+  Requirement:            20.000ns
+  Endpoint Relative Delay:    1.043ns
+  Reference Relative Delay:   0.089ns
+  Relative CRPR:              0.000ns
+  Actual Bus Skew:            0.954ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+
+Endpoint path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock camera rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  cam_pclk (IN)
+                         net (fo=475, unset)          0.537     0.537    c1_observation/link/cdc/cam_pclk
+    SLICE_X28Y59         FDCE                                         r  c1_observation/link/cdc/holding_reg[213]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X28Y59         FDCE (Prop_fdce_C_Q)         0.204     0.741 r  c1_observation/link/cdc/holding_reg[213]/Q
+                         net (fo=1, routed)           0.719     1.460    c1_observation/link/cdc/holding[213]
+    SLICE_X25Y60         FDCE                                         r  c1_observation/link/cdc/dst_data_reg[213]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock system rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  clk_50m (IN)
+                         net (fo=9665, unset)         0.510     0.510    c1_observation/link/cdc/clk_50m
+    SLICE_X25Y60         FDCE                                         r  c1_observation/link/cdc/dst_data_reg[213]/C
+                         clock pessimism              0.000     0.510    
+    SLICE_X25Y60         FDCE (Setup_fdce_C_D)       -0.093     0.417    c1_observation/link/cdc/dst_data_reg[213]
+  -------------------------------------------------------------------
+                         data arrival                           1.460    
+                         clock arrival                          0.417    
+  -------------------------------------------------------------------
+                         relative delay                         1.043    
+
+Reference path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock camera rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  cam_pclk (IN)
+                         net (fo=475, unset)          0.510     0.510    c1_observation/link/cdc/cam_pclk
+    SLICE_X3Y58          FDCE                                         r  c1_observation/link/cdc/holding_reg[59]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y58          FDCE (Prop_fdce_C_Q)         0.178     0.688 r  c1_observation/link/cdc/holding_reg[59]/Q
+                         net (fo=1, routed)           0.091     0.779    c1_observation/link/cdc/holding[59]
+    SLICE_X2Y58          FDCE                                         r  c1_observation/link/cdc/dst_data_reg[59]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock system rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  clk_50m (IN)
+                         net (fo=9665, unset)         0.537     0.537    c1_observation/link/cdc/clk_50m
+    SLICE_X2Y58          FDCE                                         r  c1_observation/link/cdc/dst_data_reg[59]/C
+                         clock pessimism              0.000     0.537    
+    SLICE_X2Y58          FDCE (Hold_fdce_C_D)         0.153     0.690    c1_observation/link/cdc/dst_data_reg[59]
+  -------------------------------------------------------------------
+                         data arrival                           0.779    
+                         clock arrival                          0.690    
+  -------------------------------------------------------------------
+                         relative delay                         0.089    
+
+
+

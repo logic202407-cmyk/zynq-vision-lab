@@ -1,0 +1,66 @@
+{
+  "verdict": "PASS",
+  "scenarios": 24,
+  "commands": [
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+        "uart_tx_8n1.v",
+        "uart_rx.v",
+        "zynq_motion_s1.v",
+        "vision_measurement_tx.v",
+        "vision_snapshot_cdc.v",
+        "uart_line_queue.v",
+        "uart_line_scheduler.v",
+        "measurement_nonce_observer.v",
+        "measurement_session.v",
+        "zynq_vision_link.v",
+        "c1_observation_link.v",
+        "reset_cdc_audit_top.v",
+        "observation_reset_tree_tb.v"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+        "observation_reset_tree_tb",
+        "-s",
+        "tree"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+        "tree",
+        "-tclbatch",
+        "run.tcl"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    "src/rtl/uart_tx_8n1.v": "dd7b762d8d5b0812cae5eb2001b03c74e00a5fe1000592b685210aa213e45ad8",
+    "src/rtl/uart_rx.v": "ab32ce229c2bbc484f75833be4f0c81f1a6aa3329bcafa88d081568a2711c712",
+    "src/rtl/zynq_motion_s1.v": "8026a2e3f046458a85ca04971dedeadedae84ccaf0e5a64e7430f12dba7039b8",
+    "src/rtl/vision_measurement_tx.v": "ba8180733451d64ed3c7863127c0f025a1e32deb2e0ff0d6f29d9fdf26cc53e2",
+    "src/rtl/vision_snapshot_cdc.v": "c33810aa73c7189b770ca191b635a82d3e5e8eb6f407eae89c14ef88db023146",
+    "src/rtl/uart_line_queue.v": "b9e34a01fee9abb0964d289da0abcb147d77a260b2b986d4810ed961a283a2e5",
+    "src/rtl/uart_line_scheduler.v": "039892ba57a244c0918c6a1f871376102566eaf91e4f2ff0eb333036d5e5a922",
+    "src/rtl/measurement_nonce_observer.v": "384c13e20800b7ffddca6f09a1ff112bbe7eca3e7edc7e3c2531dae8ddb7302c",
+    "src/rtl/measurement_session.v": "a39bf04c1908108ac322f4e453946a5d83e6e0d95d7701222aad005cd524efda",
+    "src/rtl/zynq_vision_link.v": "e609ad7c6de1bf1b242126585149e094efcebce193c312442e6d2806d185c9d0",
+    "src/rtl/c1_observation_link.v": "b2cc851d7175e14c2d196936f659de9e808d1e927a84a4e6ad6c80e187c6df3c",
+    "sim/c1/reset_cdc_audit_top.v": "7b9d04177fa0caa89aeada99a49856de0df68efff9b7a825a75c79fce30aea8d",
+    "sim/c1/observation_reset_tree_tb.v": "47fa3d5908287b60e8017886704969147d89ffd2162eb6e9d8d20ca320f83f55",
+    "board/skystar_f407/c1_observation_insert.vh": "8dfe6fbba98282dbb1d43172973d35e0dbba05acc186b776e48a265f51ad7446",
+    "tools/check_c1_reset_tree.py": "02b499d21df4b4afcda1561776815d53b902a5a5f9f9021426d3ca8021867762",
+    "tools/check_c1_reset_hardening.py": "223d27a72275233c5a397d075d940b2ee4a913c977ae8ca257896f373af6c0f6"
+  },
+  "hardware_actions": [],
+  "limitation": "Digital reset alignment only, not analog glitch/recovery/MTBF proof"
+}

@@ -1,0 +1,90 @@
+{
+  "verdict": "PASS",
+  "cases": [
+    {
+      "case": "stop_at_max",
+      "epoch": "ffffffffffffffffffffffffffffffff",
+      "passed": true,
+      "lines": [
+        "s1q ffffffffffffffffffffffffffffffff st*3b72\n"
+      ],
+      "status": 54,
+      "pwm_ccer": 0
+    },
+    {
+      "case": "last_stop_id",
+      "epoch": "fffffffffffffffffffffffffffffffe",
+      "passed": true,
+      "lines": [
+        "s1q fffffffffffffffffffffffffffffffe st*a0ae\n",
+        "s1q ffffffffffffffffffffffffffffffff stop*e239\n"
+      ],
+      "status": 65590,
+      "pwm_ccer": 0
+    },
+    {
+      "case": "arm_at_max",
+      "epoch": "ffffffffffffffffffffffffffffffff",
+      "passed": true,
+      "lines": [
+        "s1q ffffffffffffffffffffffffffffffff st*3b72\n"
+      ],
+      "status": 118,
+      "pwm_ccer": 0
+    },
+    {
+      "case": "arm_reserves_stop",
+      "epoch": "fffffffffffffffffffffffffffffffe",
+      "passed": true,
+      "lines": [
+        "s1q fffffffffffffffffffffffffffffffe st*a0ae\n"
+      ],
+      "status": 118,
+      "pwm_ccer": 0
+    },
+    {
+      "case": "active_last_stop",
+      "epoch": "fffffffffffffffffffffffffffffffd",
+      "passed": true,
+      "lines": [
+        "s1q fffffffffffffffffffffffffffffffd st*d61a\n",
+        "s1q fffffffffffffffffffffffffffffffe st*a0ae\n",
+        "s1 1234000112340002 0 arm*ec90\n",
+        "s1 1234000112340002 1 pan 1550*f20c\n",
+        "s1q ffffffffffffffffffffffffffffffff stop*e239\n"
+      ],
+      "status": 196662,
+      "pwm_ccer": 0
+    }
+  ],
+  "inputs": {
+    "auth_ms": 30000,
+    "legacy": false,
+    "sha256": {
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.c": "625f1d60c7203216ddcf9b3aedf79253b04a84dfcee446ed8c9e8cfd10f632fc",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.h": "d8a80fb0a8c0b1647f73b56b634df6458196d7910f56777a8b1e207cf6e11bab",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/c1_feedback.h": "d493c0483272e87c49f583f55928bee58182a92e29f5bd6349a10fdf7dcf81a0",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.c": "947df4a3752412d9517f268db37f6dc0f62f0ccd85358b6aad3213291268db96",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.h": "04e7ae2dfaa53513d9b964a20b0de9bc07cd668e724053511d90c5d65ca4d8a1",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c": "0ff2323bab6e4a797764aa0f04023c8ffbcb529b9e799987078137525824f565",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/s1ack.h": "a70d636465c9d0858ad444516cf1ab79a247c36467e38f95f5b3605cf4cb5101",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.c": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.h": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/tracking.c": "4e5aa8fe89f9038c6e074e9eb50f7a4a860d3c0d93502ff2e276f3e214d10429",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/tracking.h": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/vision_measurement.c": "4432a9d25c30e0ca2268bf22d2f5fdfeec850f0fb8bb3bd5f7ee60053bc7b6ff",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/User/vision_measurement.h": "e4bd9cac28245a6428bcbf3290e95edc8936867af2d965e9555e628fb10c5630",
+      "src/prototype/skystar_openmv/stm32_project/User/pid.c": "a8c2aaf9a13ee6da79e239c6326cb73dc609d4fc020044226de571ffd4b6109b",
+      "src/prototype/skystar_openmv/stm32_project/User/pid.h": "9165579899b287df4be202e21700378945bee0a700ce787606d12f062c03521c",
+      "src/rtl/uart_tx_8n1.v": "dd7b762d8d5b0812cae5eb2001b03c74e00a5fe1000592b685210aa213e45ad8",
+      "src/rtl/uart_rx.v": "ab32ce229c2bbc484f75833be4f0c81f1a6aa3329bcafa88d081568a2711c712",
+      "src/rtl/zynq_motion_s1.v": "8026a2e3f046458a85ca04971dedeadedae84ccaf0e5a64e7430f12dba7039b8",
+      "sim/cosim/stm32_adapter.c": "93692657f69efdb23caf5cdb8280f26ee2ffba587394b8b1ba3159d875adf785",
+      "sim/cosim/motion_c_bridge_tb.v": "807f4798c0cbf5736a665e17167092cdaec7bd649083d5dd910ea8fbb5280ab5",
+      "tools/check_motion_cosim.py": "ef28afe0a36b532d0aa8d175355cec6a05bc090c6a1b2ab2cde276f19a490a74",
+      "tools/xsim_c_bridge.py": "76a28798998209c5882a5c9f81c4ba7757339fe9bb1c5fb0374f9538f44b4f1d"
+    }
+  },
+  "note": "QID cases compile UART TX/RX and motion RTL; final mailbox reset is separately tested in reset-result.json",
+  "hardware_actions": []
+}

@@ -1,0 +1,183 @@
+{
+  "cases": [
+    {
+      "source_half_ns": 7,
+      "destination_half_ns": 5,
+      "phase_ns": 0,
+      "commands": [
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+            "vision_snapshot_cdc.v",
+            "vision_cdc_tb.v"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+            "vision_cdc_tb",
+            "-s",
+            "cdc"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+            "cdc",
+            "-tclbatch",
+            "run.tcl"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "source_half_ns": 3,
+      "destination_half_ns": 11,
+      "phase_ns": 2,
+      "commands": [
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+            "vision_snapshot_cdc.v",
+            "vision_cdc_tb.v"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+            "vision_cdc_tb",
+            "-s",
+            "cdc"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+            "cdc",
+            "-tclbatch",
+            "run.tcl"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "source_half_ns": 11,
+      "destination_half_ns": 3,
+      "phase_ns": 1,
+      "commands": [
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+            "vision_snapshot_cdc.v",
+            "vision_cdc_tb.v"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+            "vision_cdc_tb",
+            "-s",
+            "cdc"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+            "cdc",
+            "-tclbatch",
+            "run.tcl"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "source_half_ns": 5,
+      "destination_half_ns": 5,
+      "phase_ns": 3,
+      "commands": [
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+            "vision_snapshot_cdc.v",
+            "vision_cdc_tb.v"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+            "vision_cdc_tb",
+            "-s",
+            "cdc"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+            "cdc",
+            "-tclbatch",
+            "run.tcl"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "verdict": "PASS"
+    },
+    {
+      "source_half_ns": 5,
+      "destination_half_ns": 6,
+      "phase_ns": 2,
+      "commands": [
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+            "vision_snapshot_cdc.v",
+            "vision_cdc_tb.v"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+            "vision_cdc_tb",
+            "-s",
+            "cdc"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+            "cdc",
+            "-tclbatch",
+            "run.tcl"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "verdict": "PASS"
+    }
+  ],
+  "passed": 5,
+  "failed": 0,
+  "source_sha256": {
+    "src\\rtl\\vision_snapshot_cdc.v": "c33810aa73c7189b770ca191b635a82d3e5e8eb6f407eae89c14ef88db023146",
+    "sim\\c1\\vision_cdc_tb.v": "c3783ab0a2d93ec69bfd0d6101ae262ed36e733d13ab2e5eef95e7b7eecb3fe9",
+    "tools\\check_c1_cdc_sweep.py": "3d0b2de1e31b24a1ca1b7c38856925a791537dc486737d687b0703c846466131"
+  },
+  "limitation": "Digital simulation does not model metastability or establish MTBF",
+  "hardware_actions": []
+}

@@ -226,7 +226,8 @@ module zynq_motion_s1 #(
  if(now_ms-deadline>=ACK_MS) begin fault<=1;cancel_pending<=1;end
  end
  AUTH:if(ae&&owner&&pc_quiet_ack&&request_local) begin
- if(qid==128'hffffffffffffffffffffffffffffffff) begin fault<=1;state<=FAULT;end
+ // Reauthorization consumes one QID and MUST leave one more for STOP.
+ if(qid>=128'hfffffffffffffffffffffffffffffffe) begin fault<=1;state<=FAULT;end
  else begin qid=qid+1;last_epoch<=qid;recheck<=1;authorized<=1;auth_at<=now_ms;stop_confirmed<=0;launch(OP_QUERY);end
  end
  READY:begin
@@ -265,7 +266,11 @@ module zynq_motion_s1 #(
  // Complete a transmitted line before stopping; never splice a frame.
  if(cancel_pending&&state!=SEND) begin
  cancel_pending<=0;authorized<=0;recheck<=0;stop_confirmed<=0;
- qid=qid+1;last_epoch<=qid;launch(OP_STOP);
+ // A STOP still consumes a distinct query ID. Never wrap to zero/reuse an ID.
+ // Without an ID we cannot claim a correlated stop: leave fault latched and
+ // rely on the independent MCU lease; valid traffic must not auto-authorize.
+ if(qid==128'hffffffffffffffffffffffffffffffff)begin fault<=1;state<=FAULT;end
+ else begin qid=qid+1;last_epoch<=qid;launch(OP_STOP);end
  end
  end
  end

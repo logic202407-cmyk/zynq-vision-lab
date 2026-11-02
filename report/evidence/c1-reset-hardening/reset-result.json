@@ -1,0 +1,41 @@
+{
+  "verdict": "PASS",
+  "reset_scenarios": 26,
+  "commands": [
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xvlog.bat",
+        "vision_snapshot_cdc.v",
+        "vision_cdc_reset_tb.v"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xelab.bat",
+        "vision_cdc_reset_tb",
+        "-s",
+        "reset_boundaries"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "command": [
+        "D:\\Vivado\\Vivado\\2024.2\\bin\\xsim.bat",
+        "reset_boundaries",
+        "-tclbatch",
+        "run.tcl"
+      ],
+      "exit_code": 0,
+      "passed": true
+    }
+  ],
+  "exit_code": 0,
+  "hardware_actions": [],
+  "source_sha256": {
+    "src/rtl/vision_snapshot_cdc.v": "c33810aa73c7189b770ca191b635a82d3e5e8eb6f407eae89c14ef88db023146",
+    "sim/c1/vision_cdc_reset_tb.v": "ab6df65f4fd48692362c74def70dedfc6a3c5728478a4997f1e671fe9993a008"
+  }
+}

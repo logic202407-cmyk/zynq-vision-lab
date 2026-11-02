@@ -1,0 +1,10 @@
+{
+  "commit": "3f96673db2dcb8029ec63bc81b4a352af644b694",
+  "tree": "d57c3fcb24047a405c9a30841d649e361f8fa444",
+  "parent": "078a7cf7b191fc27dc14f982781505aa291b3c64",
+  "ref": "refs/heads/archive/b3-local-handoff-20261102",
+  "staged_files": 169,
+  "status": "archived_unaccepted",
+  "pushed": true,
+  "original_worktree_and_index_unchanged": true
+}

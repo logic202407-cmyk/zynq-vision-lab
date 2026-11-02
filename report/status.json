@@ -273,6 +273,16 @@
       "verified_commit": "257111ea6f94ef8c0d6824a840e6c539ca3627d2",
       "tool_version": "Vivado 2024.2 XSim/implementation/JTAG/VIO; ARMCC 5.06u5; OpenMV firmware/IDE 5.0.0",
       "reviewer": "Codex serial/SWD/VIO and live visual checks with user scene/ground confirmation; independent reproduction pending"
+    },
+    {
+      "id": "c1_reset_qid_hardening",
+      "status": "implemented",
+      "evidence": [
+        "docs/c1_reset_epoch_hardening.md",
+        "report/experiments/2026-11-01-c1-reset-hardening.md",
+        "report/evidence/c1-reset-hardening/README.md"
+      ],
+      "note": "Offline reset/QID repair with passing XSim/real-C/OOC evidence. Await source-commit pin. Not deployed; epoch provider, complete vendor board CDC/IO and physical measurement remain blockers."
     }
   ]
 }
