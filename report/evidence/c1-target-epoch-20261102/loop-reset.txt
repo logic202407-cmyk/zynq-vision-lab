@@ -1,0 +1,25 @@
+loop progress 100000 us state 4 loop 8 PWM 0
+loop progress 200000 us state 0 loop 0 PWM 17
+loop progress 300000 us state 0 loop 0 PWM 17
+loop progress 400000 us state 0 loop 0 PWM 17
+loop progress 500000 us state 0 loop 0 PWM 17
+loop progress 600000 us state 0 loop 0 PWM 17
+loop progress 700000 us state 0 loop 0 PWM 0
+loop progress 800000 us state 0 loop 0 PWM 0
+{
+  "verdict": "PASS",
+  "case": "fpga_reset",
+  "checks": [
+    "reset_query_binding_PWM_off",
+    "explicit_arm_does_not_enable_PWM",
+    "real_red_stats_CDC_M2_real_C_F1_UART_RX_without_motion",
+    "fpga_reset_stops_and_never_automatically_rearms",
+    "FPGA_generates_protected_commands_no_laser_no_other_gimbal"
+  ],
+  "count": 5,
+  "exit_code": 0,
+  "wall_seconds": 38.030999999988126,
+  "simulated_us": 834032,
+  "hardware_actions": [],
+  "limitation": "Synthetic calibrated plant and RGB565 stimulus; no physical camera, mechanical or optical claim"
+}

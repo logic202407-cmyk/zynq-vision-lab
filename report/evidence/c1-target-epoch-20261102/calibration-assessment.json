@@ -1,0 +1,15 @@
+{
+  "status": "BLOCKED",
+  "motion_authorized": false,
+  "blockers": [
+    "CAMERA_GEOMETRY_UNKNOWN",
+    "PWM_WAVEFORM_UNMEASURED",
+    "MECHANICAL_WINDOW_UNVERIFIED",
+    "EPOCH_HARDWARE_BLOCKER",
+    "RESPONSE_ACCEPTANCE_POLICY_UNSET",
+    "PAN_RESPONSE_MISSING_OR_INVALID: Missing or nonfinite response samples",
+    "TLT_RESPONSE_MISSING_OR_INVALID: Missing or nonfinite response samples"
+  ],
+  "fits": {},
+  "note": "Analysis never grants permission, configures hardware or writes controller parameters"
+}

@@ -1,0 +1,34 @@
+{
+  "python": "3.12.4 (tags/v3.12.4:8e8a4ba, Jun  6 2024, 19:30:16) [MSC v.1940 64 bit (AMD64)]",
+  "commands": [
+    {
+      "name": "python-unit",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "seconds": 2.437000000005355
+    },
+    {
+      "name": "stm32-host",
+      "command": [
+        "D:\\Python312\\python.exe",
+        "-X",
+        "utf8",
+        "src/prototype/skystar_openmv/stm32_skystar_tracking/tests/run_checks.py",
+        "--console-usart",
+        "3"
+      ],
+      "exit_code": 0,
+      "seconds": 2.375
+    }
+  ]
+}

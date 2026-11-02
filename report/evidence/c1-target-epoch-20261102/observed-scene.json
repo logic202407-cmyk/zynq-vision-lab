@@ -1,0 +1,18 @@
+{
+  "identity": "OBSERVED_SINGLE_SCENE",
+  "single_target_condition": "User identified the paper circle and both private views selected its red region",
+  "automated_cross_camera_identity": false,
+  "cross_camera_transform": "UNKNOWN",
+  "fpga_centroid_x": [
+    340,
+    341
+  ],
+  "fpga_centroid_y": 195,
+  "openmv_centroid": [
+    76,
+    29
+  ],
+  "openmv_dx": -4,
+  "openmv_dy": 31,
+  "note": "Coordinates belong to different images. No servo direction/angle/calibration inferred."
+}

@@ -1,0 +1,4 @@
+Time resolution is 1 ps
+LIMITATION volatile guard accepts replayed provider grant after reset; trusted provider required
+PASS epoch_qid_allocator checks=37 failures=0
+$finish called at time : 646 ns : File "R:/clock-repo/sim/epoch_qid_allocator_tb.v" Line 53

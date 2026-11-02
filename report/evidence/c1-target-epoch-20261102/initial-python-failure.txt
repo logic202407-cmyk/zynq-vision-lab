@@ -1,0 +1,247 @@
+test_after_commit_or_lost_ack_burns_range (tests.test_epoch_range_reference.EpochRangeTests.test_after_commit_or_lost_ack_burns_range) ... ERROR
+test_before_commit_no_delivery_no_reservation (tests.test_epoch_range_reference.EpochRangeTests.test_before_commit_no_delivery_no_reservation) ... ERROR
+test_concurrent_nonoverlapping (tests.test_epoch_range_reference.EpochRangeTests.test_concurrent_nonoverlapping) ... ok
+test_double_rollback_is_explicit_unresolved_blocker (tests.test_epoch_range_reference.EpochRangeTests.test_double_rollback_is_explicit_unresolved_blocker) ... ERROR
+test_exhaustion_never_wraps (tests.test_epoch_range_reference.EpochRangeTests.test_exhaustion_never_wraps) ... ERROR
+test_missing_and_corrupt_never_auto_reinitialized (tests.test_epoch_range_reference.EpochRangeTests.test_missing_and_corrupt_never_auto_reinitialized) ... ERROR
+test_missing_and_corrupt_never_auto_reinitialized (tests.test_epoch_range_reference.EpochRangeTests.test_missing_and_corrupt_never_auto_reinitialized) ... ERROR
+test_monotonic_disjoint_and_never_production_certificate (tests.test_epoch_range_reference.EpochRangeTests.test_monotonic_disjoint_and_never_production_certificate) ... ERROR
+test_provisioning_cannot_overwrite (tests.test_epoch_range_reference.EpochRangeTests.test_provisioning_cannot_overwrite) ... ERROR
+test_single_journal_rollback_detected (tests.test_epoch_range_reference.EpochRangeTests.test_single_journal_rollback_detected) ... ERROR
+test_split_commit_fail_closed (tests.test_epoch_range_reference.EpochRangeTests.test_split_commit_fail_closed) ... ERROR
+test_no_automatic_authorization_even_complete_declared_evidence (tests.test_c1_calibration.CalibrationTests.test_no_automatic_authorization_even_complete_declared_evidence) ... ok
+test_nonfinite_or_flat_or_other_axis_changed_rejected (tests.test_c1_calibration.CalibrationTests.test_nonfinite_or_flat_or_other_axis_changed_rejected) ... ok
+test_one_static_target_does_not_determine_mechanics (tests.test_c1_calibration.CalibrationTests.test_one_static_target_does_not_determine_mechanics) ... ok
+test_signed_error_response_and_axis_independence (tests.test_c1_calibration.CalibrationTests.test_signed_error_response_and_axis_independence) ... ok
+test_synthetic_fit_never_qualifies_measured_calibration (tests.test_c1_calibration.CalibrationTests.test_synthetic_fit_never_qualifies_measured_calibration) ... ok
+
+======================================================================
+ERROR: test_after_commit_or_lost_ack_burns_range (tests.test_epoch_range_reference.EpochRangeTests.test_after_commit_or_lost_ack_burns_range)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmpxhwwu1rt\\a.db'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python312\Lib\tempfile.py", line 950, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "D:\Python312\Lib\tempfile.py", line 930, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "D:\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "D:\Python312\Lib\tempfile.py", line 905, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmpxhwwu1rt\\a.db'
+
+======================================================================
+ERROR: test_before_commit_no_delivery_no_reservation (tests.test_epoch_range_reference.EpochRangeTests.test_before_commit_no_delivery_no_reservation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmpxww9_5xc\\a.db'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python312\Lib\tempfile.py", line 950, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "D:\Python312\Lib\tempfile.py", line 930, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "D:\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "D:\Python312\Lib\tempfile.py", line 905, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmpxww9_5xc\\a.db'
+
+======================================================================
+ERROR: test_double_rollback_is_explicit_unresolved_blocker (tests.test_epoch_range_reference.EpochRangeTests.test_double_rollback_is_explicit_unresolved_blocker)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmp7ox7105p\\a.db'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python312\Lib\tempfile.py", line 950, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "D:\Python312\Lib\tempfile.py", line 930, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "D:\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "D:\Python312\Lib\tempfile.py", line 905, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmp7ox7105p\\a.db'
+
+======================================================================
+ERROR: test_exhaustion_never_wraps (tests.test_epoch_range_reference.EpochRangeTests.test_exhaustion_never_wraps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmp38i_s583\\a.db'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python312\Lib\tempfile.py", line 950, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "D:\Python312\Lib\tempfile.py", line 930, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "D:\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "D:\Python312\Lib\tempfile.py", line 905, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmp38i_s583\\a.db'
+
+======================================================================
+ERROR: test_missing_and_corrupt_never_auto_reinitialized (tests.test_epoch_range_reference.EpochRangeTests.test_missing_and_corrupt_never_auto_reinitialized)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "R:\clock-repo\tests\test_epoch_range_reference.py", line 58, in test_missing_and_corrupt_never_auto_reinitialized
+    self.a.unlink()
+  File "D:\Python312\Lib\pathlib.py", line 1342, in unlink
+    os.unlink(self)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmp0rta9zk1\\a.db'
+
+======================================================================
+ERROR: test_missing_and_corrupt_never_auto_reinitialized (tests.test_epoch_range_reference.EpochRangeTests.test_missing_and_corrupt_never_auto_reinitialized)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmp0rta9zk1\\a.db'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python312\Lib\tempfile.py", line 950, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "D:\Python312\Lib\tempfile.py", line 930, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "D:\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "D:\Python312\Lib\tempfile.py", line 905, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmp0rta9zk1\\a.db'
+
+======================================================================
+ERROR: test_monotonic_disjoint_and_never_production_certificate (tests.test_epoch_range_reference.EpochRangeTests.test_monotonic_disjoint_and_never_production_certificate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmp6xvptrhc\\a.db'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python312\Lib\tempfile.py", line 950, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "D:\Python312\Lib\tempfile.py", line 930, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "D:\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "D:\Python312\Lib\tempfile.py", line 905, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmp6xvptrhc\\a.db'
+
+======================================================================
+ERROR: test_provisioning_cannot_overwrite (tests.test_epoch_range_reference.EpochRangeTests.test_provisioning_cannot_overwrite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmp4999cqmd\\a.db'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python312\Lib\tempfile.py", line 950, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "D:\Python312\Lib\tempfile.py", line 930, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "D:\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "D:\Python312\Lib\tempfile.py", line 905, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmp4999cqmd\\a.db'
+
+======================================================================
+ERROR: test_single_journal_rollback_detected (tests.test_epoch_range_reference.EpochRangeTests.test_single_journal_rollback_detected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmpusxw6iyz\\a.db'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python312\Lib\tempfile.py", line 950, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "D:\Python312\Lib\tempfile.py", line 930, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "D:\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "D:\Python312\Lib\tempfile.py", line 905, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmpusxw6iyz\\a.db'
+
+======================================================================
+ERROR: test_split_commit_fail_closed (tests.test_epoch_range_reference.EpochRangeTests.test_split_commit_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Python312\Lib\shutil.py", line 633, in _rmtree_unsafe
+    os.unlink(fullname)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmpn8wb3u26\\a.db'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python312\Lib\tempfile.py", line 950, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+  File "D:\Python312\Lib\tempfile.py", line 930, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+  File "D:\Python312\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python312\Lib\shutil.py", line 635, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+  File "D:\Python312\Lib\tempfile.py", line 905, in onexc
+    _os.unlink(path)
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'R:\\evidence\\c1-target-epoch-20261102\\temp\\tmpn8wb3u26\\a.db'
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.863s
+
+FAILED (errors=10)

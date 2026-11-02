@@ -1,0 +1,8 @@
+{
+  "flash_matches_restored_image": true,
+  "full_flash_sha256": "bed5e5824a006c8e2bc6ee9e86f6581d4698940fdd0340a46d12ef332817226f",
+  "flash_kib": 512,
+  "tim4_ccer": 0,
+  "core_halted": false,
+  "scope": "SWD reads only; no halt, reset, memory writes, ARM or motion commands"
+}

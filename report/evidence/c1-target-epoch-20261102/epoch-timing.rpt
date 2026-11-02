@@ -1,0 +1,662 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Mon Nov  2 19:43:10 2026
+| Host         : <private-host>
+| Command      : report_timing_summary -report_unconstrained -file R:/evidence/c1-target-epoch-20261102/epoch-timing.rpt
+| Design       : epoch_qid_allocator
+| Device       : 7z100-ffg900
+| Speed File   : -2  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze
+  Name    Max Paths  Min Paths
+  ------  ---------  ---------
+  Slow    Yes        Yes
+  Fast    Yes        Yes
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (260)
+6. checking no_output_delay (133)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (260)
+--------------------------------
+ There are 260 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (133)
+---------------------------------
+ There are 133 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------
+     15.117        0.000                      0                  644        0.149        0.000                      0                  644        9.600        0.000                       0                   389
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock           Waveform(ns)       Period(ns)      Frequency(MHz)
+-----           ------------       ----------      --------------
+reference_only  {0.000 10.000}     20.000          50.000
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints
+-----               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------
+reference_only       15.117        0.000                      0                  644        0.149        0.000                      0                  644        9.600        0.000                       0                   389
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------
+
+
+------------------------------------------------------------------------------------------------
+| User Ignored Path Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock
+----------    ----------    --------
+
+
+------------------------------------------------------------------------------------------------
+| Unconstrained Path Table
+| ------------------------
+------------------------------------------------------------------------------------------------
+
+Path Group      From Clock      To Clock
+----------      ----------      --------
+(none)          reference_only
+(none)                          reference_only
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  reference_only
+  To Clock:  reference_only
+
+Setup :            0  Failing Endpoints,  Worst Slack       15.117ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.149ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        9.600ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             15.117ns  (required time - arrival time)
+  Source:                 next_qid_reg[6]/C
+                            (rising edge-triggered cell FDCE clocked by reference_only  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            qid_reg[1]/CE
+                            (rising edge-triggered cell FDCE clocked by reference_only  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             reference_only
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (reference_only rise@20.000ns - reference_only rise@0.000ns)
+  Data Path Delay:        4.620ns  (logic 1.177ns (25.477%)  route 3.443ns (74.523%))
+  Logic Levels:           13  (CARRY4=11 LUT6=2)
+  Clock Path Skew:        -0.027ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.510ns = ( 20.510 - 20.000 )
+    Source Clock Delay      (SCD):    0.537ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock reference_only rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=388, unset)          0.537     0.537    clk
+    SLICE_X28Y159        FDCE                                         r  next_qid_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X28Y159        FDCE (Prop_fdce_C_Q)         0.223     0.760 r  next_qid_reg[6]/Q
+                         net (fo=3, routed)           0.973     1.733    next_qid_reg[6]
+    SLICE_X27Y168        LUT6 (Prop_lut6_I0_O)        0.043     1.776 r  stop_only_INST_0_i_52/O
+                         net (fo=1, routed)           0.000     1.776    stop_only_INST_0_i_52_n_0
+    SLICE_X27Y168        CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.195     1.971 r  stop_only_INST_0_i_46/CO[3]
+                         net (fo=1, routed)           0.000     1.971    stop_only_INST_0_i_46_n_0
+    SLICE_X27Y169        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.024 r  stop_only_INST_0_i_41/CO[3]
+                         net (fo=1, routed)           0.000     2.024    stop_only_INST_0_i_41_n_0
+    SLICE_X27Y170        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.077 r  stop_only_INST_0_i_36/CO[3]
+                         net (fo=1, routed)           0.000     2.077    stop_only_INST_0_i_36_n_0
+    SLICE_X27Y171        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.130 r  stop_only_INST_0_i_31/CO[3]
+                         net (fo=1, routed)           0.000     2.130    stop_only_INST_0_i_31_n_0
+    SLICE_X27Y172        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.183 r  stop_only_INST_0_i_26/CO[3]
+                         net (fo=1, routed)           0.000     2.183    stop_only_INST_0_i_26_n_0
+    SLICE_X27Y173        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.236 r  stop_only_INST_0_i_21/CO[3]
+                         net (fo=1, routed)           0.000     2.236    stop_only_INST_0_i_21_n_0
+    SLICE_X27Y174        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.289 r  stop_only_INST_0_i_16/CO[3]
+                         net (fo=1, routed)           0.007     2.297    stop_only_INST_0_i_16_n_0
+    SLICE_X27Y175        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.350 r  stop_only_INST_0_i_11/CO[3]
+                         net (fo=1, routed)           0.000     2.350    stop_only_INST_0_i_11_n_0
+    SLICE_X27Y176        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.403 r  stop_only_INST_0_i_6/CO[3]
+                         net (fo=1, routed)           0.000     2.403    stop_only_INST_0_i_6_n_0
+    SLICE_X27Y177        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.456 r  stop_only_INST_0_i_2/CO[3]
+                         net (fo=1, routed)           0.000     2.456    stop_only_INST_0_i_2_n_0
+    SLICE_X27Y178        CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.110     2.566 f  stop_only_INST_0_i_1/CO[2]
+                         net (fo=5, routed)           0.651     3.217    stop_only0
+    SLICE_X27Y181        LUT6 (Prop_lut6_I3_O)        0.129     3.346 r  qid[127]_i_1/O
+                         net (fo=128, routed)         1.811     5.157    qid[127]_i_1_n_0
+    SLICE_X27Y165        FDCE                                         r  qid_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock reference_only rise edge)
+                                                     20.000    20.000 r
+                                                      0.000    20.000 r  clk (IN)
+                         net (fo=388, unset)          0.510    20.510    clk
+    SLICE_X27Y165        FDCE                                         r  qid_reg[1]/C
+                         clock pessimism              0.000    20.510
+                         clock uncertainty           -0.035    20.475
+    SLICE_X27Y165        FDCE (Setup_fdce_C_CE)      -0.201    20.274    qid_reg[1]
+  -------------------------------------------------------------------
+                         required time                         20.274
+                         arrival time                          -5.157
+  -------------------------------------------------------------------
+                         slack                                 15.117
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.149ns  (arrival time - required time)
+  Source:                 next_qid_reg[41]/C
+                            (rising edge-triggered cell FDCE clocked by reference_only  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            qid_reg[41]/D
+                            (rising edge-triggered cell FDCE clocked by reference_only  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             reference_only
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (reference_only rise@0.000ns - reference_only rise@0.000ns)
+  Data Path Delay:        0.201ns  (logic 0.100ns (49.749%)  route 0.101ns (50.251%))
+  Logic Levels:           0
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.280ns
+    Source Clock Delay      (SCD):    0.266ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock reference_only rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=388, unset)          0.266     0.266    clk
+    SLICE_X28Y168        FDCE                                         r  next_qid_reg[41]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X28Y168        FDCE (Prop_fdce_C_Q)         0.100     0.366 r  next_qid_reg[41]/Q
+                         net (fo=3, routed)           0.101     0.467    next_qid_reg[41]
+    SLICE_X29Y169        FDCE                                         r  qid_reg[41]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock reference_only rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=388, unset)          0.280     0.280    clk
+    SLICE_X29Y169        FDCE                                         r  qid_reg[41]/C
+                         clock pessimism              0.000     0.280
+    SLICE_X29Y169        FDCE (Hold_fdce_C_D)         0.038     0.318    qid_reg[41]
+  -------------------------------------------------------------------
+                         required time                         -0.318
+                         arrival time                           0.467
+  -------------------------------------------------------------------
+                         slack                                  0.149
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         reference_only
+Waveform(ns):       { 0.000 10.000 }
+Period(ns):         20.000
+Sources:            { clk }
+
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
+Min Period        n/a     FDCE/C   n/a            0.750         20.000      19.250     SLICE_X26Y181  fault_reg/C
+Low Pulse Width   Slow    FDCE/C   n/a            0.400         10.000      9.600      SLICE_X26Y181  fault_reg/C
+High Pulse Width  Slow    FDCE/C   n/a            0.350         10.000      9.650      SLICE_X26Y181  active_reg/C
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  reference_only
+  To Clock:
+
+Max Delay           133 Endpoints
+Min Delay           133 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 next_qid_reg[6]/C
+                            (rising edge-triggered cell FDCE clocked by reference_only  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            stop_only
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        3.244ns  (logic 1.177ns (36.278%)  route 2.067ns (63.722%))
+  Logic Levels:           13  (CARRY4=11 LUT2=1 LUT6=1)
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock reference_only rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=388, unset)          0.537     0.537    clk
+    SLICE_X28Y159        FDCE                                         r  next_qid_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X28Y159        FDCE (Prop_fdce_C_Q)         0.223     0.760 r  next_qid_reg[6]/Q
+                         net (fo=3, routed)           0.973     1.733    next_qid_reg[6]
+    SLICE_X27Y168        LUT6 (Prop_lut6_I0_O)        0.043     1.776 r  stop_only_INST_0_i_52/O
+                         net (fo=1, routed)           0.000     1.776    stop_only_INST_0_i_52_n_0
+    SLICE_X27Y168        CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.195     1.971 r  stop_only_INST_0_i_46/CO[3]
+                         net (fo=1, routed)           0.000     1.971    stop_only_INST_0_i_46_n_0
+    SLICE_X27Y169        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.024 r  stop_only_INST_0_i_41/CO[3]
+                         net (fo=1, routed)           0.000     2.024    stop_only_INST_0_i_41_n_0
+    SLICE_X27Y170        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.077 r  stop_only_INST_0_i_36/CO[3]
+                         net (fo=1, routed)           0.000     2.077    stop_only_INST_0_i_36_n_0
+    SLICE_X27Y171        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.130 r  stop_only_INST_0_i_31/CO[3]
+                         net (fo=1, routed)           0.000     2.130    stop_only_INST_0_i_31_n_0
+    SLICE_X27Y172        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.183 r  stop_only_INST_0_i_26/CO[3]
+                         net (fo=1, routed)           0.000     2.183    stop_only_INST_0_i_26_n_0
+    SLICE_X27Y173        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.236 r  stop_only_INST_0_i_21/CO[3]
+                         net (fo=1, routed)           0.000     2.236    stop_only_INST_0_i_21_n_0
+    SLICE_X27Y174        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.289 r  stop_only_INST_0_i_16/CO[3]
+                         net (fo=1, routed)           0.007     2.297    stop_only_INST_0_i_16_n_0
+    SLICE_X27Y175        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.350 r  stop_only_INST_0_i_11/CO[3]
+                         net (fo=1, routed)           0.000     2.350    stop_only_INST_0_i_11_n_0
+    SLICE_X27Y176        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.403 r  stop_only_INST_0_i_6/CO[3]
+                         net (fo=1, routed)           0.000     2.403    stop_only_INST_0_i_6_n_0
+    SLICE_X27Y177        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     2.456 r  stop_only_INST_0_i_2/CO[3]
+                         net (fo=1, routed)           0.000     2.456    stop_only_INST_0_i_2_n_0
+    SLICE_X27Y178        CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.110     2.566 r  stop_only_INST_0_i_1/CO[2]
+                         net (fo=5, routed)           0.550     3.115    stop_only0
+    SLICE_X27Y181        LUT2 (Prop_lut2_I1_O)        0.129     3.244 r  stop_only_INST_0/O
+                         net (fo=0)                   0.537     3.781    stop_only
+                                                                      r  stop_only (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 qid_reg[23]/C
+                            (rising edge-triggered cell FDCE clocked by reference_only  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            qid[23]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.357ns  (logic 0.091ns (25.469%)  route 0.266ns (74.531%))
+  Logic Levels:           0
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock reference_only rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=388, unset)          0.266     0.266    clk
+    SLICE_X27Y167        FDCE                                         r  qid_reg[23]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X27Y167        FDCE (Prop_fdce_C_Q)         0.091     0.357 r  qid_reg[23]/Q
+                         net (fo=0)                   0.266     0.624    qid[23]
+                                                                      r  qid[23] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:
+  To Clock:  reference_only
+
+Max Delay          1034 Endpoints
+Min Delay          1034 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 load
+                            (input port)
+  Destination:            next_qid_reg[125]/D
+                            (rising edge-triggered cell FDCE clocked by reference_only  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        4.711ns  (logic 2.109ns (44.767%)  route 2.602ns (55.233%))
+  Logic Levels:           34  (CARRY4=32 LUT2=1 LUT3=1)
+  Clock Path Skew:        0.510ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.510ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  load (IN)
+                         net (fo=2, unset)            0.537     0.537    load
+    SLICE_X31Y174        LUT2 (Prop_lut2_I0_O)        0.043     0.580 r  qid[127]_i_3/O
+                         net (fo=136, routed)         2.058     2.638    next_qid114_out
+    SLICE_X28Y158        LUT3 (Prop_lut3_I1_O)        0.043     2.681 r  next_qid[0]_i_7/O
+                         net (fo=1, routed)           0.000     2.681    next_qid[0]_i_7_n_0
+    SLICE_X28Y158        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.267     2.948 r  next_qid_reg[0]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     2.948    next_qid_reg[0]_i_2_n_0
+    SLICE_X28Y159        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.001 r  next_qid_reg[4]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.001    next_qid_reg[4]_i_1_n_0
+    SLICE_X28Y160        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.054 r  next_qid_reg[8]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.054    next_qid_reg[8]_i_1_n_0
+    SLICE_X28Y161        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.107 r  next_qid_reg[12]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.107    next_qid_reg[12]_i_1_n_0
+    SLICE_X28Y162        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.160 r  next_qid_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.160    next_qid_reg[16]_i_1_n_0
+    SLICE_X28Y163        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.213 r  next_qid_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.213    next_qid_reg[20]_i_1_n_0
+    SLICE_X28Y164        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.266 r  next_qid_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.266    next_qid_reg[24]_i_1_n_0
+    SLICE_X28Y165        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.319 r  next_qid_reg[28]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.319    next_qid_reg[28]_i_1_n_0
+    SLICE_X28Y166        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.372 r  next_qid_reg[32]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.372    next_qid_reg[32]_i_1_n_0
+    SLICE_X28Y167        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.425 r  next_qid_reg[36]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.425    next_qid_reg[36]_i_1_n_0
+    SLICE_X28Y168        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.478 r  next_qid_reg[40]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.478    next_qid_reg[40]_i_1_n_0
+    SLICE_X28Y169        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.531 r  next_qid_reg[44]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.531    next_qid_reg[44]_i_1_n_0
+    SLICE_X28Y170        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.584 r  next_qid_reg[48]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.584    next_qid_reg[48]_i_1_n_0
+    SLICE_X28Y171        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.637 r  next_qid_reg[52]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.637    next_qid_reg[52]_i_1_n_0
+    SLICE_X28Y172        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.690 r  next_qid_reg[56]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.690    next_qid_reg[56]_i_1_n_0
+    SLICE_X28Y173        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.743 r  next_qid_reg[60]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.743    next_qid_reg[60]_i_1_n_0
+    SLICE_X28Y174        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.796 r  next_qid_reg[64]_i_1/CO[3]
+                         net (fo=1, routed)           0.007     3.803    next_qid_reg[64]_i_1_n_0
+    SLICE_X28Y175        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.856 r  next_qid_reg[68]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.856    next_qid_reg[68]_i_1_n_0
+    SLICE_X28Y176        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.909 r  next_qid_reg[72]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.909    next_qid_reg[72]_i_1_n_0
+    SLICE_X28Y177        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     3.962 r  next_qid_reg[76]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.962    next_qid_reg[76]_i_1_n_0
+    SLICE_X28Y178        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     4.015 r  next_qid_reg[80]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.015    next_qid_reg[80]_i_1_n_0
+    SLICE_X28Y179        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     4.068 r  next_qid_reg[84]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.068    next_qid_reg[84]_i_1_n_0
+    SLICE_X28Y180        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     4.121 r  next_qid_reg[88]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.121    next_qid_reg[88]_i_1_n_0
+    SLICE_X28Y181        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     4.174 r  next_qid_reg[92]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.174    next_qid_reg[92]_i_1_n_0
+    SLICE_X28Y182        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     4.227 r  next_qid_reg[96]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.227    next_qid_reg[96]_i_1_n_0
+    SLICE_X28Y183        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     4.280 r  next_qid_reg[100]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.280    next_qid_reg[100]_i_1_n_0
+    SLICE_X28Y184        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     4.333 r  next_qid_reg[104]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.333    next_qid_reg[104]_i_1_n_0
+    SLICE_X28Y185        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     4.386 r  next_qid_reg[108]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.386    next_qid_reg[108]_i_1_n_0
+    SLICE_X28Y186        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     4.439 r  next_qid_reg[112]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.439    next_qid_reg[112]_i_1_n_0
+    SLICE_X28Y187        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     4.492 r  next_qid_reg[116]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.492    next_qid_reg[116]_i_1_n_0
+    SLICE_X28Y188        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.053     4.545 r  next_qid_reg[120]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.545    next_qid_reg[120]_i_1_n_0
+    SLICE_X28Y189        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.166     4.711 r  next_qid_reg[124]_i_1/O[1]
+                         net (fo=1, routed)           0.000     4.711    next_qid_reg[124]_i_1_n_6
+    SLICE_X28Y189        FDCE                                         r  next_qid_reg[125]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock reference_only rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=388, unset)          0.510     0.510    clk
+    SLICE_X28Y189        FDCE                                         r  next_qid_reg[125]/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 range_end[0]
+                            (input port)
+  Destination:            limit_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by reference_only  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.266ns  (logic 0.000ns (0.000%)  route 0.266ns (100.000%))
+  Logic Levels:           0
+  Clock Path Skew:        0.280ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.280ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  range_end[0] (IN)
+                         net (fo=2, unset)            0.266     0.266    range_end[0]
+    SLICE_X25Y165        FDCE                                         r  limit_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock reference_only rise edge)
+                                                      0.000     0.000 r
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=388, unset)          0.280     0.280    clk
+    SLICE_X25Y165        FDCE                                         r  limit_reg[0]/C

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "D:/Python312/python.exe",
+    "-X",
+    "utf8",
+    "tools/check_c1_loop.py",
+    "--stage",
+    "R:\\evidence\\c1-target-epoch-20261102\\loop-regression",
+    "--case",
+    "convergence"
+  ],
+  "exit_code": 0,
+  "seconds": 119.14100000000326,
+  "scope": "XSim/actual C with synthetic image and plant only; no hardware"
+}

@@ -1,0 +1,16 @@
+{
+  "status": "INSUFFICIENT_EXCITATION",
+  "sample_count": 226,
+  "fpga_x_range": [
+    306.0706454165254,
+    306.5371956717764
+  ],
+  "openmv_dx_range": [
+    -6,
+    -6
+  ],
+  "correlation": null,
+  "mechanical_calibration": false,
+  "motion_commands": [],
+  "note": "Manual paper movement does not calibrate servo response. Constant centroid gives no cross-camera direction fit."
+}

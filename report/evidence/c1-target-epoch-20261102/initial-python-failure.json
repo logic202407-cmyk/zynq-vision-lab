@@ -1,0 +1,5 @@
+{
+  "exit_code": 1,
+  "cause": "sqlite connection context manager commits but does not close; Windows file handles remained live",
+  "correction": "Explicit closing for initialization and exhaustion test connections"
+}

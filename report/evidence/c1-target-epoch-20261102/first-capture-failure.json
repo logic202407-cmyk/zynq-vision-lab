@@ -1,0 +1,7 @@
+{
+  "command": "python observe_two_cameras.py samecircle01",
+  "exit_code": 1,
+  "failure": "FileNotFoundError: copied capture helper lacked its relative AXF dependency",
+  "hardware_capture_started": false,
+  "fix": "Copied the exact deployed AXF into the new private stage; retained previous evidence"
+}

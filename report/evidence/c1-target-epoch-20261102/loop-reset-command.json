@@ -1,0 +1,16 @@
+{
+  "command": [
+    "D:/Python312/python.exe",
+    "-X",
+    "utf8",
+    "tools/check_c1_loop.py",
+    "--stage",
+    "R:\\evidence\\c1-target-epoch-20261102\\loop-regression",
+    "--built",
+    "--case",
+    "fpga_reset"
+  ],
+  "exit_code": 0,
+  "seconds": 38.219000000011874,
+  "scope": "XSim/real C only; no hardware"
+}

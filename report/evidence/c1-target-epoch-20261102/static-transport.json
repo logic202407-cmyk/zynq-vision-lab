@@ -1,0 +1,16 @@
+{
+  "scope": "No-power actual two-camera observation only; not autonomous tracking",
+  "complete_frames": 310,
+  "incomplete_frames": 4,
+  "malformed": 1,
+  "same_frame_matches": 108,
+  "mismatches": 0,
+  "feedback_lines": 189,
+  "feedback_crc_errors": 0,
+  "both_valid_samples": 110,
+  "pwm_all_off": true,
+  "error": null,
+  "verdict": "PASS",
+  "sample_count": 110,
+  "identity_scope": "Human-confirmed single paper red circle in two views; not algorithmic multi-target association"
+}

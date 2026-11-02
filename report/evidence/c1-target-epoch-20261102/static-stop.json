@@ -1,0 +1,24 @@
+{
+  "verdict": "PASS",
+  "scope": "Actual FPGA STOP correlation and real MCU register checks; already-off outputs, no powered stop timing proof",
+  "correlated_stop_acks": [
+    {
+      "crc_ok": true,
+      "state": "stopped",
+      "pwm_mask": 0
+    }
+  ],
+  "uart_tx_bytes": 0,
+  "motion_commands": [],
+  "sample_count": 89,
+  "all_ccer_zero": true,
+  "final_sample": {
+    "seconds": 17.953000000008615,
+    "state": 0,
+    "reason": 1,
+    "ccer": 0,
+    "accepted": 1027,
+    "milliseconds": 4954436
+  },
+  "private_original_sha256": "a93751e1cbf49134563fcb6b8772851805c7c65b78a5628861bb67aa4dc14d80"
+}

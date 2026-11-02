@@ -1,0 +1,22 @@
+{
+  "schema": "camera_centering_calibration_v1",
+  "gimbal_id": 0,
+  "same_target_observed": true,
+  "scene_evidence": "2026-11-02 two private live views of the paper red circle; human single-target condition",
+  "camera_geometry_verified": false,
+  "independent_pwm_waveform_verified": false,
+  "mechanical_window_verified": false,
+  "epoch_provider_certified": false,
+  "response_acceptance_policy": null,
+  "samples": [],
+  "cameras": [
+    {"id": 0, "source": "Zynq OV5640", "width": 640, "height": 480, "image_axes": "x right, y down", "cross_camera_mapping": "UNKNOWN"},
+    {"id": 1, "source": "OpenMV1", "width": 160, "height": 120, "feedback_axes": "dx=cx-80; dy=60-cy", "cross_camera_mapping": "UNKNOWN"}
+  ],
+  "gimbal_connections": [
+    {"id": 0, "connected": true, "mechanically_calibrated": false},
+    {"id": 1, "connected": false, "mechanically_calibrated": false},
+    {"id": 2, "connected": false, "mechanically_calibrated": false}
+  ],
+  "note": "Software 1500us is not mechanical zero; no motion samples were acquired. This file never authorizes output."
+}

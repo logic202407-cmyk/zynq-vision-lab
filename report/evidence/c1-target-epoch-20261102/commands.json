@@ -1,0 +1,14 @@
+{
+  "baseline_commit": "afe13f233dabf8c5e20fc423d216339e263c3bfc",
+  "hardware_scope": "Read-only SWD, existing observation VIO query/config/STOP, finite OpenMV RAM script, UDP video",
+  "flash_writes": [],
+  "jtag_configurations": [],
+  "physical_motion_commands": [],
+  "optical_commands": [],
+  "physical_pwm_enable": false,
+  "final_vio_control": "02",
+  "final_vio_status": "50",
+  "user_confirmed_servo_power": "disconnected",
+  "user_confirmed_laser_power": "disconnected",
+  "raw_runtime_ids_and_images": "private D-drive only"
+}

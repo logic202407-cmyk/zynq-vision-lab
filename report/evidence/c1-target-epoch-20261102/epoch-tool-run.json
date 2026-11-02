@@ -1,0 +1,24 @@
+{
+  "command": "source R:/clock-repo/build/check_epoch_allocator.tcl",
+  "tool": "Vivado/XSim 2024.2",
+  "exit_code": 0,
+  "elapsed_seconds": 368.471,
+  "transport_timeout_seconds": 300,
+  "completion_verified_by": "Original MCP session status; not a rerun",
+  "rtl_assertions": 37,
+  "luts": 353,
+  "flip_flops": 389,
+  "latches": 0,
+  "wns_ns": 15.117,
+  "whs_ns": 0.149,
+  "tns_ns": 0,
+  "ths_ns": 0,
+  "no_input_delay": 260,
+  "no_output_delay": 133,
+  "drc_warnings": [
+    "ZPS7-1"
+  ],
+  "boundary": "OOC, reference-only 20ns clock; external partial route limitations; no board timing claim",
+  "bitstream_generated": false,
+  "hardware_access": false
+}
