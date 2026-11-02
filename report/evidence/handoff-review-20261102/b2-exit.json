@@ -1,0 +1,4 @@
+{
+  "exit_code": 0,
+  "command": "python tools/run_motion_acceptance.py --stage D:/zynq-handoff-evidence-20261102/b2-regression"
+}

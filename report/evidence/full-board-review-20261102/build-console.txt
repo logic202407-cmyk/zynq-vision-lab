@@ -1,0 +1,2021 @@
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Mon Nov  2 16:15:21 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source {D:\zynq-offline-handoff-20261102\build\build_c1_observation_board.tcl}
+# set repo [file normalize [file join [file dirname [info script]] ..]]
+# set private [file normalize [file join [pwd] vendor]]
+# if {![file exists $private/source-sha256.json]} {error {Prepare private vendor integration first}}
+# create_project c1_observe ./project -part xc7z100ffg900-2
+# set_property target_language Verilog [current_project]
+# set_property simulator_language Mixed [current_project]
+# foreach d [list $private/rtl $private/rtl/arp $private/rtl/udp $private/rtl/ov5640 $private/rtl/gmii_to_rgmii] {
+#  add_files [glob $d/*.v]
+# }
+# add_files -fileset constrs_1 $private/ov5640_udp_pc.xdc
+# foreach f [glob $private/ip/*/*.xci] {import_ip $f}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/Vivado/2024.2/data/ip'.
+WARNING: [IP_Flow 19-2162] IP 'async_fifo_2048x8b' is locked:
+* IP definition 'FIFO Generator (13.2)' for IP 'async_fifo_2048x8b' (customized with software release 2023.1) has a different revision in the IP Catalog.
+WARNING: [IP_Flow 19-2162] IP 'clk_wiz_0' is locked:
+* IP definition 'Clocking Wizard (6.0)' for IP 'clk_wiz_0' (customized with software release 2023.1) has a different revision in the IP Catalog.
+# upgrade_ip [get_ips]
+Upgrading 'async_fifo_2048x8b'
+INFO: [IP_Flow 19-3422] Upgraded async_fifo_2048x8b (FIFO Generator 13.2) from revision 8 to revision 11
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'async_fifo_2048x8b'...
+Upgrading 'clk_wiz_0'
+INFO: [Device 21-403] Loading part xc7z100ffg900-2
+INFO: [IP_Flow 19-3422] Upgraded clk_wiz_0 (Clocking Wizard 6.0) from revision 12 to revision 15
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'clk_wiz_0'...
+upgrade_ip: Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 738.613 ; gain = 359.691
+# create_ip -name vio -vendor xilinx.com -library ip -version 3.0 -module_name c1_observation_vio
+# set_property -dict {CONFIG.C_NUM_PROBE_IN 2 CONFIG.C_NUM_PROBE_OUT 3 CONFIG.C_PROBE_IN0_WIDTH 32 CONFIG.C_PROBE_IN1_WIDTH 32 CONFIG.C_PROBE_OUT0_WIDTH 8 CONFIG.C_PROBE_OUT1_WIDTH 128 CONFIG.C_PROBE_OUT2_WIDTH 64 CONFIG.C_PROBE_OUT0_INIT_VAL 0x00 CONFIG.C_PROBE_OUT1_INIT_VAL 0x0 CONFIG.C_PROBE_OUT2_INIT_VAL 0x0} [get_ips c1_observation_vio]
+# generate_target all [get_ips]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'async_fifo_2048x8b'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'async_fifo_2048x8b'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'async_fifo_2048x8b'...
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'c1_observation_vio'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'c1_observation_vio'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'c1_observation_vio'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'c1_observation_vio'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'clk_wiz_0'...
+# set_property top ov5640_udp_pc [current_fileset]
+# update_compile_order -fileset sources_1
+# report_ip_status -file ip_status.rpt
+# launch_runs synth_1 -jobs 2
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: async_fifo_2048x8b
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: c1_observation_vio
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: clk_wiz_0
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Mon Nov  2 16:15:43 2026] Launched async_fifo_2048x8b_synth_1, clk_wiz_0_synth_1, c1_observation_vio_synth_1...
+Run output will be captured here:
+async_fifo_2048x8b_synth_1: D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/async_fifo_2048x8b_synth_1/runme.log
+clk_wiz_0_synth_1: D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/clk_wiz_0_synth_1/runme.log
+c1_observation_vio_synth_1: D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/c1_observation_vio_synth_1/runme.log
+[Mon Nov  2 16:15:43 2026] Launched synth_1...
+Run output will be captured here: D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/synth_1/runme.log
+# wait_on_run synth_1
+[Mon Nov  2 16:15:43 2026] Waiting for synth_1 to finish...
+
+
+*** Running vivado
+    with args -log ov5640_udp_pc.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ov5640_udp_pc.tcl
+
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Mon Nov  2 16:17:27 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source ov5640_udp_pc.tcl -notrace
+Command: synth_design -top ov5640_udp_pc -part xc7z100ffg900-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z100'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z100'
+INFO: [Device 21-403] Loading part xc7z100ffg900-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 72724
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1173.523 ; gain = 466.363
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11241] undeclared symbol 'pl_result_strobe', assumed default net type 'wire' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:189]
+INFO: [Synth 8-11241] undeclared symbol 'pl_frame_complete', assumed default net type 'wire' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:189]
+INFO: [Synth 8-11241] undeclared symbol 'pl_target_valid', assumed default net type 'wire' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:189]
+INFO: [Synth 8-11241] undeclared symbol 'pl_red_count', assumed default net type 'wire' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:190]
+INFO: [Synth 8-11241] undeclared symbol 'pl_red_sum_x', assumed default net type 'wire' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:190]
+INFO: [Synth 8-11241] undeclared symbol 'pl_red_sum_y', assumed default net type 'wire' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:190]
+INFO: [Synth 8-11241] undeclared symbol 'pl_red_min_x', assumed default net type 'wire' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:190]
+INFO: [Synth 8-11241] undeclared symbol 'pl_red_max_x', assumed default net type 'wire' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:190]
+INFO: [Synth 8-11241] undeclared symbol 'pl_red_min_y', assumed default net type 'wire' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:191]
+INFO: [Synth 8-11241] undeclared symbol 'pl_red_max_y', assumed default net type 'wire' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:191]
+WARNING: [Synth 8-8895] 'pl_result_strobe' is already implicitly declared on line 189 [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:210]
+WARNING: [Synth 8-8895] 'pl_frame_complete' is already implicitly declared on line 189 [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:210]
+WARNING: [Synth 8-8895] 'pl_target_valid' is already implicitly declared on line 189 [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:210]
+WARNING: [Synth 8-8895] 'pl_red_count' is already implicitly declared on line 190 [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:211]
+WARNING: [Synth 8-8895] 'pl_red_sum_x' is already implicitly declared on line 190 [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:212]
+WARNING: [Synth 8-8895] 'pl_red_sum_y' is already implicitly declared on line 190 [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:212]
+WARNING: [Synth 8-8895] 'pl_red_min_x' is already implicitly declared on line 190 [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:213]
+WARNING: [Synth 8-8895] 'pl_red_max_x' is already implicitly declared on line 190 [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:213]
+WARNING: [Synth 8-8895] 'pl_red_min_y' is already implicitly declared on line 191 [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:214]
+WARNING: [Synth 8-8895] 'pl_red_max_y' is already implicitly declared on line 191 [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:214]
+INFO: [Synth 8-11241] undeclared symbol 'eth_rst_n', assumed default net type 'wire' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:280]
+INFO: [Synth 8-6157] synthesizing module 'ov5640_udp_pc' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/synth_1/.Xil/Vivado-87908-REDACTED_HOST/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/synth_1/.Xil/Vivado-87908-REDACTED_HOST/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'i2c_ov5640_rgb565_cfg' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640/i2c_ov5640_rgb565_cfg.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'i2c_ov5640_rgb565_cfg' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640/i2c_ov5640_rgb565_cfg.v:24]
+INFO: [Synth 8-6157] synthesizing module 'i2c_dri' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640/i2c_dri.v:24]
+	Parameter SLAVE_ADDR bound to: 7'b0111100
+	Parameter CLK_FREQ bound to: 27'b010111110101111000010000000
+	Parameter I2C_FREQ bound to: 20'b00111101000010010000
+INFO: [Synth 8-155] case statement is not full and has no default [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640/i2c_dri.v:198]
+INFO: [Synth 8-6155] done synthesizing module 'i2c_dri' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640/i2c_dri.v:24]
+INFO: [Synth 8-6157] synthesizing module 'start_transfer_ctrl' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/start_transfer_ctrl.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'start_transfer_ctrl' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/start_transfer_ctrl.v:23]
+INFO: [Synth 8-6157] synthesizing module 'camera_measurement_snapshot' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/camera_measurement_snapshot.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'camera_measurement_snapshot' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/camera_measurement_snapshot.v:4]
+INFO: [Synth 8-6157] synthesizing module 'c1_observation_link' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/c1_observation_link.v:6]
+	Parameter CLOCK_HZ bound to: 50000000 - type: integer
+	Parameter LOCAL_RESETS bound to: 1 - type: integer
+INFO: [Synth 8-6157] synthesizing module 'zynq_vision_link' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/zynq_vision_link.v:4]
+	Parameter CLOCK_HZ bound to: 50000000 - type: integer
+	Parameter LOCAL_RESETS bound to: 1 - type: integer
+INFO: [Synth 8-6157] synthesizing module 'zynq_motion_s1' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/zynq_motion_s1.v:4]
+	Parameter CLOCK_HZ bound to: 50000000 - type: integer
+	Parameter BAUD bound to: 115200 - type: integer
+INFO: [Synth 8-6157] synthesizing module 'uart_tx_8n1' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/uart_tx_8n1.v:4]
+	Parameter CLOCK_HZ bound to: 50000000 - type: integer
+	Parameter BAUD bound to: 115200 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx_8n1' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/uart_tx_8n1.v:4]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/uart_rx.v:3]
+	Parameter CLOCK_HZ bound to: 50000000 - type: integer
+	Parameter BAUD bound to: 115200 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/uart_rx.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'zynq_motion_s1' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/zynq_motion_s1.v:4]
+INFO: [Synth 8-6157] synthesizing module 'uart_line_queue' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/uart_line_queue.v:4]
+	Parameter CLOCK_HZ bound to: 50000000 - type: integer
+	Parameter BAUD bound to: 115200 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'uart_line_queue' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/uart_line_queue.v:4]
+INFO: [Synth 8-6157] synthesizing module 'measurement_nonce_observer' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/measurement_nonce_observer.v:4]
+	Parameter CLOCK_HZ bound to: 50000000 - type: integer
+	Parameter BAUD bound to: 115200 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'measurement_nonce_observer' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/measurement_nonce_observer.v:4]
+INFO: [Synth 8-6157] synthesizing module 'measurement_session' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/measurement_session.v:4]
+	Parameter CLOCK_HZ bound to: 50000000 - type: integer
+	Parameter BAUD bound to: 115200 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'measurement_session' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/measurement_session.v:4]
+INFO: [Synth 8-6157] synthesizing module 'vision_snapshot_cdc' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/vision_snapshot_cdc.v:4]
+	Parameter WIDTH bound to: 219 - type: integer
+	Parameter LOCAL_RESETS bound to: 1 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'vision_snapshot_cdc' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/vision_snapshot_cdc.v:4]
+INFO: [Synth 8-6157] synthesizing module 'vision_measurement_tx' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/vision_measurement_tx.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'vision_measurement_tx' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/vision_measurement_tx.v:5]
+INFO: [Synth 8-6157] synthesizing module 'uart_line_scheduler' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/uart_line_scheduler.v:4]
+	Parameter CLOCK_HZ bound to: 50000000 - type: integer
+	Parameter BAUD bound to: 115200 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'uart_line_scheduler' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/uart_line_scheduler.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'zynq_vision_link' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/zynq_vision_link.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'c1_observation_link' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/c1_observation_link.v:6]
+INFO: [Synth 8-6157] synthesizing module 'c1_observation_vio' [D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/synth_1/.Xil/Vivado-87908-REDACTED_HOST/realtime/c1_observation_vio_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'c1_observation_vio' (0#1) [D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/synth_1/.Xil/Vivado-87908-REDACTED_HOST/realtime/c1_observation_vio_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'camera_rgb565_stream' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/camera_rgb565_stream.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'camera_rgb565_stream' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/camera_rgb565_stream.v:6]
+INFO: [Synth 8-6157] synthesizing module 'red_frame_stats' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/red_frame_stats.v:6]
+	Parameter SPATIAL_FILTER bound to: 1 - type: integer
+INFO: [Synth 8-6157] synthesizing module 'red_mask_majority3x3' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/red_mask_majority3x3.v:7]
+	Parameter WIDTH bound to: 640 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'red_mask_majority3x3' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/red_mask_majority3x3.v:7]
+INFO: [Synth 8-6157] synthesizing module 'red_pixel_mask' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/red_pixel_mask.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'red_pixel_mask' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/red_pixel_mask.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'red_frame_stats' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/red_frame_stats.v:6]
+INFO: [Synth 8-6157] synthesizing module 'red_result_header' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/red_result_header.v:6]
+	Parameter MASK_VERSION bound to: 8'b00000010
+INFO: [Synth 8-6155] done synthesizing module 'red_result_header' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/red_result_header.v:6]
+INFO: [Synth 8-6157] synthesizing module 'img_data_pkt' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/img_data_pkt.v:23]
+INFO: [Synth 8-6157] synthesizing module 'async_fifo_2048x8b' [D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/synth_1/.Xil/Vivado-87908-REDACTED_HOST/realtime/async_fifo_2048x8b_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'async_fifo_2048x8b' (0#1) [D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/synth_1/.Xil/Vivado-87908-REDACTED_HOST/realtime/async_fifo_2048x8b_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'img_data_pkt' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/img_data_pkt.v:23]
+INFO: [Synth 8-6157] synthesizing module 'eth_top' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/eth_top.v:23]
+	Parameter BOARD_MAC bound to: 48'b000000000001000100100010001100110100010001010101
+	Parameter BOARD_IP bound to: -1062731510 - type: integer
+	Parameter DES_MAC bound to: 48'b111111111111111111111111111111111111111111111111
+	Parameter DES_IP bound to: -1062731418 - type: integer
+INFO: [Synth 8-6157] synthesizing module 'gmii_to_rgmii' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/gmii_to_rgmii/gmii_to_rgmii.v:23]
+	Parameter IDELAY_VALUE bound to: 1 - type: integer
+INFO: [Synth 8-6157] synthesizing module 'rgmii_rx' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/gmii_to_rgmii/rgmii_rx.v:23]
+	Parameter IDELAY_VALUE bound to: 1 - type: integer
+INFO: [Synth 8-6157] synthesizing module 'IDELAYE2' [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:77934]
+	Parameter IDELAY_TYPE bound to: FIXED - type: string
+	Parameter IDELAY_VALUE bound to: 1 - type: integer
+	Parameter REFCLK_FREQUENCY bound to: 200.000000 - type: double
+INFO: [Synth 8-6155] done synthesizing module 'IDELAYE2' (0#1) [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:77934]
+INFO: [Synth 8-6157] synthesizing module 'IDDR' [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:77799]
+	Parameter DDR_CLK_EDGE bound to: SAME_EDGE_PIPELINED - type: string
+	Parameter INIT_Q1 bound to: 1'b0
+	Parameter INIT_Q2 bound to: 1'b0
+	Parameter SRTYPE bound to: SYNC - type: string
+INFO: [Synth 8-6155] done synthesizing module 'IDDR' (0#1) [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:77799]
+INFO: [Synth 8-6157] synthesizing module 'BUFR' [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:3015]
+INFO: [Synth 8-6155] done synthesizing module 'BUFR' (0#1) [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:3015]
+WARNING: [Synth 8-7071] port 'CE' of module 'BUFR' is unconnected for instance 'BUFR_inst' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/gmii_to_rgmii/rgmii_rx.v:55]
+WARNING: [Synth 8-7071] port 'CLR' of module 'BUFR' is unconnected for instance 'BUFR_inst' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/gmii_to_rgmii/rgmii_rx.v:55]
+WARNING: [Synth 8-7023] instance 'BUFR_inst' of module 'BUFR' has 4 connections declared, but only 2 given [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/gmii_to_rgmii/rgmii_rx.v:55]
+INFO: [Synth 8-6157] synthesizing module 'BUFIO' [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2949]
+INFO: [Synth 8-6155] done synthesizing module 'BUFIO' (0#1) [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:2949]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/gmii_to_rgmii/rgmii_rx.v:69]
+INFO: [Synth 8-6157] synthesizing module 'IDELAYCTRL' [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:77921]
+INFO: [Synth 8-6155] done synthesizing module 'IDELAYCTRL' (0#1) [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:77921]
+INFO: [Synth 8-6155] done synthesizing module 'rgmii_rx' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/gmii_to_rgmii/rgmii_rx.v:23]
+INFO: [Synth 8-6157] synthesizing module 'rgmii_tx' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/gmii_to_rgmii/rgmii_tx.v:23]
+INFO: [Synth 8-6157] synthesizing module 'ODDR' [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:103072]
+	Parameter DDR_CLK_EDGE bound to: SAME_EDGE - type: string
+	Parameter INIT bound to: 1'b0
+	Parameter SRTYPE bound to: SYNC - type: string
+INFO: [Synth 8-6155] done synthesizing module 'ODDR' (0#1) [F:/Vivado/2024.2/scripts/rt/data/unisim_comp.v:103072]
+INFO: [Synth 8-6155] done synthesizing module 'rgmii_tx' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/gmii_to_rgmii/rgmii_tx.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'gmii_to_rgmii' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/gmii_to_rgmii/gmii_to_rgmii.v:23]
+INFO: [Synth 8-6157] synthesizing module 'arp' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/arp/arp.v:23]
+	Parameter BOARD_MAC bound to: 48'b000000000001000100100010001100110100010001010101
+	Parameter BOARD_IP bound to: -1062731510 - type: integer
+	Parameter DES_MAC bound to: 48'b111111111111111111111111111111111111111111111111
+	Parameter DES_IP bound to: -1062731418 - type: integer
+INFO: [Synth 8-6157] synthesizing module 'arp_rx' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/arp/arp_rx.v:23]
+	Parameter BOARD_MAC bound to: 48'b000000000001000100100010001100110100010001010101
+	Parameter BOARD_IP bound to: -1062731510 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'arp_rx' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/arp/arp_rx.v:23]
+INFO: [Synth 8-6157] synthesizing module 'arp_tx' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/arp/arp_tx.v:23]
+	Parameter BOARD_MAC bound to: 48'b000000000001000100100010001100110100010001010101
+	Parameter BOARD_IP bound to: -1062731510 - type: integer
+	Parameter DES_MAC bound to: 48'b111111111111111111111111111111111111111111111111
+	Parameter DES_IP bound to: -1062731418 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'arp_tx' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/arp/arp_tx.v:23]
+INFO: [Synth 8-6157] synthesizing module 'crc32_d8' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/arp/crc32_d8.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'crc32_d8' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/arp/crc32_d8.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'arp' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/arp/arp.v:23]
+INFO: [Synth 8-6157] synthesizing module 'udp' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp.v:23]
+	Parameter BOARD_MAC bound to: 48'b000000000001000100100010001100110100010001010101
+	Parameter BOARD_IP bound to: -1062731510 - type: integer
+	Parameter DES_MAC bound to: 48'b111111111111111111111111111111111111111111111111
+	Parameter DES_IP bound to: -1062731418 - type: integer
+INFO: [Synth 8-6157] synthesizing module 'udp_rx' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp_rx.v:23]
+	Parameter BOARD_MAC bound to: 48'b000000000001000100100010001100110100010001010101
+	Parameter BOARD_IP bound to: -1062731510 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'udp_rx' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp_rx.v:23]
+INFO: [Synth 8-6157] synthesizing module 'udp_tx' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp_tx.v:23]
+	Parameter BOARD_MAC bound to: 48'b000000000001000100100010001100110100010001010101
+	Parameter BOARD_IP bound to: -1062731510 - type: integer
+	Parameter DES_MAC bound to: 48'b111111111111111111111111111111111111111111111111
+	Parameter DES_IP bound to: -1062731418 - type: integer
+INFO: [Synth 8-6155] done synthesizing module 'udp_tx' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp_tx.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'udp' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp.v:23]
+INFO: [Synth 8-6157] synthesizing module 'eth_ctrl' [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/eth_ctrl.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'eth_ctrl' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/eth_ctrl.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'eth_top' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/eth_top.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'ov5640_udp_pc' (0#1) [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:23]
+WARNING: [Synth 8-7137] Register mem_reg in module uart_line_queue has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code
+WARNING: [Synth 8-4767] Trying to implement RAM 'mem_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported.
+RAM "mem_reg" dissolved into registers
+WARNING: [Synth 8-6014] Unused sequential element ip_head_byte_num_reg was removed.  [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp_rx.v:144]
+WARNING: [Synth 8-7137] Register ip_head_reg[6] in module udp_tx has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp_tx.v:202]
+WARNING: [Synth 8-7137] Register ip_head_reg[5] in module udp_tx has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp_tx.v:202]
+WARNING: [Synth 8-7137] Register ip_head_reg[4] in module udp_tx has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp_tx.v:202]
+WARNING: [Synth 8-7137] Register ip_head_reg[3] in module udp_tx has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp_tx.v:202]
+WARNING: [Synth 8-7137] Register ip_head_reg[2] in module udp_tx has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp_tx.v:202]
+WARNING: [Synth 8-7137] Register ip_head_reg[0] in module udp_tx has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/udp/udp_tx.v:202]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'c1_vio'. This will prevent further optimization [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:202]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'c1_observation'. This will prevent further optimization [D:/zynq-handoff-evidence-20261102/board/vendor/rtl/ov5640_udp_pc.v:192]
+WARNING: [Synth 8-3917] design ov5640_udp_pc has port cam_rst_n driven by constant 1
+WARNING: [Synth 8-3917] design ov5640_udp_pc has port cam_pwdn driven by constant 0
+WARNING: [Synth 8-7129] Port arp_tx_done in module eth_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[31] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[30] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[29] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[28] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[27] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[26] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[25] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[24] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[31] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[30] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[29] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[28] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[27] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[26] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[25] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[24] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port udp_rec_en in module start_transfer_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[7] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[6] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[5] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[4] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[3] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[2] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[1] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[0] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cmos_h_pixel[12] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cmos_v_pixel[12] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cmos_v_pixel[11] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1456.527 ; gain = 749.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1456.527 ; gain = 749.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1456.527 ; gain = 749.367
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.439 . Memory (MB): peak = 1460.160 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b/async_fifo_2048x8b_in_context.xdc] for cell 'u_img_data_pkt/async_fifo_2048x8b_inst'
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b/async_fifo_2048x8b_in_context.xdc] for cell 'u_img_data_pkt/async_fifo_2048x8b_inst'
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'u_clk_wiz_0'
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'u_clk_wiz_0'
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/c1_observation_vio/c1_observation_vio/c1_observation_vio_in_context.xdc] for cell 'c1_vio'
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/c1_observation_vio/c1_observation_vio/c1_observation_vio_in_context.xdc] for cell 'c1_vio'
+Parsing XDC File [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc]
+WARNING: [Constraints 18-619] A clock with name 'sys_clk_p' already exists, overwriting the previous clock with the same name. [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc:1]
+WARNING: [Vivado 12-507] No nets matched 'cam_pclk_IBUF'. [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc:5]
+WARNING: [Vivado 12-507] No nets matched 'u_clk_wiz_0/inst/clk_in1_clk_wiz_0'. [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc:72]
+Finished Parsing XDC File [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/ov5640_udp_pc_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/ov5640_udp_pc_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/ov5640_udp_pc_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1592.500 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.094 . Memory (MB): peak = 1592.500 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '10.000' specified during out-of-context synthesis of instance 'u_img_data_pkt/async_fifo_2048x8b_inst' at clock pin 'rd_clk' is different from the actual clock period '8.000', this can lead to different synthesis results.
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1592.500 ; gain = 885.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z100ffg900-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1592.500 ; gain = 885.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for sys_clk_n. (constraint file  d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for sys_clk_n. (constraint file  d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for sys_clk_p. (constraint file  d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 6).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for sys_clk_p. (constraint file  d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 7).
+Applied set_property KEEP_HIERARCHY = SOFT for u_img_data_pkt/async_fifo_2048x8b_inst. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u_clk_wiz_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for c1_vio. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1592.500 ; gain = 885.340
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'cur_state_reg' in module 'i2c_dri'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_rx'
+INFO: [Synth 8-802] inferred FSM for state register 'owner_reg' in module 'uart_line_scheduler'
+INFO: [Synth 8-802] inferred FSM for state register 'cur_state_reg' in module 'arp_rx'
+INFO: [Synth 8-802] inferred FSM for state register 'cur_state_reg' in module 'arp_tx'
+INFO: [Synth 8-802] inferred FSM for state register 'cur_state_reg' in module 'udp_rx'
+INFO: [Synth 8-802] inferred FSM for state register 'cur_state_reg' in module 'udp_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding
+---------------------------------------------------------------------------------------------------
+*
+                 st_idle |                         00000001 |                         00000001
+               st_sladdr |                         00000010 |                         00000010
+               st_addr16 |                         00000100 |                         00000100
+                st_addr8 |                         00001000 |                         00001000
+              st_data_wr |                         00010000 |                         00010000
+              st_addr_rd |                         00100000 |                         00100000
+              st_data_rd |                         01000000 |                         01000000
+                 st_stop |                         10000000 |                         10000000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'cur_state_reg' in module 'i2c_dri'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                   START |                              001 |                              001
+                    DATA |                              010 |                              010
+                    STOP |                              011 |                              011
+                 RECOVER |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart_rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               00
+                 iSTATE0 |                             0010 |                               01
+                 iSTATE1 |                             0100 |                               10
+                 iSTATE2 |                             1000 |                               11
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'owner_reg' using encoding 'one-hot' in module 'uart_line_scheduler'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding
+---------------------------------------------------------------------------------------------------
+*
+                 st_idle |                            00001 |                            00001
+             st_preamble |                            00010 |                            00010
+             st_eth_head |                            00100 |                            00100
+             st_arp_data |                            01000 |                            01000
+               st_rx_end |                            10000 |                            10000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'cur_state_reg' in module 'arp_rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding
+---------------------------------------------------------------------------------------------------
+*
+                 st_idle |                            00001 |                            00001
+             st_preamble |                            00010 |                            00010
+             st_eth_head |                            00100 |                            00100
+             st_arp_data |                            01000 |                            01000
+                  st_crc |                            10000 |                            10000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'cur_state_reg' in module 'arp_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding
+---------------------------------------------------------------------------------------------------
+*
+                 st_idle |                          0000001 |                          0000001
+             st_preamble |                          0000010 |                          0000010
+             st_eth_head |                          0000100 |                          0000100
+              st_ip_head |                          0001000 |                          0001000
+             st_udp_head |                          0010000 |                          0010000
+              st_rx_data |                          0100000 |                          0100000
+               st_rx_end |                          1000000 |                          1000000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'cur_state_reg' in module 'udp_rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding
+---------------------------------------------------------------------------------------------------
+*
+                 st_idle |                          0000001 |                          0000001
+            st_check_sum |                          0000010 |                          0000010
+             st_preamble |                          0000100 |                          0000100
+             st_eth_head |                          0001000 |                          0001000
+              st_ip_head |                          0010000 |                          0010000
+              st_tx_data |                          0100000 |                          0100000
+                  st_crc |                          1000000 |                          1000000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'cur_state_reg' in module 'udp_tx'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 1592.500 ; gain = 885.340
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics
+---------------------------------------------------------------------------------
+Detailed RTL Component Info :
++---Adders :
+	   2 Input  128 Bit       Adders := 2
+	   2 Input   33 Bit       Adders := 1
+	   3 Input   33 Bit       Adders := 1
+	   2 Input   32 Bit       Adders := 33
+	   3 Input   32 Bit       Adders := 6
+	   3 Input   20 Bit       Adders := 2
+	  10 Input   20 Bit       Adders := 1
+	   2 Input   19 Bit       Adders := 2
+	   3 Input   17 Bit       Adders := 1
+	   2 Input   17 Bit       Adders := 1
+	   2 Input   16 Bit       Adders := 9
+	   2 Input   13 Bit       Adders := 1
+	   2 Input   11 Bit       Adders := 1
+	   2 Input   10 Bit       Adders := 2
+	   2 Input    9 Bit       Adders := 2
+	   2 Input    8 Bit       Adders := 16
+	   2 Input    7 Bit       Adders := 4
+	   3 Input    7 Bit       Adders := 1
+	   2 Input    6 Bit       Adders := 5
+	   2 Input    5 Bit       Adders := 212
+	   2 Input    4 Bit       Adders := 2
+	   3 Input    4 Bit       Adders := 1
+	   9 Input    4 Bit       Adders := 1
+	   2 Input    3 Bit       Adders := 4
+	   2 Input    2 Bit       Adders := 1
++---XORs :
+	   2 Input     16 Bit         XORs := 63
+	   2 Input      1 Bit         XORs := 16
+	   3 Input      1 Bit         XORs := 12
+	   6 Input      1 Bit         XORs := 14
+	   8 Input      1 Bit         XORs := 2
+	   5 Input      1 Bit         XORs := 8
+	   7 Input      1 Bit         XORs := 14
+	  10 Input      1 Bit         XORs := 4
+	   9 Input      1 Bit         XORs := 6
+	  12 Input      1 Bit         XORs := 2
+	   4 Input      1 Bit         XORs := 2
++---Registers :
+	              256 Bit    Registers := 20
+	              219 Bit    Registers := 3
+	              128 Bit    Registers := 2
+	               80 Bit    Registers := 1
+	               64 Bit    Registers := 5
+	               48 Bit    Registers := 4
+	               32 Bit    Registers := 61
+	               28 Bit    Registers := 6
+	               24 Bit    Registers := 1
+	               20 Bit    Registers := 3
+	               19 Bit    Registers := 3
+	               16 Bit    Registers := 26
+	               11 Bit    Registers := 1
+	               10 Bit    Registers := 10
+	                9 Bit    Registers := 8
+	                8 Bit    Registers := 213
+	                7 Bit    Registers := 3
+	                6 Bit    Registers := 23
+	                5 Bit    Registers := 6
+	                4 Bit    Registers := 2
+	                3 Bit    Registers := 7
+	                2 Bit    Registers := 9
+	                1 Bit    Registers := 142
++---Multipliers :
+	               4x32  Multipliers := 1
++---RAMs :
+	              512 Bit	(64 X 8 bit)          RAMs := 1
++---Muxes :
+	   2 Input  432 Bit        Muxes := 3
+	   2 Input  256 Bit        Muxes := 60
+	   3 Input  256 Bit        Muxes := 20
+	   2 Input  128 Bit        Muxes := 9
+	   7 Input  128 Bit        Muxes := 2
+	   2 Input   80 Bit        Muxes := 10
+	   7 Input   80 Bit        Muxes := 1
+	   3 Input   80 Bit        Muxes := 1
+	   5 Input   80 Bit        Muxes := 1
+	   5 Input   48 Bit        Muxes := 1
+	   2 Input   48 Bit        Muxes := 1
+	   2 Input   32 Bit        Muxes := 112
+	   3 Input   32 Bit        Muxes := 20
+	   7 Input   32 Bit        Muxes := 5
+	   5 Input   32 Bit        Muxes := 4
+	   2 Input   28 Bit        Muxes := 6
+	   2 Input   20 Bit        Muxes := 4
+	   2 Input   19 Bit        Muxes := 4
+	   2 Input   16 Bit        Muxes := 101
+	   7 Input   16 Bit        Muxes := 6
+	   5 Input   16 Bit        Muxes := 2
+	   3 Input   16 Bit        Muxes := 1
+	   4 Input   16 Bit        Muxes := 1
+	   2 Input   13 Bit        Muxes := 1
+	   2 Input   11 Bit        Muxes := 2
+	   2 Input   10 Bit        Muxes := 10
+	   2 Input    9 Bit        Muxes := 11
+	   2 Input    8 Bit        Muxes := 49
+	   4 Input    8 Bit        Muxes := 5
+	   3 Input    8 Bit        Muxes := 2
+	   8 Input    8 Bit        Muxes := 2
+	   5 Input    8 Bit        Muxes := 6
+	   9 Input    8 Bit        Muxes := 2
+	   4 Input    7 Bit        Muxes := 2
+	   2 Input    7 Bit        Muxes := 31
+	   6 Input    7 Bit        Muxes := 1
+	   9 Input    7 Bit        Muxes := 1
+	   3 Input    7 Bit        Muxes := 3
+	   8 Input    7 Bit        Muxes := 4
+	   2 Input    6 Bit        Muxes := 70
+	   3 Input    6 Bit        Muxes := 20
+	   4 Input    6 Bit        Muxes := 1
+	   2 Input    5 Bit        Muxes := 247
+	   4 Input    5 Bit        Muxes := 4
+	   3 Input    5 Bit        Muxes := 3
+	   6 Input    5 Bit        Muxes := 4
+	   2 Input    4 Bit        Muxes := 13
+	   2 Input    3 Bit        Muxes := 23
+	   7 Input    3 Bit        Muxes := 1
+	   4 Input    3 Bit        Muxes := 1
+	   5 Input    3 Bit        Muxes := 11
+	   3 Input    3 Bit        Muxes := 2
+	   2 Input    2 Bit        Muxes := 24
+	   7 Input    2 Bit        Muxes := 3
+	   2 Input    1 Bit        Muxes := 575
+	   3 Input    1 Bit        Muxes := 64
+	   7 Input    1 Bit        Muxes := 21
+	   4 Input    1 Bit        Muxes := 16
+	   5 Input    1 Bit        Muxes := 38
+	  31 Input    1 Bit        Muxes := 6
+	  29 Input    1 Bit        Muxes := 6
+	  22 Input    1 Bit        Muxes := 6
+	   6 Input    1 Bit        Muxes := 5
+	  33 Input    1 Bit        Muxes := 4
+	   9 Input    1 Bit        Muxes := 13
+	   8 Input    1 Bit        Muxes := 1
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 2020 (col length:140)
+BRAMs: 1510 (col length: RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3917] design ov5640_udp_pc has port cam_rst_n driven by constant 1
+WARNING: [Synth 8-3917] design ov5640_udp_pc has port cam_pwdn driven by constant 0
+INFO: [Synth 8-3886] merging instance 'expected_mask_reg[0]' (FDCE) to 'expected_mask_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\state_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (measurement/\den_reg[19] )
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[60]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[76]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[92]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[108]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[140]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[172]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[196]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[200]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[204]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[376]' (FDCE) to 'measurement/packet_reg[431]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[380]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[388]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[392]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[396]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[400]' (FDCE) to 'measurement/packet_reg[431]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[404]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[408]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[412]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[416]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[420]' (FDCE) to 'measurement/packet_reg[431]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[424]' (FDCE) to 'measurement/packet_reg[431]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[428]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[58]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[62]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[74]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[78]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[90]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[94]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[106]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[110]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[142]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[174]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[198]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[202]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[206]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[378]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[382]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[386]' (FDCE) to 'measurement/packet_reg[431]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[390]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[394]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[398]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[402]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[406]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[410]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[414]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[418]' (FDCE) to 'measurement/packet_reg[430]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[422]' (FDCE) to 'measurement/packet_reg[431]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[426]' (FDCE) to 'measurement/packet_reg[431]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[430]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[57]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[61]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[77]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[89]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[93]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[109]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[141]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[173]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[197]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[201]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[205]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[377]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[381]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[389]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[393]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[397]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[401]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[405]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[409]' (FDCE) to 'measurement/packet_reg[431]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[413]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[417]' (FDCE) to 'measurement/packet_reg[431]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[421]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[425]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[429]' (FDCE) to 'measurement/packet_reg[431]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[59]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[63]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[75]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[79]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[91]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[95]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[107]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[111]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[143]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[175]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[195]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[199]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[203]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[207]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[379]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[383]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[387]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[391]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[395]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[399]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[403]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[407]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[411]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[415]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[419]' (FDCE) to 'measurement/packet_reg[431]'
+INFO: [Synth 8-3886] merging instance 'measurement/packet_reg[423]' (FDCE) to 'measurement/packet_reg[427]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (measurement/\packet_reg[427] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\scheduler/serializer/frame_reg[9] )
+INFO: [Synth 8-5587] ROM size for "scl" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "scl" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "sda_out" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "sda_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sda_dir" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "st_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "st_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "st_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "i2c_data_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "data_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "scl" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "scl" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "sda_out" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "sda_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sda_dir" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "st_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "st_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "st_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "i2c_data_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "data_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sda_dir" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "st_done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "wr_fifo_data1" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "p_1_out1" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+WARNING: [Synth 8-7129] Port crc_data[31] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[30] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[29] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[28] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[27] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[26] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[25] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[24] in module udp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[31] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[30] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[29] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[28] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[27] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[26] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[25] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port crc_data[24] in module arp_tx is either unconnected or has no load
+WARNING: [Synth 8-7129] Port udp_rec_en in module start_transfer_ctrl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[7] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[6] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[5] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[4] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[3] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[2] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[1] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port i2c_data_r[0] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cmos_h_pixel[12] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cmos_v_pixel[12] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cmos_v_pixel[11] in module i2c_ov5640_rgb565_cfg is either unconnected or has no load
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\check_buffer_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_img_data_pkt/\udp_tx_byte_num_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_i2c_cfg/\i2c_data_reg[14] )
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\ip_head_reg[1][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\ip_head_reg[2][19] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\ip_head_reg[3][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\ip_head_reg[1][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\ip_head_reg[5][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[7][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (c1_pack/\snapshot_reg[218] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[7][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[6][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[5][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[4][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[3][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[2][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[1][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[13][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[12][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[11][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[10][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[9][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[8][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[7][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[6][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[7][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[6][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[5][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[4][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[3][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[2][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[1][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[13][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[12][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[11][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[10][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[9][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[8][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[7][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[6][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[15][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[14][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[13][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[12][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[11][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[10][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[9][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[8][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[6][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[5][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[4][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[3][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[2][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[1][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[17][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[16][4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[7][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[6][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[5][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[4][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[3][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[2][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[1][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\preamble_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[13][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[12][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[11][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[10][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[9][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[8][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[7][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/\u_udp/u_udp_tx /\eth_head_reg[6][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[7][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[6][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[5][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[4][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[3][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[2][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[1][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/preamble_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[13][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[12][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[11][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[10][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[9][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[8][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[7][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/eth_head_reg[6][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[15][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[14][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[13][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[12][0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (u_eth_top/u_arp/\u_arp_tx/arp_data_reg[11][0] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:23 ; elapsed = 00:01:51 . Memory (MB): peak = 1632.461 ; gain = 925.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As |
++------------+------------+---------------+----------------+
+|i2c_dri     | scl        | 64x1          | LUT            |
+|i2c_dri     | scl        | 64x1          | LUT            |
+|i2c_dri     | sda_out    | 64x1          | LUT            |
++------------+------------+---------------+----------------+
+
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++---------------+-----------------------------------+----------------+----------------------+------------------------------+
+|Module Name    | RTL Object                        | Inference      | Size (Depth x Width) | Primitives                   |
++---------------+-----------------------------------+----------------+----------------------+------------------------------+
+|c1_observation | outbuf_reg                        | Implied        | 64 x 8               | RAM64M x 3                   |
+|u_pl_red_stats | g_spatial.u_majority/line_one_reg | User Attribute | 1 K x 1              | RAM128X1S x 1 RAM256X1S x 2  |
+|u_pl_red_stats | g_spatial.u_majority/line_two_reg | User Attribute | 1 K x 1              | RAM128X1S x 1 RAM256X1S x 2  |
++---------------+-----------------------------------+----------------+----------------------+------------------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-565] redefining clock 'sys_clk_p'
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:29 ; elapsed = 00:01:57 . Memory (MB): peak = 1639.570 ; gain = 932.410
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:37 ; elapsed = 00:02:05 . Memory (MB): peak = 1748.934 ; gain = 1041.773
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++---------------+-----------------------------------+----------------+----------------------+------------------------------+
+|Module Name    | RTL Object                        | Inference      | Size (Depth x Width) | Primitives                   |
++---------------+-----------------------------------+----------------+----------------------+------------------------------+
+|c1_observation | outbuf_reg                        | Implied        | 64 x 8               | RAM64M x 3                   |
+|u_pl_red_stats | g_spatial.u_majority/line_one_reg | User Attribute | 1 K x 1              | RAM128X1S x 1 RAM256X1S x 2  |
+|u_pl_red_stats | g_spatial.u_majority/line_two_reg | User Attribute | 1 K x 1              | RAM128X1S x 1 RAM256X1S x 2  |
++---------------+-----------------------------------+----------------+----------------------+------------------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:44 ; elapsed = 00:02:13 . Memory (MB): peak = 1755.492 ; gain = 1048.332
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:51 ; elapsed = 00:02:20 . Memory (MB): peak = 1902.512 ; gain = 1195.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:51 ; elapsed = 00:02:20 . Memory (MB): peak = 1902.512 ; gain = 1195.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:55 ; elapsed = 00:02:24 . Memory (MB): peak = 1902.512 ; gain = 1195.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:55 ; elapsed = 00:02:24 . Memory (MB): peak = 1902.512 ; gain = 1195.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:56 ; elapsed = 00:02:26 . Memory (MB): peak = 1902.512 ; gain = 1195.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:57 ; elapsed = 00:02:26 . Memory (MB): peak = 1902.512 ; gain = 1195.352
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes:
++------+-------------------+----------+
+|      |BlackBox name      |Instances |
++------+-------------------+----------+
+|1     |clk_wiz_0          |         1|
+|2     |c1_observation_vio |         1|
+|3     |async_fifo_2048x8b |         1|
++------+-------------------+----------+
+
+Report Cell Usage:
++------+-------------------+------+
+|      |Cell               |Count |
++------+-------------------+------+
+|1     |async_fifo_2048x8b |     1|
+|2     |c1_observation_vio |     1|
+|3     |clk_wiz            |     1|
+|4     |BUFG               |     2|
+|5     |BUFIO              |     1|
+|6     |BUFR               |     1|
+|7     |CARRY4             |  1971|
+|8     |IDDR               |     5|
+|9     |IDELAYCTRL         |     1|
+|10    |IDELAYE2           |     5|
+|11    |LUT1               |   350|
+|12    |LUT2               |  2610|
+|13    |LUT3               |  6488|
+|14    |LUT4               |  2111|
+|15    |LUT5               |  3263|
+|16    |LUT6               |  7675|
+|17    |MUXF7              |   827|
+|18    |MUXF8              |   339|
+|19    |ODDR               |     5|
+|20    |RAM128X1S          |     2|
+|21    |RAM256X1S          |     4|
+|22    |RAM64M             |     3|
+|23    |FDCE               | 10013|
+|24    |FDPE               |   362|
+|25    |FDRE               |  1069|
+|26    |FDSE               |    10|
+|27    |IBUF               |    19|
+|28    |OBUF               |    11|
+|29    |OBUFT              |     1|
++------+-------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:57 ; elapsed = 00:02:26 . Memory (MB): peak = 1902.512 ; gain = 1195.352
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 32 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:42 ; elapsed = 00:02:19 . Memory (MB): peak = 1902.512 ; gain = 1059.379
+Synthesis Optimization Complete : Time (s): cpu = 00:01:57 ; elapsed = 00:02:27 . Memory (MB): peak = 1902.512 ; gain = 1195.352
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.325 . Memory (MB): peak = 1923.578 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3162 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1939.223 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 9 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 2 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 4 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 3 instances
+
+Synth Design complete | Checksum: 28b4d4d9
+INFO: [Common 17-83] Releasing license: Synthesis
+359 Infos, 91 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:09 ; elapsed = 00:02:42 . Memory (MB): peak = 1939.223 ; gain = 1559.922
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.059 . Memory (MB): peak = 1939.223 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/synth_1/ov5640_udp_pc.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file ov5640_udp_pc_utilization_synth.rpt -pb ov5640_udp_pc_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 16:20:20 2026...
+[Mon Nov  2 16:20:22 2026] synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:04:39 . Memory (MB): peak = 752.578 ; gain = 0.000
+# if {[get_property PROGRESS [get_runs synth_1]] ne {100%}} {error {Synthesis failed}}
+# open_run synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z100ffg900-2
+INFO: [Project 1-454] Reading design checkpoint 'd:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/c1_observation_vio/c1_observation_vio.dcp' for cell 'c1_vio'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'u_clk_wiz_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b.dcp' for cell 'u_img_data_pkt/async_fifo_2048x8b_inst'
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.136 . Memory (MB): peak = 833.922 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3192 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Chipscope 16-324] Core: c1_vio UUID: 026feeea-049d-50a0-adb9-3761986f1093
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b.xdc] for cell 'u_img_data_pkt/async_fifo_2048x8b_inst/U0'
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b.xdc] for cell 'u_img_data_pkt/async_fifo_2048x8b_inst/U0'
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'u_clk_wiz_0/inst'
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'u_clk_wiz_0/inst'
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'u_clk_wiz_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:54]
+INFO: [Timing 38-2] Deriving generated clocks [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:54]
+get_clocks: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1595.582 ; gain = 626.316
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'u_clk_wiz_0/inst'
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/c1_observation_vio/c1_observation_vio.xdc] for cell 'c1_vio'
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/c1_observation_vio/c1_observation_vio.xdc] for cell 'c1_vio'
+Parsing XDC File [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc]
+WARNING: [Constraints 18-619] A clock with name 'sys_clk_p' already exists, overwriting the previous clock with the same name. [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc:1]
+Finished Parsing XDC File [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc]
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b_clocks.xdc] for cell 'u_img_data_pkt/async_fifo_2048x8b_inst/U0'
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b_clocks.xdc] for cell 'u_img_data_pkt/async_fifo_2048x8b_inst/U0'
+INFO: [Project 1-1714] 6 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1600.582 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 9 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 2 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 4 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 3 instances
+
+open_run: Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1600.582 ; gain = 848.004
+# source $repo/build/c1_cdc_constraints.tcl
+## proc c1_mailbox_constraints {instance destination_period_ns} {
+##     set held [get_cells -hier -filter "NAME =~ ${instance}/holding_reg* && IS_SEQUENTIAL"]
+##     set captured [get_cells -hier -filter "NAME =~ ${instance}/dst_data_reg* && IS_SEQUENTIAL"]
+##     if {[llength $held]==0 || [llength $captured]==0} {error "CDC payload registers not found"}
+##     set_max_delay -datapath_only $destination_period_ns -from $held -to $captured
+##     set_bus_skew $destination_period_ns -from $held -to $captured
+##     # Cut only first stages of toggle synchronizers, not the payload or all clocks.
+##     foreach stem {req_sync ack_sync} {
+##         set first [get_pins -hier -regexp "${instance}/${stem}_reg\\\[0\\\]/D"]
+##         if {[llength $first]!=1} {error "CDC first stage not found: $stem"}
+##         set_false_path -to $first
+##     }
+## }
+# c1_mailbox_constraints c1_observation/link/cdc 20
+# report_clocks -file clocks.rpt
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+# report_cdc -details -file synthesis_cdc.rpt
+INFO: [Timing 38-91] UpdateTimingParams: No interconnect No Cell Dly, Speed grade: -2, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-433] Consider using Xilinx recommended XPM_CDC modules to avoid Critical severities
+INFO: [Timing 38-314] The report_cdc command only analyzes and reports clock domain crossing paths where clocks have been defined on both source and destination sides. Ports with no input delay constraint are skipped. Please run check_timing to verify there are no missing clock definitions in your design, nor any unconstrained input port.
+# report_drc -file synthesis_drc.rpt
+Command: report_drc -file synthesis_drc.rpt
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file d:/zynq-handoff-evidence-20261102/board/synthesis_drc.rpt.
+report_drc completed successfully
+# report_timing_summary -report_unconstrained -file synthesis_timing.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+# write_xdc -force -type timing c1_synth_timing.xdc
+# close_design
+# add_files -fileset constrs_1 c1_synth_timing.xdc
+# set_property USED_IN_SYNTHESIS false [get_files c1_synth_timing.xdc]
+# launch_runs impl_1 -to_step route_design -jobs 2
+[Mon Nov  2 16:20:44 2026] Launched impl_1...
+Run output will be captured here: D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/impl_1/runme.log
+# wait_on_run impl_1
+[Mon Nov  2 16:20:44 2026] Waiting for impl_1 to finish...
+
+
+*** Running vivado
+    with args -log ov5640_udp_pc.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source ov5640_udp_pc.tcl -notrace
+
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Mon Nov  2 16:20:53 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source ov5640_udp_pc.tcl -notrace
+Command: link_design -top ov5640_udp_pc -part xc7z100ffg900-2
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7z100ffg900-2
+INFO: [Project 1-454] Reading design checkpoint 'd:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/c1_observation_vio/c1_observation_vio.dcp' for cell 'c1_vio'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.dcp' for cell 'u_clk_wiz_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b.dcp' for cell 'u_img_data_pkt/async_fifo_2048x8b_inst'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.157 . Memory (MB): peak = 773.625 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3192 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Chipscope 16-324] Core: c1_vio UUID: 026feeea-049d-50a0-adb9-3761986f1093
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b.xdc] for cell 'u_img_data_pkt/async_fifo_2048x8b_inst/U0'
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b.xdc] for cell 'u_img_data_pkt/async_fifo_2048x8b_inst/U0'
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'u_clk_wiz_0/inst'
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc] for cell 'u_clk_wiz_0/inst'
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'u_clk_wiz_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:54]
+INFO: [Timing 38-2] Deriving generated clocks [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc:54]
+get_clocks: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1546.488 ; gain = 625.023
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc] for cell 'u_clk_wiz_0/inst'
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/c1_observation_vio/c1_observation_vio.xdc] for cell 'c1_vio'
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/c1_observation_vio/c1_observation_vio.xdc] for cell 'c1_vio'
+Parsing XDC File [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc]
+WARNING: [Constraints 18-619] A clock with name 'sys_clk_p' already exists, overwriting the previous clock with the same name. [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc:1]
+Finished Parsing XDC File [D:/zynq-handoff-evidence-20261102/board/vendor/ov5640_udp_pc.xdc]
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/c1_synth_timing.xdc]
+WARNING: [Constraints 18-619] A clock with name 'sys_clk_p' already exists, overwriting the previous clock with the same name. [d:/zynq-handoff-evidence-20261102/board/c1_synth_timing.xdc:12]
+WARNING: [Constraints 18-619] A clock with name 'sys_clk_p' already exists, overwriting the previous clock with the same name. [d:/zynq-handoff-evidence-20261102/board/c1_synth_timing.xdc:33]
+WARNING: [Constraints 18-619] A clock with name 'eth_rxc' already exists, overwriting the previous clock with the same name. [d:/zynq-handoff-evidence-20261102/board/c1_synth_timing.xdc:34]
+WARNING: [Constraints 18-619] A clock with name 'cam_pclk' already exists, overwriting the previous clock with the same name. [d:/zynq-handoff-evidence-20261102/board/c1_synth_timing.xdc:35]
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/c1_synth_timing.xdc]
+Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b_clocks.xdc] for cell 'u_img_data_pkt/async_fifo_2048x8b_inst/U0'
+Finished Parsing XDC File [d:/zynq-handoff-evidence-20261102/board/project/c1_observe.gen/sources_1/ip/async_fifo_2048x8b/async_fifo_2048x8b_clocks.xdc] for cell 'u_img_data_pkt/async_fifo_2048x8b_inst/U0'
+INFO: [Project 1-1714] 6 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1551.426 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 9 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 2 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 4 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 3 instances
+
+14 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1551.426 ; gain = 1170.715
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z100'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z100'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors, 1 Warnings
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1551.426 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 21b8a923a
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.829 . Memory (MB): peak = 1551.426 ; gain = 0.000
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+
+Phase 1.1.1 Generate And Synthesize Debug Cores
+INFO: [Chipscope 16-329] Generating Script for core instance : dbg_hub
+INFO: [IP_Flow 19-3806] Processing IP xilinx.com:ip:xsdbm:3.0 for cell dbg_hub_CV.
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1943.867 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1943.867 ; gain = 0.000
+Phase 1.1.1 Generate And Synthesize Debug Cores | Checksum: 1f0dfbee6
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:01:26 . Memory (MB): peak = 1943.867 ; gain = 22.207
+Phase 1.1 Core Generation And Design Setup | Checksum: 1f0dfbee6
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:01:26 . Memory (MB): peak = 1943.867 ; gain = 22.207
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 1f0dfbee6
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:01:26 . Memory (MB): peak = 1943.867 ; gain = 22.207
+Phase 1 Initialization | Checksum: 1f0dfbee6
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:01:26 . Memory (MB): peak = 1943.867 ; gain = 22.207
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Timer Update
+Phase 2.1 Timer Update | Checksum: 1f0dfbee6
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:01:26 . Memory (MB): peak = 1943.867 ; gain = 22.207
+
+Phase 2.2 Timing Data Collection
+Phase 2.2 Timing Data Collection | Checksum: 1f0dfbee6
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:01:26 . Memory (MB): peak = 1943.867 ; gain = 22.207
+Phase 2 Timer Update And Timing Data Collection | Checksum: 1f0dfbee6
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:01:26 . Memory (MB): peak = 1943.867 ; gain = 22.207
+
+Phase 3 Retarget
+INFO: [Opt 31-1851] Number of loadless carry chains removed were: 0
+INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
+INFO: [Opt 31-1566] Pulled 2 inverters resulting in an inversion of 4 pins
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 1267aff4e
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:01:26 . Memory (MB): peak = 1943.867 ; gain = 22.207
+Retarget | Checksum: 1267aff4e
+INFO: [Opt 31-389] Phase Retarget created 7 cells and removed 23 cells
+INFO: [Opt 31-1021] In phase Retarget, 142 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail.
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 2 inverter(s) to 6 load pin(s).
+Phase 4 Constant propagation | Checksum: 204ede860
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:01:26 . Memory (MB): peak = 1943.867 ; gain = 22.207
+Constant propagation | Checksum: 204ede860
+INFO: [Opt 31-389] Phase Constant propagation created 51 cells and removed 78 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 141 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail.
+
+Phase 5 Sweep
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1943.867 ; gain = 0.000
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1943.867 ; gain = 0.000
+Phase 5 Sweep | Checksum: 17e65dcd3
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:01:27 . Memory (MB): peak = 1943.867 ; gain = 22.207
+Sweep | Checksum: 17e65dcd3
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 31 cells
+INFO: [Opt 31-1021] In phase Sweep, 1621 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail.
+
+Phase 6 BUFG optimization
+Phase 6 BUFG optimization | Checksum: 17e65dcd3
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:01:27 . Memory (MB): peak = 1943.867 ; gain = 22.207
+BUFG optimization | Checksum: 17e65dcd3
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 17e65dcd3
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:01:27 . Memory (MB): peak = 1943.867 ; gain = 22.207
+Shift Register Optimization | Checksum: 17e65dcd3
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: 17e65dcd3
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:01:27 . Memory (MB): peak = 1943.867 ; gain = 22.207
+Post Processing Netlist | Checksum: 17e65dcd3
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 151 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail.
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 215d63a20
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:01:28 . Memory (MB): peak = 1943.867 ; gain = 22.207
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 1943.867 ; gain = 0.000
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 215d63a20
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:01:28 . Memory (MB): peak = 1943.867 ; gain = 22.207
+Phase 9 Finalization | Checksum: 215d63a20
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:01:28 . Memory (MB): peak = 1943.867 ; gain = 22.207
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               7  |              23  |                                            142  |
+|  Constant propagation         |              51  |              78  |                                            141  |
+|  Sweep                        |               0  |              31  |                                           1621  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                            151  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 215d63a20
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:01:28 . Memory (MB): peak = 1943.867 ; gain = 22.207
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 1 BRAM(s) out of a total of 1 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Pwropt 34-201] Structural ODC has moved 1 WE to EN ports
+Number of BRAM Ports augmented: 0 newly gated: 1 Total Ports: 2
+Ending PowerOpt Patch Enables Task | Checksum: 1e4facfa3
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.645 . Memory (MB): peak = 2156.625 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 1e4facfa3
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 2156.625 ; gain = 212.758
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 1e4facfa3
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2156.625 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2156.625 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 1f3679cb6
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2156.625 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+52 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:19 ; elapsed = 00:01:39 . Memory (MB): peak = 2156.625 ; gain = 605.199
+INFO: [Vivado 12-24828] Executing command : report_drc -file ov5640_udp_pc_drc_opted.rpt -pb ov5640_udp_pc_drc_opted.pb -rpx ov5640_udp_pc_drc_opted.rpx
+Command: report_drc -file ov5640_udp_pc_drc_opted.rpt -pb ov5640_udp_pc_drc_opted.pb -rpx ov5640_udp_pc_drc_opted.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/impl_1/ov5640_udp_pc_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2156.625 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2156.625 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.045 . Memory (MB): peak = 2156.625 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2156.625 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.063 . Memory (MB): peak = 2156.625 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2156.625 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.071 . Memory (MB): peak = 2156.625 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/impl_1/ov5640_udp_pc_opt.dcp' has been generated.
+INFO: [Chipscope 16-240] Debug cores have already been implemented
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z100'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z100'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 3 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2156.625 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1a7ed012e
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 2156.625 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2156.625 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+WARNING: [Place 30-574] Poor placement for routing between an IO pin and BUFG. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
+
+	cam_pclk_IBUF_inst (IBUF.O) is locked to IOB_X0Y206
+	cam_pclk_IBUF_BUFG_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y0
+Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1d3643bf0
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2156.625 ; gain = 0.000
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 22ea79289
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 2165.078 ; gain = 8.453
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 22ea79289
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 2165.078 ; gain = 8.453
+Phase 1 Placer Initialization | Checksum: 22ea79289
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 2165.078 ; gain = 8.453
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 210d086d2
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 2165.078 ; gain = 8.453
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1e292f72e
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:10 . Memory (MB): peak = 2165.078 ; gain = 8.453
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 1e292f72e
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:10 . Memory (MB): peak = 2165.078 ; gain = 8.453
+
+Phase 2.4 Global Place Phase1
+Phase 2.4 Global Place Phase1 | Checksum: 22479a042
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:22 . Memory (MB): peak = 2203.781 ; gain = 47.156
+
+Phase 2.5 Global Place Phase2
+
+Phase 2.5.1 UpdateTiming Before Physical Synthesis
+Phase 2.5.1 UpdateTiming Before Physical Synthesis | Checksum: 22479a042
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:23 . Memory (MB): peak = 2203.781 ; gain = 47.156
+
+Phase 2.5.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 445 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 196 nets or LUTs. Breaked 0 LUT, combined 196 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-670] No setup violation found.  DSP Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register to Pipeline Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  URAM Register Optimization was not performed.
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2203.781 ; gain = 0.000
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            0  |            196  |                   196  |           0  |           1  |  00:00:00  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            0  |            196  |                   196  |           0  |           4  |  00:00:01  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.5.2 Physical Synthesis In Placer | Checksum: 18052e767
+
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:25 . Memory (MB): peak = 2203.781 ; gain = 47.156
+Phase 2.5 Global Place Phase2 | Checksum: 21709a078
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:26 . Memory (MB): peak = 2203.781 ; gain = 47.156
+Phase 2 Global Placement | Checksum: 21709a078
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:26 . Memory (MB): peak = 2203.781 ; gain = 47.156
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 2345a6698
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:28 . Memory (MB): peak = 2203.781 ; gain = 47.156
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1a8f7a84b
+
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:31 . Memory (MB): peak = 2203.781 ; gain = 47.156
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 173002b1d
+
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:31 . Memory (MB): peak = 2203.781 ; gain = 47.156
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: ded79bec
+
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:31 . Memory (MB): peak = 2203.781 ; gain = 47.156
+
+Phase 3.5 Small Shape Detail Placement
+Phase 3.5 Small Shape Detail Placement | Checksum: 221289065
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:38 . Memory (MB): peak = 2203.781 ; gain = 47.156
+
+Phase 3.6 Re-assign LUT pins
+Phase 3.6 Re-assign LUT pins | Checksum: 1ed6c3dad
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:39 . Memory (MB): peak = 2203.781 ; gain = 47.156
+
+Phase 3.7 Pipeline Register Optimization
+Phase 3.7 Pipeline Register Optimization | Checksum: 14ae1f951
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:40 . Memory (MB): peak = 2203.781 ; gain = 47.156
+Phase 3 Detail Placement | Checksum: 14ae1f951
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:40 . Memory (MB): peak = 2203.781 ; gain = 47.156
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 194122b76
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=3.022 | TNS=0.000 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1084129d1
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.774 . Memory (MB): peak = 2253.195 ; gain = 0.000
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 1c1d15a07
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2253.195 ; gain = 0.000
+Phase 4.1.1.1 BUFG Insertion | Checksum: 194122b76
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:45 . Memory (MB): peak = 2253.195 ; gain = 96.570
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=3.022. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 1f3ccb9e6
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:45 . Memory (MB): peak = 2253.195 ; gain = 96.570
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:45 . Memory (MB): peak = 2253.195 ; gain = 96.570
+Phase 4.1 Post Commit Optimization | Checksum: 1f3ccb9e6
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:45 . Memory (MB): peak = 2253.195 ; gain = 96.570
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1f3ccb9e6
+
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:45 . Memory (MB): peak = 2253.195 ; gain = 96.570
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                2x2|                2x2|
+|___________|___________________|___________________|
+|      South|                2x2|                4x4|
+|___________|___________________|___________________|
+|       East|                4x4|                4x4|
+|___________|___________________|___________________|
+|       West|                2x2|                2x2|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1f3ccb9e6
+
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:45 . Memory (MB): peak = 2253.195 ; gain = 96.570
+Phase 4.3 Placer Reporting | Checksum: 1f3ccb9e6
+
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:45 . Memory (MB): peak = 2253.195 ; gain = 96.570
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2253.195 ; gain = 0.000
+
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:45 . Memory (MB): peak = 2253.195 ; gain = 96.570
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1c77936b1
+
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:45 . Memory (MB): peak = 2253.195 ; gain = 96.570
+Ending Placer Task | Checksum: 14a033b4a
+
+Time (s): cpu = 00:01:02 ; elapsed = 00:00:46 . Memory (MB): peak = 2253.195 ; gain = 96.570
+88 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:01:06 ; elapsed = 00:00:47 . Memory (MB): peak = 2253.195 ; gain = 96.570
+INFO: [Vivado 12-24838] Running report commands "report_control_sets, report_io, report_utilization" in parallel.
+Running report generation with 2 threads.
+INFO: [Vivado 12-24828] Executing command : report_io -file ov5640_udp_pc_io_placed.rpt
+report_io: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.103 . Memory (MB): peak = 2253.195 ; gain = 0.000
+INFO: [Vivado 12-24828] Executing command : report_control_sets -verbose -file ov5640_udp_pc_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 2253.195 ; gain = 0.000
+INFO: [Vivado 12-24828] Executing command : report_utilization -file ov5640_udp_pc_utilization_placed.rpt -pb ov5640_udp_pc_utilization_placed.pb
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 2253.195 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2253.195 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2253.195 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 2253.195 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.045 . Memory (MB): peak = 2253.195 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2253.195 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2253.195 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/impl_1/ov5640_udp_pc_placed.dcp' has been generated.
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z100'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z100'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 2253.195 ; gain = 0.000
+INFO: [Vivado_Tcl 4-2279] Estimated Timing Summary | WNS= 3.022 | TNS= 0.000 |
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. All physical synthesis setup optimizations will be skipped.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+99 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.119 . Memory (MB): peak = 2265.746 ; gain = 12.551
+Wrote PlaceDB: Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2268.082 ; gain = 6.387
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2268.082 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 2268.082 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 2268.082 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2268.082 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 2268.082 ; gain = 6.387
+INFO: [Common 17-1381] The checkpoint 'D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/impl_1/ov5640_udp_pc_physopt.dcp' has been generated.
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z100'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z100'
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: 89df2f78 ConstDB: 0 ShapeSum: 72b79e1d RouteDB: 4d6c6db5
+Post Restoration Checksum: NetGraph: e6ac0c49 | NumContArr: df1162ec | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 34b0f646f
+
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:25 . Memory (MB): peak = 2517.820 ; gain = 249.738
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 34b0f646f
+
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:26 . Memory (MB): peak = 2517.820 ; gain = 249.738
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 34b0f646f
+
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:26 . Memory (MB): peak = 2517.820 ; gain = 249.738
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 2577d6ad3
+
+Time (s): cpu = 00:01:49 ; elapsed = 00:01:35 . Memory (MB): peak = 2675.941 ; gain = 407.859
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.204  | TNS=0.000  | WHS=-1.688 | THS=-405.408|
+
+
+Phase 2.4 Update Timing for Bus Skew
+
+Phase 2.4.1 Update Timing
+Phase 2.4.1 Update Timing | Checksum: 2a816c06a
+
+Time (s): cpu = 00:01:56 ; elapsed = 00:01:39 . Memory (MB): peak = 2675.941 ; gain = 407.859
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=3.204  | TNS=0.000  | WHS=-3.137 | THS=-7.082 |
+
+Phase 2.4 Update Timing for Bus Skew | Checksum: 2d2563d82
+
+Time (s): cpu = 00:01:57 ; elapsed = 00:01:40 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.00117207 %
+  Global Horizontal Routing Utilization  = 0.00209158 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 25244
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 25244
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 21c5989be
+
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:41 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 3 Global Routing
+Phase 3 Global Routing | Checksum: 21c5989be
+
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:41 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 4 Initial Routing
+
+Phase 4.1 Initial Net Routing Pass
+Phase 4.1 Initial Net Routing Pass | Checksum: 2ac93af8e
+
+Time (s): cpu = 00:02:06 ; elapsed = 00:01:45 . Memory (MB): peak = 2738.652 ; gain = 470.570
+Phase 4 Initial Routing | Checksum: 2ac93af8e
+
+Time (s): cpu = 00:02:06 ; elapsed = 00:01:45 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 5 Rip-up And Reroute
+
+Phase 5.1 Global Iteration 0
+ Number of Nodes with overlaps = 3012
+ Number of Nodes with overlaps = 33
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.730  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 5.1 Global Iteration 0 | Checksum: 2830ff245
+
+Time (s): cpu = 00:02:20 ; elapsed = 00:01:55 . Memory (MB): peak = 2738.652 ; gain = 470.570
+Phase 5 Rip-up And Reroute | Checksum: 2830ff245
+
+Time (s): cpu = 00:02:20 ; elapsed = 00:01:55 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 6 Delay and Skew Optimization
+
+Phase 6.1 Delay CleanUp
+Phase 6.1 Delay CleanUp | Checksum: 2830ff245
+
+Time (s): cpu = 00:02:20 ; elapsed = 00:01:55 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 6.2 Clock Skew Optimization
+Phase 6.2 Clock Skew Optimization | Checksum: 2830ff245
+
+Time (s): cpu = 00:02:20 ; elapsed = 00:01:55 . Memory (MB): peak = 2738.652 ; gain = 470.570
+Phase 6 Delay and Skew Optimization | Checksum: 2830ff245
+
+Time (s): cpu = 00:02:20 ; elapsed = 00:01:55 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 7 Post Hold Fix
+
+Phase 7.1 Hold Fix Iter
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=2.753  | TNS=0.000  | WHS=-2.746 | THS=-5.493 |
+
+Phase 7.1 Hold Fix Iter | Checksum: 21f734f98
+
+Time (s): cpu = 00:02:22 ; elapsed = 00:01:56 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 7.2 Non Free Resource Hold Fix Iter
+Phase 7.2 Non Free Resource Hold Fix Iter | Checksum: 2e61e2b8a
+
+Time (s): cpu = 00:02:22 ; elapsed = 00:01:56 . Memory (MB): peak = 2738.652 ; gain = 470.570
+Phase 7 Post Hold Fix | Checksum: 2e61e2b8a
+
+Time (s): cpu = 00:02:22 ; elapsed = 00:01:56 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 8 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 1.70914 %
+  Global Horizontal Routing Utilization  = 2.39163 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 8 Route finalize | Checksum: 2e61e2b8a
+
+Time (s): cpu = 00:02:22 ; elapsed = 00:01:56 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 9 Verifying routed nets
+
+ Verification completed successfully
+Phase 9 Verifying routed nets | Checksum: 2e61e2b8a
+
+Time (s): cpu = 00:02:23 ; elapsed = 00:01:56 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 10 Depositing Routes
+Phase 10 Depositing Routes | Checksum: 257f06b12
+
+Time (s): cpu = 00:02:24 ; elapsed = 00:01:58 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 11 Post Process Routing
+Phase 11 Post Process Routing | Checksum: 257f06b12
+
+Time (s): cpu = 00:02:24 ; elapsed = 00:01:58 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Phase 12 Post Router Timing
+
+Phase 12.1 Update Timing
+Phase 12.1 Update Timing | Checksum: 257f06b12
+
+Time (s): cpu = 00:02:26 ; elapsed = 00:01:59 . Memory (MB): peak = 2738.652 ; gain = 470.570
+INFO: [Route 35-57] Estimated Timing Summary | WNS=2.753  | TNS=0.000  | WHS=0.050  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 12 Post Router Timing | Checksum: 257f06b12
+
+Time (s): cpu = 00:02:26 ; elapsed = 00:01:59 . Memory (MB): peak = 2738.652 ; gain = 470.570
+Total Elapsed time in route_design: 118.812 secs
+
+Phase 13 Post-Route Event Processing
+Phase 13 Post-Route Event Processing | Checksum: 15033cb29
+
+Time (s): cpu = 00:02:26 ; elapsed = 00:01:59 . Memory (MB): peak = 2738.652 ; gain = 470.570
+INFO: [Route 35-16] Router Completed Successfully
+Ending Routing Task | Checksum: 15033cb29
+
+Time (s): cpu = 00:02:27 ; elapsed = 00:01:59 . Memory (MB): peak = 2738.652 ; gain = 470.570
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+111 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:02:27 ; elapsed = 00:01:59 . Memory (MB): peak = 2738.652 ; gain = 470.570
+INFO: [Vivado 12-24828] Executing command : report_drc -file ov5640_udp_pc_drc_routed.rpt -pb ov5640_udp_pc_drc_routed.pb -rpx ov5640_udp_pc_drc_routed.rpx
+Command: report_drc -file ov5640_udp_pc_drc_routed.rpt -pb ov5640_udp_pc_drc_routed.pb -rpx ov5640_udp_pc_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/impl_1/ov5640_udp_pc_drc_routed.rpt.
+report_drc completed successfully
+INFO: [Vivado 12-24828] Executing command : report_methodology -file ov5640_udp_pc_methodology_drc_routed.rpt -pb ov5640_udp_pc_methodology_drc_routed.pb -rpx ov5640_udp_pc_methodology_drc_routed.rpx
+Command: report_methodology -file ov5640_udp_pc_methodology_drc_routed.rpt -pb ov5640_udp_pc_methodology_drc_routed.pb -rpx ov5640_udp_pc_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 2 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/impl_1/ov5640_udp_pc_methodology_drc_routed.rpt.
+report_methodology completed successfully
+report_drc: Time (s): cpu = 00:00:14 ; elapsed = 00:00:08 . Memory (MB): peak = 2738.652 ; gain = 0.000
+INFO: [Vivado 12-24828] Executing command : report_timing_summary -max_paths 10 -report_unconstrained -file ov5640_udp_pc_timing_summary_routed.rpt -pb ov5640_udp_pc_timing_summary_routed.pb -rpx ov5640_udp_pc_timing_summary_routed.rpx -warn_on_violation
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+INFO: [Vivado 12-24838] Running report commands "report_incremental_reuse, report_route_status" in parallel.
+Running report generation with 2 threads.
+INFO: [Vivado 12-24828] Executing command : report_incremental_reuse -file ov5640_udp_pc_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [Vivado 12-24828] Executing command : report_route_status -file ov5640_udp_pc_route_status.rpt -pb ov5640_udp_pc_route_status.pb
+INFO: [Vivado 12-24828] Executing command : report_power -file ov5640_udp_pc_power_routed.rpt -pb ov5640_udp_pc_power_summary_routed.pb -rpx ov5640_udp_pc_power_routed.rpx
+Command: report_power -file ov5640_udp_pc_power_routed.rpt -pb ov5640_udp_pc_power_summary_routed.pb -rpx ov5640_udp_pc_power_routed.rpx
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
+Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
+128 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: [Vivado 12-24828] Executing command : report_clock_utilization -file ov5640_udp_pc_clock_utilization_routed.rpt
+INFO: [Vivado 12-24828] Executing command : report_bus_skew -warn_on_violation -file ov5640_udp_pc_bus_skew_routed.rpt -pb ov5640_udp_pc_bus_skew_routed.pb -rpx ov5640_udp_pc_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+generate_parallel_reports: Time (s): cpu = 00:00:33 ; elapsed = 00:00:20 . Memory (MB): peak = 2738.652 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.079 . Memory (MB): peak = 2738.652 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2738.652 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2738.652 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.211 . Memory (MB): peak = 2738.652 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 2738.652 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2738.652 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2738.652 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/zynq-handoff-evidence-20261102/board/project/c1_observe.runs/impl_1/ov5640_udp_pc_routed.dcp' has been generated.
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 16:26:23 2026...
+[Mon Nov  2 16:26:25 2026] impl_1 finished
+wait_on_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:05:41 . Memory (MB): peak = 1687.070 ; gain = 0.000
+# if {[get_property PROGRESS [get_runs impl_1]] ne {100%}} {error {Implementation failed}}
+# open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.113 . Memory (MB): peak = 1687.070 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3198 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.066 . Memory (MB): peak = 1687.070 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1707.656 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1707.656 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.907 . Memory (MB): peak = 1728.957 ; gain = 21.301
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1728.957 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.257 . Memory (MB): peak = 1743.391 ; gain = 14.434
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1743.391 ; gain = 35.734
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1743.391 ; gain = 35.734
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1743.391 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 15 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 2 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 4 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 3 instances
+
+open_run: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1743.391 ; gain = 56.320
+# report_timing_summary -report_unconstrained -file routed_timing.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+# report_cdc -details -file routed_cdc.rpt
+INFO: [Timing 38-91] UpdateTimingParams: No interconnect No Cell Dly, Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-433] Consider using Xilinx recommended XPM_CDC modules to avoid Critical severities
+INFO: [Timing 38-314] The report_cdc command only analyzes and reports clock domain crossing paths where clocks have been defined on both source and destination sides. Ports with no input delay constraint are skipped. Please run check_timing to verify there are no missing clock definitions in your design, nor any unconstrained input port.
+# report_bus_skew -file routed_bus_skew.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+# report_drc -file routed_drc.rpt
+Command: report_drc -file routed_drc.rpt
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file d:/zynq-handoff-evidence-20261102/board/routed_drc.rpt.
+report_drc completed successfully
+# report_utilization -file routed_utilization.rpt
+# write_checkpoint -force c1_observe_routed.dcp
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 1946.555 ; gain = 1.797
+Wrote PlaceDB: Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1948.926 ; gain = 4.168
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1948.926 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.218 . Memory (MB): peak = 1948.926 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.043 . Memory (MB): peak = 1948.926 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1948.926 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 1948.926 ; gain = 4.168
+INFO: [Common 17-1381] The checkpoint 'd:/zynq-handoff-evidence-20261102/board/c1_observe_routed.dcp' has been generated.
+# write_debug_probes -force c1_observe.ltx
+# puts C1_OBSERVE_ROUTED_NO_PROGRAMMING
+C1_OBSERVE_ROUTED_NO_PROGRAMMING
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 16:26:48 2026...

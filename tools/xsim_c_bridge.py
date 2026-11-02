@@ -16,7 +16,7 @@ class XSim:
     def __init__(self, stage):
         self.cwd=Path.cwd()
         os.chdir(stage)
-        base=Path('D:/Vivado/Vivado/2024.2')
+        base=Path(os.environ.get('VIVADO_ROOT','D:/Vivado/Vivado/2024.2'))
         self.paths=[os.add_dll_directory(str(base/'lib/win64.o')),
                     os.add_dll_directory(str(base/'bin/unwrapped/win64.o'))]
         self.kernel=C.CDLL(str(base/'lib/win64.o/xv_simulator_kernel.dll'))

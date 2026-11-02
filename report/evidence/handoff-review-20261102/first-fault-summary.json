@@ -1,0 +1,55 @@
+{
+  "base": "a70746cdf949acbc82aa3345860120ec6c0783ed",
+  "archive": "3f96673db2dcb8029ec63bc81b4a352af644b694",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "tools/check_b3_interrupts.py",
+        "--cc",
+        "C:/msys64/ucrt64/bin/gcc.exe",
+        "--stage",
+        "D:/zynq-handoff-evidence-20261102/first-fault-before"
+      ],
+      "exit_code": 1
+    },
+    {
+      "command": [
+        "python",
+        "tools/check_b3_interrupts.py",
+        "--cc",
+        "C:/msys64/ucrt64/bin/gcc.exe",
+        "--stage",
+        "D:/zynq-handoff-evidence-20261102/first-fault-after"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "before": {
+    "passed": 142,
+    "failed": 18
+  },
+  "after": {
+    "passed": 160,
+    "failed": 0,
+    "reset_old_commands": [
+      {
+        "partial": 0,
+        "failure": 0
+      },
+      {
+        "partial": 1,
+        "failure": 0
+      }
+    ]
+  },
+  "production_scope": [
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c"
+  ],
+  "harness_sha256": {
+    "tools/check_b3_interrupts.py": "4ea30e9ddbab48353a78960eca3f120902a6936a596cfd766c540234dfeba90f",
+    "sim/cosim/b3_interrupt_driver.c": "97dbce2b2a5c4fb4020f56cb5162208bb3e44bc5e39b40e8d06378d0b9ed8d36",
+    "sim/cosim/stm32_adapter.c": "93692657f69efdb23caf5cdb8280f26ee2ffba587394b8b1ba3159d875adf785"
+  },
+  "hardware_actions": []
+}

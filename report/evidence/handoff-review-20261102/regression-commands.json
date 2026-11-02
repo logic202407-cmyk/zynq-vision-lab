@@ -1,0 +1,58 @@
+[
+  {
+    "name": "uart1",
+    "command": [
+      "<local-user>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/tests/run_checks.py",
+      "--console-usart",
+      "1"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.530999999959022
+  },
+  {
+    "name": "uart3",
+    "command": [
+      "<local-user>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "src/prototype/skystar_openmv/stm32_skystar_tracking/tests/run_checks.py",
+      "--console-usart",
+      "3"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 2.76500000001397
+  },
+  {
+    "name": "c1-link",
+    "command": [
+      "<local-user>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "tools/check_c1_link.py",
+      "--stage",
+      "D:\\zynq-handoff-evidence-20261102\\c1-link"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 303.18800000008196
+  },
+  {
+    "name": "repository",
+    "command": [
+      "<local-user>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "tools/check_repository.py"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.015999999945052
+  },
+  {
+    "name": "unit",
+    "command": [
+      "<local-user>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.5929999999934807
+  }
+]

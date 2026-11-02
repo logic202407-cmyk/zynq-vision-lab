@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python",
+    "tools/prepare_c1_observation_board.py",
+    "--vendor",
+    "D:\\\u5d4c\u8d5bFPGA\u8d5b\u9053AMD\u9009\u9898\\local-work\\fpga-jtag-camera-test\\vendor_archive\\XC7Z100\\50_ov5640_udp_pc",
+    "--output",
+    "D:/zynq-handoff-evidence-20261102/board/vendor"
+  ],
+  "exit_code": 0,
+  "seconds": 0.5470000000204891
+}

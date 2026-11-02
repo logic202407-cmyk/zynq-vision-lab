@@ -1,0 +1,149 @@
+RUN a/normal
+RUN b/bad_ack_crc
+EXIT b/bad_ack_crc 0
+RUN b/late_ack
+EXIT a/normal 0
+RUN a/ack_loss
+EXIT b/late_ack 0
+RUN b/mismatch_sequence
+EXIT a/ack_loss 0
+RUN a/link_loss
+EXIT b/mismatch_sequence 0
+RUN b/mismatch_nonce
+EXIT b/mismatch_nonce 0
+RUN b/mismatch_opcode
+EXIT a/link_loss 0
+RUN a/fpga_reset
+EXIT b/mismatch_opcode 0
+RUN b/mismatch_request_crc
+EXIT a/fpga_reset 0
+RUN a/mcu_reset
+EXIT b/mismatch_request_crc 0
+RUN b/mismatch_target
+EXIT a/mcu_reset 0
+RUN a/busy_repeat
+EXIT b/mismatch_target 0
+RUN b/recovery
+EXIT a/busy_repeat 0
+RUN a/pc_handoff
+EXIT a/pc_handoff 0
+RUN a/handoff_unconfirmed
+EXIT b/recovery 0
+RUN b/boundaries
+EXIT b/boundaries 0
+RUN b/sync_crc
+EXIT a/handoff_unconfirmed 0
+RUN a/range
+EXIT a/range 0
+RUN a/stale_sync
+EXIT b/sync_crc 0
+RUN auth/auth_expiry
+EXIT a/stale_sync 0
+RUN legacy/legacy
+EXIT legacy/legacy 0
+EXIT auth/auth_expiry 0
+{
+  "pass": "B2_OFFLINE_SUITE_PASS",
+  "coupled_scenarios": 22,
+  "c_cases": 26,
+  "cases": [
+    [
+      {
+        "case": "normal",
+        "exit_code": 0
+      },
+      {
+        "case": "ack_loss",
+        "exit_code": 0
+      },
+      {
+        "case": "link_loss",
+        "exit_code": 0
+      },
+      {
+        "case": "fpga_reset",
+        "exit_code": 0
+      },
+      {
+        "case": "mcu_reset",
+        "exit_code": 0
+      },
+      {
+        "case": "busy_repeat",
+        "exit_code": 0
+      },
+      {
+        "case": "pc_handoff",
+        "exit_code": 0
+      },
+      {
+        "case": "handoff_unconfirmed",
+        "exit_code": 0
+      },
+      {
+        "case": "range",
+        "exit_code": 0
+      },
+      {
+        "case": "stale_sync",
+        "exit_code": 0
+      }
+    ],
+    [
+      {
+        "case": "bad_ack_crc",
+        "exit_code": 0
+      },
+      {
+        "case": "late_ack",
+        "exit_code": 0
+      },
+      {
+        "case": "mismatch_sequence",
+        "exit_code": 0
+      },
+      {
+        "case": "mismatch_nonce",
+        "exit_code": 0
+      },
+      {
+        "case": "mismatch_opcode",
+        "exit_code": 0
+      },
+      {
+        "case": "mismatch_request_crc",
+        "exit_code": 0
+      },
+      {
+        "case": "mismatch_target",
+        "exit_code": 0
+      },
+      {
+        "case": "recovery",
+        "exit_code": 0
+      },
+      {
+        "case": "boundaries",
+        "exit_code": 0
+      },
+      {
+        "case": "sync_crc",
+        "exit_code": 0
+      }
+    ],
+    [
+      {
+        "case": "auth_expiry",
+        "exit_code": 0
+      }
+    ],
+    [
+      {
+        "case": "legacy",
+        "exit_code": 0
+      }
+    ]
+  ],
+  "exit_code": 0,
+  "hardware_actions": []
+}

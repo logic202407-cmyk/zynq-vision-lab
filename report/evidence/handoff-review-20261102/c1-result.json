@@ -1,0 +1,26 @@
+{
+  "verdict": "PASS",
+  "exit_code": 0,
+  "cases": [
+    "reset_unbound_no_boot_traffic",
+    "UART_discovered_nonce_correlated_binding",
+    "async_camera_CDC_UART_actual_C",
+    "B2_arm_independent_axes_shared_TX",
+    "heartbeat_renews_during_measurements",
+    "stop_during_measurement_no_byte_splice",
+    "STOP_nonce_rotation_unbinds_measurements",
+    "complete_lines_only",
+    "MCU_reset_unbinds",
+    "old_nonce_configuration_timeout",
+    "explicit_fresh_binding_after_reset",
+    "configuration_ACK_loss_fails_closed",
+    "configuration_never_arms",
+    "STOP_queued_while_previous_control_line_drains",
+    "PC_handoff_waits_for_complete_lines",
+    "test_fixture_QIDs_do_not_repeat_across_reset"
+  ],
+  "count": 16,
+  "wall_seconds": 294.5320000000065,
+  "simulated_us": 868442,
+  "hardware_actions": []
+}

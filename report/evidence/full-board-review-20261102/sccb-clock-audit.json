@@ -1,0 +1,48 @@
+{
+  "cdc": {
+    "CDC-3": {
+      "severity": "Info",
+      "count": 13
+    },
+    "CDC-9": {
+      "severity": "Info",
+      "count": 3
+    },
+    "CDC-10": {
+      "severity": "Critical",
+      "count": 2
+    },
+    "CDC-15": {
+      "severity": "Warning",
+      "count": 180
+    }
+  },
+  "critical_rows": [
+    "2  CDC-10  Critical  Combinational logic detected before a synchronizer      5  False Path  u_start_transfer_ctrl/transfer_flag_reg/C  <hidden>",
+    "2  CDC-10  Critical  Combinational logic detected before a synchronizer      5  False Path  u_img_data_pkt/img_vsync_d1_reg/C  <hidden>"
+  ],
+  "timing_coverage": {
+    "no_clock": 0,
+    "unconstrained_internal_endpoints": 0,
+    "no_input_delay": 17,
+    "no_output_delay": 8
+  },
+  "constrained_slack_ns": {
+    "WNS": 2.753,
+    "TNS": 0.0,
+    "WHS": 0.049,
+    "THS": 0.0
+  },
+  "report_blockers": [
+    "CDC_CRITICAL",
+    "NO_INPUT_DELAY",
+    "NO_OUTPUT_DELAY"
+  ],
+  "physical_validation": "not performed",
+  "board_signoff": false,
+  "hardware_actions": [],
+  "report_sha256": {
+    "routed_cdc.rpt": "b943603dc0cb5ba3c4ca437a6d85a171af41facf83dfdf6b6d72516fba81a7d0",
+    "routed_timing.rpt": "2df3f56000ca8718ff926d64c13b0cd54f950dd974b5fea74ffba06d35a5c95d"
+  }
+}

@@ -1,7 +1,7 @@
 """Concurrent XSim/C bridge: camera CDC, shared UART and real session parser.
 No serial device, hardware manager, flash or PWM hardware access.
 """
-import argparse,ctypes as C,json,hashlib,shutil,subprocess,time,traceback
+import argparse,ctypes as C,json,hashlib,shutil,subprocess,time,traceback,os
 from pathlib import Path
 from check_motion_cosim import Coupled,ROOT,FW,VB,Logic
 
@@ -11,7 +11,7 @@ def build(stage):
     stage.mkdir(parents=True,exist_ok=False)
     for n in SOURCES:shutil.copyfile(ROOT/'src/rtl'/n,stage/n)
     shutil.copyfile(ROOT/'sim/c1/link_c_bridge_tb.v',stage/'motion_c_bridge_tb.v')
-    gcc='D:/Dev-Cpp/MinGW64/bin/gcc.exe';pid=FW.parent/'stm32_project/User'
+    gcc=os.environ.get('CC','D:/Dev-Cpp/MinGW64/bin/gcc.exe');pid=FW.parent/'stm32_project/User'
     cmds=[('c-build',[gcc,'-shared','-std=c99','-Wall','-Wextra','-Werror','-O2','-DBOARD_HOST_TEST','-DS1ACK1','-DC1_OBSERVATIONS','-DCONSOLE_USART=3',
         '-I'+str(FW/'User'),'-I'+str(pid),str(ROOT/'sim/c1/link_adapter.c'),*[str(FW/'User'/n) for n in ('tracking.c','safety.c','gimbal_registry.c','vision_measurement.c')],str(pid/'pid.c'),'-o','stm32.dll']),
         ('xvlog',[str(VB/'xvlog.bat'),*SOURCES,'motion_c_bridge_tb.v']),

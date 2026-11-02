@@ -1,0 +1,18 @@
+{
+  "command": [
+    "F:/Vivado/2024.2/bin/vivado.bat",
+    "-mode",
+    "batch",
+    "-source",
+    "D:\\zynq-offline-handoff-20261102\\build\\audit_c1_sccb_clock.tcl",
+    "-log",
+    "vivado.log",
+    "-journal",
+    "vivado.jou",
+    "-tclargs",
+    "D:/zynq-handoff-evidence-20261102/board/c1_observe_routed.dcp"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 55.31299999996554,
+  "hardware_actions": []
+}

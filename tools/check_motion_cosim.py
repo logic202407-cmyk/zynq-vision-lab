@@ -5,7 +5,7 @@ from pathlib import Path
 from xsim_c_bridge import XSim,Logic
 ROOT=Path(__file__).resolve().parents[1]
 FW=ROOT/'src/prototype/skystar_openmv/stm32_skystar_tracking'
-VB=Path('D:/Vivado/Vivado/2024.2/bin')
+VB=Path(os.environ.get('VIVADO_ROOT','D:/Vivado/Vivado/2024.2'))/'bin'
 
 def build(stage,auth_ms=30000,legacy=False):
     stage.mkdir(parents=True,exist_ok=False)
@@ -16,7 +16,7 @@ def build(stage,auth_ms=30000,legacy=False):
     inputs += [ROOT/'src/rtl'/f for f in sources]+[ROOT/'sim/cosim/stm32_adapter.c',ROOT/'sim/cosim/motion_c_bridge_tb.v',Path(__file__).resolve(),ROOT/'tools/xsim_c_bridge.py']
     (stage/'build-inputs.json').write_text(json.dumps({'auth_ms':auth_ms,'legacy':legacy,'sha256':{f.relative_to(ROOT).as_posix():hashlib.sha256(f.read_bytes()).hexdigest() for f in inputs}},indent=2))
     commands={
-    'c-build':[r'D:\Dev-Cpp\MinGW64\bin\gcc.exe','-shared','-std=c99','-Wall','-Wextra','-Werror','-O2',
+    'c-build':[os.environ.get('CC',r'D:\Dev-Cpp\MinGW64\bin\gcc.exe'),'-shared','-std=c99','-Wall','-Wextra','-Werror','-O2',
         '-DBOARD_HOST_TEST','-DS1ACK1','-DCONSOLE_USART=3','-I'+str(FW/'User'),
         '-I'+str(FW.parent/'stm32_project/User'),str(ROOT/'sim/cosim/stm32_adapter.c'),
         str(FW/'User/tracking.c'),str(FW/'User/safety.c'),str(FW.parent/'stm32_project/User/pid.c'),'-o',str(stage/'stm32.dll')],

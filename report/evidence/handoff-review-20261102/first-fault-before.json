@@ -1,0 +1,1753 @@
+{
+  "scope": "statement-boundary scheduler, modeled PRIMASK deferral; not exhaustive Cortex-M instruction races",
+  "compile_command": [
+    "C:/msys64/ucrt64/bin/gcc.exe",
+    "-shared",
+    "-std=c99",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wno-misleading-indentation",
+    "-O0",
+    "-DBOARD_HOST_TEST",
+    "-DS1ACK1",
+    "-DCONSOLE_USART=3",
+    "-ID:\\zynq-handoff-evidence-20261102\\first-fault-before",
+    "-ID:\\zynq-offline-handoff-20261102\\src\\prototype\\skystar_openmv\\stm32_project\\User",
+    "D:\\zynq-handoff-evidence-20261102\\first-fault-before\\driver.c",
+    "D:\\zynq-handoff-evidence-20261102\\first-fault-before\\safety.c",
+    "D:\\zynq-handoff-evidence-20261102\\first-fault-before\\tracking.c",
+    "D:\\zynq-offline-handoff-20261102\\src\\prototype\\skystar_openmv\\stm32_project\\User\\pid.c",
+    "-o",
+    "D:\\zynq-handoff-evidence-20261102\\first-fault-before\\interrupt.dll"
+  ],
+  "compile_exit": 0,
+  "source_sha256": {
+    "board.c": "625f1d60c7203216ddcf9b3aedf79253b04a84dfcee446ed8c9e8cfd10f632fc",
+    "main.c": "0ff2323bab6e4a797764aa0f04023c8ffbcb529b9e799987078137525824f565",
+    "s1ack.h": "a70d636465c9d0858ad444516cf1ab79a247c36467e38f95f5b3605cf4cb5101",
+    "safety.c": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+    "safety.h": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+    "tracking.c": "4e5aa8fe89f9038c6e074e9eb50f7a4a860d3c0d93502ff2e276f3e214d10429",
+    "tracking.h": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819",
+    "board.h": "d8a80fb0a8c0b1647f73b56b634df6458196d7910f56777a8b1e207cf6e11bab"
+  },
+  "hooks": {
+    "10": {
+      "file": "board.c",
+      "anchor": "if (enabled && (pan<PAN_MIN_US",
+      "after": false
+    },
+    "11": {
+      "file": "board.c",
+      "anchor": "if (!guard_active || guard_event || fault || board_button() ||",
+      "after": false
+    },
+    "12": {
+      "file": "board.c",
+      "anchor": "R(TIM4+0x34)=pan; R(TIM4+0x38)=tilt;",
+      "after": false
+    },
+    "13": {
+      "file": "board.c",
+      "anchor": "R(TIM4+0x34)=pan; R(TIM4+0x38)=tilt;",
+      "after": true
+    },
+    "14": {
+      "file": "board.c",
+      "anchor": "R(TIM4+0x20)=(1u<<0)|(1u<<4); pwm_enabled=1;",
+      "after": false
+    },
+    "15": {
+      "file": "board.c",
+      "anchor": "R(TIM4+0x20)=(1u<<0)|(1u<<4); pwm_enabled=1;",
+      "after": true
+    },
+    "16": {
+      "file": "board.c",
+      "anchor": "cc=R(TIM4+0x20); mode=R(GPIOD);",
+      "after": false
+    },
+    "17": {
+      "file": "board.c",
+      "anchor": "*pan=R(TIM4+0x34); *tilt=R(TIM4+0x38);",
+      "after": true
+    },
+    "1": {
+      "file": "main.c",
+      "anchor": "accepted=safety_command(&guardian,&control,command,received,now);",
+      "after": false
+    },
+    "2": {
+      "file": "main.c",
+      "anchor": "if (accepted && (prior_state!=guardian.state ||",
+      "after": false
+    },
+    "3": {
+      "file": "main.c",
+      "anchor": "else if (accepted && !board_guard_refresh",
+      "after": false
+    },
+    "4": {
+      "file": "main.c",
+      "anchor": "poll_safety(now);",
+      "after": false
+    },
+    "5": {
+      "file": "main.c",
+      "anchor": "ack_reply(&request,accepted);",
+      "after": false
+    },
+    "6": {
+      "file": "main.c",
+      "anchor": "ack_reply(&request,accepted);",
+      "after": true
+    },
+    "20": {
+      "file": "s1ack.h",
+      "anchor": "board_pwm_snapshot(&mask,&pan,&tilt);",
+      "after": false
+    },
+    "21": {
+      "file": "s1ack.h",
+      "anchor": "board_pwm_snapshot(&mask,&pan,&tilt);",
+      "after": true
+    },
+    "22": {
+      "file": "s1ack.h",
+      "anchor": "if(accepted && r->kind==2 &&",
+      "after": false
+    },
+    "23": {
+      "file": "s1ack.h",
+      "anchor": "if(r->kind==1 && !strcmp(r->op,\"st\")) {",
+      "after": false
+    },
+    "24": {
+      "file": "s1ack.h",
+      "anchor": "if(m!=6 || !board_send(text))",
+      "after": false
+    },
+    "25": {
+      "file": "s1ack.h",
+      "anchor": "if(m!=6 || !board_send(text))",
+      "after": true
+    }
+  },
+  "count": 160,
+  "passed": 142,
+  "failed": 18,
+  "rows": [
+    {
+      "axis": 0,
+      "point": 1,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 1,
+      "event": 2,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 1,
+      "event": 3,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 1,
+      "event": 4,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 2,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 2,
+      "event": 2,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 2,
+      "event": 3,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 2,
+      "event": 4,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 3,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 3,
+      "event": 2,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 3,
+      "event": 3,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 3,
+      "event": 4,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 4,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault link_timeout none 1550 1500 0 1500 1500*36eb\n"
+    },
+    {
+      "axis": 0,
+      "point": 4,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault uart none 1550 1500 0 1500 1500*bb82\n"
+    },
+    {
+      "axis": 0,
+      "point": 4,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault uart none 1550 1500 0 1500 1500*bb82\n"
+    },
+    {
+      "axis": 0,
+      "point": 4,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340003 fault key none 1550 1500 0 1500 1500*6bc8\n"
+    },
+    {
+      "axis": 0,
+      "point": 5,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 5,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 5,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 5,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 6,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 6,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 6,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 6,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 10,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 10,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 10,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 10,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 11,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 11,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 11,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 11,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 12,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 12,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 12,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 12,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 13,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 13,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 13,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 13,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 14,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 14,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 14,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 14,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 15,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 15,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 15,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 15,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 16,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 16,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 16,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 16,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 17,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 17,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 17,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 17,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 20,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 20,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 20,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 20,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ABORTED NONE 1234000112340002 manual ready none 1550 1500 0 1550 1500*3558\n"
+    },
+    {
+      "axis": 0,
+      "point": 21,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 21,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 21,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 21,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 22,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 22,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 22,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 22,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 23,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 23,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 23,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 23,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 24,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 24,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 24,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 24,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 25,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 25,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 25,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 0,
+      "point": 25,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 f20c pan ACCEPT REG 1234000112340002 manual ready none 1550 1500 3 1550 1500*024d\n"
+    },
+    {
+      "axis": 1,
+      "point": 1,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 1,
+      "event": 2,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 1,
+      "event": 3,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 1,
+      "event": 4,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 2,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 2,
+      "event": 2,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 2,
+      "event": 3,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 2,
+      "event": 4,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 3,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 3,
+      "event": 2,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 3,
+      "event": 3,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 3,
+      "event": 4,
+      "failure_bits": 4,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 4,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault link_timeout none 1500 1550 0 1500 1500*12cd\n"
+    },
+    {
+      "axis": 1,
+      "point": 4,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault uart none 1500 1550 0 1500 1500*102b\n"
+    },
+    {
+      "axis": 1,
+      "point": 4,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault uart none 1500 1550 0 1500 1500*102b\n"
+    },
+    {
+      "axis": 1,
+      "point": 4,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 2,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340003 fault key none 1500 1550 0 1500 1500*ba7e\n"
+    },
+    {
+      "axis": 1,
+      "point": 5,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 5,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 5,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 5,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 6,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 6,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 6,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 6,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 10,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 10,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 10,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 10,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 11,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 11,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 11,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 11,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 12,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 12,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 12,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 12,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 13,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 13,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 13,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 13,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 14,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 14,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 14,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 14,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 15,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 15,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 15,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 15,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 16,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 16,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 16,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 16,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 17,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 17,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 17,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 17,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 20,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 20,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 20,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 20,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ABORTED NONE 1234000112340002 manual ready none 1500 1550 0 1500 1550*dc32\n"
+    },
+    {
+      "axis": 1,
+      "point": 21,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 21,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 21,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 21,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 22,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 22,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 22,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 22,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 23,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 23,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 23,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 23,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 24,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 24,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 24,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 24,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 25,
+      "event": 1,
+      "failure_bits": 0,
+      "reason": 3,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 25,
+      "event": 2,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 25,
+      "event": 3,
+      "failure_bits": 0,
+      "reason": 6,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    },
+    {
+      "axis": 1,
+      "point": 25,
+      "event": 4,
+      "failure_bits": 0,
+      "reason": 7,
+      "hit": 1,
+      "max_masked_hook_steps": 6,
+      "response": "SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=USART3_PC10_PC11\r\nS1ACK S 1234000112340002 0 ec90 arm ACCEPT REG 1234000112340002 armed ready none 1500 1500 0 1500 1500*17ed\nS1ACK S 1234000112340002 1 8bed tlt ACCEPT REG 1234000112340002 manual ready none 1500 1550 3 1500 1550*2fb6\n"
+    }
+  ],
+  "reset_old_commands": [
+    {
+      "partial": 0,
+      "failure": 0
+    },
+    {
+      "partial": 1,
+      "failure": 0
+    }
+  ],
+  "exit_code": 1
+}

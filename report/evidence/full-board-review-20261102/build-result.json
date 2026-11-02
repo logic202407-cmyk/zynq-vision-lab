@@ -1,0 +1,22 @@
+{
+  "command": [
+    "F:/Vivado/2024.2/bin/vivado.bat",
+    "-mode",
+    "batch",
+    "-source",
+    "D:\\zynq-offline-handoff-20261102\\build\\build_c1_observation_board.tcl",
+    "-log",
+    "vivado.log",
+    "-journal",
+    "vivado.jou"
+  ],
+  "source_commit": "a70746cdf949acbc82aa3345860120ec6c0783ed",
+  "source_sha256": {
+    "build\\build_c1_observation_board.tcl": "80dc457028073e71102b95b524333371056aef8b14c4ac1bd00f696b76b54bf7",
+    "tools\\prepare_c1_observation_board.py": "52fd01c51e752f2af4fcf3d4130ece4e9f9a3717d7217ff3f8053c51dac91612",
+    "board\\skystar_f407\\c1_observation_insert.vh": "9f9442e16484a7b9af2498dbc406fef8ea2941be23af0991975cd161d834781c"
+  },
+  "hardware_actions": [],
+  "exit_code": 0,
+  "wall_seconds": 689.1879999999655
+}

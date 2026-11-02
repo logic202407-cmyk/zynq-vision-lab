@@ -1,0 +1,28 @@
+{
+  "auth_ms": 30000,
+  "legacy": false,
+  "sha256": {
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.c": "625f1d60c7203216ddcf9b3aedf79253b04a84dfcee446ed8c9e8cfd10f632fc",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.h": "d8a80fb0a8c0b1647f73b56b634df6458196d7910f56777a8b1e207cf6e11bab",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/c1_feedback.h": "f2d8d57d0ed96432b56c1e54336e1a18ad32f957c6b0eb7a969826475f8c50ef",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.c": "c52c3eed7e5e708dd746ff5110c22548eb8a6d4ff336e2a9ca6725974d23bf56",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.h": "61a9956a6fbdf872bbd217cdf216640276634dfccd9bb36c02423f202fd83241",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c": "ae1d98f152a6ed5f7422b3b1ea8aa036b7857e511e8f334197695e31b8a49a42",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/s1ack.h": "a70d636465c9d0858ad444516cf1ab79a247c36467e38f95f5b3605cf4cb5101",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.c": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.h": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/tracking.c": "4e5aa8fe89f9038c6e074e9eb50f7a4a860d3c0d93502ff2e276f3e214d10429",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/tracking.h": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/vision_measurement.c": "50007c160f645a27175e04a044a829cac5ccf1d135fccb0bc45f6f909eab5252",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/vision_measurement.h": "cb9f9b813feff12fd5420b7c4a59fa2aa50f3a5b1764af2f3fea2e3ba4c3891a",
+    "src/prototype/skystar_openmv/stm32_project/User/pid.c": "a8c2aaf9a13ee6da79e239c6326cb73dc609d4fc020044226de571ffd4b6109b",
+    "src/prototype/skystar_openmv/stm32_project/User/pid.h": "9165579899b287df4be202e21700378945bee0a700ce787606d12f062c03521c",
+    "src/rtl/uart_tx_8n1.v": "dd7b762d8d5b0812cae5eb2001b03c74e00a5fe1000592b685210aa213e45ad8",
+    "src/rtl/uart_rx.v": "ab32ce229c2bbc484f75833be4f0c81f1a6aa3329bcafa88d081568a2711c712",
+    "src/rtl/zynq_motion_s1.v": "8026a2e3f046458a85ca04971dedeadedae84ccaf0e5a64e7430f12dba7039b8",
+    "sim/cosim/stm32_adapter.c": "93692657f69efdb23caf5cdb8280f26ee2ffba587394b8b1ba3159d875adf785",
+    "sim/cosim/motion_c_bridge_tb.v": "807f4798c0cbf5736a665e17167092cdaec7bd649083d5dd910ea8fbb5280ab5",
+    "tools/check_motion_cosim.py": "1bbb70a26205f8fedd8c9082a1f4019aa32afb56e1097d898ae629f26bc41e2e",
+    "tools/xsim_c_bridge.py": "0edd823e7a3b5ce6e726d1222cab5d9509ac138981a0b8b22026614975382fc2"
+  }
+}

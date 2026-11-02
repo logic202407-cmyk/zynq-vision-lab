@@ -1,0 +1,78 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Mon Nov  2 16:28:51 2026
+| Host : REDACTED
+| Command      : report_clocks -file candidate_clocks.rpt
+| Design       : ov5640_udp_pc
+| Device       : 7z100-ffg900
+| Speed File   : -2  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Clock Report
+
+
+Attributes
+  P: Propagated
+  G: Generated
+  A: Auto-derived
+  R: Renamed
+  V: Virtual
+  I: Inverted
+  S: Pin phase-shifted with Latency mode
+
+Clock                                                                                       Period(ns)  Waveform(ns)     Attributes  Sources
+cam_pclk                                                                                    20.000      {0.000 10.000}   P           {cam_pclk}
+dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK  33.000      {0.000 16.500}   P           {dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK}
+eth_rxc                                                                                     8.000       {0.000 4.000}    P           {eth_rxc}
+sys_clk_p                                                                                   10.000      {0.000 5.000}    P           {sys_clk_p}
+sccb_dri_candidate                                                                          1000.000    {0.000 500.000}  P,G         {u_i2c_dri/dri_clk_reg/Q}
+clk_out1_clk_wiz_0                                                                          20.000      {0.000 10.000}   P,G,A       {u_clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0}
+clk_out2_clk_wiz_0                                                                          5.000       {0.000 2.500}    P,G,A       {u_clk_wiz_0/inst/mmcm_adv_inst/CLKOUT1}
+clkfbout_clk_wiz_0                                                                          10.000      {0.000 5.000}    P,G,A       {u_clk_wiz_0/inst/mmcm_adv_inst/CLKFBOUT}
+
+
+====================================================
+Generated Clocks
+====================================================
+
+Generated Clock     : sccb_dri_candidate
+Master Source       : u_i2c_dri/dri_clk_reg/C
+Master Clock        : clk_out1_clk_wiz_0
+Divide By           : 50
+Generated Sources   : {u_i2c_dri/dri_clk_reg/Q}
+
+Generated Clock     : clk_out1_clk_wiz_0
+Master Source       : u_clk_wiz_0/inst/mmcm_adv_inst/CLKIN1
+Master Clock        : sys_clk_p
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 5.000 10.000}
+Generated Sources   : {u_clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0}
+
+Generated Clock     : clk_out2_clk_wiz_0
+Master Source       : u_clk_wiz_0/inst/mmcm_adv_inst/CLKIN1
+Master Clock        : sys_clk_p
+Multiply By         : 2
+Generated Sources   : {u_clk_wiz_0/inst/mmcm_adv_inst/CLKOUT1}
+
+Generated Clock     : clkfbout_clk_wiz_0
+Master Source       : u_clk_wiz_0/inst/mmcm_adv_inst/CLKIN1
+Master Clock        : sys_clk_p
+Multiply By         : 1
+Generated Sources   : {u_clk_wiz_0/inst/mmcm_adv_inst/CLKFBOUT}
+
+
+
+====================================================
+User Uncertainty
+====================================================
+
+
+
+====================================================
+User Jitter
+====================================================
+
+Clock      Jitter(ns)
+sys_clk_p  0.100
