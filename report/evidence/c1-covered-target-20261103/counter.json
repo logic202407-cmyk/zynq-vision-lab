@@ -1,0 +1,8 @@
+{
+  "scope": "Read-only MCU OpenMV state, no reset or actuation",
+  "frames": 9191,
+  "dx": 27,
+  "dy": 34,
+  "valid": 1,
+  "software_pwm": 0
+}
