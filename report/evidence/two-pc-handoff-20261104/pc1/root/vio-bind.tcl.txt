@@ -1,0 +1,56 @@
+# Run only after independently verified current S1SYNC: CRC, query, nonce, stopped and PWM0.
+# Observation-only query. Run only with the passive capture confirmed active.
+if {[llength $argv]!=2 || ![regexp {^[0-9a-f]{32}$} [lindex $argv 0]] || [lindex $argv 0] eq "00000000000000000000000000000000"} {error "Need fresh nonzero 128-bit query ID"}
+set qid [lindex $argv 0]
+set sid [lindex $argv 1]
+if {![regexp {^[0-9a-f]{16}$} $sid] || $sid eq "0000000000000000"} {error "Need nonzero observation session"}
+open_hw_manager
+connect_hw_server -url 192.0.2.2:3121
+set ts [get_hw_targets -quiet *210512180081*]
+if {[llength $ts]!=1} {error "Expected exact HS1"}
+current_hw_target [lindex $ts 0]
+set_property PARAM.FREQUENCY 1000000 [current_hw_target]
+open_hw_target
+try {
+ set ds [get_hw_devices -quiet xc7z100*]
+ if {[llength $ds]!=1} {error "Expected XC7Z100"}
+ set d [lindex $ds 0]
+ current_hw_device $d
+ set_property PROBES.FILE D:/c1-recovery-20261103/checkpoint/c1_observe.ltx $d
+ refresh_hw_device $d
+ if {[get_property REGISTER.CONFIG_STATUS.BIT14_DONE_PIN $d]!=1 || [get_property {REGISTER.CONFIG_STATUS.BIT04_END_OF_STARTUP_(EOS)_STATUS} $d]!=1} {error "Configuration not complete"}
+ set vs [get_hw_vios -quiet -of_objects $d]
+ if {[llength $vs]!=1} {error "Expected one VIO"}
+ set v [lindex $vs 0]
+ if {[get_property CORE_UUID $v] ne "026FEEEA049D50A0ADB93761986F1093"} {error "VIO UUID mismatch"}
+ set ctl [get_hw_probes c1_controls -of_objects $v]
+ set qry [get_hw_probes c1_query_id -of_objects $v]
+ set status [get_hw_probes c1_status -of_objects $v]
+ refresh_hw_vio -update_output_values $v
+ if {[get_property OUTPUT_VALUE $ctl] ne "02" || [get_property INPUT_VALUE $status] ne "00000053"} {error "Expected reviewed query wait state"}
+ if {[string tolower [get_property OUTPUT_VALUE $qry]] ne $qid} {error "Query identity changed"}
+ set sess [get_hw_probes c1_logging_session -of_objects $v]
+ if {[get_property OUTPUT_VALUE $sess] ne "0000000000000000"} {error "Expected unbound fresh FPGA session"}
+ set_property OUTPUT_VALUE $sid $sess
+ commit_hw_vio $v
+ refresh_hw_vio -update_output_values $v
+ if {[string tolower [get_property OUTPUT_VALUE $sess]] ne $sid} {error "Session readback mismatch"}
+ puts "BIND_QUERY_ID=$qid SESSION=$sid"
+ foreach value {0a 02} {
+  set_property OUTPUT_VALUE $value $ctl
+  commit_hw_vio $v
+  after 100
+  refresh_hw_vio -update_output_values $v
+  puts "CONTROL=[get_property OUTPUT_VALUE $ctl] STATUS=[get_property INPUT_VALUE $status]"
+  if {[string tolower [get_property OUTPUT_VALUE $ctl]] ne $value} {error "Control readback mismatch"}
+ }
+ after 500
+ refresh_hw_vio -update_output_values $v
+ puts "BIND_FINAL_STATUS=[get_property INPUT_VALUE $status]"
+ puts "Observation bind only; no ARM/motion/STOP/reset"
+} finally {
+ close_hw_target
+ disconnect_hw_server
+ close_hw_manager
+}
+exit

@@ -1,0 +1,10 @@
+{
+  "started_at": "2026-11-03 18:50:59",
+  "attempt": 20,
+  "remote_path": "D:/FPGA_Remote_JTAG/c1-recovery-20261103/pc2-local-recovery-1818.zip",
+  "local_bytes": 694949,
+  "local_sha256": "481c81a3d03e050c8d5dbe5d100b3afdae21431221e5fa4781d4765b4e5222f4",
+  "verified": false,
+  "error": "TimeoutError: timed out",
+  "failed_at": "2026-11-03 18:52:35"
+}

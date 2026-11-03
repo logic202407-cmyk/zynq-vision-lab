@@ -1,0 +1,17 @@
+open_hw_manager
+connect_hw_server -url 127.0.0.1:33121
+set ts [get_hw_targets -quiet *210512180081*]
+if {[llength $ts]!=1} {error "Expected exact HS1"}
+current_hw_target [lindex $ts 0]
+set_property PARAM.FREQUENCY 1000000 [current_hw_target]
+open_hw_target
+set ds [get_hw_devices -quiet xc7z100*]
+if {[llength $ds]!=1} {error "Expected XC7Z100"}
+set d [lindex $ds 0]
+current_hw_device $d
+refresh_hw_device -update_hw_probes false $d
+report_property $d
+close_hw_target
+disconnect_hw_server
+close_hw_manager
+exit

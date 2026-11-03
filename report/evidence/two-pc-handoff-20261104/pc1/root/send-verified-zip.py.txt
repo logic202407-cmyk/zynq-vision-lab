@@ -1,0 +1,28 @@
+import sys,json,hashlib,time,zipfile,io
+from pathlib import Path
+sys.path.insert(0,r'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+src=Path('D:/c1-recovery-20261103/pc2-local-recovery-1818.zip');raw=src.read_bytes()
+assert hashlib.sha256(raw).hexdigest()=='481c81a3d03e050c8d5dbe5d100b3afdae21431221e5fa4781d4765b4e5222f4'
+with zipfile.ZipFile(io.BytesIO(raw)) as z:
+ assert z.testzip() is None
+ manifest=json.loads(z.read('recovery-package/manifest.json'))
+ for name,a in manifest['files'].items():
+  data=z.read('recovery-package/'+name)
+  assert len(data)==a['bytes'] and hashlib.sha256(data).hexdigest()==a['sha256']
+stamp=time.strftime('%Y%m%d-%H%M%S');remote='D:/FPGA_Remote_JTAG/c1-recovery-20261103/package-'+stamp
+receipt={'remote_directory':remote,'remote_zip':remote+'/'+src.name,'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'verified':False}
+out=Path('D:/c1-recovery-20261103/transfer-'+stamp+'.json');out.write_text(json.dumps(receipt,indent=2))
+print('RECEIPT='+str(out),flush=True)
+c=TCF('192.0.2.2',timeout=15,bind_ip='192.0.2.1')
+try:
+ c.normal('mkdir',remote,{})
+ c.write(receipt['remote_zip'],raw)
+ print('READBACK_START',flush=True)
+ back=c.read(receipt['remote_zip'])
+ assert back==raw
+ with zipfile.ZipFile(io.BytesIO(back)) as z:assert z.testzip() is None
+ receipt['verified']=True;receipt['zip_crc_verified']=True;receipt['manifest_files_verified']=manifest['files'];out.write_text(json.dumps(receipt,indent=2));print(json.dumps(receipt,indent=2),flush=True)
+except Exception as e:
+ receipt['error']=str(e);out.write_text(json.dumps(receipt,indent=2));raise
+finally:c.close()

@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS",
+  "cases": [
+    "boot_inactive_team_gains",
+    "vision_cannot_self_arm",
+    "bound_OpenMV_packet_produces_CRC_valid_F1",
+    "explicit_ARM_AUTO_valid_frame_enables_PWM_and_PE2",
+    "positive_axis_sign_and_travel_limits",
+    "invalid_target_disables_outputs",
+    "vision_timeout_disables_outputs",
+    "correlated_STOP_disables_outputs",
+    "KEY_ISR_disables_without_foreground",
+    "UART_error_ISR_disables_without_foreground",
+    "lease_ISR_disables_without_foreground"
+  ],
+  "count": 11,
+  "scope": "offline actual C and register model; not physical validation"
+}

@@ -1,0 +1,100 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue Nov  3 18:14:25 2026
+# Process ID         : 95444
+# Current directory  : D:/嵌赛FPGA赛道AMD选题
+# Command line       : vivado.exe -mode batch -source D:\c1-recovery-20261103\checkpoint\settings.tcl -log D:\c1-recovery-20261103\checkpoint\settings.log -journal D:\c1-recovery-20261103\checkpoint\settings.jou
+# Log file           : D:/c1-recovery-20261103/checkpoint/settings.log
+# Journal file       : D:\c1-recovery-20261103\checkpoint\settings.jou
+# Running On         : LAPTOP-VHQF65C3
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 34141 MB
+# Swap memory        : 15569 MB
+# Total Virtual      : 49710 MB
+# Available Virtual  : 2357 MB
+#-----------------------------------------------------------
+source {D:\c1-recovery-20261103\checkpoint\settings.tcl}
+# open_checkpoint D:/zynq-handoff-evidence-20261102/board/c1_observe_routed.dcp
+Command: open_checkpoint D:/zynq-handoff-evidence-20261102/board/c1_observe_routed.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 308.129 ; gain = 4.000
+INFO: [Device 21-403] Loading part xc7z100ffg900-2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.117 . Memory (MB): peak = 737.008 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3198 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.082 . Memory (MB): peak = 873.684 ; gain = 11.430
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1535.848 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1535.848 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.974 . Memory (MB): peak = 1566.598 ; gain = 30.750
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1566.598 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.221 . Memory (MB): peak = 1582.879 ; gain = 16.281
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1582.879 ; gain = 47.031
+Restored from archive | CPU: 2.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1582.879 ; gain = 47.031
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1582.879 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 15 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 2 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 4 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 3 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2024.2 (64-bit) build 5239630
+WARNING: [Vivado 12-23575] Critical violations of the methodology design rules detected. Critical violations may contribute to timing failures or cause functional issues in hardware. Run report_methodology for more information.
+open_checkpoint: Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 1582.879 ; gain = 1290.809
+# foreach p [list_property [current_design]] {
+#  if {[string match BITSTREAM.* $p]} {puts "$p=[get_property $p [current_design]]"}
+# }
+BITSTREAM.CONFIG.DCIUPDATEMODE=
+BITSTREAM.CONFIG.DONEPIN=
+BITSTREAM.CONFIG.INITPIN=
+BITSTREAM.CONFIG.INITSIGNALSERROR=
+BITSTREAM.CONFIG.OVERTEMPPOWERDOWN=
+BITSTREAM.CONFIG.PROGPIN=
+BITSTREAM.CONFIG.TCKPIN=
+BITSTREAM.CONFIG.TDIPIN=
+BITSTREAM.CONFIG.TDOPIN=
+BITSTREAM.CONFIG.TMSPIN=
+BITSTREAM.CONFIG.UNUSEDPIN=
+BITSTREAM.CONFIG.USERID=
+BITSTREAM.CONFIG.USR_ACCESS=
+BITSTREAM.GENERAL.COMPRESS=
+BITSTREAM.GENERAL.CRC=
+BITSTREAM.GENERAL.DISABLE_JTAG=
+BITSTREAM.GENERAL.JTAG_XADC=
+BITSTREAM.GENERAL.PERFRAMECRC=
+BITSTREAM.GENERAL.XADCENHANCEDLINEARITY=
+BITSTREAM.GENERAL.XADCPOWERDOWN=
+BITSTREAM.READBACK.ACTIVERECONFIG=
+BITSTREAM.READBACK.ICAP_SELECT=
+BITSTREAM.READBACK.SECURITY=
+BITSTREAM.READBACK.XADCPARTIALRECONFIG=
+BITSTREAM.STARTUP.DONEPIPE=
+BITSTREAM.STARTUP.DONE_CYCLE=
+BITSTREAM.STARTUP.GTS_CYCLE=
+BITSTREAM.STARTUP.GWE_CYCLE=
+BITSTREAM.STARTUP.LCK_CYCLE=
+BITSTREAM.STARTUP.MATCH_CYCLE=
+BITSTREAM.STARTUP.STARTUPCLK=
+# exit
+INFO: [Common 17-206] Exiting Vivado at Tue Nov  3 18:14:48 2026...

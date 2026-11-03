@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-11-03T23:52:23.064384+08:00",
+  "scope": "capture elapsed 2252..2350 seconds around 23:49:04 click; sequence increments checked, continuity not assumed",
+  "session": "00065f6106a11698",
+  "f1_session_crc_good": 1480,
+  "f1_malformed_or_bad_crc": 0,
+  "other_session_f1": 0,
+  "first_sequence": "00000001",
+  "last_sequence": "00001065",
+  "strictly_increasing_modulo": true,
+  "sequence_steps_min": 2,
+  "sequence_steps_max": 4,
+  "first_ten": [
+    "F1 00065f6106a11698 00000001 00016b4e 0027 0011 1*228d",
+    "F1 00065f6106a11698 00000004 00016b51 0027 0011 1*dabc",
+    "F1 00065f6106a11698 00000007 00016b51 0027 0011 1*6cd4",
+    "F1 00065f6106a11698 0000000a 00016b54 0027 0011 1*38f7",
+    "F1 00065f6106a11698 0000000d 00016b54 0027 0011 1*f26e",
+    "F1 00065f6106a11698 0000000f 00016b57 0027 0011 1*e67b",
+    "F1 00065f6106a11698 00000012 00016b57 0027 0011 1*4c2d",
+    "F1 00065f6106a11698 00000014 00016b5a 0027 0011 1*f3d3",
+    "F1 00065f6106a11698 00000017 00016b5a 0027 0011 1*45bb",
+    "F1 00065f6106a11698 00000019 00016b5d 0027 0011 1*2727"
+  ],
+  "openmv_run_click_local": "2026-11-03T23:49:04.581+08:00",
+  "ide_done_observed_by": "2026-11-03T23:51:44+08:00",
+  "note": "device prints TEAM_RAM_DONE; no exact completion timestamp recorded; flags are payload values, not proof of physical control"
+}

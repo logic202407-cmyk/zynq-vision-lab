@@ -1,0 +1,11 @@
+{
+  "source": "E:\\Keil_Packs\\Keil\\STM32F4xx_DFP\\2.17.1",
+  "scope": "Local official unmodified PDSC and F407VE flash/SVD assets only; not a complete DFP",
+  "files": {
+    "Keil.STM32F4xx_DFP.pdsc": "c9c9e3fe8c10a3257ba33972a2794db4fbdb1c5b9c500f1856d259eeb6b30cb4",
+    "CMSIS/Flash/STM32F4xx_512.FLM": "38d23414791e299477c88db20c29a32b05c9006e6364cd0df3c87bbaaec9fee0",
+    "CMSIS/Flash/STM32F40xxx_41xxx_OPT.FLM": "575657a56dd401261d2a4159e22eeab31b5f6e47dc445a30774aedfa3f220f62",
+    "CMSIS/Flash/STM32F4xx_OTP.FLM": "2b6969e20cc1fee9f987841da440bb1950dad92c3c7564bfdc1b5d31b6272277",
+    "CMSIS/SVD/STM32F407.svd": "51b3720af9b197031747d9574127bb4fa7859038fd0a9566b45058bea3970f3d"
+  }
+}

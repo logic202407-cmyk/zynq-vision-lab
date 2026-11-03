@@ -1,0 +1,14 @@
+{
+  "remote_directory": "D:/FPGA_Remote_JTAG/c1-recovery-20261103/team-deploy-20261103-223846-650",
+  "verified": true,
+  "files": {
+    "recover-team-blank.py": {
+      "bytes": 5247,
+      "sha256": "df415e5dab5afb4b995d5aec9d700fed06e43680cb1cd13921ef7d6e053f931f"
+    },
+    "PC2-RECOVER.txt": {
+      "bytes": 2653,
+      "sha256": "c4e16c4b6432206667e99a5b01cc2522338e370667c8d34f51428946116d141e"
+    }
+  }
+}

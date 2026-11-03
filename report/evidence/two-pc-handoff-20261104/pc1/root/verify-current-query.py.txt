@@ -1,0 +1,33 @@
+import base64,binascii,json,re,sys
+from pathlib import Path
+sys.path.insert(0,'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+qid=sys.argv[1]
+assert re.fullmatch('[0-9a-f]{32}',qid)
+c=TCF('192.0.2.2',timeout=10)
+p='D:/FPGA_Remote_JTAG/c1-recovery-20261103/capture-20261103-211007/uart.jsonl'
+try:
+ n=c.normal('stat',p)[0]['Size'];start=max(0,n-262144)
+ h=c.normal('open',p,1,{})[0]
+ try:
+  result=c.call('read',h,start,n-start)
+  if result[1]:raise RuntimeError(result[1])
+  raw=base64.b64decode(result[0])
+ finally:c.normal('close',h)
+finally:c.close()
+lines=raw.splitlines()[1:] if start else raw.splitlines()
+rows=[]
+for line in lines:
+ try:rows.append(json.loads(line))
+ except ValueError:pass
+found=[r for r in rows if r['line'].startswith('S1SYNC '+qid+' ')]
+assert len(found)==1,'No unique matching S1SYNC'
+r=found[0];body,crc=r['line'].rsplit('*',1);f=body.split()
+assert len(f)==11 and int(crc,16)==binascii.crc_hqx(body.encode(),0xffff),'Bad query CRC/shape'
+assert f[2]=='S1ACK1' and f[4]=='stopped' and f[5] in ('boot','stop') and f[8]=='0' and int(f[3],16),'Not stopped boot-or-stop/PWM0'
+statuses=[r for r in rows if r['line'].startswith('S1STAT ')]
+last=statuses[-1]
+assert 'SAFE stopped WHY '+f[5]+' NONCE '+f[3]+' ' in last['line'],'Nonce/state changed'
+assert 0<=last['elapsed']-r['elapsed']<=300,'Query too old or no subsequent status'
+Path('D:/c1-recovery-20261103/rebind-verified-query.json').write_text(json.dumps(r,indent=2))
+print(f[3])

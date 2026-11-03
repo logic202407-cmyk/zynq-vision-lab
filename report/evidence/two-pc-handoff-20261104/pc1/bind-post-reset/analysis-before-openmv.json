@@ -1,0 +1,23 @@
+{
+  "scope": "Offline UART CRC/session and complete-video metadata sequence association only",
+  "hardware_acceptance": false,
+  "session_hex": "00065f5e650dccda",
+  "elapsed_window": [
+    0.0,
+    null
+  ],
+  "counts": {
+    "uart_S1STAT": 1548,
+    "uart_V2A": 1,
+    "video_records": 4086
+  },
+  "matching_v2a_count": 1,
+  "distinct_openmv_sequences": 0,
+  "distinct_f1_primary_sequences": 0,
+  "limitations": [
+    "No S1SYNC query/nonce or STOP authorization verification",
+    "No image content, geometry, exposure synchronization or physical output check",
+    "Repeated video sequence numbers are ambiguous; use one programming run per window",
+    "Only complete JSONL records are accepted; analyze a closed or stable copied log"
+  ]
+}

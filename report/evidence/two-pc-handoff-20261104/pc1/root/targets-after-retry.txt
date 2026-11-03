@@ -1,0 +1,14 @@
+SERVER_FORMATS=  digilent-ftdi
+  xilinx-ftdi
+  amd-uniflashpod
+  xilinx-pcusb
+  xilinx-xvc:<host>:<port>
+  xilinx-null:<name>
+  bscan-jtag
+OPEN_SERVERS=  digilent-ftdi cables 0
+  xilinx-ftdi cables 0
+  amd-uniflashpod cables 0
+  xilinx-pcusb cables 0
+  bscan-jtag cables 0
+CABLES=
+TARGETS=

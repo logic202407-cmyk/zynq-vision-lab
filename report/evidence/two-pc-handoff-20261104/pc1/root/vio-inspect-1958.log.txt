@@ -1,0 +1,166 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue Nov  3 19:59:31 2026
+# Process ID         : 96908
+# Current directory  : D:/嵌赛FPGA赛道AMD选题
+# Command line       : vivado.exe -mode batch -source D:\c1-recovery-20261103\vio-inspect.tcl -log D:\c1-recovery-20261103\vio-inspect-1958.log -journal D:\c1-recovery-20261103\vio-inspect-1958.jou
+# Log file           : D:/c1-recovery-20261103/vio-inspect-1958.log
+# Journal file       : D:\c1-recovery-20261103\vio-inspect-1958.jou
+# Running On         : LAPTOP-VHQF65C3
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 34141 MB
+# Swap memory        : 15569 MB
+# Total Virtual      : 49710 MB
+# Available Virtual  : 1750 MB
+#-----------------------------------------------------------
+source {D:\c1-recovery-20261103\vio-inspect.tcl}
+# open_hw_manager
+# connect_hw_server -url 192.0.2.2:3121
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:192.0.2.2:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2024.2.0
+  ****** Build date   : Oct 31 2024-02:19:07
+    **** Build number : 2024.2.1730312347
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:16 . Memory (MB): peak = 370.727 ; gain = 1.945
+# set ts [get_hw_targets -quiet *210512180081*]
+# if {[llength $ts]!=1} {error "Expected exact HS1"}
+# current_hw_target [lindex $ts 0]
+# set_property PARAM.FREQUENCY 1000000 [current_hw_target]
+# open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target 192.0.2.2:3121/xilinx_tcf/Digilent/210512180081
+open_hw_target: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 373.016 ; gain = 2.289
+# set ds [get_hw_devices -quiet xc7z100*]
+# if {[llength $ds]!=1} {error "Expected XC7Z100"}
+# set d [lindex $ds 0]
+# current_hw_device $d
+# set_property PROBES.FILE D:/c1-recovery-20261103/checkpoint/c1_observe.ltx $d
+# refresh_hw_device $d
+INFO: [Labtools 27-2302] Device xc7z100 (JTAG device index = 1) is programmed with a design that has 1 VIO core(s).
+INFO: [Labtools 27-1889] Uploading output probe values for VIO core [hw_vio_1]
+refresh_hw_device: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 425.617 ; gain = 52.602
+# puts "DONE=[get_property REGISTER.CONFIG_STATUS.BIT14_DONE_PIN $d]"
+DONE=1
+# puts "EOS=[get_property {REGISTER.CONFIG_STATUS.BIT04_END_OF_STARTUP_(EOS)_STATUS} $d]"
+EOS=1
+# set vs [get_hw_vios -quiet -of_objects $d]
+# puts "VIO_COUNT=[llength $vs]"
+VIO_COUNT=1
+# foreach v $vs {
+#  report_property $v
+#  refresh_hw_vio $v
+#  foreach p [get_hw_probes -of_objects $v] {report_property $p}
+# }
+Property               Type    Read-only  Value
+CELL_NAME              enum    true       c1_vio
+CLASS                  string  true       hw_vio
+CORE_REFRESH_RATE_MS   int     false      500
+CORE_UUID              string  true       026FEEEA049D50A0ADB93761986F1093
+IS_ACTIVITY_SUPPORTED  bool    true       1
+NAME                   string  true       hw_vio_1
+Property              Type    Read-only  Value
+ACTIVITY_PERSISTENCE  enum    false      SHORT
+ACTIVITY_VALUE        string  true       NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+CLASS                 string  true       hw_probe
+HW_VIO                string  true       hw_vio_1
+INPUT_VALUE           string  true       00000000
+INPUT_VALUE_RADIX     enum    false      HEX
+NAME                  string  true       c1_measurement_dropped
+NAME.CUSTOM           string  false      
+NAME.LONG             string  true       c1_measurement_dropped
+NAME.SELECT           enum    false      Long
+NAME.SHORT            string  true       c1_measurement_dropped
+PROBE_PORT            int     true       1
+PROBE_PORT_BITS       int     true       0
+PROBE_PORT_BIT_COUNT  int     true       32
+SOURCE                enum    true       netlist
+TYPE                  string  true       vio_input
+WIDTH                 int     true       32
+Property              Type    Read-only  Value
+ACTIVITY_PERSISTENCE  enum    false      SHORT
+ACTIVITY_VALUE        string  true       NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+CLASS                 string  true       hw_probe
+HW_VIO                string  true       hw_vio_1
+INPUT_VALUE           string  true       00000000
+INPUT_VALUE_RADIX     enum    false      HEX
+NAME                  string  true       c1_status
+NAME.CUSTOM           string  false      
+NAME.LONG             string  true       c1_status
+NAME.SELECT           enum    false      Long
+NAME.SHORT            string  true       c1_status
+PROBE_PORT            int     true       0
+PROBE_PORT_BITS       int     true       0
+PROBE_PORT_BIT_COUNT  int     true       32
+SOURCE                enum    true       netlist
+TYPE                  string  true       vio_input
+WIDTH                 int     true       32
+Property              Type    Read-only  Value
+CLASS                 string  true       hw_probe
+HW_VIO                string  true       hw_vio_1
+NAME                  string  true       c1_controls
+NAME.CUSTOM           string  false      
+NAME.LONG             string  true       c1_controls
+NAME.SELECT           enum    false      Long
+NAME.SHORT            string  true       c1_controls
+OUTPUT_VALUE          string  false      00
+OUTPUT_VALUE_RADIX    enum    false      HEX
+PROBE_PORT            int     true       0
+PROBE_PORT_BITS       int     true       0
+PROBE_PORT_BIT_COUNT  int     true       8
+SOURCE                enum    true       netlist
+TYPE                  string  true       vio_output
+WIDTH                 int     true       8
+Property              Type    Read-only  Value
+CLASS                 string  true       hw_probe
+HW_VIO                string  true       hw_vio_1
+NAME                  string  true       c1_logging_session
+NAME.CUSTOM           string  false      
+NAME.LONG             string  true       c1_logging_session
+NAME.SELECT           enum    false      Long
+NAME.SHORT            string  true       c1_logging_session
+OUTPUT_VALUE          string  false      0000000000000000
+OUTPUT_VALUE_RADIX    enum    false      HEX
+PROBE_PORT            int     true       2
+PROBE_PORT_BITS       int     true       0
+PROBE_PORT_BIT_COUNT  int     true       64
+SOURCE                enum    true       netlist
+TYPE                  string  true       vio_output
+WIDTH                 int     true       64
+Property              Type    Read-only  Value
+CLASS                 string  true       hw_probe
+HW_VIO                string  true       hw_vio_1
+NAME                  string  true       c1_query_id
+NAME.CUSTOM           string  false      
+NAME.LONG             string  true       c1_query_id
+NAME.SELECT           enum    false      Long
+NAME.SHORT            string  true       c1_query_id
+OUTPUT_VALUE          string  false      00000000000000000000000000000000
+OUTPUT_VALUE_RADIX    enum    false      HEX
+PROBE_PORT            int     true       1
+PROBE_PORT_BITS       int     true       0
+PROBE_PORT_BIT_COUNT  int     true       128
+SOURCE                enum    true       netlist
+TYPE                  string  true       vio_output
+WIDTH                 int     true       128
+# close_hw_target
+INFO: [Labtoolstcl 44-464] Closing hw_target 192.0.2.2:3121/xilinx_tcf/Digilent/210512180081
+# disconnect_hw_server
+# close_hw_manager
+# exit
+INFO: [Common 17-206] Exiting Vivado at Tue Nov  3 20:00:20 2026...

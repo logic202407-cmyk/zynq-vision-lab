@@ -1,0 +1,23 @@
+import sys,json,base64
+from pathlib import Path
+sys.path.insert(0,r'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+out=Path('D:/c1-recovery-20261103/pc2-results-194511')
+base='D:/FPGA_Remote_JTAG/c1-recovery-20261103/'
+files=['local-recovery-20261103-193721-793/preflight.json','capture-20261103-193941/status-00000105.json','local-recovery-20261103-193721-793/capture.stderr.log','local-recovery-20261103-193721-793/capture.stdout.log']
+for f in files:
+ c=None
+ try:
+  c=TCF('192.0.2.2',timeout=8);n=c.normal('stat',base+f)[0]['Size'];print(f,'BYTES',n,flush=True)
+  if n>1000000:raise ValueError('Limit exceeded')
+  h=c.normal('open',base+f,1,{})[0];raw=bytearray()
+  while len(raw)<n:
+   r=c.call('read',h,len(raw),min(384,n-len(raw)))
+   if r[1]:raise RuntimeError(str(r[1]))
+   block=base64.b64decode(r[0] or '')
+   if not block:raise EOFError('Short read')
+   raw.extend(block)
+  c.normal('close',h);(out/f.replace('/','__')).write_bytes(raw);print(raw.decode('utf-8-sig',errors='replace')[:14000],flush=True)
+ except Exception as e:print('ERROR',f,str(e),flush=True)
+ finally:
+  if c:c.close()

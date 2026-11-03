@@ -1,0 +1,13 @@
+BEFORE_TARGETS=
+BEFORE_SERVERS=  digilent-ftdi cables 0
+  xilinx-ftdi cables 0
+  amd-uniflashpod cables 0
+  xilinx-pcusb cables 0
+  bscan-jtag cables 0
+Refreshing empty Digilent enumeration backend once; no FPGA reset or server restart
+AFTER_SERVERS=  xilinx-ftdi cables 0
+  amd-uniflashpod cables 0
+  xilinx-pcusb cables 0
+  bscan-jtag cables 0
+  digilent-ftdi cables 0
+AFTER_TARGETS=

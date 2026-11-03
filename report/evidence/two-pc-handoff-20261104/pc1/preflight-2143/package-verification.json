@@ -1,0 +1,140 @@
+[
+  {
+    "name": "board.c",
+    "expected": "625f1d60c7203216ddcf9b3aedf79253b04a84dfcee446ed8c9e8cfd10f632fc",
+    "actual": "625F1D60C7203216DDCF9B3AEDF79253B04A84DFCEE446ED8C9E8CFD10F632FC",
+    "match": true
+  },
+  {
+    "name": "board.h",
+    "expected": "d8a80fb0a8c0b1647f73b56b634df6458196d7910f56777a8b1e207cf6e11bab",
+    "actual": "D8A80FB0A8C0B1647F73B56B634DF6458196D7910F56777A8B1E207CF6E11BAB",
+    "match": true
+  },
+  {
+    "name": "c1_feedback.h",
+    "expected": "e6303c1259f69ee6f9937d1fd52a676b97d5ebb8af08d406ecb98c7da00886e2",
+    "actual": "E6303C1259F69EE6F9937D1FD52A676B97D5EBB8AF08D406ECB98C7DA00886E2",
+    "match": true
+  },
+  {
+    "name": "c1_quality.h",
+    "expected": "edbf6fc9625de7ece354ffdccd27e4f16b46c4e5b40705d27e4112bb8fb1a44e",
+    "actual": "EDBF6FC9625DE7ECE354FFDCCD27E4F16B46C4E5B40705D27E4112BB8FB1A44E",
+    "match": true
+  },
+  {
+    "name": "gimbal_registry.c",
+    "expected": "c52c3eed7e5e708dd746ff5110c22548eb8a6d4ff336e2a9ca6725974d23bf56",
+    "actual": "C52C3EED7E5E708DD746FF5110C22548EB8A6D4FF336E2A9CA6725974D23BF56",
+    "match": true
+  },
+  {
+    "name": "gimbal_registry.h",
+    "expected": "61a9956a6fbdf872bbd217cdf216640276634dfccd9bb36c02423f202fd83241",
+    "actual": "61A9956A6FBDF872BBD217CDF216640276634DFCCD9BB36C02423F202FD83241",
+    "match": true
+  },
+  {
+    "name": "main.c",
+    "expected": "6240628e45637c98497810da7d92b9b32dc50f425a16cf57fe9cae86ddd15b56",
+    "actual": "6240628E45637C98497810DA7D92B9B32DC50F425A16CF57FE9CAE86DDD15B56",
+    "match": true
+  },
+  {
+    "name": "s1ack.h",
+    "expected": "a70d636465c9d0858ad444516cf1ab79a247c36467e38f95f5b3605cf4cb5101",
+    "actual": "A70D636465C9D0858AD444516CF1AB79A247C36467E38F95F5B3605CF4CB5101",
+    "match": true
+  },
+  {
+    "name": "safety.c",
+    "expected": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+    "actual": "6BC21E12274C0CE26A4A1955ABF758DDA2180A1ADF7068D35926FF200B88CA69",
+    "match": true
+  },
+  {
+    "name": "safety.h",
+    "expected": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+    "actual": "1EE72558F4DE281032D4F3D599D8BD3686993DFDAB6A415D31A9A40B2F7E8FE3",
+    "match": true
+  },
+  {
+    "name": "tracking.c",
+    "expected": "4e5aa8fe89f9038c6e074e9eb50f7a4a860d3c0d93502ff2e276f3e214d10429",
+    "actual": "4E5AA8FE89F9038C6E074E9EB50F7A4A860D3C0D93502FF2E276F3E214D10429",
+    "match": true
+  },
+  {
+    "name": "tracking.h",
+    "expected": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819",
+    "actual": "E025777F6364C6F8AD9F076717C33800ED77D569389EA5CD8C583F2B9C6F9819",
+    "match": true
+  },
+  {
+    "name": "vision_measurement.c",
+    "expected": "50007c160f645a27175e04a044a829cac5ccf1d135fccb0bc45f6f909eab5252",
+    "actual": "50007C160F645A27175E04A044A829CAC5CCF1D135FCCB0BC45F6F909EAB5252",
+    "match": true
+  },
+  {
+    "name": "vision_measurement.h",
+    "expected": "cb9f9b813feff12fd5420b7c4a59fa2aa50f3a5b1764af2f3fea2e3ba4c3891a",
+    "actual": "CB9F9B813FEFF12FD5420B7C4A59FA2AA50F3A5B1764AF2F3FEA2E3BA4C3891A",
+    "match": true
+  },
+  {
+    "name": "pid.c",
+    "expected": "a8c2aaf9a13ee6da79e239c6326cb73dc609d4fc020044226de571ffd4b6109b",
+    "actual": "A8C2AAF9A13EE6DA79E239C6326CB73DC609D4FC020044226DE571FFD4B6109B",
+    "match": true
+  },
+  {
+    "name": "pid.h",
+    "expected": "9165579899b287df4be202e21700378945bee0a700ce787606d12f062c03521c",
+    "actual": "9165579899B287DF4BE202E21700378945BEE0A700CE787606D12F062C03521C",
+    "match": true
+  },
+  {
+    "name": "startup.s",
+    "expected": "3a3d38a7cc71538d12242d3aa13d77056ea31b7222d1370004fdbbd33b182ae0",
+    "actual": "3A3D38A7CC71538D12242D3AA13D77056EA31B7222D1370004FDBBD33B182AE0",
+    "match": true
+  },
+  {
+    "name": "firmware.sct",
+    "expected": "78a656f401eccf0cc8ee0d734b0a85759359c977a2e47942ddf9c2c4420ed134",
+    "actual": "78A656F401ECCF0CC8EE0D734B0A85759359C977A2E47942DDF9C2C4420ED134",
+    "match": true
+  },
+  {
+    "name": "skystar_tracking.bin",
+    "expected": "75057d5d8dd4b640e4b6ba15c607b6233d0f3fda971bffba72c164da15c5734e",
+    "actual": "75057D5D8DD4B640E4B6BA15C607B6233D0F3FDA971BFFBA72C164DA15C5734E",
+    "match": true
+  },
+  {
+    "name": "skystar_tracking.axf",
+    "expected": "c4d2319947be6722bceca00c3aa492b49b8aa06f52b7ecb007cd28cac9d87be3",
+    "actual": "C4D2319947BE6722BCECA00C3AA492B49B8AA06F52B7ECB007CD28CAC9D87BE3",
+    "match": true
+  },
+  {
+    "name": "skystar_tracking.hex",
+    "expected": "2a69991dfab48b9fdffd1656f4c6f2c3c93c4557ba221f7c090c26767b423cf3",
+    "actual": "2A69991DFAB48B9FDFFD1656F4C6F2C3C93C4557BA221F7C090C26767B423CF3",
+    "match": true
+  },
+  {
+    "name": "firmware.map",
+    "expected": "f34882a3db5da7f8f88013226e48824ec38d44cfc0b6bda42a75b4bba794f228",
+    "actual": "F34882A3DB5DA7F8F88013226E48824EC38D44CFC0B6BDA42A75B4BBA794F228",
+    "match": true
+  },
+  {
+    "name": "ac6_compat.h",
+    "expected": "42af510341e1f7c2c8dfaafa75a710d24b74672ffcea247cfeb9600456f8bcc4",
+    "actual": "77B418878B5E013C35E094AD21B85C597B255864C38D104E0782E14BFFE93667",
+    "match": false
+  }
+]

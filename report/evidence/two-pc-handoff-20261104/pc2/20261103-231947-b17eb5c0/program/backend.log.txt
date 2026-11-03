@@ -1,0 +1,153 @@
+DEBUG:pyocd.core.session:Project directory: C:\Users\USER\Documents\Codex\2026-11-03\fpga-usb-hardware-server-1-jtag
+DEBUG:pyocd.core.session:Project directory: C:\Users\USER\Documents\Codex\2026-11-03\fpga-usb-hardware-server-1-jtag
+DEBUG:pyocd.probe.stlink.stlink:STLink probe 9701430220005A504E413836 firmware version: V2J47M7
+DEBUG:pyocd.probe.stlink.detect.windows:Fetching mounted devices from disk service registry entry
+DEBUG:pyocd.probe.stlink.detect.windows:Fetching usb storage devices from USBSTOR service registry entry
+DEBUG:pyocd.probe.stlink.detect.windows:target_id_usb_id -> mount_point mapping: {} 
+DEBUG:pyocd.probe.stlink.stlink:STLink probe 9701430220005A504E413836 firmware version: V2J47M7
+DEBUG:pyocd.probe.stlink.detect.windows:Fetching mounted devices from disk service registry entry
+DEBUG:pyocd.probe.stlink.detect.windows:Fetching usb storage devices from USBSTOR service registry entry
+DEBUG:pyocd.probe.stlink.detect.windows:target_id_usb_id -> mount_point mapping: {} 
+DEBUG:pyocd.target.pack.cmsis_pack:STM32F4xx_DFP DFP (STM32F407VE): not loading non-default flash algorithm 'CMSIS/Flash/STM32F40xxx_41xxx_OPT.FLM'
+DEBUG:pyocd.target.pack.cmsis_pack:STM32F4xx_DFP DFP (STM32F407VE): not loading non-default flash algorithm 'CMSIS/Flash/STM32F4xx_OTP.FLM'
+INFO:pyocd.board.board:Target type is stm32f407ve
+DEBUG:pyocd.probe.stlink.stlink:STLink probe 9701430220005A504E413836 firmware version: V2J47M7
+DEBUG:pyocd.utility.sequencer:Running task load_svd
+DEBUG:pyocd.utility.sequencer:Running task pre_connect
+DEBUG:pyocd.utility.sequencer:Running task dp_init
+DEBUG:pyocd.utility.sequencer:Running task lock_probe
+DEBUG:pyocd.utility.sequencer:Running task get_probe_capabilities
+DEBUG:pyocd.utility.sequencer:Running task connect
+DEBUG:pyocd.coresight.dap:Default wire protocol selected; using SWD
+INFO:pyocd.coresight.dap:DP IDR = 0x2ba01477 (v1 rev2)
+DEBUG:pyocd.utility.sequencer:Running task clear_sticky_err
+DEBUG:pyocd.utility.sequencer:Running task power_up_debug
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'DebugPortStart' (Cortex-M4)
+INFO:pyocd.target.pack.pack_target:debugvar 'DbgMCU_APB1_Fz' = 0x0 (0)
+INFO:pyocd.target.pack.pack_target:debugvar 'DbgMCU_APB2_Fz' = 0x0 (0)
+INFO:pyocd.target.pack.pack_target:debugvar 'DbgMCU_CR' = 0x7 (7)
+INFO:pyocd.target.pack.pack_target:debugvar 'TraceClk_Pin' = 0x40002 (262146)
+INFO:pyocd.target.pack.pack_target:debugvar 'TraceD0_Pin' = 0x40003 (262147)
+INFO:pyocd.target.pack.pack_target:debugvar 'TraceD1_Pin' = 0x40004 (262148)
+INFO:pyocd.target.pack.pack_target:debugvar 'TraceD2_Pin' = 0x40005 (262149)
+INFO:pyocd.target.pack.pack_target:debugvar 'TraceD3_Pin' = 0x40006 (262150)
+DEBUG:pyocd.utility.sequencer:Running task check_version
+DEBUG:pyocd.utility.sequencer:Running task unlock_probe
+DEBUG:pyocd.utility.sequencer:Running task unlock_device
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'DebugDeviceUnlock' (Cortex-M4)
+DEBUG:pyocd.debug.sequences.functions:Running debug sub-sequence 'CheckID' (Cortex-M4)
+DEBUG:pyocd.coresight.ap:Using accelerated memory access interface for AHB-AP#0
+DEBUG:pyocd.coresight.ap:AHB-AP#0 default HPROT=3 HNONSEC=0
+DEBUG:pyocd.coresight.ap:AHB-AP#0 implemented HPROT=3 HNONSEC=0
+DEBUG:pyocd.debug.sequences.functions:Sub-sequence 'CheckID' result = 0
+DEBUG:pyocd.utility.sequencer:Running task create_discoverer
+DEBUG:pyocd.utility.sequencer:Running task discovery
+DEBUG:pyocd.utility.sequencer:Running task find_aps
+DEBUG:pyocd.utility.sequencer:Running task create_aps
+DEBUG:pyocd.utility.sequencer:Running task create_ap.0
+DEBUG:pyocd.coresight.ap:Using accelerated memory access interface for AHB-AP#0
+DEBUG:pyocd.coresight.ap:AHB-AP#0 default HPROT=3 HNONSEC=0
+DEBUG:pyocd.coresight.ap:AHB-AP#0 implemented HPROT=3 HNONSEC=0
+INFO:pyocd.coresight.discovery:AHB-AP#0 IDR = 0x24770011 (AHB-AP var1 rev2)
+DEBUG:pyocd.utility.sequencer:Running task find_components
+DEBUG:pyocd.utility.sequencer:Running task init_ap.0
+INFO:pyocd.coresight.rom_table:AHB-AP#0 Class 0x1 ROM table #0 @ 0xe00ff000 (designer=020:ST part=411)
+INFO:pyocd.coresight.rom_table:[0]<e000e000:SCS v7-M class=14 designer=43b:Arm part=00c>
+INFO:pyocd.coresight.rom_table:[1]<e0001000:DWT v7-M class=14 designer=43b:Arm part=002>
+INFO:pyocd.coresight.rom_table:[2]<e0002000:FPB v7-M class=14 designer=43b:Arm part=003>
+INFO:pyocd.coresight.rom_table:[3]<e0000000:ITM v7-M class=14 designer=43b:Arm part=001>
+INFO:pyocd.coresight.rom_table:[4]<e0040000:TPIU M4 class=9 designer=43b:Arm part=9a1 devtype=11 archid=0000 devid=ca1:0:0>
+INFO:pyocd.coresight.rom_table:[5]<e0041000:ETM M4 class=9 designer=43b:Arm part=925 devtype=13 archid=0000 devid=0:0:0>
+DEBUG:pyocd.utility.sequencer:Running task create_cores
+DEBUG:pyocd.coresight.discovery:Creating SCS component
+DEBUG:pyocd.core.soc_target:selected core #0
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'DebugCoreStart' (Cortex-M4)
+INFO:pyocd.coresight.cortex_m:CPU core #0: Cortex-M4 r0p1, v7.0-M architecture
+INFO:pyocd.coresight.cortex_m:  Extensions: [DSP, FPU, FPU_V4, MPU]
+INFO:pyocd.coresight.cortex_m:  FPU present: FPv4-SP-D16-M
+DEBUG:pyocd.utility.sequencer:Running task update_processor_name
+DEBUG:pyocd.utility.sequencer:Running task create_components
+DEBUG:pyocd.coresight.discovery:Creating DWT component
+INFO:pyocd.coresight.dwt:4 hardware watchpoints
+DEBUG:pyocd.coresight.discovery:Creating FPB component
+INFO:pyocd.coresight.fpb:6 hardware breakpoints, 2 literal comparators
+DEBUG:pyocd.coresight.fpb:fpb has been disabled
+DEBUG:pyocd.coresight.discovery:Creating ITM component
+DEBUG:pyocd.coresight.discovery:Creating TPIU component
+DEBUG:pyocd.utility.sequencer:Running task check_for_cores
+DEBUG:pyocd.utility.sequencer:Running task halt_on_connect
+DEBUG:pyocd.coresight.cortex_m:halting core 0
+DEBUG:pyocd.utility.sequencer:Running task post_connect
+DEBUG:pyocd.utility.sequencer:Running task post_connect_hook
+DEBUG:pyocd.utility.sequencer:Running task create_flash
+DEBUG:pyocd.target.pack.flash_algo:flash algo: [stack=0x2001f6b0; 0x1f6b0 b] [b2=0x2001fab0,+0x1fab0] [b1=0x2001f6b0,+0x1f6b0] [code=0x2001feb0,+0x1feb0,0x150 b] (ram=0x20000000, 0x20000 b)
+DEBUG:pyocd.utility.sequencer:Running task notify
+DEBUG:pyocd.coresight.cortex_m:halting core 0
+DEBUG:pyocd.coresight.cortex_m:set reset catch, core 0
+DEBUG:pyocd.debug.breakpoints.manager:removing all breakpoints before reset
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'ResetCatchSet' (Cortex-M4)
+DEBUG:pyocd.coresight.cortex_m:reset, core 0, type=SYSRESETREQ
+DEBUG:pyocd.coresight.cortex_m:no delegate or debug sequence handled reset; performing SYSRESETREQ reset, core 0
+DEBUG:pyocd.coresight.cortex_m:clear reset catch, core 0
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'ResetCatchClear' (Cortex-M4)
+DEBUG:pyocd.debug.breakpoints.manager:disabling hardware breakpoints after reset
+DEBUG:pyocd.coresight.cortex_m:halting core 0
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.coresight.cortex_m:halting core 0
+DEBUG:pyocd.coresight.cortex_m:set reset catch, core 0
+DEBUG:pyocd.debug.breakpoints.manager:removing all breakpoints before reset
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'ResetCatchSet' (Cortex-M4)
+DEBUG:pyocd.coresight.cortex_m:reset, core 0, type=SYSRESETREQ
+DEBUG:pyocd.coresight.cortex_m:no delegate or debug sequence handled reset; performing SYSRESETREQ reset, core 0
+DEBUG:pyocd.coresight.cortex_m:clear reset catch, core 0
+DEBUG:pyocd.target.pack.pack_target:Running debug sequence 'ResetCatchClear' (Cortex-M4)
+DEBUG:pyocd.debug.breakpoints.manager:disabling hardware breakpoints after reset
+DEBUG:pyocd.coresight.cortex_m:resuming core 0
+DEBUG:pyocd.debug.breakpoints.manager:added=[] removed=[]
+DEBUG:pyocd.debug.breakpoints.manager:bps after flush={}
+DEBUG:pyocd.core.session:uninit session <pyocd.core.session.Session object at 0x00000228A9CB69C0>
+DEBUG:pyocd.board.board:uninit board <pyocd.board.board.Board object at 0x00000228A9E56660>

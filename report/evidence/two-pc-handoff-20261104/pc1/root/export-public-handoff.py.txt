@@ -1,0 +1,54 @@
+from pathlib import Path
+import hashlib,json,re,zipfile,subprocess,shutil
+base=Path('D:/c1-recovery-20261103'); repo=base/'skystar-team-port'
+out=repo/'report/evidence/two-pc-handoff-20261104';out.mkdir(parents=True,exist_ok=True)
+records=[]
+text_ext={'.json','.jsonl','.txt','.log','.jou','.md','.py','.ps1','.tcl','.rpt','.map','.sct','.xdc','.ltx','.h','.c','.s','.hex'}
+secrets=re.compile(r'\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,})\b|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----')
+def sha(b):return hashlib.sha256(b).hexdigest()
+def clean(s):
+    if secrets.search(s):raise ValueError('Credential detected; export blocked')
+    s=re.sub(r'(?i)([A-Z]:[\\/]+Users[\\/]+)[^\\/\r\n"\s]+',r'\1USER',s)
+    for a,b in [('192.0.2.2','192.0.2.2'),('192.0.2.1','192.0.2.1'),('192.0.2.102','192.0.2.102'),('PC2','PC2')]:s=s.replace(a,b)
+    return s
+def add(label,b):
+    p=Path(label);rec={'source':label,'bytes':len(b),'sha256':sha(b)}
+    if p.suffix.lower() not in text_ext or len(b)>8*1024*1024:
+        rec['publication']='hash_only_binary_or_large';records.append(rec);return
+    try:s=b.decode('utf-8-sig')
+    except UnicodeDecodeError:
+        try:s=b.decode('gb18030')
+        except UnicodeDecodeError:rec['publication']='hash_only_nontext';records.append(rec);return
+    if '\x00' in s:rec['publication']='hash_only_binary';records.append(rec);return
+    s=clean(s)
+    # Historical scripts/docs are forensic snapshots, not runnable deployment entrypoints.
+    target=out/label
+    if p.suffix.lower() not in {'.json','.jsonl','.txt','.rpt','.ltx','.hex'}:target=Path(str(target)+'.txt')
+    target.parent.mkdir(parents=True,exist_ok=True);target.write_text(s,encoding='utf-8',newline='\n')
+    rec.update(publication='text_copy_redacted_network_and_user_paths',published=target.relative_to(repo).as_posix(),published_sha256=sha(target.read_bytes()))
+    records.append(rec)
+dirs=['bind-post-reset','capture','capture-200006','checkpoint','control-board-v1','f1-verified-20261103-235300','flash-64k-2111','pc2-results-194511','pc2-team-result','preflight-2143','query-bind-20261103-233624','skystar-team-build','team-deploy','team-host-checks','team-link-checks','team-motion-default-regression','uart-ingress-2055']
+skip_parts={'.Xil','project','vendor','__pycache__','.git','node_modules'}
+for name in dirs:
+    d=base/name
+    if not d.exists():continue
+    for p in sorted(d.rglob('*')):
+        if p.is_file() and not any(x in skip_parts or x.endswith(('.sim','.runs','.cache')) for x in p.relative_to(d).parts):
+            add('pc1/'+p.relative_to(base).as_posix(),p.read_bytes())
+for p in sorted(base.iterdir()):
+    if not p.is_file() or p.name.startswith(('_','grok-')) or 'license' in p.name.lower() or p.suffix.lower() not in text_ext:continue
+    add('pc1/root/'+p.name,p.read_bytes())
+for p in sorted((base/'pc2-result-inbox').glob('*.zip')):
+    records.append({'source':'pc2-packages/'+p.name,'bytes':p.stat().st_size,'sha256':sha(p.read_bytes()),'publication':'archive_manifest_and_reviewed_contents'})
+    with zipfile.ZipFile(p) as z:
+        assert z.testzip() is None
+        for n in z.namelist():
+            if n.endswith('/'):continue
+            assert not Path(n).is_absolute() and '..' not in Path(n).parts
+            if any(t in n.lower() for t in ['license','.lic','credential','codex','grok','upload.stdout','upload.stderr']):continue
+            add('pc2/'+p.stem+'/'+n,z.read(n))
+for name in ['openmv-team-ram90.py','openmv-team-ram300.py','recover-team-blank.py','PC2-RECOVER.txt']:
+    p=base/'transfer-public'/name
+    if p.exists():add('pc1/transfer-public/'+name,p.read_bytes())
+(out/'manifest.json').write_text(json.dumps({'schema_version':1,'scope':'Local PC1 working evidence and received PC2 ZIPs; not a full remote disk backup','network_addresses':'Radmin and capture host addresses replaced with documentation addresses','records':records,'excluded_categories':['Vendor projects and toolchains, licenses, private assistant transcripts, temporary caches','Binary FPGA/vendor/unknown Flash files retained locally with hashes; not redistributed','Raw received ZIP bytes retained locally; reviewed contents exported with provenance hashes']},indent=2),encoding='utf-8')
+print(json.dumps({'records':len(records),'published':sum('published' in r for r in records),'bytes':sum(p.stat().st_size for p in out.rglob('*') if p.is_file())}))

@@ -1,0 +1,3298 @@
+{
+  "schema_version": 1,
+  "scope": "Local PC1 working evidence and received PC2 ZIPs; not a full remote disk backup",
+  "network_addresses": "Radmin and capture host addresses replaced with documentation addresses",
+  "records": [
+    {
+      "source": "pc1/bind-post-reset/analysis-before-openmv.json",
+      "bytes": 769,
+      "sha256": "a422abf9ab31acf87723b963652dd8f67742b88f1e1670276c55ea98ca6dc1d6",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/analysis-before-openmv.json",
+      "published_sha256": "a422abf9ab31acf87723b963652dd8f67742b88f1e1670276c55ea98ca6dc1d6"
+    },
+    {
+      "source": "pc1/bind-post-reset/baseline.json",
+      "bytes": 181,
+      "sha256": "e7396b7c514fe66e673e07f8b16366470c4544817a2ca39626fd073668e1c01b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/baseline.json",
+      "published_sha256": "e7396b7c514fe66e673e07f8b16366470c4544817a2ca39626fd073668e1c01b"
+    },
+    {
+      "source": "pc1/bind-post-reset/before-openmv-collection.json",
+      "bytes": 214,
+      "sha256": "29d84ed86acd5e34384e22430130c9f5252f1fd24c7da716e32d60bb58ccaf79",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/before-openmv-collection.json",
+      "published_sha256": "29d84ed86acd5e34384e22430130c9f5252f1fd24c7da716e32d60bb58ccaf79"
+    },
+    {
+      "source": "pc1/bind-post-reset/before-openmv-uart.jsonl",
+      "bytes": 211902,
+      "sha256": "cc1a15f173bdafa315bf51a26a516350a60d62bbdc2182957b4de3dabe02dbf0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/before-openmv-uart.jsonl",
+      "published_sha256": "cc1a15f173bdafa315bf51a26a516350a60d62bbdc2182957b4de3dabe02dbf0"
+    },
+    {
+      "source": "pc1/bind-post-reset/before-openmv-video.jsonl",
+      "bytes": 855010,
+      "sha256": "8adaa87d10c7de7cd710249336d46b55fd8d4ae98940543a54e5578345cfa757",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/before-openmv-video.jsonl",
+      "published_sha256": "8adaa87d10c7de7cd710249336d46b55fd8d4ae98940543a54e5578345cfa757"
+    },
+    {
+      "source": "pc1/bind-post-reset/collection.json",
+      "bytes": 216,
+      "sha256": "ac6696b35afb91b180299631e500f2f2c75418a5ba0f24a534d59eec881aa0d6",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/collection.json",
+      "published_sha256": "ac6696b35afb91b180299631e500f2f2c75418a5ba0f24a534d59eec881aa0d6"
+    },
+    {
+      "source": "pc1/bind-post-reset/query-tail.jsonl",
+      "bytes": 119016,
+      "sha256": "569bb52c90a5d7734814f50aeb691c3c5fdbcb2d8c08a2966850b74d5e3f5ffa",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/query-tail.jsonl",
+      "published_sha256": "569bb52c90a5d7734814f50aeb691c3c5fdbcb2d8c08a2966850b74d5e3f5ffa"
+    },
+    {
+      "source": "pc1/bind-post-reset/uart.jsonl",
+      "bytes": 1524168,
+      "sha256": "730068ddedb09e5400d07befd564cc10358abf409dbc6190e958158501c40bb5",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/uart.jsonl",
+      "published_sha256": "730068ddedb09e5400d07befd564cc10358abf409dbc6190e958158501c40bb5"
+    },
+    {
+      "source": "pc1/bind-post-reset/verified-query.json",
+      "bytes": 160,
+      "sha256": "1f96f1798098aeefbba2ac343c7d3641c4482a3793eac594b1271b332f0136c6",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/verified-query.json",
+      "published_sha256": "1f96f1798098aeefbba2ac343c7d3641c4482a3793eac594b1271b332f0136c6"
+    },
+    {
+      "source": "pc1/bind-post-reset/video.jsonl",
+      "bytes": 6778520,
+      "sha256": "d1319041653ffe0e3a5fc96ad59df8b9fa81a938a974a3288dba125b9a0f1b76",
+      "publication": "lossless_ordered_parts_of_redacted_text",
+      "published_parts": [
+        {
+          "path": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/video.part001.jsonl",
+          "sha256": "91b7e94ddcc1d3f1e72bb96c9df489fa1218ef40be0d852d98fbb1a19390a3c6",
+          "bytes": 3145560
+        },
+        {
+          "path": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/video.part002.jsonl",
+          "sha256": "208273c33627b0428e6efa56c0763b011f360334ef91159e0b4a514b9d17ad99",
+          "bytes": 3145663
+        },
+        {
+          "path": "report/evidence/two-pc-handoff-20261104/pc1/bind-post-reset/video.part003.jsonl",
+          "sha256": "dff2c4b1e56ffc034b1a3bbee4c3dfbb60019ec66f72afec938ed76ee5d99b4e",
+          "bytes": 487297
+        }
+      ],
+      "joined_published_sha256": "d1319041653ffe0e3a5fc96ad59df8b9fa81a938a974a3288dba125b9a0f1b76"
+    },
+    {
+      "source": "pc1/capture/capture-v2.py",
+      "bytes": 4345,
+      "sha256": "b775c365663639bf55c18ff1acabe9df21e771b2ba234539c6c6e679bd5221f1",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture/capture-v2.py.txt",
+      "published_sha256": "b775c365663639bf55c18ff1acabe9df21e771b2ba234539c6c6e679bd5221f1"
+    },
+    {
+      "source": "pc1/capture/capture.py",
+      "bytes": 4249,
+      "sha256": "3b6a723fc116567456c58286c5c74a96c3a774906563ea8f8d1e7ab4d9f4479e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture/capture.py.txt",
+      "published_sha256": "3b6a723fc116567456c58286c5c74a96c3a774906563ea8f8d1e7ab4d9f4479e"
+    },
+    {
+      "source": "pc1/capture/vendor_udp.py",
+      "bytes": 5416,
+      "sha256": "98f3dc603d8a6ecfacc826b3f5b609fb25261c2463337a968ec70df035100b16",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture/vendor_udp.py.txt",
+      "published_sha256": "110d0d092402028a3ba0f53b535076f97fbf898ba145d5f4af9734d80d2f9785"
+    },
+    {
+      "source": "pc1/capture-200006/status-00000045.json",
+      "bytes": 2456,
+      "sha256": "a207dec09dbbb888817a90f2514142631fbc43f5e5da9f2704a6e1d3ededf504",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture-200006/status-00000045.json",
+      "published_sha256": "a207dec09dbbb888817a90f2514142631fbc43f5e5da9f2704a6e1d3ededf504"
+    },
+    {
+      "source": "pc1/capture-200006/status-00000300.json",
+      "bytes": 2476,
+      "sha256": "3d287295fa9a7d0e258f5680e6269a4808e1980ae48b69f1809a7354aad894c8",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture-200006/status-00000300.json",
+      "published_sha256": "3d287295fa9a7d0e258f5680e6269a4808e1980ae48b69f1809a7354aad894c8"
+    },
+    {
+      "source": "pc1/capture-200006/status-00001190.json",
+      "bytes": 2497,
+      "sha256": "c360d4a48e8efb3c4d59ee04294de7a8b4473bade7b7c42cc992e0ecd0a3f021",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture-200006/status-00001190.json",
+      "published_sha256": "c360d4a48e8efb3c4d59ee04294de7a8b4473bade7b7c42cc992e0ecd0a3f021"
+    },
+    {
+      "source": "pc1/capture-200006/status-00001930.json",
+      "bytes": 2551,
+      "sha256": "cc01d4d6ceef469006695f09751c29b22e4e5d480ba97cce7fbacf24d7ade038",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture-200006/status-00001930.json",
+      "published_sha256": "cc01d4d6ceef469006695f09751c29b22e4e5d480ba97cce7fbacf24d7ade038"
+    },
+    {
+      "source": "pc1/capture-200006/status-00002390.json",
+      "bytes": 2551,
+      "sha256": "9803d1792f21540d5bb197313e18f85bb2275815662d81503c4dca5fd45c3713",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture-200006/status-00002390.json",
+      "published_sha256": "9803d1792f21540d5bb197313e18f85bb2275815662d81503c4dca5fd45c3713"
+    },
+    {
+      "source": "pc1/capture-200006/uart-query-tail.jsonl",
+      "bytes": 79296,
+      "sha256": "1443e4d9db40e63121aa23d983723ca419cf697e3e00dff5cf0f95809915f7c2",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture-200006/uart-query-tail.jsonl",
+      "published_sha256": "1443e4d9db40e63121aa23d983723ca419cf697e3e00dff5cf0f95809915f7c2"
+    },
+    {
+      "source": "pc1/capture-200006/uart-stop-tail.jsonl",
+      "bytes": 79293,
+      "sha256": "822969daec82e5db17f14b3bf3b5753e731b4ff61ae857a49bbf337714ec747c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture-200006/uart-stop-tail.jsonl",
+      "published_sha256": "822969daec82e5db17f14b3bf3b5753e731b4ff61ae857a49bbf337714ec747c"
+    },
+    {
+      "source": "pc1/capture-200006/uart-through-2020.jsonl",
+      "bytes": 1659147,
+      "sha256": "864fe3f9a1bb9e7269f7693d7ba93b045a82c795669ad2ff6f8b4eb77ddba207",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture-200006/uart-through-2020.jsonl",
+      "published_sha256": "864fe3f9a1bb9e7269f7693d7ba93b045a82c795669ad2ff6f8b4eb77ddba207"
+    },
+    {
+      "source": "pc1/capture-200006/uart.jsonl",
+      "bytes": 214350,
+      "sha256": "6e6af1742ffd0cb290cca0ca53f97e749460790ea7b15ae8cbb0f82ff5161b35",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/capture-200006/uart.jsonl",
+      "published_sha256": "6e6af1742ffd0cb290cca0ca53f97e749460790ea7b15ae8cbb0f82ff5161b35"
+    },
+    {
+      "source": "pc1/checkpoint/c1_observe.bit",
+      "bytes": 3931527,
+      "sha256": "ddeddcb5ec4125f1d04c88e64f958dbf97e85ecbcbd68c86dcd8332363cea9b9",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/checkpoint/c1_observe.ltx",
+      "bytes": 50863,
+      "sha256": "cd049c1945bba922603d5dc5ba1d475facc0cb921c7aac3e82e025e7050f48b6",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/c1_observe.ltx",
+      "published_sha256": "cd049c1945bba922603d5dc5ba1d475facc0cb921c7aac3e82e025e7050f48b6"
+    },
+    {
+      "source": "pc1/checkpoint/cdc.rpt",
+      "bytes": 43614,
+      "sha256": "97f9f04f7e01bb2450091e55cea1929c65d3050fa9d73e438a27ea91f34bfc2b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/cdc.rpt",
+      "published_sha256": "97f9f04f7e01bb2450091e55cea1929c65d3050fa9d73e438a27ea91f34bfc2b"
+    },
+    {
+      "source": "pc1/checkpoint/check_timing.rpt",
+      "bytes": 3531,
+      "sha256": "f3a17a565dd69782cdc3b5a8584e85a91518b2f85fce4ea2f44747f61c5e1458",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/check_timing.rpt",
+      "published_sha256": "f3a17a565dd69782cdc3b5a8584e85a91518b2f85fce4ea2f44747f61c5e1458"
+    },
+    {
+      "source": "pc1/checkpoint/drc.rpt",
+      "bytes": 21677,
+      "sha256": "b99563527ed127d504189f6e8defb03e1fdf9d48d34f7ed58b1c6ee650dce697",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/drc.rpt",
+      "published_sha256": "b99563527ed127d504189f6e8defb03e1fdf9d48d34f7ed58b1c6ee650dce697"
+    },
+    {
+      "source": "pc1/checkpoint/prepare.tcl",
+      "bytes": 570,
+      "sha256": "b980a0e5238ebbbf5f160f53d5bd21fe1658723990f7ea44ac8e9a4539cf93e1",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/prepare.tcl.txt",
+      "published_sha256": "b980a0e5238ebbbf5f160f53d5bd21fe1658723990f7ea44ac8e9a4539cf93e1"
+    },
+    {
+      "source": "pc1/checkpoint/route.rpt",
+      "bytes": 651,
+      "sha256": "e7556b6be9ba90e264938a9962d4e985aee680b99f791b05179b0953d9bce2f0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/route.rpt",
+      "published_sha256": "e7556b6be9ba90e264938a9962d4e985aee680b99f791b05179b0953d9bce2f0"
+    },
+    {
+      "source": "pc1/checkpoint/settings.jou",
+      "bytes": 1231,
+      "sha256": "de00864d95d7ce1d2de07f5274bf5a4a6b5ff7f4b3ead665b013d567a9b65dff",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/settings.jou.txt",
+      "published_sha256": "2865dc1c21fe40e16a8135db6a8cffe62e5da312755847f14b5c91d5eaf972d0"
+    },
+    {
+      "source": "pc1/checkpoint/settings.log",
+      "bytes": 5339,
+      "sha256": "a6455ba23b191f3682c84d2bf46b8e394c06aa8fff6d02ffaaeba3e1bef5e847",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/settings.log.txt",
+      "published_sha256": "db0d5582cd358af72a64dd207d0f63ad914a01ee3fd4809a749939d1f18a22fd"
+    },
+    {
+      "source": "pc1/checkpoint/settings.tcl",
+      "bytes": 213,
+      "sha256": "9cf6d7bacf9453b42bbc0b5151ab383c62c6379d92071ce2877a07ef77f47624",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/settings.tcl.txt",
+      "published_sha256": "9cf6d7bacf9453b42bbc0b5151ab383c62c6379d92071ce2877a07ef77f47624"
+    },
+    {
+      "source": "pc1/checkpoint/timing.rpt",
+      "bytes": 303228,
+      "sha256": "7f9dc704baf4420ba840272284f4ac1eb052cd4f343c37d7f9dd8e9f3613b45c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/timing.rpt",
+      "published_sha256": "7f9dc704baf4420ba840272284f4ac1eb052cd4f343c37d7f9dd8e9f3613b45c"
+    },
+    {
+      "source": "pc1/checkpoint/user-license.jou",
+      "bytes": 1244,
+      "sha256": "b3c023c34b846ebf905325d2f6553ade41c45ef54ab4e7683477b5b66fbe5214",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/user-license.jou.txt",
+      "published_sha256": "b3c023c34b846ebf905325d2f6553ade41c45ef54ab4e7683477b5b66fbe5214"
+    },
+    {
+      "source": "pc1/checkpoint/user-license.log",
+      "bytes": 8563,
+      "sha256": "2669371df6ac708513f0ad563581931b57aaf12c55b47e6e78bfc8fc613d8016",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/user-license.log.txt",
+      "published_sha256": "2669371df6ac708513f0ad563581931b57aaf12c55b47e6e78bfc8fc613d8016"
+    },
+    {
+      "source": "pc1/checkpoint/vivado.jou",
+      "bytes": 1220,
+      "sha256": "c95de58fd3466909c8c584143a3e337dde82e0d641ef54a9a07b39b2c167bd9f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/vivado.jou.txt",
+      "published_sha256": "c95de58fd3466909c8c584143a3e337dde82e0d641ef54a9a07b39b2c167bd9f"
+    },
+    {
+      "source": "pc1/checkpoint/vivado.log",
+      "bytes": 8652,
+      "sha256": "af4d4053dabcb692dbf00a388f43598e16f8aa2b9705ab38a686813f3fa5e3f2",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/checkpoint/vivado.log.txt",
+      "published_sha256": "af4d4053dabcb692dbf00a388f43598e16f8aa2b9705ab38a686813f3fa5e3f2"
+    },
+    {
+      "source": "pc1/control-board-v1/build.jou",
+      "bytes": 1101,
+      "sha256": "014bacce3c7f43b4847b4b796729dfd3ceb9011c607b26217a48f0dcab77b54a",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/build.jou.txt",
+      "published_sha256": "014bacce3c7f43b4847b4b796729dfd3ceb9011c607b26217a48f0dcab77b54a"
+    },
+    {
+      "source": "pc1/control-board-v1/build.log",
+      "bytes": 161003,
+      "sha256": "ac2ee238d087df300bca42d80103332f4690e07571e5d19b863f14d453b1fbad",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/build.log.txt",
+      "published_sha256": "ac2ee238d087df300bca42d80103332f4690e07571e5d19b863f14d453b1fbad"
+    },
+    {
+      "source": "pc1/control-board-v1/build.tcl",
+      "bytes": 3035,
+      "sha256": "18721e580633d7c101794e4a0b86fce85892ff9302ae5b2bf92ac4549f5edbc9",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/build.tcl.txt",
+      "published_sha256": "18721e580633d7c101794e4a0b86fce85892ff9302ae5b2bf92ac4549f5edbc9"
+    },
+    {
+      "source": "pc1/control-board-v1/c1_control.bit",
+      "bytes": 3864107,
+      "sha256": "6858f7debd82092585075f24d7264eddaebc02d68f6a1ae808ca26e29af4bfdd",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/control-board-v1/c1_control.ltx",
+      "bytes": 50863,
+      "sha256": "cd049c1945bba922603d5dc5ba1d475facc0cb921c7aac3e82e025e7050f48b6",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/c1_control.ltx",
+      "published_sha256": "cd049c1945bba922603d5dc5ba1d475facc0cb921c7aac3e82e025e7050f48b6"
+    },
+    {
+      "source": "pc1/control-board-v1/c1_control_routed.dcp",
+      "bytes": 12245650,
+      "sha256": "aaf0682f2595344db4cb8e13b087795dea5826da3da02ecf31ded219b2f359c6",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/control-board-v1/c1_synth_timing.xdc",
+      "bytes": 6088,
+      "sha256": "8509a7c1ea5757cdfb4e308f00b85a6c3a059e87e6556fcc2a78d974e4abf0dd",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/c1_synth_timing.xdc.txt",
+      "published_sha256": "8509a7c1ea5757cdfb4e308f00b85a6c3a059e87e6556fcc2a78d974e4abf0dd"
+    },
+    {
+      "source": "pc1/control-board-v1/clocks.rpt",
+      "bytes": 3035,
+      "sha256": "0a3c0706a06971be67db4a3e95ee5b20bc8c769c7cab844dd99d2caeaa725642",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/clocks.rpt",
+      "published_sha256": "0a3c0706a06971be67db4a3e95ee5b20bc8c769c7cab844dd99d2caeaa725642"
+    },
+    {
+      "source": "pc1/control-board-v1/control.tcl",
+      "bytes": 5372,
+      "sha256": "c81b11c9dd56899fc1e9cdc0405afe4a0c9f63bc83c2c010ef250b42a4db8a84",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/control.tcl.txt",
+      "published_sha256": "c81b11c9dd56899fc1e9cdc0405afe4a0c9f63bc83c2c010ef250b42a4db8a84"
+    },
+    {
+      "source": "pc1/control-board-v1/core-uuid.txt",
+      "bytes": 32,
+      "sha256": "fd831532ae190c49fb96f3d9e80709b2d58fcf0491ca79af1cc8c1854d2311db",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/core-uuid.txt",
+      "published_sha256": "fd831532ae190c49fb96f3d9e80709b2d58fcf0491ca79af1cc8c1854d2311db"
+    },
+    {
+      "source": "pc1/control-board-v1/inspect-current.tcl",
+      "bytes": 3337,
+      "sha256": "5b6a158ef15e2f3fddb13597f0fbbe6c967dc272202d9a16fc8eb0557917bcd3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/inspect-current.tcl.txt",
+      "published_sha256": "5b6a158ef15e2f3fddb13597f0fbbe6c967dc272202d9a16fc8eb0557917bcd3"
+    },
+    {
+      "source": "pc1/control-board-v1/ip_status.rpt",
+      "bytes": 3667,
+      "sha256": "bc3125688be4651d8ec1b112571048504af3dead7d5e88c93585f928db7a1095",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/ip_status.rpt",
+      "published_sha256": "bc3125688be4651d8ec1b112571048504af3dead7d5e88c93585f928db7a1095"
+    },
+    {
+      "source": "pc1/control-board-v1/manifest.json",
+      "bytes": 906,
+      "sha256": "16c4775a13c02e9c4ec9c7e68f3fecad255ec7931ce21ab523e665c9d8de6e01",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/manifest.json",
+      "published_sha256": "16c4775a13c02e9c4ec9c7e68f3fecad255ec7931ce21ab523e665c9d8de6e01"
+    },
+    {
+      "source": "pc1/control-board-v1/pre-motion-inspect.jou",
+      "bytes": 1402,
+      "sha256": "1c984280f95758e1fa717797f106ef7f337f667ef6781775428c70ad2c42f2b8",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/pre-motion-inspect.jou.txt",
+      "published_sha256": "a49d8693f7ae6060da10cf383b460882d28c20305844d1b1793c637edabed7e7"
+    },
+    {
+      "source": "pc1/control-board-v1/pre-motion-inspect.log",
+      "bytes": 3164,
+      "sha256": "49a1d3ae9faa12732ba640a93ef497571c8d47c8fcbc89f5d35c75adebaa67a6",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/pre-motion-inspect.log.txt",
+      "published_sha256": "c6705aa0b0f352b5558d0a02326d9344e3a048bf95e35c17572b5ceb7bcc984c"
+    },
+    {
+      "source": "pc1/control-board-v1/remote-program.jou",
+      "bytes": 1227,
+      "sha256": "a5594a4d01d249b97db6eaaffec93be41f28dfe355114ed41b07263e0111490d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/remote-program.jou.txt",
+      "published_sha256": "8a2cad970f75d00daf026ec322904c64658bbca9472f2e301a302ee720cc9343"
+    },
+    {
+      "source": "pc1/control-board-v1/remote-program.log",
+      "bytes": 8558,
+      "sha256": "68ded3f4d096bf7884da8a86dcb5352868b17e86993e0db644fb136df299508a",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/remote-program.log.txt",
+      "published_sha256": "0324ab25755692ed95004fba99be86bbdf1361013f23c120fb1f2e7a14d0555d"
+    },
+    {
+      "source": "pc1/control-board-v1/routed_bus_skew.rpt",
+      "bytes": 105689,
+      "sha256": "ecb62470f3307faa9a2c829a1a31e8824c7e4ba381e71d6e9a559b5d36ee94b3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/routed_bus_skew.rpt",
+      "published_sha256": "ecb62470f3307faa9a2c829a1a31e8824c7e4ba381e71d6e9a559b5d36ee94b3"
+    },
+    {
+      "source": "pc1/control-board-v1/routed_cdc.rpt",
+      "bytes": 43621,
+      "sha256": "5160c1a00d1efccfa5f8361d313bffeaf0f0c4af3c6b58dfe2b706831ac1339d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/routed_cdc.rpt",
+      "published_sha256": "5160c1a00d1efccfa5f8361d313bffeaf0f0c4af3c6b58dfe2b706831ac1339d"
+    },
+    {
+      "source": "pc1/control-board-v1/routed_drc.rpt",
+      "bytes": 18012,
+      "sha256": "9f70cee29735b75074f86ec3ee5bad90f7fca5521d6b034aed9e869b9033210e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/routed_drc.rpt",
+      "published_sha256": "9f70cee29735b75074f86ec3ee5bad90f7fca5521d6b034aed9e869b9033210e"
+    },
+    {
+      "source": "pc1/control-board-v1/routed_timing.rpt",
+      "bytes": 301608,
+      "sha256": "eb523157f4378812a473bd9dfbbcf3d526eab155d0632a6b14f28d5f11c06c26",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/routed_timing.rpt",
+      "published_sha256": "eb523157f4378812a473bd9dfbbcf3d526eab155d0632a6b14f28d5f11c06c26"
+    },
+    {
+      "source": "pc1/control-board-v1/routed_utilization.rpt",
+      "bytes": 12923,
+      "sha256": "513cac5665f90b8f2cc1da1a6e6941b69d1149d6c7951051517cc864d8c38b85",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/routed_utilization.rpt",
+      "published_sha256": "513cac5665f90b8f2cc1da1a6e6941b69d1149d6c7951051517cc864d8c38b85"
+    },
+    {
+      "source": "pc1/control-board-v1/run-bounded.jou",
+      "bytes": 1366,
+      "sha256": "ff189e7ec871e2df420d6193abd0c6c6201178af4159308b57d88a0d812f0b21",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/run-bounded.jou.txt",
+      "published_sha256": "a891fa1e2daf69b72d401875ab67bd8bedb1dad07fb9d3dcb1502b4b8bf70e37"
+    },
+    {
+      "source": "pc1/control-board-v1/run-bounded.log",
+      "bytes": 9483,
+      "sha256": "89d64265d79c1bc729ad83c6f7c436d1cba6a4d5c3e08e4ecc951c40880b150c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/run-bounded.log.txt",
+      "published_sha256": "52eeeb435214909038871606bf9e97b3aecc413836f823ae4d0427f8fb97bd34"
+    },
+    {
+      "source": "pc1/control-board-v1/run-bounded.tcl",
+      "bytes": 5762,
+      "sha256": "3a4ee1fcddceb9b5d04cb0e555b80306260899c4e00655cd3882b01141c66638",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/run-bounded.tcl.txt",
+      "published_sha256": "3a4ee1fcddceb9b5d04cb0e555b80306260899c4e00655cd3882b01141c66638"
+    },
+    {
+      "source": "pc1/control-board-v1/run-live-once.jou",
+      "bytes": 1378,
+      "sha256": "fe79e61ff8c88657a0ae211fa89a95a3862334d416905515582833bd8338f399",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/run-live-once.jou.txt",
+      "published_sha256": "c3ccf48e1faf39aae4f9abd7d63cc826d7dfa522f38258bedf0fa5324b45cb82"
+    },
+    {
+      "source": "pc1/control-board-v1/run-live-once.log",
+      "bytes": 9584,
+      "sha256": "b08df3260fd6fd0a6766229d3d3352c82f1adfa7a68cc181969a77f81e0773b3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/run-live-once.log.txt",
+      "published_sha256": "290ff8a9b7ab36f789c76039063c332b65ca7290cb77dea1314b606170e9d173"
+    },
+    {
+      "source": "pc1/control-board-v1/run-live-once.tcl",
+      "bytes": 5488,
+      "sha256": "ceef9ded4e438a4a6129fc9cbe84987bf5319b76e4abe751232fbf3631a235f8",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/run-live-once.tcl.txt",
+      "published_sha256": "ceef9ded4e438a4a6129fc9cbe84987bf5319b76e4abe751232fbf3631a235f8"
+    },
+    {
+      "source": "pc1/control-board-v1/stamp.jou",
+      "bytes": 1102,
+      "sha256": "591b9b03f8e6684ddcb1e2f8b0938213e5712c5af5b07209744718fae6ce4d46",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/stamp.jou.txt",
+      "published_sha256": "591b9b03f8e6684ddcb1e2f8b0938213e5712c5af5b07209744718fae6ce4d46"
+    },
+    {
+      "source": "pc1/control-board-v1/stamp.log",
+      "bytes": 5770,
+      "sha256": "cd68e46c5d9f57c7db55b476c2c98a78cfae83b1539420fde9d21b4266941ee2",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/stamp.log.txt",
+      "published_sha256": "cd68e46c5d9f57c7db55b476c2c98a78cfae83b1539420fde9d21b4266941ee2"
+    },
+    {
+      "source": "pc1/control-board-v1/stamp.tcl",
+      "bytes": 333,
+      "sha256": "efad2608a39f099308a045e72af7a6e77452297f4233693cd80533552ce79e96",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/stamp.tcl.txt",
+      "published_sha256": "efad2608a39f099308a045e72af7a6e77452297f4233693cd80533552ce79e96"
+    },
+    {
+      "source": "pc1/control-board-v1/synthesis_cdc.rpt",
+      "bytes": 38481,
+      "sha256": "d552ffb199c59d5029e29f6db81b59ccaa735e679095c14c9acc3b628ec70c1c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/synthesis_cdc.rpt",
+      "published_sha256": "d552ffb199c59d5029e29f6db81b59ccaa735e679095c14c9acc3b628ec70c1c"
+    },
+    {
+      "source": "pc1/control-board-v1/synthesis_drc.rpt",
+      "bytes": 11479,
+      "sha256": "9718d4db1c2dd4c2bc1cdf907de303629b0fdcc5c13c02c5efce1928ea9bf913",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/synthesis_drc.rpt",
+      "published_sha256": "9718d4db1c2dd4c2bc1cdf907de303629b0fdcc5c13c02c5efce1928ea9bf913"
+    },
+    {
+      "source": "pc1/control-board-v1/synthesis_timing.rpt",
+      "bytes": 239764,
+      "sha256": "e9485f9be862fe5326d3de83e8d6c77a4c316b96f03da34155c3ff76d38bcdf5",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/control-board-v1/synthesis_timing.rpt",
+      "published_sha256": "e9485f9be862fe5326d3de83e8d6c77a4c316b96f03da34155c3ff76d38bcdf5"
+    },
+    {
+      "source": "pc1/f1-verified-20261103-235300/uart-window.jsonl",
+      "bytes": 292129,
+      "sha256": "1a4158301a36195dbe354c6af8e6fb4c1712a4ce18241fb4eca3f2bfd0f3809a",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/f1-verified-20261103-235300/uart-window.jsonl",
+      "published_sha256": "1a4158301a36195dbe354c6af8e6fb4c1712a4ce18241fb4eca3f2bfd0f3809a"
+    },
+    {
+      "source": "pc1/f1-verified-20261103-235300/verification.json",
+      "bytes": 879,
+      "sha256": "692a258db728140de36704ac04de577ba4da8a2b2110f5864a45c6577ac7821d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/f1-verified-20261103-235300/verification.json",
+      "published_sha256": "692a258db728140de36704ac04de577ba4da8a2b2110f5864a45c6577ac7821d"
+    },
+    {
+      "source": "pc1/flash-64k-2111/flash-read-manifest.json",
+      "bytes": 27788,
+      "sha256": "d99cd342c725acac6b4ce10cc0b98dd152acfec24a693f9938b5d4e58cdb8ec9",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/flash-64k-2111/flash-read-manifest.json",
+      "published_sha256": "d99cd342c725acac6b4ce10cc0b98dd152acfec24a693f9938b5d4e58cdb8ec9"
+    },
+    {
+      "source": "pc1/flash-64k-2111/independent-analysis.json",
+      "bytes": 1565,
+      "sha256": "676a46a98f5bc4359674e86f2ac968d8b7adf972cdcea58d12548495ab8e327d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/flash-64k-2111/independent-analysis.json",
+      "published_sha256": "676a46a98f5bc4359674e86f2ac968d8b7adf972cdcea58d12548495ab8e327d"
+    },
+    {
+      "source": "pc1/flash-64k-2111/previous-capture-finished.json",
+      "bytes": 2551,
+      "sha256": "8977c3bfc1a3e0449547718aec93f34e0c593a6657260be55eba08b421968eb0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/flash-64k-2111/previous-capture-finished.json",
+      "published_sha256": "8977c3bfc1a3e0449547718aec93f34e0c593a6657260be55eba08b421968eb0"
+    },
+    {
+      "source": "pc1/flash-64k-2111/stm32-flash-64k-pass1.bin",
+      "bytes": 65536,
+      "sha256": "1723fa3533e6d967acb69b6b363997d4cc2b24a7e8717bd1284660e0cff4e9ca",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/flash-64k-2111/stm32-flash-64k-pass2.bin",
+      "bytes": 65536,
+      "sha256": "1723fa3533e6d967acb69b6b363997d4cc2b24a7e8717bd1284660e0cff4e9ca",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/pc2-results-194511/local-recovery-20261103-193721-793__file-verification.json",
+      "bytes": 343,
+      "sha256": "f497e57871538b7d743a6ba426335b459fd8905a9ee8e655f731f446b35ddc2f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-results-194511/local-recovery-20261103-193721-793__file-verification.json",
+      "published_sha256": "f497e57871538b7d743a6ba426335b459fd8905a9ee8e655f731f446b35ddc2f"
+    },
+    {
+      "source": "pc1/pc2-team-result/backup-redundancy-check.json",
+      "bytes": 953,
+      "sha256": "0212c9bae307b867e94382a46b334fd19fc3e0ab8882267521ee3dcf77541bef",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/backup-redundancy-check.json",
+      "published_sha256": "0212c9bae307b867e94382a46b334fd19fc3e0ab8882267521ee3dcf77541bef"
+    },
+    {
+      "source": "pc1/pc2-team-result/capture-directories.json",
+      "bytes": 400,
+      "sha256": "2816c3c623b2d73152c436ddccd34fabfab4bcc1fdd2847f605ed152077184f3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/capture-directories.json",
+      "published_sha256": "2816c3c623b2d73152c436ddccd34fabfab4bcc1fdd2847f605ed152077184f3"
+    },
+    {
+      "source": "pc1/pc2-team-result/failure-check.json",
+      "bytes": 501,
+      "sha256": "bbead5c81b84ddd5f592475602e5c09853b64c9fcca8de07aea5c513b77228dc",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/failure-check.json",
+      "published_sha256": "bbead5c81b84ddd5f592475602e5c09853b64c9fcca8de07aea5c513b77228dc"
+    },
+    {
+      "source": "pc1/pc2-team-result/failure-region-comparison.json",
+      "bytes": 266,
+      "sha256": "8e822cbdcb427e2623353f00e50b41af9592d7097b63ee657640b7d143fa9d5c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/failure-region-comparison.json",
+      "published_sha256": "8e822cbdcb427e2623353f00e50b41af9592d7097b63ee657640b7d143fa9d5c"
+    },
+    {
+      "source": "pc1/pc2-team-result/flash-controller-readonly.json",
+      "bytes": 446,
+      "sha256": "4c3df3722ff2c3e95cea7886408797cbeaa5119f520963b82615ad2c8d5c4cb3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/flash-controller-readonly.json",
+      "published_sha256": "4c3df3722ff2c3e95cea7886408797cbeaa5119f520963b82615ad2c8d5c4cb3"
+    },
+    {
+      "source": "pc1/pc2-team-result/historical-recovery.py.txt",
+      "bytes": 2891,
+      "sha256": "8ecf367edad187dc4518c5f6b4df47befb99a33fe72368fcbff42c5bd8261a81",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/historical-recovery.py.txt",
+      "published_sha256": "8ecf367edad187dc4518c5f6b4df47befb99a33fe72368fcbff42c5bd8261a81"
+    },
+    {
+      "source": "pc1/pc2-team-result/latest-capture-status.json",
+      "bytes": 2482,
+      "sha256": "75b7c17bc056e0b949946e8c979d8628c9c35b0daa7046148171779140f6804d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/latest-capture-status.json",
+      "published_sha256": "75b7c17bc056e0b949946e8c979d8628c9c35b0daa7046148171779140f6804d"
+    },
+    {
+      "source": "pc1/pc2-team-result/latest-uart-tail.jsonl",
+      "bytes": 8192,
+      "sha256": "4478c4cf02bd0d29a425bca2d32fa39a5822c1261b7ab4ca4e754d76090f4445",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/latest-uart-tail.jsonl",
+      "published_sha256": "4478c4cf02bd0d29a425bca2d32fa39a5822c1261b7ab4ca4e754d76090f4445"
+    },
+    {
+      "source": "pc1/pc2-team-result/offline-timeout-comparison.md",
+      "bytes": 2297,
+      "sha256": "57613d134247ab10f03943bb48efbee2674db1d9895d6c2987a02265b0719987",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/offline-timeout-comparison.md.txt",
+      "published_sha256": "57613d134247ab10f03943bb48efbee2674db1d9895d6c2987a02265b0719987"
+    },
+    {
+      "source": "pc1/pc2-team-result/pc1-control-package-inspection.json",
+      "bytes": 1003,
+      "sha256": "68245b591657e7e6e8d832ccffe202f445af9b4f8a2439724fc2c32d0cfa6596",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/pc1-control-package-inspection.json",
+      "published_sha256": "68245b591657e7e6e8d832ccffe202f445af9b4f8a2439724fc2c32d0cfa6596"
+    },
+    {
+      "source": "pc1/pc2-team-result/program-result-result.json",
+      "bytes": 2595,
+      "sha256": "e095443dff40c13c89ac8d2b3a532db4a61be2d7b42bb990a73619a0de68ac76",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/program-result-result.json",
+      "published_sha256": "44ba7e2836c60e8884f2c0dc62969e2b93260d8e9a3b056b0591cef07847f73e"
+    },
+    {
+      "source": "pc1/pc2-team-result/recovery-script-review.json",
+      "bytes": 1319,
+      "sha256": "86e2ae2158bc394d83c41b0304fd84a50d14709483fc2cd7e94a42ba7758bc7e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/recovery-script-review.json",
+      "published_sha256": "bad37b182f9a785f75bccf8c5280b9fc14446019927df4dcc59142a33c460df5"
+    },
+    {
+      "source": "pc1/pc2-team-result/runner.stderr.log",
+      "bytes": 3320,
+      "sha256": "7156266a25e64605831ac3198cf4a9aaf2b9e6a06e89ef289a1675d3c1465674",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/runner.stderr.log.txt",
+      "published_sha256": "3589df67262a624c19ed6dfdf72acbb3084858ace083393c9dd6a73a6f201680"
+    },
+    {
+      "source": "pc1/pc2-team-result/smart-flash-offline-analysis.json",
+      "bytes": 564,
+      "sha256": "a393a4214abdbd828ed9a5dd88ee31b3822cb55f9009501c8fce0efcdb085f57",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/pc2-team-result/smart-flash-offline-analysis.json",
+      "published_sha256": "a393a4214abdbd828ed9a5dd88ee31b3822cb55f9009501c8fce0efcdb085f57"
+    },
+    {
+      "source": "pc1/preflight-2143/backup-result.json",
+      "bytes": 847,
+      "sha256": "5fb5493acfc00d06880e9b5c30d7740cb4a34baa1b0c336160cb655b583b052c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/preflight-2143/backup-result.json",
+      "published_sha256": "5fb5493acfc00d06880e9b5c30d7740cb4a34baa1b0c336160cb655b583b052c"
+    },
+    {
+      "source": "pc1/preflight-2143/current-openmv-script.py",
+      "bytes": 6482,
+      "sha256": "d9cfb799227cb67c04f06aa3f0a418c8554f635fc09fe98426ff90a047c75b51",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/preflight-2143/current-openmv-script.py.txt",
+      "published_sha256": "d9cfb799227cb67c04f06aa3f0a418c8554f635fc09fe98426ff90a047c75b51"
+    },
+    {
+      "source": "pc1/preflight-2143/expected-flash-full.bin",
+      "bytes": 524288,
+      "sha256": "865501a622eb41b42b2dcab3cfd37a3cf2803c55865282138a1fda0a4b99b7af",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/preflight-2143/flash-backup-full.bin",
+      "bytes": 524288,
+      "sha256": "36b8bfb185e06311d271e4b600dad5e5de68f1f70c8a8eba42e83df2636b3c8f",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/preflight-2143/package-verification.json",
+      "bytes": 5228,
+      "sha256": "87595497265d18348cc5983b4244cde4d3c345fa051138d6b652828b7cacec08",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/preflight-2143/package-verification.json",
+      "published_sha256": "87595497265d18348cc5983b4244cde4d3c345fa051138d6b652828b7cacec08"
+    },
+    {
+      "source": "pc1/preflight-2143/preflight-summary.json",
+      "bytes": 703,
+      "sha256": "943ded170b76c2fc98646cd6b98bc701a2f8ab0b5114acd626e4dca586b92680",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/preflight-2143/preflight-summary.json",
+      "published_sha256": "943ded170b76c2fc98646cd6b98bc701a2f8ab0b5114acd626e4dca586b92680"
+    },
+    {
+      "source": "pc1/preflight-2143/uart-tail.jsonl",
+      "bytes": 262144,
+      "sha256": "2ab9647282608ff91a6fe3885d814874443f033eb46d90bbc758f4662876e379",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/preflight-2143/uart-tail.jsonl",
+      "published_sha256": "2ab9647282608ff91a6fe3885d814874443f033eb46d90bbc758f4662876e379"
+    },
+    {
+      "source": "pc1/query-bind-20261103-233624/bind.jou",
+      "bytes": 1295,
+      "sha256": "073a237d34c895252572f9d4e990d7b65500c5cf297551ae3daa91bb66d6be09",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/query-bind-20261103-233624/bind.jou.txt",
+      "published_sha256": "e0b8a64d599f563deca17dd80252c11555ec4c22a4386157dbed080a281eac7e"
+    },
+    {
+      "source": "pc1/query-bind-20261103-233624/bind.log",
+      "bytes": 8608,
+      "sha256": "9ae219aaf47782b8a2cf0a281245c522d84099838a6b0ac23bf4a8ccee1f2d3d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/query-bind-20261103-233624/bind.log.txt",
+      "published_sha256": "308b3412fb788ec136af935f2beb209d7366b16ff1dd2db1c284adc322de71e1"
+    },
+    {
+      "source": "pc1/query-bind-20261103-233624/query.jou",
+      "bytes": 1300,
+      "sha256": "a85b8ca2cc17c7d7b5386199dacb3cb8475c3c541a3ab1325d6638c9fea3e8f2",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/query-bind-20261103-233624/query.jou.txt",
+      "published_sha256": "faa383cbba913f7189ccf81490c1c3127462af2172cd24ebba9d9f58fca0afd8"
+    },
+    {
+      "source": "pc1/query-bind-20261103-233624/query.log",
+      "bytes": 8877,
+      "sha256": "1e2e1920e9976870a20dc2cf6e49838c4df7df0d902d19588f1c4c3ab57d1b28",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/query-bind-20261103-233624/query.log.txt",
+      "published_sha256": "784481cdf71855743fbf58a18c3e99cbc7c332a45b0f805ee4a8adbdc98d3e0a"
+    },
+    {
+      "source": "pc1/query-bind-20261103-233624/session.json",
+      "bytes": 431,
+      "sha256": "4d2b80220939965a7c0df3fbfa21cd6e87503a67166f96c58b5548a04f30e88b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/query-bind-20261103-233624/session.json",
+      "published_sha256": "4d2b80220939965a7c0df3fbfa21cd6e87503a67166f96c58b5548a04f30e88b"
+    },
+    {
+      "source": "pc1/query-bind-20261103-233624/uart-after-bind.jsonl",
+      "bytes": 471936,
+      "sha256": "42116d9905326fe0648c279f9167475a2220b9539b5a1b86ac91e15c637585ff",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/query-bind-20261103-233624/uart-after-bind.jsonl",
+      "published_sha256": "42116d9905326fe0648c279f9167475a2220b9539b5a1b86ac91e15c637585ff"
+    },
+    {
+      "source": "pc1/query-bind-20261103-233624/uart-after-query.jsonl",
+      "bytes": 198601,
+      "sha256": "9532f19722991c097e5a6631f010c06fb35477b20c6abcea9124a0aa7d3ee66e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/query-bind-20261103-233624/uart-after-query.jsonl",
+      "published_sha256": "9532f19722991c097e5a6631f010c06fb35477b20c6abcea9124a0aa7d3ee66e"
+    },
+    {
+      "source": "pc1/query-bind-20261103-233624/uart-before.jsonl",
+      "bytes": 8192,
+      "sha256": "df43e25625912f524ee98fb5eb154743290d888d226f8dc95017f5e5a657e61b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/query-bind-20261103-233624/uart-before.jsonl",
+      "published_sha256": "df43e25625912f524ee98fb5eb154743290d888d226f8dc95017f5e5a657e61b"
+    },
+    {
+      "source": "pc1/query-bind-20261103-233624/verified-bind.json",
+      "bytes": 574,
+      "sha256": "a34f71d848f99a471ff0c886445db854323f093e4fc3ebd45bdbfa86956dd769",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/query-bind-20261103-233624/verified-bind.json",
+      "published_sha256": "a34f71d848f99a471ff0c886445db854323f093e4fc3ebd45bdbfa86956dd769"
+    },
+    {
+      "source": "pc1/query-bind-20261103-233624/verified-query.json",
+      "bytes": 451,
+      "sha256": "4a5baa71e89da677d7920fe8c2b35a20606ecaca0d24b226e797bcf9dace2fbe",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/query-bind-20261103-233624/verified-query.json",
+      "published_sha256": "4a5baa71e89da677d7920fe8c2b35a20606ecaca0d24b226e797bcf9dace2fbe"
+    },
+    {
+      "source": "pc1/skystar-team-build/ac6_compat.h",
+      "bytes": 270,
+      "sha256": "77b418878b5e013c35e094ad21b85c597b255864c38d104e0782e14bffe93667",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/ac6_compat.h.txt",
+      "published_sha256": "77b418878b5e013c35e094ad21b85c597b255864c38d104e0782e14bffe93667"
+    },
+    {
+      "source": "pc1/skystar-team-build/bin.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/bin.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/skystar-team-build/board.c",
+      "bytes": 9950,
+      "sha256": "e23ecebe8210d327fc9748b1412ff97f93133e69afe22dd07dbc27ec043fc39b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/board.c.txt",
+      "published_sha256": "e23ecebe8210d327fc9748b1412ff97f93133e69afe22dd07dbc27ec043fc39b"
+    },
+    {
+      "source": "pc1/skystar-team-build/board.h",
+      "bytes": 1396,
+      "sha256": "3f84ca57b83589e031588af14202768ca40cbe5a8184c23afc351c65e6f32f6f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/board.h.txt",
+      "published_sha256": "3f84ca57b83589e031588af14202768ca40cbe5a8184c23afc351c65e6f32f6f"
+    },
+    {
+      "source": "pc1/skystar-team-build/board.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/board.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/skystar-team-build/board.o",
+      "bytes": 15240,
+      "sha256": "45a4f916808bc812ab3bf736c6ee14e9205775cce8f1595bfbff267c08c290d1",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/skystar-team-build/build.json",
+      "bytes": 11018,
+      "sha256": "da99bbeff62f23d4c3be434f3e447bb4d895388f8a7d55454a251c5968552e66",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/build.json",
+      "published_sha256": "da99bbeff62f23d4c3be434f3e447bb4d895388f8a7d55454a251c5968552e66"
+    },
+    {
+      "source": "pc1/skystar-team-build/c1_feedback.h",
+      "bytes": 1426,
+      "sha256": "e6303c1259f69ee6f9937d1fd52a676b97d5ebb8af08d406ecb98c7da00886e2",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/c1_feedback.h.txt",
+      "published_sha256": "e6303c1259f69ee6f9937d1fd52a676b97d5ebb8af08d406ecb98c7da00886e2"
+    },
+    {
+      "source": "pc1/skystar-team-build/c1_quality.h",
+      "bytes": 1015,
+      "sha256": "edbf6fc9625de7ece354ffdccd27e4f16b46c4e5b40705d27e4112bb8fb1a44e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/c1_quality.h.txt",
+      "published_sha256": "edbf6fc9625de7ece354ffdccd27e4f16b46c4e5b40705d27e4112bb8fb1a44e"
+    },
+    {
+      "source": "pc1/skystar-team-build/disassembly.log",
+      "bytes": 332748,
+      "sha256": "d9a6578fd44189f772f77218b82a17f07f0c0d01b69fd3edb1c0ef5e39811991",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/disassembly.log.txt",
+      "published_sha256": "d9a6578fd44189f772f77218b82a17f07f0c0d01b69fd3edb1c0ef5e39811991"
+    },
+    {
+      "source": "pc1/skystar-team-build/firmware.map",
+      "bytes": 19572,
+      "sha256": "e23518ce7eab92fa822991f40ae32b7126e4b1cf0c1af038f5a7d3439b4cab2b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/firmware.map.txt",
+      "published_sha256": "e23518ce7eab92fa822991f40ae32b7126e4b1cf0c1af038f5a7d3439b4cab2b"
+    },
+    {
+      "source": "pc1/skystar-team-build/firmware.sct",
+      "bytes": 211,
+      "sha256": "78a656f401eccf0cc8ee0d734b0a85759359c977a2e47942ddf9c2c4420ed134",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/firmware.sct.txt",
+      "published_sha256": "78a656f401eccf0cc8ee0d734b0a85759359c977a2e47942ddf9c2c4420ed134"
+    },
+    {
+      "source": "pc1/skystar-team-build/gimbal_registry.c",
+      "bytes": 1999,
+      "sha256": "c52c3eed7e5e708dd746ff5110c22548eb8a6d4ff336e2a9ca6725974d23bf56",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/gimbal_registry.c.txt",
+      "published_sha256": "c52c3eed7e5e708dd746ff5110c22548eb8a6d4ff336e2a9ca6725974d23bf56"
+    },
+    {
+      "source": "pc1/skystar-team-build/gimbal_registry.h",
+      "bytes": 1283,
+      "sha256": "61a9956a6fbdf872bbd217cdf216640276634dfccd9bb36c02423f202fd83241",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/gimbal_registry.h.txt",
+      "published_sha256": "61a9956a6fbdf872bbd217cdf216640276634dfccd9bb36c02423f202fd83241"
+    },
+    {
+      "source": "pc1/skystar-team-build/gimbal_registry.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/gimbal_registry.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/skystar-team-build/gimbal_registry.o",
+      "bytes": 3420,
+      "sha256": "38afe15582d10a6c2369f6a909a392652678a4e3463d11fb6ff5b0cb65cdf346",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/skystar-team-build/hex.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/hex.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/skystar-team-build/laser_lock.c",
+      "bytes": 648,
+      "sha256": "a4f2857dd64f0abfa3145ac1c692caf996d05605420e85bdf624ed756bf2fa97",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/laser_lock.c.txt",
+      "published_sha256": "a4f2857dd64f0abfa3145ac1c692caf996d05605420e85bdf624ed756bf2fa97"
+    },
+    {
+      "source": "pc1/skystar-team-build/laser_lock.h",
+      "bytes": 397,
+      "sha256": "26d7e6fe9159ff222550abcdb9dada4f1d197c0903658634f6191c4a1a5da7dc",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/laser_lock.h.txt",
+      "published_sha256": "26d7e6fe9159ff222550abcdb9dada4f1d197c0903658634f6191c4a1a5da7dc"
+    },
+    {
+      "source": "pc1/skystar-team-build/laser_lock.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/laser_lock.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/skystar-team-build/laser_lock.o",
+      "bytes": 1564,
+      "sha256": "a9443195d1bf947e06c626eb82f665983262ac857c2830b9364144de72e96f44",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/skystar-team-build/link.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/link.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/skystar-team-build/main.c",
+      "bytes": 11958,
+      "sha256": "b908d5c160233fb9fc81443186e27bdd4f04ae4adaf147ff86f050df59f88962",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/main.c.txt",
+      "published_sha256": "b908d5c160233fb9fc81443186e27bdd4f04ae4adaf147ff86f050df59f88962"
+    },
+    {
+      "source": "pc1/skystar-team-build/main.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/main.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/skystar-team-build/main.o",
+      "bytes": 14548,
+      "sha256": "2ac290bd93901f9ca933d10bb5f798d0b4a2ade361c3d52b3d073c18c1f953ff",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/skystar-team-build/pid.c",
+      "bytes": 3913,
+      "sha256": "a8c2aaf9a13ee6da79e239c6326cb73dc609d4fc020044226de571ffd4b6109b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/pid.c.txt",
+      "published_sha256": "a8c2aaf9a13ee6da79e239c6326cb73dc609d4fc020044226de571ffd4b6109b"
+    },
+    {
+      "source": "pc1/skystar-team-build/pid.h",
+      "bytes": 1307,
+      "sha256": "9165579899b287df4be202e21700378945bee0a700ce787606d12f062c03521c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/pid.h.txt",
+      "published_sha256": "9165579899b287df4be202e21700378945bee0a700ce787606d12f062c03521c"
+    },
+    {
+      "source": "pc1/skystar-team-build/pid.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/pid.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/skystar-team-build/pid.o",
+      "bytes": 2328,
+      "sha256": "b3bc95540b4f509961717af0e14c18003420b1f53abc4e859831c481b7a3b673",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/skystar-team-build/s1ack.h",
+      "bytes": 3709,
+      "sha256": "a70d636465c9d0858ad444516cf1ab79a247c36467e38f95f5b3605cf4cb5101",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/s1ack.h.txt",
+      "published_sha256": "a70d636465c9d0858ad444516cf1ab79a247c36467e38f95f5b3605cf4cb5101"
+    },
+    {
+      "source": "pc1/skystar-team-build/safety.c",
+      "bytes": 5355,
+      "sha256": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/safety.c.txt",
+      "published_sha256": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69"
+    },
+    {
+      "source": "pc1/skystar-team-build/safety.h",
+      "bytes": 1142,
+      "sha256": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/safety.h.txt",
+      "published_sha256": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3"
+    },
+    {
+      "source": "pc1/skystar-team-build/safety.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/safety.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/skystar-team-build/safety.o",
+      "bytes": 6988,
+      "sha256": "21b5916281d226a11054baceccae493a7ffc9955e9fb60fe3387d529e4c48ea2",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/skystar-team-build/skystar_tracking.axf",
+      "bytes": 32316,
+      "sha256": "d84328bac0a82ec094d90b015357fda19f51c26f91fe04316697f762a134de42",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/skystar-team-build/skystar_tracking.bin",
+      "bytes": 12620,
+      "sha256": "b3bb649fc70cacf3ed42314f59cd4811d246fcbc050c3261bd42044973fd0895",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/skystar-team-build/skystar_tracking.hex",
+      "bytes": 35548,
+      "sha256": "a1e6969bc28945404c1c9d9e3f0271397717baaf5f69f94597a1d7308087e0fa",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/skystar_tracking.hex",
+      "published_sha256": "a1e6969bc28945404c1c9d9e3f0271397717baaf5f69f94597a1d7308087e0fa"
+    },
+    {
+      "source": "pc1/skystar-team-build/startup.log",
+      "bytes": 142,
+      "sha256": "9a9b77a50a0df67fafe94531836764c51e4fcab3aa4d996ae216b0fd7741e566",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/startup.log.txt",
+      "published_sha256": "9a9b77a50a0df67fafe94531836764c51e4fcab3aa4d996ae216b0fd7741e566"
+    },
+    {
+      "source": "pc1/skystar-team-build/startup.o",
+      "bytes": 2952,
+      "sha256": "45c8f31e02ec191770fa05d4038414f3086974605d470ae0da4bf58e85543a33",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/skystar-team-build/startup.s",
+      "bytes": 4703,
+      "sha256": "3a3d38a7cc71538d12242d3aa13d77056ea31b7222d1370004fdbbd33b182ae0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/startup.s.txt",
+      "published_sha256": "3a3d38a7cc71538d12242d3aa13d77056ea31b7222d1370004fdbbd33b182ae0"
+    },
+    {
+      "source": "pc1/skystar-team-build/tracking.c",
+      "bytes": 7577,
+      "sha256": "44b10a8a5ef748af547524266a371540dd7b3fef34f4a5770854d2a7c6f0beb4",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/tracking.c.txt",
+      "published_sha256": "44b10a8a5ef748af547524266a371540dd7b3fef34f4a5770854d2a7c6f0beb4"
+    },
+    {
+      "source": "pc1/skystar-team-build/tracking.h",
+      "bytes": 1351,
+      "sha256": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/tracking.h.txt",
+      "published_sha256": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819"
+    },
+    {
+      "source": "pc1/skystar-team-build/tracking.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/tracking.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/skystar-team-build/tracking.o",
+      "bytes": 9688,
+      "sha256": "d02861bcbeca72e310b4527714a1a4620d25190d3ddc311cec0b1c3bbb32c4e8",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/skystar-team-build/tracking_profile.h",
+      "bytes": 857,
+      "sha256": "138ac57ec7372293643e69be187b6cb4d9e2a96f6a96f15e207d9d31163867e3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/tracking_profile.h.txt",
+      "published_sha256": "138ac57ec7372293643e69be187b6cb4d9e2a96f6a96f15e207d9d31163867e3"
+    },
+    {
+      "source": "pc1/skystar-team-build/version.log",
+      "bytes": 142,
+      "sha256": "47694219e757978a2a37c186f25370695850f665005f6c1d50f328afdeca6d5a",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/version.log.txt",
+      "published_sha256": "47694219e757978a2a37c186f25370695850f665005f6c1d50f328afdeca6d5a"
+    },
+    {
+      "source": "pc1/skystar-team-build/vision_measurement.c",
+      "bytes": 2459,
+      "sha256": "50007c160f645a27175e04a044a829cac5ccf1d135fccb0bc45f6f909eab5252",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/vision_measurement.c.txt",
+      "published_sha256": "50007c160f645a27175e04a044a829cac5ccf1d135fccb0bc45f6f909eab5252"
+    },
+    {
+      "source": "pc1/skystar-team-build/vision_measurement.h",
+      "bytes": 1017,
+      "sha256": "cb9f9b813feff12fd5420b7c4a59fa2aa50f3a5b1764af2f3fea2e3ba4c3891a",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/vision_measurement.h.txt",
+      "published_sha256": "cb9f9b813feff12fd5420b7c4a59fa2aa50f3a5b1764af2f3fea2e3ba4c3891a"
+    },
+    {
+      "source": "pc1/skystar-team-build/vision_measurement.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/skystar-team-build/vision_measurement.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/skystar-team-build/vision_measurement.o",
+      "bytes": 3256,
+      "sha256": "630914bf946a405ccb0c7212c25118dd4ccc8be5090e510e98ec67ea920d6268",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-deploy/board.c",
+      "bytes": 9950,
+      "sha256": "e23ecebe8210d327fc9748b1412ff97f93133e69afe22dd07dbc27ec043fc39b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/board.c.txt",
+      "published_sha256": "e23ecebe8210d327fc9748b1412ff97f93133e69afe22dd07dbc27ec043fc39b"
+    },
+    {
+      "source": "pc1/team-deploy/board.h",
+      "bytes": 1396,
+      "sha256": "3f84ca57b83589e031588af14202768ca40cbe5a8184c23afc351c65e6f32f6f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/board.h.txt",
+      "published_sha256": "3f84ca57b83589e031588af14202768ca40cbe5a8184c23afc351c65e6f32f6f"
+    },
+    {
+      "source": "pc1/team-deploy/build.json",
+      "bytes": 11018,
+      "sha256": "da99bbeff62f23d4c3be434f3e447bb4d895388f8a7d55454a251c5968552e66",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/build.json",
+      "published_sha256": "da99bbeff62f23d4c3be434f3e447bb4d895388f8a7d55454a251c5968552e66"
+    },
+    {
+      "source": "pc1/team-deploy/F407VE-local-assets.pack",
+      "bytes": 128150,
+      "sha256": "7471fdd94ab83e95e39587e5d8221b3020eacead0364a6df40756bdb174ac30f",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-deploy/firmware-tests.json",
+      "bytes": 615,
+      "sha256": "1438826ed27bab626c08a3190963c73b557629ad882c2dd2a0d4d1fdc3e0df0d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/firmware-tests.json",
+      "published_sha256": "1438826ed27bab626c08a3190963c73b557629ad882c2dd2a0d4d1fdc3e0df0d"
+    },
+    {
+      "source": "pc1/team-deploy/firmware.map",
+      "bytes": 19572,
+      "sha256": "e23518ce7eab92fa822991f40ae32b7126e4b1cf0c1af038f5a7d3439b4cab2b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/firmware.map.txt",
+      "published_sha256": "e23518ce7eab92fa822991f40ae32b7126e4b1cf0c1af038f5a7d3439b4cab2b"
+    },
+    {
+      "source": "pc1/team-deploy/laser_lock.c",
+      "bytes": 648,
+      "sha256": "a4f2857dd64f0abfa3145ac1c692caf996d05605420e85bdf624ed756bf2fa97",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/laser_lock.c.txt",
+      "published_sha256": "a4f2857dd64f0abfa3145ac1c692caf996d05605420e85bdf624ed756bf2fa97"
+    },
+    {
+      "source": "pc1/team-deploy/laser_lock.h",
+      "bytes": 397,
+      "sha256": "26d7e6fe9159ff222550abcdb9dada4f1d197c0903658634f6191c4a1a5da7dc",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/laser_lock.h.txt",
+      "published_sha256": "26d7e6fe9159ff222550abcdb9dada4f1d197c0903658634f6191c4a1a5da7dc"
+    },
+    {
+      "source": "pc1/team-deploy/main.c",
+      "bytes": 11958,
+      "sha256": "b908d5c160233fb9fc81443186e27bdd4f04ae4adaf147ff86f050df59f88962",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/main.c.txt",
+      "published_sha256": "b908d5c160233fb9fc81443186e27bdd4f04ae4adaf147ff86f050df59f88962"
+    },
+    {
+      "source": "pc1/team-deploy/manifest.json",
+      "bytes": 2354,
+      "sha256": "d0c39d99f9735280509dff0253d56aba2508116e0d0358708afdd3c289a8cae0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/manifest.json",
+      "published_sha256": "d0c39d99f9735280509dff0253d56aba2508116e0d0358708afdd3c289a8cae0"
+    },
+    {
+      "source": "pc1/team-deploy/pack-provenance.json",
+      "bytes": 707,
+      "sha256": "61627757bb4d0c2641e0f0a7458105edf0435290735f9fddcb99343cc3e8fbae",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/pack-provenance.json",
+      "published_sha256": "61627757bb4d0c2641e0f0a7458105edf0435290735f9fddcb99343cc3e8fbae"
+    },
+    {
+      "source": "pc1/team-deploy/PC2-EXECUTE-CONFIRM.txt",
+      "bytes": 622,
+      "sha256": "356eaa8cdf0cf0df2951aa5acfb83bfff93e605c7d273e96516b34e9cafef310",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/PC2-EXECUTE-CONFIRM.txt",
+      "published_sha256": "356eaa8cdf0cf0df2951aa5acfb83bfff93e605c7d273e96516b34e9cafef310"
+    },
+    {
+      "source": "pc1/team-deploy/PC2-EXECUTE.txt",
+      "bytes": 2032,
+      "sha256": "313202859a23345cd300d3601bb395711f3ad4391e2b2c1cdf5008f1025fff65",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/PC2-EXECUTE.txt",
+      "published_sha256": "17cd2c624ea45d1a618dfaf7af2168e9d1e1136d133a828cae9d7941e70b7e6c"
+    },
+    {
+      "source": "pc1/team-deploy/program_team.py",
+      "bytes": 5253,
+      "sha256": "c8889241afc39eb7474f64ecf57c1f847f084263886b4092a4b3e91fb94309c0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/program_team.py.txt",
+      "published_sha256": "c8889241afc39eb7474f64ecf57c1f847f084263886b4092a4b3e91fb94309c0"
+    },
+    {
+      "source": "pc1/team-deploy/safety.c",
+      "bytes": 5355,
+      "sha256": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/safety.c.txt",
+      "published_sha256": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69"
+    },
+    {
+      "source": "pc1/team-deploy/safety.h",
+      "bytes": 1142,
+      "sha256": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/safety.h.txt",
+      "published_sha256": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3"
+    },
+    {
+      "source": "pc1/team-deploy/skystar_tracking.axf",
+      "bytes": 32316,
+      "sha256": "d84328bac0a82ec094d90b015357fda19f51c26f91fe04316697f762a134de42",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-deploy/skystar_tracking.bin",
+      "bytes": 12620,
+      "sha256": "b3bb649fc70cacf3ed42314f59cd4811d246fcbc050c3261bd42044973fd0895",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-deploy/tracking.c",
+      "bytes": 7577,
+      "sha256": "44b10a8a5ef748af547524266a371540dd7b3fef34f4a5770854d2a7c6f0beb4",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/tracking.c.txt",
+      "published_sha256": "44b10a8a5ef748af547524266a371540dd7b3fef34f4a5770854d2a7c6f0beb4"
+    },
+    {
+      "source": "pc1/team-deploy/tracking_profile.h",
+      "bytes": 857,
+      "sha256": "138ac57ec7372293643e69be187b6cb4d9e2a96f6a96f15e207d9d31163867e3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-deploy/tracking_profile.h.txt",
+      "published_sha256": "138ac57ec7372293643e69be187b6cb4d9e2a96f6a96f15e207d9d31163867e3"
+    },
+    {
+      "source": "pc1/team-host-checks/compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-host-checks/compile.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/team-host-checks/result.json",
+      "bytes": 615,
+      "sha256": "1438826ed27bab626c08a3190963c73b557629ad882c2dd2a0d4d1fdc3e0df0d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-host-checks/result.json",
+      "published_sha256": "1438826ed27bab626c08a3190963c73b557629ad882c2dd2a0d4d1fdc3e0df0d"
+    },
+    {
+      "source": "pc1/team-host-checks/stm32.dll",
+      "bytes": 135707,
+      "sha256": "bc9541a237155ad9a861a591b1b09e70cc057824358bf20aaa2411c2351c7f40",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-host-checks/wire.log",
+      "bytes": 3466,
+      "sha256": "e77d2595b015b8664fa8eb2301f981479f21bf0b41981f0d051129f852001ade",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-host-checks/wire.log.txt",
+      "published_sha256": "e77d2595b015b8664fa8eb2301f981479f21bf0b41981f0d051129f852001ade"
+    },
+    {
+      "source": "pc1/team-link-checks/commands.json",
+      "bytes": 683,
+      "sha256": "1608ba627edd0f4ccbb5362c1501f5ca724ce6b496e1c71a7b9d9ae2a825de85",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/commands.json",
+      "published_sha256": "1608ba627edd0f4ccbb5362c1501f5ca724ce6b496e1c71a7b9d9ae2a825de85"
+    },
+    {
+      "source": "pc1/team-link-checks/compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/compile.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/team-link-checks/measurement_nonce_observer.v",
+      "bytes": 2299,
+      "sha256": "c61c864a8fd668f591a61d86e06cec2baf8c5f35d88eb7cc8aebd9cf14276555",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/measurement_session.v",
+      "bytes": 2685,
+      "sha256": "2c7af4db359cdafa5f9749b3040758bf1c76c13a1309f4edd1b52c16f4270aa7",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/motion_c_bridge_tb.v",
+      "bytes": 1556,
+      "sha256": "3737e444eff7d5c8cb9395d74f3ce788b803693fbaf9e74483d3c7fa17464f57",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/source-sha256.json",
+      "bytes": 4072,
+      "sha256": "1910c76302f2f54520992f58005cff605f8b816318deade88734bed96fe14b0d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/source-sha256.json",
+      "published_sha256": "1910c76302f2f54520992f58005cff605f8b816318deade88734bed96fe14b0d"
+    },
+    {
+      "source": "pc1/team-link-checks/stm32.dll",
+      "bytes": 135707,
+      "sha256": "9f648869ba354d5228323f8c8c1fc02eebbcd6a6165d43023036d1079592cb32",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/team-result-ack_target.json",
+      "bytes": 359,
+      "sha256": "90b73c2777fd1317bc92065b10aed18939b60832fcdfe5d4d9e7a247e7e2a1d3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/team-result-ack_target.json",
+      "published_sha256": "90b73c2777fd1317bc92065b10aed18939b60832fcdfe5d4d9e7a247e7e2a1d3"
+    },
+    {
+      "source": "pc1/team-link-checks/team-result-repeat_auto.json",
+      "bytes": 353,
+      "sha256": "59e3787c789868ea848fbc377e7cf110e701c4f240eb570cf4b3050c0ff38b70",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/team-result-repeat_auto.json",
+      "published_sha256": "59e3787c789868ea848fbc377e7cf110e701c4f240eb570cf4b3050c0ff38b70"
+    },
+    {
+      "source": "pc1/team-link-checks/team-result-vision_loss.json",
+      "bytes": 347,
+      "sha256": "0b190e4234a37b4a3b901533f48f3174af80addbdda9115a560e083e0ca62dbf",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/team-result-vision_loss.json",
+      "published_sha256": "0b190e4234a37b4a3b901533f48f3174af80addbdda9115a560e083e0ca62dbf"
+    },
+    {
+      "source": "pc1/team-link-checks/team-result.json",
+      "bytes": 336,
+      "sha256": "068bee7dedbb0c4ff2294e44bb1fdbe8aceec2c430701c51d554c2df8d6a1a2f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/team-result.json",
+      "published_sha256": "068bee7dedbb0c4ff2294e44bb1fdbe8aceec2c430701c51d554c2df8d6a1a2f"
+    },
+    {
+      "source": "pc1/team-link-checks/team-wire-ack_target.json",
+      "bytes": 3582,
+      "sha256": "9b041c2c4d10f4d9c5a3bb8fc71f4b525c0d4eab360f899ecbfb9768ce53bbd7",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/team-wire-ack_target.json",
+      "published_sha256": "9b041c2c4d10f4d9c5a3bb8fc71f4b525c0d4eab360f899ecbfb9768ce53bbd7"
+    },
+    {
+      "source": "pc1/team-link-checks/team-wire-repeat_auto.json",
+      "bytes": 2983,
+      "sha256": "58435377782831a5c2572ebfe8f54490ef70a522548d19ec0b61c59f4fb33690",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/team-wire-repeat_auto.json",
+      "published_sha256": "58435377782831a5c2572ebfe8f54490ef70a522548d19ec0b61c59f4fb33690"
+    },
+    {
+      "source": "pc1/team-link-checks/team-wire-vision_loss.json",
+      "bytes": 3566,
+      "sha256": "62942a4407cef3e8c34fd54d528cef9a21ebdaa27d95150bf243b2f63a691f0b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/team-wire-vision_loss.json",
+      "published_sha256": "62942a4407cef3e8c34fd54d528cef9a21ebdaa27d95150bf243b2f63a691f0b"
+    },
+    {
+      "source": "pc1/team-link-checks/team-wire.json",
+      "bytes": 2896,
+      "sha256": "98a7dabae94f818b8212388010324be5d298ed93479250778994b8570a2dcff1",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/team-wire.json",
+      "published_sha256": "98a7dabae94f818b8212388010324be5d298ed93479250778994b8570a2dcff1"
+    },
+    {
+      "source": "pc1/team-link-checks/uart_line_queue.v",
+      "bytes": 1308,
+      "sha256": "8620bd704db225a701674b591a345093322d2144a8b834ddcb8d965483dec9df",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/uart_line_scheduler.v",
+      "bytes": 1626,
+      "sha256": "81f98ca23421e82b0134764c816c7b763cfb606c2d281a0cdba39d7d7f8e8efd",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/uart_rx.v",
+      "bytes": 2126,
+      "sha256": "ab32ce229c2bbc484f75833be4f0c81f1a6aa3329bcafa88d081568a2711c712",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/uart_tx_8n1.v",
+      "bytes": 1482,
+      "sha256": "dd7b762d8d5b0812cae5eb2001b03c74e00a5fe1000592b685210aa213e45ad8",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/vision_measurement_tx.v",
+      "bytes": 3239,
+      "sha256": "ba8180733451d64ed3c7863127c0f025a1e32deb2e0ff0d6f29d9fdf26cc53e2",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/vision_snapshot_cdc.v",
+      "bytes": 2407,
+      "sha256": "f60ee8ba02846d27271d6d0bf40bd0d64909f6225cba2eed7b6f57b8f6f97471",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xelab.log",
+      "bytes": 1113,
+      "sha256": "580a1864a93e1026f20c083e94b729fbfa1db2de333729ae8e6de2f892d30b4c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/xelab.log.txt",
+      "published_sha256": "580a1864a93e1026f20c083e94b729fbfa1db2de333729ae8e6de2f892d30b4c"
+    },
+    {
+      "source": "pc1/team-link-checks/xelab.pb",
+      "bytes": 2125,
+      "sha256": "967832edd83c5d60eb5cec9c8d9f29f4507083d56cf96d92cd60dd8eb6d891e0",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/coupled/Compile_Options.txt",
+      "bytes": 54,
+      "sha256": "602da960162af0b41c781c57441458ec04e5a429c2bb1f97af1aefd87d204087",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/xsim.dir/coupled/Compile_Options.txt",
+      "published_sha256": "602da960162af0b41c781c57441458ec04e5a429c2bb1f97af1aefd87d204087"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/coupled/xsim.dbg",
+      "bytes": 74432,
+      "sha256": "388b5657a0bf60049d1fe47e90f2133dbbef68b87467eff863134537073154b5",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/coupled/xsim.mem",
+      "bytes": 12656,
+      "sha256": "a479722eb610aa3ff8adab2705b1cba623ba3cc1d85faa88c8dd07c247356a25",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/coupled/xsim.reloc",
+      "bytes": 13124,
+      "sha256": "47d7fc8fe97751bb87ece3dfa29ea45ad605e73436c80903a44dc1548c14c7ea",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/coupled/xsim.rtti",
+      "bytes": 380,
+      "sha256": "d141f540f161d86ab43400618bd1bcd0df13a0745e674a68993225cf9659be04",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/coupled/xsim.svtype",
+      "bytes": 120,
+      "sha256": "337e7ed26a680c883a1eeeeb69c5afcdfb766ac4f1d84cd56d27ba465ddd4b74",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/coupled/xsim.type",
+      "bytes": 24,
+      "sha256": "cf1c5a4aa3dd8007f3756f2f3d607d67751cd98e99c8f5038c3f8b9fd06aa8c8",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/coupled/xsim.xdbg",
+      "bytes": 43184,
+      "sha256": "59a70a91b0df77001afa0cec6e961d82ac853f996d15240b353dee88f1292b6d",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/coupled/xsimk.dll",
+      "bytes": 808542,
+      "sha256": "a50cad98696ca2696766a77cf9c9aada6bdf927fb1556f6b7246e5fb3200f7e5",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/coupled/xsimkernel.log",
+      "bytes": 289,
+      "sha256": "8ad9fb209a19b9ee0ec381d04983215bcd79f1c0e5a9c03e26f696748db5e65f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/xsim.dir/coupled/xsimkernel.log.txt",
+      "published_sha256": "8ad9fb209a19b9ee0ec381d04983215bcd79f1c0e5a9c03e26f696748db5e65f"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/measurement_nonce_observer.sdb",
+      "bytes": 8898,
+      "sha256": "f9ad29bab9cafc28de1cfe2547146b882bee3405977e5bb9d3ccdc15ea91d157",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/measurement_session.sdb",
+      "bytes": 10205,
+      "sha256": "9b60bda4c9c1c32f702d704bf22e713de69f168ff6e85b9ffa7196a9cfeebe57",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/motion_c_bridge_tb.sdb",
+      "bytes": 5302,
+      "sha256": "05e345fc920f216f2379b8407b3ac3c9fab6874b2563354f85738a9a3c7db0ce",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/uart_line_queue.sdb",
+      "bytes": 4241,
+      "sha256": "d437ef0da3803ee356821a4575cd6241ed2b7309cd35d3ed7efa33c6d98eeb74",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/uart_line_scheduler.sdb",
+      "bytes": 5260,
+      "sha256": "7dc971d063d89223da714e53a893aceb095989993469b8bc62d6e3fc937cf82e",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/uart_rx.sdb",
+      "bytes": 5046,
+      "sha256": "739e8aea7037ca2bb263d5a9fbad3fb2f9c4092d3a816df19865de0c0c4c098b",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/uart_tx_8n1.sdb",
+      "bytes": 3458,
+      "sha256": "fc4421a8579139c985abe5b564ded75cca528c36e974ba84f509a0ed31b5034b",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/vision_measurement_tx.sdb",
+      "bytes": 11510,
+      "sha256": "a40c92f325595ace9e7e5ada5761a3fce96fd2600eca24b790b19ed27f63b55f",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/vision_snapshot_cdc.sdb",
+      "bytes": 5258,
+      "sha256": "407fd713376e8ad89b8dbaa6c130cc1a6cc7eef48fb0987cbe3ced1444f3aeca",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/work.rlx",
+      "bytes": 1846,
+      "sha256": "0f453c7674fd118b8c1b272c38c302152408b94adeec6a037c183bcbe6ef5127",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/zynq_motion_s1.sdb",
+      "bytes": 49087,
+      "sha256": "91a57d36b1156c3e7b7db6aeaf229774f2884ba0ee98b3062c469f32e1ffc3f4",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.dir/work/zynq_vision_link.sdb",
+      "bytes": 10404,
+      "sha256": "7b52ab99989000cc1be6b851b3adf6f95ce597276d77b678cbdd66b79238b5b1",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xsim.wdb",
+      "bytes": 78292,
+      "sha256": "95560644eb3ec372f288bb8f3984a75b0902fd2caaa4415b97cf7d64555abf0f",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/xvlog.log",
+      "bytes": 1998,
+      "sha256": "7f9e8e51976f24a6e19f032cc95e2feb4223e82c671144be0351871061536396",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-link-checks/xvlog.log.txt",
+      "published_sha256": "7f9e8e51976f24a6e19f032cc95e2feb4223e82c671144be0351871061536396"
+    },
+    {
+      "source": "pc1/team-link-checks/xvlog.pb",
+      "bytes": 2762,
+      "sha256": "8dccdb2836bbf3b155bdc12dfbb84b8c705d6260ae57986ee1de563e2f19774f",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/zynq_motion_s1.v",
+      "bytes": 15249,
+      "sha256": "fb1ad8bfe71aaf7455e76f5b9dc07c6230473b441c33681ecfd103e8983fbddd",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-link-checks/zynq_vision_link.v",
+      "bytes": 4465,
+      "sha256": "994a7c48a3af20021ad9a06d5823cab44c0e56d12b97481e0e9f3189dd17d278",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/build-inputs.json",
+      "bytes": 3511,
+      "sha256": "dbb659bce3c84f854f37b02277e1e40002da066f4e5b6ecded3ae0bdbf923760",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-motion-default-regression/build-inputs.json",
+      "published_sha256": "dbb659bce3c84f854f37b02277e1e40002da066f4e5b6ecded3ae0bdbf923760"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/c-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-motion-default-regression/c-build.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/expected-normal.json",
+      "bytes": 828,
+      "sha256": "0bfec818b7b5083126e53827ece6a0807d15fbcfc14b13f091c974f723ac956d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-motion-default-regression/expected-normal.json",
+      "published_sha256": "0bfec818b7b5083126e53827ece6a0807d15fbcfc14b13f091c974f723ac956d"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/motion_c_bridge_tb.v",
+      "bytes": 905,
+      "sha256": "807f4798c0cbf5736a665e17167092cdaec7bd649083d5dd910ea8fbb5280ab5",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/observed-normal.json",
+      "bytes": 34083,
+      "sha256": "7a533fea0cfb6e1fedf141a5d9a1fc289411122c84a526e9d7ae9b633e58605f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-motion-default-regression/observed-normal.json",
+      "published_sha256": "7a533fea0cfb6e1fedf141a5d9a1fc289411122c84a526e9d7ae9b633e58605f"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/result-normal.json",
+      "bytes": 2956,
+      "sha256": "39c5bd8e488b50ca5d4f50f2f0c33ebad1c080bb7d01429a7dd5f1f17dbae356",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-motion-default-regression/result-normal.json",
+      "published_sha256": "39c5bd8e488b50ca5d4f50f2f0c33ebad1c080bb7d01429a7dd5f1f17dbae356"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/stm32.dll",
+      "bytes": 127450,
+      "sha256": "459e82aae9cec2560e7ca6bffd5d73560b6e8fcef4de22e6f11fba38dea59f39",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/trace-normal.json",
+      "bytes": 12447,
+      "sha256": "a5212eacd5e4d4870eb93e40b728c49869ea81d60b89ba99fa9359f42c52d85c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-motion-default-regression/trace-normal.json",
+      "published_sha256": "a5212eacd5e4d4870eb93e40b728c49869ea81d60b89ba99fa9359f42c52d85c"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/uart_rx.v",
+      "bytes": 2126,
+      "sha256": "ab32ce229c2bbc484f75833be4f0c81f1a6aa3329bcafa88d081568a2711c712",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/uart_tx_8n1.v",
+      "bytes": 1482,
+      "sha256": "dd7b762d8d5b0812cae5eb2001b03c74e00a5fe1000592b685210aa213e45ad8",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xelab.log",
+      "bytes": 779,
+      "sha256": "8a3a8c84a058ad0624dedd32705f647c7ac304734409a37bb1bb38ba84e88b38",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-motion-default-regression/xelab.log.txt",
+      "published_sha256": "8a3a8c84a058ad0624dedd32705f647c7ac304734409a37bb1bb38ba84e88b38"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xelab.pb",
+      "bytes": 1462,
+      "sha256": "76d8a1ace5ec76c8066b4389a005fcbdcecc12c3e3fcf7126fbefa69c25d05d4",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/coupled/Compile_Options.txt",
+      "bytes": 54,
+      "sha256": "602da960162af0b41c781c57441458ec04e5a429c2bb1f97af1aefd87d204087",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-motion-default-regression/xsim.dir/coupled/Compile_Options.txt",
+      "published_sha256": "602da960162af0b41c781c57441458ec04e5a429c2bb1f97af1aefd87d204087"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/coupled/xsim.dbg",
+      "bytes": 29208,
+      "sha256": "f3ad0a199f027dfe970dd5448eaa6dec31bd2b40e79ec3ce73712f88a6bdaf3d",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/coupled/xsim.mem",
+      "bytes": 6100,
+      "sha256": "79d67bedf40153dae4f20f34850673dc80708a375f29b6827fb84e17f3e9dcf4",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/coupled/xsim.reloc",
+      "bytes": 4715,
+      "sha256": "611eda9a90eabd3ebc0f5a9c66c6edbcd684f423edf5f238f477b879c1d37038",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/coupled/xsim.rtti",
+      "bytes": 380,
+      "sha256": "64a060cc215248ef827731aeba2df677e4e27e4c9e364a8052a7939d01d3f0ab",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/coupled/xsim.svtype",
+      "bytes": 120,
+      "sha256": "227431bc0b92d86a3271abc1a822e439da13a6576d7eec56850af0c56ffba066",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/coupled/xsim.type",
+      "bytes": 24,
+      "sha256": "cf1c5a4aa3dd8007f3756f2f3d607d67751cd98e99c8f5038c3f8b9fd06aa8c8",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/coupled/xsim.xdbg",
+      "bytes": 10776,
+      "sha256": "8ecbeea6440b54fd01db30d6413b8661ca39bc813013bebba7feb57e02600734",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/coupled/xsimk.dll",
+      "bytes": 536049,
+      "sha256": "46844205570d5d81deacee00d1876645c5f27028a4feec1f553979cb2984b3aa",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/coupled/xsimkernel.log",
+      "bytes": 288,
+      "sha256": "d8fd55ee0336ffd1e1cdd2ba311776a933de4a2c118f430119995cff009ecea2",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-motion-default-regression/xsim.dir/coupled/xsimkernel.log.txt",
+      "published_sha256": "d8fd55ee0336ffd1e1cdd2ba311776a933de4a2c118f430119995cff009ecea2"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/work/motion_c_bridge_tb.sdb",
+      "bytes": 3431,
+      "sha256": "cffb96e2bfefb0b98ad8450f34e08b1c608326bc6e10568af84e138a416f5e43",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/work/uart_rx.sdb",
+      "bytes": 5082,
+      "sha256": "7df0be59fd2740d290375ca8537bc996d5dea6142945c97da54c515b9d63561c",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/work/uart_tx_8n1.sdb",
+      "bytes": 3494,
+      "sha256": "a31015db70840c2f99ffa84dd919e0d5cc6f654e8f4bad552db1f736a6bcebc0",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/work/work.rlx",
+      "bytes": 706,
+      "sha256": "cfb666be46e121871983964f2d1b229295dcb90e7258c5f5040551bae74255ce",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.dir/work/zynq_motion_s1.sdb",
+      "bytes": 49123,
+      "sha256": "cdea6d568e8c15eaf6bfe9c161f52c97bcb7f8347fc803af86984179ac09613e",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xsim.wdb",
+      "bytes": 32716,
+      "sha256": "a17128166233f9da96a4f1cd47dcfffef0452efedf0f223763c58fd3ebbd49ed",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xvlog.log",
+      "bytes": 748,
+      "sha256": "7b26bdfa25dec42932e273b569833bde72bb87acae196d37b6a8a7d4b007b65f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/team-motion-default-regression/xvlog.log.txt",
+      "published_sha256": "7b26bdfa25dec42932e273b569833bde72bb87acae196d37b6a8a7d4b007b65f"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/xvlog.pb",
+      "bytes": 1036,
+      "sha256": "544f51411973d3452b96b7206b437e21bcc6ccfdff0b5f49ca4ede46a9bb242e",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/team-motion-default-regression/zynq_motion_s1.v",
+      "bytes": 15249,
+      "sha256": "fb1ad8bfe71aaf7455e76f5b9dc07c6230473b441c33681ecfd103e8983fbddd",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/uart-ingress-2055/openmv-window-analysis.json",
+      "bytes": 754,
+      "sha256": "a77762a159dbc4f3ba09aae7eff088cab2c0638c645cab924b02bca352396d8b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/uart-ingress-2055/openmv-window-analysis.json",
+      "published_sha256": "a77762a159dbc4f3ba09aae7eff088cab2c0638c645cab924b02bca352396d8b"
+    },
+    {
+      "source": "pc1/uart-ingress-2055/registers-and-fingerprint.json",
+      "bytes": 2006,
+      "sha256": "38fd23abcdffd8d41b57a18f525ed747eadfd4751eebd6836f594753dcfd3738",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/uart-ingress-2055/registers-and-fingerprint.json",
+      "published_sha256": "38fd23abcdffd8d41b57a18f525ed747eadfd4751eebd6836f594753dcfd3738"
+    },
+    {
+      "source": "pc1/uart-ingress-2055/stm32-app-12836.bin",
+      "bytes": 12836,
+      "sha256": "eed5a29dc54b58d176c9b21a83e033d5637089bd68c5f782cc70b983425846fa",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc1/uart-ingress-2055/swd.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/uart-ingress-2055/swd.stderr.log.txt",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "pc1/uart-ingress-2055/swd.stdout.log",
+      "bytes": 2008,
+      "sha256": "5072bb6cda11980ac136536ab9a78fcb9152959ab172095f7ea362f4c0ed00fe",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/uart-ingress-2055/swd.stdout.log.txt",
+      "published_sha256": "5072bb6cda11980ac136536ab9a78fcb9152959ab172095f7ea362f4c0ed00fe"
+    },
+    {
+      "source": "pc1/root/bit-header-check.json",
+      "bytes": 38745,
+      "sha256": "ca6c4e04b7db745fbc621f0016348da2c1a72a0fc37d21ec84bf4b759193ef9f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/bit-header-check.json",
+      "published_sha256": "ca6c4e04b7db745fbc621f0016348da2c1a72a0fc37d21ec84bf4b759193ef9f"
+    },
+    {
+      "source": "pc1/root/bit-header-summary.json",
+      "bytes": 650,
+      "sha256": "76a062afdb8096d0a711828c8429c9c3470b4f920c65872ae8e6b0946a418236",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/bit-header-summary.json",
+      "published_sha256": "76a062afdb8096d0a711828c8429c9c3470b4f920c65872ae8e6b0946a418236"
+    },
+    {
+      "source": "pc1/root/bit-inventory.txt",
+      "bytes": 4034,
+      "sha256": "9704a216a60f29da82e7aff07bd5bf5f626395c92b2c3cd1b992c9b291d2b2b9",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/bit-inventory.txt",
+      "published_sha256": "9704a216a60f29da82e7aff07bd5bf5f626395c92b2c3cd1b992c9b291d2b2b9"
+    },
+    {
+      "source": "pc1/root/blank-recovery-delivery.json",
+      "bytes": 428,
+      "sha256": "3793657e2c3c2c15679fefb65931607cbec7f5e7f2a8e5ab9760a5db12db065e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/blank-recovery-delivery.json",
+      "published_sha256": "3793657e2c3c2c15679fefb65931607cbec7f5e7f2a8e5ab9760a5db12db065e"
+    },
+    {
+      "source": "pc1/root/blank-recovery-model-tests.json",
+      "bytes": 231,
+      "sha256": "2f9db691799c063172a6258396962871e0e98591bc6397744ff517186b366a88",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/blank-recovery-model-tests.json",
+      "published_sha256": "2f9db691799c063172a6258396962871e0e98591bc6397744ff517186b366a88"
+    },
+    {
+      "source": "pc1/root/box-zip-transfer-receipt-1923.json",
+      "bytes": 370,
+      "sha256": "895152d87206e08abfec045d5f98ce2c97593d4aa5281237ff8fa383d4a811d9",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/box-zip-transfer-receipt-1923.json",
+      "published_sha256": "895152d87206e08abfec045d5f98ce2c97593d4aa5281237ff8fa383d4a811d9"
+    },
+    {
+      "source": "pc1/root/build-c1-ac6.py",
+      "bytes": 3953,
+      "sha256": "26c742da99dc7e25f8227238a954b237f447cc7edffab4755cf5feac8f36874e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/build-c1-ac6.py.txt",
+      "published_sha256": "26c742da99dc7e25f8227238a954b237f447cc7edffab4755cf5feac8f36874e"
+    },
+    {
+      "source": "pc1/root/c1-ac6-delivery.json",
+      "bytes": 214,
+      "sha256": "7abf297185cfb897991a63ddc46fd8783d36d7356cdc6f0e025ed3b6c1cfae8d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/c1-ac6-delivery.json",
+      "published_sha256": "7abf297185cfb897991a63ddc46fd8783d36d7356cdc6f0e025ed3b6c1cfae8d"
+    },
+    {
+      "source": "pc1/root/c1-feedback-source-20261103.receipt.json",
+      "bytes": 2978,
+      "sha256": "c45d25c495945af9a483c6596e9a4634e0643a9a9cc65e2765ab5e5a4f1bb0b8",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/c1-feedback-source-20261103.receipt.json",
+      "published_sha256": "c45d25c495945af9a483c6596e9a4634e0643a9a9cc65e2765ab5e5a4f1bb0b8"
+    },
+    {
+      "source": "pc1/root/check-live-f1.py",
+      "bytes": 1502,
+      "sha256": "fab3edc97f3d2330ba7c7179089d339b76a8a083baa21f8ba3678be6cbd14e1a",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/check-live-f1.py.txt",
+      "published_sha256": "b20876c3abd924d21e5de25c9bf0369629d0a0594f34e379a39af0fef700c950"
+    },
+    {
+      "source": "pc1/root/collect-bind-window.py",
+      "bytes": 2812,
+      "sha256": "3a95ec81b92f51efcaa7f7ebb80238125c5b1173ded5272f337a93acc0681e25",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/collect-bind-window.py.txt",
+      "published_sha256": "9f9090b4f139f56c857ac170154b7a59b4c22b56eb2aa86b04915ac3fc4a6aed"
+    },
+    {
+      "source": "pc1/root/collect-team-result.py",
+      "bytes": 756,
+      "sha256": "d76331c9675b82c00285b6667e62491b20eff68d41bc08224858a1850f46e7a1",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/collect-team-result.py.txt",
+      "published_sha256": "779c16f7fa435d91e74cca57b65dd614775a326e8972426213523ace803ef8ee"
+    },
+    {
+      "source": "pc1/root/config-status-xsdb.tcl",
+      "bytes": 291,
+      "sha256": "e3ed4994e517d6ca9954737b2b61e773dc9761ec9f6eac75e861f9d984967868",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/config-status-xsdb.tcl.txt",
+      "published_sha256": "e3ed4994e517d6ca9954737b2b61e773dc9761ec9f6eac75e861f9d984967868"
+    },
+    {
+      "source": "pc1/root/control-package.json",
+      "bytes": 279,
+      "sha256": "3de12dc9196ecfc955c36c9a5b3a6b961333361e784f4a815c2ec73c547441c0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/control-package.json",
+      "published_sha256": "3de12dc9196ecfc955c36c9a5b3a6b961333361e784f4a815c2ec73c547441c0"
+    },
+    {
+      "source": "pc1/root/current-query-bind.json",
+      "bytes": 431,
+      "sha256": "4d2b80220939965a7c0df3fbfa21cd6e87503a67166f96c58b5548a04f30e88b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/current-query-bind.json",
+      "published_sha256": "4d2b80220939965a7c0df3fbfa21cd6e87503a67166f96c58b5548a04f30e88b"
+    },
+    {
+      "source": "pc1/root/current-rebind-ids.json",
+      "bytes": 85,
+      "sha256": "19dfbf0d8f02a3d1c52be7ae2d57c022fa7585cb197ff74a0bb5e2bd0b0677a9",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/current-rebind-ids.json",
+      "published_sha256": "19dfbf0d8f02a3d1c52be7ae2d57c022fa7585cb197ff74a0bb5e2bd0b0677a9"
+    },
+    {
+      "source": "pc1/root/deliver-blank-recovery.py",
+      "bytes": 842,
+      "sha256": "b0a99b4f61f49279768410adc6414f1e7daefc64b61e89096b3457f92a110107",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/deliver-blank-recovery.py.txt",
+      "published_sha256": "6dc7ec5f6775b50b62e8294c81e974b19b210724c82379a895f585e4bb0a4399"
+    },
+    {
+      "source": "pc1/root/deliver-local-default.py",
+      "bytes": 1061,
+      "sha256": "fe38c5a2fa5143184d1aeb3aa414672115c472c60da324744e7c5b3026205fc0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/deliver-local-default.py.txt",
+      "published_sha256": "57bcbbd884ab04fc224818d1650c8dccb510bfafbc94faacebaa68e0a6e880d2"
+    },
+    {
+      "source": "pc1/root/deliver-local.py",
+      "bytes": 1083,
+      "sha256": "a0b6c4c1e60d70737b847632555ec74abbfda2bdfc7309bee59caea1f5294a8c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/deliver-local.py.txt",
+      "published_sha256": "7b35b9d2b06d4f75158476deb2668fe65f47ce6db8ab0d7c08891fa734b85664"
+    },
+    {
+      "source": "pc1/root/deliver-team.py",
+      "bytes": 1410,
+      "sha256": "d87a67c8784b055e2a9bb0d3f0f977ab204cc14dbdadedb176f40c306b4ec1b6",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/deliver-team.py.txt",
+      "published_sha256": "db258021a16100062809ec9209708d7a2700b10ef138d082019263a7ae92423f"
+    },
+    {
+      "source": "pc1/root/deployment-receipt-195548.json",
+      "bytes": 585,
+      "sha256": "95ecbd55f1246f145ef3bcd7231ae2389f79670845259eb14cddbe2bd1e37a2e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/deployment-receipt-195548.json",
+      "published_sha256": "95ecbd55f1246f145ef3bcd7231ae2389f79670845259eb14cddbe2bd1e37a2e"
+    },
+    {
+      "source": "pc1/root/export-public-handoff.py",
+      "bytes": 4429,
+      "sha256": "93fa23e0944d23a78a225e13b75c108902d9ac31cc49de69c09a78ca40792270",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/export-public-handoff.py.txt",
+      "published_sha256": "ae46586002904765547547a74eb1b6fd0caa35146a3e48f98233fe83ebebdad4"
+    },
+    {
+      "source": "pc1/root/help-fpga.tcl",
+      "bytes": 18,
+      "sha256": "61695b9e9dd3d225db9c9fe828fbbdb070a8cb18d420638c3d69b513a0ceb9c8",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/help-fpga.tcl.txt",
+      "published_sha256": "61695b9e9dd3d225db9c9fe828fbbdb070a8cb18d420638c3d69b513a0ceb9c8"
+    },
+    {
+      "source": "pc1/root/latest-uart-tail.txt",
+      "bytes": 16000,
+      "sha256": "da7157410878cd878fc2916b9d0dc494081ec850213d41a18ffd4f81ae7ec242",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/latest-uart-tail.txt",
+      "published_sha256": "da7157410878cd878fc2916b9d0dc494081ec850213d41a18ffd4f81ae7ec242"
+    },
+    {
+      "source": "pc1/root/local-download-receipt.json",
+      "bytes": 130,
+      "sha256": "8d96bb7f04206d453888ee28819b53dfebd34130a2f897f1c6db91b2738ea6d9",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/local-download-receipt.json",
+      "published_sha256": "8d96bb7f04206d453888ee28819b53dfebd34130a2f897f1c6db91b2738ea6d9"
+    },
+    {
+      "source": "pc1/root/offline-tests-1928.txt",
+      "bytes": 12851,
+      "sha256": "00b94da8ed5daa02fc73fb366ea83063bf9d30e941256c5922e012b9a8ed0145",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/offline-tests-1928.txt",
+      "published_sha256": "00b94da8ed5daa02fc73fb366ea83063bf9d30e941256c5922e012b9a8ed0145"
+    },
+    {
+      "source": "pc1/root/openmv-main-readonly.py",
+      "bytes": 218,
+      "sha256": "12cabfa45f347237b835974a4b4e148f9db622a68e46d06661da264612bfdc9b",
+      "publication": "hash_only_nontext"
+    },
+    {
+      "source": "pc1/root/openmv-observation-90s.py",
+      "bytes": 6481,
+      "sha256": "8f1a8e98833a615a46127f3f1f8435a886d6b206368b07097050794ea744b5f7",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/openmv-observation-90s.py.txt",
+      "published_sha256": "8f1a8e98833a615a46127f3f1f8435a886d6b206368b07097050794ea744b5f7"
+    },
+    {
+      "source": "pc1/root/openmv-ram300-delivery.json",
+      "bytes": 212,
+      "sha256": "40b5d079949d6d595f972aef82c040b585c277243f71f3278bf0baf5ec3c13fd",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/openmv-ram300-delivery.json",
+      "published_sha256": "40b5d079949d6d595f972aef82c040b585c277243f71f3278bf0baf5ec3c13fd"
+    },
+    {
+      "source": "pc1/root/openmv-run-uart-tail.jsonl",
+      "bytes": 300000,
+      "sha256": "904ff326aaa653129fd465a123ad7c81aaec2d9da189f1923f5553e21c607ebc",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/openmv-run-uart-tail.jsonl",
+      "published_sha256": "904ff326aaa653129fd465a123ad7c81aaec2d9da189f1923f5553e21c607ebc"
+    },
+    {
+      "source": "pc1/root/package-c1-feedback-source.py",
+      "bytes": 2644,
+      "sha256": "dcd4437d56de703ebdae072d517e497c1d9ffffb3932e3979eb5cc14f9339913",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/package-c1-feedback-source.py.txt",
+      "published_sha256": "dcd4437d56de703ebdae072d517e497c1d9ffffb3932e3979eb5cc14f9339913"
+    },
+    {
+      "source": "pc1/root/package-control.py",
+      "bytes": 984,
+      "sha256": "a405d246a7476b726880483edd2ff7bae2a3cd262e5ac3c79cf94b5008d1bf83",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/package-control.py.txt",
+      "published_sha256": "a405d246a7476b726880483edd2ff7bae2a3cd262e5ac3c79cf94b5008d1bf83"
+    },
+    {
+      "source": "pc1/root/package-team.py",
+      "bytes": 4378,
+      "sha256": "3efc16bb0b402bb6e8a20a0c7af0f5829fc3897f1f21d0e25636b6171ece2951",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/package-team.py.txt",
+      "published_sha256": "c77e12c2abcd075b2d60d31caace01888d791275c50562a0055f7be11a567b39"
+    },
+    {
+      "source": "pc1/root/PAUSED-LATEST.json",
+      "bytes": 442,
+      "sha256": "6313f2f5ba512d2c73df89a20bfd65847bc6171f7cb7676f082cccc62be2e6c7",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/PAUSED-LATEST.json",
+      "published_sha256": "6313f2f5ba512d2c73df89a20bfd65847bc6171f7cb7676f082cccc62be2e6c7"
+    },
+    {
+      "source": "pc1/root/pc2-program-success.log",
+      "bytes": 7531,
+      "sha256": "e2cbe382a8b58260da1943e90b1488c68912c369086c78861875e510878ac0bc",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/pc2-program-success.log.txt",
+      "published_sha256": "e2cbe382a8b58260da1943e90b1488c68912c369086c78861875e510878ac0bc"
+    },
+    {
+      "source": "pc1/root/pc2-uart-ingress-readonly.md",
+      "bytes": 3998,
+      "sha256": "0328d7f9c7e48e88ec8b15181be13a6a41acfac21a3efa90bb7c499134acf194",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/pc2-uart-ingress-readonly.md.txt",
+      "published_sha256": "0328d7f9c7e48e88ec8b15181be13a6a41acfac21a3efa90bb7c499134acf194"
+    },
+    {
+      "source": "pc1/root/post-failure-status.jou",
+      "bytes": 1231,
+      "sha256": "049695a46f05feb2e0d6caac78c1034e2fb6762ba11e9a863282b3348b95beff",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/post-failure-status.jou.txt",
+      "published_sha256": "9c33296108f867e26bac530f4dfc1c82994b769475bb71e46902c463d47cc3a8"
+    },
+    {
+      "source": "pc1/root/post-failure-status.log",
+      "bytes": 1363,
+      "sha256": "a0d3cac900b091a172ffbf0298aae4c8163cd0fbc5eb05138bd511800069060b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/post-failure-status.log.txt",
+      "published_sha256": "1c7abbff8f94c98a08327ac30c2cf877db2fefc59b9bd59dfdeaa032a221919a"
+    },
+    {
+      "source": "pc1/root/post-failure-status.tcl",
+      "bytes": 511,
+      "sha256": "09f187b99f393df42432d550dad4ab5bae4e8bd4597f63d16a24c8af4a72a4c0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/post-failure-status.tcl.txt",
+      "published_sha256": "09f187b99f393df42432d550dad4ab5bae4e8bd4597f63d16a24c8af4a72a4c0"
+    },
+    {
+      "source": "pc1/root/post-reset-tail.jsonl",
+      "bytes": 50000,
+      "sha256": "4a04b53bb5097475740d4a086589f13563a8f70a4b378050544f0f5abb8431ad",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/post-reset-tail.jsonl",
+      "published_sha256": "4a04b53bb5097475740d4a086589f13563a8f70a4b378050544f0f5abb8431ad"
+    },
+    {
+      "source": "pc1/root/pre-motion-uart-tail.jsonl",
+      "bytes": 32768,
+      "sha256": "03d7fa6670cf7aeadc72beb3f64e4e026ecdf364fcb352d9478b42ad6870d36a",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/pre-motion-uart-tail.jsonl",
+      "published_sha256": "03d7fa6670cf7aeadc72beb3f64e4e026ecdf364fcb352d9478b42ad6870d36a"
+    },
+    {
+      "source": "pc1/root/preparation-result.json",
+      "bytes": 1383,
+      "sha256": "86ec2855e51a0156729bde3a47c1caa5ed2c192ca3cb9c5dd909f69e6a477017",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/preparation-result.json",
+      "published_sha256": "86ec2855e51a0156729bde3a47c1caa5ed2c192ca3cb9c5dd909f69e6a477017"
+    },
+    {
+      "source": "pc1/root/prepare-control-build.py",
+      "bytes": 2693,
+      "sha256": "a962c6aaf6b43b858ca72de3beca19ddb90e76077e5fd691f5c7f1f32cc359ba",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/prepare-control-build.py.txt",
+      "published_sha256": "a962c6aaf6b43b858ca72de3beca19ddb90e76077e5fd691f5c7f1f32cc359ba"
+    },
+    {
+      "source": "pc1/root/prepare-openmv-team.py",
+      "bytes": 1780,
+      "sha256": "8d319f0cb0104d979de7527b09803ec48170f7cfb65538cea73b05c198795499",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/prepare-openmv-team.py.txt",
+      "published_sha256": "8d319f0cb0104d979de7527b09803ec48170f7cfb65538cea73b05c198795499"
+    },
+    {
+      "source": "pc1/root/prepare-query-bind.py",
+      "bytes": 1544,
+      "sha256": "317fbdd34cdd2cf96c7ff096b08b1bfe0e036e1c7bf9e3b52515851173b04835",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/prepare-query-bind.py.txt",
+      "published_sha256": "78e2d6bf674e355404e804076eebbb1c1bae4eabca50cdddd87b4123053dcf10"
+    },
+    {
+      "source": "pc1/root/program-1805.jou",
+      "bytes": 1179,
+      "sha256": "7509c86b07376b5176a58997402d1cc232d9e90a8e8f04964b4408eaa4d80f0d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/program-1805.jou.txt",
+      "published_sha256": "e3e234ebcf1ae76a7054bd5b1d816b9da952d8e401c1f92fb2528fac45b25d3a"
+    },
+    {
+      "source": "pc1/root/program-1805.log",
+      "bytes": 1315,
+      "sha256": "f317f0a7800a9815bca353014871f31cbb3779eab0a5066298e22e0bf55568c4",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/program-1805.log.txt",
+      "published_sha256": "c74dcbce3d69bdfa9e1fc1a19a0edf21bc32e6d26c45e6e4da8afacb5244a8df"
+    },
+    {
+      "source": "pc1/root/program-bound.jou",
+      "bytes": 1195,
+      "sha256": "08ef897927e20a57fc0217e972e3a9a06b49a3ac0045e0af4b7ac5ba58371cb6",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/program-bound.jou.txt",
+      "published_sha256": "4f6f4bfc0282c9abc8e1e03dbabab72ed9abaf1210e9862e12d16f2d27ce8969"
+    },
+    {
+      "source": "pc1/root/program-bound.log",
+      "bytes": 3019,
+      "sha256": "e59a45e3cfa9be5ba42cb42a48c2f3c61a7964f08ece49cd320e8be9cb5db06b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/program-bound.log.txt",
+      "published_sha256": "6edb5a98165ea6ad00f2797b4e571daa06b0d71fb7a23dc2bb246e9c08fb9525"
+    },
+    {
+      "source": "pc1/root/program-bound.tcl",
+      "bytes": 1189,
+      "sha256": "d4146806279b68f8f5af08509f0cc57558adc7f17390defed05cc42cacd7f5e3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/program-bound.tcl.txt",
+      "published_sha256": "d4146806279b68f8f5af08509f0cc57558adc7f17390defed05cc42cacd7f5e3"
+    },
+    {
+      "source": "pc1/root/program-retry-1.jou",
+      "bytes": 1190,
+      "sha256": "b782178164d141309e7747cf1ab6ea192580ec6c9a0ca0faa39f797efa592b19",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/program-retry-1.jou.txt",
+      "published_sha256": "b782178164d141309e7747cf1ab6ea192580ec6c9a0ca0faa39f797efa592b19"
+    },
+    {
+      "source": "pc1/root/program-retry-1.log",
+      "bytes": 2253,
+      "sha256": "d0819171026ae2752a2a0a4d15a7de074493639361bbbb307831ec5e5a0e453d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/program-retry-1.log.txt",
+      "published_sha256": "d48a1bc448849252c0100b349d2e9407a9a19a7010af33c24c7b3d3fa80df75d"
+    },
+    {
+      "source": "pc1/root/program.jou",
+      "bytes": 1158,
+      "sha256": "7548419d7c6d67fa7afbb7f0fa825e324ff61368f43dc0fedbd67621c9d6eb3e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/program.jou.txt",
+      "published_sha256": "7548419d7c6d67fa7afbb7f0fa825e324ff61368f43dc0fedbd67621c9d6eb3e"
+    },
+    {
+      "source": "pc1/root/program.log",
+      "bytes": 1294,
+      "sha256": "eb8e336a9dc3894d913a17b43ea33442f443b2828ea1c859d69cc27cfe0b3176",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/program.log.txt",
+      "published_sha256": "297305e9eb45f2314a51f1439de3fba8695e290aef22d05d64b7b082e21b520e"
+    },
+    {
+      "source": "pc1/root/program.tcl",
+      "bytes": 1189,
+      "sha256": "ed79e22857f02a738d7ed7076f9fd0a4e91a1e2ff10761e7876630a481850c1d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/program.tcl.txt",
+      "published_sha256": "b4a04117a350cea4a93d33e06a142335541fa0631adb84701e06a5750ad2979d"
+    },
+    {
+      "source": "pc1/root/query-id-2003.txt",
+      "bytes": 34,
+      "sha256": "cca5db3361c80ae7b5d78ca3a8b20587554f1d35d8f0903baef741b08fe7ed15",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/query-id-2003.txt",
+      "published_sha256": "cca5db3361c80ae7b5d78ca3a8b20587554f1d35d8f0903baef741b08fe7ed15"
+    },
+    {
+      "source": "pc1/root/query-id-post-reset.txt",
+      "bytes": 34,
+      "sha256": "ba60b6e0427537dc8c4b51dc76ffa376a0d3474b3490a596ef5e168fa83959ac",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/query-id-post-reset.txt",
+      "published_sha256": "ba60b6e0427537dc8c4b51dc76ffa376a0d3474b3490a596ef5e168fa83959ac"
+    },
+    {
+      "source": "pc1/root/radmin-zip-transfer-receipt.json",
+      "bytes": 364,
+      "sha256": "87b00c463faac44549144601083640173ee7044229ec00ffde449ceb44bc9f18",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/radmin-zip-transfer-receipt.json",
+      "published_sha256": "87b00c463faac44549144601083640173ee7044229ec00ffde449ceb44bc9f18"
+    },
+    {
+      "source": "pc1/root/radmin_proxy.py",
+      "bytes": 1091,
+      "sha256": "8014a48fa593359c27e26c08208d1b43f17dc1d085cd7933d85ec0ba7352b224",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/radmin_proxy.py.txt",
+      "published_sha256": "86e69554600736279ad56d5c6e51799448587d9e719d31cab7f6107d86f8bce9"
+    },
+    {
+      "source": "pc1/root/read-capture-current.py",
+      "bytes": 1361,
+      "sha256": "1d79ab4b1a4dd604b5a13accf01cbc4a08760ed60c9e508bfa1cc358a53ca1a5",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/read-capture-current.py.txt",
+      "published_sha256": "49b06d7162000230fb241bf52fb9324c7e0ea7811d56468e1aa047c76115c606"
+    },
+    {
+      "source": "pc1/root/read-pc2-exact.py",
+      "bytes": 848,
+      "sha256": "bb153c10d31e17e9985782c92198dc261d1e34472b9ba0b3486b993537362389",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/read-pc2-exact.py.txt",
+      "published_sha256": "38ca1b17bc53e675b8a89dd42252a1b8dbfbfb1378052de01099ae83a318c6c9"
+    },
+    {
+      "source": "pc1/root/read-small-chunks.py",
+      "bytes": 1144,
+      "sha256": "c0fbc593b943119a39ca3c624a340468dbe608013c9454dc05a06704f9a906a0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/read-small-chunks.py.txt",
+      "published_sha256": "b30050e52a5b97e8a2d22619560472b25cef5706ff651a7764cfd4ecddca3943"
+    },
+    {
+      "source": "pc1/root/read-vpn-interface.py",
+      "bytes": 754,
+      "sha256": "d896cd90e66bf119936c99f6ef294cdb3af502bf3cf7b9134af5d5e106aa024c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/read-vpn-interface.py.txt",
+      "published_sha256": "45882642cf4b42d459e90117caf3de19e3f3e00b5e95946b2ac3828ae1392a63"
+    },
+    {
+      "source": "pc1/root/rebind-uart-tail.jsonl",
+      "bytes": 65536,
+      "sha256": "7c55b63dd3dc2d21dc1635d3b7109e25e710e828d847f6f9b4afaab94d2d7b2f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/rebind-uart-tail.jsonl",
+      "published_sha256": "7c55b63dd3dc2d21dc1635d3b7109e25e710e828d847f6f9b4afaab94d2d7b2f"
+    },
+    {
+      "source": "pc1/root/rebind-verified-query.json",
+      "bytes": 160,
+      "sha256": "430f4abd87f18d4548a0b7769a514a45ba6c369491c57815f4dfb7596a7cc61b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/rebind-verified-query.json",
+      "published_sha256": "430f4abd87f18d4548a0b7769a514a45ba6c369491c57815f4dfb7596a7cc61b"
+    },
+    {
+      "source": "pc1/root/receive-results.py",
+      "bytes": 1287,
+      "sha256": "a207bd9f0634686a200de756a0526c8adf476282e0e4d37b73472bdbd9b2684f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/receive-results.py.txt",
+      "published_sha256": "eb7f3d3acde6c1b639481c778097b94294c9314c56050a28c8270c5253b4c1bc"
+    },
+    {
+      "source": "pc1/root/refresh-empty-backend-1757.txt",
+      "bytes": 399,
+      "sha256": "c1ea15c8e407efa0cf7caffb13f81592d32b9f45d424fa33b3b0a41cdfa4be8e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/refresh-empty-backend-1757.txt",
+      "published_sha256": "c1ea15c8e407efa0cf7caffb13f81592d32b9f45d424fa33b3b0a41cdfa4be8e"
+    },
+    {
+      "source": "pc1/root/refresh-empty-backend.tcl",
+      "bytes": 546,
+      "sha256": "1fa28bcf6713f447fb75e8287ce00b9c1651ae8c8d49bda23222a066ce0f31e0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/refresh-empty-backend.tcl.txt",
+      "published_sha256": "cb8432b35c296394628f63c3d12285ec3f8c817fb1cadb44b18ff2472e1da125"
+    },
+    {
+      "source": "pc1/root/refresh-empty-backend.txt",
+      "bytes": 211,
+      "sha256": "1da5c38f80cc5539163ac059d777e5b2de433c8488ac7bad9e12c9c822ebe704",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/refresh-empty-backend.txt",
+      "published_sha256": "681c54670b427ff5e6a2c03f28b810d47304b01d03784ec26bf84780f7c09071"
+    },
+    {
+      "source": "pc1/root/remote-capture-status.json",
+      "bytes": 587,
+      "sha256": "0c27ed022b2562783b97f661a167234732445cff124774572db21776c448e6df",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/remote-capture-status.json",
+      "published_sha256": "0c27ed022b2562783b97f661a167234732445cff124774572db21776c448e6df"
+    },
+    {
+      "source": "pc1/root/routes-before-1938.json",
+      "bytes": 516,
+      "sha256": "0a14885bf6e6970462346a0d092610bb5cb3bb4c46b5e0912aa487b4e2745430",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/routes-before-1938.json",
+      "published_sha256": "92725d6e5ab447db60f570bbbda71a8ceb853d3f3c0c3e1c21401c7cc8589695"
+    },
+    {
+      "source": "pc1/root/send-verified-zip.py",
+      "bytes": 1661,
+      "sha256": "ada42859ab32186a99d6cf8d774b5b1460e7ad2f3ca54189aea56439cebd9bc7",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/send-verified-zip.py.txt",
+      "published_sha256": "c48338b0ce536fcbb1764cc238aef261275720cb4eec42003093e6bc70857a09"
+    },
+    {
+      "source": "pc1/root/session-id-post-reset.txt",
+      "bytes": 18,
+      "sha256": "ca16ecc6cc89e6f8e72177121875ec873dbe37a68e97a176071d78a06baccbae",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/session-id-post-reset.txt",
+      "published_sha256": "ca16ecc6cc89e6f8e72177121875ec873dbe37a68e97a176071d78a06baccbae"
+    },
+    {
+      "source": "pc1/root/targets-after-retry.txt",
+      "bytes": 304,
+      "sha256": "3e0e20e484eedda1e666fc8a63c8b70477dad1a971d35f74b69f7c1cf9e08f8c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/targets-after-retry.txt",
+      "published_sha256": "3e0e20e484eedda1e666fc8a63c8b70477dad1a971d35f74b69f7c1cf9e08f8c"
+    },
+    {
+      "source": "pc1/root/team-delivery-receipt.json",
+      "bytes": 255,
+      "sha256": "c8f4d6724debd25919644c3206ab117b7a14bda9a696691be136573b4a802007",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/team-delivery-receipt.json",
+      "published_sha256": "c8f4d6724debd25919644c3206ab117b7a14bda9a696691be136573b4a802007"
+    },
+    {
+      "source": "pc1/root/test-blank-recovery.py",
+      "bytes": 2936,
+      "sha256": "f9acc18ccffa5794812a577c0835e640df5e64ea8f17b1f404f32831759583f5",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/test-blank-recovery.py.txt",
+      "published_sha256": "f9acc18ccffa5794812a577c0835e640df5e64ea8f17b1f404f32831759583f5"
+    },
+    {
+      "source": "pc1/root/transfer-20261103-192314.json",
+      "bytes": 677,
+      "sha256": "aa06bdb2360530c157b1627677b5dde39dbe427f21012e7ee73953f3bb90da4d",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/transfer-20261103-192314.json",
+      "published_sha256": "aa06bdb2360530c157b1627677b5dde39dbe427f21012e7ee73953f3bb90da4d"
+    },
+    {
+      "source": "pc1/root/verify-current-query.py",
+      "bytes": 1503,
+      "sha256": "b590981ee74c18c08bdf21b332c4ef934142f9977420b400a88a81a0aeffb3cf",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/verify-current-query.py.txt",
+      "published_sha256": "13981e43ef5c3f4c6ff50535bea1ebaed6a5e734043a6f31d5c5b059a6be49ad"
+    },
+    {
+      "source": "pc1/root/verify-f1-inbox.py",
+      "bytes": 2198,
+      "sha256": "7eda7eb72ec37986c4d77e5baf3f165800192ca5c7c8263935ecf0e2a31f3e63",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/verify-f1-inbox.py.txt",
+      "published_sha256": "7eda7eb72ec37986c4d77e5baf3f165800192ca5c7c8263935ecf0e2a31f3e63"
+    },
+    {
+      "source": "pc1/root/verify-query-bind.py",
+      "bytes": 2469,
+      "sha256": "397191133e3f4a5e4573ad60dff834e55b4df7252e707c1dddc3ade2ab7b28c5",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/verify-query-bind.py.txt",
+      "published_sha256": "996712921305a0f333aa74d8647ec7f684f9f6c2e8826e6589d5b40062afb193"
+    },
+    {
+      "source": "pc1/root/vio-bind-current.jou",
+      "bytes": 1270,
+      "sha256": "0b6f1dc8960496d440c669c97e6666c28bc3de6efc9e4d885f98c8d759396354",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-bind-current.jou.txt",
+      "published_sha256": "3171180bba0440df83726ef64190f3514c8d59d68dfa3a8f951e0e1d7c6a89c4"
+    },
+    {
+      "source": "pc1/root/vio-bind-current.log",
+      "bytes": 6415,
+      "sha256": "521bb5fcd72a4c790197693dc1ac49d95cf96696cbce0e6d68fa350ac854e77c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-bind-current.log.txt",
+      "published_sha256": "4fed7a010f9ed632d4919e1ae05bd22d67494badadf38e37de2c8641031a7cea"
+    },
+    {
+      "source": "pc1/root/vio-bind-current.tcl",
+      "bytes": 3200,
+      "sha256": "7fe873fa919c4b99ff5d506c23388f1bc41715054b60fdbc200daa9540cc1084",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-bind-current.tcl.txt",
+      "published_sha256": "10826b717d5819a437187735468e329a0544e8fb415027898d4354c94eb990a0"
+    },
+    {
+      "source": "pc1/root/vio-bind-post-reset.jou",
+      "bytes": 1268,
+      "sha256": "46ae98cf9c0609e94ccba5af849709da63cf0dc73ba977c3b3e524a0240d3352",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-bind-post-reset.jou.txt",
+      "published_sha256": "7aa86778516c06e2ac5f262d17e249f6368f0f5d5b6a8b83e6d98d2d7d2dfc70"
+    },
+    {
+      "source": "pc1/root/vio-bind-post-reset.log",
+      "bytes": 6060,
+      "sha256": "c30bd12fa3cfc6a0f5fa87905bdd0a1a6d9b628cc03a094e98b75075e02f8b66",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-bind-post-reset.log.txt",
+      "published_sha256": "94a7ea7c2e27860053571bc1d58a5c4037495e63edded7facf60afa7d57b5f26"
+    },
+    {
+      "source": "pc1/root/vio-bind.tcl",
+      "bytes": 2890,
+      "sha256": "1a7908c217babc1026cb31116184364ed2fa3bc67e2cde6ec7a884a60a7a1497",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-bind.tcl.txt",
+      "published_sha256": "7ae20075ef26ff77036d472b1aff1319c1a7f99e4d0589f5735e727680feaa11"
+    },
+    {
+      "source": "pc1/root/vio-current-rebind.jou",
+      "bytes": 1277,
+      "sha256": "43155e69f8fe651645218f16c78d4267e9e5776376c883d926a27f0387c39c9e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-current-rebind.jou.txt",
+      "published_sha256": "2f7d4ac1ea44cab0a310b98031f2da9b4ff84cc03ff41107d311dc3707807af5"
+    },
+    {
+      "source": "pc1/root/vio-current-rebind.log",
+      "bytes": 7888,
+      "sha256": "bc2a9fd7534558a3c8388cbd8fdd8718eee5bb61a4647f6282ad5d4e9aeecca4",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-current-rebind.log.txt",
+      "published_sha256": "509e5b28b6a752a249b70a29a36c4c99cfe58c97691ce57d36c9e0e5ab097954"
+    },
+    {
+      "source": "pc1/root/vio-inspect-1958.jou",
+      "bytes": 1203,
+      "sha256": "1f7a145699f081803d024bde2ded0976dddfb132a054ee0f7d01221347317ae0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-inspect-1958.jou.txt",
+      "published_sha256": "3e813219b43de89cc2f8642ba006d61fd903690a87aa1feb3fc6bbf976b0d08a"
+    },
+    {
+      "source": "pc1/root/vio-inspect-1958.log",
+      "bytes": 7959,
+      "sha256": "23cea1975e3f05f063d4c6945a15b4adf0d8f037f288f3c2c8e2c620fa6c6e44",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-inspect-1958.log.txt",
+      "published_sha256": "c7cf598184a371e21f1bab4dc058183209959ba9d97d210c76ba9537f218741d"
+    },
+    {
+      "source": "pc1/root/vio-inspect.tcl",
+      "bytes": 898,
+      "sha256": "b2642515ff74bcde9ba38a1dfe01f464539ab6cfe092417da3dfc64c5a9b0736",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-inspect.tcl.txt",
+      "published_sha256": "9d4075ff25643a3374b479f7ccf89f0d3a88aaeef2c4f0cae9abbc254d69cca0"
+    },
+    {
+      "source": "pc1/root/vio-query-2003.jou",
+      "bytes": 1233,
+      "sha256": "520e7a474272a77d3606fc110668926093ed2eacff4a965627ffb6edef58c6ac",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-query-2003.jou.txt",
+      "published_sha256": "b52e5e7286c78a83338d01df5fab765bd95e179205a9a54190451a339ded34ce"
+    },
+    {
+      "source": "pc1/root/vio-query-2003.log",
+      "bytes": 5750,
+      "sha256": "4b5d7b6f594e5601527a62f8bea879ebc51a2e90487616a197f5794b17f3bf5f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-query-2003.log.txt",
+      "published_sha256": "05a6c3bfdbc2196fa8f6c0c049b6e6852e05f8121bf97e62fd94a02450dbac5a"
+    },
+    {
+      "source": "pc1/root/vio-query-after-mcu-reset.tcl",
+      "bytes": 2398,
+      "sha256": "16d02b202d177a4e21bbe750bca4304a988abb8660f4ccece0bbedb512b20cf0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-query-after-mcu-reset.tcl.txt",
+      "published_sha256": "49cf87fb051fc3df15c4e212c1a73c7bc4a4d32c9094c41fb35205f2dc6bf406"
+    },
+    {
+      "source": "pc1/root/vio-query-post-reset.jou",
+      "bytes": 1288,
+      "sha256": "fd5fb942aeb64a405224f15280a0e25b36ff15622d880c66676f6e32d6c7f688",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-query-post-reset.jou.txt",
+      "published_sha256": "e8acb27c58494abe5099f4eced9a9c2b3e25c90d9e964af34d0339fb7de5aaa3"
+    },
+    {
+      "source": "pc1/root/vio-query-post-reset.log",
+      "bytes": 5799,
+      "sha256": "fbf5f1fdf581293d57c290c35a8993877c1e6a43f37e4bfbb21f9ae52f38c481",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-query-post-reset.log.txt",
+      "published_sha256": "b69814d4eac0fcc118440775a407bab60052bbabf887be216049f32f6a7a04b2"
+    },
+    {
+      "source": "pc1/root/vio-query-rebind-current.tcl",
+      "bytes": 3629,
+      "sha256": "e6bac0d8d3539ee5d770d6738bc9318f1fef157f7a6d77a937c8933ca826a802",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-query-rebind-current.tcl.txt",
+      "published_sha256": "e5baff6aa9037e93c6445f5b165c6601a459438d59e4d7b68cbd9511f3faab2a"
+    },
+    {
+      "source": "pc1/root/vio-query.tcl",
+      "bytes": 2354,
+      "sha256": "e05959ab880d1cc6ade95b10cfb00c0f5b6caf90a3fd899a5232458384aa4e8c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-query.tcl.txt",
+      "published_sha256": "f6dd72555570f1bddf3d5f94f6edabf35499a93a0de06412622b387c75cf3e15"
+    },
+    {
+      "source": "pc1/root/vio-stop-2005.jou",
+      "bytes": 1237,
+      "sha256": "d5700f8f585ba52ef172f609549ccbe9603521aa7eff7ee975e68a634d1959ac",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-stop-2005.jou.txt",
+      "published_sha256": "eb590d97d4fb29c7d054c12aedd2cb250fc9cc864f0277dc8d90d651f5f78def"
+    },
+    {
+      "source": "pc1/root/vio-stop-2005.log",
+      "bytes": 5307,
+      "sha256": "4ec6535ca53241ae51bce4db218015ab767277fc83b548942b58a5459153c204",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-stop-2005.log.txt",
+      "published_sha256": "3bfc3c34e5af1e152ae2111769517b4011ae0dbeb0758b84fdff1d74e8219155"
+    },
+    {
+      "source": "pc1/root/vio-stop-2005.tcl",
+      "bytes": 2208,
+      "sha256": "f6d52d1c46e1aee04f09539e84a668a46a3bce5abba036287f07d5d6409d3194",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-stop-2005.tcl.txt",
+      "published_sha256": "3a54278c8713d91fe37fb0c6dc632f55d1f37aa8cd18bedec9aa09f71e6f5481"
+    },
+    {
+      "source": "pc1/root/vio-stop-before-ac6.jou",
+      "bytes": 1258,
+      "sha256": "883179babb2228e0c400dd792794e9b26a21e0b11d0bdb18101568a0e18ceca0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-stop-before-ac6.jou.txt",
+      "published_sha256": "53a670ae415dd3295bee5ba68ad26afdeff480bd793e7978ff6051bca5d10237"
+    },
+    {
+      "source": "pc1/root/vio-stop-before-ac6.log",
+      "bytes": 5328,
+      "sha256": "5c2d5c28bb3068c236246bc92fe0473d8135d0642e09ada1e0e802a64793aa58",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-stop-before-ac6.log.txt",
+      "published_sha256": "228575bba9946368d33ae5dd6b4f44afd2244e5a5d0b06f2de9cdba91d2bd7ea"
+    },
+    {
+      "source": "pc1/root/vio-stop-pre-rebind.jou",
+      "bytes": 1259,
+      "sha256": "45e127af69d06d7088627b333fdfe5918342e62bb989f247153bc0037cd740fa",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-stop-pre-rebind.jou.txt",
+      "published_sha256": "b5643cd74cfcb72f1056bb8017986a507b583aa435ed884f4c6aa2ea6b8528bf"
+    },
+    {
+      "source": "pc1/root/vio-stop-pre-rebind.log",
+      "bytes": 5435,
+      "sha256": "bb19ee3d29c5b8b3561124b7a03ccd8596f0811394def0bed084e202ec406a7b",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/root/vio-stop-pre-rebind.log.txt",
+      "published_sha256": "c77b0b51bfdba7a73c611354beefa335dfbf37d84d4ab74097d45d49c8987bc6"
+    },
+    {
+      "source": "pc2-packages/20261103-231947-b17eb5c0.zip",
+      "bytes": 29964,
+      "sha256": "31a812e9278ed5208030ab5a35ec4cc8bd1e94affe1ec2c00788b88f816af65e",
+      "publication": "archive_manifest_and_reviewed_contents"
+    },
+    {
+      "source": "pc2/20261103-231947-b17eb5c0/program/backend.log",
+      "bytes": 10541,
+      "sha256": "930cd8708fca22d6504b421e302fa10b25254f7458101f9e85cf76b758e4d686",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-231947-b17eb5c0/program/backend.log.txt",
+      "published_sha256": "d28790d830fdf80768a33073a818b5c0594b61b180ddc33149671549b8bcf122"
+    },
+    {
+      "source": "pc2/20261103-231947-b17eb5c0/program/before-full.bin",
+      "bytes": 524288,
+      "sha256": "043e238a765f7cfbc62596a50e53c8ffb6b188a99357b0ebede251725d67589f",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc2/20261103-231947-b17eb5c0/program/independent-readback-verification.json",
+      "bytes": 256,
+      "sha256": "eb663621628c320fa884b45f11461a14d0577126e1ce6bb7c58fef54e5bc48df",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-231947-b17eb5c0/program/independent-readback-verification.json",
+      "published_sha256": "eb663621628c320fa884b45f11461a14d0577126e1ce6bb7c58fef54e5bc48df"
+    },
+    {
+      "source": "pc2/20261103-231947-b17eb5c0/program/readback-full.bin",
+      "bytes": 524288,
+      "sha256": "6cfb4d337104ba7fd977c9826b228e4c19d3b66a52ce0b744af40594de0015dd",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc2/20261103-231947-b17eb5c0/program/result.json",
+      "bytes": 1438,
+      "sha256": "22c2f0f677de79ae1220cd7d0cbb23a29cba96f30c32f1b57dd122334e82454e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-231947-b17eb5c0/program/result.json",
+      "published_sha256": "22c2f0f677de79ae1220cd7d0cbb23a29cba96f30c32f1b57dd122334e82454e"
+    },
+    {
+      "source": "pc2/20261103-231947-b17eb5c0/capture/status-00000485.json",
+      "bytes": 2498,
+      "sha256": "f3be2053f4eff5854859d9590500c73fdfefbeaa034ee058ae5b1ee46126aabd",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-231947-b17eb5c0/capture/status-00000485.json",
+      "published_sha256": "f3be2053f4eff5854859d9590500c73fdfefbeaa034ee058ae5b1ee46126aabd"
+    },
+    {
+      "source": "pc2/20261103-231947-b17eb5c0/capture/status-00000490.json",
+      "bytes": 2498,
+      "sha256": "67fa8c0f5302506ea1802e361e48ede0c29016f39642ef292b4510075461b5bb",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-231947-b17eb5c0/capture/status-00000490.json",
+      "published_sha256": "67fa8c0f5302506ea1802e361e48ede0c29016f39642ef292b4510075461b5bb"
+    },
+    {
+      "source": "pc2/20261103-231947-b17eb5c0/capture/tail-uart.jsonl",
+      "bytes": 131072,
+      "sha256": "579d66c37bd23868d4d799e308e9cda182116a18f3239a3ae52830a8c353eb34",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-231947-b17eb5c0/capture/tail-uart.jsonl",
+      "published_sha256": "579d66c37bd23868d4d799e308e9cda182116a18f3239a3ae52830a8c353eb34"
+    },
+    {
+      "source": "pc2/20261103-231947-b17eb5c0/capture/tail-video.jsonl",
+      "bytes": 131072,
+      "sha256": "9dd1899a75ffc295fc7c23e9e9646b2cbb5ccda830533f64c3bd6ccc730599fb",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-231947-b17eb5c0/capture/tail-video.jsonl",
+      "published_sha256": "9dd1899a75ffc295fc7c23e9e9646b2cbb5ccda830533f64c3bd6ccc730599fb"
+    },
+    {
+      "source": "pc2-packages/20261103-232409-c997be34.zip",
+      "bytes": 30529,
+      "sha256": "9488b041c9c3e671a4aba39117da1640dc7a968253ce8c2f098de67152f1ee92",
+      "publication": "archive_manifest_and_reviewed_contents"
+    },
+    {
+      "source": "pc2/20261103-232409-c997be34/program/backend.log",
+      "bytes": 10541,
+      "sha256": "930cd8708fca22d6504b421e302fa10b25254f7458101f9e85cf76b758e4d686",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-232409-c997be34/program/backend.log.txt",
+      "published_sha256": "d28790d830fdf80768a33073a818b5c0594b61b180ddc33149671549b8bcf122"
+    },
+    {
+      "source": "pc2/20261103-232409-c997be34/program/before-full.bin",
+      "bytes": 524288,
+      "sha256": "043e238a765f7cfbc62596a50e53c8ffb6b188a99357b0ebede251725d67589f",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc2/20261103-232409-c997be34/program/independent-readback-verification.json",
+      "bytes": 256,
+      "sha256": "eb663621628c320fa884b45f11461a14d0577126e1ce6bb7c58fef54e5bc48df",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-232409-c997be34/program/independent-readback-verification.json",
+      "published_sha256": "eb663621628c320fa884b45f11461a14d0577126e1ce6bb7c58fef54e5bc48df"
+    },
+    {
+      "source": "pc2/20261103-232409-c997be34/program/pc2-next-step-status.json",
+      "bytes": 758,
+      "sha256": "bdaf9c227f99521a58ebc97a25080023ba0376b8e50e3790154516d8a51e51f7",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-232409-c997be34/program/pc2-next-step-status.json",
+      "published_sha256": "bdaf9c227f99521a58ebc97a25080023ba0376b8e50e3790154516d8a51e51f7"
+    },
+    {
+      "source": "pc2/20261103-232409-c997be34/program/readback-full.bin",
+      "bytes": 524288,
+      "sha256": "6cfb4d337104ba7fd977c9826b228e4c19d3b66a52ce0b744af40594de0015dd",
+      "publication": "hash_only_binary_or_large"
+    },
+    {
+      "source": "pc2/20261103-232409-c997be34/program/result.json",
+      "bytes": 1438,
+      "sha256": "22c2f0f677de79ae1220cd7d0cbb23a29cba96f30c32f1b57dd122334e82454e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-232409-c997be34/program/result.json",
+      "published_sha256": "22c2f0f677de79ae1220cd7d0cbb23a29cba96f30c32f1b57dd122334e82454e"
+    },
+    {
+      "source": "pc2/20261103-232409-c997be34/capture/status-00000750.json",
+      "bytes": 2498,
+      "sha256": "8badc31443baee605970d18ff3530ab3c80fde816c903433999b61d1e5245ed0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-232409-c997be34/capture/status-00000750.json",
+      "published_sha256": "8badc31443baee605970d18ff3530ab3c80fde816c903433999b61d1e5245ed0"
+    },
+    {
+      "source": "pc2/20261103-232409-c997be34/capture/status-00000755.json",
+      "bytes": 2498,
+      "sha256": "44e1c053befc55d3f5c9eef495a7787097088e3298bcba51b243f2573dbe7ec1",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-232409-c997be34/capture/status-00000755.json",
+      "published_sha256": "44e1c053befc55d3f5c9eef495a7787097088e3298bcba51b243f2573dbe7ec1"
+    },
+    {
+      "source": "pc2/20261103-232409-c997be34/capture/tail-uart.jsonl",
+      "bytes": 131072,
+      "sha256": "999ff5d21a206e082464a3c245633a032074e7d5e9a14450cdc57cc27cccc2f9",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-232409-c997be34/capture/tail-uart.jsonl",
+      "published_sha256": "999ff5d21a206e082464a3c245633a032074e7d5e9a14450cdc57cc27cccc2f9"
+    },
+    {
+      "source": "pc2/20261103-232409-c997be34/capture/tail-video.jsonl",
+      "bytes": 131072,
+      "sha256": "b936b24428c1c7e4df194de614a08c5a290d814b375e4828ffa8a0e6ecf42a13",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-232409-c997be34/capture/tail-video.jsonl",
+      "published_sha256": "b936b24428c1c7e4df194de614a08c5a290d814b375e4828ffa8a0e6ecf42a13"
+    },
+    {
+      "source": "pc2-packages/20261103-235300-f17f04e3.zip",
+      "bytes": 58466,
+      "sha256": "dc3f23609c12490ef679e7a9667a1067a5843e1c79f893f8b4d170bcaa66d924",
+      "publication": "archive_manifest_and_reviewed_contents"
+    },
+    {
+      "source": "pc2/20261103-235300-f17f04e3/program/capture-status.json",
+      "bytes": 2556,
+      "sha256": "1cb16ec1951a4283b072b7dc731104e5d7ba0e3615b227ba48f2abe0fe187045",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-235300-f17f04e3/program/capture-status.json",
+      "published_sha256": "1cb16ec1951a4283b072b7dc731104e5d7ba0e3615b227ba48f2abe0fe187045"
+    },
+    {
+      "source": "pc2/20261103-235300-f17f04e3/program/f1-valid-crc-session.txt",
+      "bytes": 158122,
+      "sha256": "0337aac4b3623014764f046fa9cfcd70dfb470c147198ddb5c778587c6112897",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-235300-f17f04e3/program/f1-valid-crc-session.txt",
+      "published_sha256": "0337aac4b3623014764f046fa9cfcd70dfb470c147198ddb5c778587c6112897"
+    },
+    {
+      "source": "pc2/20261103-235300-f17f04e3/program/openmv-observation.json",
+      "bytes": 522,
+      "sha256": "c7628088113827d8b0ee81250dbf796ac79b20f78e134cc949652f54488e6e10",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-235300-f17f04e3/program/openmv-observation.json",
+      "published_sha256": "c7628088113827d8b0ee81250dbf796ac79b20f78e134cc949652f54488e6e10"
+    },
+    {
+      "source": "pc2/20261103-235300-f17f04e3/program/result.json",
+      "bytes": 1376,
+      "sha256": "8b5cca3b4ea40b64401419cf5e5c204321806a7cae31a35b5dce6fc56e05dcb4",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-235300-f17f04e3/program/result.json",
+      "published_sha256": "8b5cca3b4ea40b64401419cf5e5c204321806a7cae31a35b5dce6fc56e05dcb4"
+    },
+    {
+      "source": "pc2/20261103-235300-f17f04e3/program/uart-window.txt",
+      "bytes": 292129,
+      "sha256": "1a4158301a36195dbe354c6af8e6fb4c1712a4ce18241fb4eca3f2bfd0f3809a",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-235300-f17f04e3/program/uart-window.txt",
+      "published_sha256": "1a4158301a36195dbe354c6af8e6fb4c1712a4ce18241fb4eca3f2bfd0f3809a"
+    },
+    {
+      "source": "pc2/20261103-235300-f17f04e3/capture/status-00002475.json",
+      "bytes": 2556,
+      "sha256": "8851f3b69125dfe205e8ebacb65ea81912ac901799ca4ad2288c27bf67292249",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-235300-f17f04e3/capture/status-00002475.json",
+      "published_sha256": "8851f3b69125dfe205e8ebacb65ea81912ac901799ca4ad2288c27bf67292249"
+    },
+    {
+      "source": "pc2/20261103-235300-f17f04e3/capture/status-00002480.json",
+      "bytes": 2556,
+      "sha256": "b6bd6f02c43c66688fc1c362c08e16483731fea32c6e7196241a07381c13a583",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-235300-f17f04e3/capture/status-00002480.json",
+      "published_sha256": "b6bd6f02c43c66688fc1c362c08e16483731fea32c6e7196241a07381c13a583"
+    },
+    {
+      "source": "pc2/20261103-235300-f17f04e3/capture/tail-uart.jsonl",
+      "bytes": 131072,
+      "sha256": "ed06cf4d9651d8263b580a5c1c87aef0cc3c7ba56809aeb7a27fe9814b259bc5",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-235300-f17f04e3/capture/tail-uart.jsonl",
+      "published_sha256": "ed06cf4d9651d8263b580a5c1c87aef0cc3c7ba56809aeb7a27fe9814b259bc5"
+    },
+    {
+      "source": "pc2/20261103-235300-f17f04e3/capture/tail-video.jsonl",
+      "bytes": 131072,
+      "sha256": "90b18f38102626f096526334210155b324cc486fc443c3fb1be7b17f858eb05e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261103-235300-f17f04e3/capture/tail-video.jsonl",
+      "published_sha256": "90b18f38102626f096526334210155b324cc486fc443c3fb1be7b17f858eb05e"
+    },
+    {
+      "source": "pc2-packages/20261104-000819-1d5ff0eb.zip",
+      "bytes": 67354,
+      "sha256": "5d3f8eeedf25f00fb703095ab64964f8caa4a1f9dd599aef445ba182d5221f00",
+      "publication": "archive_manifest_and_reviewed_contents"
+    },
+    {
+      "source": "pc2/20261104-000819-1d5ff0eb/program/capture-status.json",
+      "bytes": 2556,
+      "sha256": "1cb16ec1951a4283b072b7dc731104e5d7ba0e3615b227ba48f2abe0fe187045",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-000819-1d5ff0eb/program/capture-status.json",
+      "published_sha256": "1cb16ec1951a4283b072b7dc731104e5d7ba0e3615b227ba48f2abe0fe187045"
+    },
+    {
+      "source": "pc2/20261104-000819-1d5ff0eb/program/f1-valid-crc-session.txt",
+      "bytes": 158122,
+      "sha256": "0337aac4b3623014764f046fa9cfcd70dfb470c147198ddb5c778587c6112897",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-000819-1d5ff0eb/program/f1-valid-crc-session.txt",
+      "published_sha256": "0337aac4b3623014764f046fa9cfcd70dfb470c147198ddb5c778587c6112897"
+    },
+    {
+      "source": "pc2/20261104-000819-1d5ff0eb/program/live-followup.json",
+      "bytes": 1698,
+      "sha256": "c513eb26b1895a13d0fb1260a99d6df246b1afb831854167b2f7a7be188c08a0",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-000819-1d5ff0eb/program/live-followup.json",
+      "published_sha256": "c513eb26b1895a13d0fb1260a99d6df246b1afb831854167b2f7a7be188c08a0"
+    },
+    {
+      "source": "pc2/20261104-000819-1d5ff0eb/program/openmv-observation.json",
+      "bytes": 522,
+      "sha256": "c7628088113827d8b0ee81250dbf796ac79b20f78e134cc949652f54488e6e10",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-000819-1d5ff0eb/program/openmv-observation.json",
+      "published_sha256": "c7628088113827d8b0ee81250dbf796ac79b20f78e134cc949652f54488e6e10"
+    },
+    {
+      "source": "pc2/20261104-000819-1d5ff0eb/program/result.json",
+      "bytes": 1376,
+      "sha256": "8b5cca3b4ea40b64401419cf5e5c204321806a7cae31a35b5dce6fc56e05dcb4",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-000819-1d5ff0eb/program/result.json",
+      "published_sha256": "8b5cca3b4ea40b64401419cf5e5c204321806a7cae31a35b5dce6fc56e05dcb4"
+    },
+    {
+      "source": "pc2/20261104-000819-1d5ff0eb/program/uart-window.txt",
+      "bytes": 292129,
+      "sha256": "1a4158301a36195dbe354c6af8e6fb4c1712a4ce18241fb4eca3f2bfd0f3809a",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-000819-1d5ff0eb/program/uart-window.txt",
+      "published_sha256": "1a4158301a36195dbe354c6af8e6fb4c1712a4ce18241fb4eca3f2bfd0f3809a"
+    },
+    {
+      "source": "pc2/20261104-000819-1d5ff0eb/capture/status-00003400.json",
+      "bytes": 2166,
+      "sha256": "305a79d503ffda5ab30ab03772821948074f84e7a38c6c2cb0dff310bc1ddef2",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-000819-1d5ff0eb/capture/status-00003400.json",
+      "published_sha256": "305a79d503ffda5ab30ab03772821948074f84e7a38c6c2cb0dff310bc1ddef2"
+    },
+    {
+      "source": "pc2/20261104-000819-1d5ff0eb/capture/status-00003405.json",
+      "bytes": 2196,
+      "sha256": "3d0b2c49528414b3985cd45a607dd61ea9198b4e0ca344cee3eddd14737e85a8",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-000819-1d5ff0eb/capture/status-00003405.json",
+      "published_sha256": "3d0b2c49528414b3985cd45a607dd61ea9198b4e0ca344cee3eddd14737e85a8"
+    },
+    {
+      "source": "pc2/20261104-000819-1d5ff0eb/capture/tail-uart.jsonl",
+      "bytes": 131072,
+      "sha256": "561c454ef4377568c913c96d19c51f36bb6f34b4e3bcb13b7a45f632c2904fc7",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-000819-1d5ff0eb/capture/tail-uart.jsonl",
+      "published_sha256": "561c454ef4377568c913c96d19c51f36bb6f34b4e3bcb13b7a45f632c2904fc7"
+    },
+    {
+      "source": "pc2/20261104-000819-1d5ff0eb/capture/tail-video.jsonl",
+      "bytes": 131072,
+      "sha256": "001369db99a14247e82e3430ef241be1c7bea6012c3976478e2351100d557984",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-000819-1d5ff0eb/capture/tail-video.jsonl",
+      "published_sha256": "001369db99a14247e82e3430ef241be1c7bea6012c3976478e2351100d557984"
+    },
+    {
+      "source": "pc2-packages/20261104-001806-751f32a7.zip",
+      "bytes": 17665,
+      "sha256": "5371bddb70047a432728dac60143d823d06927e81b8ea3618ca332d6d1a94059",
+      "publication": "archive_manifest_and_reviewed_contents"
+    },
+    {
+      "source": "pc2/20261104-001806-751f32a7/program/handoff.txt",
+      "bytes": 723,
+      "sha256": "cca8739fc19e55c5fe24f9a6cdb8260d10020ebb9fadece1a12bd064d4e516f3",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-001806-751f32a7/program/handoff.txt",
+      "published_sha256": "cca8739fc19e55c5fe24f9a6cdb8260d10020ebb9fadece1a12bd064d4e516f3"
+    },
+    {
+      "source": "pc2/20261104-001806-751f32a7/program/last-f1.txt",
+      "bytes": 1260,
+      "sha256": "8152f20036bd89487471dd54112d39e7ba5a96ccc80930cae675a1be7689f069",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-001806-751f32a7/program/last-f1.txt",
+      "published_sha256": "8152f20036bd89487471dd54112d39e7ba5a96ccc80930cae675a1be7689f069"
+    },
+    {
+      "source": "pc2/20261104-001806-751f32a7/program/observation-snapshot.json",
+      "bytes": 487,
+      "sha256": "7997574b84deafd0a31cc9ec3d4304b5c74815934d7c7a67922d761e62b0395c",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-001806-751f32a7/program/observation-snapshot.json",
+      "published_sha256": "7997574b84deafd0a31cc9ec3d4304b5c74815934d7c7a67922d761e62b0395c"
+    },
+    {
+      "source": "pc2/20261104-001806-751f32a7/program/observation-status.json",
+      "bytes": 2515,
+      "sha256": "7b06df0d1cc2539bd18a27a408bf77b769a4ab85cf78bef72e36f95376ea5045",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-001806-751f32a7/program/observation-status.json",
+      "published_sha256": "7b06df0d1cc2539bd18a27a408bf77b769a4ab85cf78bef72e36f95376ea5045"
+    },
+    {
+      "source": "pc2/20261104-001806-751f32a7/program/stm32-recovery-result.json",
+      "bytes": 1438,
+      "sha256": "22c2f0f677de79ae1220cd7d0cbb23a29cba96f30c32f1b57dd122334e82454e",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-001806-751f32a7/program/stm32-recovery-result.json",
+      "published_sha256": "22c2f0f677de79ae1220cd7d0cbb23a29cba96f30c32f1b57dd122334e82454e"
+    },
+    {
+      "source": "pc2/20261104-001806-751f32a7/capture/status-00000290.json",
+      "bytes": 2515,
+      "sha256": "5e95d713745522fcf16d2587e481ddde6874d55db883f8828b7fbad1c0260a6f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-001806-751f32a7/capture/status-00000290.json",
+      "published_sha256": "5e95d713745522fcf16d2587e481ddde6874d55db883f8828b7fbad1c0260a6f"
+    },
+    {
+      "source": "pc2/20261104-001806-751f32a7/capture/status-00000295.json",
+      "bytes": 2515,
+      "sha256": "b28fd7072a8291b0c705eceb9c0606c88c4d03048323bd91ef8b93f9b0cd3c28",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-001806-751f32a7/capture/status-00000295.json",
+      "published_sha256": "b28fd7072a8291b0c705eceb9c0606c88c4d03048323bd91ef8b93f9b0cd3c28"
+    },
+    {
+      "source": "pc2/20261104-001806-751f32a7/capture/tail-uart.jsonl",
+      "bytes": 131072,
+      "sha256": "5f5b1584443b6ae3517ce469cfd5699dd13e29e20dd670efe970c575d8304ca1",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-001806-751f32a7/capture/tail-uart.jsonl",
+      "published_sha256": "5f5b1584443b6ae3517ce469cfd5699dd13e29e20dd670efe970c575d8304ca1"
+    },
+    {
+      "source": "pc2/20261104-001806-751f32a7/capture/tail-video.jsonl",
+      "bytes": 131072,
+      "sha256": "37dcd2a0958290ad5966010ea285b5ec38b24bd11a65a8e9e13f054052739fbc",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc2/20261104-001806-751f32a7/capture/tail-video.jsonl",
+      "published_sha256": "37dcd2a0958290ad5966010ea285b5ec38b24bd11a65a8e9e13f054052739fbc"
+    },
+    {
+      "source": "pc1/transfer-public/openmv-team-ram90.py",
+      "bytes": 3712,
+      "sha256": "0ef00bd2ab03c03956909273b5516799059e562693729fdac85172e700fa5df6",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/transfer-public/openmv-team-ram90.py.txt",
+      "published_sha256": "0ef00bd2ab03c03956909273b5516799059e562693729fdac85172e700fa5df6"
+    },
+    {
+      "source": "pc1/transfer-public/openmv-team-ram300.py",
+      "bytes": 3714,
+      "sha256": "cd85b2f6367911c7d522e1888f79fb5a1953971fac926cc38f6c71143f06cc31",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/transfer-public/openmv-team-ram300.py.txt",
+      "published_sha256": "cd85b2f6367911c7d522e1888f79fb5a1953971fac926cc38f6c71143f06cc31"
+    },
+    {
+      "source": "pc1/transfer-public/recover-team-blank.py",
+      "bytes": 5247,
+      "sha256": "df415e5dab5afb4b995d5aec9d700fed06e43680cb1cd13921ef7d6e053f931f",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/transfer-public/recover-team-blank.py.txt",
+      "published_sha256": "df415e5dab5afb4b995d5aec9d700fed06e43680cb1cd13921ef7d6e053f931f"
+    },
+    {
+      "source": "pc1/transfer-public/PC2-RECOVER.txt",
+      "bytes": 387,
+      "sha256": "86f6bb660791181c99eef293a302aee1710c9860c843c443ebf6310237051794",
+      "publication": "text_copy_redacted_network_and_user_paths",
+      "published": "report/evidence/two-pc-handoff-20261104/pc1/transfer-public/PC2-RECOVER.txt",
+      "published_sha256": "86f6bb660791181c99eef293a302aee1710c9860c843c443ebf6310237051794"
+    }
+  ],
+  "excluded_categories": [
+    "Vendor projects and toolchains, licenses, private assistant transcripts, temporary caches",
+    "Binary FPGA/vendor/unknown Flash files retained locally with hashes; not redistributed",
+    "Raw received ZIP bytes retained locally; reviewed contents exported with provenance hashes"
+  ]
+}

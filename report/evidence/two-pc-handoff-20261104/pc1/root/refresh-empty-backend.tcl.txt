@@ -1,0 +1,13 @@
+connect -url TCP:192.0.2.2:3121
+set targets_now [jtag targets -target-properties]
+puts "BEFORE_TARGETS=$targets_now"
+puts "BEFORE_SERVERS=[jtag servers -list]"
+if {[llength $targets_now]!=0} {puts {Existing target present; no backend refresh};disconnect;exit}
+puts {Refreshing empty Digilent enumeration backend once; no FPGA reset or server restart}
+jtag servers -close digilent-ftdi
+jtag servers -open digilent-ftdi
+after 2000
+puts "AFTER_SERVERS=[jtag servers -list]"
+puts "AFTER_TARGETS=[jtag targets -target-properties]"
+disconnect
+exit

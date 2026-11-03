@@ -1,0 +1,7 @@
+{
+  "bytes": 524288,
+  "expected_sha256": "6cfb4d337104ba7fd977c9826b228e4c19d3b66a52ce0b744af40594de0015dd",
+  "actual_sha256": "6cfb4d337104ba7fd977c9826b228e4c19d3b66a52ce0b744af40594de0015dd",
+  "equal": true,
+  "outside_sector_unchanged": true
+}

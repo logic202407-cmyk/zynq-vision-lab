@@ -1,0 +1,4 @@
+/* ARMCC5 intrinsics expressed for Arm Compiler 6. No device access here. */
+#define __schedule_barrier() __asm volatile ("" ::: "memory")
+#define __disable_irq() __asm volatile ("cpsid i" ::: "memory")
+#define __enable_irq() __asm volatile ("cpsie i" ::: "memory")

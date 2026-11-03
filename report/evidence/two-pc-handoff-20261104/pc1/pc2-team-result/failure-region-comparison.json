@@ -1,0 +1,8 @@
+{
+  "first_sector_ff_bytes": 16384,
+  "first_sector_length": 16384,
+  "first_sector_sha256": "0fbba07a833d4dcfc7024eaf313661a0ba8f80a05c6d29b8801c612e10e60dee",
+  "first_sector_diff_bytes": 12655,
+  "after_sector_equal": true,
+  "after_sector_diff_bytes": 0
+}

@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-11-03T22:50:11.3035107+08:00",
+  "backups": [
+    {
+      "path": "D:\\FPGA_Remote_JTAG\\c1-recovery-20261103\\team-deploy-20261103-223846-650\\program-result\\backup-full.bin",
+      "bytes": 524288,
+      "sha256": "36B8BFB185E06311D271E4B600DAD5E5DE68F1F70C8A8EBA42E83DF2636B3C8F"
+    },
+    {
+      "path": "D:\\FPGA_Remote_JTAG\\c1-recovery-20261103\\c1-ac6-preflight-20261103-214330-038\\flash-backup-full.bin",
+      "bytes": 524288,
+      "sha256": "36B8BFB185E06311D271E4B600DAD5E5DE68F1F70C8A8EBA42E83DF2636B3C8F"
+    },
+    {
+      "path": "D:\\FPGA_Remote_JTAG\\c1-recovery-20261103\\pe2-download-20261103-213036-147\\flash-backup-full.bin",
+      "bytes": 524288,
+      "sha256": "36B8BFB185E06311D271E4B600DAD5E5DE68F1F70C8A8EBA42E83DF2636B3C8F"
+    }
+  ],
+  "all_match": true,
+  "other_file_note": "c1-f407-backend.zip at recovery root is not a valid complete ZIP; no recovery use assumed"
+}

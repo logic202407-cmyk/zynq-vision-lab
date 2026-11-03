@@ -1,0 +1,52 @@
+{
+  "scope": "UART passive read, UDP camera start/stop only; no SWD/ARM/motion commands",
+  "ports": [
+    {
+      "device": "COM10",
+      "vid": 14277,
+      "pid": 4682
+    },
+    {
+      "device": "COM13",
+      "vid": 6790,
+      "pid": 29987
+    }
+  ],
+  "port": "COM13",
+  "errors": [],
+  "elapsed_seconds": 295.0,
+  "complete_frames": 7751,
+  "incomplete_frames": 1,
+  "malformed_datagrams": 1,
+  "uart_counts": {
+    "1STAT": 1,
+    "F1": 334,
+    "S1STAT": 2947
+  },
+  "f1_crc_good": 334,
+  "protected_crc_bad": 0,
+  "primary_sequence_seen_before_f1": 281,
+  "recent_uart": [
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1"
+  ],
+  "last_video_age_seconds": 0.02
+}

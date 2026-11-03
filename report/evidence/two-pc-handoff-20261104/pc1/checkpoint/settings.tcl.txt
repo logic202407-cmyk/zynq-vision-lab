@@ -1,0 +1,5 @@
+open_checkpoint D:/zynq-handoff-evidence-20261102/board/c1_observe_routed.dcp
+foreach p [list_property [current_design]] {
+ if {[string match BITSTREAM.* $p]} {puts "$p=[get_property $p [current_design]]"}
+}
+exit

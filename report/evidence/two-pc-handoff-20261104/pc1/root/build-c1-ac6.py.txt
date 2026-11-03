@@ -1,0 +1,48 @@
+import argparse,hashlib,json,re,shutil,struct,subprocess
+from pathlib import Path
+p=argparse.ArgumentParser();p.add_argument('--source-root',type=Path,default=Path('D:/嵌赛FPGA赛道AMD选题/local-work/c1-advance-20261103'));p.add_argument('--stage',type=Path,default=Path('D:/c1-recovery-20261103/c1-ac6-candidate'));p.add_argument('--team-profile',action='store_true');args=p.parse_args()
+root=args.source_root
+base=root/'src/prototype/skystar_openmv'
+fw=base/'stm32_skystar_tracking'
+stage=args.stage
+stage.mkdir(exist_ok=True)
+tools=Path('E:/Keil_MDK539/ARM/ARMCLANG/bin')
+sources=list((fw/'User').glob('*.[ch]'))+[base/'stm32_project/User/pid.c',base/'stm32_project/User/pid.h',fw/'startup.s',fw/'firmware.sct']
+for p in sources:shutil.copyfile(p,stage/p.name)
+compat='''/* ARMCC5 intrinsics expressed for Arm Compiler 6. No device access here. */
+#define __schedule_barrier() __asm volatile ("" ::: "memory")
+#define __disable_irq() __asm volatile ("cpsid i" ::: "memory")
+#define __enable_irq() __asm volatile ("cpsie i" ::: "memory")
+'''
+(stage/'ac6_compat.h').write_text(compat)
+commands=[]
+def run(name,cmd):
+ p=subprocess.run([str(x) for x in cmd],cwd=stage,capture_output=True)
+ log=(p.stdout+p.stderr).decode(errors='replace')
+ (stage/(name+'.log')).write_text(log)
+ commands.append({'name':name,'command':list(map(str,cmd)),'exit_code':p.returncode})
+ if p.returncode:raise RuntimeError(name+'\n'+log)
+ return log
+version=run('version',[tools/'armclang.exe','--version'])
+flags=['--target=arm-arm-none-eabi','-mcpu=cortex-m4','-mfloat-abi=soft','-std=c99','-Oz','-ffunction-sections','-fdata-sections','-D__MICROLIB','-DCONSOLE_USART=3','-DS1ACK1','-DC1_OBSERVATIONS','-DC1_CLOSED_LOOP','-include','ac6_compat.h','-Wall','-Wextra','-Werror']
+objects=[]
+if args.team_profile:flags.append('-DSKYSTAR_TEAM_PROFILE')
+for p in sorted(stage.glob('*.c')):
+ obj=p.with_suffix('.o').name
+ run(p.stem,[tools/'armclang.exe',*flags,'-c',p.name,'-o',obj]);objects.append(obj)
+run('startup',[tools/'armasm.exe','--cpu=Cortex-M4','startup.s','-o','startup.o'])
+run('link',[tools/'armlink.exe','--cpu=Cortex-M4','--library_type=microlib','--scatter=firmware.sct','--map','--info=sizes','--list=firmware.map','--output=skystar_tracking.axf','startup.o',*objects])
+run('bin',[tools/'fromelf.exe','--bin','--output=skystar_tracking.bin','skystar_tracking.axf'])
+run('hex',[tools/'fromelf.exe','--i32combined','--output=skystar_tracking.hex','skystar_tracking.axf'])
+run('disassembly',[tools/'fromelf.exe','--text','-c','skystar_tracking.axf'])
+b=(stage/'skystar_tracking.bin').read_bytes()
+fmt=b'F1 %08lx%08lx %08lx %08lx %04x %04x %x'
+assert fmt in b and b'laser1 pulse' not in b
+assert len(b)<=16384
+sp,reset=struct.unpack('<II',b[:8]);assert 0x20000000<sp<=0x20020000 and reset&1 and 0x08000000<=reset<0x08000000+len(b)
+warnings={p.name:re.findall(r'^.*[Ww]arning.*$',p.read_text(),re.M) for p in stage.glob('*.log') if p.name!='disassembly.log'}
+report={'scope':'AC6 candidate; not historical bit-identical reproduction; not programmed','compiler':version,'console_usart':3,'s1ack1':True,'c1_observations':True,'c1_closed_loop':True,'binary_bytes':len(b),'f1_format_offset':b.find(fmt),'stack_pointer':hex(sp),'reset_vector':hex(reset),'source_sha256':{str(p.relative_to(base)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},'compatibility_header_sha256':hashlib.sha256(compat.encode()).hexdigest(),'artifacts':{n:hashlib.sha256((stage/n).read_bytes()).hexdigest() for n in ['skystar_tracking.bin','skystar_tracking.axf','skystar_tracking.hex','firmware.map']},'commands':commands,'warnings':{k:v for k,v in warnings.items() if v}}
+report['compatibility_header_sha256']=hashlib.sha256((stage/'ac6_compat.h').read_bytes()).hexdigest()
+report['team_profile']=args.team_profile
+(stage/'build.json').write_text(json.dumps(report,indent=2))
+print(json.dumps({k:v for k,v in report.items() if k not in ['source_sha256','commands']},indent=2))

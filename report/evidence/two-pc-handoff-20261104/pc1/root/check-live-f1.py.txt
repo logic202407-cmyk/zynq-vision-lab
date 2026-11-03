@@ -1,0 +1,31 @@
+import sys,json,base64,binascii,time
+from pathlib import Path
+sys.path.insert(0,'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+p='D:/FPGA_Remote_JTAG/c1-recovery-20261103/capture-20261103-231131/uart.jsonl'
+start=time.monotonic()
+c=TCF('192.0.2.2',timeout=8,bind_ip='192.0.2.1')
+try:
+ before=c.normal('stat',p)[0]['Size'];time.sleep(6)
+ size=c.normal('stat',p)[0]['Size'];assert size>before,'Capture is not advancing'
+ h=c.normal('open',p,1,{})[0]
+ r=c.call('read',h,max(0,size-16384),min(size,16384));assert not r[1]
+ c.normal('close',h)
+finally:c.close()
+rows=[]
+for line in base64.b64decode(r[0]).splitlines():
+ try:rows.append(json.loads(line))
+ except ValueError:pass
+f=[r for r in rows if r.get('line','').startswith('F1 ')]
+assert len(f)>=3,'No fresh F1 stream'
+for row in f[-3:]:
+ body,crc=row['line'].rsplit('*',1)
+ assert binascii.crc_hqx(body.encode(),0xffff)==int(crc,16)
+ fields=body.split();assert fields[1]=='00065f6106a11698' and fields[-1]=='1'
+assert rows[-1]['elapsed']-f[-1]['elapsed']<0.5,'F1 stale'
+status=[r for r in rows if r.get('line','').startswith('S1STAT ')][-1]
+assert 'SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 ' in status['line']
+assert time.monotonic()-start<20,'Transport too slow for release'
+result={'fresh_f1':f[-3:],'status':status,'read_duration':time.monotonic()-start,'size':size}
+Path('D:/c1-recovery-20261103/pre-motion-live-f1.json').write_text(json.dumps(result,indent=2))
+print('LIVE_F1_CHECK_PASS')

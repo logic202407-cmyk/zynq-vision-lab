@@ -1,0 +1,30 @@
+#ifndef GIMBAL_REGISTRY_H
+#define GIMBAL_REGISTRY_H
+#include "tracking.h"
+#include "safety.h"
+#define GIMBAL_COUNT 3u
+#define CAMERA_COUNT 4u
+/* Observation-only integration layer. No peripheral writes or arm API. */
+typedef struct {
+    tracking_t control;
+    safety_t safety_snapshot;
+    vision_parser_t openmv_parser;
+    uint8_t id, installed, owner, fault, primary_camera, auxiliary_camera;
+    uint8_t communication_valid;
+    uint8_t pwm_enabled, pwm_known;
+    uint32_t last_rx_ms;
+} gimbal_context_t;
+typedef struct { gimbal_context_t devices[GIMBAL_COUNT]; } gimbal_registry_t;
+typedef struct {
+    uint8_t gimbal, axis, mapped, confirmed_for_preparation;
+    const char *pin, *timer;
+    uint8_t channel;
+} gimbal_pwm_resource_t;
+extern const gimbal_pwm_resource_t gimbal_pwm_resources[6];
+void gimbal_registry_init(gimbal_registry_t *r);
+/* Records desired software values only; cannot enable any output. */
+int gimbal_record_targets(gimbal_registry_t *r,unsigned id,unsigned pan,unsigned tilt);
+int gimbal_openmv_byte(gimbal_registry_t *r,unsigned id,uint8_t b,uint32_t received,uint32_t now);
+void gimbal_registry_tick(gimbal_registry_t *r,uint32_t now);
+void gimbal_registry_stop(gimbal_registry_t *r,unsigned id,uint8_t fault);
+#endif

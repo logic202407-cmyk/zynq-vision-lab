@@ -1,0 +1,25 @@
+import sys,json,base64
+from pathlib import Path
+sys.path.insert(0,'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+r='D:/FPGA_Remote_JTAG/c1-recovery-20261103/capture-20261103-221127'
+o=Path('D:/c1-recovery-20261103/pc2-team-result');o.mkdir(exist_ok=True)
+c=TCF('192.0.2.2',timeout=10)
+try:
+ h=c.normal('opendir',r)[0];entries=[]
+ for _ in range(20):
+  reply=c.call('readdir',h)
+  if reply[1]:raise RuntimeError(reply[1])
+  entries+=reply[0] or []
+  if reply[2]:break
+ c.normal('close',h)
+ states=sorted((e for e in entries if e['FileName'].startswith('status') and e['FileName'].endswith('.json')),key=lambda e:e['Attrs']['MTime'])
+ name=states[-1]['FileName'];raw=c.read(r+'/'+name);(o/'latest-capture-status.json').write_bytes(raw)
+ print(name,raw.decode(),flush=True)
+ if any(e['FileName']=='finished.json' for e in entries):
+  raw=c.read(r+'/finished.json');(o/'latest-capture-finished.json').write_bytes(raw);print('FINISHED',raw.decode(),flush=True)
+ size=c.normal('stat',r+'/uart.jsonl')[0]['Size'];h=c.normal('open',r+'/uart.jsonl',1,{})[0]
+ reply=c.call('read',h,max(0,size-8192),min(8192,size));c.normal('close',h)
+ if reply[1]:raise RuntimeError(reply[1])
+ raw=base64.b64decode(reply[0]);(o/'latest-uart-tail.jsonl').write_bytes(raw);print(raw.decode(errors='replace')[-2400:],flush=True)
+finally:c.close()

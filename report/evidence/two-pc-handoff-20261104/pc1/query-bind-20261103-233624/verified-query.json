@@ -1,0 +1,11 @@
+{
+  "mode": "query",
+  "qid": "e4d4ef4a1f78430d93f1f7261a5efbd9",
+  "sid": "00065f6106a11698",
+  "nonce": "4c74598e6eb00a38",
+  "sync_line": "S1SYNC e4d4ef4a1f78430d93f1f7261a5efbd9 S1ACK1 4c74598e6eb00a38 stopped boot 1500 1500 0 0 0*5761",
+  "sync_crc_verified": true,
+  "latest_state": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+  "latest_uart_elapsed": 1634.953,
+  "read_to_offset": 1738325
+}

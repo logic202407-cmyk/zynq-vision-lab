@@ -1,0 +1,12 @@
+import sys,json
+from pathlib import Path
+sys.path.insert(0,'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+r='D:/FPGA_Remote_JTAG/c1-recovery-20261103/team-deploy-20261103-223846-650'
+o=Path('D:/c1-recovery-20261103/pc2-team-result');o.mkdir(exist_ok=True)
+c=TCF('192.0.2.2',timeout=12)
+try:
+ for n in ['program-result/result.json','runner.stderr.log','failure-check.json','failure-region-comparison.json','flash-controller-readonly.json','offline-timeout-comparison.md','smart-flash-offline-analysis.json','backup-redundancy-check.json','pc1-control-package-inspection.json']:
+  raw=c.read(r+'/'+n);(o/n.replace('/','-')).write_bytes(raw)
+  print(n+'\n'+raw.decode(errors='replace'),flush=True)
+finally:c.close()

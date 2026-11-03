@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-11-03T22:54:14.746814+08:00",
+  "zip_sha256": "5b77c5fcc0f9339b69e2f935d1eb582767d8f7cf0641871f70d322f842f56e51",
+  "zip_hash_externally_verified": false,
+  "manifest_entries": [
+    {
+      "name": "c1_control.bit",
+      "bytes": 3864107,
+      "sha256": "6858f7debd82092585075f24d7264eddaebc02d68f6a1ae808ca26e29af4bfdd",
+      "matches_manifest": true
+    },
+    {
+      "name": "c1_control.ltx",
+      "bytes": 50863,
+      "sha256": "cd049c1945bba922603d5dc5ba1d475facc0cb921c7aac3e82e025e7050f48b6",
+      "matches_manifest": true
+    },
+    {
+      "name": "control.tcl",
+      "bytes": 5372,
+      "sha256": "c81b11c9dd56899fc1e9cdc0405afe4a0c9f63bc83c2c010ef250b42a4db8a84",
+      "matches_manifest": true
+    },
+    {
+      "name": "core-uuid.txt",
+      "bytes": 32,
+      "sha256": "fd831532ae190c49fb96f3d9e80709b2d58fcf0491ca79af1cc8c1854d2311db",
+      "matches_manifest": true
+    }
+  ],
+  "all_match": true,
+  "executed": false
+}

@@ -1,0 +1,53 @@
+import argparse,sys,json,base64,time,binascii
+from pathlib import Path
+sys.path.insert(0,r'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+p=argparse.ArgumentParser();p.add_argument('mode',choices=['begin','collect','query']);a=p.parse_args()
+root='D:/FPGA_Remote_JTAG/c1-recovery-20261103/capture-20261103-200006/'
+out=Path('D:/c1-recovery-20261103/bind-post-reset');out.mkdir(exist_ok=True)
+c=TCF('192.0.2.2',timeout=10)
+def read_range(name,start,n):
+ h=c.normal('open',root+name,1,{})[0];raw=bytearray();offset=start
+ try:
+  while offset<n:
+   r=c.call('read',h,offset,min(32768,n-offset))
+   if r[1]:raise RuntimeError(str(r[1]))
+   b=base64.b64decode(r[0] or '')
+   if not b:raise EOFError('Short remote file read')
+   raw.extend(b);offset+=len(b)
+ finally:c.normal('close',h)
+ return bytes(raw)
+try:
+ if a.mode=='begin':
+  baseline={name:c.normal('stat',root+name)[0]['Size'] for name in ['uart.jsonl','video.jsonl']}
+  baseline['local_time']=time.time();baseline['remote_root']=root
+  (out/'baseline.json').write_text(json.dumps(baseline,indent=2));print(json.dumps(baseline))
+ elif a.mode=='query':
+  name='uart.jsonl';n=c.normal('stat',root+name)[0]['Size'];start=max(0,n-120000)
+  raw=read_range(name,start,n);lines=raw.splitlines();lines=lines[1:] if start else lines
+  (out/'query-tail.jsonl').write_bytes(b'\n'.join(lines)+b'\n')
+  qid=Path('D:/c1-recovery-20261103/query-id-post-reset.txt').read_text().strip();verified=[]
+  for b in lines:
+   if not b:continue
+   try:r=json.loads(b)
+   except ValueError:continue
+   t=r['line']
+   if not t.startswith('S1SYNC '+qid+' '):continue
+   body,crc=t.rsplit('*',1);f=body.split()
+   if len(f)!=11 or int(crc,16)!=binascii.crc_hqx(body.encode(),0xffff):raise ValueError('S1SYNC CRC/shape')
+   if f[2]!='S1ACK1' or f[4]!='stopped' or f[8]!='0' or int(f[3],16)==0:raise ValueError('S1SYNC state/output mismatch')
+   verified.append(r)
+  if len(verified)!=1:raise ValueError('Expected exactly one matching stopped S1SYNC')
+  (out/'verified-query.json').write_text(json.dumps(verified[0],indent=2));print(json.dumps(verified[0]))
+ else:
+  baseline=json.loads((out/'baseline.json').read_text());summary={}
+  for name in ['uart.jsonl','video.jsonl']:
+   n=c.normal('stat',root+name)[0]['Size'];start=max(0,baseline[name]-1)
+   raw=read_range(name,start,n)
+   # Start one byte before the saved boundary, then discard through the next LF.
+   # This excludes any partial record at begin without fabricating JSONL.
+   if start:raw=raw.partition(b'\n')[2]
+   raw=raw[:raw.rfind(b'\n')+1] if b'\n' in raw else b''
+   (out/name).write_bytes(raw);summary[name]={'start_offset':start,'end_offset':n,'bytes':len(raw)}
+  (out/'collection.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary))
+finally:c.close()

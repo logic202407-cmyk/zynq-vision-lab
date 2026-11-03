@@ -1,0 +1,20 @@
+from pathlib import Path
+import hashlib,json
+base=Path('D:/c1-recovery-20261103');repo=base/'skystar-team-port'
+src=base/'teammate-review/src/prototype/f103_openmv_tracking/openmv'
+out=repo/'src/prototype/skystar_openmv/openmv_team_ram90';out.mkdir(exist_ok=True)
+s=(src/'main.py').read_text(encoding='utf-8')
+s=s.replace('# 在 OpenMV IDE 中运行本文件；确认正常后再保存为相机的 main.py。','# 仅在 IDE 中以 RAM 方式运行 90 秒；不保存 main.py，不写 Flash。')
+prefix,loop=s.split('while True:\n',1)
+prefix+='started = time.ticks_ms()\nlast_log = started\nprint("TEAM_RAM_START")\ntry:\n'
+body='    while time.ticks_diff(time.ticks_ms(), started) < 90000:\n'
+body+=''.join('    '+line+'\n' for line in loop.splitlines())
+body+='        now = time.ticks_ms()\n        if time.ticks_diff(now, last_log) >= 500:\n            print("TEAM_UART", dx, dy, flag)\n            last_log = now\n'
+s=prefix+body+'finally:\n    uart.write(ustruct.pack("<BBhhBB", 0xAA, 0xFF, 0, 0, 0, 0xEE))\n    print("TEAM_RAM_DONE")\n'
+(out/'main.py').write_text(s,encoding='utf-8');compile(s,str(out/'main.py'),'exec')
+t=(src/'test_compat.py').read_text(encoding='utf-8')
+t=t.replace('timer.clock = lambda: types.SimpleNamespace(tick=lambda: None)','timer.clock = lambda: types.SimpleNamespace(tick=lambda: None)\n        timer.ticks_ms = lambda: 0\n        timer.ticks_diff = lambda a,b: a-b')
+t=t.replace('(0xAA, 0xFF, -80, 60, 1, 0xEE),','(0xAA, 0xFF, -80, 60, 1, 0xEE),\n            (0xAA, 0xFF, 0, 0, 0, 0xEE), # final invalid frame on exit')
+(out/'test_compat.py').write_text(t,encoding='utf-8')
+dest=base/'transfer-public/openmv-team-ram90.py';dest.write_bytes((out/'main.py').read_bytes())
+print('RAM_SCRIPT_SHA256='+hashlib.sha256(dest.read_bytes()).hexdigest())

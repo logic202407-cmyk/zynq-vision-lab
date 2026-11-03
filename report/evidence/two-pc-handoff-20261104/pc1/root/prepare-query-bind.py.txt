@@ -1,0 +1,20 @@
+from pathlib import Path
+import sys,zipfile,json,hashlib,time,uuid,base64
+sys.path.insert(0,'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+base=Path('D:/c1-recovery-20261103');z=zipfile.ZipFile(base/'pc2-result-inbox/20261103-232409-c997be34.zip')
+after=z.read('program/readback-full.bin');before=z.read('program/before-full.bin');binary=(base/'team-deploy/skystar_tracking.bin').read_bytes()
+assert len(after)==len(before)==524288
+assert hashlib.sha256(after).hexdigest()=='6cfb4d337104ba7fd977c9826b228e4c19d3b66a52ce0b744af40594de0015dd'
+assert after==binary+b'\xff'*(16384-len(binary))+before[16384:]
+out=base/('query-bind-'+time.strftime('%Y%m%d-%H%M%S'));out.mkdir()
+remote='D:/FPGA_Remote_JTAG/c1-recovery-20261103/capture-20261103-231131/uart.jsonl'
+c=TCF('192.0.2.2',timeout=10)
+try:
+ size=c.normal('stat',remote)[0]['Size'];h=c.normal('open',remote,1,{})[0]
+ r=c.call('read',h,max(0,size-8192),min(size,8192));c.normal('close',h)
+ assert not r[1];raw=base64.b64decode(r[0]);(out/'uart-before.jsonl').write_bytes(raw)
+finally:c.close()
+m={'directory':str(out),'qid':uuid.uuid4().hex,'sid':format(int(time.time()*1000000),'016x'),'remote_uart':remote,'uart_offset_before_query':size,'recovery_independently_verified':True,'allowed_actions':['query','bind'],'hardware_actuation_authorized':False}
+(out/'session.json').write_text(json.dumps(m,indent=2));(base/'current-query-bind.json').write_text(json.dumps(m,indent=2))
+print(json.dumps(m,indent=2));print(raw.decode(errors='replace')[-700:])

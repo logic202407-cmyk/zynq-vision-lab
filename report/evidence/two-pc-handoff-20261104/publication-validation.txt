@@ -1,0 +1,18 @@
+2026-11-04 publication validation (offline only)
+Python 3.12.7, existing PC1 environment with Pillow 12.1.1.
+python tools/check_repository.py: PASS.
+python -m unittest discover -s tests -v: 100 tests, OK, no skips.
+git diff --check: checked for code/docs; archival snapshots retain their original
+whitespace via scoped Git attributes rather than rewriting historical evidence.
+
+Earlier attempt in pyocd-host virtual environment failed because Pillow was absent;
+the full existing Python environment was used without changing test expectations.
+The archive's video.jsonl exceeded the 5 MiB review limit; it was split at line
+boundaries into ordered parts and their concatenation verified equal. No records
+were omitted to pass the check. Part hashes and joined hash are in manifest.json.
+
+Original received PC2 ZIPs were CRC checked, and original/deployed artifact hashes
+are retained in manifests. Public text copies redact user paths and private host
+addresses. Original binary artifacts and original PC2 ZIPs are Release attachments.
+No hardware connection or actuation was performed for this publication.
+No claim of complete physical tracking/laser/STOP validation is made.

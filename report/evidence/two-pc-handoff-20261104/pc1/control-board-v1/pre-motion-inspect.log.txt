@@ -1,0 +1,67 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Nov  4 00:01:14 2026
+# Process ID         : 68284
+# Current directory  : D:/嵌赛FPGA赛道AMD选题
+# Command line       : vivado.exe -mode batch -source D:/c1-recovery-20261103/control-board-v1/inspect-current.tcl -log D:/c1-recovery-20261103/control-board-v1/pre-motion-inspect.log -journal D:/c1-recovery-20261103/control-board-v1/pre-motion-inspect.jou -tclargs 192.0.2.2:3121 query e4d4ef4a1f78430d93f1f7261a5efbd9 00065f6106a11698
+# Log file           : D:/c1-recovery-20261103/control-board-v1/pre-motion-inspect.log
+# Journal file       : D:/c1-recovery-20261103/control-board-v1/pre-motion-inspect.jou
+# Running On         : LAPTOP-VHQF65C3
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 34141 MB
+# Swap memory        : 18956 MB
+# Total Virtual      : 53098 MB
+# Available Virtual  : 9651 MB
+#-----------------------------------------------------------
+source D:/c1-recovery-20261103/control-board-v1/inspect-current.tcl
+# if {[llength $argv]<4} {error {Need server action query_id session_id}}
+# set server [lindex $argv 0]
+# set action [lindex $argv 1]
+# set qid [string tolower [lindex $argv 2]]
+# set sid [string tolower [lindex $argv 3]]
+# if {$action ni {program query bind run stop}} {error {Unknown action}}
+# if {![regexp {^[0-9a-f]{32}$} $qid] || $qid eq [string repeat 0 32]} {error {Fresh nonzero query ID required}}
+# if {![regexp {^[0-9a-f]{16}$} $sid] || $sid eq [string repeat 0 16]} {error {Nonzero session ID required}}
+# set root [file dirname [file normalize [info script]]]
+# set seconds 5
+# if {[llength $argv]>4} {set seconds [lindex $argv 4]}
+# if {![string is integer -strict $seconds] || $seconds<1 || $seconds>10} {error {Bench run must be 1..10 seconds}}
+# set mf [open $root/core-uuid.txt r]
+# set expected_uuid [string trim [read $mf]]
+# close $mf
+# proc sample {} {
+#  global v status ctl
+#  refresh_hw_vio -update_output_values $v
+#  set raw [get_property INPUT_VALUE $status]
+#  scan $raw %x value
+#  puts "VIO_STATUS=$raw CONTROL=[get_property OUTPUT_VALUE $ctl]"
+#  return $value
+# }
+# proc controls {value} {
+#  global v ctl
+#  set_property OUTPUT_VALUE $value $ctl
+#  commit_hw_vio $v
+#  refresh_hw_vio -update_output_values $v
+#  if {[string tolower [get_property OUTPUT_VALUE $ctl]] ne $value} {error {VIO control readback failed}}
+# }
+# proc pulse {value} { controls $value; after 20; controls 02 }
+# proc wait_state {wanted} {
+#  for {set i 0} {$i<25} {incr i} {
+#   set s [sample]
+#   if {$s&32} {error {FPGA fault latched}}
+#   if {($s&15)==$wanted} {return $s}
+#   after 20
+#  }
+#  error {State wait expired}
+# }
+# open_hw_manager
+# connect_hw_server -url $server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:192.0.2.2:3121

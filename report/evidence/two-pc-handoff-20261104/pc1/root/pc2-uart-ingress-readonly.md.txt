@@ -1,0 +1,28 @@
+# PC2: isolate OpenMV-to-STM32 ingress without changing hardware state
+
+Continue the current single-station observation test. Servo and laser power remain physically disconnected. The one authorized STM32 reset has already occurred. Do not reset again, halt the core, program Flash, reconnect under reset, open FPGA JTAG, send serial commands, or change wiring automatically.
+
+Known evidence: OpenMV RAM observation script ran at approximately 20:38:01 for 90 seconds and printed VALID and invalid observations, but capture still had zero F1. MCU nonce remained 6064b596842bf32b and state stopped/boot. Observation session 00065f5e650dccda was acknowledged by V2A with independently verified CRC. Printed coordinates do not prove electrical UART delivery.
+
+1. Create a timestamped evidence directory under D:\FPGA_Remote_JTAG\c1-recovery-20261103 and return RESULT_DIRECTORY immediately. Keep existing capture running; read its newest complete status and preserve UART/video logs around elapsed 2260..2440 seconds from capture-20261103-200006. Record current capture process and its configured end time. Do not create a second serial reader or UDP listener. If capture has already ended, preserve finished/error evidence before restarting the same reviewed passive capture with the actual CH340 port and Python full path.
+
+2. Locate the existing ST-Link read-only tooling and previous non-halting scripts in project evidence directories. Inspect its connection semantics before connecting. Use only an established attach-to-running method with no reset/halt or target register writes. If unavailable, report that blocker; do not substitute programmer defaults that reset or halt. No use of old AXF-derived RAM offsets: those were previously inconsistent.
+
+3. If non-halting reads are supported, read exactly 12,836 bytes at 0x08000000 into a new local binary and compute SHA-256. Historical expected application: 70a3ad2f0117cb9425d47db79eaad32e0c727ed9936665e2b2bef45599e44812. Do not hash a whole Flash dump against this application-only hash. Record actual target identity, tool/version, connection options, byte count and hash. A mismatch is evidence to investigate, not authorization to flash.
+
+4. Using isolated 32-bit reads, capture the following configuration registers before/after, with timestamps. Do not bulk-read a peripheral range. In particular do NOT read USART2 DR (0x40004404), SR, or clear any error flags. Addresses and expected fields come from the repository's board.c:
+   - USART2 BRR 0x40004408: expected 139 (0x8b).
+   - USART2 CR1 0x4000440c: expected UE/RXNEIE/RE set, value 0x2024 in this firmware.
+   - USART2 CR2 0x40004410 and CR3 0x40004414: record values.
+   - GPIOA MODER 0x40020000: PA3 bits 7:6 expected 2.
+   - GPIOA PUPDR 0x4002000c: PA3 bits 7:6 expected 1.
+   - GPIOA AFRL 0x40020020: PA3 bits 15:12 expected 7.
+   - RCC CFGR 0x40023808, APB1RSTR 0x40023820, AHB1ENR 0x40023830, APB1ENR 0x40023840: expect USART2 reset bit17 clear, clock bit17 enabled, GPIOA clock bit0 enabled; decode clocks against HSI16 source rather than assuming baud from BRR alone.
+   - NVIC ISER1 0xe000e104: USART2 IRQ38 bit6 enabled.
+   - VTOR 0xe000ed08: expected 0x08000000.
+   - TIM4 CCER 0x40000820: expected zero.
+   Never write a mismatching register to make it match. Static configuration does not prove reception or waveform quality.
+
+5. Report existing physical connection evidence, if available: OpenMV model/pin labels; UART3 TX P4 to STM32 PA3 USART2_RX, shared signal ground, no competing TX driver. Do not claim wiring verified from software configuration. If visual confirmation requires the operator, identify exactly the unverified connection without changing it.
+
+6. Do not rerun the OpenMV script merely to repeat the same evidence. Return Flash fingerprint, register JSON, current capture status, exact raw log paths and any tool limitation. Keep safety state stopped and preserve the current observation session. No ARM, PWM enable, motion or laser operation.

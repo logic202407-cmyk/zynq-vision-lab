@@ -1,0 +1,10 @@
+{
+  "verified": true,
+  "finished_at": "2026-11-03 19:23:20",
+  "local_sha256": "481c81a3d03e050c8d5dbe5d100b3afdae21431221e5fa4781d4765b4e5222f4",
+  "remote_path": "D:/FPGA_Remote_JTAG/c1-recovery-20261103/pc2-local-recovery-1818.zip",
+  "started_at": "2026-11-03 19:22:40",
+  "method": "box-CopyToBox-CopyFromBox",
+  "local_bytes": 694949,
+  "attempt": 21
+}

@@ -1,0 +1,74 @@
+{
+  "board.c": {
+    "bytes": 9950,
+    "sha256": "e23ecebe8210d327fc9748b1412ff97f93133e69afe22dd07dbc27ec043fc39b"
+  },
+  "board.h": {
+    "bytes": 1396,
+    "sha256": "3f84ca57b83589e031588af14202768ca40cbe5a8184c23afc351c65e6f32f6f"
+  },
+  "build.json": {
+    "bytes": 11018,
+    "sha256": "da99bbeff62f23d4c3be434f3e447bb4d895388f8a7d55454a251c5968552e66"
+  },
+  "F407VE-local-assets.pack": {
+    "bytes": 128150,
+    "sha256": "7471fdd94ab83e95e39587e5d8221b3020eacead0364a6df40756bdb174ac30f"
+  },
+  "firmware-tests.json": {
+    "bytes": 615,
+    "sha256": "1438826ed27bab626c08a3190963c73b557629ad882c2dd2a0d4d1fdc3e0df0d"
+  },
+  "firmware.map": {
+    "bytes": 19572,
+    "sha256": "e23518ce7eab92fa822991f40ae32b7126e4b1cf0c1af038f5a7d3439b4cab2b"
+  },
+  "laser_lock.c": {
+    "bytes": 648,
+    "sha256": "a4f2857dd64f0abfa3145ac1c692caf996d05605420e85bdf624ed756bf2fa97"
+  },
+  "laser_lock.h": {
+    "bytes": 397,
+    "sha256": "26d7e6fe9159ff222550abcdb9dada4f1d197c0903658634f6191c4a1a5da7dc"
+  },
+  "main.c": {
+    "bytes": 11958,
+    "sha256": "b908d5c160233fb9fc81443186e27bdd4f04ae4adaf147ff86f050df59f88962"
+  },
+  "pack-provenance.json": {
+    "bytes": 707,
+    "sha256": "61627757bb4d0c2641e0f0a7458105edf0435290735f9fddcb99343cc3e8fbae"
+  },
+  "PC2-EXECUTE.txt": {
+    "bytes": 2032,
+    "sha256": "313202859a23345cd300d3601bb395711f3ad4391e2b2c1cdf5008f1025fff65"
+  },
+  "program_team.py": {
+    "bytes": 5253,
+    "sha256": "c8889241afc39eb7474f64ecf57c1f847f084263886b4092a4b3e91fb94309c0"
+  },
+  "safety.c": {
+    "bytes": 5355,
+    "sha256": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69"
+  },
+  "safety.h": {
+    "bytes": 1142,
+    "sha256": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3"
+  },
+  "skystar_tracking.axf": {
+    "bytes": 32316,
+    "sha256": "d84328bac0a82ec094d90b015357fda19f51c26f91fe04316697f762a134de42"
+  },
+  "skystar_tracking.bin": {
+    "bytes": 12620,
+    "sha256": "b3bb649fc70cacf3ed42314f59cd4811d246fcbc050c3261bd42044973fd0895"
+  },
+  "tracking.c": {
+    "bytes": 7577,
+    "sha256": "44b10a8a5ef748af547524266a371540dd7b3fef34f4a5770854d2a7c6f0beb4"
+  },
+  "tracking_profile.h": {
+    "bytes": 857,
+    "sha256": "138ac57ec7372293643e69be187b6cb4d9e2a96f6a96f15e207d9d31163867e3"
+  }
+}

@@ -1,0 +1,31 @@
+import sys,json,hashlib,time,traceback
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+from pyocd.flash.file_programmer import FileProgrammer
+from elftools.elf.elffile import ELFFile
+out=Path('R:/evidence/c1-safe-deploy-20261101');b=Path('R:/evidence/c1-loop/arm/latest-usart3-s1ack1-c1-loop');data=(b/'skystar_tracking.bin').read_bytes();prior=Path('R:/evidence/c1-preflight-20261101/backup/flash-read1.bin').read_bytes()
+r={'target':'stm32f407vetx','candidate_sha256':hashlib.sha256(data).hexdigest(),'candidate_bytes':len(data),'flash_start':'0x08000000','erase':'sector only, preserve unwritten bytes','motor_laser_power':'user confirmed disconnected','motion_commands':False,'stage':'preflight'}
+try:
+ session=ConnectHelper.session_with_chosen_probe(blocking=False,return_first=False,target_override='stm32f407vetx',pack=str(out/'Keil.STM32F4xx_DFP.3.1.1.pack'),connect_mode='attach',frequency=1000000,project_dir=str(out),no_config=True,auto_unlock=False)
+ assert session is not None
+ with session:
+  t=session.target
+  first=bytes(t.read_memory_block8(0x08000000,512*1024));(out/'predeploy-full-flash.bin').write_bytes(first)
+  second=bytes(t.read_memory_block8(0x08000000,512*1024));assert first==second==(out/'after-failed-erase.bin').read_bytes(),'Unexpected Flash state; abort recovery'
+  r['original_backup_sha256']=hashlib.sha256(prior).hexdigest();t.reset_and_halt();r['stage']='recovery_programming';payload=data+prior[len(data):16384];(out/'candidate-first-sector.bin').write_bytes(payload)
+  FileProgrammer(session,chip_erase='sector',smart_flash=True,trust_crc=False,keep_unwritten=True).program(str(out/'candidate-first-sector.bin'),file_format='bin',base_address=0x08000000)
+  check=bytes(t.read_memory_block8(0x08000000,len(data)));assert check==data,'Readback mismatch';r['readback_sha256']=hashlib.sha256(check).hexdigest();r['readback_match']=True
+  with (b/'skystar_tracking.axf').open('rb') as f:
+   elf=ELFFile(f);sym=elf.get_section_by_name('.symtab');found={n:sym.get_symbol_by_name(n)[0]['st_value'] for n in ('guardian',) if sym.get_symbol_by_name(n)}
+  r['stage']='boot_check';t.reset();time.sleep(1);r['observations']=[]
+  for i in range(6):
+   obs={'sample':i,'tim4_ccer':t.read32(0x40000820),'systick_ctrl':t.read32(0xE000E010)}
+   if 'guardian' in found:
+    a=found['guardian'];obs['safety_state']=t.read32(a);obs['safety_reason']=t.read32(a+4)
+   r['observations'].append(obs);assert obs['tim4_ccer']&0x1111==0,'PWM unexpectedly enabled';assert obs.get('safety_state',0) in (0,4),'Unexpected armed state';time.sleep(.3)
+  r['stage']='complete';r['verdict']='PASS'
+except Exception:
+ r['verdict']='FAIL';r['error']=traceback.format_exc()
+finally:
+ (out/'deployment-recovery-result.json').write_text(json.dumps(r,indent=2));print(json.dumps(r,indent=2))

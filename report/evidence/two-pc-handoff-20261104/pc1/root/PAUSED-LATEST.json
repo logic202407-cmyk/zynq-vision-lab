@@ -1,0 +1,10 @@
+{
+  "status": "paused_by_user",
+  "date": "2026-11-04",
+  "handoff_zip": "D:/c1-recovery-20261103/pc2-result-inbox/20261104-001806-751f32a7.zip",
+  "sha256": "5371bddb70047a432728dac60143d823d06927e81b8ea3618ca332d6d1a94059",
+  "local_sha256_verified": true,
+  "zip_crc_verified": true,
+  "physical_closed_loop_verified": false,
+  "resume_scope": "Read handoff and current state first; no implicit ARM/AUTO or Flash authorization."
+}

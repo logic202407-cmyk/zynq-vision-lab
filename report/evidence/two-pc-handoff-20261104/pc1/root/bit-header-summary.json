@@ -1,0 +1,38 @@
+{
+  "a": "ov5640_udp_pc;COMPRESS=TRUE;UserID=0XFFFFFFFF;Version=2024.2",
+  "b": "7z100ffg900",
+  "c": "2026/11/03",
+  "d": "17:48:56",
+  "payload_bytes": 3931404,
+  "payload_length_matches": true,
+  "sync_offset": 48,
+  "cor_writes": [
+    {
+      "register": 9,
+      "values": [
+        "0x2003fe5"
+      ]
+    },
+    {
+      "register": 14,
+      "values": [
+        "0x0"
+      ]
+    }
+  ],
+  "last_commands": [
+    [
+      "0xa"
+    ],
+    [
+      "0x3"
+    ],
+    [
+      "0x5"
+    ],
+    [
+      "0xd"
+    ]
+  ],
+  "scope": "Header and packet structure only; not independent configuration CRC validation"
+}

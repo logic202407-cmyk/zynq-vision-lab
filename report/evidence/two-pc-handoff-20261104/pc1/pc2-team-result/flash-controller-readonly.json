@@ -1,0 +1,17 @@
+{
+  "time": "2026-11-03T22:45:23.275077+08:00",
+  "scope": "low-level SWD read-only; no reset/halt/resume/register write",
+  "probes": [
+    "9701430220005A504E413836"
+  ],
+  "registers": {
+    "DBGMCU_IDCODE": "0x101f6413",
+    "DHCSR": "0x00030003",
+    "FLASH_ACR": "0x00000000",
+    "FLASH_SR": "0x00000000",
+    "FLASH_CR": "0x00000002",
+    "TIM4_CCER": "0x00000000",
+    "GPIOE_ODR": "0x00000000"
+  },
+  "completed": true
+}

@@ -1,0 +1,16 @@
+{
+  "time": "2026-11-03T22:41:58.054485+08:00",
+  "probes": [
+    "9701430220005A504E413836"
+  ],
+  "chip_id": "0x101f6413",
+  "dhcsr_before": "0x00030003",
+  "halted": true,
+  "readback_bytes": 524288,
+  "readback_sha256": "043e238a765f7cfbc62596a50e53c8ffb6b188a99357b0ebede251725d67589f",
+  "backup_sha256": "36b8bfb185e06311d271e4b600dad5e5de68f1f70c8a8eba42e83df2636b3c8f",
+  "matches_backup": false,
+  "difference_bytes": 12655,
+  "dhcsr_after": "0x00030003",
+  "complete": true
+}

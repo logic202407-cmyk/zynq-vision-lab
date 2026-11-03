@@ -1,0 +1,10 @@
+{
+  "time": "2026-11-03T23:23:10.8538395+08:00",
+  "scope": "post-recovery handoff, no hardware JTAG operation",
+  "pc2_vivado": "Not found by executable search on C/D and PATH",
+  "pc2_hw_server": "D:\\Xlinx\\HWSRVR\\2024.2\\bin\\unwrapped\\win64.o\\hw_server.exe",
+  "control_tcl_note": "query and bind commit VIO output values and trigger protocol actions; they are not passive status reads",
+  "stm32_state": "Recovery result and new S1STAT SAFE stopped WHY boot; no ARM/AUTO",
+  "capture_directory": "D:\\FPGA_Remote_JTAG\\c1-recovery-20261103\\capture-20261103-231131",
+  "next_step": "Computer1 to perform previously planned query/bind using its Vivado, coordinating hardware target ownership; verify identifiers and CRC; no run/ARM/AUTO"
+}

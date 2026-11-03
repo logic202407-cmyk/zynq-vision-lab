@@ -1,0 +1,14 @@
+[
+  {
+    "name": "c1_observe.bit",
+    "bytes": 3931527,
+    "sha256": "DDEDDCB5EC4125F1D04C88E64F958DBF97E85ECBCBD68C86DCD8332363CEA9B9",
+    "verified": true
+  },
+  {
+    "name": "c1_observe.ltx",
+    "bytes": 50863,
+    "sha256": "CD049C1945BBA922603D5DC5BA1D475FACC0CB921C7AAC3E82E025E7050F48B6",
+    "verified": true
+  }
+]

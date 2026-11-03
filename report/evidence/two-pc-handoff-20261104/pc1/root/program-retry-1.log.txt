@@ -1,0 +1,50 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue Nov  3 17:52:09 2026
+# Process ID         : 16812
+# Current directory  : D:/c1-recovery-20261103
+# Command line       : vivado.exe -mode batch -source D:/c1-recovery-20261103/program.tcl -log D:/c1-recovery-20261103/program-retry-1.log -journal D:/c1-recovery-20261103/program-retry-1.jou
+# Log file           : D:/c1-recovery-20261103/program-retry-1.log
+# Journal file       : D:/c1-recovery-20261103/program-retry-1.jou
+# Running On         : LAPTOP-VHQF65C3
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 34141 MB
+# Swap memory        : 15569 MB
+# Total Virtual      : 49710 MB
+# Available Virtual  : 6692 MB
+#-----------------------------------------------------------
+source D:/c1-recovery-20261103/program.tcl
+# open_hw_manager
+# connect_hw_server -url 192.0.2.2:3121
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:192.0.2.2:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2024.2.0
+  ****** Build date   : Oct 31 2024-02:19:07
+    **** Build number : 2024.2.1730312347
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:07 ; elapsed = 00:01:10 . Memory (MB): peak = 373.023 ; gain = 4.027
+# set ts [get_hw_targets -quiet *210512180081*]
+# if {[llength $ts]!=1} {error {Expected exact JTAG-HS1}}
+Expected exact JTAG-HS1
+    while executing
+"error {Expected exact JTAG-HS1}"
+    invoked from within
+"if {[llength $ts]!=1} {error {Expected exact JTAG-HS1}}"
+    (file "D:/c1-recovery-20261103/program.tcl" line 4)
+INFO: [Common 17-206] Exiting Vivado at Tue Nov  3 17:53:26 2026...

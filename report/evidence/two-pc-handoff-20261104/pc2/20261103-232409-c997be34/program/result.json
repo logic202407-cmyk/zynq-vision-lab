@@ -1,0 +1,66 @@
+{
+  "phase": "complete",
+  "erase_calls": 0,
+  "programmed_pages": [
+    {
+      "address": "0x8000000",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8000400",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8000800",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8000c00",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8001000",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8001400",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8001800",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8001c00",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8002000",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8002400",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8002800",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8002c00",
+      "bytes": 1024
+    },
+    {
+      "address": "0x8003000",
+      "bytes": 1024
+    }
+  ],
+  "full_readback_equal": true,
+  "before_sha256": "043e238a765f7cfbc62596a50e53c8ffb6b188a99357b0ebede251725d67589f",
+  "expected_sha256": "6cfb4d337104ba7fd977c9826b228e4c19d3b66a52ce0b744af40594de0015dd",
+  "readback_sha256": "6cfb4d337104ba7fd977c9826b228e4c19d3b66a52ce0b744af40594de0015dd",
+  "boot_ccer": "0x0",
+  "boot_pe2_odr": "0x0",
+  "boot_dhcsr": "0x1010001",
+  "note": "Only previously blank sector 0 programmed; complete readback; F1/physical loop not yet accepted"
+}

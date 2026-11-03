@@ -1,0 +1,38 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Tue Nov  3 22:36:16 2026
+| Host         : LAPTOP-VHQF65C3 running 64-bit major release  (build 9200)
+| Command      : report_ip_status
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+IP Status Summary
+
+1. Project IP Status
+--------------------
+Your project uses 3 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
+
+More information on the Xilinx versioning policy is available at www.xilinx.com.
+
+Project IP Instances
++--------------------+------------+---------------------+-----------+--------------------+---------+----------------+------------+----------------------+
+| Instance Name      | Status     | Recommendation      | Change    | IP Name            | IP      | New Version    | New        | Original Part        |
+|                    |            |                     | Log       |                    | Version |                | License    |                      |
++--------------------+------------+---------------------+-----------+--------------------+---------+----------------+------------+----------------------+
+| async_fifo_2048x8b | Up-to-date | No changes required |  *(1)     | FIFO Generator     | 13.2    | 13.2 (Rev. 11) | Included   | xc7z100ffg900-2      |
+|                    |            |                     |           |                    | (Rev.   |                |            |                      |
+|                    |            |                     |           |                    | 11)     |                |            |                      |
++--------------------+------------+---------------------+-----------+--------------------+---------+----------------+------------+----------------------+
+| c1_observation_vio | Up-to-date | No changes required |  *(2)     | VIO (Virtual       | 3.0     | 3.0 (Rev. 26)  | Included   | xc7z100ffg900-2      |
+|                    |            |                     |           | Input/Output)      | (Rev.   |                |            |                      |
+|                    |            |                     |           |                    | 26)     |                |            |                      |
++--------------------+------------+---------------------+-----------+--------------------+---------+----------------+------------+----------------------+
+| clk_wiz_0          | Up-to-date | No changes required |  *(3)     | Clocking Wizard    | 6.0     | 6.0 (Rev. 15)  | Included   | xc7z100ffg900-2      |
+|                    |            |                     |           |                    | (Rev.   |                |            |                      |
+|                    |            |                     |           |                    | 15)     |                |            |                      |
++--------------------+------------+---------------------+-----------+--------------------+---------+----------------+------------+----------------------+
+*(1) f:/Vivado/2024.2/data/ip/xilinx/fifo_generator_v13_2/doc/fifo_generator_v13_2_changelog.txt
+*(2) f:/Vivado/2024.2/data/ip/xilinx/vio_v3_0/doc/vio_v3_0_changelog.txt
+*(3) f:/Vivado/2024.2/data/ip/xilinx/clk_wiz_v6_0/doc/clk_wiz_v6_0_changelog.txt
+
+

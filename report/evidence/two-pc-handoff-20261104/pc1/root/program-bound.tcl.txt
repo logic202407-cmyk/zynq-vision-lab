@@ -1,0 +1,28 @@
+open_hw_manager
+connect_hw_server -url 127.0.0.1:33121
+set ts [get_hw_targets -quiet *210512180081*]
+if {[llength $ts]!=1} {error {Expected exact JTAG-HS1}}
+current_hw_target [lindex $ts 0]
+set_property PARAM.FREQUENCY 1000000 [current_hw_target]
+open_hw_target
+set ds [get_hw_devices -quiet xc7z100*]
+if {[llength $ds]!=1} {error {Expected XC7Z100}}
+set d [lindex $ds 0]
+current_hw_device $d
+set_property PROGRAM.FILE D:/c1-recovery-20261103/checkpoint/c1_observe.bit $d
+set_property PROBES.FILE D:/c1-recovery-20261103/checkpoint/c1_observe.ltx $d
+program_hw_devices $d
+refresh_hw_device $d
+puts "DONE_INITIAL=[get_property REGISTER.CONFIG_STATUS.BIT14_DONE_PIN $d]"
+puts "EOS_INITIAL=[get_property {REGISTER.CONFIG_STATUS.BIT04_END_OF_STARTUP_(EOS)_STATUS} $d]"
+puts "VIO_CORES=[get_hw_vios -quiet]"
+foreach v [get_hw_vios -quiet] {foreach p [get_hw_probes -of_objects $v] {report_property $p}}
+after 30000
+refresh_hw_device -update_hw_probes false $d
+puts "DONE_AFTER30=[get_property REGISTER.CONFIG_STATUS.BIT14_DONE_PIN $d]"
+puts "EOS_AFTER30=[get_property {REGISTER.CONFIG_STATUS.BIT04_END_OF_STARTUP_(EOS)_STATUS} $d]"
+close_hw_target
+disconnect_hw_server
+close_hw_manager
+exit
+

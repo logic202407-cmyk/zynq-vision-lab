@@ -1,0 +1,22 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/c1-recovery-20261103/team-link-checks/uart_tx_8n1.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_tx_8n1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/c1-recovery-20261103/team-link-checks/uart_rx.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/c1-recovery-20261103/team-link-checks/zynq_motion_s1.v" into library work
+INFO: [VRFC 10-311] analyzing module zynq_motion_s1
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/c1-recovery-20261103/team-link-checks/vision_measurement_tx.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_measurement_tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/c1-recovery-20261103/team-link-checks/vision_snapshot_cdc.v" into library work
+INFO: [VRFC 10-311] analyzing module vision_snapshot_cdc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/c1-recovery-20261103/team-link-checks/uart_line_queue.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_line_queue
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/c1-recovery-20261103/team-link-checks/uart_line_scheduler.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_line_scheduler
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/c1-recovery-20261103/team-link-checks/measurement_nonce_observer.v" into library work
+INFO: [VRFC 10-311] analyzing module measurement_nonce_observer
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/c1-recovery-20261103/team-link-checks/measurement_session.v" into library work
+INFO: [VRFC 10-311] analyzing module measurement_session
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/c1-recovery-20261103/team-link-checks/zynq_vision_link.v" into library work
+INFO: [VRFC 10-311] analyzing module zynq_vision_link
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/c1-recovery-20261103/team-link-checks/motion_c_bridge_tb.v" into library work
+INFO: [VRFC 10-311] analyzing module motion_c_bridge_tb

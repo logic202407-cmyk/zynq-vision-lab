@@ -1,0 +1,43 @@
+from pathlib import Path
+import sys,json,base64,binascii,re
+sys.path.insert(0,'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+base=Path('D:/c1-recovery-20261103');m=json.loads((base/'current-query-bind.json').read_text());out=Path(m['directory'])
+mode=sys.argv[1];assert mode in ['query','bind']
+c=TCF('192.0.2.2',timeout=12)
+try:
+ size=c.normal('stat',m['remote_uart'])[0]['Size'];start=m['uart_offset_before_query']
+ assert 0<=size-start<4*1024*1024,'Unexpected log rotation/size'
+ h=c.normal('open',m['remote_uart'],1,{})[0];raw=bytearray()
+ while start+len(raw)<size:
+  r=c.call('read',h,start+len(raw),min(65536,size-start-len(raw)))
+  assert not r[1];b=base64.b64decode(r[0]);assert b;raw.extend(b)
+ c.normal('close',h)
+finally:c.close()
+(out/('uart-after-'+mode+'.jsonl')).write_bytes(raw)
+records=[]
+for row in raw.splitlines():
+ try:records.append(json.loads(row))
+ except (ValueError,UnicodeError):pass
+def checked(line):
+ body,crc=line.rsplit('*',1);assert re.fullmatch('[0-9a-fA-F]{4}',crc)
+ assert binascii.crc_hqx(body.encode('ascii'),0xffff)==int(crc,16),'CRC mismatch'
+ return body.split()
+sync=[r for r in records if r.get('line','').startswith('S1SYNC '+m['qid']+' ')]
+assert len(sync)==1,('Expected one current query response',sync)
+s=checked(sync[0]['line']);assert len(s)==11 and s[2]=='S1ACK1' and re.fullmatch('[0-9a-f]{16}',s[3]) and int(s[3],16)
+assert s[4]=='stopped' and s[5] in ['boot','stop'] and s[8:10]==['0','0']
+assert all(1300<=int(x)<=1700 for x in s[6:8])
+statuses=[r for r in records if r.get('line','').startswith('S1STAT ')]
+assert statuses,'No current state telemetry'
+latest=statuses[-1]['line'];assert ('NONCE '+s[3]+' ') in latest and 'SAFE stopped ' in latest
+result={'mode':mode,'qid':m['qid'],'sid':m['sid'],'nonce':s[3],'sync_line':sync[0]['line'],'sync_crc_verified':True,'latest_state':latest,'latest_uart_elapsed':statuses[-1]['elapsed'],'read_to_offset':size}
+if mode=='bind':
+ acks=[r for r in records if r.get('line','').startswith('V2A '+s[3]+' '+m['sid']+'*')]
+ assert acks,'No matching V2A'
+ for a in acks:assert checked(a['line'])==['V2A',s[3],m['sid']]
+ result['bind_line']=acks[-1]['line'];result['bind_crc_verified']=True
+ f1=[r for r in records if r.get('line','').startswith('F1 ')]
+ for f in f1:checked(f['line'])
+ result['f1_crc_valid_in_window']=len(f1)
+(out/('verified-'+mode+'.json')).write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))

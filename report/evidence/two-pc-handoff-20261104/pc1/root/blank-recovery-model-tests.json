@@ -1,0 +1,14 @@
+[
+  {
+    "case": "blank_program",
+    "phase": "complete",
+    "page_writes": 13,
+    "passed": true
+  },
+  {
+    "case": "changed_flash_rejected",
+    "phase": "failed",
+    "page_writes": 0,
+    "passed": true
+  }
+]

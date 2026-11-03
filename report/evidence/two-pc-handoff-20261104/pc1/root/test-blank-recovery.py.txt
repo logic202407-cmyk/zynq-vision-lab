@@ -1,0 +1,45 @@
+import runpy,sys,json,tempfile,types,hashlib
+from pathlib import Path
+from unittest.mock import patch
+from pyocd.core.helpers import ConnectHelper
+from pyocd.flash.flash import Flash
+base=Path('D:/c1-recovery-20261103');prior=(base/'preflight-2143/flash-backup-full.bin').read_bytes()
+class Model:
+ def __init__(self):
+  self.data=bytearray(b'\xff'*16384+prior[16384:]);self.writes=[];self.resets=0;self.running=False;self.mask=0
+  self.memory_map=types.SimpleNamespace(get_region_for_address=lambda a:types.SimpleNamespace(flash=self))
+ def open(self):pass
+ def close(self):pass
+ @property
+ def target(self):return self
+ def halt(self):self.running=False
+ def resume(self):self.running=True
+ def reset_and_halt(self,*args):self.resets+=1;self.running=False;self.mask=0
+ def write_core_register(self,n,v):assert n=='primask';self.mask=v
+ def read_core_register(self,n):assert n=='primask';return self.mask
+ def read32(self,a):return {0xe0042000:0x101f6413,0x40023c0c:0,0x40000820:0,0x40021014:0,0xe000edf0:0 if self.running else 1<<17}[a]
+ def read16(self,a):assert a==0x1fff7a22;return 512
+ def read_memory_block8(self,a,n):return self.data[a-0x08000000:a-0x08000000+n]
+ def get_sector_info(self,a):return types.SimpleNamespace(base_addr=0x08000000,size=16384)
+ def get_page_info(self,a):return types.SimpleNamespace(base_addr=a,size=1024)
+ def init(self,op):assert op==Flash.Operation.PROGRAM and self.mask==1 and self.resets==1
+ def program_page(self,a,data):
+  assert 0x08000000<=a and a+len(data)<=0x08004000
+  off=a-0x08000000;assert self.data[off:off+len(data)]==b'\xff'*len(data)
+  self.data[off:off+len(data)]=data;self.writes.append(a)
+ def cleanup(self):pass
+results=[]
+for case in ['blank_program','changed_flash_rejected']:
+ model=Model()
+ if case=='changed_flash_rejected':model.data[20000]^=1
+ out=Path(tempfile.mkdtemp(prefix='team-recovery-model-'))/'result'
+ argv=['recover','--package',str(base/'team-deploy'),'--backup',str(base/'preflight-2143/flash-backup-full.bin'),'--output',str(out),'--recover-authorized']
+ with patch.object(sys,'argv',argv),patch.object(ConnectHelper,'get_all_connected_probes',return_value=[types.SimpleNamespace(unique_id='9701430220005A504E413836')]),patch.object(ConnectHelper,'session_with_chosen_probe',return_value=model),patch('time.sleep'):
+  try:runpy.run_path(str(base/'transfer-public/recover-team-blank.py'),run_name='__main__')
+  except RuntimeError:
+   assert case=='changed_flash_rejected' and not model.writes
+  else:
+   assert case=='blank_program' and model.resets==2 and len(model.writes)==13
+   b=(base/'team-deploy/skystar_tracking.bin').read_bytes();assert model.data==b+b'\xff'*(16384-len(b))+prior[16384:]
+ r=json.loads((out/'result.json').read_text());results.append({'case':case,'phase':r['phase'],'page_writes':len(model.writes),'passed':True})
+(base/'blank-recovery-model-tests.json').write_text(json.dumps(results,indent=2));print(json.dumps(results,indent=2))

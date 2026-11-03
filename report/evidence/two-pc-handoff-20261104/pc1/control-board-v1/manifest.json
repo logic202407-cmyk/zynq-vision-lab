@@ -1,0 +1,29 @@
+{
+  "usr_access": "c103f401",
+  "vio_uuid": "026FEEEA049D50A0ADB93761986F1093",
+  "files": {
+    "c1_control.bit": {
+      "bytes": 3864107,
+      "sha256": "6858f7debd82092585075f24d7264eddaebc02d68f6a1ae808ca26e29af4bfdd"
+    },
+    "c1_control.ltx": {
+      "bytes": 50863,
+      "sha256": "cd049c1945bba922603d5dc5ba1d475facc0cb921c7aac3e82e025e7050f48b6"
+    },
+    "control.tcl": {
+      "bytes": 5372,
+      "sha256": "c81b11c9dd56899fc1e9cdc0405afe4a0c9f63bc83c2c010ef250b42a4db8a84"
+    },
+    "core-uuid.txt": {
+      "bytes": 32,
+      "sha256": "fd831532ae190c49fb96f3d9e80709b2d58fcf0491ca79af1cc8c1854d2311db"
+    }
+  },
+  "qid": "bf39534dd1de407c93c577aa9ccb023e",
+  "session": "00065f6057c85734",
+  "wns_ns": 3.275,
+  "whs_ns": 0.067,
+  "drc_errors": 0,
+  "cdc_critical": 2,
+  "cdc_scope": "same two vendor CDC-10 paths as observation image; not board signoff"
+}

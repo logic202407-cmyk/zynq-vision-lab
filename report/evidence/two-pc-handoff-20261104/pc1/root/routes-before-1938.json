@@ -1,0 +1,23 @@
+[
+  {
+    "DestinationPrefix": "26.255.255.255/32",
+    "InterfaceIndex": 25,
+    "InterfaceAlias": "Radmin VPN",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256
+  },
+  {
+    "DestinationPrefix": "192.0.2.1/32",
+    "InterfaceIndex": 25,
+    "InterfaceAlias": "Radmin VPN",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256
+  },
+  {
+    "DestinationPrefix": "26.0.0.0/8",
+    "InterfaceIndex": 25,
+    "InterfaceAlias": "Radmin VPN",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256
+  }
+]

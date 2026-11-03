@@ -1,0 +1,50 @@
+{
+  "scope": "UART passive read, UDP camera start/stop only; no SWD/ARM/motion commands",
+  "ports": [
+    {
+      "device": "COM10",
+      "vid": 14277,
+      "pid": 4682
+    },
+    {
+      "device": "COM13",
+      "vid": 6790,
+      "pid": 29987
+    }
+  ],
+  "port": "COM13",
+  "errors": [],
+  "elapsed_seconds": 3105.05,
+  "complete_frames": 79186,
+  "incomplete_frames": 3,
+  "malformed_datagrams": 2,
+  "uart_counts": {
+    "S1STAT": 17632
+  },
+  "f1_crc_good": 0,
+  "protected_crc_bad": 0,
+  "primary_sequence_seen_before_f1": 0,
+  "recent_uart": [
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY stop NONCE f957bcbf6f9dbab9 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1"
+  ],
+  "last_video_age_seconds": 0.03
+}

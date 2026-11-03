@@ -1,0 +1,41 @@
+import hashlib,json,subprocess,zipfile
+from pathlib import Path
+root=Path('D:/嵌赛FPGA赛道AMD选题/local-work/c1-advance-20261103')
+out=Path('D:/c1-recovery-20261103/c1-feedback-source-20261103.zip')
+base=root/'src/prototype/skystar_openmv'
+fw=base/'stm32_skystar_tracking'
+paths=[fw/'build.py',fw/'startup.s',fw/'firmware.sct']
+paths+=sorted((fw/'User').glob('*.[ch]'))
+paths += [base/'stm32_project/User/pid.c',base/'stm32_project/User/pid.h']
+files={str(p.relative_to(base)).replace('\\','/'):p.read_bytes() for p in paths}
+manifest={
+ 'scope':'Offline source build only. No device access or programming authorization.',
+ 'repository_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),
+ 'required_options':{'console_usart':3,'s1ack1':True,'c1_observations':True,'c1_closed_loop':True},
+ 'sha256':{n:hashlib.sha256(b).hexdigest() for n,b in files.items()},
+ 'limitations':['Not a reproduction claim for historical 70a3ad2f binary',
+               'Candidate retains guarded firmware capabilities; not a hardware acceptance',
+               'No PE2 laser-test code is included']}
+instructions='''OFFLINE BUILD ONLY
+1. Extract into a NEW directory. Verify every source against manifest.json.
+2. Use an existing legitimate ARM Compiler 5 toolchain; record armcc --vsn.
+   Set ARMCC_BIN to its bin directory for this process only.
+3. With the actual Python full path, run:
+   stm32_skystar_tracking/build.py --console-usart 3 --s1ack1 --c1-observations --c1-closed-loop --output-root ./build-output
+4. Stop on compilation errors/warnings or unavailable compiler/license.
+   Do not patch licensing, switch compiler, or silently change source.
+5. Return build.json, BIN, AXF, firmware.map, all compiler logs, command exit
+   code, and hashes. Check BIN for the F1 format string and verify the build
+   records all four required options. No flashing/reset/halt or hardware commands.
+6. The result is a review candidate only. Keep the existing capture running.
+'''
+with zipfile.ZipFile(out,'x',zipfile.ZIP_DEFLATED) as z:
+ for n,b in files.items():z.writestr(n,b)
+ z.writestr('manifest.json',json.dumps(manifest,indent=2))
+ z.writestr('BUILD-ONLY.txt',instructions)
+with zipfile.ZipFile(out) as z:
+ assert z.testzip() is None
+ for n,h in manifest['sha256'].items():assert hashlib.sha256(z.read(n)).hexdigest()==h
+receipt={'path':str(out),'bytes':out.stat().st_size,'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'source_files':len(files),'manifest':manifest}
+out.with_suffix('.receipt.json').write_text(json.dumps(receipt,indent=2))
+print(json.dumps({k:v for k,v in receipt.items() if k!='manifest'}))

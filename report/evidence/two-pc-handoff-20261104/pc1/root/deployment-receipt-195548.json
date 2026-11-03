@@ -1,0 +1,12 @@
+{
+  "scope": "PC2 local XSDB volatile configuration; no video/F1/LTX/VIO acceptance",
+  "bit_sha256": "ddeddcb5ec4125f1d04c88e64f958dbf97e85ecbcbd68c86dcd8332363cea9b9",
+  "program_error": 0,
+  "immediate_config_status": 1175486460,
+  "after30_config_status": 1175486460,
+  "done": 1,
+  "eos": 1,
+  "source_log": "D:\\c1-recovery-20261103\\pc2-program-success.log",
+  "source_log_sha256": "e2cbe382a8b58260da1943e90b1488c68912c369086c78861875e510878ac0bc",
+  "remote_source": "D:/FPGA_Remote_JTAG/c1-recovery-20261103/jtag-stability-20261103-195102-545/program.stdout.log"
+}

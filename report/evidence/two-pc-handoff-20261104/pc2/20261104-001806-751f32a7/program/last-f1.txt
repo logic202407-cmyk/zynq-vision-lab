@@ -1,0 +1,12 @@
+{"elapsed": 19.469, "line": "F1 00065f6106a11698 000042ef 0002013c 002a 0010 1*d62e", "crc_good": true}
+{"elapsed": 19.516, "line": "F1 00065f6106a11698 000042f2 0002013c 002b 0010 1*7e1b", "crc_good": true}
+{"elapsed": 19.594, "line": "F1 00065f6106a11698 000042f5 0002013f 002a 0010 1*e789", "crc_good": true}
+{"elapsed": 19.656, "line": "F1 00065f6106a11698 000042f8 0002013f 002b 0011 1*8cf6", "crc_good": true}
+{"elapsed": 19.734, "line": "F1 00065f6106a11698 000042fb 00020142 002c 0011 1*1fe5", "crc_good": true}
+{"elapsed": 19.781, "line": "F1 00065f6106a11698 000042fe 00020142 002c 0011 1*0ecc", "crc_good": true}
+{"elapsed": 19.844, "line": "F1 00065f6106a11698 00004301 00020145 002c 0010 1*b41f", "crc_good": true}
+{"elapsed": 19.906, "line": "F1 00065f6106a11698 00004304 00020145 002b 0010 1*3955", "crc_good": true}
+{"elapsed": 19.984, "line": "F1 00065f6106a11698 00004307 00020148 002b 0010 1*c4a9", "crc_good": true}
+{"elapsed": 20.047, "line": "F1 00065f6106a11698 0000430a 0002014b 002b 0010 1*1dbc", "crc_good": true}
+{"elapsed": 20.109, "line": "F1 00065f6106a11698 0000430d 0002014b 002b 0010 1*d725", "crc_good": true}
+{"elapsed": 20.125, "line": "F1 00065f6106a11698 0000430f 0002014b 0000 0000 0*e8a5", "crc_good": true}

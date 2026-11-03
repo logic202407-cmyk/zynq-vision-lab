@@ -1,0 +1,13 @@
+# Offline comparison of erase timeout
+
+Time: 2026-11-03, after 22:45 local. Offline inspection only; no target operations in this analysis.
+
+- Current deployment: pyOCD 0.46.1, target stm32f407ve, local F407VE pack with assets identified as DFP 2.17.1, halt connection, 1 MHz, sector erase, smart_flash=False, keep_unwritten=False.
+- Recorded failure: FlashEraseFailure at erase_sector. Full 512 KiB readback SHA256 043e238a765f7cfbc62596a50e53c8ffb6b188a99357b0ebede251725d67589f. Sector 0 is 16384 bytes of FF; every byte after it matches backup.
+- Read-only post-failure registers: DHCSR 0x00030003 (halted), FLASH_SR 0x00000000, FLASH_CR 0x00000002, TIM4_CCER 0x00000000, GPIOE_ODR 0x00000000. This is a point-in-time observation, not a physical safety certification.
+- Backup before deployment: program-result/backup-full.bin, SHA256 36b8bfb185e06311d271e4b600dad5e5de68f1f70c8a8eba42e83df2636b3c8f.
+- The historical c1-safe-deploy after-failure record has exactly the same 512 KiB SHA256 as the current failed image. Historical recovery used DFP 3.1.1, target stm32f407vetx, reset_and_halt, smart_flash=True, keep_unwritten=True. Its receipt reports success with an older, different candidate. The matching image does not identify the cause, prove this recovery procedure safe now, or authorize further writes.
+- Local pyOCD flash.py defines sector erase as an algorithm call whose completion check waits for target halt/breakpoint and returns TIMEOUT_ERROR when that wait times out. options.py defaults flash.timeout.erase_sector to 10 seconds; this deployment did not explicitly override that option. A timeout does not by itself establish why the algorithm failed to return. FF readback and FLASH_SR=0 do not establish a successful algorithm return.
+- Do not reset, resume, erase, or write solely based on this comparison. Coordinate any recovery decision with the user and computer1. Keep board powered and servo/laser power physically disconnected.
+
+Sources: program-result/result.json, program-result/backend.log, failure-check.json, failure-region-comparison.json, flash-controller-readonly.json; D:\zynq_handoff_20261102\repo\report\evidence\c1-safe-deploy\after-failure.json, deploy_recovery.py.txt, deployment-recovery-result.json; local pyocd flash/flash.py and core/options.py.

@@ -1,0 +1,27 @@
+import socket,threading,time
+def relay(src,dst):
+    try:
+        while True:
+            data=src.recv(65536)
+            if not data:break
+            dst.sendall(data)
+    except OSError:pass
+    finally:
+        try:dst.shutdown(socket.SHUT_WR)
+        except OSError:pass
+def handle(client):
+    try:
+        remote=socket.create_connection(('192.0.2.2',3121),10,source_address=('192.0.2.1',0))
+        remote.settimeout(None)
+        worker=threading.Thread(target=relay,args=(client,remote),daemon=True);worker.start()
+        relay(remote,client);worker.join(2);remote.close()
+    except OSError as exc:print(type(exc).__name__,str(exc),flush=True)
+    finally:client.close()
+listener=socket.socket();listener.bind(('127.0.0.1',33121));listener.listen(8);listener.settimeout(2)
+print('READY 127.0.0.1:33121 -> Radmin-bound 192.0.2.2:3121',flush=True)
+deadline=time.monotonic()+1800
+while time.monotonic()<deadline:
+    try:client,_=listener.accept()
+    except socket.timeout:continue
+    threading.Thread(target=handle,args=(client,),daemon=True).start()
+listener.close()

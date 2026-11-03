@@ -1,0 +1,1 @@
+"motion_c_bridge_tb" -debug "all" -dll -s "coupled" 

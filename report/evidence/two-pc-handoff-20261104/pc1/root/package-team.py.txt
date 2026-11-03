@@ -1,0 +1,39 @@
+from pathlib import Path
+import hashlib,json,shutil,zipfile
+base=Path('D:/c1-recovery-20261103');out=base/'team-deploy';out.mkdir(exist_ok=True)
+dfp=Path('E:/Keil_Packs/Keil/STM32F4xx_DFP/2.17.1')
+names=['Keil.STM32F4xx_DFP.pdsc','CMSIS/Flash/STM32F4xx_512.FLM','CMSIS/Flash/STM32F40xxx_41xxx_OPT.FLM','CMSIS/Flash/STM32F4xx_OTP.FLM','CMSIS/SVD/STM32F407.svd']
+pack=out/'F407VE-local-assets.pack'
+with zipfile.ZipFile(pack,'w',zipfile.ZIP_DEFLATED) as z:
+ for n in names:z.write(dfp/n,n)
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+(out/'pack-provenance.json').write_text(json.dumps({'source':str(dfp),'scope':'Local official unmodified PDSC and F407VE flash/SVD assets only; not a complete DFP','files':{n:sha(dfp/n) for n in names}},indent=2))
+build=base/'skystar-team-build'
+for n in ['skystar_tracking.bin','skystar_tracking.axf','firmware.map','build.json']:shutil.copyfile(build/n,out/n)
+for n in ['main.c','board.c','board.h','tracking.c','tracking_profile.h','laser_lock.c','laser_lock.h','safety.c','safety.h']:
+ shutil.copyfile(build/n,out/n)
+shutil.copyfile(base/'team-host-checks/result.json',out/'firmware-tests.json')
+s=(base/'f407-backend/program_c1.py').read_text()
+s=s.replace('75057d5d8dd4b640e4b6ba15c607b6233d0f3fda971bffba72c164da15c5734e',sha(out/'skystar_tracking.bin'))
+s=s.replace('413b27f9d3e784140d33cae97be89e5df9fcf0da2e61dca3ebd7e37da834a08c',sha(pack))
+s=s.replace('Keil.STM32F4xx_DFP.2.17.1.flash-assets.pack',pack.name).replace('len(binary)==12396','len(binary)==12620')
+s=s.replace("result['boot_dhcsr']=", "result['boot_pe2_odr']=hex(t.read32(0x40021014))\n require(not(int(result['boot_pe2_odr'],16)&4),'PE2 unexpectedly high')\n result['boot_dhcsr']=")
+(out/'program_team.py').write_text(s)
+prompt='''电脑2 Codex：执行本目录已校验的天空星 F407 单云台移植候选下载。用户已经授权本次新固件下载；不是此前取消的 PE2 点亮测试包。
+1. 保持现有 hw_server，不打开 FPGA JTAG。先核对 manifest.json 全部文件；BIN 必须为 12620 字节，SHA256 b3bb649fc70cacf3ed42314f59cd4811d246fcbc050c3261bd42044973fd0895。若不符停止。
+2. 下载期间沿用舵机和激光供电物理断开的条件；不要自动通电或发送 ARM/AUTO。核对现场若条件已经改变则先报告，其他文件检查继续。
+3. 先检查 capture-v2.py 现有采集是否运行；若已结束保存 finished.json，确认串口和 UDP 1234 已释放，按实际 CH340 COM 号和同一参数启动被动采集，返回新 RESULT_DIRECTORY。不要重复占用串口。
+4. 使用 C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\python.exe；此前已用 pyOCD 0.46.1 完成只读连接。先 --version 确认可用。离线列出本包 F407VE 目标，随后运行：
+python完整路径 program_team.py --program-authorized --output 新建的绝对结果目录
+5. 脚本限定 ST-Link 9701430220005A504E413836、芯片 ID 0x101f6413、512KiB Flash。完整备份并比对历史 SHA，重复前64KiB，只擦写首16KiB并完整512KiB回读，余下扇区必须逐字节保留。禁止 mass erase、解锁、改 option bytes、手工绕过检查。若官方 pack 拒绝目标，保存报错和具体识别信息，不反复刷写。
+6. 成功后脚本复位启动，验证 TIM4 CCER=0、PE2 ODR bit2=0、核心运行。返回 result.json、boot banner、最新 S1STAT、新采集目录。此时仍不 ARM/AUTO；电脑1正在制作控制位流并负责后续绑定与短时闭环。
+说明：包内固件包含激光联动，显式 ARM/AUTO 且有效 OpenMV 帧时可能点亮 PE2。STOP/丢靶/串口错误/租约超时关闭输出。离线检查不等于实测动作。不要执行旧未知固件的 laser1 pulse 命令。不要操作 OpenMV IDE，直到交接明确要求。
+'''
+(out/'PC2-EXECUTE.txt').write_text(prompt,encoding='utf-8')
+manifest={p.name:{'bytes':p.stat().st_size,'sha256':sha(p)} for p in out.iterdir() if p.is_file() and p.name!='manifest.json'}
+(out/'manifest.json').write_text(json.dumps(manifest,indent=2))
+zip_path=base/'skystar-team-deploy-v1.zip'
+with zipfile.ZipFile(zip_path,'w',zipfile.ZIP_DEFLATED) as z:
+ for p in out.iterdir():
+  if p.is_file():z.write(p,'team-deploy/'+p.name)
+print(json.dumps({'zip':str(zip_path),'bytes':zip_path.stat().st_size,'sha256':sha(zip_path),'pack_bytes':pack.stat().st_size,'pack_sha256':sha(pack)},indent=2))

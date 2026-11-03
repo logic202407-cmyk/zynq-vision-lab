@@ -1,0 +1,42 @@
+{
+  "path": "D:\\c1-recovery-20261103\\c1-feedback-source-20261103.zip",
+  "bytes": 27532,
+  "sha256": "1313a3490baf41b8e03eb4aaeb37f523baa483c2229994e39534b1cc260b1c0e",
+  "source_files": 19,
+  "manifest": {
+    "scope": "Offline source build only. No device access or programming authorization.",
+    "repository_commit": "b8a9961b1fbbd01899260720c7cd6b7259e853dd",
+    "required_options": {
+      "console_usart": 3,
+      "s1ack1": true,
+      "c1_observations": true,
+      "c1_closed_loop": true
+    },
+    "sha256": {
+      "stm32_skystar_tracking/build.py": "0628ca1e72a8d60b864e07f137675231cccf12df8d887f27b3bf479d6e760021",
+      "stm32_skystar_tracking/startup.s": "3a3d38a7cc71538d12242d3aa13d77056ea31b7222d1370004fdbbd33b182ae0",
+      "stm32_skystar_tracking/firmware.sct": "78a656f401eccf0cc8ee0d734b0a85759359c977a2e47942ddf9c2c4420ed134",
+      "stm32_skystar_tracking/User/board.c": "625f1d60c7203216ddcf9b3aedf79253b04a84dfcee446ed8c9e8cfd10f632fc",
+      "stm32_skystar_tracking/User/board.h": "d8a80fb0a8c0b1647f73b56b634df6458196d7910f56777a8b1e207cf6e11bab",
+      "stm32_skystar_tracking/User/c1_feedback.h": "e6303c1259f69ee6f9937d1fd52a676b97d5ebb8af08d406ecb98c7da00886e2",
+      "stm32_skystar_tracking/User/c1_quality.h": "edbf6fc9625de7ece354ffdccd27e4f16b46c4e5b40705d27e4112bb8fb1a44e",
+      "stm32_skystar_tracking/User/gimbal_registry.c": "c52c3eed7e5e708dd746ff5110c22548eb8a6d4ff336e2a9ca6725974d23bf56",
+      "stm32_skystar_tracking/User/gimbal_registry.h": "61a9956a6fbdf872bbd217cdf216640276634dfccd9bb36c02423f202fd83241",
+      "stm32_skystar_tracking/User/main.c": "6240628e45637c98497810da7d92b9b32dc50f425a16cf57fe9cae86ddd15b56",
+      "stm32_skystar_tracking/User/s1ack.h": "a70d636465c9d0858ad444516cf1ab79a247c36467e38f95f5b3605cf4cb5101",
+      "stm32_skystar_tracking/User/safety.c": "6bc21e12274c0ce26a4a1955abf758dda2180a1adf7068d35926ff200b88ca69",
+      "stm32_skystar_tracking/User/safety.h": "1ee72558f4de281032d4f3d599d8bd3686993dfdab6a415d31a9a40b2f7e8fe3",
+      "stm32_skystar_tracking/User/tracking.c": "4e5aa8fe89f9038c6e074e9eb50f7a4a860d3c0d93502ff2e276f3e214d10429",
+      "stm32_skystar_tracking/User/tracking.h": "e025777f6364c6f8ad9f076717c33800ed77d569389ea5cd8c583f2b9c6f9819",
+      "stm32_skystar_tracking/User/vision_measurement.c": "50007c160f645a27175e04a044a829cac5ccf1d135fccb0bc45f6f909eab5252",
+      "stm32_skystar_tracking/User/vision_measurement.h": "cb9f9b813feff12fd5420b7c4a59fa2aa50f3a5b1764af2f3fea2e3ba4c3891a",
+      "stm32_project/User/pid.c": "a8c2aaf9a13ee6da79e239c6326cb73dc609d4fc020044226de571ffd4b6109b",
+      "stm32_project/User/pid.h": "9165579899b287df4be202e21700378945bee0a700ce787606d12f062c03521c"
+    },
+    "limitations": [
+      "Not a reproduction claim for historical 70a3ad2f binary",
+      "Candidate retains guarded firmware capabilities; not a hardware acceptance",
+      "No PE2 laser-test code is included"
+    ]
+  }
+}

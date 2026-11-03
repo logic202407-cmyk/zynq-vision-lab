@@ -1,0 +1,26 @@
+open_hw_manager
+connect_hw_server -url 192.0.2.2:3121
+set ts [get_hw_targets -quiet *210512180081*]
+if {[llength $ts]!=1} {error "Expected exact HS1"}
+current_hw_target [lindex $ts 0]
+set_property PARAM.FREQUENCY 1000000 [current_hw_target]
+open_hw_target
+set ds [get_hw_devices -quiet xc7z100*]
+if {[llength $ds]!=1} {error "Expected XC7Z100"}
+set d [lindex $ds 0]
+current_hw_device $d
+set_property PROBES.FILE D:/c1-recovery-20261103/checkpoint/c1_observe.ltx $d
+refresh_hw_device $d
+puts "DONE=[get_property REGISTER.CONFIG_STATUS.BIT14_DONE_PIN $d]"
+puts "EOS=[get_property {REGISTER.CONFIG_STATUS.BIT04_END_OF_STARTUP_(EOS)_STATUS} $d]"
+set vs [get_hw_vios -quiet -of_objects $d]
+puts "VIO_COUNT=[llength $vs]"
+foreach v $vs {
+ report_property $v
+ refresh_hw_vio $v
+ foreach p [get_hw_probes -of_objects $v] {report_property $p}
+}
+close_hw_target
+disconnect_hw_server
+close_hw_manager
+exit

@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "cases": [
+    "query_and_observation_bind",
+    "FPGA_serializes_AUTO_and_accepts_correlated_real_C_ACK",
+    "AUTO_heartbeat_accepts_changing_in_range_targets_and_PWM_snapshot",
+    "vision_loss_faults_and_FPGA_confirms_STOP"
+  ],
+  "simulated_us": 685912,
+  "scope": "XSim plus actual C register model only"
+}

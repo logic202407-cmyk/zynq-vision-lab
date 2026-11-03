@@ -1,0 +1,54 @@
+{
+  "scope": "UART passive read, UDP camera start/stop only; no SWD/ARM/motion commands",
+  "ports": [
+    {
+      "device": "COM10",
+      "vid": 14277,
+      "pid": 4682
+    },
+    {
+      "device": "COM13",
+      "vid": 6790,
+      "pid": 29987
+    }
+  ],
+  "port": "COM13",
+  "errors": [],
+  "elapsed_seconds": 2390.01,
+  "complete_frames": 62814,
+  "incomplete_frames": 1,
+  "malformed_datagrams": 1,
+  "uart_counts": {
+    "S1STAT": 23866,
+    "S1SYNC": 2,
+    "S1ACK": 1,
+    "SKYSTAR": 2,
+    "V2A": 1
+  },
+  "f1_crc_good": 0,
+  "protected_crc_bad": 0,
+  "primary_sequence_seen_before_f1": 0,
+  "recent_uart": [
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1",
+    "S1STAT SAFE stopped WHY boot NONCE 6064b596842bf32b SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1"
+  ],
+  "last_video_age_seconds": 0.03
+}

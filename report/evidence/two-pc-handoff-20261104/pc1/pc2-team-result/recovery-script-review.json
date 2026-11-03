@@ -1,0 +1,28 @@
+{
+  "review_time": "2026-11-03T22:59:44.0455684+08:00",
+  "source": "http://192.0.2.1:18765/recover-team-blank.py",
+  "local_file": "D:\\FPGA_Remote_JTAG\\c1-recovery-20261103\\team-deploy-20261103-223846-650\\pc1-recover-team-blank-review.py",
+  "sha256": "df415e5dab5afb4b995d5aec9d700fed06e43680cb1cd13921ef7d6e053f931f",
+  "syntax": "ast.parse passed; script not executed",
+  "checks": [
+    "exact probe and MCU identity",
+    "candidate, pack, original backup and blank-state hashes",
+    "blank first sector and remaining flash equality",
+    "individual program pages confined to first sector",
+    "per-page readback and full 512KiB expected comparison",
+    "boot CCER, PE2 ODR and DHCSR"
+  ],
+  "effects": [
+    "halt and software reset of STM32",
+    "write PRIMASK and RAM-resident flash algorithm",
+    "program nonblank pages of previously erased sector",
+    "reset/resume after successful verification"
+  ],
+  "risks": [
+    "new attempt can fail or leave partial first-sector contents",
+    "no independent expected hash for recovery script has been supplied",
+    "page programming uses pyOCD algorithm completion mechanism; previous timeout root cause not established",
+    "recovery file from server is not independent user authorization"
+  ],
+  "executed": false
+}

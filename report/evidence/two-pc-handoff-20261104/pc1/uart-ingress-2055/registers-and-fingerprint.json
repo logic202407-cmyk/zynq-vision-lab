@@ -1,0 +1,61 @@
+{
+  "tool": "pyocd 0.46.1",
+  "method": "low-level STLink.open; set_swd_frequency 1 MHz; enter_debug SWD; read_mem32; close; no halt/reset or target writes",
+  "expected_app_sha256": "70a3ad2f0117cb9425d47db79eaad32e0c727ed9936665e2b2bef45599e44812",
+  "started_at": "2026-11-03T20:55:05.528845+08:00",
+  "snapshots": {
+    "before": {
+      "time": "2026-11-03T20:55:05.802711+08:00",
+      "registers": {
+        "USART2_BRR": "0x0000008b",
+        "USART2_CR1": "0x00002024",
+        "USART2_CR2": "0x00000000",
+        "USART2_CR3": "0x00000000",
+        "GPIOA_MODER": "0xa8000080",
+        "GPIOA_PUPDR": "0x64000042",
+        "GPIOA_AFRL": "0x00007000",
+        "RCC_CFGR": "0x00000000",
+        "RCC_APB1RSTR": "0x00000000",
+        "RCC_AHB1ENR": "0x0010001d",
+        "RCC_APB1ENR": "0x00060004",
+        "NVIC_ISER1": "0x000000c0",
+        "VTOR": "0x08000000",
+        "TIM4_CCER": "0x00000000"
+      }
+    },
+    "after": {
+      "time": "2026-11-03T20:55:06.037365+08:00",
+      "registers": {
+        "USART2_BRR": "0x0000008b",
+        "USART2_CR1": "0x00002024",
+        "USART2_CR2": "0x00000000",
+        "USART2_CR3": "0x00000000",
+        "GPIOA_MODER": "0xa8000080",
+        "GPIOA_PUPDR": "0x64000042",
+        "GPIOA_AFRL": "0x00007000",
+        "RCC_CFGR": "0x00000000",
+        "RCC_APB1RSTR": "0x00000000",
+        "RCC_AHB1ENR": "0x0010001d",
+        "RCC_APB1ENR": "0x00060004",
+        "NVIC_ISER1": "0x000000c0",
+        "VTOR": "0x08000000",
+        "TIM4_CCER": "0x00000000"
+      }
+    }
+  },
+  "probe_count": 1,
+  "identity": {
+    "cpuid": "0x410fc241",
+    "dbgmcuidcode": "0x101f6413",
+    "dhcsr_before": "0x1010000",
+    "dhcsr_after": "0x1010000"
+  },
+  "flash": {
+    "address": "0x08000000",
+    "bytes": 12836,
+    "sha256": "eed5a29dc54b58d176c9b21a83e033d5637089bd68c5f782cc70b983425846fa",
+    "matches_expected": false
+  },
+  "completed": true,
+  "finished_at": "2026-11-03T20:55:06.058909+08:00"
+}

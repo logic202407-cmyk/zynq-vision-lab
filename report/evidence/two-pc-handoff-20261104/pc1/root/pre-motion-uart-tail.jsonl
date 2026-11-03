@@ -1,0 +1,247 @@
+ne": "F1 00065f6106a11698 00001189 0001bf3c 0027 0011 1*5d8d", "crc_good": true}
+{"elapsed": 3073.485, "line": "F1 00065f6106a11698 0000118c 0001bf3f 0027 0011 1*f04c", "crc_good": true}
+{"elapsed": 3073.485, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3073.532, "line": "F1 00065f6106a11698 0000118e 0001bf3f 0027 0011 1*8cbd", "crc_good": true}
+{"elapsed": 3073.594, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3073.594, "line": "F1 00065f6106a11698 00001191 0001bf42 0027 0011 1*1f24", "crc_good": true}
+{"elapsed": 3073.657, "line": "F1 00065f6106a11698 00001194 0001bf42 0027 0011 1*d5bd", "crc_good": true}
+{"elapsed": 3073.688, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3073.703, "line": "F1 00065f6106a11698 00001196 0001bf45 0027 0011 1*c405", "crc_good": true}
+{"elapsed": 3073.766, "line": "F1 00065f6106a11698 00001199 0001bf45 0027 0011 1*8b8f", "crc_good": true}
+{"elapsed": 3073.782, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3073.828, "line": "F1 00065f6106a11698 0000119c 0001bf48 0027 0011 1*2d14", "crc_good": true}
+{"elapsed": 3073.891, "line": "F1 00065f6106a11698 0000119e 0001bf48 0027 0011 1*51e5", "crc_good": true}
+{"elapsed": 3073.891, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3073.938, "line": "F1 00065f6106a11698 000011a1 0001bf4b 0027 0011 1*bad5", "crc_good": true}
+{"elapsed": 3073.985, "line": "F1 00065f6106a11698 000011a3 0001bf4b 0027 0011 1*6165", "crc_good": true}
+{"elapsed": 3074.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3074.047, "line": "F1 00065f6106a11698 000011a6 0001bf4e 0027 0011 1*61f4", "crc_good": true}
+{"elapsed": 3074.094, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3074.11, "line": "F1 00065f6106a11698 000011a9 0001bf4e 0027 0011 1*2e7e", "crc_good": true}
+{"elapsed": 3074.188, "line": "F1 00065f6106a11698 000011ac 0001bf51 0027 0011 1*f1d9", "crc_good": true}
+{"elapsed": 3074.188, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3074.235, "line": "F1 00065f6106a11698 000011af 0001bf54 0027 0011 1*7b8e", "crc_good": true}
+{"elapsed": 3074.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3074.297, "line": "F1 00065f6106a11698 000011b2 0001bf54 0027 0011 1*1bce", "crc_good": true}
+{"elapsed": 3074.36, "line": "F1 00065f6106a11698 000011b4 0001bf57 0027 0011 1*a89a", "crc_good": true}
+{"elapsed": 3074.391, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3074.407, "line": "F1 00065f6106a11698 000011b7 0001bf57 0027 0011 1*1ef2", "crc_good": true}
+{"elapsed": 3074.469, "line": "F1 00065f6106a11698 000011ba 0001bf5a 0027 0011 1*c910", "crc_good": true}
+{"elapsed": 3074.485, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3074.547, "line": "F1 00065f6106a11698 000011bd 0001bf5a 0027 0011 1*0389", "crc_good": true}
+{"elapsed": 3074.594, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3074.594, "line": "F1 00065f6106a11698 000011c0 0001bf5d 0027 0011 1*e911", "crc_good": true}
+{"elapsed": 3074.672, "line": "F1 00065f6106a11698 000011c3 0001bf5d 0027 0011 1*5f79", "crc_good": true}
+{"elapsed": 3074.688, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3074.719, "line": "F1 00065f6106a11698 000011c6 0001bf60 0027 0011 1*518a", "crc_good": true}
+{"elapsed": 3074.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3074.797, "line": "F1 00065f6106a11698 000011c9 0001bf63 0027 0011 1*d1a5", "crc_good": true}
+{"elapsed": 3074.86, "line": "F1 00065f6106a11698 000011cc 0001bf63 0027 0011 1*3caa", "crc_good": true}
+{"elapsed": 3074.891, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3074.922, "line": "F1 00065f6106a11698 000011cf 0001bf66 0027 0011 1*b6fd", "crc_good": true}
+{"elapsed": 3075.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3075.0, "line": "F1 00065f6106a11698 000011d2 0001bf66 0027 0011 1*52b0", "crc_good": true}
+{"elapsed": 3075.047, "line": "F1 00065f6106a11698 000011d5 0001bf69 0027 0011 1*82cb", "crc_good": true}
+{"elapsed": 3075.094, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3075.11, "line": "F1 00065f6106a11698 000011d8 0001bf69 0027 0011 1*16f1", "crc_good": true}
+{"elapsed": 3075.188, "line": "F1 00065f6106a11698 000011db 0001bf6c 0027 0011 1*3606", "crc_good": true}
+{"elapsed": 3075.188, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3075.25, "line": "F1 00065f6106a11698 000011de 0001bf6c 0027 0011 1*272f", "crc_good": true}
+{"elapsed": 3075.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3075.328, "line": "F1 00065f6106a11698 000011e0 0001bf6f 0000 0000 0*f0b5", "crc_good": true}
+{"elapsed": 3075.391, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3075.485, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3075.594, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3075.688, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3075.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3075.891, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3075.985, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3076.094, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3076.188, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3076.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3076.391, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3076.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3076.594, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3076.688, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3076.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3076.891, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3077.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3077.094, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3077.188, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3077.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3077.391, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3077.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3077.594, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3077.688, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3077.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3077.891, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3078.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3078.094, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3078.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3078.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3078.391, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3078.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3078.594, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3078.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3078.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3078.891, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3079.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3079.094, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3079.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3079.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3079.391, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3079.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3079.594, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3079.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3079.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3079.891, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3080.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3080.094, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3080.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3080.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3080.391, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3080.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3080.594, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3080.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3080.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3080.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3081.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3081.094, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3081.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3081.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3081.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3081.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3081.594, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3081.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3081.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3081.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3082.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3082.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3082.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3082.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3082.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3082.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3082.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3082.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3082.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3082.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3083.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3083.094, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3083.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3083.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3083.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3083.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3083.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3083.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3083.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3083.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3084.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3084.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3084.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3084.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3084.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3084.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3084.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3084.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3084.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3084.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3085.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3085.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3085.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3085.297, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3085.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3085.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3085.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3085.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3085.797, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3085.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3086.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3086.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3086.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3086.313, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3086.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3086.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3086.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3086.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3086.813, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3086.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3087.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3087.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3087.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3087.313, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3087.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3087.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3087.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3087.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3087.813, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3087.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3088.0, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3088.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3088.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3088.313, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3088.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3088.516, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3088.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3088.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3088.813, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3088.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3089.016, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3089.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3089.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3089.313, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3089.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3089.5, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3089.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3089.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3089.813, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3089.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3090.016, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3090.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3090.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3090.313, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3090.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3090.516, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3090.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3090.703, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3090.813, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3090.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3091.016, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3091.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3091.203, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3091.313, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3091.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3091.516, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3091.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3091.719, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3091.813, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3091.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3092.016, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3092.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3092.219, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3092.313, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3092.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3092.516, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3092.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3092.719, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3092.813, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3092.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3093.016, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3093.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3093.219, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3093.313, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3093.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3093.516, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3093.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3093.719, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3093.813, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3093.907, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3094.016, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3094.11, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3094.219, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3094.313, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3094.407, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3094.516, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3094.61, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3094.719, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3094.813, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}
+{"elapsed": 3094.922, "line": "S1STAT SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 TX_DROP 0 FW 15 CAP S1ACK1", "crc_good": null}

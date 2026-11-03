@@ -1,0 +1,3 @@
+# Preserve archival evidence hashes on Windows as well as Unix checkouts.
+report/evidence/two-pc-handoff-20261104/** -text -whitespace
+tools/handoff_pc2/*.py -text -whitespace

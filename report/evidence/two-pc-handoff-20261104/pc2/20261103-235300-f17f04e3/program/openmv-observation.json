@@ -1,0 +1,14 @@
+{
+  "run_click_local": "2026-11-03T23:49:04.581+08:00",
+  "done_observed_no_later_than": "2026-11-03T23:51:44+08:00",
+  "script": "D:\\FPGA_Remote_JTAG\\c1-recovery-20261103\\openmv-team-ram90.py",
+  "script_sha256": "0ef00bd2ab03c03956909273b5516799059e562693729fdac85172e700fa5df6",
+  "ide_terminal_observed": [
+    "TEAM_RAM_START",
+    "TEAM_UART 39 17 1",
+    "TEAM_RAM_DONE"
+  ],
+  "visual": "single red circle observed in frame",
+  "exact_done_time": "not captured",
+  "exceptions": "none observed"
+}

@@ -1,0 +1,73 @@
+"""Bounded passive UART + vendor video probe. No serial writes or SWD access."""
+import argparse,binascii,json,os,socket,time,traceback
+from pathlib import Path
+from collections import Counter,deque
+from dataclasses import asdict
+import serial
+from serial.tools import list_ports
+from vendor_udp import FrameAssembler,START_COMMAND,STOP_COMMAND,BOARD_IP,PC_IP,UDP_PORT
+p=argparse.ArgumentParser();p.add_argument('--seconds',type=int,default=3600);p.add_argument('--port');a=p.parse_args()
+root=Path(__file__).resolve().parent
+out=root/('capture-'+time.strftime('%Y%m%d-%H%M%S'));out.mkdir()
+print('RESULT_DIRECTORY='+str(out),flush=True)
+ports=list(list_ports.comports()); candidates=[x.device for x in ports if x.vid==0x1a86 and x.pid==0x7523]
+port=a.port or (candidates[0] if len(candidates)==1 else None)
+info={'scope':'UART passive read, UDP camera start/stop only; no SWD/ARM/motion commands','ports':[{'device':x.device,'vid':x.vid,'pid':x.pid} for x in ports],'port':port,'errors':[]}
+s=None;u=None;buf=bytearray();counts=Counter();recent=deque(maxlen=20);seqs=set();seq_order=deque();fa=FrameAssembler();last_frame=0;last_start=0;last_save=0;start=time.monotonic();crc_bad=0;f1_good=0;matches=0
+try:
+ if port:
+  s=serial.Serial();s.port=port;s.baudrate=115200;s.timeout=0;s.dtr=False;s.rts=False;s.open()
+ else:info['errors'].append('No unique CH340; serial not opened')
+ try:
+  u=socket.socket(socket.AF_INET,socket.SOCK_DGRAM);u.setsockopt(socket.SOL_SOCKET,socket.SO_RCVBUF,8*1024*1024);u.bind((PC_IP,UDP_PORT));u.setblocking(False)
+ except OSError as e:
+  info['errors'].append('Video bind: '+str(e));u.close();u=None
+ with (out/'uart.jsonl').open('w',encoding='utf-8') as uartlog,(out/'video.jsonl').open('w',encoding='utf-8') as video:
+  while time.monotonic()-start<a.seconds and not (root/'stop-capture.flag').exists():
+   now=time.monotonic()
+   if u and now-last_start>=10 and now-last_frame>2:
+    u.sendto(START_COMMAND,(BOARD_IP,UDP_PORT));last_start=now
+   if u:
+    for _ in range(256):
+     try:data,addr=u.recvfrom(2048)
+     except BlockingIOError:break
+     if addr!=(BOARD_IP,UDP_PORT):continue
+     frame=fa.feed(data)
+     if frame:
+      last_frame=now;m=frame.previous_measurement
+      video.write(json.dumps({'elapsed':round(now-start,3),'frame_seq':frame.frame_seq,'previous_measurement':asdict(m) if m else None})+'\n')
+      if m and m.frame_seq not in seqs:
+       seqs.add(m.frame_seq);seq_order.append(m.frame_seq)
+       if len(seq_order)>10000:seqs.remove(seq_order.popleft())
+   if s:
+    data=s.read(8192)
+    if data:buf.extend(data)
+    while b'\n' in buf:
+     line,_,buf=buf.partition(b'\n');text=line.decode('ascii',errors='replace').strip();tag=text.split(' ',1)[0];counts[tag]+=1
+     good=None
+     if tag in ('F1','V2A','S1SYNC','S1ACK'):
+      try:
+       body,crc=text.rsplit('*',1);good=len(crc)==4 and int(crc,16)==binascii.crc_hqx(body.encode('ascii'),0xffff)
+      except (ValueError,UnicodeError):good=False
+      if not good:crc_bad+=1
+     if tag=='F1' and good:
+      f1_good+=1
+      try:
+       if int(text.split()[3],16) in seqs:matches+=1
+      except (ValueError,IndexError):pass
+     recent.append(text);uartlog.write(json.dumps({'elapsed':round(now-start,3),'line':text,'crc_good':good})+'\n')
+    if len(buf)>8192:info['errors'].append('Overlong UART line discarded');buf.clear()
+   if now-last_save>=5:
+    info.update(elapsed_seconds=round(now-start,2),complete_frames=fa.completed,incomplete_frames=fa.incomplete,malformed_datagrams=fa.malformed,uart_counts=dict(counts),f1_crc_good=f1_good,protected_crc_bad=crc_bad,primary_sequence_seen_before_f1=matches,recent_uart=list(recent),last_video_age_seconds=round(now-last_frame,2) if last_frame else None)
+    temp=out/'status.tmp';temp.write_text(json.dumps(info,indent=2),encoding='utf-8');os.replace(temp,out/'status.json');uartlog.flush();video.flush();last_save=now
+   time.sleep(.001)
+except Exception:
+ info['errors'].append(traceback.format_exc());print(info['errors'][-1],flush=True)
+finally:
+ if u:
+  try:u.sendto(STOP_COMMAND,(BOARD_IP,UDP_PORT))
+  except OSError:pass
+  u.close()
+ if s:s.close()
+ (out/'finished.json').write_text(json.dumps(info,indent=2),encoding='utf-8')
+ print('FINISHED='+str(out),flush=True)

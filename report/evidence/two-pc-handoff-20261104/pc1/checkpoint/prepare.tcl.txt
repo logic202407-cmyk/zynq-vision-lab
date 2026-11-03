@@ -1,0 +1,14 @@
+cd D:/c1-recovery-20261103/checkpoint
+open_checkpoint D:/zynq-handoff-evidence-20261102/board/c1_observe_routed.dcp
+source D:/c1-recovery-20261103/source/build/c1_sccb_clock.tcl
+c1_sccb_clock
+report_timing_summary -report_unconstrained -file timing.rpt
+report_drc -file drc.rpt
+report_cdc -details -file cdc.rpt
+check_timing -verbose -file check_timing.rpt
+report_route_status -file route.rpt
+write_debug_probes -force c1_observe.ltx
+set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
+write_bitstream -force c1_observe.bit
+puts RECOVERY_BITGEN_COMPLETE
+exit

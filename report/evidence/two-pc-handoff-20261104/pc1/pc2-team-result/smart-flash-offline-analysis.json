@@ -1,0 +1,10 @@
+{
+  "time": "2026-11-03T22:51:32.283766+08:00",
+  "current_first_sector_all_ff": true,
+  "candidate_first_sector_bytes": 16384,
+  "candidate_non_ff_bytes": 12462,
+  "candidate_differs_from_current": true,
+  "builder_source_observation": "pyOCD 0.46.1 builder.py _erase_sectors invokes erase_sector when any page differs; smart_flash does not itself guarantee skipping erase for an all-FF sector",
+  "limitation": "static source analysis, not a test of a recovery attempt; historical pyOCD version may differ",
+  "action": "no target connection or write"
+}

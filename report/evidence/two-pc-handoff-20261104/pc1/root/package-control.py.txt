@@ -1,0 +1,13 @@
+from pathlib import Path
+import zipfile,json,hashlib
+base=Path('D:/c1-recovery-20261103');p=base/'control-board-v1'
+m=json.loads((p/'manifest.json').read_text())
+for n,info in m['files'].items():
+ b=(p/n).read_bytes();assert len(b)==info['bytes'] and hashlib.sha256(b).hexdigest()==info['sha256']
+assert 'All user specified timing constraints are met.' in (p/'routed_timing.rpt').read_text()
+names=list(m['files'])+['manifest.json','routed_timing.rpt','routed_drc.rpt','routed_cdc.rpt','build.tcl','stamp.tcl']
+zpath=base/'transfer-public/c1-control-board-v1.zip'
+with zipfile.ZipFile(zpath,'w',zipfile.ZIP_DEFLATED) as z:
+ for n in names:z.write(p/n,'c1-control/'+n)
+result={'zip':zpath.name,'bytes':zpath.stat().st_size,'sha256':hashlib.sha256(zpath.read_bytes()).hexdigest(),'bit_sha256':m['files']['c1_control.bit']['sha256'],'status':'hosted; PC2 receipt not yet received'}
+(base/'control-package.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))

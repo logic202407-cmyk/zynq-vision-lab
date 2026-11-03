@@ -1,0 +1,29 @@
+import sys,json,hashlib,zipfile,io,base64
+from pathlib import Path
+sys.path.insert(0,'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+base=Path('D:/c1-recovery-20261103');raw=(base/'skystar-team-deploy-v1.zip').read_bytes()
+remote='D:/FPGA_Remote_JTAG/c1-recovery-20261103/skystar-team-deploy-v1.zip'
+receipt={'remote_zip':remote,'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest(),'verified':False}
+dest=base/'team-delivery-receipt.json';dest.write_text(json.dumps(receipt,indent=2))
+c=None
+try:
+ c=TCF('192.0.2.2',timeout=12,bind_ip='192.0.2.1')
+ h=c.normal('open',remote,42,{})[0]
+ for off in range(0,len(raw),8192):
+  c.normal('write',h,off,base64.b64encode(raw[off:off+8192]).decode())
+  print('WRITE',min(off+8192,len(raw)),len(raw),flush=True)
+ c.normal('close',h)
+ back=c.read(remote);assert back==raw
+ with zipfile.ZipFile(io.BytesIO(back)) as z:
+  assert z.testzip() is None
+  manifest=json.loads(z.read('team-deploy/manifest.json'))
+  for name,info in manifest.items():
+   b=z.read('team-deploy/'+name);assert len(b)==info['bytes'] and hashlib.sha256(b).hexdigest()==info['sha256']
+ receipt.update(verified=True,zip_crc_verified=True,manifest_files_verified=len(manifest))
+ print(json.dumps(receipt,indent=2),flush=True)
+except Exception as e:
+ receipt['error']=repr(e);raise
+finally:
+ dest.write_text(json.dumps(receipt,indent=2))
+ if c:c.close()

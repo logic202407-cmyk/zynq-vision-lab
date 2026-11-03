@@ -1,0 +1,15 @@
+import sys,json,hashlib
+from pathlib import Path
+sys.path.insert(0,'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+base=Path('D:/c1-recovery-20261103');remote='D:/FPGA_Remote_JTAG/c1-recovery-20261103/team-deploy-20261103-223846-650'
+r={'remote_directory':remote,'verified':False,'files':{}}
+c=TCF('192.0.2.2',timeout=12)
+try:
+ for n in ['recover-team-blank.py','PC2-RECOVER.txt']:
+  data=(base/'transfer-public'/n).read_bytes();c.write(remote+'/'+n,data);assert c.read(remote+'/'+n)==data
+  r['files'][n]={'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()};print('VERIFIED',n,flush=True)
+ r['verified']=True
+except Exception as e:r['error']=repr(e);raise
+finally:
+ c.close();(base/'blank-recovery-delivery.json').write_text(json.dumps(r,indent=2));print(json.dumps(r,indent=2),flush=True)

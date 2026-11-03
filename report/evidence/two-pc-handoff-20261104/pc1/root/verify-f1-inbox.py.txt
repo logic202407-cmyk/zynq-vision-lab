@@ -1,0 +1,30 @@
+from pathlib import Path
+import zipfile,json,binascii,hashlib,collections
+base=Path('D:/c1-recovery-20261103')
+archive=base/'pc2-result-inbox/20261103-235300-f17f04e3.zip'
+out=base/'f1-verified-20261103-235300';out.mkdir(exist_ok=True)
+with zipfile.ZipFile(archive) as z:
+    raw=z.read('program/uart-window.txt')
+    records=[json.loads(x) for x in raw.splitlines() if x.strip()]
+    status=json.loads(z.read('capture/status-00002480.json'))
+    observation=json.loads(z.read('program/openmv-observation.json'))
+frames=[]
+for r in records:
+    if not r['line'].startswith('F1 '): continue
+    body,crc=r['line'].rsplit('*',1)
+    assert binascii.crc_hqx(body.encode('ascii'),0xffff)==int(crc,16)
+    p=body.split();assert len(p)==7 and p[1]=='00065f6106a11698'
+    def signed(v):
+        n=int(v,16);return n-65536 if n>=32768 else n
+    frames.append(dict(elapsed=r['elapsed'],seq=int(p[2],16),primary_sequence=int(p[3],16),dx=signed(p[4]),dy=signed(p[5]),flags=int(p[6],16)))
+assert len(frames)==1480
+steps=[(b['seq']-a['seq'])&0xffffffff for a,b in zip(frames,frames[1:])]
+assert all(0<s<0x80000000 for s in steps)
+states=[r['line'] for r in records if r['line'].startswith('S1STAT ')]
+assert states and all('SAFE stopped WHY boot NONCE 4c74598e6eb00a38 SEQ 0 ' in s for s in states)
+local_script=base/'transfer-public/openmv-team-ram90.py'
+assert hashlib.sha256(local_script.read_bytes()).hexdigest()==observation['script_sha256']
+result=dict(archive=str(archive),archive_sha256=hashlib.sha256(archive.read_bytes()).hexdigest(),session='00065f6106a11698',f1_crc_checked=len(frames),first=frames[0],last=frames[-1],sequence_step_min=min(steps),sequence_step_max=max(steps),flags=dict(collections.Counter(f['flags'] for f in frames)),dx_range=[min(f['dx'] for f in frames),max(f['dx'] for f in frames)],dy_range=[min(f['dy'] for f in frames),max(f['dy'] for f in frames)],all_window_status_stopped=True,complete_video_frames=status['complete_frames'],capture_errors=status['errors'],script_hash_matches_local=True,physical_closed_loop_verified=False)
+(out/'uart-window.jsonl').write_bytes(raw)
+(out/'verification.json').write_text(json.dumps(result,indent=2))
+print(json.dumps(result,indent=2))

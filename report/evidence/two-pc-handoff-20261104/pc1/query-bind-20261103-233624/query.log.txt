@@ -1,0 +1,176 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue Nov  3 23:36:34 2026
+# Process ID         : 85668
+# Current directory  : D:/c1-recovery-20261103/query-bind-20261103-233624
+# Command line       : vivado.exe -mode batch -source D:/c1-recovery-20261103/control-board-v1/control.tcl -log query.log -journal query.jou -tclargs 192.0.2.2:3121 query e4d4ef4a1f78430d93f1f7261a5efbd9 00065f6106a11698
+# Log file           : D:/c1-recovery-20261103/query-bind-20261103-233624/query.log
+# Journal file       : D:/c1-recovery-20261103/query-bind-20261103-233624\query.jou
+# Running On         : LAPTOP-VHQF65C3
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 34141 MB
+# Swap memory        : 18956 MB
+# Total Virtual      : 53098 MB
+# Available Virtual  : 9180 MB
+#-----------------------------------------------------------
+source D:/c1-recovery-20261103/control-board-v1/control.tcl
+# if {[llength $argv]<4} {error {Need server action query_id session_id}}
+# set server [lindex $argv 0]
+# set action [lindex $argv 1]
+# set qid [string tolower [lindex $argv 2]]
+# set sid [string tolower [lindex $argv 3]]
+# if {$action ni {program query bind run stop}} {error {Unknown action}}
+# if {![regexp {^[0-9a-f]{32}$} $qid] || $qid eq [string repeat 0 32]} {error {Fresh nonzero query ID required}}
+# if {![regexp {^[0-9a-f]{16}$} $sid] || $sid eq [string repeat 0 16]} {error {Nonzero session ID required}}
+# set root [file dirname [file normalize [info script]]]
+# set seconds 5
+# if {[llength $argv]>4} {set seconds [lindex $argv 4]}
+# if {![string is integer -strict $seconds] || $seconds<1 || $seconds>10} {error {Bench run must be 1..10 seconds}}
+# set mf [open $root/core-uuid.txt r]
+# set expected_uuid [string trim [read $mf]]
+# close $mf
+# proc sample {} {
+#  global v status ctl
+#  refresh_hw_vio -update_output_values $v
+#  set raw [get_property INPUT_VALUE $status]
+#  scan $raw %x value
+#  puts "VIO_STATUS=$raw CONTROL=[get_property OUTPUT_VALUE $ctl]"
+#  return $value
+# }
+# proc controls {value} {
+#  global v ctl
+#  set_property OUTPUT_VALUE $value $ctl
+#  commit_hw_vio $v
+#  refresh_hw_vio -update_output_values $v
+#  if {[string tolower [get_property OUTPUT_VALUE $ctl]] ne $value} {error {VIO control readback failed}}
+# }
+# proc pulse {value} { controls $value; after 20; controls 02 }
+# proc wait_state {wanted} {
+#  for {set i 0} {$i<25} {incr i} {
+#   set s [sample]
+#   if {$s&32} {error {FPGA fault latched}}
+#   if {($s&15)==$wanted} {return $s}
+#   after 20
+#  }
+#  error {State wait expired}
+# }
+# open_hw_manager
+# connect_hw_server -url $server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:192.0.2.2:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2024.2.0
+  ****** Build date   : Oct 31 2024-02:19:07
+    **** Build number : 2024.2.1730312347
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:19 . Memory (MB): peak = 370.027 ; gain = 2.004
+# set ts [get_hw_targets -quiet *210512180081*]
+# if {[llength $ts]!=1} {error {Expected unique HS1 serial 210512180081}}
+# current_hw_target [lindex $ts 0]
+# set_property PARAM.FREQUENCY 1000000 [current_hw_target]
+# open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target 192.0.2.2:3121/xilinx_tcf/Digilent/210512180081
+open_hw_target: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 372.273 ; gain = 2.246
+# set motion_attempted 0
+# try {
+#  set ds [get_hw_devices -quiet xc7z100*]
+#  if {[llength $ds]!=1} {error {Expected unique xc7z100}}
+#  set d [lindex $ds 0];current_hw_device $d
+#  set_property PROBES.FILE $root/c1_control.ltx $d
+#  if {$action eq "program"} {
+#   set_property PROGRAM.FILE $root/c1_control.bit $d
+#   program_hw_devices $d
+#  }
+#  refresh_hw_device $d
+#  if {[get_property REGISTER.CONFIG_STATUS.BIT14_DONE_PIN $d]!=1 || [get_property {REGISTER.CONFIG_STATUS.BIT04_END_OF_STARTUP_(EOS)_STATUS} $d]!=1} {error {DONE/EOS not asserted}}
+#  set identity [string tolower [get_property REGISTER.USR_ACCESS $d]]
+#  if {[string trimleft $identity 0x] ne "c103f401"} {error {Wrong control build identity; do not use VIO UUID alone}}
+#  set vs [get_hw_vios -quiet -of_objects $d]
+#  if {[llength $vs]!=1} {error {Expected one VIO}}
+#  set v [lindex $vs 0]
+#  if {[string toupper [get_property CORE_UUID $v]] ne [string toupper $expected_uuid]} {error {BIT/LTX VIO UUID mismatch}}
+#  set ctl [get_hw_probes c1_controls -of_objects $v]
+#  set status [get_hw_probes c1_status -of_objects $v]
+#  set qry [get_hw_probes c1_query_id -of_objects $v]
+#  set sess [get_hw_probes c1_logging_session -of_objects $v]
+#  set s [sample]
+#  if {$action eq "program"} {
+#   if {[get_property OUTPUT_VALUE $ctl] ne "00" || ($s&1023)!=0} {error {Unexpected power-on control/status}}
+#   after 30000
+#   refresh_hw_device $d
+#   if {[get_property REGISTER.CONFIG_STATUS.BIT14_DONE_PIN $d]!=1 || [get_property {REGISTER.CONFIG_STATUS.BIT04_END_OF_STARTUP_(EOS)_STATUS} $d]!=1} {error {Delayed DONE/EOS check failed}}
+#   puts CONTROL_BIT_PROGRAMMED_DONE_EOS_CONFIRMED_NO_ARM
+#  } elseif {$action eq "query"} {
+#   if {($s&15)!=0 && ($s&15)!=6} {error {Query requires stopped/idle or reviewed fault}}
+#   controls 02;after 100
+#   if {!([sample]&16)} {error {UART ownership not acquired}}
+#   set_property OUTPUT_VALUE $qid $qry;commit_hw_vio $v
+#   pulse 06;wait_state 3
+#   puts "QUERY_SENT=$qid; independently inspect S1SYNC CRC and nonce"
+#  } elseif {$action eq "stop"} {
+#   pulse 12;after 300
+#   if {!([sample]&64)} {error {STOP not confirmed}}
+#   puts STOP_CONFIRMED
+#  } else {
+#   if {[string tolower [get_property OUTPUT_VALUE $qry]] ne $qid || [get_property OUTPUT_VALUE $ctl] ne "02"} {error {Query/control identity changed}}
+#   if {$action eq "bind"} {
+#    if {($s&15)!=3 || ($s&32) || ($s&768)} {error {Binding requires query wait and PWM off}}
+#    set_property OUTPUT_VALUE $sid $sess;commit_hw_vio $v
+#    pulse 0a;after 300
+#    if {!([sample]&128)} {error {Measurement session did not bind}}
+#    puts "SESSION_BOUND=$sid; independently inspect V2A and F1 CRC"
+#   } else {
+#    if {[string tolower [get_property OUTPUT_VALUE $sess]] ne $sid || ($s&1023)!=211} {error {Run requires bound query wait, no fault, PWM off}}
+#    # Caller must first verify current firmware, fresh F1, and the physical bench.
+#    set motion_attempted 1
+#    pulse 22;wait_state 4
+#    pulse 42
+#    set deadline [expr {[clock milliseconds]+1000*$seconds}]
+#    while {[clock milliseconds]<$deadline} {
+#     set s [sample]
+#     if {$s&32} {error {Fault during bench window}}
+#     after 100
+#    }
+#    pulse 12;after 300
+#    if {!([sample]&64)} {error {STOP not confirmed}}
+#    set motion_attempted 0
+#    puts BENCH_WINDOW_ENDED_STOP_CONFIRMED_CHECK_UART_AUTO_ACK_AND_PHYSICAL_VIDEO
+#   }
+#  }
+# } finally {
+#  if {$motion_attempted} {catch {pulse 12};after 300;catch {sample}}
+#  close_hw_target
+#  disconnect_hw_server
+#  close_hw_manager
+# }
+INFO: [Labtools 27-2302] Device xc7z100 (JTAG device index = 1) is programmed with a design that has 1 VIO core(s).
+INFO: [Labtools 27-1889] Uploading output probe values for VIO core [hw_vio_1]
+refresh_hw_device: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 425.129 ; gain = 52.855
+refresh_hw_vio: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 425.172 ; gain = 0.043
+VIO_STATUS=00000000 CONTROL=00
+refresh_hw_vio: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 425.172 ; gain = 0.000
+refresh_hw_vio: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 425.172 ; gain = 0.000
+VIO_STATUS=00000010 CONTROL=02
+refresh_hw_vio: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 425.172 ; gain = 0.000
+refresh_hw_vio: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 425.172 ; gain = 0.000
+refresh_hw_vio: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 425.172 ; gain = 0.000
+VIO_STATUS=00000053 CONTROL=02
+QUERY_SENT=e4d4ef4a1f78430d93f1f7261a5efbd9; independently inspect S1SYNC CRC and nonce
+INFO: [Labtoolstcl 44-464] Closing hw_target 192.0.2.2:3121/xilinx_tcf/Digilent/210512180081
+# exit
+INFO: [Common 17-206] Exiting Vivado at Tue Nov  3 23:38:38 2026...

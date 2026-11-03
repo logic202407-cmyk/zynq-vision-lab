@@ -1,0 +1,9 @@
+{
+  "snapshot_time": "2026-11-04T00:16:13.9914776+08:00",
+  "capture_directory": "D:\\FPGA_Remote_JTAG\\c1-recovery-20261103\\capture-20261104-001308",
+  "capture_pid": 27976,
+  "capture_running": true,
+  "source_status": "D:\\FPGA_Remote_JTAG\\c1-recovery-20261103\\capture-20261104-001308\\status-00000185.json",
+  "source_status_time": "2026-11-04T00:16:13.5544043+08:00",
+  "note": "Last F1 flag 0 indicates this 90-second window ended; no current valid target asserted."
+}

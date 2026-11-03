@@ -1,0 +1,10 @@
+{
+  "status": "blocked_no_confirmed_working_f407_backend_and_raw_header_hash_mismatch",
+  "candidate": "skystar_tracking.bin",
+  "candidate_sha256": "75057d5d8dd4b640e4b6ba15c607b6233d0f3fda971bffba72c164da15c5734e",
+  "header_actual_sha256": "77b418878b5e013c35e094ad21b85c597b255864c38d104e0782e14bffe93667",
+  "header_lf_sha256": "42af510341e1f7c2c8dfaafa75a710d24b74672ffcea247cfeb9600456f8bcc4",
+  "desired_scope": "sector 0 only, expected-sector0.bin, full 512KiB readback compare, then verified return-to-run",
+  "backend": "STM32CubeProgrammer v2.19.0 previously failed Cannot identify device; pyOCD installed with no F407 builtin or installed pack",
+  "executed_programming": false
+}

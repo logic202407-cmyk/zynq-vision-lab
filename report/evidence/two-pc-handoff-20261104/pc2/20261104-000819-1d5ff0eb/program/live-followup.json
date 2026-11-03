@@ -1,0 +1,58 @@
+{
+  "time": "2026-11-04T00:08:17.047975+08:00",
+  "session": "00065f6106a11698",
+  "last_ten_flag1_crc_good": [
+    {
+      "elapsed": 3404.344,
+      "line": "F1 00065f6106a11698 00001f17 0001e138 0027 0011 1*2ac8",
+      "crc_good": true
+    },
+    {
+      "elapsed": 3404.422,
+      "line": "F1 00065f6106a11698 00001f1a 0001e138 0027 0011 1*3e25",
+      "crc_good": true
+    },
+    {
+      "elapsed": 3404.469,
+      "line": "F1 00065f6106a11698 00001f1d 0001e13b 0027 0011 1*3944",
+      "crc_good": true
+    },
+    {
+      "elapsed": 3404.547,
+      "line": "F1 00065f6106a11698 00001f20 0001e13b 0027 0011 1*5904",
+      "crc_good": true
+    },
+    {
+      "elapsed": 3404.61,
+      "line": "F1 00065f6106a11698 00001f23 0001e13e 0027 0011 1*2564",
+      "crc_good": true
+    },
+    {
+      "elapsed": 3404.672,
+      "line": "F1 00065f6106a11698 00001f26 0001e13e 0027 0011 1*effd",
+      "crc_good": true
+    },
+    {
+      "elapsed": 3404.735,
+      "line": "F1 00065f6106a11698 00001f29 0001e141 0027 0011 1*99b8",
+      "crc_good": true
+    },
+    {
+      "elapsed": 3404.797,
+      "line": "F1 00065f6106a11698 00001f2c 0001e144 0027 0011 1*3479",
+      "crc_good": true
+    },
+    {
+      "elapsed": 3404.86,
+      "line": "F1 00065f6106a11698 00001f2f 0001e144 0027 0011 1*fee0",
+      "crc_good": true
+    },
+    {
+      "elapsed": 3404.922,
+      "line": "F1 00065f6106a11698 00001f32 0001e147 0027 0011 1*9b13",
+      "crc_good": true
+    }
+  ],
+  "source": "D:\\FPGA_Remote_JTAG\\c1-recovery-20261103\\capture-20261103-231131\\uart.jsonl",
+  "note": "observed in passive capture; initiator of OpenMV run not established"
+}

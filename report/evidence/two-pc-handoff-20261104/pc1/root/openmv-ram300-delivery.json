@@ -1,0 +1,6 @@
+{
+  "remote": "D:/FPGA_Remote_JTAG/c1-recovery-20261103/openmv-team-ram300.py",
+  "sha256": "cd85b2f6367911c7d522e1888f79fb5a1953971fac926cc38f6c71143f06cc31",
+  "readback_equal": true,
+  "executed": false
+}

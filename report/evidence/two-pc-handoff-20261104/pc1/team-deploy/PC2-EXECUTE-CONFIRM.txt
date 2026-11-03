@@ -1,0 +1,14 @@
+确认授权执行一次该恢复方案。
+
+来源：电脑1 Codex 卡住后的明确交接，经用户指示由 Grok Bot 于 2026-11-03 23:15:55 Asia/Shanghai 转发到电脑2。
+
+请电脑2立即执行：
+D:\FPGA_Remote_JTAG\c1-recovery-20261103\team-deploy-20261103-223846-650\PC2-RECOVER.txt
+
+约束：
+- recover-team-blank.py SHA256 = df415e5dab5afb4b995d5aec9d700fed06e43680cb1cd13921ef7d6e053f931f
+- 只恢复首 16 KiB，不重擦、不扩大范围
+- 保持舵机和激光断电；不要重复下载 FPGA
+- 完整回读后回传结果
+
+这是把已有授权落到电脑2本地执行，不是重新申请权限。

@@ -1,0 +1,156 @@
+=== SERVER VERSION ===
+2024.2
+=== TARGET PROPERTIES ===
+{target_ctx jsn-JTAG-HS1-210512180081 level 0 node_id 1 is_open 1 is_active 1 is_current 0 name {Digilent JTAG-HS1 210512180081} jtag_cable_name {Digilent JTAG-HS1 210512180081} state {} jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081} {target_ctx jsn-JTAG-HS1-210512180081-4ba00477-0 level 1 node_id 2 is_open 1 is_active 1 is_current 0 name arm_dap jtag_cable_name {Digilent JTAG-HS1 210512180081} state {} jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081 idcode 4ba00477 irlen 4} {target_ctx jsn-JTAG-HS1-210512180081-03736093-0 level 1 node_id 3 is_open 1 is_active 1 is_current 0 name xc7z100 jtag_cable_name {Digilent JTAG-HS1 210512180081} state {} jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081 idcode 03736093 irlen 6 is_fpga 1}
+=== SELECTED FPGA ===
+target_ctx jsn-JTAG-HS1-210512180081-03736093-0 level 1 node_id 3 is_open 1 is_active 1 is_current 0 name xc7z100 jtag_cable_name {Digilent JTAG-HS1 210512180081} state {} jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081 idcode 03736093 irlen 6 is_fpga 1
+=== ONE PROGRAM ATTEMPT 2026-11-03 19:54:46 +0800 ===
+PROGRAM_ERROR=0
+PROGRAM_RESULT=
+=== IMMEDIATE 2026-11-03 19:55:18 +0800 ===
+--- fpga -state ---
+FPGA is configured
+--- fpga -config-status ---
+CONFIG STATUS: 1175486460
+                               CRC ERROR (Bits [0]): 0
+                        DECRYPTOR ENABLE (Bits [1]): 0
+                         PLL LOCK STATUS (Bits [2]): 1
+                        DCI MATCH STATUS (Bits [3]): 1
+             END OF STARTUP (EOS) STATUS (Bits [4]): 1
+                        GTS_CFG_B STATUS (Bits [5]): 1
+                              GWE STATUS (Bits [6]): 1
+                            GHIGH STATUS (Bits [7]): 1
+                           MODE PIN M[0] (Bits [8]): 1
+                           MODE PIN M[1] (Bits [9]): 1
+                          MODE PIN M[2] (Bits [10]): 1
+          INIT_B INTERNAL SIGNAL STATUS (Bits [11]): 1
+                             INIT_B PIN (Bits [12]): 1
+            DONE INTERNAL SIGNAL STATUS (Bits [13]): 1
+                               DONE PIN (Bits [14]): 1
+                           IDCODE ERROR (Bits [15]): 0
+                         SECURITY ERROR (Bits [16]): 0
+  SYSTEM MONITOR OVER-TEMP ALARM STATUS (Bits [17]): 0
+     CFG STARTUP STATE MACHINE PHASE (Bits [20:18]): 4
+                            RESERVED (Bits [24:21]): 0
+             CFG BUS WIDTH DETECTION (Bits [26:25]): 3
+                             HMAC ERROR (Bits [27]): 0
+                             PUDC_B PIN (Bits [28]): 0
+                       BAD PACKET ERROR (Bits [29]): 0
+                             CFGBVS PIN (Bits [30]): 1
+                               RESERVED (Bits [31]): 0
+--- fpga -ir-status ---
+IR STATUS: 53
+     Always One (Bits [0]): 1
+    Always Zero (Bits [1]): 0
+       ISC_Done (Bits [2]): 1
+    ISC_Enabled (Bits [3]): 0
+  Init Complete (Bits [4]): 1
+           DONE (Bits [5]): 1
+--- fpga -boot-status ---
+BOOT STATUS: 1
+             0 STATUS VALID (Bits [0]): 1
+                 0 FALLBACK (Bits [1]): 0
+            0 INTERNAL PROG (Bits [2]): 0
+   0 WATCHDOG TIMEOUT ERROR (Bits [3]): 0
+                 0 ID ERROR (Bits [4]): 0
+                0 CRC ERROR (Bits [5]): 0
+               0 WRAP ERROR (Bits [6]): 0
+           0 SECURITY ERROR (Bits [7]): 0
+             1 STATUS VALID (Bits [8]): 0
+                 1 FALLBACK (Bits [9]): 0
+           1 INTERNAL PROG (Bits [10]): 0
+  1 WATCHDOG TIMEOUT ERROR (Bits [11]): 0
+                1 ID ERROR (Bits [12]): 0
+               1 CRC ERROR (Bits [13]): 0
+              1 WRAP ERROR (Bits [14]): 0
+          1 SECURITY ERROR (Bits [15]): 0
+               RESERVED (Bits [31:16]): 0
+--- fpga -cor0-status ---
+COR0 STATUS: 33570789
+     GWE_CYCLE (Bits [2:0]): 5
+     GTS_CYCLE (Bits [5:3]): 4
+    LOCK_CYCLE (Bits [8:6]): 7
+  MATCH_CYCLE (Bits [11:9]): 7
+  DONE_CYCLE (Bits [14:12]): 3
+    SSCLKSRC (Bits [16:15]): 0
+     OSCFSEL (Bits [22:17]): 0
+         SINGLE (Bits [23]): 0
+     DRIVE_DONE (Bits [24]): 0
+      DONE_PIPE (Bits [25]): 1
+       RESERVED (Bits [26]): 0
+    PWRDWN_STAT (Bits [27]): 0
+    RESERVED (Bits [31:28]): 0
+=== AFTER_30_SECONDS 2026-11-03 19:55:48 +0800 ===
+--- fpga -state ---
+FPGA is configured
+--- fpga -config-status ---
+CONFIG STATUS: 1175486460
+                               CRC ERROR (Bits [0]): 0
+                        DECRYPTOR ENABLE (Bits [1]): 0
+                         PLL LOCK STATUS (Bits [2]): 1
+                        DCI MATCH STATUS (Bits [3]): 1
+             END OF STARTUP (EOS) STATUS (Bits [4]): 1
+                        GTS_CFG_B STATUS (Bits [5]): 1
+                              GWE STATUS (Bits [6]): 1
+                            GHIGH STATUS (Bits [7]): 1
+                           MODE PIN M[0] (Bits [8]): 1
+                           MODE PIN M[1] (Bits [9]): 1
+                          MODE PIN M[2] (Bits [10]): 1
+          INIT_B INTERNAL SIGNAL STATUS (Bits [11]): 1
+                             INIT_B PIN (Bits [12]): 1
+            DONE INTERNAL SIGNAL STATUS (Bits [13]): 1
+                               DONE PIN (Bits [14]): 1
+                           IDCODE ERROR (Bits [15]): 0
+                         SECURITY ERROR (Bits [16]): 0
+  SYSTEM MONITOR OVER-TEMP ALARM STATUS (Bits [17]): 0
+     CFG STARTUP STATE MACHINE PHASE (Bits [20:18]): 4
+                            RESERVED (Bits [24:21]): 0
+             CFG BUS WIDTH DETECTION (Bits [26:25]): 3
+                             HMAC ERROR (Bits [27]): 0
+                             PUDC_B PIN (Bits [28]): 0
+                       BAD PACKET ERROR (Bits [29]): 0
+                             CFGBVS PIN (Bits [30]): 1
+                               RESERVED (Bits [31]): 0
+--- fpga -ir-status ---
+IR STATUS: 53
+     Always One (Bits [0]): 1
+    Always Zero (Bits [1]): 0
+       ISC_Done (Bits [2]): 1
+    ISC_Enabled (Bits [3]): 0
+  Init Complete (Bits [4]): 1
+           DONE (Bits [5]): 1
+--- fpga -boot-status ---
+BOOT STATUS: 1
+             0 STATUS VALID (Bits [0]): 1
+                 0 FALLBACK (Bits [1]): 0
+            0 INTERNAL PROG (Bits [2]): 0
+   0 WATCHDOG TIMEOUT ERROR (Bits [3]): 0
+                 0 ID ERROR (Bits [4]): 0
+                0 CRC ERROR (Bits [5]): 0
+               0 WRAP ERROR (Bits [6]): 0
+           0 SECURITY ERROR (Bits [7]): 0
+             1 STATUS VALID (Bits [8]): 0
+                 1 FALLBACK (Bits [9]): 0
+           1 INTERNAL PROG (Bits [10]): 0
+  1 WATCHDOG TIMEOUT ERROR (Bits [11]): 0
+                1 ID ERROR (Bits [12]): 0
+               1 CRC ERROR (Bits [13]): 0
+              1 WRAP ERROR (Bits [14]): 0
+          1 SECURITY ERROR (Bits [15]): 0
+               RESERVED (Bits [31:16]): 0
+--- fpga -cor0-status ---
+COR0 STATUS: 33570789
+     GWE_CYCLE (Bits [2:0]): 5
+     GTS_CYCLE (Bits [5:3]): 4
+    LOCK_CYCLE (Bits [8:6]): 7
+  MATCH_CYCLE (Bits [11:9]): 7
+  DONE_CYCLE (Bits [14:12]): 3
+    SSCLKSRC (Bits [16:15]): 0
+     OSCFSEL (Bits [22:17]): 0
+         SINGLE (Bits [23]): 0
+     DRIVE_DONE (Bits [24]): 0
+      DONE_PIPE (Bits [25]): 1
+       RESERVED (Bits [26]): 0
+    PWRDWN_STAT (Bits [27]): 0
+    RESERVED (Bits [31:28]): 0
+=== DIAGNOSTIC COMPLETE 2026-11-03 19:55:48 +0800 ===

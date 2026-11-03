@@ -1,0 +1,18 @@
+import sys,socket,struct,json
+sys.path.insert(0,r'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+def connect_vpn(address,timeout=None,source_address=None,**kwargs):
+ s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+ try:
+  s.settimeout(timeout);s.setsockopt(socket.IPPROTO_IP,31,struct.pack('!I',25));s.bind(('192.0.2.1',0));s.connect(address);return s
+ except BaseException:s.close();raise
+socket.create_connection=connect_vpn
+c=TCF('192.0.2.2',timeout=10)
+try:
+ h=c.normal('opendir','D:/FPGA_Remote_JTAG/c1-recovery-20261103')[0];print('OPENED',flush=True)
+ while True:
+  r=c.call('readdir',h)
+  for x in r[0] or []:print(json.dumps(x),flush=True)
+  if r[2]:break
+ c.normal('close',h)
+finally:c.close()

@@ -1,0 +1,19 @@
+{
+  "time": "2026-11-03T21:44:38.453634+08:00",
+  "expected_probe": "9701430220005A504E413836",
+  "expected_first64_sha256": "1723fa3533e6d967acb69b6b363997d4cc2b24a7e8717bd1284660e0cff4e9ca",
+  "probes": [
+    "9701430220005A504E413836"
+  ],
+  "chip_id": "0x101f6413",
+  "dhcsr_before": "0x01010000",
+  "flash_kib": 512,
+  "backup_sha256": "36b8bfb185e06311d271e4b600dad5e5de68f1f70c8a8eba42e83df2636b3c8f",
+  "first64_sha256": "1723fa3533e6d967acb69b6b363997d4cc2b24a7e8717bd1284660e0cff4e9ca",
+  "first64_repeat_sha256": "1723fa3533e6d967acb69b6b363997d4cc2b24a7e8717bd1284660e0cff4e9ca",
+  "first64_repeat_equal": true,
+  "dhcsr_after": "0x01010000",
+  "expected_full_sha256": "865501a622eb41b42b2dcab3cfd37a3cf2803c55865282138a1fda0a4b99b7af",
+  "backup_complete": true,
+  "finished_at": "2026-11-03T21:44:48.529701+08:00"
+}

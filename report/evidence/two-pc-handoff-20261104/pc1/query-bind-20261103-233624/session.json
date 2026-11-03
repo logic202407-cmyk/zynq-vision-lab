@@ -1,0 +1,13 @@
+{
+  "directory": "D:\\c1-recovery-20261103\\query-bind-20261103-233624",
+  "qid": "e4d4ef4a1f78430d93f1f7261a5efbd9",
+  "sid": "00065f6106a11698",
+  "remote_uart": "D:/FPGA_Remote_JTAG/c1-recovery-20261103/capture-20261103-231131/uart.jsonl",
+  "uart_offset_before_query": 1539724,
+  "recovery_independently_verified": true,
+  "allowed_actions": [
+    "query",
+    "bind"
+  ],
+  "hardware_actuation_authorized": false
+}

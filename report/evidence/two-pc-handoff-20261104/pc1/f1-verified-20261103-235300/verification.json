@@ -1,0 +1,41 @@
+{
+  "archive": "D:\\c1-recovery-20261103\\pc2-result-inbox\\20261103-235300-f17f04e3.zip",
+  "archive_sha256": "dc3f23609c12490ef679e7a9667a1067a5843e1c79f893f8b4d170bcaa66d924",
+  "session": "00065f6106a11698",
+  "f1_crc_checked": 1480,
+  "first": {
+    "elapsed": 2255.875,
+    "seq": 1,
+    "primary_sequence": 93006,
+    "dx": 39,
+    "dy": 17,
+    "flags": 1
+  },
+  "last": {
+    "elapsed": 2345.86,
+    "seq": 4197,
+    "primary_sequence": 95370,
+    "dx": 0,
+    "dy": 0,
+    "flags": 0
+  },
+  "sequence_step_min": 2,
+  "sequence_step_max": 4,
+  "flags": {
+    "1": 1479,
+    "0": 1
+  },
+  "dx_range": [
+    0,
+    39
+  ],
+  "dy_range": [
+    0,
+    17
+  ],
+  "all_window_status_stopped": true,
+  "complete_video_frames": 65179,
+  "capture_errors": [],
+  "script_hash_matches_local": true,
+  "physical_closed_loop_verified": false
+}

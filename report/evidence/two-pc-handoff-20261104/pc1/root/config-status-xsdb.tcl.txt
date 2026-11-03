@@ -1,0 +1,9 @@
+connect -url TCP:127.0.0.1:33121
+puts "JTAG_TARGETS=[jtag targets -target-properties]"
+puts "FPGA_STATE=[fpga -state]"
+puts "CONFIG_STATUS=[fpga -config-status]"
+puts "IR_STATUS=[fpga -ir-status]"
+puts "BOOT_STATUS=[fpga -boot-status]"
+puts "COR0_STATUS=[fpga -cor0-status]"
+disconnect
+exit

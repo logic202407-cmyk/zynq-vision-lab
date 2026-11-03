@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue Nov  3 23:36:34 2026
+# Process ID         : 85668
+# Current directory  : D:/c1-recovery-20261103/query-bind-20261103-233624
+# Command line       : vivado.exe -mode batch -source D:/c1-recovery-20261103/control-board-v1/control.tcl -log query.log -journal query.jou -tclargs 192.0.2.2:3121 query e4d4ef4a1f78430d93f1f7261a5efbd9 00065f6106a11698
+# Log file           : D:/c1-recovery-20261103/query-bind-20261103-233624/query.log
+# Journal file       : D:/c1-recovery-20261103/query-bind-20261103-233624\query.jou
+# Running On         : LAPTOP-VHQF65C3
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 34141 MB
+# Swap memory        : 18956 MB
+# Total Virtual      : 53098 MB
+# Available Virtual  : 9180 MB
+#-----------------------------------------------------------
+source D:/c1-recovery-20261103/control-board-v1/control.tcl

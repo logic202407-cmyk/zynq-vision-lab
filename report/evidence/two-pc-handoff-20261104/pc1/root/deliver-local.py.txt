@@ -1,0 +1,19 @@
+import sys,json,hashlib,time
+from pathlib import Path
+sys.path.insert(0,r'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+root=Path('D:/c1-recovery-20261103/recovery-package')
+p='D:/FPGA_Remote_JTAG/c1-recovery-20261103/local-download-'+time.strftime('%H%M%S')
+receipt={'remote_directory':p,'verified':False,'files':{}}
+out=Path('D:/c1-recovery-20261103/local-download-receipt.json')
+out.write_text(json.dumps(receipt,indent=2))
+c=TCF('192.0.2.2',timeout=10,bind_ip='192.0.2.1')
+try:
+ c.normal('mkdir',p,{})
+ for name in ('c1_observe.ltx','manifest.json','c1_observe.bit'):
+  raw=(root/name).read_bytes();print('SEND',name,flush=True);c.write(p+'/'+name,raw)
+  back=c.read(p+'/'+name)
+  if back!=raw:raise RuntimeError('Readback mismatch '+name)
+  receipt['files'][name]={'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()};out.write_text(json.dumps(receipt,indent=2));print('VERIFIED',name,flush=True)
+ receipt['verified']=True;out.write_text(json.dumps(receipt,indent=2));print(json.dumps(receipt),flush=True)
+finally:c.close()

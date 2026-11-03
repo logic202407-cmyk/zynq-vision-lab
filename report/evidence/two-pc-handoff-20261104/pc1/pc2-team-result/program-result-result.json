@@ -1,0 +1,34 @@
+{
+  "phase": "failed",
+  "programming_started": true,
+  "full_readback_equal": false,
+  "programmed_range": [
+    "0x08000000",
+    "0x08003fff"
+  ],
+  "probes": [
+    "9701430220005A504E413836"
+  ],
+  "options": {
+    "no_config": true,
+    "target_override": "stm32f407ve",
+    "pack": "D:\\FPGA_Remote_JTAG\\c1-recovery-20261103\\team-deploy-20261103-223846-650\\extracted\\team-deploy\\F407VE-local-assets.pack",
+    "connect_mode": "halt",
+    "frequency": 1000000,
+    "auto_unlock": false,
+    "resume_on_disconnect": false,
+    "cache.enable_memory": false,
+    "cache.enable_register": false,
+    "cache.read_code_from_elf": false,
+    "chip_erase": "sector",
+    "smart_flash": false,
+    "fast_program": false,
+    "enable_swv": false
+  },
+  "chip_id": "0x101f6413",
+  "flash_kib": 512,
+  "sector_size": 16384,
+  "backup_sha256": "36b8bfb185e06311d271e4b600dad5e5de68f1f70c8a8eba42e83df2636b3c8f",
+  "expected_sha256": "6cfb4d337104ba7fd977c9826b228e4c19d3b66a52ce0b744af40594de0015dd",
+  "error": "Traceback (most recent call last):\n  File \"D:\\FPGA_Remote_JTAG\\c1-recovery-20261103\\team-deploy-20261103-223846-650\\extracted\\team-deploy\\program_team.py\", line 69, in <module>\n    keep_unwritten=False).program(str(sector_path),file_format='bin',base_address=0x08000000)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pyocd\\flash\\file_programmer.py\", line 199, in program\n    self.commit()\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pyocd\\flash\\file_programmer.py\", line 173, in commit\n    self._loader.commit()\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pyocd\\flash\\loader.py\", line 299, in commit\n    builder.erase(chip_erase=self._chip_erase,\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pyocd\\flash\\builder.py\", line 536, in erase\n    self._erase_sectors(progress_cb)\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pyocd\\flash\\builder.py\", line 874, in _erase_sectors\n    self.flash.erase_sector(addr)\n  File \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pyocd\\flash\\flash.py\", line 383, in erase_sector\n    raise FlashEraseFailure('flash erase sector timed out')\npyocd.core.exceptions.FlashEraseFailure: flash erase sector timed out\n"
+}

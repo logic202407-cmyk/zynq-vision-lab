@@ -1,0 +1,38 @@
+{
+  "bytes": 65536,
+  "equal": true,
+  "sha256": "1723fa3533e6d967acb69b6b363997d4cc2b24a7e8717bd1284660e0cff4e9ca",
+  "prefix12836_sha256": "eed5a29dc54b58d176c9b21a83e033d5637089bd68c5f782cc70b983425846fa",
+  "last_non_ff_offset": 12863,
+  "markers": {
+    "F1 ": -1,
+    "V2A ": 6200,
+    "v2b ": 6184,
+    "LASER1 PULSE 500MS": 6844
+  },
+  "historical_source_hash_matches": {
+    "stm32_skystar_tracking\\User\\board.c": true,
+    "stm32_skystar_tracking\\User\\board.h": true,
+    "stm32_skystar_tracking\\User\\c1_feedback.h": true,
+    "stm32_skystar_tracking\\User\\c1_quality.h": false,
+    "stm32_skystar_tracking\\User\\gimbal_registry.c": true,
+    "stm32_skystar_tracking\\User\\gimbal_registry.h": true,
+    "stm32_skystar_tracking\\User\\main.c": true,
+    "stm32_skystar_tracking\\User\\s1ack.h": true,
+    "stm32_skystar_tracking\\User\\safety.c": true,
+    "stm32_skystar_tracking\\User\\safety.h": true,
+    "stm32_skystar_tracking\\User\\tracking.c": true,
+    "stm32_skystar_tracking\\User\\tracking.h": true,
+    "stm32_skystar_tracking\\User\\vision_measurement.c": true,
+    "stm32_skystar_tracking\\User\\vision_measurement.h": true,
+    "stm32_project\\User\\pid.c": true,
+    "stm32_project\\User\\pid.h": true,
+    "stm32_skystar_tracking\\startup.s": true,
+    "stm32_skystar_tracking\\firmware.sct": true
+  },
+  "limitations": [
+    "String absence is not proof of all executable behavior",
+    "64 KiB only; no claim about remaining Flash",
+    "No programming or physical UART verification"
+  ]
+}

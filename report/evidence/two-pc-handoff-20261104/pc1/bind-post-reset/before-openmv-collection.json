@@ -1,0 +1,12 @@
+{
+  "uart.jsonl": {
+    "start_offset": 2264200,
+    "end_offset": 2476103,
+    "bytes": 211902
+  },
+  "video.jsonl": {
+    "start_offset": 10229656,
+    "end_offset": 11084667,
+    "bytes": 855010
+  }
+}

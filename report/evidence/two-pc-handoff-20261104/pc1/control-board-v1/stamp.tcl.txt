@@ -1,0 +1,6 @@
+open_checkpoint D:/c1-recovery-20261103/control-board-v1/c1_control_routed.dcp
+set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
+set_property BITSTREAM.CONFIG.USR_ACCESS 0xc103f401 [current_design]
+write_bitstream -force D:/c1-recovery-20261103/control-board-v1/c1_control.bit
+puts CONTROL_IDENTITY_STAMPED_C103F401
+exit

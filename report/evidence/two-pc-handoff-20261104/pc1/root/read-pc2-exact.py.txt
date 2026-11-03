@@ -1,0 +1,14 @@
+import sys,json,time
+from pathlib import Path
+sys.path.insert(0,r'C:/Users/USER/.codex/skills/fpga-remote-lab/scripts')
+from remote_lab import TCF
+out=Path('D:/c1-recovery-20261103/pc2-results-'+time.strftime('%H%M%S'));out.mkdir();print('LOCAL_RESULTS='+str(out),flush=True)
+base='D:/FPGA_Remote_JTAG/c1-recovery-20261103/'
+files=['local-recovery-20261103-193721-793/file-verification.json','local-recovery-20261103-193721-793/preflight.json','capture-20261103-193941/status-00000105.json','local-recovery-20261103-193721-793/capture.stderr.log','local-recovery-20261103-193721-793/capture.stdout.log']
+c=TCF('192.0.2.2',timeout=10)
+try:
+ for f in files:
+  print('READ '+f,flush=True)
+  raw=c.read(base+f);(out/(f.replace('/','__'))).write_bytes(raw)
+  print(raw.decode('utf-8-sig',errors='replace')[:12000],flush=True)
+finally:c.close()

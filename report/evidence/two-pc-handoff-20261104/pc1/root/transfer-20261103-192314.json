@@ -1,0 +1,18 @@
+{
+  "remote_directory": "D:/FPGA_Remote_JTAG/c1-recovery-20261103/package-20261103-192314",
+  "remote_zip": "D:/FPGA_Remote_JTAG/c1-recovery-20261103/package-20261103-192314/pc2-local-recovery-1818.zip",
+  "sha256": "481c81a3d03e050c8d5dbe5d100b3afdae21431221e5fa4781d4765b4e5222f4",
+  "bytes": 694949,
+  "verified": true,
+  "zip_crc_verified": true,
+  "manifest_files_verified": {
+    "c1_observe.bit": {
+      "bytes": 3931527,
+      "sha256": "ddeddcb5ec4125f1d04c88e64f958dbf97e85ecbcbd68c86dcd8332363cea9b9"
+    },
+    "c1_observe.ltx": {
+      "bytes": 50863,
+      "sha256": "cd049c1945bba922603d5dc5ba1d475facc0cb921c7aac3e82e025e7050f48b6"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+注意：本目录此前被误写成短确认文本。真正的 PC2-RECOVER.txt 在电脑2：
+D:\FPGA_Remote_JTAG\c1-recovery-20261103\team-deploy-20261103-223846-650\PC2-RECOVER.txt
+完整副本：D:\FPGA_Remote_JTAG\c1-recovery-20261103\PC2-RECOVER-FULL.txt
+脚本 recover-team-blank.py 仍在本目录，SHA256 目标 df415e5dab5afb4b995d5aec9d700fed06e43680cb1cd13921ef7d6e053f931f

@@ -1,0 +1,7 @@
+{
+  "remote_zip": "D:/FPGA_Remote_JTAG/c1-recovery-20261103/skystar-team-deploy-v1.zip",
+  "bytes": 174330,
+  "sha256": "272ac5597f67aaf512d05c010c3f5e85258b95c82c987aff648f144317b5aadd",
+  "verified": false,
+  "error": "TimeoutError('timed out')"
+}
