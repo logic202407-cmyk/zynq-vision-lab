@@ -1,0 +1,16 @@
+{
+  "scope": "Manual transcription from local OpenMV IDE screenshot; finite 8 s image-only RAM diagnostic, not a calibration certificate",
+  "script_sha256": "cb5c940557027ea354d773a1a2974bf4c0d6fa958c5e9df617968a7443b38789",
+  "image_size": [160, 120],
+  "roi": [106, 18, 12, 12],
+  "roi_manual_view": "Green ROI appeared inside the red paper circle; no automated object-identity verification",
+  "field_order_per_channel": ["min", "lower_quartile", "median", "upper_quartile", "max"],
+  "samples": [
+    {"L": [9, 10, 12, 14, 15], "A": [11, 14, 14, 16, 18], "B": [-3, 0, 6, 6, 10]},
+    {"L": [8, 9, 9, 12, 15], "A": [8, 11, 12, 13, 16], "B": [-3, 2, 4, 8, 8]},
+    {"L": [9, 10, 10, 14, 15], "A": [11, 14, 14, 17, 18], "B": [-3, -1, 6, 6, 10]}
+  ],
+  "scene_limited": true,
+  "private_screenshot_uploaded": false,
+  "camera_flash_written": false
+}

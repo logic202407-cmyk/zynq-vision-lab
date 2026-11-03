@@ -1,0 +1,28 @@
+{
+  "scope": "One live SRAM ring-buffer snapshot; may race MCU writes, not a complete stream",
+  "matching_headers": 32,
+  "flag0": 32,
+  "flag1": 0,
+  "examples": [
+    {
+      "dx": 0,
+      "dy": 0,
+      "flag": 0
+    },
+    {
+      "dx": 0,
+      "dy": 0,
+      "flag": 0
+    },
+    {
+      "dx": 0,
+      "dy": 0,
+      "flag": 0
+    },
+    {
+      "dx": 0,
+      "dy": 0,
+      "flag": 0
+    }
+  ]
+}

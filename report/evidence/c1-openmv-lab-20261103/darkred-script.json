@@ -1,0 +1,12 @@
+{
+  "scope": "scene-specific RAM candidate; not deployed",
+  "lab": [
+    5,
+    35,
+    8,
+    40,
+    -10,
+    25
+  ],
+  "sha256": "e2ac7966fa3513e4554e2e05ac762fd958eee7cd266b9131c3d5c578fd116d9a"
+}
