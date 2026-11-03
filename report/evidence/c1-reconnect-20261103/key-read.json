@@ -1,0 +1,9 @@
+{
+  "scope": "Read-only GPIO/safety samples; no reset, command, halt or writes",
+  "samples": 500,
+  "pa0_high": 0,
+  "pa3_high": 500,
+  "state": 0,
+  "reason": 0,
+  "ccer": 0
+}

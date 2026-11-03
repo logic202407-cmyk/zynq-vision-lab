@@ -1,0 +1,11 @@
+{
+  "scope": "Existing FPGA OV5640 UDP only, not MCU measurement acceptance or tracking",
+  "seconds": 10.031,
+  "complete_frames": 0,
+  "incomplete_frames": 0,
+  "malformed": 0,
+  "valid_target_frames": 0,
+  "measurement_samples": [],
+  "error": null,
+  "verdict": "NO_FRAMES"
+}

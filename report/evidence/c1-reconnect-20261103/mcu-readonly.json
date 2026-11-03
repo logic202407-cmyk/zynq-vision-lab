@@ -1,0 +1,11 @@
+{
+  "scope": "Final full-Flash and register reads; no halt/reset/programming",
+  "matches_proposal": true,
+  "application_sha256": "70a3ad2f0117cb9425d47db79eaad32e0c727ed9936665e2b2bef45599e44812",
+  "full_flash_sha256": "61b59cdbdbbbac3e57b847aec63f1f2bb570c3809e026dc0a24246059141471b",
+  "safety_state": 0,
+  "safety_reason": 0,
+  "tim4_ccer": 0,
+  "core_running": true,
+  "verdict": "PASS"
+}
