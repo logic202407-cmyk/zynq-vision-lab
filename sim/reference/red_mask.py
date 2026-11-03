@@ -14,6 +14,23 @@ class Measurement:
     centroid: tuple[int, int] | None
 
 
+@dataclass(frozen=True)
+class PixelStatistics:
+    """Exact integer statistics before centroid division loses information."""
+
+    valid: bool
+    count: int
+    sum_x: int
+    sum_y: int
+    bbox: tuple[int, int, int, int] | None
+
+    @property
+    def centroid(self) -> tuple[int, int] | None:
+        if not self.valid or self.count == 0:
+            return None
+        return self.sum_x // self.count, self.sum_y // self.count
+
+
 def is_red_rgb565(pixel: int) -> bool:
     """Candidate red predicate shared by the software and RTL comparisons."""
     red = (pixel >> 11) & 0x1F
@@ -57,6 +74,16 @@ def measure_red_pixels(
     """
     if frame_index < 0:
         raise ValueError("frame_index must be nonnegative")
+    statistics = measure_red_statistics(rgb565_be, width, height,
+                                        spatial_filter=spatial_filter)
+    return Measurement(frame_index, statistics.valid, statistics.count,
+                       statistics.bbox, statistics.centroid)
+
+
+def measure_red_statistics(
+    rgb565_be: bytes, width: int, height: int, *, spatial_filter: bool = False
+) -> PixelStatistics:
+    """Return exact count, coordinate sums and box on the selected mask."""
     mask = red_binary_mask(rgb565_be, width, height, spatial_filter=spatial_filter)
 
     count = 0
@@ -80,11 +107,6 @@ def measure_red_pixels(
         max_y = max(max_y, y)
 
     if count == 0:
-        return Measurement(frame_index, False, 0, None, None)
-    return Measurement(
-        frame_index,
-        True,
-        count,
-        (min_x, min_y, max_x, max_y),
-        (sum_x // count, sum_y // count),
-    )
+        return PixelStatistics(False, 0, 0, 0, None)
+    return PixelStatistics(True, count, sum_x, sum_y,
+                           (min_x, min_y, max_x, max_y))
