@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 // Offline integration top. Operator/configuration inputs are synchronous clk strobes.
 // Existing B2 UART is captured as COMPLETE lines then serialized by one physical TX.
-module zynq_vision_link #(parameter CLOCK_HZ=100000000,BAUD=115200,LOCAL_RESETS=0)(
+module zynq_vision_link #(parameter CLOCK_HZ=100000000,BAUD=115200,LOCAL_RESETS=0,ALLOW_AUTO=0)(
  input wire clk,reset_n,camera_clk,camera_reset_n,
  input wire query,authorize,command,stop_request,input wire[1:0] axis,input wire[15:0] pulse_us,
  input wire[127:0] epoch,input wire request_local,pc_quiet_ack,pc_rx,mcu_rx,
@@ -19,7 +19,7 @@ module zynq_vision_link #(parameter CLOCK_HZ=100000000,BAUD=115200,LOCAL_RESETS=
  wire mbusy,mdone;
  wire local_fault=queue_fault||scheduler_fault;
  assign fault=motion_fault||local_fault;
- zynq_motion_s1 #(.CLOCK_HZ(CLOCK_HZ),.BAUD(BAUD)) motion(
+ zynq_motion_s1 #(.CLOCK_HZ(CLOCK_HZ),.BAUD(BAUD),.ALLOW_AUTO(ALLOW_AUTO)) motion(
  clk,reset_n,query,authorize,command,stop_request||local_fault||(!request_local&&owner),axis,pulse_us,epoch,
  request_local||!idle||pending||mbusy||bv,pc_quiet_ack,pc_rx,mcu_rx,pc_tx,motion_tx,owner,motion_fault,stop_confirmed,state,accepted_count,pan_target,tilt_target,pwm_mask);
  uart_line_queue #(.CLOCK_HZ(CLOCK_HZ),.BAUD(BAUD)) commands(clk,reset_n,owner?motion_tx:1'b1,cv,cd,cr,queue_fault,pending);

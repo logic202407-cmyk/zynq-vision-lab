@@ -3,10 +3,11 @@
 // across resets. No pins or real clock are assumed. No automatic boot traffic.
 module zynq_motion_s1 #(
  parameter integer CLOCK_HZ=100000000, BAUD=115200,
- parameter integer ACK_MS=100, HEARTBEAT_MS=100, AUTH_MS=30000, TX_MS=10
+ parameter integer ACK_MS=100, HEARTBEAT_MS=100, AUTH_MS=30000, TX_MS=10,
+ parameter integer ALLOW_AUTO=0
 )(
  input wire clk,reset_n,query,authorize,command,stop_request,
- input wire [1:0] axis, // 0 pan, 1 tlt, 2 home; 3 invalid
+ input wire [1:0] axis, // 0 pan, 1 tlt, 2 home; opt-in 3/zero pulse AUTO
  input wire [15:0] pulse_us,
  input wire [127:0] epoch,
  input wire request_local,pc_quiet_ack,pc_rx,mcu_rx,
@@ -18,7 +19,7 @@ module zynq_motion_s1 #(
  output reg [1:0] pwm_mask
 );
  localparam IDLE=0,SEND=1,WAIT_SYNC=2,AUTH=3,READY=4,WAIT_ACK=5,FAULT=6;
- localparam OP_QUERY=0,OP_ARM=1,OP_PAN=2,OP_TLT=3,OP_HOME=4,OP_HB=5,OP_STOP=6;
+ localparam OP_QUERY=0,OP_ARM=1,OP_PAN=2,OP_TLT=3,OP_HOME=4,OP_HB=5,OP_STOP=6,OP_AUTO=7;
  localparam DIV=(CLOCK_HZ+BAUD/2)/BAUD;
  localparam CONFIG_OK=BAUD>0&&CLOCK_HZ>=8*BAUD&&ACK_MS>0&&
  HEARTBEAT_MS>0&&HEARTBEAT_MS<500&&AUTH_MS>0&&TX_MS>0;
@@ -27,6 +28,7 @@ module zynq_motion_s1 #(
  wire ce=command&&!old_inputs[2], se=stop_request&&!old_inputs[3];
  reg [31:0] msdiv, now_ms,deadline,auth_at,live_at,idle_clocks,seq;
  reg authorized,recheck,cancel_pending,send_wait,reviewed_fault;
+ reg auto_mode;
  reg [2:0] op;
  reg [127:0] qid,last_epoch;
  reg [63:0] nonce;
@@ -116,7 +118,7 @@ module zynq_motion_s1 #(
  else if(outlen==37) buildbyte="s";else if(outlen==38) buildbyte="t";
  else if(outlen==39) buildbyte="o";else buildbyte="p";
  end else begin
- bodylen=21+seqdigits+((op==OP_ARM)?3:(op==OP_HB)?2:(op==OP_HOME)?4:8);
+ bodylen=21+seqdigits+((op==OP_ARM)?3:(op==OP_HB)?2:(op==OP_HOME||op==OP_AUTO)?4:8);
  if(outlen==0) buildbyte="s";else if(outlen==1) buildbyte="1";
  else if(outlen==2||outlen==19||outlen==20+seqdigits) buildbyte=" ";
  else if(outlen<19) buildbyte=hx(nonce[(18-outlen)*4 +:4]);
@@ -127,6 +129,7 @@ module zynq_motion_s1 #(
  OP_ARM:case(pos) 0:buildbyte="a";1:buildbyte="r";default:buildbyte="m";endcase
  OP_HB:buildbyte=pos==0?"h":"b";
  OP_HOME:case(pos) 0:buildbyte="h";1:buildbyte="o";2:buildbyte="m";default:buildbyte="e";endcase
+ OP_AUTO:case(pos) 0:buildbyte="a";1:buildbyte="u";2:buildbyte="t";default:buildbyte="o";endcase
  default:begin
  case(pos)
  0:buildbyte=op==OP_PAN?"p":"t";
@@ -164,20 +167,25 @@ module zynq_motion_s1 #(
  wire identity_s=tok[1]=="S"&&lens[2]==16&&hexvalid(tok[2],16)&&hexnum(tok[2])==nonce&&
  (numeric[3]&&lens[3]>0&&lens[3]<=10)&&number[3]==seq&&lens[4]==4&&hexvalid(tok[4],4)&&tok[4]=={hx(request_crc[15:12]),hx(request_crc[11:8]),hx(request_crc[7:4]),hx(request_crc[3:0])};
  wire opcode_ok=(op==OP_ARM&&tok[5]=="arm")||(op==OP_PAN&&tok[5]=="pan")||
- (op==OP_TLT&&tok[5]=="tlt")||(op==OP_HOME&&tok[5]=="home")||(op==OP_HB&&tok[5]=="hb");
+ (op==OP_TLT&&tok[5]=="tlt")||(op==OP_HOME&&tok[5]=="home")||(op==OP_HB&&tok[5]=="hb")||
+ (ALLOW_AUTO&&op==OP_AUTO&&tok[5]=="auto");
  wire identity_q=op==OP_STOP&&tok[1]=="Q"&&hexwide(tok[2])==qid&&hexvalid(tok[2],32)&&lens[2]==32&&tok[3]=="-"&&tok[4]=="-"&&tok[5]=="stop";
  wire ack_match=tok[0]=="S1ACK"&&(identity_q||(identity_s&&opcode_ok));
  wire ack_fields=reason_valid(tok[10])&&tok[6]=="ACCEPT"&&tok[7]=="REG"&&lens[8]==16&&hexvalid(tok[8],16)&&
  tok[11]=="none"&&lens[17]==0&&(numeric[12]&&lens[12]>0&&lens[12]<=10)&&(numeric[13]&&lens[13]>0&&lens[13]<=10)&&
  (numeric[14]&&lens[14]>0&&lens[14]<=10)&&(numeric[15]&&lens[15]>0&&lens[15]<=10)&&(numeric[16]&&lens[16]>0&&lens[16]<=10);
- wire targets_ok=number[12]==expected_pan&&number[13]==expected_tlt&&number[14]==expected_mask&&
- (expected_mask==0||(number[15]==expected_pan&&number[16]==expected_tlt));
+ wire auto_heartbeat=ALLOW_AUTO&&auto_mode&&op==OP_HB;
+ wire targets_ok=auto_heartbeat ?
+ (number[12]>=1300&&number[12]<=1700&&number[13]>=1300&&number[13]<=1700&&
+ (number[14]==0||number[14]==3)&&(number[14]==0||(number[15]==number[12]&&number[16]==number[13]))) :
+ (number[12]==expected_pan&&number[13]==expected_tlt&&number[14]==expected_mask&&
+ (expected_mask==0||(number[15]==expected_pan&&number[16]==expected_tlt)));
  always @(posedge clk or negedge reset_n) begin
  if(!reset_n) begin
  state<=IDLE;owner<=0;fault<=0;stop_confirmed<=0;old_inputs<=0;msdiv<=0;now_ms<=0;
  deadline<=0;auth_at<=0;live_at<=0;idle_clocks<=0;seq<=0;authorized<=0;recheck<=0;reviewed_fault<=0;
  cancel_pending<=0;qid<=0;last_epoch<=0;nonce<=0;op<=0;outlen<=0;outpos<=0;seqdigits<=0;seqwork<=0;decimal_digits<=0;preparing<=0;tx_loaded<=0;tx_latch<=0;
- building<=0;calc_crc<=16'hffff;request_crc<=0;send_wait<=0;
+ building<=0;calc_crc<=16'hffff;request_crc<=0;send_wait<=0;auto_mode<=0;
  pan_target<=1500;tilt_target<=1500;pwm_mask<=0;expected_pan<=1500;expected_tlt<=1500;expected_mask<=0;accepted_count<=0;
  end else begin
  old_inputs<={3'b0,stop_request,command,authorize,query};
@@ -195,7 +203,7 @@ module zynq_motion_s1 #(
  end
  case(state)
  IDLE,FAULT:if(qe&&owner&&epoch!=0&&epoch!=last_epoch) begin
- qid=epoch;last_epoch<=epoch;recheck<=0;authorized<=0;cancel_pending<=0;fault<=0;stop_confirmed<=0;launch(OP_QUERY);end
+ qid=epoch;last_epoch<=epoch;recheck<=0;authorized<=0;cancel_pending<=0;fault<=0;stop_confirmed<=0;auto_mode<=0;launch(OP_QUERY);end
  SEND:begin
  if(building) begin
  if(preparing) begin
@@ -232,11 +240,12 @@ module zynq_motion_s1 #(
  end
  READY:begin
  if(ce) begin
- if(axis==3||(axis!=2&&(pulse_us<1300||pulse_us>1700))||seq==32'hffffffff) begin fault<=1;cancel_pending<=1;end
+ if(auto_mode||(axis==3&&(!ALLOW_AUTO||pulse_us!=0))||(axis<2&&(pulse_us<1300||pulse_us>1700))||seq==32'hffffffff) begin fault<=1;cancel_pending<=1;end
  else begin seq=seq+1;expected_mask=3;
  if(axis==0) begin expected_pan=pulse_us;launch(OP_PAN);end
  else if(axis==1) begin expected_tlt=pulse_us;launch(OP_TLT);end
- else begin expected_pan=1500;expected_tlt=1500;launch(OP_HOME);end
+ else if(axis==2)begin expected_pan=1500;expected_tlt=1500;launch(OP_HOME);end
+ else begin expected_mask=0;launch(OP_AUTO);end
  end
  end else if(now_ms-live_at>=HEARTBEAT_MS) begin
  if(seq==32'hffffffff) begin fault<=1;cancel_pending<=1;end
@@ -247,10 +256,11 @@ module zynq_motion_s1 #(
  if(line_done&&ack_match) begin
  if(line_good&&ack_fields&&((op==OP_STOP&&number[14]==0&&(tok[9]=="stopped"||tok[9]=="fault"))||
  (op!=OP_STOP&&hexnum(tok[8])==nonce&&targets_ok&&((op==OP_ARM&&tok[9]=="armed")||
- (op!=OP_ARM&&(tok[9]=="armed"||tok[9]=="manual")))))) begin
+ ((op==OP_AUTO||auto_heartbeat)&&tok[9]=="auto")||
+ (op!=OP_ARM&&op!=OP_AUTO&&!auto_heartbeat&&(tok[9]=="armed"||tok[9]=="manual")))))) begin
  accepted_count<=accepted_count+1;pwm_mask<=number[14];pan_target<=number[12];tilt_target<=number[13];
- if(op==OP_STOP) begin stop_confirmed<=1;authorized<=0;state<=fault?FAULT:IDLE;end
- else begin live_at<=deadline;state<=READY;end
+ if(op==OP_STOP) begin stop_confirmed<=1;authorized<=0;auto_mode<=0;state<=fault?FAULT:IDLE;end
+ else begin if(op==OP_AUTO)auto_mode<=1;live_at<=deadline;state<=READY;end
  end else begin fault<=1;authorized<=0;if(op==OP_STOP) state<=FAULT;else cancel_pending<=1;end
  end
  if(now_ms-deadline>=ACK_MS) begin fault<=1;authorized<=0;if(op==OP_STOP) state<=FAULT;else cancel_pending<=1;end

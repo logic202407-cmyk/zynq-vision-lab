@@ -1,4 +1,5 @@
 #include "tracking.h"
+#include "tracking_profile.h"
 #include <string.h>
 
 static void history(tracking_t *c)
@@ -17,9 +18,9 @@ void tracking_init(tracking_t *c)
     memset(c, 0, sizeof(*c));
     /* Defaults retained from stm32_project/User/main.c. */
     /* Limit PID output/integral to the actual commanded pulse windows. */
-    pid_init(&c->pan_pid, 3.0f, 0.5f, 0.0f,
+    pid_init(&c->pan_pid, 3.0f, TRACK_PAN_KI, 0.0f,
              (float)PAN_MIN_US - PAN_HOME_US, (float)PAN_MAX_US - PAN_HOME_US);
-    pid_init(&c->tilt_pid, 5.0f, 0.8f, 0.0f,
+    pid_init(&c->tilt_pid, 5.0f, TRACK_TILT_KI, 0.0f,
              (float)TILT_MIN_US - TILT_HOME_US, (float)TILT_MAX_US - TILT_HOME_US);
     c->pan_us = PAN_HOME_US; c->tilt_us = TILT_HOME_US;
 }
@@ -96,13 +97,11 @@ void tracking_observe(tracking_t *c, int16_t dx, int16_t dy,
         c->filt_dx += 0.35f * (c->raw_dx - c->filt_dx);
         c->filt_dy += 0.20f * (c->raw_dy - c->filt_dy);
     }
-    step = (int32_t)(3.0f * dt / 0.01f + 0.5f);
-    if (step < 1) step = 1;
-    if (step > 15) step = 15;
+    step = (int32_t)(TRACK_STEP_PER_10MS * dt / 0.01f + 0.5f);
+    if (step < TRACK_STEP_MIN_US) step = TRACK_STEP_MIN_US;
+    if (step > TRACK_STEP_MAX_US) step = TRACK_STEP_MAX_US;
     /* Limit each tilt change as well as its absolute pulse range. */
-    tilt_step = (int32_t)(3.0f * dt / 0.01f + 0.5f);
-    if (tilt_step < 1) tilt_step = 1;
-    if (tilt_step > 15) tilt_step = 15;
+    tilt_step = step;
     /* 2026-10-30 mount test: +25us reduces both measured dx and dy. */
     if (c->filt_dx > 3 || c->filt_dx < -3)
         c->pan_us = pulse(pid_update(&c->pan_pid, 0, -c->filt_dx, dt),

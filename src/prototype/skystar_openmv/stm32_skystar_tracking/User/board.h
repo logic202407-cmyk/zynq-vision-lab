@@ -22,6 +22,8 @@ void board_flush_vision(void);
 int board_take_fault(void);
 int board_button(void);
 void board_outputs(int enabled, uint16_t pan, uint16_t tilt);
+/* Main context; profile builds additionally require live guard and enabled PWM. */
+void board_laser_set(int enabled);
 int board_send(const char *line);
 void board_poll_tx(void);
 #ifdef S1ACK1

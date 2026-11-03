@@ -1,5 +1,10 @@
 #include "board.h"
 #include "tracking.h"
+#include "tracking_profile.h"
+#ifdef SKYSTAR_TEAM_PROFILE
+#include "laser_lock.h"
+static laser_lock_t port_laser;
+#endif
 #include "safety.h"
 #include <stdio.h>
 #include <string.h>
@@ -201,6 +206,10 @@ static void vision_byte(uint8_t byte, uint32_t received, uint32_t now)
         uint32_t rejected=control.rejected;
         int complete=vision_feed(&parser,&control,byte,received,now);
         if (rejected!=control.rejected || (complete && !control.valid)) trip(SAFE_VISION);
+#ifdef SKYSTAR_TEAM_PROFILE
+        if (complete) laser_lock_frame(&port_laser,received,
+            (uint8_t)(control.valid && guardian.state==SAFE_AUTO));
+#endif
     }
 }
 int main(void)
@@ -212,9 +221,12 @@ int main(void)
     memset(&observations,0,sizeof(observations)); /* Explicit bind required; no boot session guess. */
 #endif
     tracking_init(&control); vision_init(&parser); board_init();
+#ifdef SKYSTAR_TEAM_PROFILE
+    laser_lock_reset(&port_laser);
+#endif
     entropy_ok=board_session_nonce(&hi,&lo);
     safety_init(&guardian,hi,lo,entropy_ok);
-    (void)board_send("SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=" CONSOLE_LABEL "\r\n");
+    (void)board_send("SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=" CONSOLE_LABEL TRACK_PROFILE_LABEL "\r\n");
     for (;;) {
         unsigned count;
         uint32_t now=board_ms();
@@ -226,6 +238,10 @@ int main(void)
         now=board_ms();
         poll_safety(now); tracking_tick(&control,now);
         board_outputs(safety_armed(&guardian) && control.outputs,control.pan_us,control.tilt_us);
+#ifdef SKYSTAR_TEAM_PROFILE
+        board_laser_set(laser_lock_tick(&port_laser,now,
+            (uint8_t)(guardian.state==SAFE_AUTO && control.valid && control.outputs)));
+#endif
         if ((uint32_t)(now-last_status)>=100u) { last_status=now; status(); }
         #ifdef C1_OBSERVATIONS
         c1_expire(now);gimbal_registry_tick(&observation_devices,now);

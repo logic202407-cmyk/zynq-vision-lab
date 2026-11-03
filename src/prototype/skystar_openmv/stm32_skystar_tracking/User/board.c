@@ -59,6 +59,14 @@ void board_init(void)
     guard_active=guard_event=fault=0; pwm_enabled=0;
     milliseconds=0; vision.head=vision.tail=pc.head=pc.tail=0;
     tx_head=tx_tail=0;
+#ifdef SKYSTAR_TEAM_PROFILE
+    /* User's MOS input is PE2 active high. Start inactive before output mode. */
+    R(RCC+0x30) |= 1u<<4;
+    dummy=R(RCC+0x30); (void)dummy;
+    R(0x40021018u)=1u<<18;
+    pin(0x40021000u,2,1,0);
+    R(0x4002100Cu) |= 2u<<4;
+#endif
     R(0xE000ED08u)=0x08000000u;
     R(RCC) |= 1u;
     while (!(R(RCC)&2u)) { }
@@ -109,6 +117,9 @@ void board_init(void)
 }
 static void force_off(void)
 {
+#ifdef SKYSTAR_TEAM_PROFILE
+    R(0x40021018u)=1u<<18;
+#endif
     R(TIM4+0x20)=0;
     R(GPIOD+0x18)=3u<<28;
     pin(GPIOD,12,1,0); pin(GPIOD,13,1,0); pwm_enabled=0;
@@ -180,6 +191,18 @@ int board_take_fault(void)
     __enable_irq(); return result;
 }
 int board_button(void) { return (R(GPIOA+0x10)&1u)!=0; }
+void board_laser_set(int enabled)
+{
+#ifdef SKYSTAR_TEAM_PROFILE
+    __disable_irq();
+    if (!guard_active || guard_event || fault || !pwm_enabled || board_button() ||
+        (uint32_t)(milliseconds-guard_received)>=SAFETY_LEASE_MS) enabled=0;
+    R(0x40021018u)=enabled ? 1u<<2 : 1u<<18;
+    __enable_irq();
+#else
+    (void)enabled;
+#endif
+}
 void board_outputs(int enabled, uint16_t pan, uint16_t tilt)
 {
     /* Foreground only: keep the permit check and enable indivisible to SysTick. */

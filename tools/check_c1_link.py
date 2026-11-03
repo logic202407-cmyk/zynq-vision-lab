@@ -7,16 +7,23 @@ from check_motion_cosim import Coupled,ROOT,FW,VB,Logic
 
 SOURCES=['uart_tx_8n1.v','uart_rx.v','zynq_motion_s1.v','vision_measurement_tx.v',
          'vision_snapshot_cdc.v','uart_line_queue.v','uart_line_scheduler.v','measurement_nonce_observer.v','measurement_session.v','zynq_vision_link.v']
-def build(stage):
+def build(stage,team=False):
     stage.mkdir(parents=True,exist_ok=False)
     for n in SOURCES:shutil.copyfile(ROOT/'src/rtl'/n,stage/n)
     shutil.copyfile(ROOT/'sim/c1/link_c_bridge_tb.v',stage/'motion_c_bridge_tb.v')
+    if team:
+        tb=stage/'motion_c_bridge_tb.v'
+        tb.write_text(tb.read_text().replace('zynq_vision_link dut','zynq_vision_link #(.ALLOW_AUTO(1)) dut'))
     gcc=os.environ.get('CC','D:/Dev-Cpp/MinGW64/bin/gcc.exe');pid=FW.parent/'stm32_project/User'
     cmds=[('c-build',[gcc,'-shared','-std=c99','-Wall','-Wextra','-Werror','-O2','-DBOARD_HOST_TEST','-DS1ACK1','-DC1_OBSERVATIONS','-DCONSOLE_USART=3',
         '-I'+str(FW/'User'),'-I'+str(pid),str(ROOT/'sim/c1/link_adapter.c'),*[str(FW/'User'/n) for n in ('tracking.c','safety.c','gimbal_registry.c','vision_measurement.c')],str(pid/'pid.c'),'-o','stm32.dll']),
         ('xvlog',[str(VB/'xvlog.bat'),*SOURCES,'motion_c_bridge_tb.v']),
         ('xelab',[str(VB/'xelab.bat'),'motion_c_bridge_tb','-debug','all','-dll','-s','coupled'])]
     results=[]
+    if team:
+        from check_team_firmware import build as build_team
+        build_team(stage)
+        cmds=cmds[1:]
     for n,cmd in cmds:
         p=subprocess.run(cmd,cwd=stage,capture_output=True,timeout=180)
         (stage/(n+'.log')).write_bytes(p.stdout+p.stderr);results.append(dict(name=n,command=cmd,exit_code=p.returncode))
