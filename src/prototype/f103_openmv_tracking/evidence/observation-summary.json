@@ -1,0 +1,41 @@
+{
+  "samples": 640,
+  "received_frames": 1631,
+  "faults_added": 0,
+  "target_samples": 640,
+  "pb0_high_samples": 640,
+  "raw_off_center_and_high_samples": 640,
+  "aim_error_last": [
+    3,
+    1
+  ],
+  "within_3px_of_aim_samples": 619,
+  "first_sample": {
+    "tick": 2459,
+    "dx": 2,
+    "dy": 10,
+    "flag": 1,
+    "frames": 114,
+    "faults": 0,
+    "received_ms": 2443,
+    "pb0": 1,
+    "pan": 1560,
+    "tilt": 1509
+  },
+  "last_sample": {
+    "tick": 37433,
+    "dx": -1,
+    "dy": 11,
+    "flag": 1,
+    "frames": 1745,
+    "faults": 0,
+    "received_ms": 37430,
+    "pb0": 1,
+    "pan": 1568,
+    "tilt": 1514
+  },
+  "optical_emission_verified_by_software": false,
+  "visual_observation": "IDE spot visible inside red paper target after compensation",
+  "user_confirmation": "可以，已经收敛到中心附近了",
+  "dynamic_speed_comparison_done": false
+}

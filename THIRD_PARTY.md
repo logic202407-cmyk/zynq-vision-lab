@@ -14,3 +14,7 @@ For each future import, record its source URL, pinned commit/tag, files used, li
 ## Skystar STM32F407 references (2026-10-27)
 
 `board/skystar_f407/` contains original connection tables and redrawn functional wiring diagrams. Vendor schematics, board photos, SDK sources and firmware binaries are not included in this documentation submission. Official acquisition links and SHA-256 fingerprints of the locally consulted PDFs are recorded in `board/skystar_f407/sources.md` and `sources.json`. Online vendor packages can change; the recorded fingerprints identify the reviewed local versions. The root MIT license does not relicense external vendor documents.
+
+## F103 / OpenMV tracking dependencies (2026-11-03)
+
+The new prototype publishes application sources, tests and Keil project definitions. STM32F10x SPL V3.5.0, the original CMSIS V1.30 / startup / clock files and ARM Compiler 5.06 remain external dependencies. No vendor source, tool executable, license file or firmware binary is redistributed. [Dependency fingerprints](src/prototype/f103_openmv_tracking/stm32/dependencies.json) identify the locally built inputs. The application derives from the user's F103/OpenMV prototype at commit `75ef0b7aeea70ed2abcfe2f8a52c2cf0c821fc45` and their workspace support drivers; OpenMV firmware APIs are used without copying firmware implementation.

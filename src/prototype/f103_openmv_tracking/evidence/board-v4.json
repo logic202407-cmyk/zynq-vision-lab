@@ -1,0 +1,14 @@
+{
+  "version": "v4 AIM_500MM",
+  "hardware_programmed": true,
+  "image_bytes": 10032,
+  "two_full_reads_identical": true,
+  "readback_mismatches": 0,
+  "option_bytes_unchanged": true,
+  "hex_sha256": "77ee8689e34c3ae62b8aec81b7959da12fb6bec2dbb92a70c7f20623902ee98b",
+  "flash_sha256": "f81bf6e1e3adac8de278df61df3fa44d60645b1d2661c554a872a97d6c5253ab",
+  "core_state": "State.RUNNING",
+  "laser_armed": 1,
+  "tracking_auto": true,
+  "pwm_enabled": true
+}

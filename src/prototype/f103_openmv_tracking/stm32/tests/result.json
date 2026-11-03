@@ -1,0 +1,13 @@
+{
+  "scope": "host C checks; no device access",
+  "result": "PASS 38 assertions: detection gate, loss, disable, timeout, rollover, parser and PID",
+  "source_sha256": {
+    "User/laser_lock.c": "a4f2857dd64f0abfa3145ac1c692caf996d05605420e85bdf624ed756bf2fa97",
+    "User/laser_lock.h": "26d7e6fe9159ff222550abcdb9dada4f1d197c0903658634f6191c4a1a5da7dc",
+    "User/uart_parser.c": "8b22fa1886059c389e4bcb0301390283320266cceeef28fe20b3efaadf8b5fc0",
+    "User/uart_parser.h": "004e423f3b4cd61b1d6b9113230a33cc732ad227b581bc4f1e1d27a13a767ffd",
+    "User/pid.c": "389b627c4e66908e20c30a48f93233c3ce13f239fabbcb5e0984a386a026ce3b",
+    "User/pid.h": "f141334c5beaa30242297eb4a05bdd32247c7e7627e7f55e549c8a07e765069a",
+    "tests/core_checks.c": "8164780a58061ad58bc995a851d86b64221b3a0975bffb230eb1e7ac8d46c738"
+  }
+}

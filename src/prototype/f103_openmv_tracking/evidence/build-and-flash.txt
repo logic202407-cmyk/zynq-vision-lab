@@ -1,0 +1,6 @@
+Keil ARMCC 5.06 update 5 build 528
+Code=9620 RO-data=344 RW-data=68 ZI-data=1732
+0 Error(s), 0 Warning(s).
+Erase Done. Programming Done. Verify OK. Application running.
+Flash Load finished at 2026-11-03 21:56:51 +08:00
+Independent SWD comparison: 10032 image bytes match; two full Flash reads identical; option bytes unchanged.

@@ -47,3 +47,7 @@ python -m unittest discover -s tests -v
 ## 天空星接口资料（2026-10-27）
 
 新增[天空星 F407 接线与资料](board/skystar_f407/README.md)：两套二维云台的四路 PWM、独立动力供电、H1 十针调试口、USB-TTL 日志及 ST-Link SWD。包含原创重绘接线图、原厂来源与版本指纹、固件离线检查摘要和下次上板步骤。当前尚未收到烧录及实际动作成功结果，三套视觉协作仍属后续候选。
+
+## F103 / OpenMV 红纸靶跟踪（2026-11-03）
+
+按用户本轮明确授权，新增独立的 [F103 v4 + OpenMV R6 完整应用与工程](src/prototype/f103_openmv_tracking/README.md)。PB0 识别即亮，双轴闭环使用 500mm 实测光点补偿；已经 Keil 烧录与独立回读核验，用户确认光点收敛到红靶中心附近。[本次对话进度](src/prototype/f103_openmv_tracking/PROGRESS.md)保留阈值与绘图修复、方向纠正、参数及限制。动态速度对照、变距离补偿、相机断电自启动尚未完成；此项独立台架授权及板测不扩大 FPGA 主线的功能或验收范围。

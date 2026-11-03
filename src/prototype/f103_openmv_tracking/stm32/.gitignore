@@ -1,0 +1,7 @@
+Library/
+Start/
+Objects/
+Listings/
+build/
+*.uvguix.*
+*.bak

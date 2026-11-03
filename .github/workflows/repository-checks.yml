@@ -21,5 +21,9 @@ jobs:
         run: python3 tools/check_repository.py
       - name: Test repository tooling
         run: python3 -m unittest discover -s tests -v
+      - name: Test OpenMV drawing compatibility
+        run: python3 src/prototype/f103_openmv_tracking/openmv/test_compat.py
+      - name: Test F103 host control core
+        run: python3 src/prototype/f103_openmv_tracking/stm32/tests/run_checks.py
       - name: Clarify verification boundary
         run: echo 'Repository checks only. No FPGA simulation, implementation or board test has run.'

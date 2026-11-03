@@ -4,6 +4,8 @@
 
 This is a geometric-marker vision and experimental validation repository. Keep outputs to screen overlays, measurements, and logs. Do not add autonomous weapon targeting, person/aircraft illumination, firing control, or moving emitter coordination.
 
+On 2026-11-03 the user explicitly authorized the separate `src/prototype/f103_openmv_tracking/` bench: a co-mounted camera and laser pointer on a pan/tilt gimbal tracking an inanimate red paper marker, with PB0 on detection and fixed-distance calibration. Maintain this specific prototype and its evidence separately from the FPGA mainline. This exception does not expand to people, aircraft, projectiles or weapons.
+
 ## Read first
 
 Read `README.md`, `docs/project_plan.md`, `docs/first_week_tasks.md`, `report/status.json`, and `board/hardware_inventory.md`. Do not infer device part numbers, pin assignments, measured performance, camera interfaces, tool versions, or completed work.
