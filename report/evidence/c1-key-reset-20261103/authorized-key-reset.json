@@ -1,0 +1,717 @@
+{
+  "scope": "User explicitly approved one MCU reset with servo and laser power disconnected; no programming, ARM or PWM enable",
+  "actual_resets": 1,
+  "samples": [
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 253
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 357
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 460
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 564
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 667
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 770
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 874
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 977
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 1081
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 1184
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 1287
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 1391
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 1494
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 1602
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 1705
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 1809
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 1912
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 2016
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 2119
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 2222
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 2325
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 2429
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 2532
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 2635
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 2739
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 2842
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 2945
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 3049
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 3152
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 3255
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 3360
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 3466
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 3571
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 3674
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 3778
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 3885
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 3992
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 4099
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 4209
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 4320
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 4429
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 4535
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 4643
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 4752
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 4856
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 4961
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 5067
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 5175
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 5283
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 5388
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 5495
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 5603
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 5709
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 5818
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 5924
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 6031
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 6142
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 6261
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 6368
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 6473
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 6583
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 6692
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 6800
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 6907
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 7013
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 7117
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 7220
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 7326
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 7430
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 7535
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 7639
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 7746
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 7853
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 7964
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 8068
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 8173
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 8277
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 8381
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 8490
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 8594
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 8700
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 8807
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 8912
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 9016
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 9124
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 9247
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 9352
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 9457
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 9563
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 9669
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 9775
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 9880
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 9985
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 10090
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 10195
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 10300
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 10405
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 10510
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 10616
+    },
+    {
+      "state": 0,
+      "reason": 0,
+      "pa0": 0,
+      "ccer": 0,
+      "milliseconds": 10726
+    }
+  ],
+  "before": {
+    "state": 4,
+    "reason": 7,
+    "pa0": 0,
+    "ccer": 0,
+    "application_sha256": "70a3ad2f0117cb9425d47db79eaad32e0c727ed9936665e2b2bef45599e44812"
+  },
+  "stage": "complete",
+  "tick_advancing": true,
+  "key_fault_recurred": false,
+  "verdict": "PASS"
+}
