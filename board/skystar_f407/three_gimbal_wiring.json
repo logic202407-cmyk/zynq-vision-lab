@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "mapping_basis": "latest explicit operator corrections",
+  "gimbals": [
+    {
+      "id": 1,
+      "target": "red_circle",
+      "openmv": {
+        "uart": 3,
+        "tx_pin": "P4",
+        "baud": 115200,
+        "format": "8N1",
+        "skystar_rx_label": "A03",
+        "skystar_rx_pin": "PA3",
+        "skystar_uart": "USART2",
+        "alternate_function": 7,
+        "common_ground": true
+      },
+      "pan": {
+        "label": "D12",
+        "pin": "PD12",
+        "timer_channel": "TIM4_CH1",
+        "alternate_function": 2
+      },
+      "tilt": {
+        "label": "D13",
+        "pin": "PD13",
+        "timer_channel": "TIM4_CH2",
+        "alternate_function": 2
+      },
+      "laser": {
+        "label": "E02",
+        "pin": "PE2",
+        "connect_to": "module control/PWM input",
+        "software_active_level": "high",
+        "static_output_mode": "GPIO"
+      }
+    },
+    {
+      "id": 2,
+      "target": "yellow_triangle",
+      "openmv": {
+        "uart": 3,
+        "tx_pin": "P4",
+        "baud": 115200,
+        "format": "8N1",
+        "skystar_rx_label": "C07",
+        "skystar_rx_pin": "PC7",
+        "skystar_uart": "USART6",
+        "alternate_function": 8,
+        "common_ground": true
+      },
+      "pan": {
+        "label": "E09",
+        "pin": "PE9",
+        "timer_channel": "TIM1_CH1",
+        "alternate_function": 1
+      },
+      "tilt": {
+        "label": "E11",
+        "pin": "PE11",
+        "timer_channel": "TIM1_CH2",
+        "alternate_function": 1
+      },
+      "laser": {
+        "label": "E03",
+        "pin": "PE3",
+        "connect_to": "module control/PWM input",
+        "software_active_level": "high",
+        "static_output_mode": "GPIO"
+      }
+    },
+    {
+      "id": 3,
+      "target": "blue_square",
+      "openmv": {
+        "uart": 3,
+        "tx_pin": "P4",
+        "baud": 115200,
+        "format": "8N1",
+        "skystar_rx_label": "D02",
+        "skystar_rx_pin": "PD2",
+        "skystar_uart": "UART5",
+        "alternate_function": 8,
+        "common_ground": true
+      },
+      "pan": {
+        "label": "D14",
+        "pin": "PD14",
+        "timer_channel": "TIM4_CH3",
+        "alternate_function": 2
+      },
+      "tilt": {
+        "label": "D15",
+        "pin": "PD15",
+        "timer_channel": "TIM4_CH4",
+        "alternate_function": 2
+      },
+      "laser": {
+        "label": "B00",
+        "pin": "PB0",
+        "connect_to": "module control/PWM input",
+        "software_active_level": "high",
+        "static_output_mode": "GPIO"
+      }
+    }
+  ],
+  "fpga_link": {
+    "skystar_peripheral": "USART3",
+    "baud": 115200,
+    "format": "8N1",
+    "skystar_tx": "PC10",
+    "fpga_rx_connector": "J23 RXD",
+    "fpga_rx_constraint_pin": "AB26",
+    "skystar_rx": "PC11",
+    "fpga_tx_connector": "J23 TXD",
+    "fpga_tx_constraint_pin": "AB25",
+    "common_ground": true
+  },
+  "current_bench_profile": "laser123_static",
+  "current_profile_camera_receivers_enabled": false,
+  "current_profile_servo_pwm_enabled": false,
+  "optical_confirmation": "operator confirmed all three continuously on",
+  "unknown": [
+    "per-module supply voltage and current measurements",
+    "per-gimbal mechanical zero and limits",
+    "optical power and centering calibration"
+  ],
+  "scope": "Wiring record; not three-target vision or six-axis tracking acceptance"
+}
