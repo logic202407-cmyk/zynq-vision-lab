@@ -1,0 +1,23 @@
+[
+  {
+    "frame_seq": 8,
+    "count": 2,
+    "sum_x": 5,
+    "sum_y": 7,
+    "bbox": [
+      2,
+      3,
+      3,
+      4
+    ],
+    "valid": true
+  },
+  {
+    "frame_seq": 9,
+    "count": 0,
+    "sum_x": 0,
+    "sum_y": 0,
+    "bbox": null,
+    "valid": false
+  }
+]

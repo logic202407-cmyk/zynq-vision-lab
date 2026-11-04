@@ -12,14 +12,14 @@ def build(stage,auth_ms=30000,legacy=False,qid_guard=False):
     sources=['uart_tx_8n1.v','uart_rx.v','zynq_motion_s1.v']
     for f in sources: shutil.copyfile(ROOT/'src/rtl'/f,stage/f)
     (stage/'motion_c_bridge_tb.v').write_text((ROOT/'sim/cosim/motion_c_bridge_tb.v').read_text().replace('AUTH_TEST_MS=30000','AUTH_TEST_MS='+str(auth_ms)))
-    inputs=list((FW/'User').glob('*.[ch]'))+list((FW.parent/'stm32_project/User').glob('pid.[ch]'))
+    inputs=list((FW/'user').glob('*.[ch]'))+list((FW.parent/'stm32_project/user').glob('pid.[ch]'))
     inputs += [ROOT/'src/rtl'/f for f in sources]+[ROOT/'sim/cosim/stm32_adapter.c',ROOT/'sim/cosim/motion_c_bridge_tb.v',Path(__file__).resolve(),ROOT/'tools/xsim_c_bridge.py']
     (stage/'build-inputs.json').write_text(json.dumps({'auth_ms':auth_ms,'legacy':legacy,'qid_guard':qid_guard,'sha256':{f.relative_to(ROOT).as_posix():hashlib.sha256(f.read_bytes()).hexdigest() for f in inputs}},indent=2))
     commands={
     'c-build':[os.environ.get('CC',r'D:\Dev-Cpp\MinGW64\bin\gcc.exe'),'-shared','-std=c99','-Wall','-Wextra','-Werror','-O2',
-        '-DBOARD_HOST_TEST','-DS1ACK1','-DCONSOLE_USART=3','-I'+str(FW/'User'),
-        '-I'+str(FW.parent/'stm32_project/User'),str(ROOT/'sim/cosim/stm32_adapter.c'),
-        str(FW/'User/tracking.c'),str(FW/'User/safety.c'),str(FW.parent/'stm32_project/User/pid.c'),'-o',str(stage/'stm32.dll')],
+        '-DBOARD_HOST_TEST','-DS1ACK1','-DCONSOLE_USART=3','-I'+str(FW/'user'),
+        '-I'+str(FW.parent/'stm32_project/user'),str(ROOT/'sim/cosim/stm32_adapter.c'),
+        str(FW/'user/tracking.c'),str(FW/'user/safety.c'),str(FW.parent/'stm32_project/user/pid.c'),'-o',str(stage/'stm32.dll')],
     'xvlog':[str(VB/'xvlog.bat')]+sources+['motion_c_bridge_tb.v'],
     'xelab':[str(VB/'xelab.bat'),'motion_c_bridge_tb','-debug','all','-dll','-s','coupled']}
     if legacy:commands['c-build'].remove('-DS1ACK1')

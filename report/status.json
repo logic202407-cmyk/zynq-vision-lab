@@ -130,8 +130,8 @@
       "id": "skystar_safety_supervisor",
       "status": "implemented",
       "evidence": [
-        "src/prototype/skystar_openmv/stm32_skystar_tracking/User/safety.c",
-        "src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c",
+        "src/prototype/skystar_openmv/stm32_skystar_tracking/user/safety.c",
+        "src/prototype/skystar_openmv/stm32_skystar_tracking/user/main.c",
         "src/prototype/skystar_openmv/stm32_skystar_tracking/tests/safety_cases.h",
         "report/experiments/2026-10-31-checkpoint-b-safety.md",
         "report/evidence/checkpoint_b/manifest.json"

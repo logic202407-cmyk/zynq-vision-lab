@@ -16,7 +16,7 @@ static void invalidate(tracking_t *c)
 void tracking_init(tracking_t *c)
 {
     memset(c, 0, sizeof(*c));
-    /* Defaults retained from stm32_project/User/main.c. */
+    /* Defaults retained from stm32_project/user/main.c. */
     /* Limit PID output/integral to the actual commanded pulse windows. */
     pid_init(&c->pan_pid, 3.0f, TRACK_PAN_KI, 0.0f,
              (float)PAN_MIN_US - PAN_HOME_US, (float)PAN_MAX_US - PAN_HOME_US);

@@ -16,11 +16,11 @@ def build(stage):
  sources=SOURCES+['gimbal1_visual_loop.v','zynq_gimbal1_loop.v','red_pixel_mask.v','red_frame_stats.v']
  for n in sources:shutil.copyfile(ROOT/'src/rtl'/n,stage/n)
  shutil.copyfile(ROOT/'sim/c1/loop_c_bridge_tb.v',stage/'motion_c_bridge_tb.v')
- pid=FW.parent/'stm32_project/User'
+ pid=FW.parent/'stm32_project/user'
  commands=[('c-build',['D:/Dev-Cpp/MinGW64/bin/gcc.exe','-shared','-std=c99','-Wall','-Wextra','-Werror','-O2',
  '-DBOARD_HOST_TEST','-DS1ACK1','-DC1_OBSERVATIONS','-DC1_CLOSED_LOOP','-DCONSOLE_USART=3',
- '-I'+str(FW/'User'),'-I'+str(pid),str(ROOT/'sim/c1/loop_adapter.c'),
- *[str(FW/'User'/n) for n in ('tracking.c','safety.c','gimbal_registry.c','vision_measurement.c')],str(pid/'pid.c'),'-o','stm32.dll']),
+ '-I'+str(FW/'user'),'-I'+str(pid),str(ROOT/'sim/c1/loop_adapter.c'),
+ *[str(FW/'user'/n) for n in ('tracking.c','safety.c','gimbal_registry.c','vision_measurement.c')],str(pid/'pid.c'),'-o','stm32.dll']),
  ('xvlog',[str(VB/'xvlog.bat'),*sources,'motion_c_bridge_tb.v']),
  ('xelab',[str(VB/'xelab.bat'),'motion_c_bridge_tb','-debug','all','-dll','-s','coupled'])]
  results=[]
@@ -30,7 +30,7 @@ def build(stage):
   results.append(dict(name=name,command=cmd,exit_code=p.returncode))
   (stage/'commands.json').write_text(json.dumps(results,indent=2))
   assert p.returncode==0,(name,p.stdout,p.stderr)
- inputs=[ROOT/'src/rtl'/n for n in sources]+list((FW/'User').glob('*.[ch]'))+[
+ inputs=[ROOT/'src/rtl'/n for n in sources]+list((FW/'user').glob('*.[ch]'))+[
  ROOT/'sim/c1/loop_adapter.c',ROOT/'sim/c1/loop_c_bridge_tb.v',ROOT/'sim/c1/link_adapter.c',ROOT/'sim/cosim/stm32_adapter.c',
  ROOT/'tools/check_c1_link.py',ROOT/'tools/check_motion_cosim.py',ROOT/'tools/xsim_c_bridge.py',POLICY_PATH,Path(__file__).resolve()]
  (stage/'source-sha256.json').write_text(json.dumps({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs},indent=2))

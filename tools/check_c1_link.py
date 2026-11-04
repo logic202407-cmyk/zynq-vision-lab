@@ -14,9 +14,9 @@ def build(stage,team=False):
     if team:
         tb=stage/'motion_c_bridge_tb.v'
         tb.write_text(tb.read_text().replace('zynq_vision_link dut','zynq_vision_link #(.ALLOW_AUTO(1)) dut'))
-    gcc=os.environ.get('CC','D:/Dev-Cpp/MinGW64/bin/gcc.exe');pid=FW.parent/'stm32_project/User'
+    gcc=os.environ.get('CC','D:/Dev-Cpp/MinGW64/bin/gcc.exe');pid=FW.parent/'stm32_project/user'
     cmds=[('c-build',[gcc,'-shared','-std=c99','-Wall','-Wextra','-Werror','-O2','-DBOARD_HOST_TEST','-DS1ACK1','-DC1_OBSERVATIONS','-DCONSOLE_USART=3',
-        '-I'+str(FW/'User'),'-I'+str(pid),str(ROOT/'sim/c1/link_adapter.c'),*[str(FW/'User'/n) for n in ('tracking.c','safety.c','gimbal_registry.c','vision_measurement.c')],str(pid/'pid.c'),'-o','stm32.dll']),
+        '-I'+str(FW/'user'),'-I'+str(pid),str(ROOT/'sim/c1/link_adapter.c'),*[str(FW/'user'/n) for n in ('tracking.c','safety.c','gimbal_registry.c','vision_measurement.c')],str(pid/'pid.c'),'-o','stm32.dll']),
         ('xvlog',[str(VB/'xvlog.bat'),*SOURCES,'motion_c_bridge_tb.v']),
         ('xelab',[str(VB/'xelab.bat'),'motion_c_bridge_tb','-debug','all','-dll','-s','coupled'])]
     results=[]
@@ -29,7 +29,7 @@ def build(stage,team=False):
         (stage/(n+'.log')).write_bytes(p.stdout+p.stderr);results.append(dict(name=n,command=cmd,exit_code=p.returncode))
         (stage/'commands.json').write_text(json.dumps(results,indent=2))
         assert p.returncode==0,(n,p.stdout,p.stderr)
-    files=[ROOT/'src/rtl'/n for n in SOURCES]+list((FW/'User').glob('*.[ch]'))+[ROOT/'sim/c1/link_adapter.c',ROOT/'sim/c1/link_c_bridge_tb.v',Path(__file__).resolve(),ROOT/'tools/check_motion_cosim.py',ROOT/'tools/xsim_c_bridge.py']
+    files=[ROOT/'src/rtl'/n for n in SOURCES]+list((FW/'user').glob('*.[ch]'))+[ROOT/'sim/c1/link_adapter.c',ROOT/'sim/c1/link_c_bridge_tb.v',Path(__file__).resolve(),ROOT/'tools/check_motion_cosim.py',ROOT/'tools/xsim_c_bridge.py']
     (stage/'source-sha256.json').write_text(json.dumps({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},indent=2))
 
 class Link(Coupled):

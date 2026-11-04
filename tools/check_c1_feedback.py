@@ -35,21 +35,21 @@ def run(stage, cc):
               'hardware_actions': [], 'checks': checks}
     try:
         sources = [ROOT / 'sim/c1/feedback_probe.c'] + [
-            FW / 'User' / name for name in
+            FW / 'user' / name for name in
             ('tracking.c', 'safety.c', 'gimbal_registry.c', 'vision_measurement.c')]
-        sources.append(FW.parent / 'stm32_project/User/pid.c')
+        sources.append(FW.parent / 'stm32_project/user/pid.c')
         library = stage / 'feedback.dll'
         command = [cc, '-shared', '-std=c99', '-Wall', '-Wextra', '-Werror', '-O2',
                    '-DBOARD_HOST_TEST', '-DS1ACK1', '-DC1_OBSERVATIONS',
                    '-DC1_CLOSED_LOOP', '-DCONSOLE_USART=3',
-                   '-I' + str(FW / 'User'), '-I' + str(FW.parent / 'stm32_project/User'),
+                   '-I' + str(FW / 'user'), '-I' + str(FW.parent / 'stm32_project/user'),
                    *map(str, sources), '-o', str(library)]
         compiled = subprocess.run(command, capture_output=True, timeout=120)
         (stage / 'compile.txt').write_bytes(compiled.stdout + compiled.stderr)
         require(compiled.returncode == 0, 'C compilation failed; see compile.txt')
         result['compiler'] = subprocess.check_output([cc, '--version'], text=True).splitlines()[0]
-        inputs = set(sources + list((FW / 'User').glob('*.[ch]')) + [
-            FW.parent / 'stm32_project/User/pid.h', Path(__file__).resolve(),
+        inputs = set(sources + list((FW / 'user').glob('*.[ch]')) + [
+            FW.parent / 'stm32_project/user/pid.h', Path(__file__).resolve(),
             ROOT / 'sim/c1/loop_adapter.c', ROOT / 'sim/c1/link_adapter.c',
             ROOT / 'sim/cosim/stm32_adapter.c', ROOT / 'src/pc/vision_measurement.py'])
         result['source_sha256'] = {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()

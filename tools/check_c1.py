@@ -43,8 +43,8 @@ def run(stage):
                 Measurement(0,1,1,1,1,2,0,640,480,*([0]*9)),
                 Measurement(0,0,1,1,1,3,0,640,480,*([0]*9))]
     assert wire == b''.join(m.line() for m in expected)
-    fw=ROOT/'src/prototype/skystar_openmv/stm32_skystar_tracking/User'
-    pid=fw.parents[1]/'stm32_project/User'
+    fw=ROOT/'src/prototype/skystar_openmv/stm32_skystar_tracking/user'
+    pid=fw.parents[1]/'stm32_project/user'
     gcc='D:/Dev-Cpp/MinGW64/bin/gcc.exe'
     common=[gcc,'-std=c99','-Wall','-Wextra','-Werror','-O2','-I'+str(fw),'-I'+str(pid)]
     sources=[fw/n for n in ('tracking.c','safety.c','gimbal_registry.c','vision_measurement.c')]+[pid/'pid.c']

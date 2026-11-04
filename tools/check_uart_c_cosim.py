@@ -32,9 +32,9 @@ def main():
         steps.append(dict(name=name,exit_code=p.returncode))
         if p.returncode: raise RuntimeError(name+' failed: '+str(stage/(name+'.txt')))
     run('c-build',[r'D:\Dev-Cpp\MinGW64\bin\gcc.exe','-shared','-std=c99','-Wall','-Wextra','-Werror','-O2',
-        '-DBOARD_HOST_TEST','-DCONSOLE_USART=3','-I'+str(FW/'User'),
-        '-I'+str(FW.parent/'stm32_project/User'),str(ROOT/'sim/cosim/stm32_adapter.c'),
-        str(FW/'User/tracking.c'),str(FW/'User/safety.c'),str(FW.parent/'stm32_project/User/pid.c'),
+        '-DBOARD_HOST_TEST','-DCONSOLE_USART=3','-I'+str(FW/'user'),
+        '-I'+str(FW.parent/'stm32_project/user'),str(ROOT/'sim/cosim/stm32_adapter.c'),
+        str(FW/'user/tracking.c'),str(FW/'user/safety.c'),str(FW.parent/'stm32_project/user/pid.c'),
         '-o',str(stage/'stm32.dll')])
     vb=Path('D:/Vivado/Vivado/2024.2/bin')
     run('compile',[str(vb/'xvlog.bat')]+RTL+['uart_c_bridge_tb.v'])
@@ -99,8 +99,8 @@ def main():
     assert response.endswith('\r\n') and last_done==2
     sources=[ROOT/'sim/cosim/stm32_adapter.c',ROOT/'sim/cosim/uart_c_bridge_tb.v',
              ROOT/'tools/xsim_c_bridge.py',Path(__file__)]+[ROOT/'src/rtl'/f for f in RTL]
-    sources+=list((FW/'User').glob('*.[ch]'))
-    sources+=list((FW.parent/'stm32_project/User').glob('pid.[ch]'))
+    sources+=list((FW/'user').glob('*.[ch]'))
+    sources+=list((FW.parent/'stm32_project/user').glob('pid.[ch]'))
     result=dict(scope='B2-0 coupled diagnostic only; not S1ACK1 or motion acceptance',
         pass_marker='B2_0_XSIM_REAL_C_PASS',simulated_us=150000,wall_seconds=round(time.monotonic()-started,3),
         uart_to_mcu=bytes(uart_to_mcu).hex(),mcu_tx_bytes=len(uart_from_mcu),fpga_rx_bytes=len(rtl_received),

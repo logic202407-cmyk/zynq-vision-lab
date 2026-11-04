@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG = ROOT / 'src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_wiring.def'
+CONFIG = ROOT / 'src/prototype/skystar_openmv/stm32_skystar_tracking/user/gimbal_wiring.def'
 # DS8626 Tables 7/9: limited to pins reviewed for this standalone board.
 PWM_CAPABILITIES = {
     'PD12': ('TIM4', 1, 2), 'PD13': ('TIM4', 2, 2),

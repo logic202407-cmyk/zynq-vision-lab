@@ -1,4 +1,4 @@
-name: Repository foundations (not FPGA verification)
+name: Source and submission checks
 
 on:
   push:
@@ -30,11 +30,13 @@ jobs:
       - name: Compile and test host-only gimbal registry
         shell: bash
         run: |
-          fw=src/prototype/skystar_openmv/stm32_skystar_tracking/User
-          pid=src/prototype/skystar_openmv/stm32_project/User
+          fw=src/prototype/skystar_openmv/stm32_skystar_tracking/user
+          pid=src/prototype/skystar_openmv/stm32_project/user
           gcc -std=c99 -Wall -Wextra -Werror -O2 -I"$fw" -I"$pid" \
             sim/c1/registry_checks.c "$fw/gimbal_registry.c" \
             "$fw/tracking.c" "$fw/safety.c" "$pid/pid.c" -lm -o "$RUNNER_TEMP/registry-check"
           "$RUNNER_TEMP/registry-check"
+      - name: Check reusable frame-result skill
+        run: python3 tools/compare_frame_records.py --actual skill/frame-result-check/examples/actual.json --reference skill/frame-result-check/examples/reference.json
       - name: Clarify verification boundary
         run: echo 'Repository checks only. No FPGA simulation, implementation or board test has run.'

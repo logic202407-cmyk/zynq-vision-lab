@@ -26,9 +26,9 @@ def build(console_usart=1, output_root=None, s1ack1=False, c1_observations=False
     if qid_guard and not s1ack1:
         raise ValueError('QID guard requires S1ACK1')
     stage = Path(tempfile.mkdtemp(prefix='skystar-tracking-'))
-    sources = list((ROOT / 'User').glob('*.[ch]'))
-    sources += list((ROOT / 'User').glob('*.def'))
-    sources += [ROOT.parent / 'stm32_project/User/pid.c', ROOT.parent / 'stm32_project/User/pid.h']
+    sources = list((ROOT / 'user').glob('*.[ch]'))
+    sources += list((ROOT / 'user').glob('*.def'))
+    sources += [ROOT.parent / 'stm32_project/user/pid.c', ROOT.parent / 'stm32_project/user/pid.h']
     sources += [ROOT / 'startup.s', ROOT / 'firmware.sct']
     for source in sources:
         shutil.copyfile(source, stage / source.name)

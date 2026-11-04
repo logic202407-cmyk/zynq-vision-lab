@@ -14,13 +14,13 @@ FW = ROOT / 'src/prototype/skystar_openmv/stm32_skystar_tracking'
 def main():
     p = argparse.ArgumentParser(); p.add_argument('--stage', required=True, type=Path)
     a = p.parse_args(); a.stage.mkdir(parents=True, exist_ok=False)
-    pid = FW.parent / 'stm32_project/User'; dll = a.stage / 'guard.dll'
+    pid = FW.parent / 'stm32_project/user'; dll = a.stage / 'guard.dll'
     cmd = [os.environ.get('CC', 'C:/Strawberry/c/bin/gcc.exe'), '-shared', '-std=c99',
            '-Wall', '-Wextra', '-Werror', '-O2', '-DBOARD_HOST_TEST', '-DS1ACK1',
            '-DS1_QID_GUARD', '-DC1_OBSERVATIONS', '-DC1_CLOSED_LOOP',
-           '-DSKYSTAR_TEAM_PROFILE', '-DCONSOLE_USART=3', '-I'+str(FW/'User'), '-I'+str(pid),
+           '-DSKYSTAR_TEAM_PROFILE', '-DCONSOLE_USART=3', '-I'+str(FW/'user'), '-I'+str(pid),
            str(ROOT/'sim/c1/team_adapter.c'),
-           *[str(FW/'User'/n) for n in ('tracking.c','safety.c','gimbal_registry.c','vision_measurement.c','laser_lock.c')],
+           *[str(FW/'user'/n) for n in ('tracking.c','safety.c','gimbal_registry.c','vision_measurement.c','laser_lock.c')],
            str(pid/'pid.c'), '-o', str(dll)]
     result = subprocess.run(cmd, capture_output=True)
     (a.stage/'compile.log').write_bytes(result.stdout+result.stderr)

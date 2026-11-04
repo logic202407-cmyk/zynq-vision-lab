@@ -1,6 +1,6 @@
 # Third-party sources and licensing
 
-The initial repository contains original project documentation and repository tooling. It does not redistribute vendor FPGA projects, commercial IP, model weights, or externally sourced image datasets.
+The repository contains original RTL, host tools, interface firmware, project documentation and verification records. It does not redistribute vendor FPGA projects, commercial IP, model weights, or externally sourced image datasets.
 
 | Dependency/reference | Version | Use | Licensing handling |
 |---|---|---|---|
@@ -14,3 +14,7 @@ For each future import, record its source URL, pinned commit/tag, files used, li
 ## Skystar STM32F407 references (2026-10-27)
 
 `board/skystar_f407/` contains original connection tables and redrawn functional wiring diagrams. Vendor schematics, board photos, SDK sources and firmware binaries are not included in this documentation submission. Official acquisition links and SHA-256 fingerprints of the locally consulted PDFs are recorded in `board/skystar_f407/sources.md` and `sources.json`. Online vendor packages can change; the recorded fingerprints identify the reviewed local versions. The root MIT license does not relicense external vendor documents.
+
+## Team-supplied media and submission documents
+
+`assets/system_front.jpg` and the hardware images embedded in the design report were supplied by the project team. Copyright is retained by their owners; these media are supplied for project review and presentation, not relicensed as MIT software. The report and poster contain cited external references; their third-party rights remain unchanged. Vendor source projects and tool license files are not included in this final source package.

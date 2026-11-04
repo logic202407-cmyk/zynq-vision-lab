@@ -15,14 +15,14 @@ def main():
     parser.add_argument('--stage', required=True, type=Path)
     args = parser.parse_args()
     args.stage.mkdir(parents=True, exist_ok=False)
-    pid = FW.parent / 'stm32_project/User'
+    pid = FW.parent / 'stm32_project/user'
     dll = args.stage / 'uart_probe.dll'
     cmd = [os.environ.get('CC', 'C:/msys64/ucrt64/bin/gcc.exe'), '-shared', '-std=c99',
            '-Wall', '-Wextra', '-Werror', '-O2', '-DBOARD_HOST_TEST', '-DS1ACK1',
            '-DC1_OBSERVATIONS', '-DC1_CLOSED_LOOP', '-DSKYSTAR_TEAM_PROFILE',
-           '-DCONSOLE_USART=3', '-I' + str(FW / 'User'), '-I' + str(pid),
+           '-DCONSOLE_USART=3', '-I' + str(FW / 'user'), '-I' + str(pid),
            str(ROOT / 'sim/c1/uart_fault_probe.c'),
-           *[str(FW / 'User' / n) for n in ('tracking.c', 'safety.c', 'gimbal_registry.c',
+           *[str(FW / 'user' / n) for n in ('tracking.c', 'safety.c', 'gimbal_registry.c',
                                             'vision_measurement.c', 'laser_lock.c')],
            str(pid / 'pid.c'), '-o', str(dll)]
     p = subprocess.run(cmd, capture_output=True)

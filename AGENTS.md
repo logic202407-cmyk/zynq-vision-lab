@@ -26,4 +26,4 @@ python tools/check_repository.py
 python -m unittest discover -s tests -v
 ```
 
-These checks validate repository foundations, not FPGA functionality. No synthesizable HDL or verified board build is present in the initial scaffold.
+These checks validate software and repository consistency. Board results and their exact configurations are indexed in docs/results.md; offline checks do not establish new board verification.

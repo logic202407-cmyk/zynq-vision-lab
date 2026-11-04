@@ -5,11 +5,11 @@ ROOT=Path(__file__).resolve().parents[1]
 FW=ROOT/'src/prototype/skystar_openmv/stm32_skystar_tracking'
 def build(stage,qid_guard=False):
     stage.mkdir(parents=True,exist_ok=True)
-    pid=FW.parent/'stm32_project/User'
+    pid=FW.parent/'stm32_project/user'
     cmd=[os.environ.get('CC','C:/msys64/ucrt64/bin/gcc.exe'),'-shared','-std=c99','-Wall','-Wextra','-Werror','-O2',
          '-DBOARD_HOST_TEST','-DS1ACK1','-DC1_OBSERVATIONS','-DC1_CLOSED_LOOP','-DSKYSTAR_TEAM_PROFILE','-DCONSOLE_USART=3',
-         '-I'+str(FW/'User'),'-I'+str(pid),str(ROOT/'sim/c1/team_adapter.c'),
-         *[str(FW/'User'/n) for n in ['tracking.c','safety.c','gimbal_registry.c','vision_measurement.c','laser_lock.c']],
+         '-I'+str(FW/'user'),'-I'+str(pid),str(ROOT/'sim/c1/team_adapter.c'),
+         *[str(FW/'user'/n) for n in ['tracking.c','safety.c','gimbal_registry.c','vision_measurement.c','laser_lock.c']],
          str(pid/'pid.c'),'-o',str(stage/'stm32.dll')]
     if qid_guard:cmd.append('-DS1_QID_GUARD')
     p=subprocess.run(cmd,capture_output=True);(stage/'compile.log').write_bytes(p.stdout+p.stderr)

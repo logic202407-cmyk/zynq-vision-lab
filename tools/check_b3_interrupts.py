@@ -6,7 +6,7 @@ p=argparse.ArgumentParser();p.add_argument('--stage',type=Path,required=True);p.
 files=['board.c','main.c','s1ack.h','safety.c','safety.h','tracking.c','tracking.h','board.h']
 hashes={};hooks={}
 for n in files:
- t=(FW/'User'/n).read_text();hashes[n]=hashlib.sha256((FW/'User'/n).read_bytes()).hexdigest()
+ t=(FW/'user'/n).read_text();hashes[n]=hashlib.sha256((FW/'user'/n).read_bytes()).hexdigest()
  if n=='board.c':
   t=t.replace('#define __disable_irq() ((void)0)','#define __disable_irq() b3_disable()').replace('#define __enable_irq() ((void)0)','#define __enable_irq() b3_enable()')
  replacements={
@@ -23,7 +23,7 @@ for n in files:
  if replacements:t='void b3_hook(unsigned);void b3_disable(void);void b3_enable(void);\n'+t
  (s/n).write_text(t)
 shutil.copyfile(ROOT/'sim/cosim/stm32_adapter.c',s/'stm32_adapter.c');shutil.copyfile(ROOT/'sim/cosim/b3_interrupt_driver.c',s/'driver.c')
-cmd=[a.cc,'-shared','-std=c99','-Wall','-Wextra','-Werror','-Wno-misleading-indentation','-O0','-DBOARD_HOST_TEST','-DS1ACK1','-DCONSOLE_USART=3','-I'+str(s),'-I'+str(FW.parent/'stm32_project/User'),str(s/'driver.c'),str(s/'safety.c'),str(s/'tracking.c'),str(FW.parent/'stm32_project/User/pid.c'),'-o',str(s/'interrupt.dll')]
+cmd=[a.cc,'-shared','-std=c99','-Wall','-Wextra','-Werror','-Wno-misleading-indentation','-O0','-DBOARD_HOST_TEST','-DS1ACK1','-DCONSOLE_USART=3','-I'+str(s),'-I'+str(FW.parent/'stm32_project/user'),str(s/'driver.c'),str(s/'safety.c'),str(s/'tracking.c'),str(FW.parent/'stm32_project/user/pid.c'),'-o',str(s/'interrupt.dll')]
 r=subprocess.run(cmd,capture_output=True);(s/'compile.log').write_bytes(r.stdout+r.stderr);assert r.returncode==0,(r.stdout,r.stderr)
 d=C.CDLL(str(s/'interrupt.dll'));rows=[]
 for axis in (0,1):

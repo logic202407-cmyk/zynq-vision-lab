@@ -62,7 +62,7 @@ void board_init(void)
     milliseconds=0; vision.head=vision.tail=pc.head=pc.tail=0;
     tx_head=tx_tail=0;
 #ifdef SKYSTAR_TEAM_PROFILE
-    /* User's MOS input is PE2 active high. Start inactive before output mode. */
+    /* user's MOS input is PE2 active high. Start inactive before output mode. */
     R(RCC+0x30) |= 1u<<4;
     dummy=R(RCC+0x30); (void)dummy;
     R(0x40021018u)=1u<<18;

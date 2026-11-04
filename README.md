@@ -1,67 +1,67 @@
-# Zynq Vision Lab
+# 多目标视觉闭环指向系统
 
-**基于 Zynq 的几何靶标视觉感知与动态干扰实验平台**
+**FPGA 流式视觉测量与云台接口平台 · 2026 嵌入式芯片与系统设计竞赛 AMD 自主选题**
 
-2026-11-04 最新双机交接：**联调已暂停，实机闭环未完成。** STM32 恢复及完整回读、FPGA DONE/EOS、query/bind、OpenMV→STM32 的 F1 CRC 回传已验证；未完成跟踪收敛、激光联动和实机停止验收。队友请先读 [次日接续手册](docs/handoff_20261104.md)，再查 [双机证据清单](report/evidence/two-pc-handoff-20261104/README.md)。历史回执不代表当前设备状态，当前不允许据此自动 ARM/AUTO 或重复刷写。
+本项目将固定相机的颜色判定、可选 3×3 多数滤波、像素计数、坐标累加与包围框更新映射到 Zynq PL，在采集路径完成每帧 307200 个像素的统计。OpenMV 提供云台侧局部视觉偏差，STM32 管理观测与控制接口，PC 显示测量结果并运行独立参考核对。
 
-面向 2026 年全国大学生嵌入式芯片与系统设计竞赛 FPGA 创新设计赛道 AMD 自主选题初级组。本仓库包含项目[规划](docs/project_plan.md)、[近期方案与备赛决策](docs/decisions_2026-09-26.md)、[Gate 执行方案](docs/execution_plan_2026-09-24.md)、[参赛仓库交付计划](docs/repository_submission.md)、[资料来源](docs/sources.md)及基础检查工具；这不是 AMD 官方示例。
+[设计报告](report/design_report.pdf) · [最终交付下载](https://github.com/logic202407-cmyk/zynq-vision-lab/releases/tag/submission-20261104) · [复现说明](docs/reproduction.md) · [结果与证据](docs/results.md) · [Skill](skill/README.md)
 
-## 当前状态
+![FPGA开发板与三套云台的系统实物](assets/system_front.jpg)
 
-项目仍在开发与证据核验阶段，尚不满足赛事的完整工程包要求。实物 JTAG 已确认 XC7Z100 芯片系列；原厂最小 LED 例程完成一次上板按键测试。原厂 OV5640 位流经临时 JTAG 下载后，曾连续 300 秒接收 7884 个完整 640×480 帧；后续断电重启也成功复测，早期 ARP 不应答的根因仍未确认。2026-09-27，第一条[自编 PL 红色像素统计链路](report/experiments/2026-09-27-pl-red-camera-trial.md)接入真实相机流：100 组同帧 PL 与软件结果零差异，30 秒接收 899 个完整帧。颜色阈值仍只在两帧不同曝光的本地画面核对过，板卡完整时序约束、独立重建与更广场景验收尚未完成。芯片封装/速度等级未由实物标记确认；实物照片、抓取画面、报名与个人资料不在此公开。
+## FPGA 的核心作用
 
-2026-09-30，针对孤立杂点拉偏边框，新增可选的[PL 3×3 多数滤波](report/experiments/2026-09-30-red-spatial-filter.md)，已有小型场景与完整帧 RTL 仿真证据。用户后来确认现场设备就绪，旧摄像头和滤波位流均成功临时配置。[恢复板测记录](report/experiments/2026-09-30-spatial-board-recovery.md)：滤波版本 2 的 100 组无目标同帧统计零差异，上位机一分钟收到 1800 个完整帧，显示约 30 FPS。当前红纸偏暗、未检出有效目标，补光后的有效靶标与抗干扰验收仍待完成，尚不能声称检测框闪动已解决。队友可继续按各自授权的范围离线推进。
+| 模块 | 计算与职责 | 输出 |
+|---|---|---|
+| FPGA 主视场计算 | DVP 字节配对、RGB565 判定、可选多数滤波、帧统计 | 前景计数、X/Y 坐标和、包围框、有效状态 |
+| FPGA 结果接口 | 原子快照、跨时钟域传递、UDP 扩展、UART 封装 | 带帧序号的测量；UART 发送器在 PL 内求质心 |
+| OpenMV | 独立局部相机图像中的色块观测 | dx、dy、有效标志 |
+| STM32 | 两路观测解析、会话及状态管理、控制接口 | 云台接口状态与 PWM 接口 |
+| PC | 视频重组、叠加显示、参考计算和记录 | 可视画面、同帧核对结果和日志 |
 
-## 场景关系扩展（规划）
+## 主要结果
 
-新增[场景关系集成方案](docs/scene_relation_plan_2026-09-30.md)与[候选数据契约](docs/scene_relation_contract_v0_1.md)，规划在现有 PL 视觉测量上逐步增加多色对象表、确定性空间关系、缺测状态和可解释查询。借鉴 RelateAnything 的区域关系表示与分层输出思想，不将完整模型作为主链路依赖。
+| 指标 | 结果 | 测量口径 |
+|---|---|---|
+| 实时 PL 统计一致性 | 100 / 100 同帧比较一致 | 颜色阈值配置，真实 OV5640 图像 |
+| 图像接收速率 | 29.97 FPS | 30 秒收到 899 个完整帧，颜色阈值配置 |
+| 滤波配置接收速率 | 29.96 FPS | 60.078 秒收到 1800 个完整帧，独立配置 |
+| 两行二值缓存 | 160 B | 640 像素行宽，理论容量，为整帧二值掩码的 1/240 |
+| 帧测量扩展 | 32 B | RGB565 整帧像素载荷 614400 B；视频仍保留 |
+| 完整顶层资源 | LUT 7.31%，寄存器 2.42% | XC7Z100 目标器件布局布线报告 |
 
-**Codex 下一轮入口：[仅执行场景关系 R0](docs/codex_scene_relation_r0.md)。**先核对最新仓库与未提交工作，再完成契约复核、纯 Python 黄金参考和测试；不修改现有相机时序、红色 RTL 核心或视频协议。本次仅文档入库，不代表多色、关系核、PS 或模型功能已经实现，也不改变已有板测状态。
+各结果的配置、数据与适用范围见 [结果索引](docs/results.md)。实物平台含三套云台；已验证的运动结果为第一套的手动指令响应。系统的联合视觉闭环和三套云台协同不计入上述已验证结果。
 
-## 实施顺序
+## 快速开始
 
-1. Gate A：核对仓库远程状态、审查公开内容、运行仓库基础检查。
-2. Gate B：核对实际板卡、SoC 完整料号、摄像头、附件和工具链。
-3. Gate C：选择匹配的最小工程，重建、生成位流、下载并复现。
-4. Gate D：运行与实物相符的原厂视频基线。
-5. Gate E：冻结数据接口并建立软件黄金参考。
-6. Gate F：编写第一个自编 PL 模块，完成仿真、实现和板测。
-
-每一级附真实日志和复核记录。仓库基础检查通过只说明文档和检查工具可用，不等于 FPGA 功能已经完成。完整任务和通过条件见[执行方案](docs/execution_plan_2026-09-24.md)。
-
-当前可从干净克隆运行的基础检查（Python 3.10+，仅用标准库）：
+Python 3.12、Tk 和 Pillow 用于离线检查及 PC 界面；Vivado 2024.2 用于 RTL 仿真和 FPGA 构建。
 
 ```bash
+git clone https://github.com/logic202407-cmyk/zynq-vision-lab.git
+cd zynq-vision-lab
+git checkout submission-20261104
+python -m pip install -r src/pc/requirements.txt
 python tools/check_repository.py
 python -m unittest discover -s tests -v
+python tools/check_skystar_wiring.py
 ```
 
-两项检查只核对仓库结构、相对链接、状态证据格式和检查工具本身，不调用 Vivado 或板卡。逐项事实状态见 [status.json](report/status.json)。
+上述命令执行离线检查。相机预览、RTL 仿真、厂商依赖获取及板级工程构建分别见 [复现说明](docs/reproduction.md)。
 
-项目只处理无生命几何靶标，输出屏幕标记、位置测量和实验日志。不开发真人或真实飞行器自主指向、弹丸发射或移动发射系统。原厂工程、第三方图像和个人资料不会直接复制到公开仓库。
+## 工程目录
 
-原厂 640×480 UDP 视频的单独时序试验在临时 JTAG 位流下完成了 300 秒接收：8999 个完整帧，平均约 30.0 FPS；这是[原厂链路参数试验](report/experiments/2026-09-27-ov5640-fps30.md)，不代表自编 PL 算法的帧率或最终画质验收。
+| 目录 | 内容 |
+|---|---|
+| `src/rtl/` | FPGA 像素、帧统计、跨域和接口 RTL |
+| `src/pc/` | UDP 视频预览、PL 结果比较与日志工具 |
+| `src/prototype/skystar_openmv/` | OpenMV 与 STM32 配套源码，具体构建入口见复现说明 |
+| `sim/`、`tests/` | 仿真测试台、软件黄金参考与自动回归 |
+| `build/`、`board/` | 构建脚本、时钟约束、接线与器件资料 |
+| `data/`、`skill/` | 测试数据契约与可复用验证技能 |
+| `report/` | 设计报告、实测证据和 AI 协作记录 |
+| `docs/`、`assets/` | 使用说明、结果索引与实物照片 |
 
-无 HDMI 显示器时，可使用 [OV5640 电脑端 UDP 预览工具](src/pc/README.md)做原厂视频链路基线；它需要单独的有线网口连接，JTAG 不能替代传图。测试条件、复现步骤、统计和限制见[原厂视频基线](board/video_baseline.md)，上板过程见[上板日志](board/bringup_log.md)。
+设计报告和海报采用同一作品名称。源码及资料的固定版本和附件校验和见 [交付清单](report/submission_checklist.md)。历史计划、联调记录和旧版本资料由 [存档索引](docs/archive/README.md)统一导航。
 
-仓库原创材料采用 [MIT License](LICENSE)。资料来源及适用限制见[来源清单](docs/sources.md)。
+## 许可与依赖
 
-## 天空星接口资料（2026-10-27）
-
-**2026-11-04 接线配置更新：**[三套云台接线与准备](board/skystar_f407/three_gimbal_wiring.md)已固定第二套 C07 RX + D14/D15、第三套 D02 RX + E09/E11，并保留第一套和 USART3 FPGA 链路。配置与离线冲突检查已提供；新增串口/PWM 驱动及新增两套实物验收尚未完成。接线时使用[验收记录模板](board/skystar_f407/three_gimbal_bench_checklist.md)。
-
-新增[天空星 F407 接线与资料](board/skystar_f407/README.md)：两套二维云台的四路 PWM、独立动力供电、H1 十针调试口、USB-TTL 日志及 ST-Link SWD。包含原创重绘接线图、原厂来源与版本指纹、固件离线检查摘要和下次上板步骤。当前尚未收到烧录及实际动作成功结果，三套视觉协作仍属后续候选。
-
-
-## Zynq 与单套云台：通信及小步实测（2026-10-31）
-
-[最新链路核验记录](report/experiments/2026-10-31-chain-hardening.md)：新建的
-Zynq PL 双向透传模块已完成仿真、综合、布局布线、位流生成和临时 JTAG 配置。
-恢复天空星核心板供电与 PL_UART 连接后，电脑经 Zynq 收到状态与无效命令回复；
-水平、俯仰轴分别执行 1500→1550→1500 µs，用户确认两轴转动并返回、停止后安静。
-最终回读 PWM 关闭。这是一套云台的人工命令小步测试，后续仍需验证失联处理、
-运动范围与视觉闭环。Zynq 当前只做串口透传。
-
-同轮补齐可选 USART3 的天空星 v14 候选源码、串口命令过期保护、双配置测试和
-[公开引脚约束](board/skystar_f407/zynq_uart_bridge_v12.xdc)。候选 STM32 固件仅完成
-离线编译及模型验证，当前实物仍使用此前烧录的 USART3 固件。
+原创源码使用 [MIT License](LICENSE)。原厂视频工程、商用 IP、工具许可证依各自授权获取；获取位置、版本及使用范围见 [第三方说明](THIRD_PARTY.md)与[依赖清单](docs/dependencies.md)。实物照片由团队提供，保留著作权，供本项目评审及介绍使用。

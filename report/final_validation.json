@@ -1,0 +1,29 @@
+{
+  "source_base": "628159bf1619cfd7b36ba0eeaf11fb0de62897ce",
+  "checks": [
+    {
+      "check": "repository",
+      "exit_code": 0
+    },
+    {
+      "check": "python_tests",
+      "exit_code": 0
+    },
+    {
+      "check": "wiring",
+      "exit_code": 0
+    },
+    {
+      "check": "skill_example",
+      "exit_code": 0
+    },
+    {
+      "check": "skill_negative",
+      "exit_code": 1,
+      "expected_exit_code": 1
+    }
+  ],
+  "python_test_count": 124,
+  "hardware_accessed": false,
+  "fpga_rebuilt": false
+}

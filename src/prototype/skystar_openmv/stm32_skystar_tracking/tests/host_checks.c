@@ -32,9 +32,9 @@ uint32_t *board_test_register(uint32_t address)
     ++register_count;
     return board_test_register(address);
 }
-#include "../User/board.c"
+#include "../user/board.c"
 #define main firmware_entry
-#include "../User/main.c"
+#include "../user/main.c"
 #undef main
 
 static unsigned checks;

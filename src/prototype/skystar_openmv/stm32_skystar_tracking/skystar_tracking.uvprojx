@@ -333,7 +333,7 @@
               <MiscControls>--fpu=SoftVFP --library_type=microlib</MiscControls>
               <Define />
               <Undefine />
-              <IncludePath>.\User;..\stm32_project\User</IncludePath>
+              <IncludePath>.\user;..\stm32_project\user</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -385,27 +385,27 @@
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>User\main.c</FilePath>
+              <FilePath>user\main.c</FilePath>
             </File>
             <File>
               <FileName>board.c</FileName>
               <FileType>1</FileType>
-              <FilePath>User\board.c</FilePath>
+              <FilePath>user\board.c</FilePath>
             </File>
             <File>
               <FileName>tracking.c</FileName>
               <FileType>1</FileType>
-              <FilePath>User\tracking.c</FilePath>
+              <FilePath>user\tracking.c</FilePath>
             </File>
             <File>
               <FileName>safety.c</FileName>
               <FileType>1</FileType>
-              <FilePath>User\safety.c</FilePath>
+              <FilePath>user\safety.c</FilePath>
             </File>
             <File>
               <FileName>pid.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\stm32_project\User\pid.c</FilePath>
+              <FilePath>..\stm32_project\user\pid.c</FilePath>
             </File>
           </Files>
         </Group>

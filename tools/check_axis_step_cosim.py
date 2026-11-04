@@ -13,12 +13,12 @@ p.add_argument('--axis',type=int,choices=(0,1),required=True)
 p.add_argument('--case',choices=('normal','fpga_reset'),default='normal');a=p.parse_args()
 stage=a.stage.absolute();assert str(stage).isascii() and ROOT not in stage.resolve().parents
 build(stage,qid_guard=True)
-pid=FW.parent/'stm32_project/User'
+pid=FW.parent/'stm32_project/user'
 sources=['tracking.c','safety.c','gimbal_registry.c','vision_measurement.c','laser_lock.c']
 cmd=[os.environ.get('CC','C:/Strawberry/c/bin/gcc.exe'),'-shared','-std=c99','-Wall','-Wextra','-Werror','-O2',
  '-DBOARD_HOST_TEST','-DS1ACK1','-DS1_QID_GUARD','-DC1_OBSERVATIONS','-DC1_CLOSED_LOOP',
- '-DSKYSTAR_TEAM_PROFILE','-DCONSOLE_USART=3','-I'+str(FW/'User'),'-I'+str(pid),
- str(ROOT/'sim/c1/team_adapter.c'),*[str(FW/'User'/n) for n in sources],str(pid/'pid.c'),'-o',str(stage/'stm32.dll')]
+ '-DSKYSTAR_TEAM_PROFILE','-DCONSOLE_USART=3','-I'+str(FW/'user'),'-I'+str(pid),
+ str(ROOT/'sim/c1/team_adapter.c'),*[str(FW/'user'/n) for n in sources],str(pid/'pid.c'),'-o',str(stage/'stm32.dll')]
 bench=stage/'axis_step_c_bridge_tb.v'
 bench.write_text((ROOT/'sim/cosim/axis_step_c_bridge_tb.v').read_text().replace('AXIS_VALUE',str(a.axis)))
 commands=[('team_c',cmd),('axis_xvlog',[str(VB/'xvlog.bat'),str(ROOT/'src/rtl/c1_axis_step_gate.v'),

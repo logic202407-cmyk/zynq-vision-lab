@@ -73,8 +73,8 @@ def main():
             'artifact_sha256':report['artifacts'],'source_sha256':report['source_sha256'],
             'vector_checks':vector_checks,
         }
-    paths = list((ROOT/PROJECT/'User').glob('*.[ch]')) + [
-        ROOT/PROJECT/'startup.s',ROOT/PROJECT/'firmware.sct',ROOT/PROJECT/'Skystar_Tracking.uvprojx',
+    paths = list((ROOT/PROJECT/'user').glob('*.[ch]')) + [
+        ROOT/PROJECT/'startup.s',ROOT/PROJECT/'firmware.sct',ROOT/PROJECT/'skystar_tracking.uvprojx',
         ROOT/PROJECT/'tests/host_checks.c',ROOT/PROJECT/'tests/safety_cases.h',
         ROOT/PROJECT/'tests/run_checks.py',ROOT/PROJECT/'build.py',
         ROOT/'src/prototype/skystar_openmv/safety_protocol.py',ROOT/'tests/test_safety_protocol.py',

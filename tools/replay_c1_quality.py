@@ -9,7 +9,7 @@ from pathlib import Path
 import subprocess
 
 ROOT=Path(__file__).resolve().parents[1]
-FW=ROOT/'src/prototype/skystar_openmv/stm32_skystar_tracking/User'
+FW=ROOT/'src/prototype/skystar_openmv/stm32_skystar_tracking/user'
 
 
 def replay(input_path,stage,width,height):
