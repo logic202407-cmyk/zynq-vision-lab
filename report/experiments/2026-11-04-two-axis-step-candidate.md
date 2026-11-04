@@ -17,3 +17,7 @@ RTL SHA-256：`c1_two_axis_step_gate.v` `0ef450f7f1f478ffc7d32c59a3fdc3ee60ae9cf
 基于经 SHA-256 校验的既有私有厂商工程拷贝，使用 Vivado 2024.2 运行 `build/build_c1_two_axis_board.tcl`，进程退出 0，综合、布局布线及位流生成完成；没有下载至硬件。参考器件 `xc7z100ffg900-2` 的真实封装和速度级仍待确认。最终已约束路径 WNS 3.275 ns、WHS 0.058 ns，TNS/THS 0；检查仍有 17 项无输入延迟、8 项无输出延迟，CDC-10 Critical 2 项、CDC-15 Warning 180 项，不能宣称整板时序或 CDC 签核。综合报告 0 错误、0 严重告警、34 条普通警告；实现 DRC 另有 51 条警告，需按报告审查。
 
 候选 `R:/evidence/c1-two-axis-board-20261104/c1_two_axis.bit` SHA-256 `57759d975194fac57296a224a59259eec60d56db32baf21d16b2fc4435d6d87f`；配套 `c1_two_axis.ltx` SHA-256 `e147d18251405f3023cd5e73e206e87702ca4002488d74d90bd7034d2f82cb4b`。构建日志、约束、报告和位流留在 D 盘。上板需另行确认候选与现场断动力条件；该候选仅允许人工触发两轴小步，不能声称具备视觉自动闭环。
+
+## 经授权的只观测加载
+
+用户随后确认两只舵机动力物理断开、激光拆除断电，并授权仅临时 JTAG 加载、视频和通信核验。重新核对 BIT/LTX 哈希，加载成功、DONE=1，VIO 三个输出初值均为 0；未写 FPGA 或 STM32 Flash。采集的 30 秒快照有 787 个完整视频帧、0 不完整帧、1 异常包，捕获 S1SYNC 1 条、CRC 正确。首次绑定未收到 V2A，VIO 会话标志未置位；保留失败，具体原因未确定。将观测会话值调整后重试，捕获 V2A 1 条、CRC 正确，会话标志置位；不单凭此断定首次原因。最后发 STOP，关联 ACK 报告 `ACCEPT/REG`、stopped、PWM 掩码 0 且 CRC 正确，VIO 最终状态 `00010050`。未发 ARM、PAN 或 TLT，没有启动自动跟踪；PWM 掩码不是电源断开或实测波形证明。原始私有日志位于 `R:/evidence/c1-pd12-board-20261104/capture-20261104-113220` 和 `capture-20261104-113318`。
