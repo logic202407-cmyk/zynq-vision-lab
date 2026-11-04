@@ -20,7 +20,7 @@ jobs:
       - name: Install existing viewer test dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends python3-tk python3-pil
+          sudo apt-get install -y --no-install-recommends python3-tk python3-pil python3-pil.imagetk
       - name: Check repository structure and claims
         run: python3 tools/check_repository.py
       - name: Test repository tooling

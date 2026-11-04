@@ -28,7 +28,7 @@ Executed locally, offline only; [machine-readable results and source SHA-256](..
 
 The first test attempt encountered the not-yet-created report link; the report was then added and the complete Python suite passed. Initial local C compile commands used a read-only PowerShell variable name; corrected task-specific variables produced the successful builds above. These were preparation-command failures, not board observations.
 
-The first GitHub CI run failed because the Linux runner lacked `tkinter` required by the existing dashboard integration test; five existing image tests also skipped due to missing Pillow/Tk. The workflow now installs Ubuntu `python3-tk` and `python3-pil` before testing, without skipping or weakening tests. Remote results are available in the PR checks.
+The first GitHub CI run failed because the Linux runner lacked `tkinter` required by the existing dashboard integration test; five existing image tests also skipped due to missing Pillow/Tk. Installing Tk and Pillow exposed Ubuntu's separately packaged `ImageTk` dependency. The workflow now installs `python3-tk`, `python3-pil` and `python3-pil.imagetk` before testing, without skipping or weakening tests. Remote results are available in the PR checks.
 
 Host C check, reproducible from the repository root in Bash (also added to GitHub Actions):
 
