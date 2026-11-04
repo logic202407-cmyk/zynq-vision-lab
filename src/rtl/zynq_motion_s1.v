@@ -202,7 +202,9 @@ module zynq_motion_s1 #(
  else if(state!=SEND) state<=FAULT;
  end
  case(state)
- IDLE,FAULT:if(qe&&owner&&epoch!=0&&epoch!=last_epoch) begin
+ // Reject all same-boot IDs at or below the issued high-water mark. This
+ // volatile check cannot detect replay after reset or simultaneous rollback.
+ IDLE,FAULT:if(qe&&owner&&epoch>last_epoch) begin
  qid=epoch;last_epoch<=epoch;recheck<=0;authorized<=0;cancel_pending<=0;fault<=0;stop_confirmed<=0;auto_mode<=0;launch(OP_QUERY);end
  SEND:begin
  if(building) begin
