@@ -38,7 +38,7 @@ flowchart LR
 
 ## STM32 控制质量
 
-[c1_quality.h](../src/prototype/skystar_openmv/stm32_skystar_tracking/User/c1_quality.h)对已解码测量返回原因码：
+[c1_quality.h](../src/prototype/skystar_openmv/stm32_skystar_tracking/user/c1_quality.h)对已解码测量返回原因码：
 
 | 码 | 含义 |
 | --- | --- |

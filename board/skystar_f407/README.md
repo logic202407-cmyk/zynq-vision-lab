@@ -82,7 +82,7 @@
 
 ## 本地测试固件的行为
 
-本次固件名称为 `skystar_dual_pwm.hex`。它是队友 [F103 两路 PWM 驱动](https://github.com/logic202407-cmyk/zynq-vision-lab/blob/aafbb9bd62a91028b573b02389ceb714f8e43481/src/prototype/stm32_openmv_gimbal/stm32/User/servo.c)向 F407 四通道的适配，当前用于独立接线测试。本次资料提交不包含原厂 SDK、完整本地工程或固件二进制；[校验信息](bench_evidence.json)用于核对队内交付的同名文件。
+本次固件名称为 `skystar_dual_pwm.hex`。它是队友 [F103 两路 PWM 驱动](https://github.com/logic202407-cmyk/zynq-vision-lab/blob/aafbb9bd62a91028b573b02389ceb714f8e43481/src/prototype/stm32_openmv_gimbal/stm32/user/servo.c)向 F407 四通道的适配，当前用于独立接线测试。本次资料提交不包含原厂 SDK、完整本地工程或固件二进制；[校验信息](bench_evidence.json)用于核对队内交付的同名文件。
 
 程序初始化后四路 PWM 关闭，D12-D15 置低；MCU 复位期间仍是芯片默认引脚状态。按板载 **KEY / WKUP（PA0）**，短按松开后执行下一步，各步之间等待至少 2 秒。
 

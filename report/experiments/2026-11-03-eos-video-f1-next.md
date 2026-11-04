@@ -74,8 +74,8 @@ state3为FPGA AUTH等待状态；封装authorize/command固定为0，不代表MC
 
 ## F1判据与排查顺序
 
-源码：[c1_feedback.h](../../src/prototype/skystar_openmv/stm32_skystar_tracking/User/c1_feedback.h)、
-[main.c](../../src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c)、
+源码：[c1_feedback.h](../../src/prototype/skystar_openmv/stm32_skystar_tracking/user/c1_feedback.h)、
+[main.c](../../src/prototype/skystar_openmv/stm32_skystar_tracking/user/main.c)、
 [measurement_session.v](../../src/rtl/measurement_session.v)。
 这些解释当前仓库实现；现场固件版本与AXF结构问题未独立闭合。
 

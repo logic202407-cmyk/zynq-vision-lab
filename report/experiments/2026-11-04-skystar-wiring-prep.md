@@ -8,7 +8,7 @@ Scope: approved wiring and configuration preparation only. Gimbal 2 uses PC7 RX 
 
 - [Wiring rules and preparation](../../board/skystar_f407/three_gimbal_wiring.md), including per-wire labels, independent supplies/common ground, resource conflicts and staged acceptance.
 - [Unexecuted bench checklist](../../board/skystar_f407/three_gimbal_bench_checklist.md).
-- [Single wiring definition](../../src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_wiring.def), used by both C metadata tables and the offline validator.
+- [Single wiring definition](../../src/prototype/skystar_openmv/stm32_skystar_tracking/user/gimbal_wiring.def), used by both C metadata tables and the offline validator.
 - [Conflict checker](../../tools/check_skystar_wiring.py) and negative tests for repeated UART peripherals, FPGA conflicts, duplicate PWM pins/channels, wrong AF, missing axes and TF/SDIO.
 - C registry checks retain uninstalled/disabled gimbals 2/3. No new peripheral initialization, IRQ handler or PWM enable code is introduced.
 

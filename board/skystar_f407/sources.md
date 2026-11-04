@@ -9,7 +9,7 @@
 | [STM32F407 数据手册](https://www.st.com/resource/en/datasheet/stm32f407ve.pdf) | LQFP100 引脚、USART/UART、TIM4/TIM1 复用 |
 | [STM32F4 RM0090](https://www.st.com/resource/en/reference_manual/dm00031020-stm32f405415-stm32f407417-stm32f427437-and-stm32f429439-advanced-armbased-32bit-mcus-stmicroelectronics.pdf) | 定时器与 APB 时钟关系 |
 | [Keil Flash Download 配置](https://www.keil.com/support/man/docs/uv4cl/uv4cl_fl_usingflashmenu.htm) | ST-Link/目标驱动的下载配置入口 |
-| [队友 PWM 原驱动，固定提交](https://github.com/logic202407-cmyk/zynq-vision-lab/blob/aafbb9bd62a91028b573b02389ceb714f8e43481/src/prototype/stm32_openmv_gimbal/stm32/User/servo.c) | 两轴 PWM 与限幅思路来源 |
+| [队友 PWM 原驱动，固定提交](https://github.com/logic202407-cmyk/zynq-vision-lab/blob/aafbb9bd62a91028b573b02389ceb714f8e43481/src/prototype/stm32_openmv_gimbal/stm32/user/servo.c) | 两轴 PWM 与限幅思路来源 |
 
 本次实际查阅的是本地原厂标准库资料包中：
 

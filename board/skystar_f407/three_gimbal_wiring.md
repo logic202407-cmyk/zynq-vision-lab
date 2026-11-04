@@ -14,7 +14,7 @@ PAN 为水平轴，TILT 为俯仰轴。板上 `C07` 即 MCU `PC7`；`D02` 即 `P
 | 第二套 | 1 | **PC7 / C07，USART6_RX，AF8** | **PD14 / D14，TIM4_CH3，AF2** | **PD15 / D15，TIM4_CH4，AF2** |
 | 第三套 | 2 | **PD2 / D02，UART5_RX，AF8** | **PE9 / E09，TIM1_CH1，AF1** | **PE11 / E11，TIM1_CH2，AF1** |
 
-配置唯一来源为 [gimbal_wiring.def](../../src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_wiring.def)。C 资源表与检查工具均读取它；软件 ID 从 0 开始，不把第三套写成 ID 3。
+配置唯一来源为 [gimbal_wiring.def](../../src/prototype/skystar_openmv/stm32_skystar_tracking/user/gimbal_wiring.def)。C 资源表与检查工具均读取它；软件 ID 从 0 开始，不把第三套写成 ID 3。
 
 ## 逐线规则
 
@@ -50,7 +50,7 @@ PAN 为水平轴，TILT 为俯仰轴。板上 `C07` 即 MCU `PC7`；`D02` 即 `P
 
 ## 固件准备边界
 
-[资源表](../../src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.c)已登记全部六路 PWM 和三路 RX。`mapped`、`confirmed_for_preparation` 表示引脚方案已选定，**不表示实物接通或 PWM 已启用**。第二、第三套仍为 `installed=0`；当前 `board.c` 不初始化 USART6/UART5，不输出新增四路 PWM。
+[资源表](../../src/prototype/skystar_openmv/stm32_skystar_tracking/user/gimbal_registry.c)已登记全部六路 PWM 和三路 RX。`mapped`、`confirmed_for_preparation` 表示引脚方案已选定，**不表示实物接通或 PWM 已启用**。第二、第三套仍为 `installed=0`；当前 `board.c` 不初始化 USART6/UART5，不输出新增四路 PWM。
 
 后续驱动任务按以下顺序推进，不通过把 `installed` 改成 1 代替驱动开发：
 
