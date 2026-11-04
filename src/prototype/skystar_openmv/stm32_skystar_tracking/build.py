@@ -18,11 +18,13 @@ def diagnostics_present(text):
     return bool(re.search(r'\b(?:warning|error)\s*:', text, re.IGNORECASE))
 
 
-def build(console_usart=1, output_root=None, s1ack1=False, c1_observations=False, c1_closed_loop=False):
+def build(console_usart=1, output_root=None, s1ack1=False, c1_observations=False, c1_closed_loop=False, qid_guard=False):
     if console_usart not in (1, 3):
         raise ValueError("console_usart must be 1 or 3")
     if c1_closed_loop and not (s1ack1 and c1_observations and console_usart == 3):
         raise ValueError('closed-loop feedback requires S1ACK1, C1 observations and USART3')
+    if qid_guard and not s1ack1:
+        raise ValueError('QID guard requires S1ACK1')
     stage = Path(tempfile.mkdtemp(prefix='skystar-tracking-'))
     sources = list((ROOT / 'User').glob('*.[ch]'))
     sources += [ROOT.parent / 'stm32_project/User/pid.c', ROOT.parent / 'stm32_project/User/pid.h']
@@ -46,7 +48,7 @@ def build(console_usart=1, output_root=None, s1ack1=False, c1_observations=False
         obj = source.with_suffix('.o').name
         run(source.stem, [TOOLS / 'armcc.exe', '--cpu=Cortex-M4', '--fpu=SoftVFP',
                          '--library_type=microlib', '-DCONSOLE_USART='+str(console_usart), '--c99', '-O1', '--split_sections',
-                         '-I.', '-c', source.name, '-o', obj] + (['-DS1ACK1'] if s1ack1 else []) + (['-DC1_OBSERVATIONS'] if c1_observations else []) + (['-DC1_CLOSED_LOOP'] if c1_closed_loop else []))
+                         '-I.', '-c', source.name, '-o', obj] + (['-DS1ACK1'] if s1ack1 else []) + (['-DC1_OBSERVATIONS'] if c1_observations else []) + (['-DC1_CLOSED_LOOP'] if c1_closed_loop else []) + (['-DS1_QID_GUARD'] if qid_guard else []))
         objects.append(obj)
     run('startup', [TOOLS / 'armasm.exe', '--cpu=Cortex-M4', 'startup.s', '-o', 'startup.o'])
     run('link', [TOOLS / 'armlink.exe', '--cpu=Cortex-M4', '--library_type=microlib',
@@ -63,12 +65,12 @@ def build(console_usart=1, output_root=None, s1ack1=False, c1_observations=False
     digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
     report = {'scope': 'build only; not programmed or hardware tested', 'compiler': version.strip(), 'console_usart':console_usart, 's1ack1':s1ack1,
               'c1_observations': c1_observations,
-              'c1_closed_loop': c1_closed_loop,
+              'c1_closed_loop': c1_closed_loop, 'qid_guard': qid_guard,
               'source_sha256': {str(p.relative_to(ROOT.parent)): digest(p) for p in sources},
               'artifacts': {p.name: digest(p) for p in output.iterdir()}, 'commands': logs,
               'private_build_stage': str(stage), 'errors': 0, 'warnings': 0}
     (output / 'build.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
-    latest = base / (('latest' if console_usart == 1 else 'latest-usart3') + ('-s1ack1' if s1ack1 else '') + ('-c1' if c1_observations else '') + ('-loop' if c1_closed_loop else ''))
+    latest = base / (('latest' if console_usart == 1 else 'latest-usart3') + ('-s1ack1' if s1ack1 else '') + ('-c1' if c1_observations else '') + ('-loop' if c1_closed_loop else '') + ('-qidguard' if qid_guard else ''))
     latest.mkdir(exist_ok=True)
     for name in ('skystar_tracking.hex','skystar_tracking.bin','skystar_tracking.axf','firmware.map','build.json'):
         shutil.copyfile(output/name, latest/name)
@@ -83,5 +85,6 @@ if __name__ == '__main__':
     parser.add_argument('--s1ack1', action='store_true', help='Build optional ACK candidate; no device access')
     parser.add_argument('--c1-observations', action='store_true', help='Opt-in observation-only registry; no device access')
     parser.add_argument('--c1-closed-loop', action='store_true', help='Opt-in observation feedback for FPGA loop; no device access')
+    parser.add_argument('--qid-guard', action='store_true', help='Opt-in volatile MCU QID guard; not persistent across MCU reset')
     args = parser.parse_args()
-    build(args.console_usart, args.output_root, args.s1ack1, args.c1_observations, args.c1_closed_loop)
+    build(args.console_usart, args.output_root, args.s1ack1, args.c1_observations, args.c1_closed_loop, args.qid_guard)

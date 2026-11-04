@@ -30,6 +30,9 @@ API void model_init(void) {
     memset(regs,0,sizeof(regs));nr=rng_reads=0;
     used=dropping=command_last_ms=tx_dropped=last_status=0;
     tracking_init(&control);vision_init(&parser);board_init();
+#if defined(S1ACK1) && defined(S1_QID_GUARD)
+    ack_guard_init();
+#endif
     ok=board_session_nonce(&hi,&lo);safety_init(&guardian,hi,lo,ok);
     (void)board_send("SKYSTAR F407 v15 GUARDED_SESSION HSI16 PWM_OFF CONSOLE=" CONSOLE_LABEL "\r\n");
 }

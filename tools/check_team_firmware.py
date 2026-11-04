@@ -3,7 +3,7 @@ import argparse,binascii,ctypes as C,json,os,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 FW=ROOT/'src/prototype/skystar_openmv/stm32_skystar_tracking'
-def build(stage):
+def build(stage,qid_guard=False):
     stage.mkdir(parents=True,exist_ok=True)
     pid=FW.parent/'stm32_project/User'
     cmd=[os.environ.get('CC','C:/msys64/ucrt64/bin/gcc.exe'),'-shared','-std=c99','-Wall','-Wextra','-Werror','-O2',
@@ -11,9 +11,10 @@ def build(stage):
          '-I'+str(FW/'User'),'-I'+str(pid),str(ROOT/'sim/c1/team_adapter.c'),
          *[str(FW/'User'/n) for n in ['tracking.c','safety.c','gimbal_registry.c','vision_measurement.c','laser_lock.c']],
          str(pid/'pid.c'),'-o',str(stage/'stm32.dll')]
+    if qid_guard:cmd.append('-DS1_QID_GUARD')
     p=subprocess.run(cmd,capture_output=True);(stage/'compile.log').write_bytes(p.stdout+p.stderr)
     if p.returncode:raise RuntimeError((p.stdout+p.stderr).decode(errors='replace'))
-def run(stage):
+def run(stage,qid_guard=False):
     lib=C.CDLL(str(stage/'stm32.dll'));lib.model_reg.argtypes=[C.c_uint];lib.model_reg.restype=C.c_uint
     passed=[];wire=bytearray()
     def drain():
@@ -63,8 +64,8 @@ def run(stage):
     for _ in range(500):lib.model_tick()
     assert not laser() and lib.model_reg(0x40000820)==0
     passed.append('lease_ISR_disables_without_foreground')
-    result={'verdict':'PASS','cases':passed,'count':len(passed),'scope':'offline actual C and register model; not physical validation'}
+    result={'verdict':'PASS','cases':passed,'count':len(passed),'qid_guard':qid_guard,'scope':'offline actual C and register model; not physical validation'}
     (stage/'result.json').write_text(json.dumps(result,indent=2));(stage/'wire.log').write_bytes(wire)
     print(json.dumps(result,indent=2))
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--stage',type=Path,required=True);a=p.parse_args();build(a.stage);run(a.stage)
+    p=argparse.ArgumentParser();p.add_argument('--stage',type=Path,required=True);p.add_argument('--qid-guard',action='store_true');a=p.parse_args();build(a.stage,a.qid_guard);run(a.stage,a.qid_guard)

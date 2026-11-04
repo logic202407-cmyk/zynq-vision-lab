@@ -7,14 +7,14 @@ ROOT=Path(__file__).resolve().parents[1]
 FW=ROOT/'src/prototype/skystar_openmv/stm32_skystar_tracking'
 VB=Path(os.environ.get('VIVADO_ROOT','D:/Vivado/Vivado/2024.2'))/'bin'
 
-def build(stage,auth_ms=30000,legacy=False):
+def build(stage,auth_ms=30000,legacy=False,qid_guard=False):
     stage.mkdir(parents=True,exist_ok=False)
     sources=['uart_tx_8n1.v','uart_rx.v','zynq_motion_s1.v']
     for f in sources: shutil.copyfile(ROOT/'src/rtl'/f,stage/f)
     (stage/'motion_c_bridge_tb.v').write_text((ROOT/'sim/cosim/motion_c_bridge_tb.v').read_text().replace('AUTH_TEST_MS=30000','AUTH_TEST_MS='+str(auth_ms)))
     inputs=list((FW/'User').glob('*.[ch]'))+list((FW.parent/'stm32_project/User').glob('pid.[ch]'))
     inputs += [ROOT/'src/rtl'/f for f in sources]+[ROOT/'sim/cosim/stm32_adapter.c',ROOT/'sim/cosim/motion_c_bridge_tb.v',Path(__file__).resolve(),ROOT/'tools/xsim_c_bridge.py']
-    (stage/'build-inputs.json').write_text(json.dumps({'auth_ms':auth_ms,'legacy':legacy,'sha256':{f.relative_to(ROOT).as_posix():hashlib.sha256(f.read_bytes()).hexdigest() for f in inputs}},indent=2))
+    (stage/'build-inputs.json').write_text(json.dumps({'auth_ms':auth_ms,'legacy':legacy,'qid_guard':qid_guard,'sha256':{f.relative_to(ROOT).as_posix():hashlib.sha256(f.read_bytes()).hexdigest() for f in inputs}},indent=2))
     commands={
     'c-build':[os.environ.get('CC',r'D:\Dev-Cpp\MinGW64\bin\gcc.exe'),'-shared','-std=c99','-Wall','-Wextra','-Werror','-O2',
         '-DBOARD_HOST_TEST','-DS1ACK1','-DCONSOLE_USART=3','-I'+str(FW/'User'),
@@ -23,6 +23,7 @@ def build(stage,auth_ms=30000,legacy=False):
     'xvlog':[str(VB/'xvlog.bat')]+sources+['motion_c_bridge_tb.v'],
     'xelab':[str(VB/'xelab.bat'),'motion_c_bridge_tb','-debug','all','-dll','-s','coupled']}
     if legacy:commands['c-build'].remove('-DS1ACK1')
+    if qid_guard:commands['c-build'].append('-DS1_QID_GUARD')
     for name,cmd in commands.items():
         p=subprocess.run(cmd,cwd=stage,capture_output=True,timeout=120)
         (stage/(name+'.log')).write_bytes(p.stdout+p.stderr)
@@ -122,9 +123,9 @@ class Coupled:
     def close(self):self.sim.close()
 
 def main():
-    a=argparse.ArgumentParser();a.add_argument('--stage',type=Path,required=True);a.add_argument('--built',action='store_true');a.add_argument('--case',default='normal');a.add_argument('--auth-ms',type=int,default=30000);a.add_argument('--legacy',action='store_true');args=a.parse_args();stage=args.stage.absolute()
+    a=argparse.ArgumentParser();a.add_argument('--stage',type=Path,required=True);a.add_argument('--built',action='store_true');a.add_argument('--case',default='normal');a.add_argument('--auth-ms',type=int,default=30000);a.add_argument('--legacy',action='store_true');a.add_argument('--qid-guard',action='store_true');args=a.parse_args();stage=args.stage.absolute()
     assert str(stage).isascii() and ROOT not in stage.resolve().parents
-    if not args.built:build(stage,args.auth_ms,args.legacy)
+    if not args.built:build(stage,args.auth_ms,args.legacy,args.qid_guard)
     def frame(body):return body+'*%04x\n'%binascii.crc_hqx(body.encode(),0xffff)
     assert binascii.crc_hqx(b'123456789',0xffff)==0x29b1
     assert frame('s1 1234567887654321 0 arm')=='s1 1234567887654321 0 arm*be15\n'
@@ -187,6 +188,15 @@ def main():
                 c.lib.model_reboot();c.advance(270000)
                 assert c.status&32 and c.lib.model_reg(0x40000820)==0
                 assert sum(' arm*' in x for x in c.lines)==1
+            elif args.case=='fpga_replay_guard':
+                assert args.qid_guard, 'guard must be enabled for this case'
+                c.setbit(0,0);c.advance(20);c.setbit(0,1);c.advance(520000)
+                assert c.lib.model_state()==4 and c.lib.model_reg(0x40000820)==0
+                old_sync=bytes(c.from_mcu).count(b'S1SYNC ');old_arms=sum(' arm*' in x for x in c.lines)
+                c.pulse(1);c.advance(270000)
+                assert bytes(c.from_mcu).count(b'S1SYNC ')==old_sync
+                assert sum(' arm*' in x for x in c.lines)==old_arms
+                assert c.state==6 and c.lib.model_reg(0x40000820)==0
             elif args.case=='busy_repeat':
                 old=len(c.lines);c.command(1,1540);c.advance(500)
                 for _ in range(5):c.command(0,1600);c.pulse(2)

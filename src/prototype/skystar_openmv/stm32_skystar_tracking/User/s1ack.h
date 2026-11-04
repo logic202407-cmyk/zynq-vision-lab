@@ -3,6 +3,11 @@ typedef struct {
     unsigned kind; /* 0 legacy, 1 query, 2 protected command */
     char id[33], seq[11], crc[5], op[8];
 } ack_request_t;
+#ifdef S1_QID_GUARD
+/* Volatile MCU-side observation guard: not a persistent anti-rollback root. */
+static char ack_qid_high[33];
+static void ack_guard_init(void) { memset(ack_qid_high, '0', 32); ack_qid_high[32]=0; }
+#endif
 static int ack_hex(const char *s, unsigned n) {
     unsigned i;
     for(i=0;i<n;i++) if (!((s[i]>='0'&&s[i]<='9')||(s[i]>='a'&&s[i]<='f')||(s[i]>='A'&&s[i]<='F'))) return 0;
@@ -28,6 +33,14 @@ static const char *ack_prepare(const char *s, ack_request_t *r) {
         p=s+37;n=(unsigned)(star-p);
         if(!((n==2&&!memcmp(p,"st",2))||(n==4&&!memcmp(p,"stop",4)))) goto bad;
         memcpy(r->id,s+4,32);ack_lower(r->id);memcpy(r->op,p,n);r->kind=1;
+#ifdef S1_QID_GUARD
+        /* Never block STOP, even when its ID is stale. Burn new IDs before
+         * reply/queue handling; IDs whose responses fail are not reused. */
+        if (n==2 && strcmp(r->id,ack_qid_high)<=0) {
+            guardian.last_reject="qid_replay"; ++guardian.rejected; return 0;
+        }
+        if (strcmp(r->id,ack_qid_high)>0) memcpy(ack_qid_high,r->id,33);
+#endif
         return n==2?"st":"stop";
     }
     if(star-s<24 || !ack_hex(s+3,16) || s[19]!=' ') goto bad;

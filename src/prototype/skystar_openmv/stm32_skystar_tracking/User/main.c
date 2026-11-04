@@ -12,6 +12,9 @@ static laser_lock_t port_laser;
 #if defined(C1_CLOSED_LOOP) && (!defined(C1_OBSERVATIONS) || !defined(S1ACK1))
 #error C1_CLOSED_LOOP_requires_C1_OBSERVATIONS_and_S1ACK1
 #endif
+#if defined(S1_QID_GUARD) && !defined(S1ACK1)
+#error S1_QID_GUARD_requires_S1ACK1
+#endif
 
 #ifdef C1_OBSERVATIONS
 #include "gimbal_registry.h"
@@ -221,6 +224,9 @@ int main(void)
     memset(&observations,0,sizeof(observations)); /* Explicit bind required; no boot session guess. */
 #endif
     tracking_init(&control); vision_init(&parser); board_init();
+#if defined(S1ACK1) && defined(S1_QID_GUARD)
+    ack_guard_init();
+#endif
 #ifdef SKYSTAR_TEAM_PROFILE
     laser_lock_reset(&port_laser);
 #endif
