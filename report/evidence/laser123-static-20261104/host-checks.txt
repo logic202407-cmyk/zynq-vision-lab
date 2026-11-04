@@ -1,0 +1,13 @@
+PASS boot selection cannot illuminate
+PASS all seven nonempty red/yellow/blue selections
+PASS invalid selection rejected
+PASS explicit disable
+PASS STOP disarms all three
+PASS missing heartbeat shuts off and cannot reenable
+PASS physical button disables all three
+PASS UART error disables all three
+PASS PWM and TIM1 master enable block illumination
+PASS all six servo outputs remain disabled
+PASS third-only selection and STOP
+PASS camera receivers disabled; control UART preserved
+PASS control UART error records source and closes all gates

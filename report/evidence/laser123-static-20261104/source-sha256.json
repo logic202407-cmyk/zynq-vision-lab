@@ -1,0 +1,27 @@
+{
+  "format": "SHA-256 of committed Git blobs; line endings normalized by Git",
+  "files": {
+    "src/prototype/skystar_openmv/profiles/laser123_static/firmware.sct": "239db69b76f0f79821f659c6d548c1127bcb0db2b76764040abf97ada9d2e511",
+    "src/prototype/skystar_openmv/profiles/laser123_static/startup.s": "9bd685248c1eae97a0c706dd41fac1ef9ad41588e306269deb3fa1721e5e6ffc",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/board.c": "1b03fb6993c86321a2dd127b00e29a73dd9a767feec28cb2d9402d7508e08e6c",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/board.h": "f3272f166592917cb363f589466f330f9b59d149979f06e6cae9f5f9fa4ed91c",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/c1_feedback.h": "1615e4acd08c68246ba65c950b13d070ea68a0b0653a71b251c09fa99698c185",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/c1_quality.h": "340353ddcda52f7fc985dc6dd794ffdf7c6a517d57c7a358bd3c60f5775d1426",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/gimbal_registry.c": "947df4a3752412d9517f268db37f6dc0f62f0ccd85358b6aad3213291268db96",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/gimbal_registry.h": "04e7ae2dfaa53513d9b964a20b0de9bc07cd668e724053511d90c5d65ca4d8a1",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/laser_lock.c": "a4f2857dd64f0abfa3145ac1c692caf996d05605420e85bdf624ed756bf2fa97",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/laser_lock.h": "26d7e6fe9159ff222550abcdb9dada4f1d197c0903658634f6191c4a1a5da7dc",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/main.c": "31cd203d1b9e234ff28c92e109a98c984bacf6728363c05d326bd44f653e789c",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/s1ack.h": "84f64e08d3c9da90611943e1bf9ab9326431212aada971b702664ed60d19b2e2",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/safety.c": "b197213883ac2bc5557bae9579b504187a362499f1ec1b304ce2a998261c679a",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/safety.h": "47b6a734737f2393782781026fee3f4919cc4cefb15323a1ee4f0587eef5302d",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/static_spot.c": "4ee5372f3afc6b705c23a48ecf4c2558e68bd90aac56be28f84c1c4f95ba8632",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/static_spot.h": "92904e752c22fe08a676f0939ea83acb308189ce5a747d75aa5892531073c2c9",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/three_rx.c": "6b59e65e62da4c80049555feaf216edbc3cf4c1de5212e46b3d332aca2aeff97",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/tracking.c": "e4ed4b303e3a42c008a2cc8e53774337382ffe4c773ff74cd86191838cd98656",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/tracking.h": "b303a0577edaac26b408d3436e0fef5749644db10a97e27dffb52eb7bd5ce77d",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/tracking_profile.h": "aec793b2e1812d5fb24515e51e7a5861f1ce0adebfbc8ec8dbaf03017abb74ff",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/vision_measurement.c": "4432a9d25c30e0ca2268bf22d2f5fdfeec850f0fb8bb3bd5f7ee60053bc7b6ff",
+    "src/prototype/skystar_openmv/profiles/laser123_static/User/vision_measurement.h": "e4bd9cac28245a6428bcbf3290e95edc8936867af2d965e9555e628fb10c5630"
+  }
+}

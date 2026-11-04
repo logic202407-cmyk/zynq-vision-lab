@@ -1,0 +1,96 @@
+{
+  "scope": "Stationary illumination only; no gimbal motion or target-centering claim",
+  "date": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "mapping": [
+    {
+      "id": 1,
+      "target": "red circle",
+      "gate": "PE2"
+    },
+    {
+      "id": 2,
+      "target": "yellow triangle",
+      "gate": "PE3"
+    },
+    {
+      "id": 3,
+      "target": "blue square",
+      "gate": "PB0"
+    }
+  ],
+  "build": {
+    "compiler": "Arm Compiler for Embedded 6.24",
+    "binary_bytes": 10836,
+    "binary_sha256": "69fa421d5ebc56780c5d48e083a04167f56f3d3ff3ab4f5f1030ca85b8a06fd5",
+    "full_flash_readback_sha256": "7bd29f294149844d482efa5955e0537ab4e0cfe58036facf538ce7e1d00cc52c",
+    "full_flash_readback_equal": true,
+    "host_checks_passed": 13
+  },
+  "register_observation": {
+    "samples": 350,
+    "all_samples_auto": true,
+    "all_three_high": true,
+    "all_pwm_off": true,
+    "uart_fault_counts": [
+      0
+    ],
+    "first": {
+      "mask": 7,
+      "state": 3,
+      "reason": 2,
+      "pe2": 1,
+      "pe3": 1,
+      "pb0": 1,
+      "tim4_ccer": 0,
+      "tim1_ccer": 0,
+      "fault_uart": "0x0",
+      "fault_status": "0x0",
+      "fault_count": 0,
+      "core": "State.RUNNING"
+    },
+    "last": {
+      "mask": 7,
+      "state": 3,
+      "reason": 2,
+      "pe2": 1,
+      "pe3": 1,
+      "pb0": 1,
+      "tim4_ccer": 0,
+      "tim1_ccer": 0,
+      "fault_uart": "0x0",
+      "fault_status": "0x0",
+      "fault_count": 0,
+      "core": "State.RUNNING"
+    },
+    "stop_sent": false,
+    "optical_confirmation": {
+      "source": "operator",
+      "date": "2026-11-04",
+      "timezone": "Asia/Shanghai",
+      "result": "All three visibly continuously on"
+    }
+  },
+  "camera_uart_receivers_enabled": false,
+  "control_uart": "USART3 PC10 TX / PC11 RX",
+  "lease_ms": 500,
+  "boot_laser_mask": 0,
+  "fixed_test_stop_timer": false,
+  "safety_shutdown_retained": [
+    "STOP",
+    "button",
+    "control UART error",
+    "heartbeat timeout"
+  ],
+  "known_limitations": [
+    "Cause of earlier SAFE_UART faults not localized to one UART or electrical root cause",
+    "Power-on autonomous restart not enabled; FPGA JTAG config is volatile",
+    "No optical power/duty waveform measured; visual optical result is operator confirmation",
+    "Three-target FPGA recognition/assignment and six-axis tracking not completed"
+  ],
+  "repository_validation": {
+    "unit_tests_passed": 109,
+    "profile_rebuild_binary_matches_deployed": true,
+    "profile_rebuild_binary_sha256": "69fa421d5ebc56780c5d48e083a04167f56f3d3ff3ab4f5f1030ca85b8a06fd5"
+  }
+}
