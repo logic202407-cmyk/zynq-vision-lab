@@ -92,5 +92,6 @@
     "unit_tests_passed": 109,
     "profile_rebuild_binary_matches_deployed": true,
     "profile_rebuild_binary_sha256": "69fa421d5ebc56780c5d48e083a04167f56f3d3ff3ab4f5f1030ca85b8a06fd5"
-  }
+  },
+  "verified_source_commit": "80080e087558f8b6569b47ce0ff3f611dd8e0b92"
 }

@@ -391,6 +391,20 @@
         "report/evidence/two-pc-handoff-20261104/pc1/f1-verified-20261103-235300/verification.json"
       ],
       "note": "PAUSED. Limited recovery, query/bind and F1 observation evidence only; physical tracking convergence, laser behavior and physical STOP validation NOT complete. Original PC2 handoff archive hash verified; public text copies redact host/user paths. No ARM/AUTO or Flash action is authorized by these records."
+    },
+    {
+      "id": "static_three_laser_bench",
+      "status": "board_verified",
+      "evidence": [
+        "src/prototype/skystar_openmv/profiles/laser123_static/README.md",
+        "report/experiments/2026-11-04-three-static-lasers.md",
+        "report/evidence/laser123-static-20261104/receipt.json",
+        "report/evidence/laser123-static-20261104/host-checks.txt"
+      ],
+      "verified_commit": "80080e087558f8b6569b47ce0ff3f611dd8e0b92",
+      "tool_version": "Arm Compiler 6.24; Python 3.12; existing Vivado 2024.2 continuous-AUTO image",
+      "reviewer": "Codex register readback and operator optical confirmation",
+      "note": "Stationary manual illumination only. Three gates high in 350 samples, all servo PWM disabled, no control UART faults; operator confirmed all three visibly on. Camera receivers disabled in this profile. Does not verify three-target vision, dispatch, tracking, centering, or optical power."
     }
   ]
 }
