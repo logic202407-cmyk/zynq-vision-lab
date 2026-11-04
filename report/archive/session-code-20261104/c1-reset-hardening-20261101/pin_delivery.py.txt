@@ -1,0 +1,26 @@
+import hashlib,json,subprocess
+from pathlib import Path
+r=Path('R:/c1-repo');o=r/'report/evidence/c1-reset-hardening'
+source=subprocess.check_output(['git','rev-parse','HEAD'],cwd=r).decode().strip()
+for p in list(o.rglob('*.log')):
+ assert p.resolve().is_relative_to(o.resolve())
+ p.rename(p.with_suffix('.txt'))
+for p in o.rglob('*'):
+ if p.is_file() and p.suffix in ['.txt','.rpt']:
+  p.write_text('\n'.join(line.rstrip() for line in p.read_text(encoding='utf-8').splitlines()).rstrip()+'\n',encoding='utf-8')
+p=o/'README.md';s=p.read_text();s=s.replace('vivado.log','vivado.txt')
+s+='\nReviewed logs use .txt to remain tracked; only host identity and trailing whitespace are normalized. Original logs remain private on D:. Final repository.log/unit.log are published as repository.txt/unit.txt.\n'
+p.write_text(s,encoding='utf-8')
+p=r/'report/status.json';data=json.loads(p.read_text(encoding='utf-8'))
+c=next(c for c in data['components'] if c['id']=='c1_reset_qid_hardening')
+c.update(status='simulated',verified_commit=source,tool_version='Vivado/XSim 2024.2; Python 3.12.4; GCC 4.9.2',reviewer='Codex offline assertions and report review; independent reproduction pending',note='Offline reset/QID repair only: passing XSim/real-C and reset-context OOC route, zero CDC Critical with 219 payload warnings retained. Not deployed. Persistent epoch, full vendor board CDC/IO and physical measurement remain blockers.')
+p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+changed=subprocess.check_output(['git','diff-tree','--no-commit-id','--name-only','-r',source],cwd=r).decode().splitlines()
+hashes={f:hashlib.sha256(subprocess.check_output(['git','show',source+':'+f],cwd=r)).hexdigest() for f in changed if f.startswith(('src/','sim/','tools/','build/','board/'))}
+(o/'receipt.json').write_text(json.dumps(dict(source_commit=source,git_blob_sha256=hashes,
+ b3_archive_commit='3f96673db2dcb8029ec63bc81b4a352af644b694',
+ hardware_actions=[],scope='Offline candidate only; no hardware acceptance'),indent=2))
+p=r/'report/experiments/2026-11-01-c1-reset-hardening.md';t=p.read_text(encoding='utf-8');t=t.replace('版本提交与远端核验见后续版本回执；报告不自填尚不存在的 commit SHA。',f'修复源码提交：`{source}`；[版本回执](../evidence/c1-reset-hardening/receipt.json)记录 Git 对象 SHA-256。日志以 .txt 入库，主机信息及尾部空白脱敏；原始日志仍在 D 盘。');p.write_text(t,encoding='utf-8')
+manifest=json.loads((o/'manifest.json').read_text());manifest['files']={p.relative_to(o).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in o.rglob('*') if p.is_file() and p.name!='manifest.json'}
+(o/'manifest.json').write_text(json.dumps(manifest,indent=2))
+print(source,len(manifest['files']))

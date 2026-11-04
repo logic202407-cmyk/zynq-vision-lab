@@ -1,0 +1,28 @@
+import json,binascii,hashlib
+from pathlib import Path
+p=Path(__file__).parent;root=Path('R:/clock-repo');ids=json.loads((p/'diagnostic-feedback-private.json').read_text())
+data=json.loads((p/'passive05-result.json').read_text());samples=data['samples'];raw=(p/'passive05-wire-private.bin').read_bytes();responses=[]
+for line in raw.splitlines():
+    if not line.startswith((b'S1SYNC ',b'S1ACK Q ',b'V2A ',b'F1 ')):continue
+    try:
+        body,crc=line.rsplit(b'*',1);fields=body.split();kind=fields[0].decode()
+        match=(fields[1].decode()==ids['qid'] if kind=='S1SYNC' else fields[2].decode()==format((int(ids['qid'],16)+1)%(1<<128),'032x') if kind=='S1ACK' else fields[2].decode()==ids['session'] if kind=='V2A' else None)
+        item=dict(kind=kind,crc_ok=binascii.crc_hqx(body,65535)==int(crc,16),identity_matches=match)
+        if kind=='S1ACK':item['fields']=[x.decode() for x in fields[5:8]+fields[9:]]
+        responses.append(item)
+    except (ValueError,IndexError):responses.append(dict(kind='malformed'))
+pa3=json.loads((p/'pa3-sampled.json').read_text())
+out=dict(scope='No-power actual FPGA/STM32 and finite OpenMV RAM feedback attempt; no motion or waveform test',
+    openmv_ram_script_sha256=hashlib.sha256((p/'openmv_quality_feedback_90s_ram.py').read_bytes()).hexdigest(),
+    openmv_profile='repository default LAB (32,43,13,51,4,52); frame inspection showed only part of circle covered',
+    responses=responses,sample_count=len(samples),max_primary_accepted=max(x['primary_accepted'] for x in samples),
+    primary_bound_seen=any(x['primary_bound'] for x in samples),max_openmv_frames=max(x['openmv_frames'] for x in samples),
+    f1_lines=data['f1_lines'],uart_tx_bytes=data['uart_tx_bytes'],pwm_off_all=all(x['ccer']==0 and not any(x['gimbal_pwm']) for x in samples),
+    final_states=sorted(set((x['state'],x['reason'],x['ccer']) for x in samples)),pa3_sampling=pa3,
+    result='PARTIAL: OpenMV-to-MCU reception not demonstrated',raw_uart_private_sha256=hashlib.sha256(raw).hexdigest())
+assert all(x['crc_ok'] and x['identity_matches'] for x in responses if x['kind'] in ('S1SYNC','S1ACK','V2A'))
+assert set(x['kind'] for x in responses)>=set(('S1SYNC','S1ACK','V2A'))
+assert out['pwm_off_all'] and out['max_openmv_frames']==0
+dest=root/'report/evidence/c1-openmv-feedback-20261102';dest.mkdir(exist_ok=True)
+(dest/'result.json').write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({k:v for k,v in out.items() if k not in ('responses','openmv_ram_script_sha256')}))

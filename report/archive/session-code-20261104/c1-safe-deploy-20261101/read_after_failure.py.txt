@@ -1,0 +1,13 @@
+import sys,json,hashlib
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+out=Path('R:/evidence/c1-safe-deploy-20261101');link=STLink(STLinkUSBInterface.get_all_connected_devices()[0]);link.open();link.set_swd_frequency(1000000);link.enter_debug(STLink.Protocol.SWD)
+def rd(a,n=4):return bytes(link.read_mem32(a,n,0,0))
+r={}
+try:
+ b=b''.join(rd(0x08000000+a,4096) for a in range(0,512*1024,4096));(out/'after-failed-erase.bin').write_bytes(b);r['flash_sha256']=hashlib.sha256(b).hexdigest();r['old_image_match']=b==Path('R:/evidence/c1-preflight-20261101/backup/flash-read1.bin').read_bytes();r['first_16k_ff']=b[:16384]==bytes([255])*16384
+ for n,a in [('flash_sr',0x40023c0c),('flash_cr',0x40023c10),('flash_optcr',0x40023c14),('dhcsr',0xe000edf0),('tim4_ccer',0x40000820),('cpuid',0xe000ed00)]:r[n]=hex(int.from_bytes(rd(a),'little'))
+finally:link.close()
+(out/'after-failure.json').write_text(json.dumps(r,indent=2));print(json.dumps(r,indent=2))

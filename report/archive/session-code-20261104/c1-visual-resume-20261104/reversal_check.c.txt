@@ -1,0 +1,21 @@
+#include "tracking.h"
+#include <stdio.h>
+static int fail;
+#define CHECK(x,msg) do { if(!(x)){printf("FAIL %s\n",msg);fail++;}else printf("PASS %s\n",msg); }while(0)
+int main(void){tracking_t c;unsigned t;uint16_t p,q;
+ tracking_init(&c);tracking_auto(&c);
+ for(t=10;t<=1000;t+=20)tracking_observe(&c,40,-35,1,t,t);
+ p=c.pan_us;q=c.tilt_us;tracking_observe(&c,-15,15,1,t,t);
+ CHECK(c.pan_us<p,"PAN positive to negative immediately reverses commanded pulse");
+ CHECK(c.tilt_us<q,"TILT negative to positive immediately reverses commanded pulse");
+ for(t+=20;t<2000;t+=20)tracking_observe(&c,-40,35,1,t,t);
+ p=c.pan_us;q=c.tilt_us;tracking_observe(&c,15,-15,1,t,t);
+ CHECK(c.pan_us>p,"PAN negative to positive immediately reverses commanded pulse");
+ CHECK(c.tilt_us>q,"TILT positive to negative immediately reverses commanded pulse");
+ p=c.pan_us;q=c.tilt_us;tracking_observe(&c,0,0,1,t+20,t+20);
+ CHECK(c.pan_us==p&&c.tilt_us==q,"Deadband holds both pulse targets");
+ tracking_observe(&c,0,0,0,t+40,t+40);
+ CHECK(!c.outputs&&!c.automatic,"Invalid target disables output and automatic mode");
+ tracking_observe(&c,20,20,1,t+60,t+60);
+ CHECK(!c.outputs&&!c.automatic,"Valid target cannot silently rearm");
+ printf("failures=%d\n",fail);return fail?1:0;}

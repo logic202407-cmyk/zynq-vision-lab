@@ -1,0 +1,18 @@
+import sys,time,json
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+l=STLink(STLinkUSBInterface.get_all_connected_devices()[0]);l.open();l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+try:
+ snapshots=[]
+ for _ in range(12):
+  snapshots.append(bytes(l.read_mem32(0x20000c74,516,0,0)));time.sleep(.4)
+ changes=[]
+ for i in range(0,516,4):
+  vals=[int.from_bytes(s[i:i+4],'little') for s in snapshots]
+  if len(set(vals))>1:changes.append({'offset':i,'first':vals[0],'last':vals[-1],'distinct':len(set(vals))})
+ result={'samples':len(snapshots),'changes':changes,'scope':'read-only SRAM; no reset, halt, or actuator writes'}
+ Path(__file__).with_name('changes.json').write_text(json.dumps(result,indent=2)+'\n')
+ print(json.dumps(result))
+finally:l.close()

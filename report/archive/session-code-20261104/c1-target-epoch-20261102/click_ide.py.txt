@@ -1,0 +1,17 @@
+import ctypes,sys,time
+import runpy
+from ctypes import wintypes
+from PIL import ImageGrab
+runpy.run_path('R:/evidence/c1-target-epoch-20261102/focus_ide.py')
+u=ctypes.windll.user32;u.SetProcessDPIAware();u.GetForegroundWindow.restype=wintypes.HWND
+h=u.GetForegroundWindow();title=ctypes.create_unicode_buffer(512);u.GetWindowTextW(h,title,512)
+if not title.value.endswith('OpenMV IDE'):raise RuntimeError('IDE not foreground: no input sent')
+rect=wintypes.RECT();u.GetWindowRect(h,ctypes.byref(rect))
+x,y=int(sys.argv[1]),int(sys.argv[2])
+u.SetCursorPos(x,y)
+if u.GetForegroundWindow()!=h:raise RuntimeError('Focus changed: no click sent')
+u.mouse_event(2,0,0,0,0);u.mouse_event(4,0,0,0,0);time.sleep(.8)
+pid0=wintypes.DWORD();pid1=wintypes.DWORD();u.GetWindowThreadProcessId(h,ctypes.byref(pid0));u.GetWindowThreadProcessId(u.GetForegroundWindow(),ctypes.byref(pid1))
+if pid0.value!=pid1.value:raise RuntimeError('Another app is foreground: no screenshot captured')
+ImageGrab.grab(bbox=(rect.left,rect.top,rect.right,rect.bottom)).save('R:/evidence/c1-target-epoch-20261102/'+sys.argv[3])
+print('IDE_CLICK',x,y)

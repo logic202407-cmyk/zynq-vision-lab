@@ -1,0 +1,22 @@
+import sys,json,time
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+from elftools.elf.elffile import ELFFile
+out=Path(__file__).parent;fw=out.parent/'c1-vision-qualification-20261102/arm/latest-usart3-s1ack1-c1-loop'
+with (fw/'skystar_tracking.axf').open('rb') as f:
+ s=ELFFile(f).get_section_by_name('.symtab');matches=[x for x in s.get_symbol_by_name('vision') if x['st_size']==1284];assert len(matches)==1
+ queue=matches[0]['st_value'];guardian=s.get_symbol_by_name('guardian')[0]['st_value']
+p=STLinkUSBInterface.get_all_connected_devices();assert len(p)==1
+l=STLink(p[0]);l.open();l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+def word(a):return int.from_bytes(bytes(l.read_mem32(a,4,0,0)),'little')
+samples=[];heads=[];start=time.monotonic()
+try:
+ conf=dict(gpio_moder=word(0x40020000),gpio_afr=word(0x40020020),usart2_brr=word(0x40004408),usart2_cr1=word(0x4000440c))
+ for i in range(1500):
+  samples.append(word(0x40020010));heads.append(word(queue));time.sleep(.001)
+ g=word(guardian);ccer=word(0x40000820)
+ result=dict(scope='Sampling PA0/PA3 and RX queue; no UART data register read, reset, halt or writes',seconds=round(time.monotonic()-start,3),samples=len(samples),pa0_high=sum(bool(x&1) for x in samples),pa3_low=sum(not(x&8) for x in samples),queue_head_values=len(set(x&65535 for x in heads)),queue_tail_values=len(set(x>>16 for x in heads)),state=g&255,reason=(g>>8)&255,ccer=ccer,config=conf)
+ (out/'uart-queue-observe.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
+finally:l.close()

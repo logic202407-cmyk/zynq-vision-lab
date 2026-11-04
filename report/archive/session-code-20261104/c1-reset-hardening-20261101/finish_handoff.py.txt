@@ -1,0 +1,102 @@
+import hashlib,json,re,subprocess
+from pathlib import Path
+r=Path('R:/c1-repo'); s=Path('R:/evidence/c1-reset-hardening-20261101')
+o=r/'report/evidence/c1-reset-hardening';o.mkdir(exist_ok=True)
+def read(p):return json.loads((s/p).read_text())
+def clean(t):
+ t=re.sub(r'^\| Host\s*:.*$', '| Host : [redacted workstation]',t,flags=re.M)
+ t=re.sub(r'C:[/\\]Users[/\\][^/\\\s]+', 'C:/Users/REDACTED_USER',t)
+ return t
+def cp(src,dst):
+ p=o/dst;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(clean((s/src).read_text(errors='replace')),encoding='utf-8')
+selected={'reset-release/result.json':'reset-result.json','reset-release/xsim.log':'reset-xsim.log',
+ 'reset-tree-release/result.json':'tree-result.json','reset-tree-release/xsim.log':'tree-xsim.log',
+ 'cdc-sweep-release/result.json':'cdc-sweep.json',
+ 'c1-link-release/result.json':'c1-result.json','c1-link-release/commands.json':'c1-commands.json',
+ 'c1-link-release/source-sha256.json':'c1-source-sha256.json',
+ 'observation-release/result.json':'observation-result.json','observation-release/commands.json':'observation-commands.json',
+ 'observation-release/source-sha256.json':'observation-source-sha256.json',
+ 'b2-closed/suite.json':'b2-suite.json','b2-closed/c-tests.log':'c-tests.log',
+ 'b2-closed/a/build-inputs.json':'b2-inputs.json',
+ 'release-root/source-sha256.json':'ooc-source-sha256.json',
+ 'baseline-cdc/reset_cdc.rpt':'attempts/baseline-cdc.rpt',
+ 'vivado/reset_cdc.rpt':'attempts/functional-reset-cdc.rpt',
+ 'final-cdc/reset_cdc.rpt':'attempts/duplicate-release-cdc.rpt',
+ 'closed-cdc/reset_cdc.rpt':'attempts/unused-release-cdc.rpt',
+ 'reset-tree/xsim.log':'attempts/startup-sampling-failure.log',
+ 'unit.log':'attempts/missing-evidence-link-unit.log',
+ 'unit-exit.json':'attempts/missing-evidence-link-unit-exit.json'}
+for a,b in selected.items():cp(a,b)
+for name in ['reset_cdc.rpt','routed_cdc.rpt','routed_timing.rpt','routed_bus_skew.rpt','routed_drc.rpt','reset_utilization.rpt']:
+ cp('release-cdc/'+name,name)
+for i in range(5):cp(f'cdc-sweep-release/{i}/xsim.txt',f'cdc-sweep/{i}.log')
+for g in ['a','b','auth','legacy']:
+ for p in (s/'b2-closed'/g).glob('result-*.json'):cp(str(p.relative_to(s)),f'b2/{g}/{p.name}')
+qid=read('boundaries-closed/result.json')
+assert len(qid['qid_cases'])==5 and all(c['passed'] for c in qid['qid_cases'])
+(o/'qid-result.json').write_text(json.dumps(dict(verdict='PASS',cases=qid['qid_cases'],
+ inputs=read('boundaries-closed/qid/build-inputs.json'),
+ note='QID cases compile UART TX/RX and motion RTL; final mailbox reset is separately tested in reset-result.json',hardware_actions=[]),indent=2))
+for prefix in ['c1-link-release','observation-release']:
+ w=read(prefix+'/wire.json');w.pop('trace',None)
+ (o/(prefix+'-wire.json')).write_text(json.dumps(w,indent=2))
+log=(s/'vivado/.vivado-ai/vivado_41319742_f5fb70cf.log').read_text(errors='replace')
+log=log[log.rfind('# set root [file normalize'):]
+assert 'RESET_CONTEXT_ROUTE_COMPLETE_NO_BITSTREAM' in log and 'VSCEND:0' in log
+log='\n'.join(x for x in log.splitlines() if not any(z in x for z in ['MCP_CMD','VSCEND','send_msg_id']))
+(o/'vivado.log').write_text(clean(log))
+for rel,digest in read('release-root/source-sha256.json').items():
+ assert hashlib.sha256((r/rel).read_bytes()).hexdigest()==digest,rel
+assert read('c1-link-release/result.json')['count']==16
+assert read('b2-closed/suite.json')['coupled_scenarios']==22
+assert not re.search(r'^CDC-\d+\s+Critical', (o/'routed_cdc.rpt').read_text(),re.M)
+(o/'README.md').write_text('''# C1 reset/QID offline evidence
+
+Actual Vivado/XSim 2024.2, Python 3.12.4 and GCC 4.9.2 records. No hardware actions.
+Reset context OOC only, not the complete vendor board design. Machine identity redacted.
+
+- [Final routed CDC](routed_cdc.rpt): zero Critical, 219 bundled payload warnings retained.
+- [Timing](routed_timing.rpt), [bus skew](routed_bus_skew.rpt), [DRC](routed_drc.rpt).
+- [26 mailbox reset scenarios](reset-result.json), [24 board reset scenarios](tree-result.json).
+- [5 QID boundaries](qid-result.json), [5 clock/phase cases](cdc-sweep.json).
+- [16 concurrent C1 cases](c1-result.json), [observation 7 snapshot + 7 real C checks](observation-result.json).
+- [22 B2 coupled + 26 C safety cases](b2-suite.json).
+- [Frozen OOC inputs](ooc-source-sha256.json), [actual Vivado log](vivado.log).
+
+attempts/ preserves failed CDC designs, initial testbench sampling failure and the
+first foundation-test failure caused by a missing evidence README. Final foundation
+test logs are added after the package exists. Test groups are distinct, not a sum of testbenches.
+QID constants/nonces are synthetic fixtures, not hardware identities or uniqueness proof.
+No bitstream, checkpoint, private vendor source, onsite photo or firmware image is published.
+''',encoding='utf-8')
+report=r/'report/experiments/2026-11-01-c1-reset-hardening.md'
+t=report.read_text();needle='本节在全部任务退出后填入最终结果，不依据工具启动或进度推断通过。'
+t=t.replace(needle,'''最终实际结果：
+
+| 项目 | 结果 |
+| --- | --- |
+| 邮箱独立复位/停钟 | 26 场景通过 |
+| 板级共同复位结构 | 24 场景通过 |
+| QID 耗尽、ARM 预留、最后 STOP | 5 项真实 C/XSim 联合测试通过 |
+| 219 位邮箱时钟/相位组合 | 5 组通过 |
+| C1 并发真实 C/RTL 联合测试 | 16/16 |
+| 只观测本域复位配置 | 7 快照检查 + 7 真实 C 检查通过 |
+| B2 回归 | 22 联合场景 + 26 C 安全项通过 |
+| OOC 综合/布局布线 | 实际退出 0，耗时 403.042 秒，0 CDC Critical，219 CDC-15 保留 |
+| 受约束内部时序 | WNS +5.259 ns，WHS +0.082 ns，TNS/THS 0 |
+| 邮箱偏斜 | 219 端点，0.954 ns，20 ns 要求，余量 19.046 ns |
+
+OOC 无时钟引脚和未约束内部端点均为 0，但仍有 419 个无 input delay 和 72 个无 output delay 的抽象端口；没有伪造板级延迟。DRC 保留 RTSTAT-10 与 ZPS7-1 Warning。综合未检出锁存器。基础检查在完整证据包形成后另附实际日志。''')
+report.write_text(t,encoding='utf-8')
+status=r/'report/status.json';data=json.loads(status.read_text())
+data['components'].append(dict(id='c1_reset_qid_hardening',status='implemented',
+ evidence=['docs/c1_reset_epoch_hardening.md','report/experiments/2026-11-01-c1-reset-hardening.md','report/evidence/c1-reset-hardening/README.md'],
+ note='Offline reset/QID repair with passing XSim/real-C/OOC evidence. Await source-commit pin. Not deployed; epoch provider, complete vendor board CDC/IO and physical measurement remain blockers.'))
+status.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+manifest=dict(baseline='0f63e56a1761567a29b961d3db19326a00125416',
+ branch='work/c1-three-gimbal-vision-20261101',hardware_actions=[],
+ build_exit_code=0,build_seconds=403.042,
+ tool_versions=dict(vivado='2024.2 Build 5239630',python='3.12.4',gcc='4.9.2'),
+ files={p.relative_to(o).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in o.rglob('*') if p.is_file()})
+(o/'manifest.json').write_text(json.dumps(manifest,indent=2))
+print('EXPORTED',o,len(manifest['files']))

@@ -1,0 +1,45 @@
+"""Record offline checks only; never connects to hardware."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import time
+
+repo = Path('R:/clock-repo')
+private = Path(__file__).parent
+output = repo / 'report/evidence/c1-live-recovery-20261102'
+environment = os.environ.copy()
+environment.update(TEMP=str(private / 'temp'), TMP=str(private / 'temp'),
+                   PYTHONDONTWRITEBYTECODE='1', PYTHONUTF8='1')
+Path(environment['TEMP']).mkdir(exist_ok=True)
+checks = [
+    ('repository', [sys.executable, '-X', 'utf8', 'tools/check_repository.py']),
+    ('python-unit', [sys.executable, '-X', 'utf8', '-m', 'unittest', 'discover', '-s', 'tests', '-v']),
+    ('stm32-usart3-host', [sys.executable, '-X', 'utf8',
+         'src/prototype/skystar_openmv/stm32_skystar_tracking/tests/run_checks.py', '--console-usart', '3']),
+    ('diff-whitespace', ['git', 'diff', '--check']),
+]
+results = []
+for name, command in checks:
+    started = time.monotonic()
+    completed = subprocess.run(command, cwd=repo, env=environment,
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    log = output / (name + '.txt')
+    # Decode console bytes and normalize CRLF so Git checkout does not change hashes.
+    text = completed.stdout.decode('utf-8', errors='replace').replace('\r\n', '\n')
+    log.write_bytes(text.encode('utf-8'))
+    record = dict(name=name, command=command, exit_code=completed.returncode,
+                  elapsed_seconds=round(time.monotonic()-started, 3),
+                  log=log.name, log_sha256=hashlib.sha256(log.read_bytes()).hexdigest())
+    results.append(record)
+    print(json.dumps(record), flush=True)
+    if completed.returncode:
+        print(text[-4000:], flush=True)
+receipt = dict(scope='Offline checks only; not motion or electrical acceptance',
+               source_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=repo, text=True).strip(),
+               python=sys.version, commands=results)
+(output / 'offline-checks.json').write_bytes(
+    (json.dumps(receipt, ensure_ascii=False, indent=2)+'\n').encode('utf-8'))
+raise SystemExit(any(item['exit_code'] for item in results))

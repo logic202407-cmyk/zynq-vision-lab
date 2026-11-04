@@ -1,0 +1,21 @@
+import sys,json,logging,time,argparse
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+logging.basicConfig(level=logging.ERROR)
+p=argparse.ArgumentParser();p.add_argument('--select',type=int,choices=[0,1,2,3]);p.add_argument('--samples',type=int,default=1);a=p.parse_args()
+opts={'no_config':True,'target_override':'stm32f407vetx','pack':'R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack','connect_mode':'attach','frequency':1000000,'auto_unlock':False,'resume_on_disconnect':False,'cache.enable_memory':False,'cache.enable_register':False,'cache.read_code_from_elf':False,'enable_swv':False}
+s=ConnectHelper.session_with_chosen_probe(unique_id='REDACTED_DEVICE_ID',blocking=False,options=opts)
+with s:
+ t=s.target
+ # Check image identity against complete candidate bytes before any RAM selection.
+ candidate=Path('R:/evidence/laser12-static-check-20261104/build/skystar_tracking.bin').read_bytes()
+ assert bytes(t.read_memory_block8(0x08000000,len(candidate)))==candidate
+ assert t.read32(0x40000820)==0 and t.read32(0x40010020)==0
+ if a.select is not None:t.write32(0x20000008,a.select);t.flush()
+ rows=[]
+ for i in range(a.samples):
+  time.sleep(.1)
+  row={'mask':t.read32(0x20000008),'state':t.read32(0x20000048),'reason':t.read32(0x2000004c),'pe2':(t.read32(0x40021014)>>2)&1,'pe3':(t.read32(0x40021014)>>3)&1,'tim4_ccer':t.read32(0x40000820),'tim1_ccer':t.read32(0x40010020),'core':str(t.get_state())}
+  rows.append(row)
+ out=Path('R:/evidence/laser12-static-check-20261104/state-'+time.strftime('%H%M%S')+'.json');out.write_text(json.dumps(rows,indent=2),encoding='utf-8');print(json.dumps(rows))

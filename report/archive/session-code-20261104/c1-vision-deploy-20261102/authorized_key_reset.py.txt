@@ -1,0 +1,38 @@
+import hashlib,json,sys,time,traceback
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from elftools.elf.elffile import ELFFile
+from pyocd.core.helpers import ConnectHelper
+out=Path(__file__).parent; dest=out/'authorized-key-reset.json'
+assert not dest.exists(), 'A reset attempt already recorded; do not repeat'
+fw=out.parent/'c1-vision-qualification-20261102/arm/latest-usart3-s1ack1-c1-loop'
+expected='70a3ad2f0117cb9425d47db79eaad32e0c727ed9936665e2b2bef45599e44812'
+with (fw/'skystar_tracking.axf').open('rb') as f:
+ s=ELFFile(f).get_section_by_name('.symtab');a={n:s.get_symbol_by_name(n)[0]['st_value'] for n in ('guardian','milliseconds')}
+r=dict(scope='User explicitly approved one MCU reset with servo and laser power disconnected; no programming, ARM or PWM enable',actual_resets=0,samples=[])
+try:
+ session=ConnectHelper.session_with_chosen_probe(blocking=False,return_first=False,target_override='stm32f407vetx',pack='R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack',connect_mode='attach',frequency=1000000,project_dir=str(out),no_config=True,auto_unlock=False)
+ assert session is not None,'No unique ST-Link'
+ with session:
+  t=session.target
+  image=bytes(t.read_memory_block8(0x08000000,12836));assert hashlib.sha256(image).hexdigest()==expected,'Unexpected MCU image; no reset'
+  g=bytes(t.read_memory_block8(a['guardian'],4));pa0=t.read32(0x40020010)&1;ccer=t.read32(0x40000820)
+  r['before']=dict(state=g[0],reason=g[1],pa0=pa0,ccer=ccer,application_sha256=expected)
+  assert g[0]==4 and g[1]==7 and not pa0 and not ccer,'Preconditions differ; no reset'
+  r['stage']='reset_requested';r['actual_resets']=1
+  dest.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8')
+  t.reset();time.sleep(.15)
+  for i in range(100):
+   g=bytes(t.read_memory_block8(a['guardian'],4));v=dict(state=g[0],reason=g[1],pa0=t.read32(0x40020010)&1,ccer=t.read32(0x40000820),milliseconds=t.read32(a['milliseconds']))
+   r['samples'].append(v)
+   if v['ccer'] or v['state'] not in (0,4):raise RuntimeError('Unexpected PWM enable or armed state')
+   time.sleep(.1)
+  r['tick_advancing']=r['samples'][-1]['milliseconds']>r['samples'][0]['milliseconds']
+  r['key_fault_recurred']=any(x['state']==4 and x['reason']==7 for x in r['samples'])
+  r['verdict']='PASS' if r['tick_advancing'] and not r['key_fault_recurred'] and all(x['state']==0 for x in r['samples']) else 'FAULT_OR_INCONCLUSIVE'
+  r['stage']='complete'
+except Exception:
+ r['verdict']='FAIL';r['error']=traceback.format_exc();raise
+finally:
+ dest.write_text(json.dumps(r,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({k:v for k,v in r.items() if k!='samples'}))

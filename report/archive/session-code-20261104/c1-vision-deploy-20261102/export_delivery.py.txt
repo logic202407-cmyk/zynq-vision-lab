@@ -1,0 +1,135 @@
+import hashlib
+import json
+import re
+import shutil
+from pathlib import Path
+
+stage=Path(__file__).parent
+root=Path('R:/clock-repo')
+out=root/'report/evidence/c1-vision-deploy-20261102'
+out.mkdir(exist_ok=True)
+read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+def write(name,data):
+    (out/name).write_bytes((json.dumps(data,ensure_ascii=False,indent=2)+'\n').encode('utf-8'))
+
+for name in ('preflight.json','deployment-result.json','final-readonly.json','passive01-result.json','passive02-result.json'):
+    result=read(stage/name)
+    assert result['verdict']=='PASS',name
+    write(name,result)
+deploy=read(stage/'deployment-result.json')
+assert deploy['whole_flash_matches'] and deploy['tail_preserved']
+assert all(x['ccer']==0 and x['state']==0 for x in deploy['boot_samples'])
+assert sha(stage/'deployed-full-flash.bin')==deploy['readback_full_sha256']
+for tag in ('passive01','passive02'):
+    result=read(stage/(tag+'-result.json'))
+    assert sha(stage/(tag+'-wire-private.bin'))==result['wire_private_sha256']
+    assert result['samples']
+    assert all(s['primary_bound']==0 and s['primary_accepted']==0 and s['openmv_frames']==0 for s in result['samples'])
+write('video-result.json',read(stage/'video-result-private.json'))
+write('export-initial-failure.json',read(stage/'export-initial-failure.json'))
+if (stage/'delivery-checks.json').exists():
+    write('delivery-checks.json',read(stage/'delivery-checks.json'))
+    for name in ('python-delivery.txt','repository-delivery.txt'):
+        text=(stage/name).read_text(encoding='utf-8').replace('\r','')
+        (out/name).write_bytes(('\n'.join(x.rstrip() for x in text.splitlines()).rstrip()+'\n').encode('utf-8'))
+restart=read(stage/'debug-server-restart.json')
+write('debug-server-restart.json',{k:v for k,v in restart.items() if k not in ('pid','prior_parent_pid')})
+
+console=(stage/'program-console-private.txt').read_text(encoding='utf-8-sig').replace('\r','')
+assert not re.search(r'JTAG-HS1-[0-9A-Za-z]+',console)
+(out/'program-console.txt').write_bytes(('\n'.join(x.rstrip() for x in console.splitlines()).rstrip()+'\n').encode('utf-8'))
+
+snapshot=stage/'jtag-session-private-snapshot.log'
+if not snapshot.exists():
+    shutil.copy2(Path('R:/evidence/c1-sccb-clock-20261102/.vivado-ai/vivado_11376686_ed76e1d8.log'),snapshot)
+text=snapshot.read_text(encoding='utf-8',errors='replace')
+cut=text.rfind('puts "VERSION:[version -short]"')
+assert cut>=0,'Expected beginning of this diagnostic phase in actual log'
+selected=[]
+for line in text[cut:].splitlines():
+    if line.startswith('ERROR:') or line.startswith(' Targets(s)') or line.startswith('Targets(s)') or line in ('TARGET_COUNT:0','Expected one target; no selection','VSCEND:1'):
+        selected.append(re.sub(r'JTAG-HS1-[A-Za-z0-9]+','JTAG-HS1-[REDACTED]',line))
+assert any('50-38' in x for x in selected)
+assert any('TARGET_COUNT:0' in x for x in selected)
+(out/'jtag-failures.txt').write_bytes(('Actual Vivado 2024.2 session error excerpts; target unique serial redacted.\nNot a complete session transcript.\n\n'+'\n'.join(selected)+'\n').encode('utf-8'))
+
+commands=[]
+for script,args,code,proof in [
+    ('deploy_quality_candidate.py',[],0,'preflight.json'),
+    ('deploy_quality_candidate.py',['--program-approved'],0,'deployment-result.json'),
+    ('passive_read.py',['passive01'],0,'passive01-result.json'),
+    ('passive_read.py',['passive02'],0,'passive02-result.json'),
+    ('capture_video.py',[],0,'video-result.json'),
+    ('final_readonly.py',[],0,'final-readonly.json'),
+]:
+    folder=stage.parent/'c1-vision-qualification-20261102' if script=='deploy_quality_candidate.py' else stage
+    commands.append(dict(command=['D:/Python312/python.exe',str(folder/script),*args],
+        actual_exit_code=code,exit_code_source='Observed exec/write_stdin completion, not inferred from data',
+        result=proof,private_script_sha256_at_export=sha(folder/script),
+        script_hash_scope='Current file matches executed programming/observation script' if proof!='preflight.json' else 'Preflight occurred before metadata-only script update; execution-time script hash was not captured. Current retained file hash only.'))
+write('commands.json',dict(environment=dict(Python='3.12.4',pyOCD='0.46.0',Vivado='2024.2',
+    TEMP='R:/evidence/c1-vision-qualification-20261102/temp',TMP='R:/evidence/c1-vision-qualification-20261102/temp',
+    PYTHONDONTWRITEBYTECODE='1',PYTHONUTF8='1'),commands=commands,
+    hardware_test_scope='No-power candidate programming, boot and passive communications; no ARM or motion',
+    failed_jtag_commands=[
+        dict(command='refresh_hw_vio -update_output_values [get_hw_vios]; puts "CONTROLS:[get_property OUTPUT_VALUE [get_hw_probes c1_controls -of_objects [get_hw_vios]]]"; puts "STATUS:[get_property INPUT_VALUE [get_hw_probes c1_status -of_objects [get_hw_vios]]]"',exit_code=1,error='Xicom50-38 / Labtools27-3176'),
+        dict(command='refresh_hw_device -update_hw_probes true [get_hw_devices -filter {PART == xc7z100}]; puts "VIO_COUNT:[llength [get_hw_vios -quiet]]"',exit_code=1,error='Labtools27-2312'),
+        dict(command='disconnect_hw_server; connect_hw_server -url localhost:3121; open_hw_target; refresh_hw_device -update_hw_probes true [get_hw_devices -filter {PART == xc7z100}]; puts "VIO_COUNT:[llength [get_hw_vios -quiet]]"',exit_code=1,error='Labtoolstcl44-494 target may be locked'),
+        dict(command='connect_hw_server; open_hw_target; refresh_hw_device -update_hw_probes true [get_hw_devices -filter {PART == xc7z100}]; puts "VIO_COUNT:[llength [get_hw_vios -quiet]]"',exit_code=1,error='Same target unavailable after local2024.2 server restart'),
+        dict(command='set targets [get_hw_targets -quiet]; puts "TARGET_COUNT:[llength $targets]"; if {[llength $targets] != 1} {error "Expected one target; no selection"}; open_hw_target [lindex $targets 0]; refresh_hw_device -update_hw_probes true [get_hw_devices -filter {PART == xc7z100}]; puts "VIO_COUNT:[llength [get_hw_vios -quiet]]"',exit_code=1,error='TARGET_COUNT:0; selection stopped'),
+    ]))
+write('outcome.json',dict(overall='PARTIAL',programming='PASS',full_flash_readback='PASS',boot_pwm_off='PASS',
+    uart_passive_status='PASS',existing_udp_camera='PASS_WITH_2_MALFORMED_DATAGRAMS',
+    fpga_correlated_query='BLOCKED_JTAG',new_measurement_binding='NOT_EXECUTED',
+    fpga_correlated_stop='NOT_EXECUTED',new_openmv_uart_feedback='NOT_EXECUTED',
+    powered_stop_waveform='NOT_TESTED',autonomous_motion='NOT_AUTHORIZED_NOT_TESTED',
+    optical_control='NOT_IMPLEMENTED_NOT_EXECUTED',pwm_register_note='OFF samples do not establish a waveform or mechanical position'))
+readme='''# C1 approved no-power deployment
+
+- [Report](../../experiments/2026-11-02-c1-quality-unpowered-deploy.md).
+- [Preflight](preflight.json), [sector programming + full readback](deployment-result.json),
+  [actual program console](program-console.txt), [final independent read-only check](final-readonly.json).
+- [Passive UART/SWD first](passive01-result.json), [second](passive02-result.json).
+  UART transmission by the PC was zero. Periodic status is not an ACK.
+- [Existing OV5640 UDP](video-result.json): image reception, not accepted MCU measurement.
+- [Actual JTAG error excerpts](jtag-failures.txt), [debug server restart](debug-server-restart.json).
+  Target unique serial is redacted. No VIO output was committed or FPGA image downloaded.
+- [Commands and actual exit codes](commands.json), [partial outcome](outcome.json), [hashes](manifest.json).
+
+Application source commit: e8c32b99c4717600705901137c6aaccf88ec3257.
+Only the new STM32 first sector was programmed under explicit user authorization.
+Laser and servo power remained physically disconnected by user confirmation.
+JTAG target was unavailable, so new FPGA query/binding/STOP acceptance remains open.
+Flash binaries, AXF, onsite photos, complete wire bytes/nonces and full device IDs are private on D:.
+The private deployment script is an execution aid, not a general-purpose unattended programmer.
+'''
+if (out/'delivery-checks.json').exists():
+    readme+='\n[Actual final repository/Python checks](delivery-checks.json): 96 Python tests, all successful.\n'
+(out/'README.md').write_bytes(readme.encode('utf-8'))
+write('manifest.json',dict(source_commit='e8c32b99c4717600705901137c6aaccf88ec3257',
+    previous_delivery_commit='ebd676709544efb49869238e42792e886fc06dba',
+    candidate_application_sha256=deploy['candidate_application_sha256'],
+    actual_full_flash_sha256=deploy['readback_full_sha256'],
+    prior_full_flash_sha256=deploy['prior_flash_sha256'],
+    private_jtag_snapshot_sha256=sha(snapshot),
+    public_evidence_sha256={p.name:sha(p) for p in out.iterdir() if p.is_file() and p.name!='manifest.json'},
+    excludes=['manifest.json'],
+    scope='Actual unpowered STM32 programming and passive receive; partial communication acceptance, no motion or waveform claim'))
+
+status_path=root/'report/status.json'
+status=read(status_path)
+component_id='c1_quality_unpowered_deployment_20261102'
+if not any(c['id']==component_id for c in status['components']):
+    status['components'].append(dict(id=component_id,status='board_verified',
+        verified_commit='e8c32b99c4717600705901137c6aaccf88ec3257',
+        tool_version='Python3.12.4; pyOCD0.46.0; Vivado/hw_server2024.2',
+        reviewer='Codex actual first-sector programming and complete readback; independent reproduction pending',
+        evidence=['report/experiments/2026-11-02-c1-quality-unpowered-deploy.md',
+                  'report/evidence/c1-vision-deploy-20261102/deployment-result.json',
+                  'report/evidence/c1-vision-deploy-20261102/final-readonly.json',
+                  'report/evidence/c1-vision-deploy-20261102/outcome.json',
+                  'report/evidence/c1-vision-deploy-20261102/jtag-failures.txt'],
+        note='LIMITED deployment only: approved app70a3ad2f now programmed; first16KiB only, complete512KiB exact match61b59cdb, tail preserved. Boot12 samples state0/reason0/CCER0; final independent full readback passes. Two12s passive UART runs each120 statuses and59 PWM-off SWD samples; UDP261 complete/0 incomplete/2 malformed. MCU measurement binding absent and OpenMV frames0. JTAG unavailable after reconnect/server restart, current target count0: new correlated query/binding/STOP NOT executed. No ARM/PWM enable/motion, no FPGA reconfiguration or OpenMV Flash writes. This does not upgrade candidate quality to end-to-end board verification; offline checkpoint unflashed notes describe its earlier snapshot. Multimeter only, waveform and original epoch/CDC/I/O/calibration gaps remain.'))
+    status_path.write_bytes((json.dumps(status,ensure_ascii=False,indent=2)+'\n').encode('utf-8'))
+print('EXPORTED',len(list(out.iterdir())),'files; actual deployment PASS, communication PARTIAL')

@@ -1,0 +1,24 @@
+import ctypes,time,sys
+from ctypes import wintypes
+u=ctypes.windll.user32;u.GetForegroundWindow.restype=wintypes.HWND
+u.SendMessageW.argtypes=(wintypes.HWND,wintypes.UINT,wintypes.WPARAM,wintypes.LPARAM)
+u.SendMessageW.restype=ctypes.c_ssize_t
+h=u.GetForegroundWindow();pid=wintypes.DWORD();u.GetWindowThreadProcessId(h,ctypes.byref(pid))
+name=ctypes.create_unicode_buffer(512);u.GetWindowTextW(h,name,512)
+assert pid.value==50860 and name.value=='打开文件'
+found=[]
+@ctypes.WINFUNCTYPE(wintypes.BOOL,wintypes.HWND,wintypes.LPARAM)
+def enum(child,param):
+    cls=ctypes.create_unicode_buffer(128);txt=ctypes.create_unicode_buffer(128)
+    u.GetClassNameW(child,cls,128);u.GetWindowTextW(child,txt,128)
+    if (cls.value=='Edit' and u.GetDlgCtrlID(child)==1148) or (cls.value=='Button' and txt.value=='打开(&O)'):found.append((child,cls.value))
+    return True
+u.EnumChildWindows(h,enum,0)
+edits=[x[0] for x in found if x[1]=='Edit'];buttons=[x[0] for x in found if x[1]=='Button']
+assert len(edits)==len(buttons)==1
+selected=sys.argv[1] if len(sys.argv)>1 else 'R:\\evidence\\c1-vision-deploy-20261102\\openmv_quality_feedback_90s_ram.py'
+assert selected.startswith('R:\\evidence\\c1-vision-deploy-20261102\\') and selected.endswith('.py')
+path=ctypes.create_unicode_buffer(selected)
+assert u.SendMessageW(edits[0],0x000C,0,ctypes.cast(path,ctypes.c_void_p).value)
+u.SendMessageW(buttons[0],0x00F5,0,0);time.sleep(1)
+print('FILE_DIALOG_SUBMITTED')

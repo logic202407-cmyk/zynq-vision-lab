@@ -1,0 +1,119 @@
+import hashlib,json,re,subprocess,shutil
+from pathlib import Path
+stage=Path(__file__).parent;root=Path('R:/clock-repo')
+out=root/'report/evidence/c1-target-epoch-20261102';out.mkdir(exist_ok=True)
+def read(path):return json.loads(path.read_text(encoding='utf-8'))
+def write(name,value):(out/name).write_bytes((json.dumps(value,ensure_ascii=False,indent=2)+'\n').encode('utf-8'))
+def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+def text_copy(source,name):
+    text=source.read_text(encoding='utf-8').replace('\r','').rstrip('\n')+'\n'
+    text=re.sub(r'(?m)^\| Host\s*:.*$', '| Host         : <private-host>',text)
+    text='\n'.join(line.rstrip() for line in text.splitlines()).rstrip('\n')+'\n'
+    (out/name).write_bytes(text.encode('utf-8'))
+failure=stage/'initial-staged-whitespace.txt'
+if not failure.exists():
+    result=subprocess.run(['git','diff','--cached','--check'],cwd=root,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    if result.returncode:failure.write_bytes(result.stdout)
+if failure.exists():text_copy(failure,'initial-staged-whitespace.txt')
+write('preflight.json',read(stage/'preflight.json'))
+for prefix,name in [('samecircle02','static-transport.json'),('papermove01','paper-transport.json'),('papermove02','retry-transport.json')]:
+    data=read(stage/(prefix+'-two-camera-result-private.json'))
+    data['sample_count']=len(data.pop('samples'))
+    data['identity_scope']='Human-confirmed single paper red circle in two views; not algorithmic multi-target association'
+    write(name,data)
+write('paper-motion-analysis.json',read(stage/'paper-motion-analysis.json'))
+write('retry-analysis.json',read(stage/'retry-analysis.json'))
+text_copy(stage/'retry-trajectory.csv','retry-trajectory.csv')
+shutil.copy2(stage/'retry-trajectory.png',out/'retry-trajectory.png')
+write('calibration-assessment.json',read(stage/'calibration-assessment.json'))
+for source,name in [('stop-result.json','static-stop.json'),('paper-stop-result.json','paper-stop.json'),('retry-stop-result.json','retry-stop.json')]:
+    data=read(stage/source);samples=data.pop('samples')
+    data.update(sample_count=len(samples),all_ccer_zero=all(s['ccer']==0 for s in samples),
+                final_sample=samples[-1],private_original_sha256=sha(stage/source))
+    write(name,data)
+for source in ['first-capture-failure.json','initial-python-failure.json']:
+    write(source,read(stage/source))
+text_copy(stage/'initial-python-failure.txt','initial-python-failure.txt')
+text_copy(stage/'python-unit.txt','initial-foundation-failure.txt')
+for case in ['convergence','fpga_reset']:
+    write('loop-'+case+'.json',read(stage/'loop-regression'/('result-'+case+'.json')))
+text_copy(stage/'loop-convergence.txt','loop-convergence.txt')
+text_copy(stage/'loop-reset.txt','loop-reset.txt')
+for name in ['loop-convergence-command.json','loop-reset-command.json']:
+    write(name,read(stage/name))
+sim=stage/'epoch-project/epoch_allocator.sim/sim_1/behav/xsim'
+text_copy(sim/'simulate.log','epoch-simulation.txt')
+assert 'PASS epoch_qid_allocator checks=37 failures=0' in (sim/'simulate.log').read_text()
+for name in ['epoch-drc.rpt','epoch-timing.rpt','epoch-utilization.rpt']:
+    text_copy(stage/name,name)
+write('epoch-tool-run.json',dict(command='source R:/clock-repo/build/check_epoch_allocator.tcl',
+    tool='Vivado/XSim 2024.2',exit_code=0,elapsed_seconds=368.471,
+    transport_timeout_seconds=300,completion_verified_by='Original MCP session status; not a rerun',
+    rtl_assertions=37,luts=353,flip_flops=389,latches=0,wns_ns=15.117,whs_ns=.149,tns_ns=0,ths_ns=0,
+    no_input_delay=260,no_output_delay=133,drc_warnings=['ZPS7-1'],
+    boundary='OOC, reference-only 20ns clock; external partial route limitations; no board timing claim',
+    bitstream_generated=False,hardware_access=False))
+write('observed-scene.json',dict(identity='OBSERVED_SINGLE_SCENE',
+    single_target_condition='User identified the paper circle and both private views selected its red region',
+    automated_cross_camera_identity=False,cross_camera_transform='UNKNOWN',
+    fpga_centroid_x=[340,341],fpga_centroid_y=195,openmv_centroid=[76,29],openmv_dx=-4,openmv_dy=31,
+    note='Coordinates belong to different images. No servo direction/angle/calibration inferred.'))
+write('commands.json',dict(baseline_commit='afe13f233dabf8c5e20fc423d216339e263c3bfc',
+    hardware_scope='Read-only SWD, existing observation VIO query/config/STOP, finite OpenMV RAM script, UDP video',
+    flash_writes=[],jtag_configurations=[],physical_motion_commands=[],optical_commands=[],
+    physical_pwm_enable=False,final_vio_control='02',final_vio_status='50',
+    user_confirmed_servo_power='disconnected',user_confirmed_laser_power='disconnected',
+    raw_runtime_ids_and_images='private D-drive only'))
+if (stage/'final-checks.json').exists():
+    write('offline-checks.json',read(stage/'final-checks.json'))
+    for name in ['final-python-unit.txt','final-stm32-host.txt']:text_copy(stage/name,name)
+readme='''# C1 single-target observation and offline candidates
+
+- [Scope and report](../../experiments/2026-11-02-c1-target-epoch.md).
+- [Flash/register preflight](preflight.json), [human single-target scene](observed-scene.json).
+- [Static transport](static-transport.json), [paper observation](paper-transport.json),
+  [insufficient excitation](paper-motion-analysis.json): no geometric fit certified.
+- [Static STOP](static-stop.json), [final STOP](paper-stop.json): already-off outputs only.
+- [70-second retry](retry-transport.json), [observed paper movement](retry-analysis.json),
+  [final retry STOP](retry-stop.json), [numeric trajectory](retry-trajectory.png), [CSV](retry-trajectory.csv).
+- [Pending calibration rejection](calibration-assessment.json): expected BLOCKED, exit 2.
+- [XSim transcript](epoch-simulation.txt), [OOC run](epoch-tool-run.json),
+  [timing](epoch-timing.rpt), [DRC](epoch-drc.rpt), [utilization](epoch-utilization.rpt).
+- [RTL/real-C convergence](loop-convergence.json), [reset fault](loop-fpga_reset.json).
+- [Initial missing dependency](first-capture-failure.json), [SQLite failure](initial-python-failure.txt),
+  [initial missing report link](initial-foundation-failure.txt) are retained.
+- [Actions and exclusions](commands.json), [candidate/evidence hashes](manifest.json).
+
+The epoch reference is not production certified. Joint journal rollback and old
+grant replay after reset remain explicit blockers. The allocator is not wired
+into B2, and no new source was deployed. Public logs use LF and trim trailing
+empty lines and per-line trailing spaces; report hostnames are redacted. Original logs, images, Flash backups,
+AXF/binary/bitstream, live IDs, raw UART and device identifiers remain private.
+'''
+if (out/'offline-checks.json').exists():
+    readme+='\nFinal [offline checks](offline-checks.json), [Python log](final-python-unit.txt), [STM32 host log](final-stm32-host.txt).\n'
+(out/'README.md').write_bytes(readme.encode('utf-8'))
+paths=['tools/epoch_range_reference.py','tools/c1_calibration.py','src/rtl/epoch_qid_allocator.v',
+       'sim/epoch_qid_allocator_tb.v','build/check_epoch_allocator.tcl','tests/test_epoch_range_reference.py',
+       'tests/test_c1_calibration.py','board/skystar_f407/gimbal1_calibration.pending.json',
+       'src/rtl/zynq_motion_s1.v','src/rtl/zynq_gimbal1_loop.v','src/rtl/gimbal1_visual_loop.v']
+paths += ['docs/c1_target_calibration_epoch.md','report/experiments/2026-11-02-c1-target-epoch.md',
+          'report/ai_collaboration/2026-11-02-target-epoch.md']
+sources={name:sha(root/name) for name in paths}
+sources.update(read(stage/'loop-regression/source-sha256.json'))
+manifest=dict(baseline_commit='afe13f233dabf8c5e20fc423d216339e263c3bfc',
+    candidate_source_sha256=sources,
+    public_evidence_sha256={p.name:sha(p) for p in out.iterdir() if p.is_file() and p.name not in ('manifest.json','receipt.json')},
+    private_original_sha256={p.name:sha(p) for p in [stage/'epoch-timing.rpt',stage/'epoch-drc.rpt',sim/'simulate.log']},
+    excludes=['manifest.json','receipt.json'],note='Commit identity is supplied by post-commit receipt; source byte hashes describe the tested snapshot.')
+write('manifest.json',manifest)
+ids=[]
+for filename in ['diagnostic-ids-private.json','static-diagnostic-ids-private.json','first-paper-diagnostic-ids-private.json']:
+    values=read(stage/filename)
+    ids.extend(v.lower() for v in values.values() if isinstance(v,str) and re.fullmatch('[a-fA-F0-9]{16,32}',v))
+assert len(ids)>=4
+for path in out.iterdir():
+    if path.is_file() and path.suffix!='.png':
+        content=path.read_text(encoding='utf-8').lower()
+        assert not any(value in content for value in ids),path.name
+print('PUBLIC_EVIDENCE_EXPORTED',len(list(out.iterdir())),'SOURCE_HASHES',len(sources),'RUNTIME_ID_SCAN_PASS')

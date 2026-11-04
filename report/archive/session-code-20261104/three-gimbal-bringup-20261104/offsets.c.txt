@@ -1,0 +1,4 @@
+#include <stdio.h>
+#include <stddef.h>
+#include "tracking.h"
+int main(void){printf("%u %u %u %u %u %u %u",(unsigned)sizeof(tracking_t),(unsigned)offsetof(tracking_t,received_ms),(unsigned)offsetof(tracking_t,frames),(unsigned)offsetof(tracking_t,rejected),(unsigned)offsetof(tracking_t,dx),(unsigned)offsetof(tracking_t,dy),(unsigned)offsetof(tracking_t,valid));return 0;}

@@ -1,0 +1,205 @@
+diff --git a/src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.c b/src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.c
+index 5ad103f..fa2c11b 100644
+--- a/src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.c
++++ b/src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.c
+@@ -18,6 +18,7 @@ extern uint32_t *board_test_register(uint32_t address);
+ #define GPIOA 0x40020000u
+ #define GPIOC 0x40020800u
+ #define GPIOD 0x40020C00u
++#define GPIOE 0x40021000u
+ #define TIM4 0x40000800u
+ #define U1 0x40011000u
+ #define U2 0x40004400u
+@@ -41,6 +42,8 @@ static uint16_t tx_head, tx_tail;
+ static int pwm_enabled;
+ static volatile uint8_t guard_active, guard_event;
+ static volatile uint32_t guard_received;
++static volatile uint8_t laser_on;
++static volatile uint32_t laser_started;
+ 
+ static void pin(uint32_t gpio, unsigned n, unsigned mode, unsigned af)
+ {
+@@ -65,7 +68,7 @@ void board_init(void)
+     R(RCC+8) &= ~3u;
+     while (R(RCC+8)&12u) { }
+     R(RCC+8) &= ~((15u<<4)|(7u<<10)|(7u<<13)); /* AHB/APB = HSI */
+-    R(RCC+0x30) |= (1u<<0)|(1u<<3);
++    R(RCC+0x30) |= (1u<<0)|(1u<<3)|(1u<<4);
+ #if CONSOLE_USART == 3
+     R(RCC+0x30) |= 1u<<2;
+     R(RCC+0x40) |= 1u<<18;
+@@ -80,6 +83,8 @@ void board_init(void)
+     R(RCC+0x20) |= (1u<<2)|(1u<<17);
+     R(RCC+0x20) &= ~((1u<<2)|(1u<<17));
+     R(RCC+0x24) |= 1u<<4; R(RCC+0x24) &= ~(1u<<4);
++    R(GPIOE+0x18) = 1u<<18; /* PE2 low before output mode */
++    pin(GPIOE,2,1,0); laser_on=0;
+     R(GPIOD+0x18) = 15u<<28; /* PD12..15 low before output mode */
+     pin(GPIOD,12,1,0); pin(GPIOD,13,1,0);
+     pin(GPIOD,14,1,0); pin(GPIOD,15,1,0);
+@@ -113,15 +118,33 @@ static void force_off(void)
+     R(GPIOD+0x18)=3u<<28;
+     pin(GPIOD,12,1,0); pin(GPIOD,13,1,0); pwm_enabled=0;
+ }
++void board_laser_off(void)
++{
++    R(GPIOE+0x18)=1u<<18;
++    laser_on=0;
++}
++int board_laser_pulse(void)
++{
++    int accepted=0;
++    __disable_irq();
++    if (!laser_on && !board_button() && !fault && !guard_event && !guard_active) {
++        laser_started=milliseconds; laser_on=1;
++        R(GPIOE+0x18)=1u<<2; accepted=1;
++    }
++    __enable_irq();
++    return accepted;
++}
+ static void guard_fail(unsigned event)
+ {
+     guard_active=0;
++    board_laser_off();
+     if (!guard_event) guard_event=(uint8_t)event;
+     force_off();
+ }
+ void SysTick_Handler(void)
+ {
+     ++milliseconds;
++    if (laser_on && ((uint32_t)(milliseconds-laser_started)>=500u || board_button())) board_laser_off();
+     if (board_button()) guard_fail(BOARD_GUARD_KEY);
+     else if (guard_active && (uint32_t)(milliseconds-guard_received)>=SAFETY_LEASE_MS)
+         guard_fail(BOARD_GUARD_LEASE);
+@@ -206,13 +229,14 @@ int board_guard_refresh(uint32_t received)
+     __disable_irq();
+     if (!guard_event && !fault && !board_button() &&
+         (uint32_t)(milliseconds-received)<SAFETY_LEASE_MS) {
++        board_laser_off();
+         guard_received=received; guard_active=1; accepted=1;
+     }
+     __enable_irq(); return accepted;
+ }
+ void board_guard_disarm(void)
+ {
+-    __disable_irq(); guard_active=0; force_off(); __enable_irq();
++    __disable_irq(); guard_active=0; board_laser_off(); force_off(); __enable_irq();
+ }
+ unsigned board_guard_take_event(void)
+ {
+diff --git a/src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.h b/src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.h
+index 8890f69..8c1599c 100644
+--- a/src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.h
++++ b/src/prototype/skystar_openmv/stm32_skystar_tracking/User/board.h
+@@ -13,6 +13,8 @@
+ #define CONSOLE_LABEL "USART1_PA9_PA10"
+ #endif
+ void board_init(void);
++int board_laser_pulse(void);
++void board_laser_off(void);
+ uint32_t board_ms(void);
+ int board_vision_byte(uint8_t *byte, uint32_t *received);
+ int board_pc_byte(uint8_t *byte);
+diff --git a/src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c b/src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c
+index 40de0d2..f0ec3b0 100644
+--- a/src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c
++++ b/src/prototype/skystar_openmv/stm32_skystar_tracking/User/main.c
+@@ -17,6 +17,8 @@ static uint32_t observation_nonce_hi,observation_nonce_lo;
+ static int c1_hex(char c){if(c>='0'&&c<='9')return c-'0';if(c>='a'&&c<='f')return c-'a'+10;return -1;}
+ static int c1_line(const char *s,uint32_t rx,uint32_t now);
+ #endif
++/* Debug-only one-shot request. Initialized to zero before processing. */
++volatile uint32_t laser_debug_request;
+ static tracking_t control;
+ static vision_parser_t parser;
+ static safety_t guardian;
+@@ -125,6 +127,13 @@ static void console_feed(uint8_t byte, uint32_t received, uint32_t now)
+         if (used || dropping) {
+             line[used]=0;
+             if (!dropping && !board_button()) {
++                if (!strcmp(line,"laser1 off")) { board_laser_off(); (void)board_send("LASER1 OFF\r\n"); used=dropping=0; return; }
++                if (!strcmp(line,"laser1 pulse")) {
++                    if ((uint32_t)(now-received)<SAFETY_COMMAND_MS && guardian.state==SAFE_STOPPED && !control.outputs && board_laser_pulse())
++                        (void)board_send("LASER1 PULSE 500MS\r\n");
++                    else (void)board_send("LASER1 REJECT\r\n");
++                    used=dropping=0; return;
++                }
+                 #ifdef C1_OBSERVATIONS
+                 if(c1_line(line,received,now)){used=dropping=0;return;}
+ #endif
+@@ -205,6 +214,7 @@ int main(void)
+     gimbal_registry_init(&observation_devices);
+     memset(&observations,0,sizeof(observations)); /* Explicit bind required; no boot session guess. */
+ #endif
++    laser_debug_request=0;
+     tracking_init(&control); vision_init(&parser); board_init();
+     entropy_ok=board_session_nonce(&hi,&lo);
+     safety_init(&guardian,hi,lo,entropy_ok);
+@@ -213,6 +223,12 @@ int main(void)
+         unsigned count;
+         uint32_t now=board_ms();
+         poll_safety(now); console_expire(now);
++        if (laser_debug_request) {
++            uint32_t request=laser_debug_request;
++            laser_debug_request=0;
++            if (request==0x4c31504cu && guardian.state==SAFE_STOPPED && !control.outputs)
++                (void)board_laser_pulse();
++        }
+         for (count=0;count<32 && board_pc_timed_byte(&byte,&received);++count)
+             console_feed(byte,received,board_ms());
+         for (count=0;count<64 && board_vision_byte(&byte,&received);++count)
+diff --git a/src/prototype/skystar_openmv/stm32_skystar_tracking/tests/host_checks.c b/src/prototype/skystar_openmv/stm32_skystar_tracking/tests/host_checks.c
+index 7c7870f..6469e68 100644
+--- a/src/prototype/skystar_openmv/stm32_skystar_tracking/tests/host_checks.c
++++ b/src/prototype/skystar_openmv/stm32_skystar_tracking/tests/host_checks.c
+@@ -267,10 +267,31 @@ static void command_checks(void)
+     R(GPIOA+0x10)=1; command_text("home\n",0xBCu,0xBCu); CHECK(!control.outputs);
+     R(GPIOA+0x10)=0;
+ }
++static void laser_checks(void)
++{
++    unsigned i;
++    R(GPIOA+0x10)=0; guard_active=guard_event=fault=laser_on=0; milliseconds=0;
++    CHECK(board_laser_pulse()); CHECK(laser_on && R(GPIOE+0x18)==(1u<<2));
++    CHECK(!board_laser_pulse());
++    for(i=0;i<499;i++) SysTick_Handler();
++    CHECK(laser_on);
++    SysTick_Handler(); CHECK(!laser_on && R(GPIOE+0x18)==(1u<<18));
++    CHECK(board_laser_pulse()); board_laser_off(); CHECK(!laser_on);
++    CHECK(board_laser_pulse()); R(GPIOA+0x10)=1; SysTick_Handler();
++    CHECK(!laser_on && R(GPIOE+0x18)==(1u<<18));
++    R(GPIOA+0x10)=0; guard_event=0; guard_active=1;
++    CHECK(!board_laser_pulse()); guard_active=0;
++    tracking_init(&control); safety_init(&guardian,1,2,1); used=dropping=0; tx_head=tx_tail=0; fault=guard_event=0;
++    command_text("laser1 pulse\n",1000,1000); CHECK(laser_on);
++    command_text("laser1 off\n",1001,1001); CHECK(!laser_on);
++    command_text("laser1 pulse\n",1002,1002); CHECK(laser_on);
++    CHECK(board_guard_refresh(1002)); CHECK(!laser_on);
++    board_guard_disarm();
++}
+ #include "safety_cases.h"
+ int main(void)
+ {
+-    controller_checks(); parser_checks(); driver_checks(); command_checks(); safety_checks();
++    controller_checks(); parser_checks(); driver_checks(); command_checks(); safety_checks(); laser_checks();
+     tracking_init(&control); safety_init(&guardian,1,2,1); tx_head=tx_tail=0; status(); tx[tx_head]=0;
+     CHECK(strstr(tx,"P0V 1 STATE waiting MODE manual VALID 0 ENABLED 0")!=0);
+     CHECK(strstr(tx,"PKP 300 PKI 50 PKD 0 TKP 500 TKI 80 TKD 0")!=0);
+diff --git a/board/skystar_f407/laser_pin_reservation.md b/board/skystar_f407/laser_pin_reservation.md
+new file mode 100644
+--- /dev/null
++++ b/board/skystar_f407/laser_pin_reservation.md
+@@ -0,0 +1,13 @@
++# 三路激光控制引脚预留（待硬件核验）
++
++适用对象：SkyStar STM32F407 主控。2026-11-03。
++
++| 用途 | 暂定 MCU 引脚 |
++|---|---|
++| 激光 1 控制信号 | PE2 |
++| 激光 2 控制信号 | PE3 |
++| 激光 3 控制信号 | PE4 |
++
++这只是软件规划的候选，尚未确认这三个引脚在实物上是否引出、板载连接或被其他固件使用；确认前不要接线。它们需与第三云台 PWM、三路相机串口及现有调试和通信接口统一核对。现有固件没有激光控制功能，未配置这些 GPIO。
++
++接线前需核验激光模块的信号电平、有效极性、供电和驱动方式。采用与模块匹配的驱动电路，并保证复位和断线时默认关闭；控制板与驱动电路共地。不得将未知电流的激光负载直接接 GPIO。

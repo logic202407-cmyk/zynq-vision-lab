@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "historical_profile_rebuilds": [
+    {
+      "profile": "legacy_continuous_pan",
+      "exit": 0,
+      "bytes": 12760,
+      "matches_historical": true,
+      "sha256": "cec16eaa772683fd05e0d4cdb407e9d6be006020a3c6c479e79e9ecfb8217cc2"
+    },
+    {
+      "profile": "static_spot",
+      "exit": 0,
+      "bytes": 12472,
+      "matches_historical": true,
+      "sha256": "cf5fab3d40334e0b35ab5637666ce521e4dfe578ec1d5dba6360321cb0afd4b6"
+    },
+    {
+      "profile": "legacy_reversal",
+      "exit": 0,
+      "bytes": 12804,
+      "matches_historical": true,
+      "sha256": "58e05edbd9848d24f25e78aa7c9e7aad345d0e7c50921be81c656bdae8de79e9"
+    },
+    {
+      "profile": "red_position",
+      "exit": 0,
+      "bytes": 12532,
+      "matches_historical": true,
+      "sha256": "540dfc03825a8930b9e936e67d57583704964d10fad6b2832808a2af586294cd"
+    },
+    {
+      "profile": "red_static_steady",
+      "exit": 0,
+      "bytes": 12356,
+      "matches_historical": true,
+      "sha256": "85653a341b4e287c4dabb06238e18c4eaa2af8112ce337a0c1ab12b6b0dc97be"
+    },
+    {
+      "profile": "laser12_static",
+      "exit": 0,
+      "bytes": 12576,
+      "matches_historical": true,
+      "sha256": "95df9354dd5c4618db8cb3c8d026306773f11c31152541405b8de2542c2dc2eb"
+    },
+    {
+      "profile": "laser123_with_camera_rx",
+      "exit": 0,
+      "bytes": 12452,
+      "matches_historical": true,
+      "sha256": "3c060c85e4eb8b799f5bd29ce86effe8b81a941eb29b05ccd5e06438e8548d5c"
+    },
+    {
+      "profile": "three_camera_rx",
+      "exit": 0,
+      "bytes": 12492,
+      "matches_historical": true,
+      "sha256": "d810410a929a20113dbc4d13b2789dc3673ef50b70594f7ce9ba2e6d2efe4685"
+    }
+  ],
+  "standalone_geometry_tests": {
+    "count": 10,
+    "passed": true
+  },
+  "hardware_actions": false,
+  "repository_check": {
+    "command": "python tools/check_repository.py",
+    "exit_code": 0
+  },
+  "repository_tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "count": 119,
+    "passed": 119,
+    "skipped": 0,
+    "exit_code": 0,
+    "log_sha256": "31144d6c62709dc834f4f3b6cf9ce821d5b7c2ad8655c3bbeecc49e0cfda8e3c"
+  },
+  "historical_c_checks_rerun": false
+}

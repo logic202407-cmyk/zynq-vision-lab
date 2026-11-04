@@ -1,0 +1,18 @@
+import sys,json,logging,hashlib
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+logging.basicConfig(level=logging.ERROR)
+opts={'no_config':True,'target_override':'stm32f407vetx','pack':'R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack','connect_mode':'attach','frequency':1000000,'auto_unlock':False,'resume_on_disconnect':False,'cache.enable_memory':False,'cache.enable_register':False,'cache.read_code_from_elf':False,'enable_swv':False}
+s=ConnectHelper.session_with_chosen_probe(unique_id='REDACTED_DEVICE_ID',blocking=False,options=opts)
+with s:
+ t=s.target
+ out={'tim4_ccer':hex(t.read32(0x40000820)),'tim1_ccer':hex(t.read32(0x40010020)),'tim1_bdtr':hex(t.read32(0x40010044)),'pe2_odr':hex(t.read32(0x40021014)),'core_dhcsr':hex(t.read32(0xe000edf0)),'usart2_cr1':hex(t.read32(0x4000440c)),'usart3_cr1':hex(t.read32(0x4000480c)),'usart6_cr1':hex(t.read32(0x4001140c)),'uart5_cr1':hex(t.read32(0x4000500c))}
+ data=bytearray()
+ for offset in range(0,524288,4096):data.extend(t.read_memory_block8(0x08000000+offset,4096))
+ out['flash_sha256']=hashlib.sha256(data).hexdigest()
+ out['matches_static_steady']=out['flash_sha256']=='efe90c209490477c3b835c843b1f0f4b2fee05ecc9f69752a80c85e16d2aa5a4'
+ root=Path('R:/evidence/three-gimbal-bringup-20261104')
+ (root/'reconnected-readonly-full.bin').write_bytes(data)
+ (root/'reconnected-readonly.json').write_text(json.dumps(out,indent=2))
+ print(json.dumps(out))

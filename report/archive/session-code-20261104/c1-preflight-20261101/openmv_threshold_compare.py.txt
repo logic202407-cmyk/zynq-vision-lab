@@ -1,0 +1,34 @@
+# RAM-only image diagnostic: no UART, PWM, laser or filesystem writes.
+# Reuses repository sensor format and red LAB threshold; not a tracking test.
+import sensor
+import time
+
+def blob_value(blob, name):
+    value = getattr(blob, name)
+    return value() if callable(value) else value
+
+sensor.reset()
+sensor.set_pixformat(sensor.RGB565)
+sensor.set_framesize(sensor.QQVGA)
+sensor.skip_frames(time=2000)
+sensor.set_auto_whitebal(False)
+sensor.set_auto_gain(False)
+threshold = (10, 80, 20, 90, -10, 80)
+original_threshold = (32, 43, 13, 51, 4, 52)
+start = time.ticks_ms()
+last = start
+frames = 0
+while time.ticks_diff(time.ticks_ms(), start) < 30000:
+    img = sensor.snapshot()
+    blobs = [b for b in img.find_blobs([threshold], pixels_threshold=8, area_threshold=8, merge=True) if blob_value(b, "area") >= 20]
+    best = max(blobs, key=lambda b: blob_value(b, "pixels")) if blobs else None
+    if best:
+        img.draw_rectangle(blob_value(best, "rect"), color=(0, 255, 0))
+        img.draw_cross((blob_value(best, "cx"), blob_value(best, "cy")), color=(0, 255, 0))
+    frames += 1
+    now = time.ticks_ms()
+    if time.ticks_diff(now, last) >= 500:
+        original = img.find_blobs([original_threshold], pixels_threshold=8, area_threshold=8, merge=True)
+        print('THRESHOLD_COMPARE', 'original', len(original), 'candidate', frames, 'candidates', len(blobs), 'target', (blob_value(best, "cx"),blob_value(best, "cy"),blob_value(best, "pixels")) if best else None)
+        last = now
+print('THRESHOLD_COMPARE_DONE', frames)

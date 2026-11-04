@@ -1,0 +1,15 @@
+import hashlib,json,sys,traceback
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+root=Path('R:/evidence/c1-team-pid-slow-20261104-01');out=root/'post-timeout-readonly';out.mkdir(exist_ok=False)
+r={'scope':'post-timeout read only; no erase, write, reset or resume','success':False}
+try:
+ session=ConnectHelper.session_with_chosen_probe(blocking=False,return_first=False,target_override='stm32f407vetx',pack='R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack',connect_mode='attach',frequency=1000000,project_dir=str(out),no_config=True,auto_unlock=False)
+ if session is None:raise RuntimeError('no unique ST-Link')
+ with session:
+  t=session.target;data=bytes(t.read_memory_block8(0x08000000,512*1024));again=bytes(t.read_memory_block8(0x08000000,512*1024));before=(root/'prechange-flash-private.bin').read_bytes();expected=(root/'authorized-deploy-01/expected-full.bin').read_bytes()
+  (out/'post-timeout-flash-private.bin').write_bytes(data)
+  r.update(success=True,two_reads_equal=(data==again),full_sha256=hashlib.sha256(data).hexdigest(),sector0_all_ff=all(x==255 for x in data[:16384]),sector0_unchanged=data[:16384]==before[:16384],tail_unchanged=data[16384:]==before[16384:],matches_candidate=data==expected,ccer=hex(t.read32(0x40000820)),dhcsr=hex(t.read32(0xe000edf0)),flash_sr=hex(t.read32(0x40023c0c)))
+except Exception:r['error']=traceback.format_exc()
+(out/'result.json').write_text(json.dumps(r,indent=2));print(json.dumps(r,indent=2));sys.exit(0 if r['success'] else 1)

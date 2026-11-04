@@ -1,0 +1,13 @@
+import subprocess,json,hashlib
+from pathlib import Path
+root=Path('R:/c1-repo')
+def git(*a):return subprocess.check_output(['git',*a],cwd=root)
+sha=git('rev-parse','HEAD').decode().strip()
+names=git('diff-tree','--no-commit-id','--name-only','-r',sha).decode().splitlines()
+r=dict(source_commit=sha,baseline='aeab1cc79d867a9ca019fedea19606309519d232',
+       rtl_source_commit='6a76f5a0e553dfa2cc096dc2c86ce05cfdb0cb66',
+       git_blob_sha256={n:hashlib.sha256(git('show',sha+':'+n)).hexdigest() for n in names},
+       tests=dict(cdc_clock_phase_cases=5,transport_testbenches=4,python_tests=54,repository_exit_code=0),
+       result='PARTIAL_OFFLINE_PASS_HARDWARE_BLOCKED',hardware_actions=[])
+(root/'report/evidence/c1-readiness/receipt.json').write_text(json.dumps(r,indent=2)+'\n')
+print(sha)

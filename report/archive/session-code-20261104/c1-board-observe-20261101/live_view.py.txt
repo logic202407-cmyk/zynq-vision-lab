@@ -1,0 +1,11 @@
+import sys,time,json
+from pathlib import Path
+sys.path.insert(0,'R:/c1-repo')
+from src.pc.camera_viewer import Viewer
+out=Path(__file__).parent
+v=Viewer();v.after(300,v.start_live)
+def record():
+ a=v.worker.assembler if v.worker else None
+ r=dict(scope='live camera viewer, not motion control',mode=v.mode,connection=v.connection.get(),detail=v.detail.get(),stats=v.stats.get(),complete_frames=a.completed if a else 0,incomplete=a.incomplete if a else 0,error=getattr(v.worker,'error',None))
+ (out/'viewer-telemetry.json').write_text(json.dumps(r,ensure_ascii=False,indent=2))
+v.after(8000,record);v.mainloop()

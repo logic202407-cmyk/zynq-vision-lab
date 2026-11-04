@@ -1,0 +1,8 @@
+set_param general.maxThreads 2
+create_project -in_memory -part xc7z100ffg900-2
+read_verilog {uart_tx_8n1.v zynq_uart_diagnostic.v}
+synth_design -top zynq_uart_diagnostic -part xc7z100ffg900-2 -mode out_of_context
+report_utilization -file diagnostic_utilization.rpt
+puts "DIAGNOSTIC_SYNTH_PASS"
+close_project
+exit 0

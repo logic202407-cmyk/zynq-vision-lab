@@ -1,0 +1,78 @@
+"""Complete the authorized first-sector deployment ONLY from verified erased state.
+Uses the existing official F407 algorithm's ProgramPage; NEVER calls erase.
+Reset/halt isolates the RAM algorithm from the prior application's interrupts.
+"""
+import argparse,hashlib,json,logging,time,traceback
+from pathlib import Path
+import sys
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+from pyocd.core.target import Target
+from pyocd.flash.flash import Flash
+P='REDACTED_DEVICE_ID'
+BH='e618af01f3d63cae2d8323ad83ced1239365b4b5ed15c51196a39245c0b6b689'
+OH='6cfb4d337104ba7fd977c9826b228e4c19d3b66a52ce0b744af40594de0015dd'
+EH='043e238a765f7cfbc62596a50e53c8ffb6b188a99357b0ebede251725d67589f'
+PH='345231106fe697df24bbe9133aeeec1b0383d7891c4adf4f47bbb8b478e9f2f0'
+digest=lambda b:hashlib.sha256(b).hexdigest()
+p=argparse.ArgumentParser();p.add_argument('--package',type=Path,required=True);p.add_argument('--backup',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--recover-authorized',action='store_true');a=p.parse_args()
+if not a.recover_authorized:raise SystemExit('Explicit recovery flag required')
+a.output.mkdir(parents=True,exist_ok=False)
+logging.basicConfig(level=logging.DEBUG,handlers=[logging.FileHandler(a.output/'backend.log'),logging.StreamHandler()])
+r={'phase':'file_checks','erase_calls':0,'programmed_pages':[],'full_readback_equal':False};session=None
+def save(): (a.output/'result.json').write_text(json.dumps(r,indent=2))
+def require(v,msg):
+ if not v:raise RuntimeError(msg)
+def read_full(t):return b''.join(bytes(t.read_memory_block8(0x08000000+i,4096)) for i in range(0,524288,4096))
+try:
+ b=(a.package/'skystar_tracking.bin').read_bytes();prior=a.backup.read_bytes();pack=Path('R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack')
+ require(len(b)==12604 and digest(b)==BH,'Wrong candidate')
+ require(len(prior)==524288 and digest(prior)==OH,'Wrong original backup')
+ require(digest(pack.read_bytes())==PH,'Wrong pack')
+ require([x.unique_id for x in ConnectHelper.get_all_connected_probes(blocking=False)]==[P],'Probe mismatch')
+ options={'no_config':True,'target_override':'stm32f407vetx','pack':str(pack),'connect_mode':'halt','frequency':1000000,'auto_unlock':False,'resume_on_disconnect':False,'cache.enable_memory':False,'cache.enable_register':False,'cache.read_code_from_elf':False,'enable_swv':False}
+ session=ConnectHelper.session_with_chosen_probe(unique_id=P,blocking=False,options=options)
+ require(session is not None,'No probe session');session.open();t=session.target;t.halt()
+ require(t.read32(0xe0042000)==0x101f6413 and t.read16(0x1fff7a22)==512,'Chip mismatch')
+ before=read_full(t);(a.output/'before-full.bin').write_bytes(before)
+ require(len(before)==524288 and digest(before)==EH,'Unexpected current Flash: no recovery write')
+ require(before[:16384]==b'\xff'*16384 and before[16384:]==prior[16384:],'Not exactly the verified blank first sector')
+ require(bytes(t.read_memory_block8(0x08000000,16384))==before[:16384],'Repeat blank check failed')
+ sector=b+b'\xff'*(16384-len(b));expected=sector+prior[16384:]
+ r['before_sha256']=digest(before);r['expected_sha256']=digest(expected);r['phase']='reset_halt_for_RAM_algorithm';save()
+ t.reset_and_halt(Target.ResetType.SYSRESETREQ)
+ t.write_core_register('primask',1)
+ require(t.read_core_register('primask')==1,'Interrupt masking failed')
+ require(not(t.read32(0x40023c0c)&(1<<16)),'Flash still busy')
+ f=t.memory_map.get_region_for_address(0x08000000).flash
+ require(f is not None,'No official Flash algorithm')
+ si=f.get_sector_info(0x08000000);require(si.base_addr==0x08000000 and si.size==16384,'Wrong sector geometry')
+ r['phase']='program_only_no_erase';save()
+ f.init(Flash.Operation.PROGRAM)
+ offset=0
+ while offset<16384:
+  address=0x08000000+offset;pi=f.get_page_info(address)
+  require(pi is not None and 0<pi.size<=4096 and pi.base_addr==address and offset+pi.size<=16384,'Page outside approved first sector')
+  data=sector[offset:offset+pi.size]
+  if data!=b'\xff'*len(data):
+   f.program_page(address,data)
+   require(bytes(t.read_memory_block8(address,len(data)))==data,'Page readback mismatch')
+   r['programmed_pages'].append({'address':hex(address),'bytes':len(data)});save()
+  offset+=pi.size
+ f.cleanup();t.halt();after=read_full(t);(a.output/'readback-full.bin').write_bytes(after)
+ r['readback_sha256']=digest(after);r['full_readback_equal']=after==expected;save()
+ require(r['full_readback_equal'],'Full readback differs; leave halted')
+ r['phase']='boot_check';save();t.reset_and_halt(Target.ResetType.SYSRESETREQ);t.resume();time.sleep(1)
+ r['boot_ccer']=hex(t.read32(0x40000820));r['boot_pe2_odr']=hex(t.read32(0x40021014));r['boot_dhcsr']=hex(t.read32(0xe000edf0))
+ require(int(r['boot_ccer'],16)==0 and not(int(r['boot_pe2_odr'],16)&4),'Boot output unexpectedly active')
+ require(not(int(r['boot_dhcsr'],16)&(1<<17)),'Core not running')
+ r['phase']='complete';r['note']='Only previously blank sector 0 programmed; complete readback; F1/physical loop not yet accepted';save()
+ print('RESULT_DIRECTORY='+str(a.output),flush=True)
+except Exception:
+ r['error']=traceback.format_exc();r['phase']='failed';save()
+ if session:
+  try:session.target.halt()
+  except Exception:pass
+ raise
+finally:
+ if session:session.close()

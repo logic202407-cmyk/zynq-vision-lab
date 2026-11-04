@@ -1,0 +1,6 @@
+import json
+from pathlib import Path
+o=Path('R:/evidence/c1-continuous-auto-20261104');p=Path('R:/evidence/c1-two-axis-guarded-observe-20261104/capture-20261104-153525/uart.jsonl')
+rs=[json.loads(s) for s in p.read_text().splitlines()];a=next(r for r in rs if ' auto ACCEPT ' in r['line']);hb=[r for r in rs if r['elapsed']>=a['elapsed'] and ' hb ACCEPT ' in r['line']];stops=[r for r in rs if r['elapsed']>=a['elapsed'] and ' stop ACCEPT ' in r['line']]
+result={'auto_elapsed':a['elapsed'],'last_hb_elapsed':hb[-1]['elapsed'],'continuous_seconds_observed':hb[-1]['elapsed']-a['elapsed'],'heartbeat_acks':len(hb),'stop_acks':len(stops),'crc_bad':sum(r['crc_good'] is False for r in rs),'last_hb':hb[-1],'limitation':'PAN saturated at software lower bound 1300us with approximately -30px error; target return test pending','capture':str(p)}
+(o/'powered-result.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))

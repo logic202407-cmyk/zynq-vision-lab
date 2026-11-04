@@ -1,0 +1,44 @@
+from pathlib import Path
+r=Path('R:/evidence/c1-static-spot-cal-20261104/source/src/prototype/skystar_openmv/stm32_skystar_tracking/User')
+(r/'static_spot.h').write_text('''#ifndef STATIC_SPOT_H
+#define STATIC_SPOT_H
+#include <stdint.h>
+#define SPOT_MAX_MS 200u
+typedef struct { uint32_t since; uint8_t state; } static_spot_t;
+uint8_t static_spot_tick(static_spot_t *s,uint32_t now,uint8_t permit,int16_t dx,int16_t dy);
+#endif
+''')
+(r/'static_spot.c').write_text('''#include "static_spot.h"
+uint8_t static_spot_tick(static_spot_t *s,uint32_t now,uint8_t permit,int16_t dx,int16_t dy)
+{
+    uint8_t centered=(uint8_t)(permit && dx>=-3 && dx<=3 && dy>=-3 && dy<=3);
+    if(s->state==3) return 0;
+    if(!centered) { s->state=s->state==2?3:0; return 0; }
+    if(s->state==0) { s->since=now;s->state=1;return 0; }
+    if(s->state==1) { if((uint32_t)(now-s->since)<1000u)return 0;s->since=now;s->state=2; }
+    if((uint32_t)(now-s->since)>=SPOT_MAX_MS) { s->state=3;return 0; }
+    return 1;
+}
+''')
+p=r/'main.c';s=p.read_text();s='#include "static_spot.h"\nstatic static_spot_t spot_cal;\n'+s
+old='board_outputs(safety_armed(&guardian)&&control.outputs,control.pan_us,control.tilt_us);';assert old in s;s=s.replace(old,'board_outputs(0,control.pan_us,control.tilt_us); /* Static optical calibration: never move axes. */')
+old='board_outputs(safety_armed(&guardian) && control.outputs,control.pan_us,control.tilt_us);';assert old in s;s=s.replace(old,'board_outputs(0,control.pan_us,control.tilt_us); /* Static optical calibration: never move axes. */')
+old='board_laser_set(0); /* Camera-only calibration; no emitter output. */';assert old in s;s=s.replace(old,'board_laser_set(static_spot_tick(&spot_cal,now,\n            (uint8_t)(guardian.state==SAFE_AUTO && control.valid &&\n            (uint32_t)(now-control.received_ms)<FRAME_TIMEOUT_MS),control.dx,control.dy));')
+s=s.replace('observation_devices.devices[0].pwm_enabled=(uint8_t)(safety_armed(&guardian)&&control.outputs);','observation_devices.devices[0].pwm_enabled=0;')
+p.write_text(s)
+p=r/'board.c';s=p.read_text();s='#include "static_spot.h"\n'+s;s=s.replace('static volatile uint32_t guard_received;','static volatile uint32_t guard_received;\nstatic volatile uint32_t spot_started;\nstatic volatile uint8_t spot_fired,spot_done;')
+s=s.replace('milliseconds=0; vision.head','spot_started=0;spot_fired=spot_done=0;\n    milliseconds=0; vision.head')
+s=s.replace('++milliseconds;','++milliseconds;\n    if(spot_fired && (uint32_t)(milliseconds-spot_started)>=SPOT_MAX_MS) {\n        spot_done=1;R(0x40021018u)=1u<<18;\n    }',1)
+s=s.replace('!guard_active || guard_event || fault || !pwm_enabled || board_button()', '!guard_active || guard_event || fault || board_button()')
+old='R(0x40021018u)=enabled ? 1u<<2 : 1u<<18;';assert s.count(old)==1
+s=s.replace(old,'''/* Dedicated static-calibration image: PWM is forced off in every path. */
+    if(pwm_enabled || R(TIM4+0x20)) enabled=0;
+    if(!enabled && spot_fired) spot_done=1;
+    if(spot_done) enabled=0;
+    if(enabled && !spot_fired) {spot_fired=1;spot_started=milliseconds;}
+    if(spot_fired && (uint32_t)(milliseconds-spot_started)>=SPOT_MAX_MS) {spot_done=1;enabled=0;}
+    R(0x40021018u)=enabled ? 1u<<2 : 1u<<18;''')
+# Enforce stationary operation in the lowest output layer as well.
+s=s.replace('void board_outputs(int enabled, uint16_t pan, uint16_t tilt)\n{','void board_outputs(int enabled, uint16_t pan, uint16_t tilt)\n{\n    enabled=0; /* Static calibration firmware cannot drive either servo. */')
+p.write_text(s)
+p=r/'tracking_profile.h';s=p.read_text().replace('TEAM_POSITION_F407_EMITTER_OFF','STATIC_SPOT_200MS_PWM_OFF');p.write_text(s)

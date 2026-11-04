@@ -1,0 +1,82 @@
+"""Live observation, not motion. SWD reads, UDP video start/stop, UART RX only."""
+import sys,json,time,struct,socket,dataclasses,binascii
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench');sys.path.insert(0,'R:/clock-repo')
+import serial
+from elftools.elf.elffile import ELFFile
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+from src.pc.vendor_udp import FrameAssembler,PC_IP,BOARD_IP,UDP_PORT,START_COMMAND,STOP_COMMAND
+from src.pc.camera_viewer import rgb565_be_to_image
+out=Path(__file__).parent
+tag=sys.argv[1] if len(sys.argv)>1 else 'run'
+if not tag.replace('-','').isalnum():raise ValueError('Invalid capture tag')
+if (out/(tag+'-two-camera-result-private.json')).exists():raise RuntimeError('Fresh capture tag required')
+with (out/'observation_layout.o').open('rb') as f:
+ e=ELFFile(f);s=e.get_section_by_name('.symtab').get_symbol_by_name('layout')[0]
+ values=struct.unpack('<18I',e.get_section(s['st_shndx']).data()[s['st_value']:s['st_value']+72])
+size,accepted,rejected,gaps,rx,session,fresh,_,count,cx,sequence,flags,gsize,pwm,frames,dx,dy,valid=values
+with (out/'arm-d/latest-usart3-s1ack1-c1-loop/skystar_tracking.axf').open('rb') as f:
+ e=ELFFile(f);s=e.get_section_by_name('.symtab')
+ addresses={n:s.get_symbol_by_name(n)[0]['st_value'] for n in ['guardian','observations','observation_devices']}
+link=STLink(STLinkUSBInterface.get_all_connected_devices()[0]);link.open();link.set_swd_frequency(1000000);link.enter_debug(STLink.Protocol.SWD)
+def rd(a,n):return bytes(link.read_mem32(a,n,0,0))
+def snap():
+ for _ in range(5):
+  a=rd(addresses['observations'],size);b=rd(addresses['observations'],size)
+  if a==b:break
+ else:return None
+ g=rd(addresses['guardian'],4);d=rd(addresses['observation_devices'],gsize*3)
+ def u32(offset):return int.from_bytes(b[offset:offset+4],'little')
+ return dict(state=g[0],reason=g[1],ccer=int.from_bytes(rd(0x40000820,4),'little'),
+ sequence=u32(sequence),count=u32(count),sum_x=u32(count+4),sum_y=u32(count+8),
+ bbox=struct.unpack('<4H',b[count+12:count+20]),centroid=struct.unpack('<2H',b[cx:cx+4]),flags=b[flags],
+ accepted=u32(accepted),rejected=u32(rejected),bound=b[session],fresh=b[fresh],
+ openmv_frames=int.from_bytes(d[frames:frames+4],'little'),
+ openmv_dx=int.from_bytes(d[dx:dx+2],'little',signed=True),openmv_dy=int.from_bytes(d[dy:dy+2],'little',signed=True),openmv_valid=d[valid],
+ gimbal_pwm=[d[i*gsize+pwm] for i in range(3)])
+uart=serial.Serial(port=None,baudrate=115200,timeout=0);uart.dtr=False;uart.rts=False;uart.port='COM14'
+sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM);sock.setsockopt(socket.SOL_SOCKET,socket.SO_RCVBUF,8*1024*1024);sock.bind((PC_IP,UDP_PORT));sock.settimeout(.003)
+assembler=FrameAssembler();samples=[];raw=bytearray();measurements={};last=None;error=None
+start=time.monotonic();next_sample=start
+try:
+ uart.open();sock.sendto(START_COMMAND,(BOARD_IP,UDP_PORT));print("CAPTURE_ACTIVE_25_SECONDS",flush=True)
+ while time.monotonic()-start<25:
+  raw.extend(uart.read(8192))
+  try:packet,peer=sock.recvfrom(4096)
+  except socket.timeout:packet=None
+  if packet and peer[0]==BOARD_IP:
+   frame=assembler.feed(packet)
+   if frame:
+    last=frame
+    if frame.previous_measurement:measurements[frame.previous_measurement.frame_seq]=dataclasses.asdict(frame.previous_measurement)
+  if time.monotonic()>=next_sample:
+   next_sample=time.monotonic()+.1;x=snap()
+   if x:
+    x["host_seconds"]=time.monotonic()-start;samples.append(x)
+    if x['ccer'] or any(x['gimbal_pwm']):raise RuntimeError('Unexpected PWM state; abort observation')
+except Exception as e:
+ error=type(e).__name__+': '+str(e)
+finally:
+ sock.sendto(STOP_COMMAND,(BOARD_IP,UDP_PORT));sock.close();uart.close();link.close()
+ (out/(tag+'-two-camera-wire-private.bin')).write_bytes(raw)
+if last:rgb565_be_to_image(last).save(out/(tag+'-two-camera-fpga-private.png'))
+f1=[line for line in raw.splitlines() if line.startswith(b'F1 ')];bad=0
+for line in f1:
+ try:
+  body,crc=line.rsplit(b'*',1)
+  if binascii.crc_hqx(body,65535)!=int(crc,16):bad+=1
+ except Exception:bad+=1
+matches=[]
+for x in samples:
+ m=measurements.get(x['sequence'])
+ if m:matches.append((x['count'],x['sum_x'],x['sum_y'],tuple(x['bbox']))==(m['count'],m['sum_x'],m['sum_y'],tuple(m['bbox']) if m['bbox'] else (0,0,0,0)))
+result=dict(scope='No-power actual two-camera observation only; not autonomous tracking',
+ complete_frames=assembler.completed,incomplete_frames=assembler.incomplete,malformed=assembler.malformed,
+ same_frame_matches=len(matches),mismatches=matches.count(False),feedback_lines=len(f1),feedback_crc_errors=bad,
+ both_valid_samples=sum(bool(x['flags']&2) and bool(x['openmv_valid']) for x in samples),
+ pwm_all_off=all(x['ccer']==0 and not any(x['gimbal_pwm']) for x in samples),samples=samples)
+result['error']=error
+result['verdict']='PASS' if not error and len(matches)>=10 and not result['mismatches'] and len(f1)>0 and not bad and result['both_valid_samples'] and result['pwm_all_off'] else 'FAIL'
+(out/(tag+'-two-camera-result-private.json')).write_text(json.dumps(result,indent=2))
+print(json.dumps({k:v for k,v in result.items() if k!='samples'},indent=2))

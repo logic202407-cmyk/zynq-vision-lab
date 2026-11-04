@@ -1,0 +1,8 @@
+import subprocess,json
+from pathlib import Path
+s=Path('R:/evidence/b2-motion/netlist-routed-final')
+p=subprocess.run(['D:/Vivado/Vivado/2024.2/bin/xsim.bat','gate','-tclbatch','run.tcl'],cwd=s,capture_output=True,timeout=600)
+(s/'xsim.log').write_bytes(p.stdout+p.stderr)
+assert p.returncode==0 and b'MOTION_NETLIST_PASS' in p.stdout and b'Fatal' not in p.stdout
+(s/'result.json').write_text(json.dumps({'pass':'MOTION_NETLIST_PASS','bytes':45,'scope':'routed functional smoke; no SDF or hardware timing','retry':'reuse unchanged xvlog/xelab snapshot after wall-time timeout; 600 seconds; assertions unchanged','steps':[{'name':'xvlog','exit_code':0},{'name':'xelab','exit_code':0},{'name':'xsim_retry','exit_code':p.returncode}],'exit_code':0},indent=2))
+print('MOTION_NETLIST_PASS; rerun exit0')

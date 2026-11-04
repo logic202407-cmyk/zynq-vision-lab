@@ -1,0 +1,16 @@
+import json,secrets
+from pathlib import Path
+stage=Path(__file__).parent
+prior=json.loads((stage/'diagnostic-ids-private.json').read_text())
+data=dict(query_id=secrets.token_hex(16),
+          logging_session=f"{int(prior['logging_session'],16)+1:016x}",
+          scope='Diagnostic correlation only; not certified motion epoch')
+(stage/'static-diagnostic-ids-private.json').write_text(json.dumps(prior))
+(stage/'diagnostic-ids-private.json').write_text(json.dumps(data))
+text=(stage/'observe_two_cameras.py').read_text(encoding='utf-8')
+text=text.replace('while time.monotonic()-start<12:','while time.monotonic()-start<25:')
+text=text.replace('uart.open();sock.sendto(START_COMMAND,(BOARD_IP,UDP_PORT))',
+    'uart.open();sock.sendto(START_COMMAND,(BOARD_IP,UDP_PORT));print("CAPTURE_ACTIVE_25_SECONDS",flush=True)')
+text=text.replace('samples.append(x)','x["host_seconds"]=time.monotonic()-start;samples.append(x)')
+(stage/'observe_paper_motion.py').write_text(text,encoding='utf-8')
+print(json.dumps(data))

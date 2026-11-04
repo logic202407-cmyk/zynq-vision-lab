@@ -1,0 +1,53 @@
+import hashlib,json,os,re,shutil,subprocess
+from pathlib import Path
+r=Path('R:/repo');stage=Path('R:/evidence/c1-reset-hardening-20261101')
+def git(*args,env=None):return subprocess.check_output(['git',*args],cwd=r,env=env)
+before=git('status','--porcelain=v1','-z')
+assert subprocess.run(['git','diff','--quiet'],cwd=r).returncode==0
+assert not git('ls-files','--others','--exclude-standard').strip()
+paths=git('diff','--cached','--name-only','-z').decode().strip('\0').split('\0')
+assert len(paths)==169
+for p in paths:
+ assert p.isascii() and Path(p).suffix.lower() not in ['.bit','.dcp','.lic','.pem','.key','.bin','.dll','.exe','.jpg','.png']
+ data=git('show',':'+p)
+ assert len(data)<5*1024*1024
+ assert not re.search(rb'gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----',data),p
+ assert b'LAPTOP-TU4U942T' not in data,p
+ref='refs/heads/archive/b3-local-handoff-20261102'
+assert not git('ls-remote','origin',ref).strip(),'Archive ref exists; inspect before changing'
+index=Path(git('rev-parse','--git-path','index').decode().strip())
+if not index.is_absolute():index=r/index
+original_hash=hashlib.sha256(index.read_bytes()).hexdigest()
+copy=stage/'b3-archive.index';shutil.copyfile(index,copy)
+env=dict(os.environ,GIT_INDEX_FILE=str(copy))
+note=stage/'b3-archive-note.md'
+note.write_text('''# B3 local work handoff snapshot — NOT ACCEPTED
+
+Archived 2026-11-02 from the previously staged B3 worktree, based on
+078a7cf7b191fc27dc14f982781505aa291b3c64. This archive is preservation only;
+it does not declare new test acceptance or integrate changes into C1/main.
+
+The B3 report records partial verification. Full post-route motion cosimulation
+was interrupted without a completion receipt; historical receipt-checker failure
+logs are retained. Re-run and audit actual checks before reusing any code.
+The STM32 main.c first-fault fix here is NOT merged into the C1 candidate.
+Do not flash, configure JTAG, use serial hardware, enable PWM or control power.
+The original B3 worktree, branch and staging index are deliberately unchanged.
+
+Read report/experiments/2026-11-01-b3-motion-hardening.md and AGENTS.md first.
+''',encoding='utf-8')
+blob=git('hash-object','-w',str(note)).decode().strip()
+git('update-index','--add','--cacheinfo','100644',blob,'docs/b3_handoff_archive_20261102.md',env=env)
+tree=git('write-tree',env=env).decode().strip();parent=git('rev-parse','HEAD').decode().strip()
+message=stage/'b3-archive-message.txt';message.write_text('chore(handoff): preserve unaccepted B3 offline work snapshot\n\nArchive only; incomplete netlist acceptance and historical failures retained. No hardware actions. Original worktree and staging index unchanged.\n')
+sha=git('commit-tree',tree,'-p',parent,'-F',str(message)).decode().strip()
+receipt=dict(commit=sha,tree=tree,parent=parent,ref=ref,staged_files=169,
+ status='archived_unaccepted',original_index_sha256=original_hash,pushed=False)
+(stage/'b3-archive-receipt.json').write_text(json.dumps(receipt,indent=2))
+subprocess.run(['git','push','origin',sha+':'+ref],cwd=r,check=True)
+assert git('ls-remote','origin',ref).decode().split()[0]==sha
+assert before==git('status','--porcelain=v1','-z')
+assert hashlib.sha256(index.read_bytes()).hexdigest()==original_hash
+receipt['pushed']=True;receipt['original_worktree_and_index_unchanged']=True
+(stage/'b3-archive-receipt.json').write_text(json.dumps(receipt,indent=2))
+print(json.dumps(receipt,indent=2))

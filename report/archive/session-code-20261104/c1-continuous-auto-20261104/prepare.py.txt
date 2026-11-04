@@ -1,0 +1,9 @@
+from pathlib import Path
+import shutil,json,hashlib,subprocess
+r=Path('R:/worktrees/c1-unpowered-20261104');o=Path('R:/evidence/c1-continuous-auto-20261104');v=o/'vendor'
+p=v/'rtl/ov5640_udp_pc.v';s=p.read_text(encoding='latin1');old=(r/'board/skystar_f407/c1_observation_insert.vh').read_text();new=(r/'board/skystar_f407/c1_control_insert.vh').read_text().replace('.LOCAL_RESETS(1))','.LOCAL_RESETS(1),.CONTINUOUS_AUTO(1))');assert old in s;s=s.replace(old,new);p.write_text(s,encoding='latin1');shutil.copyfile(r/'src/rtl/c1_control_link.v',v/'rtl/c1_control_link.v')
+(v/'source-sha256.json').write_text(json.dumps({str(f.relative_to(v)):hashlib.sha256(f.read_bytes()).hexdigest() for f in v.rglob('*') if f.is_file() and f.suffix in ('.v','.xdc','.xci')},indent=2))
+s=(r/'build/build_c1_observation_board.tcl').read_text().replace('c1_observe','c1_continuous');s+='\nset_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]\nwrite_bitstream -force c1_continuous.bit\n';(r/'build/build_c1_continuous_board.tcl').write_text(s)
+t=o/'simulation';t.mkdir(exist_ok=True);vb=Path('D:/Vivado/Vivado/2024.2/bin');(t/'run.tcl').write_text('run all\nquit\n')
+for name,args in [('compile',['xvlog.bat',str(r/'src/rtl/uart_tx_8n1.v'),str(r/'src/rtl/uart_rx.v'),str(r/'src/rtl/zynq_motion_s1.v'),str(r/'sim/continuous_auto_tb.v')]),('elaborate',['xelab.bat','continuous_auto_tb','-s','continuous']),('run',['xsim.bat','continuous','-tclbatch','run.tcl'])]:
+ p=subprocess.run([str(vb/args[0]),*args[1:]],cwd=t,capture_output=True);(t/(name+'.log')).write_bytes(p.stdout+p.stderr);print(name,p.returncode,p.stdout.decode(errors='replace')[-2000:]);assert p.returncode==0

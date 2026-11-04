@@ -1,0 +1,9 @@
+import os,ctypes as C
+from pathlib import Path
+os.chdir('R:/evidence/c1-continuous-auto-20261104/simulation')
+paths=[os.add_dll_directory('D:/Vivado/Vivado/2024.2/'+x) for x in ['lib/win64.o','bin/unwrapped/win64.o']]
+k=C.CDLL('D:/Vivado/Vivado/2024.2/lib/win64.o/xv_simulator_kernel.dll');d=C.CDLL(str(Path('xsim.dir/continuous/xsimk.dll').absolute()))
+class Setup(C.Structure):_fields_=[('log',C.c_char_p),('wdb',C.c_char_p),('directory',C.c_char_p)]
+d.xsi_open.argtypes=[C.POINTER(Setup)];d.xsi_open.restype=C.c_void_p;k.xsi_run.argtypes=[C.c_void_p,C.c_int64];k.xsi_close.argtypes=[C.c_void_p]
+h=d.xsi_open(C.byref(Setup(b'boundary-run.log',None,None)));k.xsi_run(h,10000000);k.xsi_close(h)
+s=Path('boundary-results.log').read_text();print(s);assert 'CONTINUOUS_AUTO_PASS' in s

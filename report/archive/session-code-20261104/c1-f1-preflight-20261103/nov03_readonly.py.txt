@@ -1,0 +1,31 @@
+import hashlib
+import json
+import sys
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from elftools.elf.elffile import ELFFile
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+out=Path(__file__).parent
+expected=(out.parent/'c1-vision-qualification-20261102/proposed-full-flash.bin').read_bytes()
+fw=out.parent/'c1-vision-qualification-20261102/arm/latest-usart3-s1ack1-c1-loop'
+with (fw/'skystar_tracking.axf').open('rb') as stream:
+    syms=ELFFile(stream).get_section_by_name('.symtab')
+    guardian=syms.get_symbol_by_name('guardian')[0]['st_value']
+probes=STLinkUSBInterface.get_all_connected_devices();assert len(probes)==1
+link=STLink(probes[0]);link.open()
+try:
+    link.set_swd_frequency(1000000);link.enter_debug(STLink.Protocol.SWD)
+    rd=lambda a,n:bytes(link.read_mem32(a,n,0,0))
+    actual=b''.join(rd(0x08000000+i,1024) for i in range(0,len(expected),1024))
+    state=rd(guardian,4)
+    result=dict(scope='Final full-Flash and register reads; no halt/reset/programming',
+        matches_proposal=actual==expected,application_sha256=hashlib.sha256(actual[:12836]).hexdigest(),
+        full_flash_sha256=hashlib.sha256(actual).hexdigest(),safety_state=state[0],safety_reason=state[1],
+        tim4_ccer=int.from_bytes(rd(0x40000820,4),'little'),
+        core_running=not bool(int.from_bytes(rd(0xe000edf0,4),'little')&(1<<17)))
+    result['verdict']='PASS' if result['matches_proposal'] and result['safety_state']==0 and result['tim4_ccer']==0 and result['core_running'] else 'FAIL'
+    (out/'nov03-readonly.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+    print(json.dumps(result))
+    assert result['verdict']=='PASS'
+finally:link.close()

@@ -405,6 +405,17 @@
       "tool_version": "Arm Compiler 6.24; Python 3.12; existing Vivado 2024.2 continuous-AUTO image",
       "reviewer": "Codex register readback and operator optical confirmation",
       "note": "Stationary manual illumination only. Three gates high in 350 samples, all servo PWM disabled, no control UART faults; operator confirmed all three visibly on. Camera receivers disabled in this profile. Does not verify three-target vision, dispatch, tracking, centering, or optical power."
+    },
+    {
+      "id": "full_progress_source_archive_20261104",
+      "status": "implemented",
+      "evidence": [
+        "report/experiments/2026-11-04-full-progress.md",
+        "report/evidence/full-progress-20261104/manifest.json",
+        "report/evidence/full-progress-20261104/checks.json",
+        "report/archive/session-code-20261104/inventory.json"
+      ],
+      "note": "Source preservation only. Eight historical MCU profiles rebuilt with binary hash equality; camera geometry checked offline. Older worktree patches and helper text archives are inactive and not applied. No new board action or upgrade of three-target tracking claims."
     }
   ]
 }

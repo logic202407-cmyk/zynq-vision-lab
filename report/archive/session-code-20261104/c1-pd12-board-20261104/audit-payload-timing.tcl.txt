@@ -1,0 +1,8 @@
+open_checkpoint R:/evidence/c1-pd12-board-20261104/c1_pd12_routed.dcp
+set src [get_cells -hier -filter {NAME =~ c1_observation/link/cdc/holding_reg* && IS_SEQUENTIAL}]
+set dst [get_cells -hier -filter {NAME =~ c1_observation/link/cdc/dst_data_reg* && IS_SEQUENTIAL}]
+puts "PAYLOAD_SOURCE_COUNT [llength $src] DESTINATION_COUNT [llength $dst]"
+report_timing -from $src -to $dst -delay_type max -max_paths 5 -file R:/evidence/c1-pd12-board-20261104/payload-max-timing.rpt
+report_exceptions -from $src -to $dst -file R:/evidence/c1-pd12-board-20261104/payload-exceptions.rpt
+puts PD12_PAYLOAD_TIMING_AUDIT_FINISHED
+exit

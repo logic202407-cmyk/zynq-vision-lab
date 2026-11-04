@@ -1,0 +1,16 @@
+import json,secrets
+from pathlib import Path
+stage=Path(__file__).parent
+prior=json.loads((stage/'diagnostic-ids-private.json').read_text())
+(stage/'first-paper-diagnostic-ids-private.json').write_text(json.dumps(prior))
+data=dict(query_id=secrets.token_hex(16),logging_session=f"{int(prior['logging_session'],16)+1:016x}",
+          scope='Observation correlation only; not certified motion epoch')
+(stage/'diagnostic-ids-private.json').write_text(json.dumps(data))
+source=Path('R:/evidence/c1-board-observe-20261101/openmv_feedback_ram.py').read_text(encoding='utf-8')
+source='# Finite 90-second RAM observation only; no actuator commands or Flash writes.\n'+source.replace('< 30000:', '< 90000:')
+(stage/'openmv_feedback_90s_ram.py').write_text(source,encoding='utf-8')
+capture=(stage/'observe_paper_motion.py').read_text(encoding='utf-8')
+capture=capture.replace('<25:', '<70:').replace('CAPTURE_ACTIVE_25_SECONDS','CAPTURE_ACTIVE_70_SECONDS')
+capture=capture.replace('samples.append(x)\n','samples.append(x)\n    if len(samples)%40==0:print("LIVE_PROGRESS",round(x["host_seconds"],1),x["centroid"],x["openmv_dx"],x["openmv_valid"],flush=True)\n')
+(stage/'observe_paper_retry.py').write_text(capture,encoding='utf-8')
+print(json.dumps(data))

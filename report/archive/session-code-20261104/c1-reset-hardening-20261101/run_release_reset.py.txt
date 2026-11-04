@@ -1,0 +1,18 @@
+import hashlib,json,shutil,sys
+from pathlib import Path
+sys.path.insert(0,'R:/c1-repo/tools')
+from check_c1_reset_hardening import ROOT,VB,run
+stage=Path('R:/evidence/c1-reset-hardening-20261101/reset-release')
+stage.mkdir(exist_ok=False)
+sources=['src/rtl/vision_snapshot_cdc.v','sim/c1/vision_cdc_reset_tb.v']
+for s in sources:shutil.copyfile(ROOT/s,stage/Path(s).name)
+(stage/'run.tcl').write_text('run all\nquit\n')
+commands=[]
+for tool,args,marker in [('xvlog',['vision_snapshot_cdc.v','vision_cdc_reset_tb.v'],None),
+ ('xelab',['vision_cdc_reset_tb','-s','reset_boundaries'],None),
+ ('xsim',['reset_boundaries','-tclbatch','run.tcl'],'CDC_RESET_BOUNDARY_PASS 26')]:
+ commands.append(run([str(VB/(tool+'.bat'))]+args,stage,tool,marker))
+(stage/'result.json').write_text(json.dumps(dict(verdict='PASS',reset_scenarios=26,
+ commands=commands,exit_code=0,hardware_actions=[],
+ source_sha256={s:hashlib.sha256((ROOT/s).read_bytes()).hexdigest() for s in sources}),indent=2))
+print('CDC_RESET_BOUNDARY_PASS 26')

@@ -1,0 +1,28 @@
+import ctypes,time
+from ctypes import wintypes
+from PIL import ImageGrab
+u=ctypes.windll.user32;u.SetProcessDPIAware();u.GetForegroundWindow.restype=wintypes.HWND
+found=[]
+@ctypes.WINFUNCTYPE(wintypes.BOOL,wintypes.HWND,wintypes.LPARAM)
+def visit(h,p):
+ if u.IsWindowVisible(h):
+  name=ctypes.create_unicode_buffer(512);u.GetWindowTextW(h,name,512)
+  if name.value.endswith('OpenMV IDE'):found.append((h,name.value))
+ return True
+u.EnumWindows(visit,0)
+dialogs=[item for item in found if item[1].startswith('连接')]
+if len(dialogs)==1:h=dialogs[0][0]
+elif len(found)==1:h=found[0][0]
+else:raise RuntimeError('Ambiguous IDE windows')
+own=ctypes.windll.kernel32.GetCurrentThreadId()
+foreground=u.GetWindowThreadProcessId(u.GetForegroundWindow(),None)
+attached=bool(u.AttachThreadInput(own,foreground,True)) if foreground!=own else False
+try:
+ u.ShowWindow(h,3);u.BringWindowToTop(h);u.SetForegroundWindow(h)
+finally:
+ if attached:u.AttachThreadInput(own,foreground,False)
+time.sleep(.3)
+if u.GetForegroundWindow()!=h:raise RuntimeError('IDE not foreground; no input sent')
+rect=wintypes.RECT();u.GetWindowRect(h,ctypes.byref(rect))
+ImageGrab.grab(bbox=(rect.left,rect.top,rect.right,rect.bottom)).save('R:/evidence/c1-target-epoch-20261102/ide-focused-private.png')
+print('IDE_FOREGROUND_CONFIRMED')

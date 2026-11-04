@@ -1,0 +1,16 @@
+import sys,json,time
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+p=STLinkUSBInterface.get_all_connected_devices();assert len(p)==1
+l=STLink(p[0]);l.open();l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+samples=[];start=time.monotonic()
+try:
+    for _ in range(1500):
+        raw=bytes(l.read_mem32(0x40020010,4,0,0));samples.append((int.from_bytes(raw,'little')>>3)&1)
+        time.sleep(.001)
+finally:l.close()
+result=dict(scope='Read-only sampled PA3 input, not a waveform or proof of no signal',samples=len(samples),high=sum(samples),low=len(samples)-sum(samples),seconds=round(time.monotonic()-start,3),no_halt_reset_writes=True)
+(Path(__file__).parent/'pa3-sampled.json').write_text(json.dumps(result,indent=2)+'\n')
+print(json.dumps(result))

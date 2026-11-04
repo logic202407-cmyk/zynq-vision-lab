@@ -1,0 +1,20 @@
+from pathlib import Path
+import json,hashlib,shutil
+repo=Path('R:/repo'); source=Path('R:/evidence/b2-motion'); dst=repo/'report/evidence/b2-motion';dst.mkdir(parents=True,exist_ok=True)
+for group in ['a','b','auth','legacy']:
+ out=dst/group;out.mkdir(exist_ok=True)
+ for pat in ['expected-*.json','observed-*.json','result-*.json','trace-*.json','suite-exits.json','build-inputs.json','c-tests.json']:
+  for f in (source/'release-prefetch-final'/group).glob(pat):shutil.copyfile(f,out/f.name)
+ for f in (source/'release-prefetch-final'/group).glob('*.log'):
+  if f.name.split('.')[0] in ['normal','ack_loss','link_loss','fpga_reset','mcu_reset','busy_repeat','pc_handoff','handoff_unconfirmed','range','stale_sync','bad_ack_crc','late_ack','mismatch_sequence','mismatch_nonce','mismatch_opcode','mismatch_request_crc','mismatch_target','recovery','boundaries','sync_crc','auth_expiry','legacy']:shutil.copyfile(f,out/f.name)
+for name in ['suite.json','c-tests.log']:shutil.copyfile(source/'release-prefetch-final'/name,dst/name)
+shutil.copyfile(source/'arm-prefetch/public-build.json',dst/'arm-build.json')
+for name in ['result.json','run1.log','run3.log']:shutil.copyfile(source/'frozen-c'/name,dst/('frozen-c-'+name))
+shutil.copyfile(source/'diagnostic-regression/result.json',dst/'diagnostic-regression.json')
+for name in ['timing.rpt','utilization.rpt','route_status.rpt','structural_drc.rpt','implementation_pass.txt']:
+ s=(source/'ooc-prefetch'/name).read_text();s='\n'.join(l for l in s.splitlines() if 'Host ' not in l);(dst/name).write_text(s+'\n')
+for name in ['result.json','xsim.log']:
+ s=(source/'netlist-routed-final'/name).read_text();s='\n'.join(l for l in s.splitlines() if 'Host ' not in l);(dst/('netlist-'+name)).write_text(s+'\n')
+manifest={p.relative_to(repo).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in dst.rglob('*') if p.is_file() and p.name!='sha256.json'}
+(dst/'sha256.json').write_text(json.dumps(manifest,indent=2))
+print(len(manifest),'public evidence files',sum(p.stat().st_size for p in dst.rglob('*') if p.is_file()),'bytes')

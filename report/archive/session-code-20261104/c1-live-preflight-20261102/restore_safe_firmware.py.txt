@@ -1,0 +1,63 @@
+"""Restore verified safe-boot candidate AFTER current user power-off confirmation."""
+import hashlib,json,sys,time,traceback,struct
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+from pyocd.flash.file_programmer import FileProgrammer
+from elftools.elf.elffile import ELFFile
+out=Path(__file__).parent;fw=out/'arm-d/latest-usart3-s1ack1-c1-loop'
+original=(out/'backup/flash-read1.bin').read_bytes()
+assert original==(out/'backup/flash-read2.bin').read_bytes() and len(original)==524288
+data=(fw/'skystar_tracking.bin').read_bytes();assert 0<len(data)<16384
+build=json.loads((fw/'build.json').read_text());assert build['errors']==build['warnings']==0
+assert build['s1ack1'] and build['c1_observations'] and build['c1_closed_loop'] and build['console_usart']==3
+payload=data+original[len(data):16384]
+(out/'candidate-first-sector.bin').write_bytes(payload)
+with (out/'layout.o').open('rb') as f:
+ elf=ELFFile(f);sym=elf.get_section_by_name('.symtab').get_symbol_by_name('layout_probe')[0]
+ values=struct.unpack('<5I',elf.get_section(sym['st_shndx']).data()[sym['st_value']:sym['st_value']+20])
+layout=dict(zip(['state_size','reason_size','state_offset','reason_offset','struct_size'],values))
+with (fw/'skystar_tracking.axf').open('rb') as f:
+ symbols=ELFFile(f).get_section_by_name('.symtab')
+ addresses={n:symbols.get_symbol_by_name(n)[0]['st_value'] for n in ['guardian','milliseconds']}
+result=dict(candidate_sha256=hashlib.sha256(data).hexdigest(),candidate_bytes=len(data),
+ backup_sha256=hashlib.sha256(original).hexdigest(),layout=layout,
+ power_confirmation='Current user confirmed laser and servo power physically disconnected',
+ stage='preflight',erase='first 16KiB sector only; preserve all other Flash bytes',motion_commands=[])
+try:
+ session=ConnectHelper.session_with_chosen_probe(blocking=False,return_first=False,
+  target_override='stm32f407vetx',pack='R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack',
+  connect_mode='attach',frequency=1000000,project_dir=str(out),no_config=True,auto_unlock=False)
+ if session is None:raise RuntimeError('No unique usable probe')
+ with session:
+  t=session.target
+  current=bytes(t.read_memory_block8(0x08000000,524288))
+  if current!=original:raise RuntimeError('Flash changed since backup; no erase permitted')
+  if t.read32(0x40000820)&0x1111:raise RuntimeError('PWM currently enabled; no programming')
+  t.reset_and_halt();result['stage']='sector_programming'
+  FileProgrammer(session,chip_erase='sector',smart_flash=True,trust_crc=False,keep_unwritten=True).program(
+   str(out/'candidate-first-sector.bin'),file_format='bin',base_address=0x08000000)
+  actual=bytes(t.read_memory_block8(0x08000000,524288));expected=data+original[len(data):]
+  (out/'deployed-full-flash.bin').write_bytes(actual)
+  if actual!=expected:raise RuntimeError('Whole Flash readback mismatch')
+  result['whole_flash_matches']=True;result['deployed_sha256']=hashlib.sha256(actual).hexdigest()
+  result['stage']='safe_boot_check';t.reset();time.sleep(1)
+  samples=[]
+  for index in range(8):
+   g=bytes(t.read_memory_block8(addresses['guardian'],layout['struct_size']))
+   state=int.from_bytes(g[layout['state_offset']:layout['state_offset']+layout['state_size']],'little')
+   reason=int.from_bytes(g[layout['reason_offset']:layout['reason_offset']+layout['reason_size']],'little')
+   sample=dict(state=state,reason=reason,ccer=t.read32(0x40000820),milliseconds=t.read32(addresses['milliseconds']))
+   samples.append(sample)
+   if sample['ccer']&0x1111 or state not in [0,4]:raise RuntimeError('Unexpected enabled/armed boot state')
+   time.sleep(.25)
+  result['samples']=samples
+  if samples[-1]['milliseconds']<=samples[0]['milliseconds']:raise RuntimeError('Firmware tick not advancing')
+  result['boot_state_clean']=all(x['state']==0 and x['reason']==0 for x in samples)
+  result['stage']='complete';result['verdict']='PASS'
+except Exception:
+ result['verdict']='FAIL';result['error']=traceback.format_exc()
+ raise
+finally:
+ (out/'restore-result.json').write_text(json.dumps(result,indent=2))
+print(json.dumps(result,indent=2))

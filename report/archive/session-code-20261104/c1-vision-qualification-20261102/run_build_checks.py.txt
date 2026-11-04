@@ -1,0 +1,18 @@
+import json,os,subprocess,sys,time
+from pathlib import Path
+root=Path('R:/clock-repo');stage=Path(__file__).parent
+env=os.environ.copy();env.update(TEMP=str(stage/'temp'),TMP=str(stage/'temp'),PYTHONDONTWRITEBYTECODE='1',PYTHONUTF8='1')
+base='src/prototype/skystar_openmv/stm32_skystar_tracking'
+commands=[('arm-legacy',[sys.executable,'-X','utf8',base+'/build.py','--console-usart','1','--output-root',str(stage/'arm')]),
+ ('arm-safe-c1',[sys.executable,'-X','utf8',base+'/build.py','--console-usart','3','--s1ack1','--c1-observations','--c1-closed-loop','--output-root',str(stage/'arm')]),
+ ('host-usart1',[sys.executable,'-X','utf8',base+'/tests/run_checks.py','--console-usart','1']),
+ ('host-usart3',[sys.executable,'-X','utf8',base+'/tests/run_checks.py','--console-usart','3'])]
+records=[]
+for name,command in commands:
+    start=time.monotonic();r=subprocess.run(command,cwd=root,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    (stage/(name+'.txt')).write_bytes(r.stdout)
+    records.append(dict(name=name,command=command,exit_code=r.returncode,seconds=time.monotonic()-start))
+    print(json.dumps(records[-1]),flush=True)
+    if r.returncode:print(r.stdout.decode('utf-8','replace')[-4000:],flush=True)
+(stage/'build-checks.json').write_text(json.dumps(records,indent=2),encoding='utf-8')
+raise SystemExit(any(r['exit_code'] for r in records))

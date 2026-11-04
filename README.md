@@ -2,9 +2,11 @@
 
 **基于 Zynq 的几何靶标视觉感知与动态干扰实验平台**
 
+2026-11-04 代码与进度归档：[完整进度及接续入口](report/experiments/2026-11-04-full-progress.md)，含三台 OpenMV 程序、8 个历史固件版本、辅助代码和旧工作区补丁。
+
 2026-11-04 本轮更新：**三路静止常亮测试已通过，六路舵机保持停止。** 红 1/黄 2/蓝 3 门控分别为 PE2/PE3/PB0；350 次寄存器采样及现场“三套都常亮”确认见[本轮报告](report/experiments/2026-11-04-three-static-lasers.md)。这是独立灯光测试版本，相机接收暂时关闭，三目标识别分配和云台跟踪尚未完成。 最终接线见[红1/黄2/蓝3接线表](board/skystar_f407/three_gimbal_wiring.md)。
 
-2026-11-04 最新双机交接：**联调已暂停，实机闭环未完成。** STM32 恢复及完整回读、FPGA DONE/EOS、query/bind、OpenMV→STM32 的 F1 CRC 回传已验证；未完成跟踪收敛、激光联动和实机停止验收。队友请先读 [次日接续手册](docs/handoff_20261104.md)，再查 [双机证据清单](report/evidence/two-pc-handoff-20261104/README.md)。历史回执不代表当前设备状态，当前不允许据此自动 ARM/AUTO 或重复刷写。
+2026-11-04 早期双机交接（历史快照）：**联调已暂停，实机闭环未完成。** STM32 恢复及完整回读、FPGA DONE/EOS、query/bind、OpenMV→STM32 的 F1 CRC 回传已验证；未完成跟踪收敛、激光联动和实机停止验收。队友请先读 [次日接续手册](docs/handoff_20261104.md)，再查 [双机证据清单](report/evidence/two-pc-handoff-20261104/README.md)。历史回执不代表当前设备状态，当前不允许据此自动 ARM/AUTO 或重复刷写。
 
 面向 2026 年全国大学生嵌入式芯片与系统设计竞赛 FPGA 创新设计赛道 AMD 自主选题初级组。本仓库包含项目[规划](docs/project_plan.md)、[近期方案与备赛决策](docs/decisions_2026-09-26.md)、[Gate 执行方案](docs/execution_plan_2026-09-24.md)、[参赛仓库交付计划](docs/repository_submission.md)、[资料来源](docs/sources.md)及基础检查工具；这不是 AMD 官方示例。
 

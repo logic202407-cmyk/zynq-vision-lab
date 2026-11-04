@@ -1,0 +1,21 @@
+import json,statistics
+from pathlib import Path
+stage=Path(__file__).parent
+source=(stage/'verify_stop.py').read_text(encoding='utf-8')
+source=source.replace('stop-result.json','paper-stop-result.json').replace('stop-wire-private.bin','paper-stop-wire-private.bin')
+source=source.replace("['query_id'],16)+1", "['query_id'],16)+2")
+(stage/'verify_paper_stop.py').write_text(source,encoding='utf-8')
+data=json.loads((stage/'papermove01-two-camera-result-private.json').read_text())
+samples=data['samples']
+xs=[s['sum_x']/s['count'] for s in samples if s['count'] and s['openmv_valid']]
+ys=[s['openmv_dx'] for s in samples if s['count'] and s['openmv_valid']]
+excited=len(set(xs))>1 and len(set(ys))>1
+result=dict(status='OBSERVATION_ONLY' if excited else 'INSUFFICIENT_EXCITATION',
+    sample_count=len(samples),fpga_x_range=[min(xs),max(xs)],
+    openmv_dx_range=[min(ys),max(ys)],
+    correlation=statistics.correlation(xs,ys) if excited else None,
+    mechanical_calibration=False,motion_commands=[],
+    note='Manual paper movement does not calibrate servo response. Constant centroid gives no cross-camera direction fit.')
+(stage/'paper-motion-analysis.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+print(json.dumps(result))
+print('SAMPLE_WINDOWS',[(round(s['host_seconds'],1),s['centroid'],s['openmv_dx'],s['openmv_valid']) for s in samples[::30]])

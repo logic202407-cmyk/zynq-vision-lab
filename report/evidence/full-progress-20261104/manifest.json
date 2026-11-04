@@ -1,0 +1,185 @@
+{
+  "date": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "profiles": {
+    "legacy_reversal": {
+      "source_evidence": "c1-reversal-candidate-20261104",
+      "status": "superseded; reversal-only plant model not sufficient",
+      "expected_binary_sha256": "58e05edbd9848d24f25e78aa7c9e7aad345d0e7c50921be81c656bdae8de79e9",
+      "expected_binary_bytes": 12804,
+      "path": "src/prototype/skystar_openmv/profiles/legacy_reversal",
+      "historical_checks": [],
+      "rebuild": {
+        "profile": "legacy_reversal",
+        "exit": 0,
+        "bytes": 12804,
+        "matches_historical": true,
+        "sha256": "58e05edbd9848d24f25e78aa7c9e7aad345d0e7c50921be81c656bdae8de79e9"
+      },
+      "historical_c_checks_rerun_in_this_task": false
+    },
+    "legacy_continuous_pan": {
+      "source_evidence": "c1-continuous-pan-20261104",
+      "status": "superseded wrong hardware model; never powered-tested",
+      "expected_binary_sha256": "cec16eaa772683fd05e0d4cdb407e9d6be006020a3c6c479e79e9ecfb8217cc2",
+      "expected_binary_bytes": 12760,
+      "path": "src/prototype/skystar_openmv/profiles/legacy_continuous_pan",
+      "historical_checks": [
+        "speed_checks.c"
+      ],
+      "rebuild": {
+        "profile": "legacy_continuous_pan",
+        "exit": 0,
+        "bytes": 12760,
+        "matches_historical": true,
+        "sha256": "cec16eaa772683fd05e0d4cdb407e9d6be006020a3c6c479e79e9ecfb8217cc2"
+      },
+      "historical_c_checks_rerun_in_this_task": false
+    },
+    "red_position": {
+      "source_evidence": "c1-team-position-20261104",
+      "status": "single red positional tracking bench verified",
+      "expected_binary_sha256": "540dfc03825a8930b9e936e67d57583704964d10fad6b2832808a2af586294cd",
+      "expected_binary_bytes": 12532,
+      "path": "src/prototype/skystar_openmv/profiles/red_position",
+      "historical_checks": [
+        "position_checks.c"
+      ],
+      "rebuild": {
+        "profile": "red_position",
+        "exit": 0,
+        "bytes": 12532,
+        "matches_historical": true,
+        "sha256": "540dfc03825a8930b9e936e67d57583704964d10fad6b2832808a2af586294cd"
+      },
+      "historical_c_checks_rerun_in_this_task": false
+    },
+    "static_spot": {
+      "source_evidence": "c1-static-spot-cal-20261104",
+      "status": "historical one-shot static optical estimate; centering unverified",
+      "expected_binary_sha256": "cf5fab3d40334e0b35ab5637666ce521e4dfe578ec1d5dba6360321cb0afd4b6",
+      "expected_binary_bytes": 12472,
+      "path": "src/prototype/skystar_openmv/profiles/static_spot",
+      "historical_checks": [
+        "static_checks.c",
+        "intent_check.c"
+      ],
+      "rebuild": {
+        "profile": "static_spot",
+        "exit": 0,
+        "bytes": 12472,
+        "matches_historical": true,
+        "sha256": "cf5fab3d40334e0b35ab5637666ce521e4dfe578ec1d5dba6360321cb0afd4b6"
+      },
+      "historical_c_checks_rerun_in_this_task": false
+    },
+    "red_static_steady": {
+      "source_evidence": "c1-static-steady-20261104",
+      "status": "historical single red static steady test, later stopped",
+      "expected_binary_sha256": "85653a341b4e287c4dabb06238e18c4eaa2af8112ce337a0c1ab12b6b0dc97be",
+      "expected_binary_bytes": 12356,
+      "path": "src/prototype/skystar_openmv/profiles/red_static_steady",
+      "historical_checks": [
+        "steady_checks.c",
+        "intent_check.c"
+      ],
+      "rebuild": {
+        "profile": "red_static_steady",
+        "exit": 0,
+        "bytes": 12356,
+        "matches_historical": true,
+        "sha256": "85653a341b4e287c4dabb06238e18c4eaa2af8112ce337a0c1ab12b6b0dc97be"
+      },
+      "historical_c_checks_rerun_in_this_task": false
+    },
+    "three_camera_rx": {
+      "source_evidence": "three-gimbal-bringup-20261104",
+      "status": "historical receiver diagnostic; no movement or light",
+      "expected_binary_sha256": "d810410a929a20113dbc4d13b2789dc3673ef50b70594f7ce9ba2e6d2efe4685",
+      "expected_binary_bytes": 12492,
+      "path": "src/prototype/skystar_openmv/profiles/three_camera_rx",
+      "historical_checks": [
+        "rx_checks.c"
+      ],
+      "rebuild": {
+        "profile": "three_camera_rx",
+        "exit": 0,
+        "bytes": 12492,
+        "matches_historical": true,
+        "sha256": "d810410a929a20113dbc4d13b2789dc3673ef50b70594f7ce9ba2e6d2efe4685"
+      },
+      "historical_c_checks_rerun_in_this_task": false
+    },
+    "laser12_static": {
+      "source_evidence": "laser12-static-check-20261104",
+      "status": "intermediate first/two gate profile; superseded",
+      "expected_binary_sha256": "95df9354dd5c4618db8cb3c8d026306773f11c31152541405b8de2542c2dc2eb",
+      "expected_binary_bytes": 12576,
+      "path": "src/prototype/skystar_openmv/profiles/laser12_static",
+      "historical_checks": [
+        "laser12_checks.c"
+      ],
+      "rebuild": {
+        "profile": "laser12_static",
+        "exit": 0,
+        "bytes": 12576,
+        "matches_historical": true,
+        "sha256": "95df9354dd5c4618db8cb3c8d026306773f11c31152541405b8de2542c2dc2eb"
+      },
+      "historical_c_checks_rerun_in_this_task": false
+    },
+    "laser123_with_camera_rx": {
+      "source_evidence": "laser123-static-check-20261104",
+      "status": "intermediate three gate profile with observed SAFE_UART faults; superseded",
+      "expected_binary_sha256": "3c060c85e4eb8b799f5bd29ce86effe8b81a941eb29b05ccd5e06438e8548d5c",
+      "expected_binary_bytes": 12452,
+      "path": "src/prototype/skystar_openmv/profiles/laser123_with_camera_rx",
+      "historical_checks": [
+        "laser123_checks.c"
+      ],
+      "rebuild": {
+        "profile": "laser123_with_camera_rx",
+        "exit": 0,
+        "bytes": 12452,
+        "matches_historical": true,
+        "sha256": "3c060c85e4eb8b799f5bd29ce86effe8b81a941eb29b05ccd5e06438e8548d5c"
+      },
+      "historical_c_checks_rerun_in_this_task": false
+    }
+  },
+  "legacy_worktree_snapshots": [
+    {
+      "worktree_role": "repo",
+      "base_commit": "078a7cf7b191fc27dc14f982781505aa291b3c64",
+      "patch": "report/archive/worktree-progress-20261104/b3-uncommitted.patch",
+      "status": "historical uncommitted snapshot; not applied; not retested in this task"
+    },
+    {
+      "worktree_role": "c1-repo",
+      "base_commit": "a70746cdf949acbc82aa3345860120ec6c0783ed",
+      "patch": "report/archive/worktree-progress-20261104/c1-early-uncommitted.patch",
+      "status": "historical uncommitted snapshot; not applied; not retested in this task"
+    }
+  ],
+  "current_deployed_profile": "laser123_static",
+  "scope": "Source/progress preservation; no hardware actions",
+  "excluded": [
+    "credentials and environment files",
+    "vendor HDL/IP and license files",
+    "private images/video and device serial identifiers",
+    "generated binaries, caches and full Flash dumps; hashes and local backups retained"
+  ],
+  "pending": [
+    "FPGA three-target recognition/assignment",
+    "six-axis coarse positioning and fine tracking",
+    "per-camera optics/servo calibration",
+    "root cause of earlier camera-related UART faults"
+  ],
+  "source_coverage": {
+    "firmware_profiles_added": 8,
+    "camera_scripts": "src/prototype/skystar_openmv/three_cameras",
+    "historical_helpers_inventory": "report/archive/session-code-20261104/inventory.json",
+    "historical_worktree_patches": 2,
+    "hardware_actions_in_this_task": false
+  }
+}

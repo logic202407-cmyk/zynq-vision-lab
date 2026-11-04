@@ -1,0 +1,16 @@
+import hashlib,json,os,subprocess,sys,time
+from pathlib import Path
+root=Path('R:/clock-repo');stage=Path(__file__).parent
+prefix=sys.argv[1] if len(sys.argv)>1 else 'first'
+env=os.environ.copy();env.update(TEMP=str(stage/'temp'),TMP=str(stage/'temp'),PYTHONDONTWRITEBYTECODE='1',PYTHONUTF8='1')
+commands=[('python-unit',[sys.executable,'-X','utf8','-m','unittest','discover','-s','tests','-v']),
+ ('stm32-host',[sys.executable,'-X','utf8','src/prototype/skystar_openmv/stm32_skystar_tracking/tests/run_checks.py','--console-usart','3'])]
+records=[]
+for name,command in commands:
+    start=time.monotonic();result=subprocess.run(command,cwd=root,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    (stage/(prefix+'-'+name+'.txt')).write_bytes(result.stdout)
+    record=dict(name=name,command=command,exit_code=result.returncode,seconds=time.monotonic()-start)
+    records.append(record);print(json.dumps(record),flush=True)
+    if result.returncode:print(result.stdout.decode('utf-8','replace')[-4000:])
+(stage/(prefix+'-checks.json')).write_text(json.dumps(dict(python=sys.version,commands=records),indent=2),encoding='utf-8')
+raise SystemExit(any(r['exit_code'] for r in records))

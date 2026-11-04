@@ -1,0 +1,11 @@
+# Run only after operator confirms servo power off and both servo plugs isolated.
+# Uses existing 2024.2 hw_server and the already selected xc7z100_1.
+set c1_device [get_hw_devices xc7z100_1]
+set_property PROGRAM.FILE R:/evidence/c1-continuous-auto-20261104/c1_continuous.bit $c1_device
+set_property PROBES.FILE R:/evidence/c1-continuous-auto-20261104/c1_continuous.ltx $c1_device
+set_property FULL_PROBES.FILE R:/evidence/c1-continuous-auto-20261104/c1_continuous.ltx $c1_device
+program_hw_devices $c1_device
+refresh_hw_device $c1_device
+set c1_vio [get_hw_vios hw_vio_1]
+refresh_hw_vio $c1_vio
+list control [get_property OUTPUT_VALUE [get_hw_probes c1_controls -of_objects $c1_vio]] status [get_property INPUT_VALUE [get_hw_probes c1_status -of_objects $c1_vio]]

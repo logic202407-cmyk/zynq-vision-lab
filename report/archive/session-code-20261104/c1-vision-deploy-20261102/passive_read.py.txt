@@ -1,0 +1,68 @@
+"""Observe UART RX and current MCU registers; never send or write peripherals."""
+import hashlib
+import json
+import struct
+import sys
+import time
+from pathlib import Path
+sys.path.insert(0, 'D:/Codex/tools/stm32-bench')
+import serial
+from serial.tools import list_ports
+from elftools.elf.elffile import ELFFile
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+
+out = Path(__file__).parent
+tag = sys.argv[1] if len(sys.argv)>1 else 'passive01'
+assert tag.isalnum()
+assert not (out/(tag+'-result.json')).exists()
+fw = out.parent/'c1-vision-qualification-20261102/arm/latest-usart3-s1ack1-c1-loop'
+with (fw/'skystar_tracking.axf').open('rb') as stream:
+    syms = ELFFile(stream).get_section_by_name('.symtab')
+    address = {n:syms.get_symbol_by_name(n)[0]['st_value'] for n in ('guardian','milliseconds','observations','observation_devices')}
+with Path('R:/evidence/c1-live-preflight-20261102/observation_layout.o').open('rb') as stream:
+    elf=ELFFile(stream);sym=elf.get_section_by_name('.symtab').get_symbol_by_name('layout')[0]
+    layout=struct.unpack('<18I',elf.get_section(sym['st_shndx']).data()[sym['st_value']:sym['st_value']+72])
+size,accepted,rejected,gaps,rx,bound,fresh,msize,count,cx,sequence,flags,gsize,pwm,frames,dx,dy,valid=layout
+ports=[p.device for p in list_ports.comports() if p.vid==0x1a86]
+assert len(ports)==1
+probes=STLinkUSBInterface.get_all_connected_devices();assert len(probes)==1
+link=STLink(probes[0]);link.open();link.set_swd_frequency(1000000);link.enter_debug(STLink.Protocol.SWD)
+uart=serial.Serial(port=None,baudrate=115200,timeout=.01);uart.dtr=False;uart.rts=False;uart.port=ports[0]
+raw=bytearray();samples=[];start=time.monotonic();next_sample=start
+error=None
+try:
+    uart.open()
+    while time.monotonic()-start<12:
+        raw.extend(uart.read(4096))
+        if time.monotonic()>=next_sample:
+            next_sample=time.monotonic()+.2
+            rd=lambda a,n:bytes(link.read_mem32(a,n,0,0))
+            word=lambda a:int.from_bytes(rd(a,4),'little')
+            g=rd(address['guardian'],4)
+            obs=rd(address['observations'],size)
+            dev=rd(address['observation_devices'],gsize*3)
+            u=lambda p:int.from_bytes(obs[p:p+4],'little')
+            sample=dict(seconds=round(time.monotonic()-start,3),state=g[0],reason=g[1],
+                ccer=word(0x40000820),milliseconds=word(address['milliseconds']),
+                primary_accepted=u(accepted),primary_rejected=u(rejected),primary_sequence=u(sequence),
+                primary_count=u(count),primary_bound=obs[bound],primary_fresh=obs[fresh],primary_flags=obs[flags],
+                openmv_frames=int.from_bytes(dev[frames:frames+4],'little'),openmv_valid=dev[valid],
+                gimbal_pwm=[dev[i*gsize+pwm] for i in range(3)])
+            samples.append(sample)
+            assert sample['ccer']==0 and sample['state'] in (0,4) and not any(sample['gimbal_pwm'])
+except Exception as exc:
+    error=type(exc).__name__+': '+str(exc)
+finally:
+    uart.close();link.close()
+    (out/(tag+'-wire-private.bin')).write_bytes(raw)
+lines=raw.splitlines()
+result=dict(scope='Actual passive UART RX and SWD reads only',uart_tx_bytes=0,
+    uart_rx_bytes=len(raw),status_lines=sum(x.startswith(b'S1STAT ') for x in lines),
+    f1_lines=sum(x.startswith(b'F1 ') for x in lines),samples=samples,error=error,
+    pwm_all_off=bool(samples) and all(x['ccer']==0 and not any(x['gimbal_pwm']) for x in samples),
+    wire_private_sha256=hashlib.sha256(raw).hexdigest())
+result['verdict']='PASS' if not error and result['pwm_all_off'] and result['status_lines']>0 else 'FAIL'
+(out/(tag+'-result.json')).write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({k:v for k,v in result.items() if k!='samples'}))
+sys.exit(0 if result['verdict']=='PASS' else 1)

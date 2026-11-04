@@ -1,0 +1,20 @@
+import json,sys
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+devices=STLinkUSBInterface.get_all_connected_devices()
+if len(devices)!=1:raise RuntimeError('Expected one probe')
+l=STLink(devices[0]);l.open()
+try:
+ l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+ def word(a):return int.from_bytes(bytes(l.read_mem32(a,4,0,0)),'little')
+ cpuid=word(0xe000ed00);device=word(0xe0042000)&0xfff
+ result=dict(arm_part=hex((cpuid>>4)&0xfff),device_type_id=hex(device),
+  likely_stm32f405_f407_family=device==0x413 and ((cpuid>>4)&0xfff)==0xc24,
+  flash_kib=(word(0x1fff7a20)>>16)&0xffff,
+  tim4_ccer=word(0x40000820),core_halted=bool(word(0xe000edf0)&(1<<17)),
+  scope='Architecture and device-type registers only; no unique ID, halt, reset or writes')
+ (Path(__file__).parent/'target-type.json').write_text(json.dumps(result,indent=2))
+ print(json.dumps(result,indent=2))
+finally:l.close()

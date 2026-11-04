@@ -1,0 +1,45 @@
+from pathlib import Path
+import json,hashlib,re,shutil,subprocess
+root=Path('R:/c1-repo');base=Path('R:/evidence/c1-loop');out=root/'report/evidence/c1-loop'
+out.mkdir(exist_ok=True,parents=True)
+manifest={}
+def copy(src,name):
+    b=src.read_bytes();text=b.decode('utf8')
+    text=re.sub(r'^\| Host\s*:.*$', '| Host : REDACTED',text,flags=re.M)
+    text='\n'.join(line.rstrip() for line in text.splitlines());text += '\n' if text else ''
+    dest=out/name;dest.write_text(text,encoding='utf8')
+    manifest[name]={'raw_sha256':hashlib.sha256(b).hexdigest(),
+                    'public_sha256':hashlib.sha256(dest.read_bytes()).hexdigest()}
+for p in (base/'final2').iterdir():
+    if p.suffix in ('.json','.log','.txt'):copy(p,'coupled-'+p.name.replace('.log','.txt'))
+for p in (base/'unit4').iterdir():
+    if p.suffix in ('.json','.txt'):copy(p,'unit4-'+p.name)
+for name in ['xsim.txt','commands.json','visual_loop_tb.v']:
+    copy(base/'unit1'/name,'failure-unit1-'+name)
+for name in ['xsim.txt','result.json','gimbal1_visual_loop.v','visual_loop_tb.v']:
+    copy(base/'start-guard-negative'/name,'negative-guard-'+name)
+for p in (base/'vivado').glob('loop_*.rpt'):copy(p,p.name)
+arm=base/'arm/latest-usart3-s1ack1-c1-loop/build.json'
+j=json.loads(arm.read_text(encoding='utf8'));j.pop('private_build_stage',None)
+(out/'arm-build.json').write_text(json.dumps(j,indent=2)+'\n',encoding='utf8')
+# Raw tool results and all binary artifacts remain local.
+(out/'implementation.json').write_text(json.dumps(dict(tool='Vivado 2024.2',
+ commands=[dict(command=c,exit_code=0) for c in ['source build/check_c1_loop.tcl','opt_design','place_design','phys_opt_design','route_design','report_timing_summary; report_cdc; report_drc; report_utilization; report_bus_skew']],
+ earlier_mcp_wait_timeout_seconds=300,earlier_source_actual_elapsed_seconds=304.183,
+ routed_wns_ns=0.200,routed_whs_ns=0.094,bus_skew_ns=0.641,latches=0,
+ limitations=['OOC candidate clocks only','488 no_input_delay, 173 no_output_delay','ZPS7-1, RTSTAT-10','No hardware or bitstream']),indent=2)+'\n')
+(out/'normalization.json').write_text(json.dumps(manifest,indent=2)+'\n')
+status=root/'report/status.json';j=json.loads(status.read_text(encoding='utf8'))
+j['components']=[c for c in j['components'] if c.get('id')!='c1_laser_off_visual_loop']
+j['components'].append(dict(id='c1_laser_off_visual_loop',status='implemented',evidence=[
+ 'docs/c1_laser_off_visual_loop.md','report/experiments/2026-11-01-c1-laser-off-loop.md',
+ 'report/evidence/c1-loop/coupled-suite.json'],note='Offline single-target camera centering candidate; 10 coupled real-C/XSim cases pass. Commit-pinned verification receipt follows source commit. No laser or hardware action; calibration/epoch/board-clock blockers remain.'))
+status.write_text(json.dumps(j,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+checks=[]
+for name,args in [('repository',['tools/check_repository.py']),('unittest',['-m','unittest','discover','-s','tests','-v'])]:
+    cmd=['D:/Python312/python.exe','-X','utf8']+args
+    p=subprocess.run(cmd,cwd=root,capture_output=True);(out/(name+'.txt')).write_bytes(p.stdout+p.stderr)
+    checks.append(dict(command=cmd,exit_code=p.returncode))
+    print(name,p.returncode,(p.stdout+p.stderr).decode('utf8',errors='replace')[-250:])
+(out/'checks.json').write_text(json.dumps(checks,indent=2)+'\n')
+assert all(x['exit_code']==0 for x in checks)

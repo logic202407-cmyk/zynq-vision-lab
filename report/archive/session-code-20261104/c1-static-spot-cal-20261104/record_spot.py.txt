@@ -1,0 +1,15 @@
+import ctypes,time,win32gui as g,win32ui as u,json
+from pathlib import Path
+from PIL import Image
+ctypes.windll.user32.SetProcessDPIAware()
+o=Path('R:/evidence/c1-static-spot-cal-20261104/frames');o.mkdir(exist_ok=True)
+h=461824;t0=time.monotonic();rows=[]
+for i in range(500):
+ l,t,r,b=g.GetWindowRect(h);w=r-l;hh=b-t;dc=g.GetWindowDC(h);s=u.CreateDCFromHandle(dc);d=s.CreateCompatibleDC();bm=u.CreateBitmap();bm.CreateCompatibleBitmap(s,w,hh);d.SelectObject(bm)
+ ok=ctypes.windll.user32.PrintWindow(h,d.GetSafeHdc(),2)
+ if ok:
+  im=Image.frombuffer('RGB',(w,hh),bm.GetBitmapBits(True),'raw','BGRX',0,1)
+  im.crop((1190,150,1895,680)).save(o/('%04d.png'%i));rows.append({'frame':i,'elapsed':time.monotonic()-t0})
+ g.DeleteObject(bm.GetHandle());d.DeleteDC();s.DeleteDC();g.ReleaseDC(h,dc)
+ time.sleep(.02)
+(o/'times.json').write_text(json.dumps(rows));print('CAPTURE_COMPLETE',len(rows),time.monotonic()-t0)

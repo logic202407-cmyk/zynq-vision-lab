@@ -1,0 +1,148 @@
+"""Approved no-power STM32 deployment; no ARM/PWM/FPGA/camera operations."""
+import hashlib
+import json
+import struct
+import sys
+import time
+import traceback
+import importlib.metadata
+from pathlib import Path
+
+sys.path.insert(0, 'D:/Codex/tools/stm32-bench')
+from elftools.elf.elffile import ELFFile
+from pyocd.core.helpers import ConnectHelper
+from pyocd.flash.file_programmer import FileProgrammer
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+from serial.tools import list_ports
+
+stage = Path(__file__).parent
+out = stage.parent / 'c1-vision-deploy-20261102'
+out.mkdir(exist_ok=True)
+fw = stage / 'arm/latest-usart3-s1ack1-c1-loop'
+program = sys.argv[1:] == ['--program-approved']
+assert program or not sys.argv[1:]
+digest = lambda data: hashlib.sha256(data).hexdigest()
+original = (stage / 'backup-current-flash/flash-read1.bin').read_bytes()
+assert original == (stage / 'backup-current-flash/flash-read2.bin').read_bytes()
+assert len(original) == 524288
+assert digest(original) == 'bed5e5824a006c8e2bc6ee9e86f6581d4698940fdd0340a46d12ef332817226f'
+candidate = (fw / 'skystar_tracking.bin').read_bytes()
+assert len(candidate) == 12836
+assert digest(candidate) == '70a3ad2f0117cb9425d47db79eaad32e0c727ed9936665e2b2bef45599e44812'
+build = json.loads((fw / 'build.json').read_text(encoding='utf-8'))
+assert build['errors'] == build['warnings'] == 0
+assert build['s1ack1'] and build['c1_observations'] and build['c1_closed_loop']
+assert build['console_usart'] == 3
+for name, expected in build['source_sha256'].items():
+    assert digest((Path('R:/clock-repo/src/prototype/skystar_openmv') / name).read_bytes()) == expected
+expected = candidate + original[len(candidate):]
+sector = (stage / 'proposed-first-sector.bin').read_bytes()
+assert sector == expected[:16384]
+assert (stage / 'proposed-full-flash.bin').read_bytes() == expected
+assert digest(expected) == '61b59cdbdbbbac3e57b847aec63f1f2bb570c3809e026dc0a24246059141471b'
+with Path('R:/evidence/c1-live-preflight-20261102/layout.o').open('rb') as stream:
+    elf = ELFFile(stream)
+    sym = elf.get_section_by_name('.symtab').get_symbol_by_name('layout_probe')[0]
+    raw = elf.get_section(sym['st_shndx']).data()
+    layout = struct.unpack('<5I', raw[sym['st_value']:sym['st_value'] + 20])
+assert layout == (1, 1, 0, 1, 36)
+with (fw / 'skystar_tracking.axf').open('rb') as stream:
+    symbols = ELFFile(stream).get_section_by_name('.symtab')
+    addresses = {name: symbols.get_symbol_by_name(name)[0]['st_value']
+                 for name in ['guardian', 'milliseconds', 'control', 'observations', 'observation_devices']}
+result = dict(
+    scope='User-approved no-power first-sector STM32 programming and readback only' if program else 'Read-only preflight',
+    source_commit='e8c32b99c4717600705901137c6aaccf88ec3257',
+    candidate_application_sha256=digest(candidate), candidate_bytes=len(candidate),
+    prior_flash_sha256=digest(original),
+    authorization='User explicitly approved this SHA, first16KiB sector only, servo and laser power physically disconnected',
+    pwm_enable_authorized=False, motion_commands=[], actual_actions=[],
+    serial_devices=[dict(port=p.device, vid=p.vid, pid=p.pid) for p in list_ports.comports()],
+    uart_monitor_present=any(p.vid == 0x1a86 for p in list_ports.comports()),
+    pyocd_version=importlib.metadata.version('pyocd'),
+)
+destination = out / ('deployment-result.json' if program else 'preflight.json')
+if destination.exists():
+    raise RuntimeError('Do not overwrite an existing hardware-attempt record')
+try:
+    probes = STLinkUSBInterface.get_all_connected_devices()
+    assert len(probes) == 1, 'Exactly one ST-Link required'
+    link = STLink(probes[0])
+    link.open()
+    try:
+        link.set_swd_frequency(1000000)
+        link.enter_debug(STLink.Protocol.SWD)
+        rd = lambda address, count: bytes(link.read_mem32(address, count, 0, 0))
+        word = lambda address: int.from_bytes(rd(address, 4), 'little')
+        result['device_type'] = hex(word(0xe0042000) & 0xfff)
+        result['arm_part'] = hex((word(0xe000ed00) >> 4) & 0xfff)
+        result['flash_kib'] = (word(0x1fff7a20) >> 16) & 0xffff
+        assert result['device_type'] == '0x413' and result['arm_part'] == '0xc24'
+        assert result['flash_kib'] == 512
+        assert word(0x40000820) == 0, 'PWM not off before preflight'
+        captures = []
+        for index in range(2):
+            raw = b''.join(rd(0x08000000 + offset, 1024) for offset in range(0, len(original), 1024))
+            prefix = 'program-prewrite-' if program else 'preflight-prewrite-'
+            (out / (prefix + str(index + 1) + '.bin')).write_bytes(raw)
+            captures.append(raw)
+        assert captures[0] == captures[1] == original, 'Flash changed since approved backup'
+        result['fresh_double_backup_equal'] = True
+        assert word(0x40000820) == 0, 'PWM changed during backup'
+    finally:
+        link.close()
+    if program:
+        session = ConnectHelper.session_with_chosen_probe(
+            blocking=False, return_first=False, target_override='stm32f407vetx',
+            pack='R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack',
+            connect_mode='attach', frequency=1000000, project_dir=str(out),
+            no_config=True, auto_unlock=False,
+        )
+        assert session is not None, 'No unique usable pyOCD session'
+        with session:
+            target = session.target
+            assert bytes(target.read_memory_block8(0x08000000, len(original))) == original
+            assert target.read32(0x40000820) == 0
+            target.reset_and_halt()
+            result['actual_actions'].append('reset_and_halt')
+            result['stage'] = 'programming_first_sector'
+            FileProgrammer(session, chip_erase='sector', smart_flash=True,
+                           trust_crc=False, keep_unwritten=True).program(
+                str(stage / 'proposed-first-sector.bin'), file_format='bin', base_address=0x08000000)
+            result['actual_actions'].append('program_first_16KiB_sector')
+            actual = bytes(target.read_memory_block8(0x08000000, len(original)))
+            (out / 'deployed-full-flash.bin').write_bytes(actual)
+            result['readback_full_sha256'] = digest(actual)
+            result['whole_flash_matches'] = actual == expected
+            result['tail_preserved'] = actual[16384:] == original[16384:]
+            assert result['whole_flash_matches'] and result['tail_preserved'], 'Whole Flash mismatch; do not boot'
+            target.reset()
+            result['actual_actions'].append('reset_verified_application')
+            time.sleep(1)
+            samples = []
+            result['boot_samples'] = samples
+            for index in range(12):
+                guardian = bytes(target.read_memory_block8(addresses['guardian'], 36))
+                sample = dict(state=guardian[0], reason=guardian[1],
+                              ccer=target.read32(0x40000820),
+                              milliseconds=target.read32(addresses['milliseconds']))
+                samples.append(sample)
+                assert sample['ccer'] == 0, 'Unexpected PWM register enable'
+                assert sample['state'] in (0, 4), 'Unexpected armed boot state'
+                time.sleep(.25)
+            assert samples[-1]['milliseconds'] > samples[0]['milliseconds'], 'Tick not advancing'
+            result['boot_stopped'] = all(s['state'] == 0 for s in samples)
+            result['boot_reason_zero'] = all(s['reason'] == 0 for s in samples)
+            assert result['boot_stopped'] and result['boot_reason_zero'], 'Unexpected boot fault/reason'
+            result['core_running'] = not bool(target.read32(0xe000edf0) & (1 << 17))
+            assert result['core_running']
+    result['stage'] = 'complete'
+    result['verdict'] = 'PASS'
+except Exception:
+    result['verdict'] = 'FAIL'
+    result['error'] = traceback.format_exc()
+    raise
+finally:
+    destination.write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
+print(json.dumps(result, indent=2), flush=True)

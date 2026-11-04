@@ -1,0 +1,53 @@
+"""Explicit live READ ONLY capture. No CPU halt/reset, writes or serial commands."""
+import hashlib,json,sys,time
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from elftools.elf.elffile import ELFFile
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+stage=Path(__file__).parent
+devices=STLinkUSBInterface.get_all_connected_devices()
+if len(devices)!=1:raise RuntimeError('Expected exactly one ST-Link; no probe selected')
+link=STLink(devices[0]);link.open()
+def read(a,n):return bytes(link.read_mem32(a,n,0,0))
+def word(a):return int.from_bytes(read(a,4),'little')
+def regs():return dict(dhcsr=word(0xe000edf0),tim4_cr1=word(0x40000800),tim4_ccer=word(0x40000820),
+                      ccr1=word(0x40000834),ccr2=word(0x40000838),ccr3=word(0x4000083c),ccr4=word(0x40000840))
+result=dict(scope='live read-only Flash/register capture, not motion acceptance',actions=[],hardware_writes=[],
+            user_laser_power='physically disconnected per current user confirmation',user_servo_power='connected')
+try:
+ link.set_swd_frequency(1000000);link.enter_debug(STLink.Protocol.SWD)
+ result['before']=regs()
+ copies=[]
+ for index in [1,2]:
+  data=b''.join(read(0x08000000+offset,min(16384,524288-offset)) for offset in range(0,524288,16384))
+  (stage/'backup'/f'flash-read{index}.bin').write_bytes(data)
+  copies.append(data)
+ result['flash_bytes']=len(copies[0]);result['two_reads_equal']=copies[0]==copies[1]
+ if not result['two_reads_equal']:raise RuntimeError('Flash copies differ; no interpretation')
+ result['flash_sha256']=hashlib.sha256(copies[0]).hexdigest()
+ fw=Path('R:/evidence/c1-loop/arm/latest-usart3-s1ack1-c1-loop')
+ expected=(fw/'skystar_tracking.bin').read_bytes()
+ result['known_candidate_prefix_match']=copies[0][:len(expected)]==expected
+ result['known_candidate_bytes']=len(expected)
+ result['known_candidate_sha256']=hashlib.sha256(expected).hexdigest()
+ if result['known_candidate_prefix_match']:
+  with (fw/'skystar_tracking.axf').open('rb') as f:
+   syms=ELFFile(f).get_section_by_name('.symtab')
+   addresses={n:syms.get_symbol_by_name(n)[0]['st_value'] for n in ['guardian','milliseconds']}
+  live=[]
+  for _ in range(3):
+   g=read(addresses['guardian'],4)
+   live.append(dict(state=g[0],reason=g[1],milliseconds=word(addresses['milliseconds']),**regs()))
+   time.sleep(.2)
+  result['live_samples']=live
+ result['after']=regs()
+ result['core_halted_before']=bool(result['before']['dhcsr']&(1<<17))
+ result['core_halted_after']=bool(result['after']['dhcsr']&(1<<17))
+ result['capture']='PASS'
+except Exception as e:
+ result['capture']='FAIL';result['error_type']=type(e).__name__;result['error']=str(e)
+ raise
+finally:
+ link.close();(stage/'readonly-capture.json').write_text(json.dumps(result,indent=2))
+print(json.dumps(result,indent=2))

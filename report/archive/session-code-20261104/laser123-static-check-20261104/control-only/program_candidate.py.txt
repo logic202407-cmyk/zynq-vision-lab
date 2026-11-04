@@ -1,0 +1,99 @@
+"""Authorized sector-0 C1 deployment. Never touches FPGA or actuator commands."""
+import argparse,hashlib,json,logging,time,traceback
+from pathlib import Path
+import sys
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+from pyocd.core.target import Target
+from pyocd.flash.file_programmer import FileProgrammer
+
+ROOT=Path(__file__).resolve().parent
+PROBE='REDACTED_DEVICE_ID'
+BIN_HASH='69fa421d5ebc56780c5d48e083a04167f56f3d3ff3ab4f5f1030ca85b8a06fd5'
+BEFORE_HASH='df8fb82c5188e4087ef44fc3efe67c17e735424dd450e22f31fb7db55447642a'
+PACK_HASH='345231106fe697df24bbE9133aeeec1b0383d7891c4adf4f47bbb8b478e9f2f0'.lower()
+digest=lambda b:hashlib.sha256(b).hexdigest()
+p=argparse.ArgumentParser()
+p.add_argument('--program-authorized',action='store_true')
+p.add_argument('--output',type=Path,required=True)
+a=p.parse_args()
+if not a.program_authorized:raise SystemExit('Explicit --program-authorized required')
+a.output.mkdir(parents=True,exist_ok=False)
+logging.basicConfig(level=logging.INFO,handlers=[logging.FileHandler(a.output/'backend.log'),logging.StreamHandler()])
+result={'phase':'file_checks','programming_started':False,'full_readback_equal':False,'programmed_range':['0x08000000','0x08003fff']}
+session=None
+def save(): (a.output/'result.json').write_text(json.dumps(result,indent=2))
+def require(value,message):
+ if not value:raise RuntimeError(message)
+def read_full(t):
+ data=bytearray()
+ for offset in range(0,524288,4096):
+  chunk=bytes(t.read_memory_block8(0x08000000+offset,4096))
+  require(len(chunk)==4096,'Short Flash read')
+  data.extend(chunk)
+ return bytes(data)
+try:
+ binary=(ROOT/'build/skystar_tracking.bin').read_bytes()
+ pack=Path('R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack')
+ require(len(binary)==10836 and digest(binary)==BIN_HASH,'Candidate mismatch')
+ require(digest(pack.read_bytes())==PACK_HASH,'Pack mismatch')
+ probes=ConnectHelper.get_all_connected_probes(blocking=False)
+ result['probes']=[x.unique_id for x in probes]
+ require(result['probes']==[PROBE],'Expected only the recorded ST-Link')
+ options={'no_config':True,'target_override':'stm32f407vetx','pack':str(pack),
+          'connect_mode':'halt','frequency':1000000,'auto_unlock':False,
+          'resume_on_disconnect':False,'cache.enable_memory':False,
+          'cache.enable_register':False,'cache.read_code_from_elf':False,
+          'chip_erase':'sector','smart_flash':False,'fast_program':False,
+          'enable_swv':False}
+ result['options']=options;result['phase']='connect';save()
+ session=ConnectHelper.session_with_chosen_probe(unique_id=PROBE,blocking=False,options=options)
+ require(session is not None,'No matching session')
+ session.open();t=session.target;t.halt()
+ result['chip_id']=hex(t.read32(0xe0042000))
+ result['flash_kib']=t.read16(0x1fff7a22)
+ require(result['chip_id']=='0x101f6413' and result['flash_kib']==512,'Target identity/capacity mismatch')
+ region=t.memory_map.get_region_for_address(0x08000000)
+ require(region is not None and region.is_flash and region.flash is not None,'Missing Flash algorithm')
+ info=region.flash.get_sector_info(0x08000000)
+ require(info.base_addr==0x08000000 and info.size==16384,'Wrong first-sector geometry')
+ result['sector_size']=info.size;result['phase']='backup';save()
+ before=read_full(t);(a.output/'backup-full.bin').write_bytes(before)
+ result['backup_sha256']=digest(before)
+ require(result['backup_sha256']==BEFORE_HASH,'Flash changed since reviewed backup; no programming')
+ require(bytes(t.read_memory_block8(0x08000000,65536))==before[:65536],'Repeat read mismatch')
+ sector=binary+b'\xff'*(16384-len(binary));expected=sector+before[16384:]
+ sector_path=a.output/'sector0.bin';sector_path.write_bytes(sector)
+ (a.output/'expected-full.bin').write_bytes(expected)
+ result['expected_sha256']=digest(expected)
+ t.reset_and_halt(Target.ResetType.SYSRESETREQ); t.write_core_register('primask',1); require(t.read_core_register('primask')==1,'Interrupt mask failed'); require(not(t.read32(0x40023c0c)&(1<<16)),'Flash busy'); result['phase']='program_sector0';result['programming_started']=True;save()
+ FileProgrammer(session,chip_erase='sector',smart_flash=False,trust_crc=False,
+                keep_unwritten=False).program(str(sector_path),file_format='bin',base_address=0x08000000)
+ t.halt();result['phase']='full_readback';save()
+ after=read_full(t);(a.output/'readback-full.bin').write_bytes(after)
+ result['readback_sha256']=digest(after)
+ result['full_readback_equal']=after==expected;save()
+ require(result['full_readback_equal'],'Full readback mismatch; leave halted and report')
+ t.reset_and_halt(Target.ResetType.SYSRESETREQ)
+ t.resume();result['phase']='boot_check';save()
+ time.sleep(1)
+ result['boot_ccer']=hex(t.read32(0x40000820))
+ result['boot_pe2_odr']=hex(t.read32(0x40021014))
+ require(not(int(result['boot_pe2_odr'],16)&12),'PE2/PE3 unexpectedly high')
+ result['boot_pb0_odr']=t.read32(0x40020414)&1
+ require(result['boot_pb0_odr']==0,'PB0 unexpectedly high')
+ result['boot_tim1_ccer']=hex(t.read32(0x40010020))
+ require(int(result['boot_tim1_ccer'],16)==0,'TIM1 PWM unexpectedly enabled')
+ result['boot_dhcsr']=hex(t.read32(0xe000edf0))
+ require(int(result['boot_ccer'],16)==0,'PWM unexpectedly enabled')
+ require(not(int(result['boot_dhcsr'],16)&(1<<17)),'Core did not resume')
+ result['phase']='complete';result['note']='Flash verified, core running, PWM off; UART/F1 not yet accepted';save()
+ print('RESULT_DIRECTORY='+str(a.output),flush=True)
+except Exception:
+ result['error']=traceback.format_exc();result['phase']='failed';save()
+ if session is not None:
+  try:session.target.halt()
+  except Exception:pass
+ raise
+finally:
+ if session is not None:session.close()

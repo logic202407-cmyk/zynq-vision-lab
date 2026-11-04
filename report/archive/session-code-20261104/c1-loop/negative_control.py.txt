@@ -1,0 +1,15 @@
+from pathlib import Path
+import shutil,subprocess,json
+root=Path('R:/c1-repo');base=Path('R:/evidence/c1-loop');s=base/'start-guard-negative';s.mkdir(exist_ok=False)
+for n in ['uart_tx_8n1.v','uart_rx.v','visual_loop_tb.v']:shutil.copyfile(base/'unit4'/n,s/n)
+shutil.copyfile(base/'final1/gimbal1_visual_loop.v',s/'gimbal1_visual_loop.v')
+(s/'run.tcl').write_text('run all\nquit\n')
+rows=[]
+for name,args in [('xvlog',['uart_tx_8n1.v','uart_rx.v','gimbal1_visual_loop.v','visual_loop_tb.v']),('xelab',['visual_loop_tb','-s','negative']),('xsim',['negative','-tclbatch','run.tcl'])]:
+ cmd=[str(Path('D:/Vivado/Vivado/2024.2/bin')/(name+'.bat'))]+args
+ p=subprocess.run(cmd,cwd=s,capture_output=True,timeout=240);out=p.stdout+p.stderr
+ (s/(name+'.txt')).write_bytes(out);rows.append(dict(command=cmd,exit_code=p.returncode))
+ assert p.returncode==0
+ if name=='xsim':assert b'Fatal: stale feedback lease' in out and b'VISUAL_LOOP_PASS' not in out
+(s/'result.json').write_text(json.dumps(dict(verdict='EXPECTED_FAIL_OLD_RTL',reason='Active start incorrectly renewed the feedback deadline before guard fix',commands=rows,hardware_actions=[]),indent=2))
+print('NEGATIVE_CONTROL_EXPECTED_FAIL_CONFIRMED')

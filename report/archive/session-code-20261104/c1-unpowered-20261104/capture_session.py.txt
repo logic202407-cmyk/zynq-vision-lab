@@ -1,0 +1,20 @@
+import sys,time,json,datetime,collections,binascii
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+import serial
+folder=Path(__file__).parent; tag=datetime.datetime.now().strftime('%Y%m%d-%H%M%S-%f');data=bytearray()
+s=serial.Serial(port=None,baudrate=115200,timeout=.05);s.dtr=False;s.rts=False;s.port='COM17'
+try:
+ s.open();start=time.monotonic()
+ while time.monotonic()-start<25:data.extend(s.read(8192))
+finally:s.close()
+(folder/('session-'+tag+'-private.bin')).write_bytes(data)
+c=collections.Counter();bad=0
+for x in data.splitlines():
+ typ=x.split(b' ')[0].decode('ascii','replace');c[typ]+=1
+ if typ in ('S1SYNC','V2A','F1','S1ACK'):
+  try:
+   body,crc=x.rsplit(b'*',1);bad+=binascii.crc_hqx(body,65535)!=int(crc,16)
+  except Exception:bad+=1
+result={'bytes':len(data),'counts':dict(c),'protected_crc_errors':bad,'uart_tx_bytes':0}
+(folder/('session-'+tag+'.json')).write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))

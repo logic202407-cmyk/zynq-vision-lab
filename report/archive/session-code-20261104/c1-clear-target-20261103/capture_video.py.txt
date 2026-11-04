@@ -1,0 +1,43 @@
+"""Finite existing-camera UDP diagnostic. No UART commands or actuators."""
+import dataclasses
+import json
+import socket
+import sys
+import time
+from pathlib import Path
+sys.path.insert(0,'R:/clock-repo')
+from src.pc.vendor_udp import FrameAssembler,BOARD_IP,PC_IP,UDP_PORT,START_COMMAND,STOP_COMMAND
+from src.pc.camera_viewer import rgb565_be_to_image
+out=Path(__file__).parent
+assert not (out/'video-result-private.json').exists()
+assembler=FrameAssembler();last=None;samples=[];valid=0;error=None
+sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+sock.setsockopt(socket.SOL_SOCKET,socket.SO_RCVBUF,8*1024*1024)
+sock.bind((PC_IP,UDP_PORT));sock.settimeout(.04)
+start=time.monotonic()
+try:
+    sock.sendto(START_COMMAND,(BOARD_IP,UDP_PORT))
+    while time.monotonic()-start<10:
+        try:packet,peer=sock.recvfrom(4096)
+        except socket.timeout:continue
+        if peer[0]!=BOARD_IP:continue
+        frame=assembler.feed(packet)
+        if frame:
+            last=frame
+            measurement=frame.previous_measurement
+            if measurement:
+                valid+=int(measurement.target_valid)
+                if len(samples)<20:samples.append(dataclasses.asdict(measurement))
+except Exception as exc:
+    error=type(exc).__name__+': '+str(exc)
+finally:
+    sock.sendto(STOP_COMMAND,(BOARD_IP,UDP_PORT));sock.close()
+if last:rgb565_be_to_image(last).save(out/'fpga-frame-private.png')
+result=dict(scope='Existing FPGA OV5640 UDP only, not MCU measurement acceptance or tracking',
+    seconds=round(time.monotonic()-start,3),complete_frames=assembler.completed,
+    incomplete_frames=assembler.incomplete,malformed=assembler.malformed,
+    valid_target_frames=valid,measurement_samples=samples,error=error)
+result['verdict']='PASS' if not error and result['complete_frames']>0 else 'NO_FRAMES'
+(out/'video-result-private.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({k:v for k,v in result.items() if k!='measurement_samples'}))
+sys.exit(0 if result['verdict']=='PASS' else 1)

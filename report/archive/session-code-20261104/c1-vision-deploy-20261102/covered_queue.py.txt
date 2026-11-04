@@ -1,0 +1,17 @@
+import sys,json
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from elftools.elf.elffile import ELFFile
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+out=Path(__file__).parent;fw=out.parent/'c1-vision-qualification-20261102/arm/latest-usart3-s1ack1-c1-loop'
+with (fw/'skystar_tracking.axf').open('rb') as f:
+ s=ELFFile(f).get_section_by_name('.symtab');q=[x for x in s.get_symbol_by_name('vision') if x['st_size']==1284];assert len(q)==1;address=q[0]['st_value']
+p=STLinkUSBInterface.get_all_connected_devices();assert len(p)==1
+l=STLink(p[0]);l.open();l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+try:
+ data=bytes(l.read_mem32(address,260,0,0))[4:];doubled=data+data
+ frames=[doubled[i:i+8] for i in range(256) if doubled[i]==0xaa and doubled[i+1]==0xff and doubled[i+7]==0xee]
+ values=[dict(dx=int.from_bytes(f[2:4],'little',signed=True),dy=int.from_bytes(f[4:6],'little',signed=True),flag=f[6]) for f in frames]
+ r=dict(scope='One live SRAM ring-buffer snapshot; may race MCU writes, not a complete stream',matching_headers=len(values),flag0=sum(x['flag']==0 for x in values),flag1=sum(x['flag']==1 for x in values),examples=values[:4]);(out/'covered-queue.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r))
+finally:l.close()

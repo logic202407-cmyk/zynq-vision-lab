@@ -1,0 +1,36 @@
+from pathlib import Path
+import hashlib,json,subprocess,shutil
+root=Path('R:/c1-repo'); stage=Path('R:/evidence/c1-readiness')
+out=root/'report/evidence/c1-readiness';out.mkdir(parents=True,exist_ok=True)
+for name in ['audit.json','board-reference.json']:
+    shutil.copyfile(stage/name,out/name)
+for run in ['cdc-run1','cdc-run2']:
+    shutil.copyfile(stage/run/'result.json',out/(run+'-result.json'))
+    for p in (stage/run).glob('*/*.txt'):
+        shutil.copyfile(p,out/(run+'-'+p.parent.name+'-'+p.name))
+    # Retain the actual generated test stimulus, including first failing run.
+    for p in (stage/run).glob('*/vision_cdc_tb.v'):
+        shutil.copyfile(p,out/(run+'-'+p.parent.name+'-stimulus.v'))
+status=root/'report/status.json';j=json.loads(status.read_text(encoding='utf8'))
+entry=dict(id='c1_cdc_board_readiness_review',status='simulated',
+ verified_commit='6a76f5a0e553dfa2cc096dc2c86ce05cfdb0cb66',
+ tool_version='Vivado XSim 2024.2; Python 3.12.4',
+ reviewer='Codex offline self-check; physical and independent review pending',
+ evidence=['docs/c1_board_readiness.md','report/experiments/2026-11-01-c1-readiness.md',
+ 'report/evidence/c1-readiness/audit.json','report/evidence/c1-readiness/cdc-run2-result.json'],
+ note='219 historical routed CDC payload paths audited without waiver; 5 full-width clock/phase cases passed. Vendor clock references verified, not measured. Epoch interval provider and guards remain planned; board clock/IO/reset/electrical/epoch blockers remain. No hardware actions.')
+# Preserve the repository schema; locate the existing list by its known entry.
+items=next(v for v in j.values() if isinstance(v,list) and any(isinstance(x,dict) and x.get('id')=='c1_visual_shared_link' for x in v))
+items[:]=[x for x in items if x.get('id')!=entry['id']];items.append(entry)
+status.write_text(json.dumps(j,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+commands=[]
+for name,args in [('audit',['tools/audit_c1_readiness.py','--output',str(out/'audit.json')]),
+                  ('repository',['tools/check_repository.py']),
+                  ('unittest',['-m','unittest','discover','-s','tests','-v'])]:
+    cmd=['D:/Python312/python.exe','-X','utf8']+args
+    p=subprocess.run(cmd,cwd=root,capture_output=True)
+    (out/(name+'.txt')).write_bytes(p.stdout+p.stderr)
+    commands.append(dict(command=cmd,exit_code=p.returncode))
+    print(name,p.returncode,(p.stdout+p.stderr).decode('utf8',errors='replace')[-350:])
+(out/'commands.json').write_text(json.dumps(commands,indent=2)+'\n')
+assert all(x['exit_code']==0 for x in commands)

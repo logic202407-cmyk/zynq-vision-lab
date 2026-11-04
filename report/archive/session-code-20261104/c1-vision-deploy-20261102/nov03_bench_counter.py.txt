@@ -1,0 +1,15 @@
+import sys,struct,json
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from elftools.elf.elffile import ELFFile
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+out=Path(__file__).parent;fw=out.parent/'c1-vision-qualification-20261102/arm/latest-usart3-s1ack1-c1-loop'
+with (fw/'skystar_tracking.axf').open('rb') as f:base=ELFFile(f).get_section_by_name('.symtab').get_symbol_by_name('observation_devices')[0]['st_value']
+with Path('R:/evidence/c1-live-preflight-20261102/observation_layout.o').open('rb') as f:
+ e=ELFFile(f);s=e.get_section_by_name('.symtab').get_symbol_by_name('layout')[0];v=struct.unpack('<18I',e.get_section(s['st_shndx']).data()[s['st_value']:s['st_value']+72])
+size,pwm,frames,dx,dy,valid=v[12:18];probes=STLinkUSBInterface.get_all_connected_devices();assert len(probes)==1
+l=STLink(probes[0]);l.open();l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+try:
+ d=bytes(l.read_mem32(base,((size+3)//4)*4,0,0));r=dict(scope='Read-only MCU OpenMV state, no reset or actuation',frames=int.from_bytes(d[frames:frames+4],'little'),dx=int.from_bytes(d[dx:dx+2],'little',signed=True),dy=int.from_bytes(d[dy:dy+2],'little',signed=True),valid=d[valid],software_pwm=d[pwm]);(out/'nov03-bench-counter.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r))
+finally:l.close()

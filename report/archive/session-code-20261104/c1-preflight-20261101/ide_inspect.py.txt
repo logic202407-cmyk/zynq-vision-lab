@@ -1,0 +1,12 @@
+import ctypes
+from PIL import ImageGrab
+u=ctypes.windll.user32
+found=[]
+@ctypes.WINFUNCTYPE(ctypes.c_bool,ctypes.c_void_p,ctypes.c_void_p)
+def enum(h,p):
+ if u.IsWindowVisible(h):
+  b=ctypes.create_unicode_buffer(512);u.GetWindowTextW(h,b,512)
+  if 'OpenMV' in b.value:found.append((h,b.value))
+ return True
+u.EnumWindows(enum,0);print(found)
+ImageGrab.grab().save('R:/evidence/c1-preflight-20261101/ide-before.png')

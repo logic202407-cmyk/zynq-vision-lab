@@ -1,0 +1,46 @@
+import json,re,subprocess,hashlib,sys
+from pathlib import Path
+root=Path('R:/c1-repo');base=Path('R:/evidence/c1-integration');pub=root/'report/evidence/c1-integration';pub.mkdir(parents=True,exist_ok=True)
+def clean(t):
+    t=re.sub(r'^\| Host\s*:.*$', '| Host : REDACTED',t,flags=re.M)
+    t=t.replace('LAPTOP-TU4U942T','REDACTED_HOST')
+    t=re.sub(r'[A-Za-z]:[\\/]Users[\\/][^\\/\s]+', '<USER>',t)
+    return t
+def copy(src,dest):
+    (pub/dest).write_text(clean(src.read_text(encoding='utf-8',errors='replace')),encoding='utf-8')
+for p in (base/'acceptance3').glob('*.log'):copy(p,'c1-'+p.name)
+copy(base/'acceptance3/result.json','c1-result.json');copy(base/'acceptance3/commands.json','c1-commands.json')
+for name in ('c1_timing.rpt','c1_utilization.rpt','c1_drc.rpt'):copy(base/name,name)
+copy(base/'.vivado-ai/vivado_25242373_de427b2c.log','vivado.log')
+arm=json.loads((base/'arm-build/latest-usart3-s1ack1-c1/build.json').read_text())
+arm.pop('private_build_stage',None);(pub/'arm-build.json').write_text(json.dumps(arm,indent=2))
+for p in sorted((base/'arm-build').glob('20*/*.log')):copy(p,'arm-'+p.name)
+fail={'run':'acceptance2','exit_code':1,'input':'S1 arm then PAN 1550 in register model',
+      'assertion':'model_state()==1 and CCER==17','actual':'SAFE_MANUAL=2; wrong new-test state expectation',
+      'fix':'expect SAFE_MANUAL=2 per existing safety.h; no production safety or frozen tests changed',
+      'rerun':'acceptance3 PASS'}
+(pub/'failures.json').write_text(json.dumps([fail],indent=2))
+commands=[]
+for name in ('result.json','commands.json','source-sha256.json'):
+    if not (pub/name).exists():(pub/name).write_text(json.dumps({'status':'pending_collection'}))
+copy(base/'unittest-missing-evidence.log','unittest-initial-failure.log')
+for name,args in [('ui',['tools/check_c1_ui.py']),('unittest',['-m','unittest','discover','-s','tests','-v'])]:
+    p=subprocess.run([sys.executable,*args],cwd=root,capture_output=True)
+    (pub/(name+'.log')).write_text(clean((p.stdout+p.stderr).decode('utf-8','replace')),encoding='utf-8')
+    commands.append(dict(name=name,command=[sys.executable,*args],exit_code=p.returncode))
+    assert p.returncode==0,(name,p.stderr)
+suite=json.loads((base/'b2-regression/suite.json').read_text()) if (base/'b2-regression/suite.json').exists() else None
+if suite:
+    copy(base/'b2-regression/suite.json','b2-suite.json');copy(base/'b2-regression/c-tests.log','b2-c-tests.log')
+    for folder in ('a','b','auth','legacy'):
+        for p in (base/'b2-regression'/folder).glob('*.log'):copy(p,'b2-'+folder+'-'+p.name)
+result={'scope':'offline candidate; no hardware operations','c1_named_checks':15,'c1_uart_packets':3,'c1_uart_bytes':336,
+        'tk_checks':3,'new_python_tests':6,'b2':suite,'arm_errors':0,'arm_warnings':0,
+        'vivado':dict(version='2024.2',exit_code=0,lut=1623,ff=405,latch=0,wns_ns=5.921,no_input_delay=296,no_output_delay=42,board_timing_verified=False),
+        'commands':commands,'hardware_actions':[]}
+(pub/'result.json').write_text(json.dumps(result,indent=2))
+(pub/'commands.json').write_text(json.dumps(commands,indent=2))
+paths=subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard'],cwd=root,text=True).splitlines()
+hashes={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths if p.startswith(('src/','sim/c1/','tools/check_c1','tests/test_c1','build/check_c1')) and (root/p).is_file()}
+(pub/'source-sha256.json').write_text(json.dumps(hashes,indent=2))
+print(json.dumps(result,indent=2))

@@ -1,0 +1,81 @@
+`timescale 1ns/1ps
+// White-box fault injection into the actual B2 state machine; no hardware.
+module two_axis_handoff_race_tb;
+ reg clk=0,reset_n=0,center=0,stop_req=0;
+ wire old_command,old_rejected,new_command,new_rejected;
+ wire[1:0] old_axis,new_axis;wire[15:0] old_pulse,new_pulse;
+ wire old_owner,old_fault,new_owner,new_fault,old_stop,new_stop;
+ wire[3:0] old_state,new_state;wire old_pc,old_tx,new_pc,new_tx;
+ wire[31:0] old_count,new_count;wire[15:0] old_pan,old_tilt,new_pan,new_tilt;
+ wire[1:0] old_mask,new_mask;
+ wire guarded_command,guarded_rejected,guarded_ready,guarded_owner,guarded_fault,guarded_stop;
+ wire[1:0] guarded_axis,guarded_mask;wire[15:0] guarded_pulse,guarded_pan,guarded_tilt;
+ wire[3:0] guarded_state;wire[31:0] guarded_count;wire guarded_pc,guarded_tx;
+ always #5 clk=~clk;
+ c1_two_axis_step_gate old_gate(clk,reset_n,old_owner&&!old_fault&&old_state==4,
+   2'd0,1'b0,center,old_command,old_rejected,old_axis,old_pulse);
+ c1_two_axis_step_gate_v2 new_gate(clk,reset_n,new_owner&&!new_fault&&new_state==4&&!stop_req,
+   2'd0,1'b0,center,new_command,new_rejected,new_axis,new_pulse);
+ c1_two_axis_step_gate_v2 guarded_gate(clk,reset_n,guarded_ready,
+   2'd0,1'b0,center,guarded_command,guarded_rejected,guarded_axis,guarded_pulse);
+ zynq_motion_s1 #(.CLOCK_HZ(1000000),.BAUD(100000)) old_motion(
+   .clk(clk),.reset_n(reset_n),.query(1'b0),.authorize(1'b0),.command(old_command),
+   .stop_request(stop_req),.axis(old_axis),.pulse_us(old_pulse),.epoch(128'd1),
+   .request_local(1'b1),.pc_quiet_ack(1'b1),.pc_rx(1'b1),.mcu_rx(1'b1),
+   .pc_tx(old_pc),.mcu_tx(old_tx),.owner(old_owner),.fault(old_fault),.stop_confirmed(old_stop),
+   .state(old_state),.accepted_count(old_count),.pan_target(old_pan),.tilt_target(old_tilt),.pwm_mask(old_mask));
+ zynq_motion_s1 #(.CLOCK_HZ(1000000),.BAUD(100000)) new_motion(
+   .clk(clk),.reset_n(reset_n),.query(1'b0),.authorize(1'b0),.command(new_command),
+   .stop_request(stop_req),.axis(new_axis),.pulse_us(new_pulse),.epoch(128'd1),
+   .request_local(1'b1),.pc_quiet_ack(1'b1),.pc_rx(1'b1),.mcu_rx(1'b1),
+   .pc_tx(new_pc),.mcu_tx(new_tx),.owner(new_owner),.fault(new_fault),.stop_confirmed(new_stop),
+   .state(new_state),.accepted_count(new_count),.pan_target(new_pan),.tilt_target(new_tilt),.pwm_mask(new_mask));
+ zynq_motion_s1_guarded #(.CLOCK_HZ(1000000),.BAUD(100000)) guarded_motion(
+   .clk(clk),.reset_n(reset_n),.query(1'b0),.authorize(1'b0),.command(guarded_command),
+   .stop_request(stop_req),.axis(guarded_axis),.pulse_us(guarded_pulse),.epoch(128'd1),
+   .request_local(1'b1),.pc_quiet_ack(1'b1),.pc_rx(1'b1),.mcu_rx(1'b1),
+   .pc_tx(guarded_pc),.mcu_tx(guarded_tx),.owner(guarded_owner),.fault(guarded_fault),.stop_confirmed(guarded_stop),
+   .state(guarded_state),.accepted_count(guarded_count),.pan_target(guarded_pan),.tilt_target(guarded_tilt),
+   .pwm_mask(guarded_mask),.command_ready(guarded_ready));
+ initial begin
+  repeat(3) @(negedge clk);reset_n=1;repeat(3) @(negedge clk);
+  // Fixture places both actual controllers at READY with heartbeat due now.
+  old_motion.owner=1;old_motion.state=4;old_motion.authorized=1;
+  old_motion.now_ms=100;old_motion.auth_at=100;old_motion.live_at=0;old_motion.seq=0;
+  new_motion.owner=1;new_motion.state=4;new_motion.authorized=1;
+  new_motion.now_ms=100;new_motion.auth_at=100;new_motion.live_at=0;new_motion.seq=0;
+  guarded_motion.owner=1;guarded_motion.state=4;guarded_motion.authorized=1;
+  guarded_motion.now_ms=100;guarded_motion.auth_at=100;guarded_motion.live_at=0;guarded_motion.seq=0;
+  center=1;@(posedge clk);#1;
+  if(old_state!==1 || old_motion.op!==5 || old_command!==1 || old_rejected!==0)
+    begin $display("FAIL old race not reproduced");$fatal(1);end
+  if(new_state!==1 || new_motion.op!==2 || new_motion.expected_pan!==1500 || new_rejected!==0)
+    begin $display("FAIL v2 did not prioritize PAN");$fatal(1);end
+  if(guarded_state!==1 || guarded_motion.op!==2)begin $display("FAIL guarded heartbeat race");$fatal(1);end
+  @(posedge clk);#1;
+  if(old_motion.op!==5 || old_motion.seq!==1)begin $display("FAIL old changed operation");$fatal(1);end
+  // The wrapper must suppress a simultaneous explicit STOP and command.
+  @(negedge clk);reset_n=0;center=0;repeat(3) @(negedge clk);reset_n=1;repeat(3) @(negedge clk);
+  new_motion.owner=1;new_motion.state=4;new_motion.authorized=1;
+  new_motion.now_ms=10;new_motion.auth_at=10;new_motion.live_at=10;new_motion.seq=0;
+  center=1;stop_req=1;@(posedge clk);#1;
+  if(new_motion.op===2 || new_command!==0)begin $display("FAIL command during STOP");$fatal(1);end
+  @(posedge clk);#1;
+  if(new_motion.op!==6 || new_state!==1)begin $display("FAIL explicit STOP did not launch");$fatal(1);end
+  // Expose, do not conceal, the separate B2 expiry-edge limitation.
+  @(negedge clk);reset_n=0;center=0;stop_req=0;repeat(3) @(negedge clk);reset_n=1;repeat(3) @(negedge clk);
+  new_motion.owner=1;new_motion.state=4;new_motion.authorized=1;
+  new_motion.now_ms=30000;new_motion.auth_at=0;new_motion.live_at=30000;new_motion.seq=0;
+  guarded_motion.owner=1;guarded_motion.state=4;guarded_motion.authorized=1;
+  guarded_motion.now_ms=30000;guarded_motion.auth_at=0;guarded_motion.live_at=30000;guarded_motion.seq=0;
+  center=1;@(posedge clk);#1;
+  if(new_motion.op!==2 || new_state!==1 || new_motion.cancel_pending!==1)
+   begin $display("FAIL expected expiry-edge limitation not reproduced");$fatal(1);end
+  if(guarded_motion.op===2 || guarded_command!==0 || guarded_rejected!==1)
+   begin $display("FAIL guarded accepted expired command");$fatal(1);end
+  @(posedge clk);#1;
+  if(guarded_motion.op!==6 || guarded_state!==1)begin $display("FAIL guarded expiry STOP");$fatal(1);end
+  $display("HANDOFF_RACE_PASS old_lost=1 v2_prioritizes_command=1 stop_priority=1 expiry_limit_exposed=1 guarded_expiry_stop=1");$finish;
+ end
+ initial begin #20000;$display("FAIL timeout");$fatal(1);end
+endmodule

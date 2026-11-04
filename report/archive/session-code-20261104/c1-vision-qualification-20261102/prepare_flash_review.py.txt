@@ -1,0 +1,41 @@
+"""Read-only backup and file preparation. Never erases/programs/halts/resets."""
+import hashlib,json,sys
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+stage=Path(__file__).parent;backup=stage/'backup-current-flash';backup.mkdir(exist_ok=False)
+candidate=(stage/'arm/latest-usart3-s1ack1-c1-loop/skystar_tracking.bin').read_bytes()
+assert len(candidate)<=16384
+devices=STLinkUSBInterface.get_all_connected_devices()
+if len(devices)!=1:raise RuntimeError('Exactly one ST-Link required')
+link=STLink(devices[0]);link.open()
+try:
+    link.set_swd_frequency(1000000);link.enter_debug(STLink.Protocol.SWD)
+    def rd(a,n):return bytes(link.read_mem32(a,n,0,0))
+    def word(a):return int.from_bytes(rd(a,4),'little')
+    capacity=(word(0x1fff7a20)>>16)&0xffff
+    if capacity!=512 or word(0xe0042000)&0xfff!=0x413:
+        raise RuntimeError('Device type/capacity mismatch')
+    if word(0x40000820)!=0:raise RuntimeError('PWM is not off; backup abort')
+    captures=[]
+    for number in (1,2):
+        raw=b''.join(rd(0x08000000+i,1024) for i in range(0,512*1024,1024))
+        (backup/('flash-read'+str(number)+'.bin')).write_bytes(raw);captures.append(raw)
+        print('READ_ONLY_BACKUP_DONE',number,flush=True)
+    if captures[0]!=captures[1]:raise RuntimeError('Double backup mismatch')
+    if word(0x40000820)!=0:raise RuntimeError('PWM changed during read-only backup')
+    proposed=candidate+captures[0][len(candidate):]
+    (stage/'proposed-full-flash.bin').write_bytes(proposed)
+    (stage/'proposed-first-sector.bin').write_bytes(proposed[:16384])
+    digest=lambda value:hashlib.sha256(value).hexdigest()
+    report=dict(scope='READ ONLY + private file preparation; user approval still required for programming',
+        flash_bytes=len(captures[0]),double_backup_equal=True,current_flash_sha256=digest(captures[0]),
+        candidate_bytes=len(candidate),candidate_application_sha256=digest(candidate),
+        proposed_full_flash_sha256=digest(proposed),proposed_sector_sha256=digest(proposed[:16384]),
+        planned_write='First 16KiB sector only; preserve original bytes after new application',
+        actual_hardware_writes=[],actual_halts=[],actual_resets=[],actual_pwm_ccer=0,
+        programming_authorized=False)
+    (stage/'flash-review.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    print(json.dumps(report),flush=True)
+finally:link.close()

@@ -1,0 +1,35 @@
+import json,re,subprocess,sys,hashlib
+from pathlib import Path
+root=Path('R:/c1-repo');base=Path('R:/evidence/c1-link');pub=root/'report/evidence/c1-link';pub.mkdir(parents=True,exist_ok=True)
+def cp(src,dest):
+    t=src.read_text(encoding='utf-8-sig',errors='replace')
+    t=re.sub(r'^\| Host\s*:.*$','| Host : REDACTED',t,flags=re.M).replace('LAPTOP-TU4U942T','REDACTED_HOST')
+    t=re.sub(r'[A-Za-z]:[\\/]Users[\\/][^\\/\s]+','<USER>',t)
+    (pub/dest).write_text('\n'.join(x.rstrip() for x in t.splitlines()).rstrip()+'\n',encoding='utf-8')
+assert json.loads((base/'final/result.json').read_text())['verdict']=='PASS'
+for name in ('result.json','wire.json','commands.json','source-sha256.json'):
+    cp(base/'final'/name,'coupled-'+name)
+for d,prefix in [('final','coupled'),('transport5','transport'),('c1-final','c1-regression')]:
+    for p in (base/d).iterdir():
+        if p.suffix in ('.txt','.log'):cp(p,prefix+'-'+p.stem+'.txt')
+for name in ('result.json','commands.json'):cp(base/'transport5'/name,'transport-'+name)
+cp(base/'c1-final/result.json','c1-regression-result.json')
+for p in base.glob('link*.rpt'):cp(p,p.name)
+for p in (base/'synth-initial').glob('*.rpt'):cp(p,'initial-'+p.name)
+cp(base/'.vivado-ai/vivado_26678879_fcc1ea53.log','vivado.txt')
+for d,n in [('run1','xvlog.log'),('run3','result.json'),('run4','result.json'),('transport1','line_scheduler_tb-xsim.txt')]:cp(base/d/n,'failure-'+d+'-'+n.replace('.log','.txt'))
+arm=json.loads((base/'arm-build/latest-usart3-s1ack1-c1/build.json').read_text());arm.pop('private_build_stage',None)
+(pub/'arm-build.json').write_text(json.dumps(arm,indent=2))
+for p in (base/'arm-build').glob('20*/*.log'):cp(p,'arm-'+p.stem+'.txt')
+commands=[]
+for name,args in [('session',['tools/check_c1_session.py','--stage','R:/evidence/c1-link/final']),('safety',['tools/check_s1ack_c.py','--stage','R:/evidence/c1-link/final']),('repository',['tools/check_repository.py']),('unittest',['-m','unittest','discover','-s','tests','-v'])]:
+    r=subprocess.run([sys.executable,*args],cwd=root,capture_output=True)
+    (pub/(name+'.txt')).write_bytes(r.stdout+r.stderr)
+    commands.append(dict(command=[sys.executable,*args],exit_code=r.returncode));assert r.returncode==0,(name,r.stderr)
+cp(base/'final/session-tests.json','session-tests.json');cp(base/'final/c-tests.json','safety-tests.json')
+result=dict(scope='concurrent XSim and actual C/register model; no hardware',coupled=16,transport_testbenches=4,divider_vectors=64,session_C=12,safety_C=26,c1_regression=15,python=49,arm_errors=0,arm_warnings=0,hardware_actions=[],exit_code=0)
+(pub/'acceptance.json').write_text(json.dumps(result,indent=2));(pub/'commands.json').write_text(json.dumps(commands,indent=2))
+paths=subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard'],cwd=root,text=True).splitlines()
+hashes={p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths if p.startswith(('src/rtl/','src/prototype/skystar_openmv/','sim/c1/','tools/check_c1','build/c1_','build/check_c1')) and (root/p).is_file()}
+(pub/'source-sha256.json').write_text(json.dumps(hashes,indent=2))
+print(json.dumps(result))

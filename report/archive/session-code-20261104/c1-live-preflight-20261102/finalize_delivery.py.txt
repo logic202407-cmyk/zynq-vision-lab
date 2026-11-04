@@ -1,0 +1,137 @@
+"""Audit and hash public recovery evidence; no device access."""
+import hashlib
+import json
+from pathlib import Path
+import re
+import shutil
+import subprocess
+
+repo = Path('R:/clock-repo')
+private = Path(__file__).parent
+output = repo / 'report/evidence/c1-live-recovery-20261102'
+def read(path):
+    return json.loads(path.read_text(encoding='utf-8'))
+def write(path, value):
+    path.write_bytes((json.dumps(value, ensure_ascii=False, indent=2)+'\n').encode('utf-8'))
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+build = read(private/'arm-d/latest-usart3-s1ack1-c1-loop/build.json')
+stage = Path(build['private_build_stage'])
+warnings = []
+for log in stage.glob('*.log'):
+    text = log.read_text(encoding='utf-8')
+    for match in re.finditer(r'(?im)^.*\bWarning:\s*#\d+-[A-Z].*$', text):
+        warnings.append(dict(log=log.name, diagnostic=match.group(0)))
+assert len(warnings)==1 and warnings[0]['log']=='main.log'
+for name, source in [('arm-main-compiler.txt', stage/'main.log'), ('arm-version.txt', stage/'version.log')]:
+    (output/name).write_bytes(source.read_text(encoding='utf-8').encode('utf-8'))
+audit = dict(errors=0, warnings=len(warnings), build_reported_warnings=build['warnings'],
+             build_report_is_inaccurate=True, diagnostics=warnings,
+             source='main.c:77-88; S1ACK1 early return precedes compiled legacy telemetry',
+             counter_defect='build.py case-sensitive warning regex misses ARMCC Warning and records fixed zero',
+             action='Correct report; retain raw log. No controller/build source change or repeat flashing.',
+             original_private_main_log_sha256=sha(stage/'main.log'),
+             fixture_nonce_policy='Host C test log uses a synthetic test nonce, never a live session value.')
+write(output/'compiler-audit.json', audit)
+public_build = read(output/'arm-build.json')
+public_build.update(warnings=1, original_build_reported_warnings=0,
+                    warning_audit='compiler-audit.json', deployment_evidence='restore-result.json')
+write(output/'arm-build.json', public_build)
+commands = read(output/'actual-commands.json')
+for entry in commands['commands']:
+    if 'build.py' in entry['command']:
+        entry.update(warnings=1, original_build_reported_warnings=0, warning_audit='compiler-audit.json')
+write(output/'actual-commands.json', commands)
+status = repo/'report/status.json'
+backup = private/'status-before-finalization.json'
+if not backup.exists():
+    shutil.copy2(status, backup)
+data=read(status)
+data['updated_on']='2026-11-02'
+entry=next(c for c in data['components'] if c['id']=='c1_live_recovery_20261102')
+entry['note']=entry['note'].split(' ARMCC warning audit:')[0]+' ARMCC warning audit: 0 errors, 1 unreachable-code warning; build.py incorrectly summarized 0. No powered or waveform stop acceptance.'
+write(status,data)
+readme=output/'README.md'
+if 'Compiler warning correction' not in readme.read_text(encoding='utf-8'):
+    with readme.open('a',encoding='utf-8') as stream:
+        stream.write('''
+## Compiler warning correction and final checks
+
+- [Compiler audit](compiler-audit.json) corrects the initial zero-warning summary:
+  ARMCC emitted one #111-D unreachable-code warning. The [original log](arm-main-compiler.txt)
+  and [compiler version](arm-version.txt) are retained. No source change or repeat deployment.
+- [Offline checks](offline-checks.json): repository checker, Python 70/70,
+  actual STM32 host model 35,238 assertions, and whitespace checks all exit 0.
+  Logs: [repository](repository.txt), [Python](python-unit.txt), [STM32](stm32-usart3-host.txt).
+  The host test nonce is a synthetic fixture; live nonces and runtime IDs remain private.
+- [Manifest](manifest.json) hashes evidence and current source bytes. Source checkout may
+  use CRLF; the Git blob identity is also recorded for source reproduction.
+
+The initial read-only backup was taken while servo power was still connected, with
+TIM4 registers zero and no halt/reset/write. Servo power was confirmed disconnected
+before the first-sector firmware restore and volatile FPGA configuration.
+''')
+checks=read(output/'offline-checks.json')
+checks['host_compiler']='gcc.exe (tdm64-1) 4.9.2'
+checks['python_test_count']=70
+checks['stm32_assertion_count']=35238
+write(output/'offline-checks.json',checks)
+write(output/'private-script-sha256.json',{p.name:sha(p) for p in private.glob('*.py')})
+
+source_paths=[repo/'src/prototype/skystar_openmv'/Path(n) for n in build['source_sha256']]
+for name, expected in build['source_sha256'].items():
+    assert sha(repo/'src/prototype/skystar_openmv'/Path(name))==expected, name
+source_paths += [repo/p for p in (
+    'src/rtl/c1_observation_link.v', 'src/rtl/zynq_motion_s1.v', 'src/rtl/uart_tx_8n1.v',
+    'src/rtl/uart_rx.v','src/rtl/zynq_uart_bridge.v',
+    'src/prototype/skystar_openmv/stm32_skystar_tracking/build.py',
+    'src/prototype/skystar_openmv/stm32_skystar_tracking/tests/run_checks.py')]
+source_records={p.relative_to(repo).as_posix():dict(sha256=sha(p),
+    git_blob=subprocess.check_output(['git','rev-parse','HEAD:'+p.relative_to(repo).as_posix()],cwd=repo,text=True).strip())
+    for p in source_paths}
+
+# Normalize public text before hashing. Never change private originals.
+for p in [*output.glob('*'),repo/'report/experiments/2026-11-02-c1-live-recovery.md',
+          repo/'report/ai_collaboration/2026-11-02-live-recovery.md']:
+    if p.is_file() and p.suffix in ('.json','.md','.txt'):
+        p.write_bytes(p.read_text(encoding='utf-8').encode('utf-8'))
+raw_copies=private/'raw-delivery-logs'
+raw_copies.mkdir(exist_ok=True)
+for p in output.glob('*.txt'):
+    raw_copy=raw_copies/p.name
+    if not raw_copy.exists():
+        shutil.copy2(p,raw_copy)
+    text=p.read_text(encoding='utf-8')
+    p.write_bytes(((text.rstrip('\n')+'\n') if text else '').encode('utf-8'))
+checks=read(output/'offline-checks.json')
+checks['public_log_normalization']='UTF-8 LF; trailing empty lines trimmed for Git whitespace checks. Original capture copies remain private.'
+for check in checks['commands']:
+    check['log_sha256']=sha(output/check['log'])
+write(output/'offline-checks.json',checks)
+public_paths=[p for p in output.glob('*') if p.is_file() and p.name!='manifest.json']
+runtime_ids=read(private/'diagnostic-ids-private.json')
+def values(value):
+    if isinstance(value,dict):
+        for child in value.values():
+            yield from values(child)
+    elif isinstance(value,list):
+        for child in value:
+            yield from values(child)
+    elif isinstance(value,str) and re.fullmatch(r'[0-9a-fA-F]{16,32}',value):
+        yield value.lower()
+private_matches=[]
+for p in public_paths:
+    text=p.read_text(encoding='utf-8').lower()
+    if any(value in text for value in values(runtime_ids)):
+        private_matches.append(p.name)
+assert not private_matches, 'Runtime identifiers leaked: '+repr(private_matches)
+manifest=dict(source_commit='91ff049041f9e094a34a53e73f98d46a9b0281bf',
+              source_files=source_records,
+              evidence_files={p.name:sha(p) for p in public_paths},
+              manifest_excludes_itself=True,
+              public_log_normalization=checks['public_log_normalization'],
+              scope='Limited unpowered recovery, video/measurement transport, already-off STOP; not motion acceptance',
+              runtime_identifier_scan='PASS; no current diagnostic ID values in public evidence')
+write(output/'manifest.json',manifest)
+print('FINAL_EVIDENCE',len(public_paths),'SOURCE_HASHES',len(source_records),'ARM_WARNINGS',len(warnings),'RUNTIME_ID_SCAN_PASS')

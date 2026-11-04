@@ -1,0 +1,10 @@
+from pathlib import Path
+import hashlib,json
+d=Path('R:/c1-repo/report/evidence/c1-readiness');changes={}
+h=lambda b:hashlib.sha256(b).hexdigest()
+for p in d.glob('*.txt'):
+    b=p.read_bytes();nb=('\n'.join(l.rstrip() for l in b.decode('utf8').splitlines())+'\n').encode()
+    if b!=nb:
+        changes[p.name]={'raw_sha256':h(b),'public_sha256':h(nb)}
+        p.write_bytes(nb)
+(d/'log-normalization.json').write_text(json.dumps(dict(transformation='Line endings and trailing whitespace only. Raw logs retained outside Git.',files=changes),indent=2)+'\n')

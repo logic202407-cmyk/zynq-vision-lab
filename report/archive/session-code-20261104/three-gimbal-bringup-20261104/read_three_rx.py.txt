@@ -1,0 +1,20 @@
+import sys,json,logging,hashlib,time,struct
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+logging.basicConfig(level=logging.ERROR)
+opts={'no_config':True,'target_override':'stm32f407vetx','pack':'R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack','connect_mode':'attach','frequency':1000000,'auto_unlock':False,'resume_on_disconnect':False,'cache.enable_memory':False,'cache.enable_register':False,'cache.read_code_from_elf':False,'enable_swv':False}
+s=ConnectHelper.session_with_chosen_probe(unique_id='REDACTED_DEVICE_ID',blocking=False,options=opts)
+rows=[]
+with s:
+ t=s.target
+ for sample in range(6):
+  now=t.read32(0x20000008);cams=[]
+  for i in range(3):
+   b=bytes(t.read_memory_block8(0x200009f4+i*112,112))
+   received,frames,rejected=struct.unpack_from('<III',b,80)
+   dx,dy=struct.unpack_from('<hh',b,102)
+   cams.append({'id':i+1,'frames':frames,'rejected':rejected,'dx':dx,'dy':dy,'valid':b[106],'age_ms':(now-received)&0xffffffff})
+  rows.append({'tick':now,'cameras':cams,'tim4_ccer':t.read32(0x40000820),'tim1_ccer':t.read32(0x40010020),'pe2_odr':t.read32(0x40021014)})
+  time.sleep(1)
+root=Path('R:/evidence/three-gimbal-bringup-20261104');(root/'three-rx-live.json').write_text(json.dumps(rows,indent=2));print(json.dumps(rows))

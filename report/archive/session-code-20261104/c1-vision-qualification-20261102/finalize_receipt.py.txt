@@ -1,0 +1,83 @@
+import hashlib
+import json
+import shutil
+import subprocess
+from pathlib import Path
+
+root = Path('R:/clock-repo')
+stage = Path(__file__).parent
+evidence = root / 'report/evidence/c1-vision-qualification-20261102'
+
+
+def git(*args):
+    return subprocess.check_output(['git', *args], cwd=root).decode('utf-8').strip()
+
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def write(path, value):
+    path.write_bytes((json.dumps(value, ensure_ascii=False, indent=2) + '\n').encode('utf-8'))
+
+
+head = git('rev-parse', 'HEAD')
+assert head.startswith('e8c32b9'), head
+assert git('branch', '--show-current') == 'work/c1-vision-qualification-20261102'
+manifest = json.loads((evidence / 'manifest.json').read_text(encoding='utf-8'))
+for name, expected in manifest['public_evidence_sha256'].items():
+    assert digest((evidence / name).read_bytes()) == expected, name
+source_objects = {}
+for name, expected in manifest['candidate_source_sha256'].items():
+    normalized = name.replace('\\', '/')
+    assert digest((root / normalized).read_bytes()) == expected, normalized
+    blob = subprocess.check_output(['git', 'show', head + ':' + normalized], cwd=root)
+    source_objects[normalized] = {
+        'git_blob_oid': git('rev-parse', head + ':' + normalized),
+        'git_content_sha256': digest(blob),
+        'tested_working_tree_sha256': expected,
+    }
+
+status_path = root / 'report/status.json'
+backup = stage / 'backup/status-before-delivery.json'
+if not backup.exists():
+    shutil.copy2(status_path, backup)
+status = json.loads(status_path.read_text(encoding='utf-8'))
+component_id = 'c1_vision_quality_candidate_20261102'
+assert not any(c['id'] == component_id for c in status['components'])
+status['components'].append({
+    'id': component_id,
+    'status': 'simulated',
+    'verified_commit': head,
+    'tool_version': 'Vivado/XSim 2024.2; Python 3.12.4; GCC 4.9.2; ARMCC 5.06u5; OpenMV IDE 5.0.0',
+    'reviewer': 'Codex actual offline checks and limited normal-scene RAM observation; independent reproduction pending',
+    'evidence': [
+        'docs/c1_vision_qualification.md',
+        'report/experiments/2026-11-02-c1-vision-qualification.md',
+        'report/evidence/c1-vision-qualification-20261102/final-checks.json',
+        'report/evidence/c1-vision-qualification-20261102/result-convergence.json',
+        'report/evidence/c1-vision-qualification-20261102/result-primary_edge.json',
+        'report/evidence/c1-vision-qualification-20261102/result-primary_sparse.json',
+        'report/evidence/c1-vision-qualification-20261102/result-openmv_edge.json',
+        'report/evidence/c1-vision-qualification-20261102/result-openmv_ambiguous.json',
+        'report/evidence/c1-vision-qualification-20261102/result-fpga_reset.json',
+        'report/evidence/c1-vision-qualification-20261102/live-ram-observation.json',
+        'report/evidence/c1-vision-qualification-20261102/final-readonly.json',
+        'report/evidence/c1-vision-qualification-20261102/flash-review.json',
+        'report/evidence/c1-vision-qualification-20261102/receipt.json',
+    ],
+    'note': 'UNFLASHED quality candidate: Python96/96, C quality12, actual RTL/C6 scenarios32 checks, host USART1/3 each35238 assertions, two ARMCC builds0 errors0 warnings. Finite30s image-only OpenMV RAM run completed on stationary paper circle; edge/ambiguity hardware tests NOT performed. Old MCU image unchanged, CCER=0, fresh double full-Flash backup equal. No new production RTL, synthesis, bitstream, programming, PWM enable or motion. Existing S1ACK1/500ms lease/200ms partial timeout/dual-channel semantics retained. Profile/installation geometry, mechanical direction, actual PWM waveform, trusted epoch full-path persistence and board CDC/I/O remain open. Only a multimeter is available; no motion authorization or hardware readiness claim.',
+})
+write(status_path, status)
+write(evidence / 'receipt.json', {
+    'source_commit': head,
+    'branch': git('branch', '--show-current'),
+    'manifest_sha256': digest((evidence / 'manifest.json').read_bytes()),
+    'scope': 'Source/test/evidence commit; delivery status and this receipt are recorded in the following documentation commit. No new source deployed.',
+    'source_hash_note': 'Working-tree SHA256 identifies tested bytes. Git object hashes identify committed normalized contents; CRLF conversion can differ without changing source text.',
+    'git_source_objects': source_objects,
+    'candidate_application_sha256': '70a3ad2f0117cb9425d47db79eaad32e0c727ed9936665e2b2bef45599e44812',
+    'current_flash_sha256': 'bed5e5824a006c8e2bc6ee9e86f6581d4698940fdd0340a46d12ef332817226f',
+    'programming_performed': False,
+})
+print('RECEIPT_READY', head, 'unique_source_paths', len(source_objects))

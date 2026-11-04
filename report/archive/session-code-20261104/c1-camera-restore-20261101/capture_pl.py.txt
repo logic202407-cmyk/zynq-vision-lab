@@ -1,0 +1,29 @@
+import sys,socket,time,json,dataclasses,hashlib
+from pathlib import Path
+sys.path.insert(0,'R:/c1-repo')
+from src.pc.vendor_udp import *
+from src.pc.camera_viewer import rgb565_be_to_image,draw_pl_result
+out=Path(__file__).parent
+r={"scope":"live OV5640 PL metadata, not autonomous motion","motion_or_laser_commands":False}
+a=FrameAssembler();sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM);sock.setsockopt(socket.SOL_SOCKET,socket.SO_RCVBUF,8*1024*1024);sock.bind((PC_IP,UDP_PORT));sock.settimeout(.2)
+previous=None;records=[];saved=False;t=time.monotonic()
+try:
+ sock.sendto(START_COMMAND,(BOARD_IP,UDP_PORT))
+ while time.monotonic()-t<15 and len(records)<100:
+  try:b,src=sock.recvfrom(2048)
+  except socket.timeout:continue
+  if src[0]!=BOARD_IP:continue
+  f=a.feed(b)
+  if f is None:continue
+  m=f.previous_measurement
+  if m is not None:
+   match=previous is not None and previous.frame_seq==m.frame_seq
+   records.append(dict(sequence=m.frame_seq,complete=m.frame_complete,valid=m.target_valid,count=m.count,bbox=m.bbox,centroid=m.centroid,mask_version=m.mask_version,matched_frame=match))
+   if match and (m.target_valid or not saved):
+    img=rgb565_be_to_image(previous);img.save(out/'ov5640-private-raw.png');draw_pl_result(img,m).save(out/'ov5640-private-overlay.png');saved=True
+  previous=f
+finally:
+ sock.sendto(STOP_COMMAND,(BOARD_IP,UDP_PORT));sock.close()
+r.update(elapsed_seconds=time.monotonic()-t,complete_frames=a.completed,incomplete=a.incomplete,malformed=a.malformed,measurements=records,positive_results=sum(x['valid'] and x['count']>0 for x in records),verdict='PASS' if records and any(x['valid'] and x['matched_frame'] for x in records) else 'FAIL')
+(out/'live-pl-result.json').write_text(json.dumps(r,indent=2));print(json.dumps({k:v for k,v in r.items() if k!='measurements'},indent=2));print('LAST',records[-1:] )
+sys.exit(0 if r['verdict']=='PASS' else 1)

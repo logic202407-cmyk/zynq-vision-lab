@@ -1,0 +1,46 @@
+{
+  "scope": "Historical measurements extracted from local evidence; not new hardware measurements. Source originals remain local.",
+  "records": [
+    {
+      "source": "c1-continuous-auto-20261104/powered-result.json",
+      "original_sha256": "82db3df95470034ab69433fa49475a3b1b703348c3f1472a028d272e4a33efb9",
+      "summary": {
+        "continuous_seconds_observed": 128.20299999999997,
+        "heartbeat_acks": 1257,
+        "stop_acks": 0,
+        "crc_bad": 0,
+        "limitation": "Existing 1300..1700us bench limits remain. At 1300us error persisted at approximately -30px; after operator returned target, pulse rose to1325us and image error became0,0 without re-arm.",
+        "recovery_verified": true
+      }
+    },
+    {
+      "source": "c1-static-spot-cal-20261104/spot-estimate.json",
+      "original_sha256": "07dde4ef6221f736a1fd326af7c52fd355b1b13d9b390cb0a535a541a2d57db3",
+      "summary": {
+        "pixels": 351,
+        "native_x_est": 76.0357060044548,
+        "native_y_est": 67.79686838943547,
+        "aim_dx_est": -3.964293995545205,
+        "aim_dy_est": -7.796868389435474,
+        "scope": "single native QQVGA camera,30cm,static paper; first estimate from transient violet spot, not validated centering"
+      }
+    },
+    {
+      "source": "c1-static-steady-20261104/steady-trial-result.json",
+      "original_sha256": "4963272a0a5d90bc6d980936fe6c644379b3ed325a46349aaef46aea5eb42f6f",
+      "summary": {
+        "auto_span_seconds": 45.313,
+        "bad_crc": 0,
+        "during_read": {
+          "PE2_ODR": 4,
+          "PWM_CCER": 0
+        },
+        "after_stop_read": {
+          "PE2_ODR": 0,
+          "PWM_CCER": 0
+        },
+        "optical": "Violet spot visible in live-desktop.png. Some recorded window frames black; no uninterrupted optical-power measurement. Spot not centered."
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+#include <stddef.h>
+#include "vision_measurement.h"
+#include "gimbal_registry.h"
+const unsigned layout[]={sizeof(measurement_slot_t),offsetof(measurement_slot_t,accepted),offsetof(measurement_slot_t,rejected),offsetof(measurement_slot_t,gaps),offsetof(measurement_slot_t,rx_ms),offsetof(measurement_slot_t,session_bound),offsetof(measurement_slot_t,fresh),sizeof(measurement_t),offsetof(measurement_t,count),offsetof(measurement_t,cx),offsetof(measurement_t,sequence),offsetof(measurement_t,flags),sizeof(gimbal_context_t),offsetof(gimbal_context_t,pwm_enabled),offsetof(gimbal_context_t,control)+offsetof(tracking_t,frames),offsetof(gimbal_context_t,control)+offsetof(tracking_t,dx),offsetof(gimbal_context_t,control)+offsetof(tracking_t,dy),offsetof(gimbal_context_t,control)+offsetof(tracking_t,valid)};

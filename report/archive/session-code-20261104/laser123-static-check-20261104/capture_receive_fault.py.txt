@@ -1,0 +1,26 @@
+import sys,json,logging,time
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+from pyocd.core.target import Target
+logging.basicConfig(level=logging.ERROR)
+opts={'no_config':True,'target_override':'stm32f407vetx','pack':'R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack','connect_mode':'attach','frequency':1000000,'auto_unlock':False,'resume_on_disconnect':False,'cache.enable_memory':False,'cache.enable_register':False,'cache.read_code_from_elf':False,'enable_swv':False}
+with ConnectHelper.session_with_chosen_probe(unique_id='REDACTED_DEVICE_ID',blocking=False,options=opts) as s:
+ t=s.target;assert t.read32(0x40000820)==0 and t.read32(0x40010020)==0
+ t.reset(Target.ResetType.SYSRESETREQ);time.sleep(.2);assert t.read32(0x20000008)==0
+ assert t.set_breakpoint(0x08001e26,Target.BreakpointType.HW)
+ print('READY: all laser requests off; capture receive fault only',flush=True)
+ result={'captured':False}
+ try:
+  end=time.monotonic()+90
+  while time.monotonic()<end:
+   if t.get_state()==Target.State.HALTED:
+    r={n:t.read_core_register(n) for n in ['pc','r0','r1','r2','r3','lr','xpsr']};result={'captured':True,'registers':{k:hex(v) for k,v in r.items()},'time_ms':t.read32(0x2000000c)}
+    if 0x20000000<=r['r1']<0x20020000:result['queue_head_tail']=t.read_memory_block8(r['r1'],4)
+    break
+   time.sleep(.1)
+ finally:
+  t.remove_breakpoint(0x08001e26)
+  if t.get_state()==Target.State.HALTED:t.resume()
+ Path('R:/evidence/laser123-static-check-20261104/receive-fault-capture.json').write_text(json.dumps(result,indent=2))
+ print(json.dumps(result),flush=True)

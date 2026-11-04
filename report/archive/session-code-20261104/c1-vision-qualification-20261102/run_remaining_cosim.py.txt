@@ -1,0 +1,16 @@
+import json,os,subprocess,sys,time
+from pathlib import Path
+root=Path('R:/clock-repo');stage=Path(__file__).parent
+env=os.environ.copy();env.update(TEMP=str(stage/'temp'),TMP=str(stage/'temp'),PYTHONDONTWRITEBYTECODE='1',PYTHONUTF8='1')
+records=[]
+for case in ('primary_sparse','openmv_edge','openmv_ambiguous','convergence','fpga_reset'):
+    command=[sys.executable,'-X','utf8','tools/check_c1_loop.py','--stage',str(stage/'coupled-final'),'--built','--case',case]
+    start=time.monotonic();result=subprocess.run(command,cwd=root,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+    (stage/('cosim-'+case+'.txt')).write_bytes(result.stdout)
+    record=dict(case=case,command=command,exit_code=result.returncode,seconds=time.monotonic()-start)
+    records.append(record);print(json.dumps(record),flush=True)
+    if result.returncode:
+        print(result.stdout.decode('utf-8','replace')[-5000:],flush=True)
+        break
+(stage/'remaining-cosim-commands.json').write_text(json.dumps(records,indent=2),encoding='utf-8')
+raise SystemExit(any(r['exit_code'] for r in records))

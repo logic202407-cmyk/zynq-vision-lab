@@ -1,0 +1,13 @@
+import ctypes,subprocess,time
+from ctypes import wintypes
+u=ctypes.windll.user32
+handle=17039448
+title=ctypes.create_unicode_buffer(512);u.GetWindowTextW(handle,title,512)
+pid=wintypes.DWORD();u.GetWindowThreadProcessId(handle,ctypes.byref(pid))
+if title.value!='openmv_quality_geometry_ram.py - OpenMV IDE' or pid.value!=22304:
+    raise RuntimeError('Secondary diagnostic instance changed; no close sent')
+# This is our newly launched, disconnected, saved diagnostic window only.
+u.PostMessageW(handle,0x0010,0,0)
+subprocess.Popen(['D:/openMV/OpenMV IDE/bin/openmvide.exe','-client','-pid','19988',
+                  'R:/evidence/c1-vision-qualification-20261102/openmv_quality_geometry_ram.py'])
+print('REQUESTED_ORIGINAL_IDE_CLIENT_OPEN')

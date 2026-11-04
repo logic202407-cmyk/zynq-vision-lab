@@ -1,0 +1,55 @@
+import unittest,math,struct,ast
+from pathlib import Path
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from marker_geometry import classify,errors,select
+
+def raster(vertices):
+ pts=[]
+ for y in range(120):
+  for x in range(160):
+   signs=[]
+   for i,a in enumerate(vertices):
+    b=vertices[(i+1)%len(vertices)]
+    signs.append((b[0]-a[0])*(y-a[1])-(b[1]-a[1])*(x-a[0]))
+   if all(v>=0 for v in signs) or all(v<=0 for v in signs):pts.append((x,y))
+ return pts
+class GeometryTests(unittest.TestCase):
+ def test_square(self):
+  p=raster([(30,30),(60,30),(60,60),(30,60)])
+  self.assertEqual(classify(p,'square',len(p))[:2],(45,45))
+  self.assertIsNone(classify(p,'triangle',len(p)))
+ def test_rotated_square(self):
+  p=raster([(60,20),(80,40),(60,60),(40,40)])
+  self.assertEqual(classify(p,'square',len(p))[:2],(60,40))
+ def test_triangle_centroid(self):
+  p=raster([(40,20),(70,80),(10,80)])
+  self.assertEqual(classify(p,'triangle',len(p))[:2],(40,60))
+  self.assertIsNone(classify(p,'square',len(p)))
+ def test_circle_rejected(self):
+  p=[(x,y) for x in range(30,91) for y in range(20,81) if (x-60)**2+(y-50)**2<=900]
+  for shape in ['square','triangle']:self.assertIsNone(classify(p,shape,len(p)))
+ def test_rectangle_rejected(self):
+  p=raster([(20,20),(80,20),(80,40),(20,40)])
+  self.assertIsNone(classify(p,'square',len(p)))
+ def test_hollow_rejected(self):
+  p=raster([(30,30),(60,30),(60,60),(30,60)])
+  self.assertIsNone(classify(p,'square',100))
+ def test_empty_and_line(self):
+  self.assertIsNone(classify([],'triangle',0))
+  self.assertIsNone(classify([(x,20) for x in range(30)],'triangle',30))
+ def test_ambiguity(self):
+  self.assertIsNone(select([(100,'a'),(80,'b')]))
+  self.assertEqual(select([(100,'a'),(40,'b')]),(100,'a'))
+  self.assertIsNone(select([]))
+ def test_packet_bounds(self):
+  for x,y in [(0,0),(159,119),(80,60)]:
+   dx,dy=errors(x,y);packet=struct.pack('<BBhhBB',0xAA,0xFF,dx,dy,1,0xEE)
+   self.assertEqual(len(packet),8);self.assertTrue(-80<=dx<=79 and -59<=dy<=60)
+  self.assertEqual(errors(80,60),(0,0))
+ def test_distinct_identity_and_syntax(self):
+  for name,gid,label in [('blue_square',3,'BLUE_SQUARE'),('yellow_triangle',2,'YELLOW_TRIANGLE')]:
+   tree=ast.parse((Path(__file__).resolve().parents[1]/('openmv_'+name+'.py')).read_text(encoding='utf-8'))
+   constants={n.targets[0].id:ast.literal_eval(n.value) for n in tree.body if isinstance(n,ast.Assign) and isinstance(n.targets[0],ast.Name) and n.targets[0].id in ['GIMBAL_ID','TARGET_NAME','AIM']}
+   self.assertEqual(constants['GIMBAL_ID'],gid);self.assertEqual(constants['TARGET_NAME'],label);self.assertEqual(constants['AIM'],(80,60))
+if __name__=='__main__':unittest.main(verbosity=2)

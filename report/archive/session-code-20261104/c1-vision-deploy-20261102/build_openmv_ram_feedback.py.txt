@@ -1,0 +1,13 @@
+from pathlib import Path
+import hashlib
+root=Path('R:/clock-repo/src/prototype/skystar_openmv')
+policy=(root/'red_target_policy.py').read_text(encoding='utf-8')
+main=(root/'openmv_main.py').read_text(encoding='utf-8')
+line='from red_target_policy import RedTargetPolicy, blob_value, target_offsets'
+assert main.count(line)==1 and main.count('while True:')==1
+main=main.replace(line,policy).replace('while True:', 'started = time.ticks_ms()\nwhile time.ticks_diff(time.ticks_ms(), started) < 90000:')
+target=Path(__file__).parent/'openmv_quality_feedback_90s_ram.py'
+script='# Finite RAM-only vision UART diagnostic; no motor, PWM, laser or filesystem writes.\n'+main+'\nprint("RAM_FEEDBACK_DONE")\n'
+compile(script,str(target),'exec')
+target.write_text(script,encoding='utf-8')
+print('PREPARED_SHA256',hashlib.sha256(target.read_bytes()).hexdigest())

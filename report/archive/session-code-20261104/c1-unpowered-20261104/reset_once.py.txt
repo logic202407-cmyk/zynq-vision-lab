@@ -1,0 +1,39 @@
+import hashlib,json,sys,time,traceback
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+import serial
+from pyocd.core.helpers import ConnectHelper
+out=Path(__file__).with_name('reset-once-result.json')
+assert not out.exists(), 'Reset attempt already recorded'
+r={'scope':'One explicitly authorized no-power MCU reset; no programming or motion','reset_attempts':0,'samples':[]}
+try:
+ session=ConnectHelper.session_with_chosen_probe(blocking=False,return_first=False,target_override='stm32f407vetx',pack='R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack',connect_mode='attach',frequency=1000000,project_dir=str(out.parent),no_config=True,auto_unlock=False)
+ assert session is not None
+ with session:
+  t=session.target
+  h=hashlib.sha256(bytes(t.read_memory_block8(0x08000000,12620))).hexdigest()
+  c=t.read32(0x40000820)
+  assert h=='b3bb649fc70cacf3ed42314f59cd4811d246fcbc050c3261bd42044973fd0895' and c==0, 'Image or PWM state mismatch'
+  s=serial.Serial(port=None,baudrate=115200,timeout=.05);s.dtr=False;s.rts=False;s.port='COM17';s.open()
+  try:
+   r['stage']='reset requested';r['reset_attempts']=1;out.write_text(json.dumps(r,indent=2))
+   t.reset()
+   start=time.monotonic();raw=bytearray();next_read=0
+   while time.monotonic()-start<12:
+    raw.extend(s.read(4096));elapsed=time.monotonic()-start
+    if elapsed>=next_read:
+     next_read=elapsed+.2;ccer=t.read32(0x40000820);r['samples'].append({'seconds':round(elapsed,3),'ccer':ccer})
+     if ccer:raise RuntimeError('PWM enabled; stop observing')
+  finally:s.close()
+  out.with_name('reset-once-uart-private.bin').write_bytes(raw)
+  counts={}
+  for line in raw.splitlines():
+   if line.startswith(b'S1STAT '):
+    f=line.split()
+    if len(f)>4:
+     k=f[2].decode()+'/'+f[4].decode();counts[k]=counts.get(k,0)+1
+  r.update(stage='complete',uart_states=counts,uart_bytes=len(raw),pwm_all_off=bool(r['samples']) and all(x['ccer']==0 for x in r['samples']))
+except Exception:
+ r['error']=traceback.format_exc();raise
+finally:out.write_text(json.dumps(r,indent=2)+'\n')
+print(json.dumps({k:v for k,v in r.items() if k!='samples'}))

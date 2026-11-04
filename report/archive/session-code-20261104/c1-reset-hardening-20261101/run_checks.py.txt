@@ -1,0 +1,14 @@
+import json,subprocess,sys,time
+from pathlib import Path
+root=Path('R:/c1-repo')
+stage=Path('R:/evidence/c1-reset-hardening-20261101')
+mode=sys.argv[1]
+command=([sys.executable,'-m','unittest','discover','-s','tests','-v'] if mode=='unit'
+         else [sys.executable,'tools/check_repository.py'])
+start=time.monotonic()
+p=subprocess.run(command,cwd=root,capture_output=True)
+(stage/(mode+'.log')).write_bytes(p.stdout+p.stderr)
+(stage/(mode+'-exit.json')).write_text(json.dumps(dict(command=command,
+ exit_code=p.returncode,wall_seconds=time.monotonic()-start,python=sys.version),indent=2))
+print(mode,'exit',p.returncode,(p.stdout+p.stderr).decode(errors='replace')[-600:])
+sys.exit(p.returncode)

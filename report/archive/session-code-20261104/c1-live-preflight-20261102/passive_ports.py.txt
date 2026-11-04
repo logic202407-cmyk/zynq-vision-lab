@@ -1,0 +1,17 @@
+import json,time
+from pathlib import Path
+import serial
+results=[]
+for port in ['COM14','COM10']:
+ data=bytearray();s=serial.Serial(port=None,baudrate=115200,timeout=.03);s.dtr=False;s.rts=False;s.port=port
+ row=dict(port=port,transmitted_bytes=0)
+ try:
+  s.open();start=time.monotonic()
+  while time.monotonic()-start<2.5:data.extend(s.read(4096))
+  row.update(received_bytes=len(data),status_lines=sum(line.startswith(b'S1STAT ') for line in data.splitlines()),
+             fw15=any(b'FW 15' in line for line in data.splitlines()))
+ except Exception as e:row.update(error=type(e).__name__)
+ finally:s.close()
+ (Path(__file__).parent/(port+'-passive-private.bin')).write_bytes(data);results.append(row)
+(Path(__file__).parent/'passive-ports.json').write_text(json.dumps(results,indent=2))
+print(json.dumps(results,indent=2))

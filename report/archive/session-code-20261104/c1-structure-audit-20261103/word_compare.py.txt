@@ -1,0 +1,13 @@
+import sys,json
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+l=STLink(STLinkUSBInterface.get_all_connected_devices()[0]);l.open();l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+try:
+ r=lambda a,n:bytes(l.read_mem32(a,n,0,0));base=0x20000c74
+ large=r(base,516);rows=[]
+ for off in (0,84,88,92,96,100,152,156,172,200):
+  one=r(base+off,4);rows.append({'offset':off,'bulk':int.from_bytes(large[off:off+4],'little'),'direct':int.from_bytes(one,'little'),'equal':one==large[off:off+4]})
+ print(json.dumps({'scope':'read-only word versus bulk; live data may change','rows':rows}))
+finally:l.close()

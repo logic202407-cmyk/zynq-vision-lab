@@ -1,0 +1,28 @@
+import sys, json, time
+from pathlib import Path
+sys.path.insert(0, 'D:/Codex/tools/stm32-bench')
+from elftools.elf.elffile import ELFFile
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+p=Path('R:/evidence/c1-vision-qualification-20261102/arm/latest-usart3-s1ack1-c1-loop/skystar_tracking.axf')
+with p.open('rb') as f:
+ s=ELFFile(f).get_section_by_name('.symtab')
+ a={n:s.get_symbol_by_name(n)[0]['st_value'] for n in ('guardian','observations','observation_devices','milliseconds')}
+devices=STLinkUSBInterface.get_all_connected_devices()
+assert len(devices)==1
+l=STLink(devices[0]); l.open(); l.set_swd_frequency(1000000); l.enter_debug(STLink.Protocol.SWD)
+def rd(addr,n=4): return bytes(l.read_mem32(addr,n,0,0))
+def val(addr): return int.from_bytes(rd(addr),'little')
+try:
+ values=[]
+ for i in range(3):
+  g=rd(a['guardian'],4); mem=rd(a['observations'],76); d=rd(a['observation_devices'],172)
+  values.append(dict(state_byte=g[0],reason_byte=g[1],ms=val(a['milliseconds']),ccer=val(0x40000820),
+    bound=mem[72],fresh=mem[74],accepted=int.from_bytes(mem[48:52],'little'),
+    openmv_frames=int.from_bytes(d[84:88],'little'),dx=int.from_bytes(d[96:98],'little',signed=True),
+    dy=int.from_bytes(d[98:100],'little',signed=True),valid=d[100]))
+  time.sleep(.5)
+ result=dict(scope='read-only SWD, no halt, reset or writes',vtor=hex(val(0xe000ed08)),samples=values)
+ Path(__file__).with_name('result.json').write_text(json.dumps(result,indent=2)+'\n')
+ print(json.dumps(result))
+finally:l.close()

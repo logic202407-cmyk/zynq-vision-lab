@@ -1,0 +1,15 @@
+import hashlib,json,sys,traceback
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+out=Path('R:/evidence/c1-team-pid-slow-20261104-01');r={'scope':'read only, no halt/reset/program','success':False}
+try:
+ session=ConnectHelper.session_with_chosen_probe(blocking=False,return_first=False,target_override='stm32f407vetx',pack='R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack',connect_mode='attach',frequency=1000000,project_dir=str(out),no_config=True,auto_unlock=False)
+ if session is None:raise RuntimeError('No unique ST-Link')
+ with session:
+  t=session.target;image=bytes(t.read_memory_block8(0x08000000,512*1024)); image2=bytes(t.read_memory_block8(0x08000000,512*1024));
+  if image!=image2:raise RuntimeError('Two reads differ')
+  (out/'prechange-flash-private.bin').write_bytes(image)
+  r.update(success=True,full_sha256=hashlib.sha256(image).hexdigest(),app12620_sha256=hashlib.sha256(image[:12620]).hexdigest(),ccer=hex(t.read32(0x40000820)),two_reads_equal=True)
+except Exception:r['error']=traceback.format_exc()
+(out/'backup-readonly.json').write_text(json.dumps(r,indent=2));print(json.dumps(r,indent=2));sys.exit(0 if r['success'] else 1)

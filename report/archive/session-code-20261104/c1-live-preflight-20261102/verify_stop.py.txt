@@ -1,0 +1,40 @@
+import sys,json,time,binascii
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+import serial
+from elftools.elf.elffile import ELFFile
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+out=Path(__file__).parent
+with (out/'arm-d/latest-usart3-s1ack1-c1-loop/skystar_tracking.axf').open('rb') as f:
+ symbols=ELFFile(f).get_section_by_name('.symtab')
+ addresses={n:symbols.get_symbol_by_name(n)[0]['st_value'] for n in ['guardian','observations','milliseconds']}
+link=STLink(STLinkUSBInterface.get_all_connected_devices()[0]);link.open();link.set_swd_frequency(1000000);link.enter_debug(STLink.Protocol.SWD)
+def word(a):return int.from_bytes(bytes(link.read_mem32(a,4,0,0)),'little')
+uart=serial.Serial(port=None,baudrate=115200,timeout=.01);uart.dtr=False;uart.rts=False;uart.port='COM14'
+raw=bytearray();samples=[];start=time.monotonic();next_sample=start
+try:
+ uart.open()
+ while time.monotonic()-start<18:
+  raw.extend(uart.read(4096))
+  if time.monotonic()>=next_sample:
+   next_sample=time.monotonic()+.2;g=bytes(link.read_mem32(addresses['guardian'],4,0,0))
+   samples.append(dict(seconds=time.monotonic()-start,state=g[0],reason=g[1],ccer=word(0x40000820),
+    accepted=word(addresses['observations']+48),milliseconds=word(addresses['milliseconds'])))
+finally:uart.close();link.close();(out/'stop-wire-private.bin').write_bytes(raw)
+qid=int(json.loads((out/'diagnostic-ids-private.json').read_text())['query_id'],16)+1
+acks=[]
+for row in raw.splitlines():
+ if not row.startswith(b'S1ACK Q '):continue
+ try:
+  body,crc=row.rsplit(b'*',1);fields=body.split()
+  if fields[2]==f'{qid:032x}'.encode() and fields[5:8]==[b'stop',b'ACCEPT',b'REG']:
+   acks.append(dict(crc_ok=binascii.crc_hqx(body,65535)==int(crc,16),state=fields[9].decode(),pwm_mask=int(fields[14])))
+ except Exception:pass
+passed=bool(acks) and all(x['crc_ok'] and x['pwm_mask']==0 and x['state']=='stopped' for x in acks)
+passed=passed and all(x['ccer']==0 for x in samples) and samples[-1]['state']==0 and samples[-1]['reason']==1
+passed=passed and samples[-1]['accepted']==samples[-5]['accepted']
+result=dict(verdict='PASS' if passed else 'FAIL',scope='Actual FPGA STOP correlation and real MCU register checks; already-off outputs, no powered stop timing proof',
+ correlated_stop_acks=acks,samples=samples,uart_tx_bytes=0,motion_commands=[])
+(out/'stop-result.json').write_text(json.dumps(result,indent=2));print(json.dumps({k:v for k,v in result.items() if k!='samples'},indent=2))
+sys.exit(0 if passed else 1)

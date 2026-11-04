@@ -1,0 +1,109 @@
+import hashlib,json,subprocess
+from pathlib import Path
+stage=Path(__file__).parent;root=Path('R:/clock-repo')
+out=root/'report/evidence/c1-vision-qualification-20261102';out.mkdir(exist_ok=True)
+def read(path):return json.loads(path.read_text(encoding='utf-8'))
+def write(name,data):(out/name).write_bytes((json.dumps(data,ensure_ascii=False,indent=2)+'\n').encode('utf-8'))
+def write_wire(name,data):
+    fields=[]
+    for key,value in data.items():
+        if isinstance(value,list):
+            body='[\n'+',\n'.join('    '+json.dumps(item,ensure_ascii=False,separators=(',',':')) for item in value)+'\n  ]'
+        else:body=json.dumps(value,ensure_ascii=False)
+        fields.append('  '+json.dumps(key)+': '+body)
+    text='{\n'+',\n'.join(fields)+'\n}\n'
+    assert json.loads(text)==data
+    (out/name).write_bytes(text.encode('utf-8'))
+def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+def log(source,name):
+    text=source.read_text(encoding='utf-8').replace('\r','')
+    text='\n'.join(line.rstrip() for line in text.splitlines()).rstrip('\n')+'\n'
+    (out/name).write_bytes(text.encode('utf-8'))
+sources=read(out/'manifest.json')['candidate_source_sha256'] if (out/'manifest.json').exists() else {}
+cases=('primary_edge','primary_sparse','openmv_edge','openmv_ambiguous','convergence','fpga_reset')
+for case in cases:
+    result=read(stage/'coupled-final'/('result-'+case+'.json'))
+    assert result['verdict']=='PASS' and result['exit_code']==0
+    write('result-'+case+'.json',result)
+    wire=read(stage/'coupled-final'/('wire-'+case+'.json'))
+    wire['scope']='Synthetic XSim/actual C fixture only; these are not physical UART or mechanical data'
+    write_wire('simulated-wire-'+case+'.json',wire)
+    if (stage/('cosim-'+case+'.txt')).exists():log(stage/('cosim-'+case+'.txt'),'cosim-'+case+'.txt')
+write('remaining-cosim-commands.json',read(stage/'remaining-cosim-commands.json'))
+write('cosim-build-commands.json',read(stage/'coupled-final/commands.json'))
+for source,name in [('result-primary_edge.json','initial-primary-edge-failure.json'),
+                    ('source-sha256.json','initial-cosim-source-sha256.json')]:
+    write(name,read(stage/'failures'/('initial-'+source)))
+write('generator-initial-failure.json',read(stage/'failures/generator-first-failure.json'))
+for name in ('build-checks.json','quality-unit-command.json','final-readonly.json','flash-review.json'):
+    write(name,read(stage/name))
+log(stage/'quality-unit.txt','quality-unit.txt')
+for name in ('arm-legacy','arm-safe-c1','host-usart1','host-usart3'):
+    log(stage/(name+'.txt'),name+'.txt')
+for label,folder in [('legacy','latest'),('c1','latest-usart3-s1ack1-c1-loop')]:
+    build=read(stage/'arm'/folder/'build.json')
+    private=Path(build.pop('private_build_stage'));build.pop('commands',None)
+    assert build['errors']==0 and build['warnings']==0
+    write('arm-'+label+'-build.json',build)
+    compiler=(private/'version.log').read_text(encoding='utf-8')
+    (out/('arm-'+label+'-version.txt')).write_bytes(compiler.replace('\r','').rstrip().encode('utf-8')+b'\n')
+    for key,value in build['source_sha256'].items():sources['src/prototype/skystar_openmv/'+key.replace('\\','/')]=value
+replay=read(stage/'numeric-replay/result.json')
+write('numeric-replay.json',replay)
+ram=read(stage/'openmv_quality_ram.json')
+write('executed-ram-generation.json',ram)
+assert sha(stage/'openmv_quality_ram.py')==ram['script_sha256']
+write('live-ram-observation.json',dict(scope='Finite image-only RAM run in local OpenMV IDE 5.0.0; not persistent deployment',
+    script_sha256=ram['script_sha256'],completed=True,terminal_end_marker='QUALITY_IMAGE_DIAGNOSTIC_DONE',
+    physical_scene='Human-designated stationary paper red circle',image_review='Explicit bench profile bounded complete circle with a green reticle',
+    evidence_kind='Manual reading of private IDE screenshot and terminal; not an aggregate accuracy measurement',
+    terminal_examples=[dict(profile='repository_default',reason='WARMUP',candidates=1,offset=[0,0,0]),
+        dict(profile='repository_default',reason='VALID',candidates=1,offset=[-2,21,1]),
+        dict(profile='explicit_bench_reference',reason='VALID',candidates=1,offset=[1,31,1])],
+    defaults_changed=False,uart_created=False,pwm_created=False,camera_filesystem_written=False,
+    actual_flip_values='UNKNOWN; supplementary getter script generated but not executed in connected instance',
+    hardware_edge_ambiguity_tests='NOT PERFORMED',private_images_uploaded=False))
+if (stage/'final-checks.json').exists():
+    write('final-checks.json',read(stage/'final-checks.json'))
+    for name in ('python-final.txt','repository-final.txt'):log(stage/name,name)
+for name in ('docs/c1_vision_qualification.md',
+             'report/experiments/2026-11-02-c1-vision-qualification.md',
+             'report/ai_collaboration/2026-11-02-vision-quality.md'):
+    sources[name]=sha(root/name)
+readme='''# C1 observation-quality candidate
+
+- [Report](../../experiments/2026-11-02-c1-vision-qualification.md), [design/limits](../../../docs/c1_vision_qualification.md).
+- [Six actual coupled test results](result-convergence.json), [primary edge](result-primary_edge.json),
+  [primary sparse](result-primary_sparse.json), [OpenMV edge](result-openmv_edge.json),
+  [OpenMV ambiguity](result-openmv_ambiguous.json), [FPGA reset](result-fpga_reset.json).
+  All simulated-wire files are synthetic test inputs/outputs, not physical motion evidence.
+- [Initial failed reason-code assertion](initial-primary-edge-failure.json), [generator failure receipt](generator-initial-failure.json).
+- [Actual compile commands](cosim-build-commands.json), [remaining test commands](remaining-cosim-commands.json).
+- [C quality unit](quality-unit.txt), [host/build commands](build-checks.json),
+  [C1 ARM build](arm-c1-build.json), [legacy build](arm-legacy-build.json).
+- [Old capture replay](numeric-replay.json), [finite RAM generation](executed-ram-generation.json),
+  [observed normal scene](live-ram-observation.json). Raw onsite screenshots remain private.
+- [Unchanged deployed firmware and PWM-off read](final-readonly.json),
+  [fresh double backup / proposed image review](flash-review.json): no programming authorized or performed.
+- [Hash manifest](manifest.json). Public text logs normalize line endings/trailing whitespace;
+  original console logs, Flash backups, binaries, AXF and screen captures stay private on D:.
+
+New candidate source is not deployed. Mechanical directions, PWM waveforms,
+trusted epoch persistence/full-path integration and board-level CDC/I/O remain
+outside this acceptance. The meter available onsite is a multimeter only.
+'''
+if (out/'final-checks.json').exists():readme+='\n[Final D-temp checks](final-checks.json), [Python](python-final.txt), [repository](repository-final.txt).\n'
+(out/'README.md').write_bytes(readme.encode('utf-8'))
+sources.update(read(stage/'coupled-final/source-sha256.json'))
+paths=subprocess.check_output(['git','diff','--name-only'],cwd=root,text=True).splitlines()
+paths+=subprocess.check_output(['git','ls-files','--others','--exclude-standard'],cwd=root,text=True).splitlines()
+for name in paths:
+    if name.startswith(('src/','tools/','tests/','sim/','docs/')) and (root/name).is_file():sources[name]=sha(root/name)
+for name,value in sources.items():assert sha(root/name)==value,name
+write('manifest.json',dict(baseline_commit='0b21abe874fcf8913fd1a25d7a4109735a9132eb',
+    candidate_source_sha256=sources,
+    public_evidence_sha256={p.name:sha(p) for p in out.iterdir() if p.is_file() and p.name not in ('manifest.json','receipt.json')},
+    excludes=['manifest.json','receipt.json'],scope='Unflashed candidate; actual normal-scene image RAM check only',
+    source_hash_format='Working-tree byte hashes; receipt records normalized Git objects after commit',
+    simulated_wire_identifiers='Synthetic fixtures only; never deployed diagnostic IDs or physical device identifiers'))
+print('DELIVERY_EXPORTED',len(list(out.iterdir())),'SOURCE_HASHES',len(sources))

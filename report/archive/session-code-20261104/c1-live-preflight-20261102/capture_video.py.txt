@@ -1,0 +1,32 @@
+"""Finite FPGA video diagnostic only; no UART, PWM, JTAG, or optical commands."""
+import dataclasses,json,socket,sys,time
+from pathlib import Path
+sys.path.insert(0,'R:/clock-repo')
+from src.pc.vendor_udp import FrameAssembler,BOARD_IP,PC_IP,UDP_PORT,START_COMMAND,STOP_COMMAND
+from src.pc.camera_viewer import rgb565_be_to_image
+stage=Path(__file__).parent;a=FrameAssembler();last=None;valid=0
+sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM);sock.setsockopt(socket.SOL_SOCKET,socket.SO_RCVBUF,8*1024*1024)
+sock.bind((PC_IP,UDP_PORT));sock.settimeout(.05)
+start=time.monotonic();samples=[]
+try:
+ sock.sendto(START_COMMAND,(BOARD_IP,UDP_PORT))
+ while time.monotonic()-start<8:
+  try:data,peer=sock.recvfrom(4096)
+  except socket.timeout:continue
+  if peer[0]!=BOARD_IP:continue
+  frame=a.feed(data)
+  if not frame:continue
+  last=frame
+  m=frame.previous_measurement
+  if m:
+   valid+=int(m.target_valid)
+   if len(samples)<10:samples.append(dataclasses.asdict(m))
+finally:
+ sock.sendto(STOP_COMMAND,(BOARD_IP,UDP_PORT));sock.close()
+if last:rgb565_be_to_image(last).save(stage/'fpga-frame-private.png')
+result=dict(scope='Live FPGA camera UDP diagnostic only; not tracking',
+ seconds=time.monotonic()-start,completed=a.completed,incomplete=a.incomplete,
+ malformed=a.malformed,valid_target_frames=valid,measurement_samples=samples,
+ verdict='PASS' if a.completed>0 else 'NO_FRAMES')
+(stage/'video-result-private.json').write_text(json.dumps(result,indent=2))
+print(json.dumps({k:v for k,v in result.items() if k!='measurement_samples'},indent=2))

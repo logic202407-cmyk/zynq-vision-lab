@@ -1,0 +1,64 @@
+import hashlib,json,subprocess
+from pathlib import Path
+r=Path('R:/clock-repo');s=Path(__file__).parent;o=r/'report/evidence/c1-live-recovery-20261102';o.mkdir(exist_ok=False)
+def read(p):return json.loads((s/p).read_text(encoding='utf-8'))
+def write(name,value):
+ p=o/name;p.parent.mkdir(parents=True,exist_ok=True)
+ p.write_bytes((json.dumps(value,ensure_ascii=False,indent=2)+'\n').encode('utf-8'))
+capture=read('readonly-capture.json');restore=read('restore-result.json');pair=read('two-camera-result-private.json');stop=read('stop-result.json')
+assert capture['two_reads_equal'] and restore['whole_flash_matches'] and restore['boot_state_clean']
+assert restore['verdict']=='PASS' and stop['verdict']=='PASS' and pair['mismatches']==0 and pair['pwm_all_off']
+write('readonly-capture.json',capture);write('restore-result.json',restore);write('target-type.json',read('target-type.json'))
+write('video-before-configuration.json',read('video-initial-receipt.json'))
+write('video-after-configuration.json',read('video-result-private.json'))
+write('passive-ports.json',read('passive-ports.json'))
+pair['verdict']='TRANSPORT_PASS_IDENTITY_UNCONFIRMED'
+pair['target_identity']='UNCONFIRMED; OpenMV upper-left partial color region was not a fully visible confirmed paper circle'
+pair['sample_count']=len(pair.pop('samples'))
+write('two-camera-transport.json',pair);write('identity-assessment.json',read('scene-identity-assessment.json'))
+write('stop-result.json',stop)
+build=read('arm-d/latest-usart3-s1ack1-c1-loop/build.json')
+build.pop('private_build_stage',None);build.pop('commands',None)
+write('arm-build.json',build)
+write('fpga-configuration.json',dict(tool='Vivado 2024.2 / matching hw_server 2024.2',
+ source_commit='91ff049041f9e094a34a53e73f98d46a9b0281bf',device='XC7Z100',
+ bitstream_sha256=hashlib.sha256((s/'c1-observe-safe.bit').read_bytes()).hexdigest(),bitstream_bytes=(s/'c1-observe-safe.bit').stat().st_size,
+ bitgen_exit_code=0,bitgen_seconds=20.892,configuration_exit_code=0,configuration_seconds=14.575,startup='HIGH',
+ fpga_flash_written=False,vio_cores=1,final_status='0x50',final_control='0x02',motion_entry='hardware-disabled',
+ optical_ports='none',scope='Volatile JTAG read-only observation candidate; not autonomous motion acceptance'))
+write('actual-commands.json',dict(commands=[
+ dict(command='python capture_readonly.py',exit_code=0,scope='no reset, halt or target memory write'),
+ dict(command='python identify_target_readonly.py',exit_code=0),
+ dict(command='python stm32_skystar_tracking/build.py --console-usart 3 --s1ack1 --c1-observations --c1-closed-loop --output-root <private-D-stage>',exit_code=0,errors=0,warnings=0),
+ dict(command='python stm32_skystar_tracking/tests/run_checks.py --console-usart 3',exit_code=0,assertions=35238),
+ dict(command='python restore_safe_firmware.py',exit_code=0,scope='first-sector programming after explicit current power-off confirmation'),
+ dict(command='Vivado write_bitstream / program_hw_devices (observation candidate only)',exit_code=0),
+ dict(command='OpenMV IDE 5.0.0 finite RAM script; firmware update declined',scope='no camera Flash write; UART observation bytes only'),
+ dict(command='python observe_two_cameras.py',exit_code=0,scope='transport metrics only; does not verify target identity'),
+ dict(command='python verify_stop.py',exit_code=0)],physical_motion_commands=[],laser_control_commands=[]))
+write('private-script-sha256.json',{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in s.glob('*.py')})
+(o/'README.md').write_text('''# Limited no-power hardware recovery
+
+Source: 91ff049041f9e094a34a53e73f98d46a9b0281bf. This is recovery/observation,
+not autonomous tracking, mechanical calibration or optical acceptance.
+
+- [Read-only initial backup](readonly-capture.json), [device-type/Flash-size read](target-type.json).
+- [ARM build](arm-build.json), [first-sector restore and full readback](restore-result.json).
+- [Volatile FPGA configuration](fpga-configuration.json), [video recovery](video-after-configuration.json).
+- [Actual commands](actual-commands.json), [two-camera transport](two-camera-transport.json).
+- [Identity assessment](identity-assessment.json) is UNCONFIRMED despite good transport numbers.
+- [Correlated FPGA STOP / real register reads](stop-result.json), already-off outputs only.
+
+Onsite images, full USB/JTAG identifiers, session/nonce values, raw serial wire,
+Flash backups, firmware binaries, bitstreams, vendor source and programming scripts
+remain private on D:. No axis movement, ARM, PAN/TLT or laser command was sent.
+Current user separately confirmed laser and servo power disconnected before recovery.
+''',encoding='utf-8')
+status=r/'report/status.json';data=json.loads(status.read_text(encoding='utf-8'));data['components'].append(dict(
+ id='c1_live_recovery_20261102',status='board_verified',verified_commit='91ff049041f9e094a34a53e73f98d46a9b0281bf',
+ tool_version='ARMCC 5.06u5; Vivado/hw_server 2024.2; pyOCD 0.46.0; OpenMV IDE/firmware 5.0.0',
+ reviewer='Codex live Flash/register/UART/UDP/IDE diagnostics with user power confirmation; independent reproduction pending',
+ evidence=['report/experiments/2026-11-02-c1-live-recovery.md','report/evidence/c1-live-recovery-20261102/restore-result.json','report/evidence/c1-live-recovery-20261102/two-camera-transport.json','report/evidence/c1-live-recovery-20261102/stop-result.json'],
+ note='LIMITED no-power recovery only: initial Flash mismatched the known candidate; 512KiB double backup, sector-only safe firmware restore and full readback pass. FPGA video and 108 matching UDP/MCU samples, 181 CRC-good F1 lines recovered; target identity UNCONFIRMED. PWM registers remained OFF. No ARM/motion/laser. Epoch, clock/IO/CDC, mechanical signs and identity remain motion blockers.'))
+status.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print('RECOVERY_EVIDENCE_EXPORTED',len(list(o.rglob('*'))))

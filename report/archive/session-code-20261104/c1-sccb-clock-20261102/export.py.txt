@@ -1,0 +1,108 @@
+import difflib,hashlib,json,re,subprocess,sys
+from pathlib import Path
+r=Path('R:/clock-repo');s=Path('R:/evidence/c1-sccb-clock-20261102');o=r/'report/evidence/sccb-clock-build-20261102'
+sys.path.insert(0,str(r/'tools'))
+from audit_full_board_reports import audit
+result=audit((s/'routed_cdc.rpt').read_text(),(s/'routed_timing.rpt').read_text())
+assert result['timing_coverage']==dict(no_clock=0,unconstrained_internal_endpoints=0,no_input_delay=17,no_output_delay=8)
+assert result['cdc']['CDC-10']['count']==2
+assert result['constrained_slack_ns']['WNS']>=0 and result['constrained_slack_ns']['WHS']>=0
+assert 'C1_OBSERVE_ROUTED_NO_PROGRAMMING' in (s/'.vivado-ai/vivado_11376686_ed76e1d8.log').read_text()
+assert json.loads((s/'simulation-release/result.json').read_text())['verdict']=='PASS'
+o.mkdir(exist_ok=False)
+def clean(t):
+ t=re.sub(r'^\| Host\s*:.*$', '| Host : [redacted workstation]',t,flags=re.M)
+ t=re.sub(r'C:[/\\]Users[/\\][^/\\\s]+','C:/Users/REDACTED_USER',t)
+ t=t.replace('LAPTOP-TU4U942T','[redacted workstation]')
+ return '\n'.join(line.rstrip() for line in t.splitlines()).rstrip()+'\n'
+def copy(a,b):
+ p=o/b;p.parent.mkdir(parents=True,exist_ok=True)
+ p.write_text(clean((s/a).read_text(errors='replace')),encoding='utf-8')
+for name in ['routed_cdc.rpt','routed_timing.rpt','routed_drc.rpt','routed_bus_skew.rpt','routed_check_timing.rpt','routed_clocks.rpt','routed_utilization.rpt','routed_methodology.rpt','clock-contract.json']:
+ copy(name,name)
+for a,b in [('simulation-release/result.json','simulation.json'),('simulation-release/waveform/xsim.txt','divider-xsim.txt'),
+ ('simulation-release/top_rate_changed/console.txt','negative-top.txt'),('simulation-release/driver_changed/console.txt','negative-driver.txt'),
+ ('simulation/waveform/xelab.txt','attempts/missing-timescale.txt'),('simulation-final/waveform/xsim.txt','attempts/wrong-sampling-edge.txt'),
+ ('unit.txt','unit.txt'),('unit-exit.json','unit-exit.json')]:copy(a,b)
+result['source_commit_base']='128740392376d304b74d00c40cfe126a896b6366'
+result['build_exit_code']=0
+result['build_seconds']=779.549
+methodology=(s/'routed_methodology.rpt').read_text()
+result['methodology_rules']=[dict(rule=m[0],severity=m[1].strip(),count=int(m[2])) for m in re.findall(r'^\|\s*([A-Z]+-\d+)\s*\|\s*(Critical Warning|Warning|Info)\s*\|[^\n]+\|\s*(\d+)\s*\|',methodology,re.M)]
+result['methodology_critical_warnings']=sum(x['count'] for x in result['methodology_rules'] if x['severity']=='Critical Warning')
+result['scope']='Full private vendor top rebuilt with guarded generated clock; no bitstream or hardware'
+(o/'audit.json').write_text(json.dumps(result,indent=2))
+contract=json.loads((s/'clock-contract.json').read_text())
+sources=['build/build_c1_observation_board.tcl','build/c1_sccb_clock.tcl','tools/c1_sccb_contract.py','tools/check_c1_sccb.py','tests/test_sccb_contract.py','sim/c1/sccb_divider_tb.v']
+inputs={f:hashlib.sha256((r/f).read_bytes()).hexdigest() for f in sources}
+(o/'source-sha256.json').write_text(json.dumps(inputs,indent=2))
+prepared=json.loads((s/'vendor/source-sha256.json').read_text())
+for f,h in prepared.items():assert hashlib.sha256((s/'vendor'/f).read_bytes()).hexdigest()==h,f
+(o/'private-inputs-sha256.json').write_text(json.dumps(prepared,indent=2))
+private={f:hashlib.sha256((s/f).read_bytes()).hexdigest() for f in ['c1_observe_routed.dcp','c1_observe.ltx']}
+(o/'private-artifact-sha256.json').write_text(json.dumps(private,indent=2))
+log=(s/'.vivado-ai/vivado_11376686_ed76e1d8.log').read_text(errors='replace')
+summary=[line for line in log.splitlines() if re.search(r'SRE module mismatch|SCCB_SOURCE_CONTRACT_PASS|SCCB_GENERATED_CLOCK_BOUND|Synthesis finished|Errors encountered|route_design completed|C1_OBSERVE_ROUTED_NO_PROGRAMMING|WNS=|WHS=|wait_on_run:|VSCEND:',line)]
+(o/'build-summary.txt').write_text(clean('\n'.join(summary)))
+(o/'README.md').write_text('''# SCCB normal-build evidence
+
+Full ov5640_udp_pc synthesis and implementation, Vivado 2024.2. No bitstream/hardware.
+The generated clock is applied before implementation, not added after routing.
+Private source fingerprints, actual contract and public-source SHA-256 are included;
+vendor HDL, DCP/LTX, license and hardware identifiers stay private on D:.
+
+- [Full-top audit](audit.json), [timing](routed_timing.rpt), [CDC](routed_cdc.rpt), [clocks](routed_clocks.rpt).
+- [Methodology](routed_methodology.rpt): 45 findings, including TIMING-6/7 Critical Warnings. No waivers.
+- [Actual-driver simulation and negative commands/exits](simulation.json), [waveform assertions](divider-xsim.txt).
+- [Build summaries including first Python failure](build-summary.txt), attempts/ retains simulation failures.
+- [Python suite](unit.txt) and [exit](unit-exit.json).
+
+Source clock frequency is declared, not measured. Critical FIFO CDC and external
+IO-delay gaps remain; board_signoff is false. Machine identity and trailing whitespace
+are normalized; original logs and reports remain in the private D-drive build stage.
+''')
+clock='create_generated_clock -name c1_sccb_driver -source [get_pins u_i2c_dri/dri_clk_reg/C] -divide_by 50 [get_pins u_i2c_dri/dri_clk_reg/Q]'
+method=f'''# Methodology resolution: SCCB missing clock
+
+Vivado 2024.2, full vendor board; source-derived constraint, no hardware.
+
+| Aspect | Constraint | Period | Waveform | Clock Definition Object |
+|---|---|---|---|---|
+| Before | none | unknown | unknown | none |
+| After | `{clock}` | 1000 ns | {{0 500}} | c1_sccb_driver |
+
+Before: 90 no_clock pins and 227 unconstrained internal endpoints.
+After: both 0. Two inherited FIFO CDC Criticals, 17 input delays and 8 output
+delays remain unresolved. No waivers or guessed delays. Actual summary: {result['constrained_slack_ns']}.
+The timing-methodology skill's 2026.1 JSON examples are not used on 2024.2.
+The 2024.2 text report has 45 findings: TIMING-6/7 are Critical Warnings;
+LUTAR-1, PDRC-190, TIMING-18, XDCC overwrite and other warnings remain unresolved.
+The missing clock is fixed; this does not assert methodology signoff.
+'''
+(s/'METHODOLOGY_RESOLUTION_REPORT.md').write_text(method)
+(o/'methodology-resolution.md').write_text(method)
+(s/'constraints_diff.html').write_text(difflib.HtmlDiff().make_file(['# missing generated SCCB clock'],[clock],fromdesc='Before',todesc='After'),encoding='utf-8')
+report=r/'report/experiments/2026-11-02-sccb-clock-build.md';t=report.read_text()
+t=t.replace('最终实际结果将在构建进程完成并审计原始报告后补入本报告。',f'''[实际报告与指纹](../evidence/sccb-clock-build-20261102/README.md)已经归档。
+
+| 项目 | 本轮实际结果 |
+| --- | --- |
+| 合同单元测试 | 8/8 |
+| 实际源码 CLI 负向测试 | 2/2，均预期退出 2，不产生合同 |
+| 实际驱动 XSim | 1 个 TB，80 次翻转，25 父周期半周期/1000 ns 全周期通过 |
+| Python 全套 | 70/70 |
+| 完整综合、布局布线 | 实际退出 0；未生成位流 |
+| 完整构建耗时 | 779.549 秒 |
+| no_clock / 未约束内部端点 | 90/227 降为 0/0 |
+| CDC Critical / payload Warning | 2 / 180，保留且未豁免 |
+| no_input_delay / no_output_delay | 17 / 8，未填写虚构值 |
+| WNS / WHS / TNS / THS | {result['constrained_slack_ns']} ns |
+| 方法学报告 | 45 项，包括 TIMING-6/7 两项 Critical Warning；未豁免 |
+
+这些是新约束参与布局布线的完整顶层结果；不沿用旧 DCP 的正余量冒充本轮实现。''')
+t+='\n方法学补充：50 MHz 系统时钟与相机 PCLK 仍触发 TIMING-6/7（无共同主时钟/共同节点）；LUTAR-1×6、PDRC-190、TIMING-18×21 和 XDCC 重复覆盖警告均保留。部分约束来自构建的全量 timing XDC 导出，后续需审查选择性约束持久化和跨域例外的精确范围，不能用全时钟 false path 清空警告。缺失时钟覆盖修复通过不等于方法学或板级签核通过。\n'
+report.write_text(t,encoding='utf-8')
+for f in ['docs/handoff_20261102.md','docs/c1_board_readiness.md']:
+ p=r/f;lines=p.read_text().splitlines();lines.insert(2,'更新：SCCB 分频时钟已进入正常构建并重新布局布线；90 无时钟与 227 未约束内部端点清零，仍有两项 FIFO CDC Critical、17/8 I/O 延迟及 epoch 阻塞。见 [本轮报告]('+('../report/experiments/2026-11-02-sccb-clock-build.md')+')。');p.write_text('\n'.join(lines)+'\n',encoding='utf-8')
+status=r/'report/status.json';data=json.loads(status.read_text());data['components'].append(dict(id='c1_sccb_generated_clock_build',status='implemented',evidence=['docs/c1_sccb_build_contract.md','report/experiments/2026-11-02-sccb-clock-build.md','report/evidence/sccb-clock-build-20261102/audit.json'],note='Guarded source-derived clock in normal full-board build. Offline route and digital divider assertions passed. Await source commit pin. Two FIFO Criticals, external IO timing and persistent epoch remain blockers. No hardware.'));status.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps(result,indent=2))

@@ -1,0 +1,47 @@
+from pathlib import Path
+import json,hashlib,shutil
+repo=Path('R:/repo');base=Path('R:/evidence/b3-motion');out=repo/'report/evidence/b3-motion';out.mkdir(parents=True,exist_ok=True)
+selectors={
+'uart1':['matrix.csv','xsim.log','run.json'],
+'uart2':['matrix.csv','mcu_bytes.csv','uart-result.json','xsim.log','c-build.log','run.json'],
+'reset1':['xsim.log','run.json','reset.csv'],
+'reset2':['xsim.log','run.json','reset.csv'],
+'reset3':['xsim.log'],
+'reset4':['xsim.log','run.json','reset.csv'],
+'reset5':['xsim.log','run.json','reset.csv','result.json'],
+'reset6':['xsim.log','run.json','reset.csv','result.json'],
+'interrupt1':['result.json','compile.log'],
+'interrupt2':['result.json','compile.log'],
+'interrupt-fixed':['result.json','compile.log'],
+'interrupt-final':['result.json','compile.log'],
+'epoch1':['epoch-repeat-unframed-fixture.json','epoch-repeat.json','epoch-fresh.json','build-inputs.json'],
+'gate-full':['progress.json','interruption.json','gate-xvlog.log','gate-xelab.log','build-inputs.json'],
+'gate1':['gate-xvlog.log','gate-xelab.log','build-inputs.json'],
+'gate2':['result.json','progress.json','gate-xvlog.log','gate-xelab.log','build-inputs.json'],
+'gate-fast':['result.json','progress.json','gate-xvlog.log','gate-xelab.log','build-inputs.json'],
+'frozen':['run1.log','run3.log','result.json'],
+'b2-regression':['suite.json','c-tests.log'],
+}
+# Only public diagnostic text; remove host/device/path information, not outcomes.
+def copy(src,dst):
+ dst.parent.mkdir(parents=True,exist_ok=True)
+ t=src.read_text(encoding='utf-8',errors='replace')
+ t='\n'.join(l.rstrip() for l in t.splitlines() if 'LAPTOP-' not in l and '| Host ' not in l)
+ t=t.replace(str(repo.resolve()),'<REPO>').replace(str(repo),'<REPO>')
+ dst.write_text(t.rstrip()+'\n',encoding='utf-8')
+for group,names in selectors.items():
+ for name in names:
+  src=base/group/name
+  if src.exists():copy(src,out/group/name)
+for group in ['a','b','auth','legacy']:
+ for pat in ['result-*.json','expected-*.json','trace-*.json','suite-exits.json','build-inputs.json','c-tests.json']:
+  for src in (base/'b2-regression'/group).glob(pat):copy(src,out/'b2-regression'/group/src.name)
+for name in ['baseline.json','baseline-evidence-check.json','ack-snapshot-review.json','arm-summary.json']:
+ copy(base/name,out/name)
+# Full netlist result is included only when the run actually terminates.
+if (base/'gate-full/result.json').exists():
+ for name in ['result.json','gate-xvlog.log','gate-xelab.log','build-inputs.json','checked.json']:copy(base/'gate-full'/name,out/'gate-full'/name)
+for name in ['repository-final.log','python-final.log','foundation-result.json','receipt-checker-before.log','receipt-checker-before.json','python-version.log','gcc-version.log','armcc-version.log','source-sha256.json','netlist-provenance.json','failure-index.json']:
+ if (base/name).exists():copy(base/name,out/name)
+(out/'sha256.json').write_text(json.dumps({str(p.relative_to(repo)).replace('\\','/'):hashlib.sha256(p.read_bytes()).hexdigest() for p in out.rglob('*') if p.is_file() and p.name!='sha256.json'},indent=2))
+print('public files',sum(p.is_file() for p in out.rglob('*')))

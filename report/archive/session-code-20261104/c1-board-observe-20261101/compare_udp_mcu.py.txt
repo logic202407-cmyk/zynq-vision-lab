@@ -1,0 +1,30 @@
+import sys,socket,time,json,dataclasses
+from pathlib import Path
+sys.path.insert(0,'R:/c1-repo')
+from src.pc.vendor_udp import *
+from read_mcu_observation import snapshot,l
+out=Path(__file__).parent;a=FrameAssembler();s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM);s.setsockopt(socket.SOL_SOCKET,socket.SO_RCVBUF,8*1024*1024);s.bind((PC_IP,UDP_PORT));s.settimeout(.03)
+frames={};samples=[];start=time.monotonic();next_sample=start+.1
+try:
+ s.sendto(START_COMMAND,(BOARD_IP,UDP_PORT))
+ while time.monotonic()-start<8:
+  try:b,src=s.recvfrom(2048)
+  except socket.timeout:b=None
+  if b and src[0]==BOARD_IP:
+   f=a.feed(b)
+   if f and f.previous_measurement:frames[f.previous_measurement.frame_seq]=dataclasses.asdict(f.previous_measurement)
+  now=time.monotonic()
+  if now>=next_sample:
+   next_sample=now+.2;x=snapshot();samples.append(x)
+finally:
+ s.sendto(STOP_COMMAND,(BOARD_IP,UDP_PORT));s.close();l.close()
+matches=[];missing=0
+for x in samples:
+ m=frames.get(x['sequence'])
+ if not m:missing+=1;continue
+ expected=(m['count'],m['sum_x'],m['sum_y'],tuple(m['bbox']) if m['bbox'] else (0,0,0,0),m['mask_version'])
+ actual=(x['count'],x['sum_x'],x['sum_y'],tuple(x['bbox']),x['mask'])
+ matches.append(dict(sequence=x['sequence'],equal=actual==expected))
+r=dict(complete_frames=a.completed,incomplete_frames=a.incomplete,malformed=a.malformed,matched=len(matches),mismatches=sum(not x['equal'] for x in matches),samples_without_same_video_sequence=missing,mcus=samples,comparisons=matches)
+r['verdict']='PASS' if len(matches)>=10 and not r['mismatches'] and all(x['state']==0 and x['ccer']==0 for x in samples) and samples[-1]['accepted']>samples[0]['accepted'] and any(x['flags']&2 for x in samples) else 'FAIL'
+(out/'udp-mcu-comparison.json').write_text(json.dumps(r,indent=2));print(json.dumps({k:v for k,v in r.items() if k not in ('mcus','comparisons')},indent=2));sys.exit(0 if r['verdict']=='PASS' else 1)

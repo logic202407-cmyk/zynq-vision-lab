@@ -1,0 +1,23 @@
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+from pathlib import Path
+stage=Path(__file__).parent
+env=dict(os.environ,TEMP='R:/evidence/c1-vision-qualification-20261102/temp',TMP='R:/evidence/c1-vision-qualification-20261102/temp',PYTHONDONTWRITEBYTECODE='1',PYTHONUTF8='1')
+result=[]
+for name,args in [('python-delivery',['-m','unittest','discover','-s','tests','-v']),('repository-delivery',['tools/check_repository.py'])]:
+    command=[sys.executable,*args]
+    start=time.monotonic()
+    proc=subprocess.run(command,cwd='R:/clock-repo',env=env,capture_output=True,text=True,encoding='utf-8')
+    output=proc.stdout+proc.stderr
+    (stage/(name+'.txt')).write_text(output,encoding='utf-8')
+    row=dict(command=command,actual_exit_code=proc.returncode,seconds=round(time.monotonic()-start,3),log=name+'.txt')
+    match=re.search(r'Ran (\d+) tests',output)
+    if match:row['actual_test_count']=int(match[1])
+    result.append(row)
+    print(json.dumps(row))
+(stage/'delivery-checks.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+sys.exit(0 if all(x['actual_exit_code']==0 for x in result) else 1)

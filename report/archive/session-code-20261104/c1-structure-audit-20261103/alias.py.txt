@@ -1,0 +1,10 @@
+import sys,json
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+l=STLink(STLinkUSBInterface.get_all_connected_devices()[0]);l.open();l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+try:
+ r=lambda a,n:bytes(l.read_mem32(a,n,0,0))
+ a=r(0x20000a74,32);b=r(0x20000c74,32);a2=r(0x20000a74,32)
+ print(json.dumps({'a_ascii':sum(32<=x<=126 for x in a),'b_ascii':sum(32<=x<=126 for x in b),'same_a_b':a==b,'same_a_a2':a==a2,'scope':'read-only small SRAM blocks'}))
+finally:l.close()

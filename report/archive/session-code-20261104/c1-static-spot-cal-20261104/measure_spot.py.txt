@@ -1,0 +1,9 @@
+from pathlib import Path
+from PIL import Image
+import numpy as np,json
+p=Path('R:/evidence/c1-static-spot-cal-20261104/frames-v3');base=np.asarray(Image.open(p/'0022.png')).astype(float);rows=[]
+for f in sorted(p.glob('*.png'))[:110]:
+ a=np.asarray(Image.open(f)).astype(float);d=a-base;y,x=np.indices(a.shape[:2]);mask=(x>310)&(x<425)&(y>190)&(y<340)&(a[:,:,2]-a[:,:,1]>40)&(a[:,:,2]>80)&(d[:,:,2]>40)
+ w=np.maximum(d[:,:,2],0)*mask;total=w.sum()
+ if total>0:rows.append({'file':f.name,'pixels':int(mask.sum()),'weight':float(total),'x':float((w*x).sum()/total),'y':float((w*y).sum()/total)})
+rows.sort(key=lambda r:r['weight'],reverse=True);print(json.dumps(rows[:12],indent=2));best=rows[0];best['native_x_est']=best['x']*160/705;best['native_y_est']=best['y']*120/530;best['aim_dx_est']=best['native_x_est']-80;best['aim_dy_est']=60-best['native_y_est'];best['scope']='single native QQVGA camera,30cm,static paper; first estimate from transient violet spot, not validated centering';out=p.parent/'spot-estimate.json';out.write_text(json.dumps(best,indent=2));print(out.read_text())

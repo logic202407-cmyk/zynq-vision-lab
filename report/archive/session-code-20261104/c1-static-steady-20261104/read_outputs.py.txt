@@ -1,0 +1,10 @@
+import sys,json,logging
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+logging.basicConfig(level=logging.ERROR)
+opts={'no_config':True,'target_override':'stm32f407vetx','pack':'R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack','connect_mode':'attach','frequency':1000000,'auto_unlock':False,'resume_on_disconnect':False,'cache.enable_memory':False,'cache.enable_register':False,'cache.read_code_from_elf':False,'enable_swv':False}
+s=ConnectHelper.session_with_chosen_probe(unique_id='REDACTED_DEVICE_ID',blocking=False,options=opts)
+with s:
+ t=s.target
+ out={'ccer':hex(t.read32(0x40000820)),'pe2_odr':hex(t.read32(0x40021014)),'core_dhcsr':hex(t.read32(0xe000edf0))}
+ print(json.dumps(out));open('R:/evidence/c1-static-steady-20261104/steady-readonly-state.json','w').write(json.dumps(out,indent=2))

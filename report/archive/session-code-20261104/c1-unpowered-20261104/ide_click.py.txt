@@ -1,0 +1,14 @@
+import ctypes,time,sys
+from ctypes import wintypes
+from PIL import ImageGrab
+u=ctypes.windll.user32;u.SetProcessDPIAware();u.GetForegroundWindow.restype=wintypes.HWND
+h=u.GetForegroundWindow();pid=wintypes.DWORD();u.GetWindowThreadProcessId(h,ctypes.byref(pid))
+title=ctypes.create_unicode_buffer(512);u.GetWindowTextW(h,title,512)
+assert pid.value==58196 and title.value=='openmv-team-ram90.py - OpenMV IDE','Unexpected foreground; no click'
+r=wintypes.RECT();u.GetWindowRect(h,ctypes.byref(r))
+u.SetCursorPos(r.left+48,r.bottom-47)
+assert u.GetForegroundWindow()==h
+u.mouse_event(2,0,0,0,0);u.mouse_event(4,0,0,0,0);time.sleep(1.5)
+assert u.GetForegroundWindow()==h
+ImageGrab.grab(bbox=(r.left,r.top,r.right,r.bottom)).save('R:/evidence/c1-unpowered-20261104/'+sys.argv[1]+'.png')
+print('click confirmed')

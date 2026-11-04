@@ -1,0 +1,20 @@
+import hashlib,json,subprocess
+from pathlib import Path
+r=Path('R:/clock-repo');o=r/'report/evidence/sccb-clock-build-20261102'
+def git(*args):return subprocess.check_output(['git',*args],cwd=r)
+source=git('rev-parse','HEAD').decode().strip()
+manifest=json.loads(git('show',source+':report/evidence/sccb-clock-build-20261102/manifest.json'))
+for f,h in manifest['files'].items():
+ assert hashlib.sha256(git('show',source+':report/evidence/sccb-clock-build-20261102/'+f)).hexdigest()==h,f
+changed=git('diff-tree','--no-commit-id','--name-only','-r',source).decode().splitlines()
+receipt=dict(source_commit=source,base='128740392376d304b74d00c40cfe126a896b6366',
+ git_blob_sha256={f:hashlib.sha256(git('show',source+':'+f)).hexdigest() for f in changed if f.startswith(('build/','tools/','tests/','sim/'))},
+ evidence_git_blob_hashes_verified=len(manifest['files']),hardware_actions=[],board_signoff=False)
+(o/'receipt.json').write_bytes((json.dumps(receipt,indent=2)+'\n').encode())
+p=r/'report/status.json';d=json.loads(p.read_text());c=next(c for c in d['components'] if c['id']=='c1_sccb_generated_clock_build')
+c.update(status='simulated',verified_commit=source,tool_version='Vivado/XSim 2024.2; Python 3.12.4',reviewer='Codex self-checking source contract, actual-driver simulation and full-top report audit; independent reproduction pending',note='Source-derived generated clock included before full vendor-top route. no_clock/unconstrained internal endpoints 0/0; positive constrained slack. 2 FIFO CDC Criticals, TIMING-6/7, 17/8 IO delays and persistent epoch remain blockers. Not deployed; no hardware or bitstream.')
+p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+p=r/'report/experiments/2026-11-02-sccb-clock-build.md';t=p.read_text();t+='\n修复源码提交：`'+source+'`；[版本回执](../evidence/sccb-clock-build-20261102/receipt.json)记录 Git 对象 SHA-256 和已核对的证据指纹。\n';p.write_text(t,encoding='utf-8')
+manifest['files']={p.relative_to(o).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in o.rglob('*') if p.is_file() and p.name!='manifest.json'}
+(o/'manifest.json').write_bytes((json.dumps(manifest,indent=2)+'\n').encode())
+print(source)

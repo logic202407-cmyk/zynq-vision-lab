@@ -1,0 +1,29 @@
+import hashlib,json,sys
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from elftools.elf.elffile import ELFFile
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+stage=Path(__file__).parent
+old=Path('R:/evidence/c1-live-preflight-20261102/arm-d/latest-usart3-s1ack1-c1-loop')
+expected=(old/'skystar_tracking.bin').read_bytes()
+devices=STLinkUSBInterface.get_all_connected_devices()
+if len(devices)!=1:raise RuntimeError('Expected exactly one ST-Link')
+link=STLink(devices[0]);link.open()
+try:
+    link.set_swd_frequency(1000000);link.enter_debug(STLink.Protocol.SWD)
+    def read(a,n):return bytes(link.read_mem32(a,n,0,0))
+    current=b''.join(read(0x08000000+i,min(1024,len(expected)-i)) for i in range(0,len(expected),1024))
+    matched=current==expected
+    result=dict(scope='Read-only image and registers; no halt/reset/programming',
+        unchanged_deployed_application=matched,application_sha256=hashlib.sha256(current).hexdigest(),
+        actual_tim4_ccer=int.from_bytes(read(0x40000820,4),'little'),new_candidate_programmed=False)
+    if matched:
+        with (old/'skystar_tracking.axf').open('rb') as stream:
+            symbol=ELFFile(stream).get_section_by_name('.symtab').get_symbol_by_name('guardian')[0]
+            state=read(symbol['st_value'],4)
+        result.update(safety_state=state[0],safety_reason=state[1])
+    (stage/'final-readonly.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+    print(json.dumps(result))
+    assert matched and result['actual_tim4_ccer']==0 and result['safety_state']==0
+finally:link.close()

@@ -1,0 +1,45 @@
+import sys,json,logging,hashlib,time
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.core.helpers import ConnectHelper
+logging.basicConfig(level=logging.ERROR)
+opts={'no_config':True,'target_override':'stm32f407vetx','pack':'R:/evidence/c1-safe-deploy-20261101/Keil.STM32F4xx_DFP.3.1.1.pack','connect_mode':'attach','frequency':1000000,'auto_unlock':False,'resume_on_disconnect':False,'cache.enable_memory':False,'cache.enable_register':False,'cache.read_code_from_elf':False,'enable_swv':False}
+s=ConnectHelper.session_with_chosen_probe(unique_id='REDACTED_DEVICE_ID',blocking=False,options=opts)
+root=Path('R:/evidence/three-gimbal-bringup-20261104')
+with s:
+ t=s.target
+ # Refuse clock/debug states inconsistent with the reviewed running HSI16 image.
+ assert not(t.read32(0xe000edf0)&(1<<17)), 'Core is halted'
+ assert t.read32(0x40023808)&((3<<2)|(15<<4)|(7<<10)|(7<<13))==0, 'Unexpected clocks'
+ assert not(t.read32(0xe000e104)&(1<<21)), 'UART5 IRQ already enabled'
+ assert not(t.read32(0xe000e108)&(1<<7)), 'USART6 IRQ already enabled'
+ addresses=[0x40023830,0x40023840,0x40023844,0x40020800,0x4002080c,0x40020820,0x40020c00,0x40020c0c,0x40020c20]
+ before={hex(a):t.read32(a) for a in addresses}
+ (root/'live-rx-register-backup.json').write_text(json.dumps(before,indent=2))
+ def modify(a,mask,value):t.write32(a,(t.read32(a)&~mask)|value)
+ modify(0x40023830,0,(1<<2)|(1<<3))
+ modify(0x40023840,0,1<<20)
+ modify(0x40023844,0,1<<5)
+ t.flush()
+ for gpio,pin,uart in [(0x40020800,7,0x40011400),(0x40020c00,2,0x40005000)]:
+  assert t.read32(uart+12)==0, 'UART not in expected unused state'
+  for off in [8,12,16,20]:before[hex(uart+off)]=t.read32(uart+off)
+  (root/'live-rx-register-backup.json').write_text(json.dumps(before,indent=2))
+  modify(gpio,3<<(pin*2),2<<(pin*2))
+  modify(gpio+12,3<<(pin*2),1<<(pin*2))
+  modify(gpio+32,15<<(pin*4),8<<(pin*4))
+  t.write32(uart+8,139)
+  t.write32(uart+16,0);t.write32(uart+20,0)
+  t.write32(uart+12,(1<<13)|(1<<2)) # UE+RE only, no interrupt and no TX.
+ t.flush()
+ rows=[];start=time.monotonic();counts={2:0,3:0};overruns={2:0,3:0}
+ while time.monotonic()-start<5:
+  for gid,uart in [(2,0x40011400),(3,0x40005000)]:
+   sr=t.read32(uart)
+   if sr&0x2f:
+    b=t.read32(uart+4)&255
+    counts[gid]+=bool(sr&32);overruns[gid]+=bool(sr&8)
+    if len(rows)<500:rows.append({'id':gid,'ms':round((time.monotonic()-start)*1000),'sr':sr,'byte':b})
+ out={'mode':'live RX-only; no reset, no Flash, IRQ/TX disabled','duration_s':round(time.monotonic()-start,3),'rx_samples':counts,'overrun_samples':overruns,'usart6_cr1':hex(t.read32(0x4001140c)),'uart5_cr1':hex(t.read32(0x4000500c)),'tim4_ccer':hex(t.read32(0x40000820)),'tim1_ccer':hex(t.read32(0x40010020)),'pe2_odr':hex(t.read32(0x40021014)),'samples':rows,'limit':'SWD polling may drop bytes. This validates ingress only, not complete frame parsing. Configuration is volatile.'}
+ (root/'live-rx-result.json').write_text(json.dumps(out,indent=2))
+ print(json.dumps({k:v for k,v in out.items() if k!='samples'}))

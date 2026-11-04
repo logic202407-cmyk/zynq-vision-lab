@@ -1,0 +1,19 @@
+# XSim batch interface: software IPC only, no Vivado hardware commands.
+set sock [socket 127.0.0.1 $env(COSIM_PORT)]
+fconfigure $sock -buffering full -buffersize 4096 -translation lf
+set previous_rx 1
+for {set us 1} {$us <= 50000} {incr us} {
+    run 1 us
+    set packed [get_value -radix hex /uart_c_bridge_tb/bridge_sample]
+    puts $sock "$us $packed"
+    flush $sock
+    if {[gets $sock reply]<0} {error "coordinator disconnected"}
+    if {$reply eq "FAIL"} {error "coordinator assertion failed"}
+    if {$reply != $previous_rx} {
+        add_force /uart_c_bridge_tb/mcu_rx $reply -radix bin
+        set previous_rx $reply
+    }
+}
+close $sock
+puts "XSIM_C_BRIDGE_COMPLETED"
+quit

@@ -1,0 +1,17 @@
+from pathlib import Path
+import subprocess,json,time,os
+base=Path("R:/evidence/b3-motion")
+stage=base/"gate-retry1"
+cmd=["D:/Python312/python.exe","-B","tools/check_b3_gate_cosim.py","--stage",str(stage),"--netlist","R:/evidence/b2-motion/ooc-prefetch/motion_func.v","--seconds","21600","--fast"]
+record={"scope":"offline original netlist + C, no hardware", "command":cmd,"started":time.time(),"supervisor_pid":os.getpid()}
+with (base/"gate-retry1-console.log").open("wb") as log:
+ p=subprocess.Popen(cmd,cwd="R:/repo",stdout=log,stderr=subprocess.STDOUT,creationflags=subprocess.CREATE_NO_WINDOW)
+ record["simulation_pid"]=p.pid
+ (base/"gate-retry1-launch.json").write_text(json.dumps(record,indent=2))
+ code=p.wait();record["simulation_exit"]=code
+ if code==0:
+  check=["D:/Python312/python.exe","-B","tools/check_b3_gate_receipt.py",str(stage/"result.json"),"--output",str(stage/"checked.json")]
+  record["receipt_check_command"]=check
+  record["receipt_check_exit"]=subprocess.run(check,cwd="R:/repo",stdout=log,stderr=subprocess.STDOUT,creationflags=subprocess.CREATE_NO_WINDOW).returncode
+ record["finished"]=time.time()
+ (base/"gate-retry1-terminal.json").write_text(json.dumps(record,indent=2))

@@ -1,0 +1,16 @@
+import sys,json,time
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+l=STLink(STLinkUSBInterface.get_all_connected_devices()[0]);l.open();l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+try:
+ r=lambda a,n:bytes(l.read_mem32(a,n,0,0))
+ rows=[]
+ for i in range(30):
+  a=r(0x20000c74,32);b=r(0x20000c74,516);c=r(0x20000c74,32)
+  rows.append({'small_stable':a==c,'long_matches_small':a==b[:32],'ascii_short':sum(32<=x<=126 for x in a),'ascii_long':sum(32<=x<=126 for x in b[:32])})
+  time.sleep(.05)
+ result={'samples':len(rows),'stable_short':sum(x['small_stable'] for x in rows),'long_mismatches_when_short_stable':sum(x['small_stable'] and not x['long_matches_small'] for x in rows),'short_high_ascii':sum(x['ascii_short']>=20 for x in rows),'long_high_ascii':sum(x['ascii_long']>=20 for x in rows),'scope':'read-only aligned SRAM; no writes'}
+ Path(__file__).with_name('repeat-lengths.json').write_text(json.dumps(result,indent=2)+'\n'); print(json.dumps(result))
+finally:l.close()

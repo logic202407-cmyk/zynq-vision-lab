@@ -1,0 +1,16 @@
+import ctypes,time
+u=ctypes.windll.user32;u.SetProcessDPIAware()
+def click(x,y):
+ u.SetCursorPos(x,y);u.mouse_event(2,0,0,0,0);u.mouse_event(4,0,0,0,0)
+def key(k,up=False):u.keybd_event(k,0,2 if up else 0,0)
+click(580,733);key(17);key(65);key(65,True);key(17,True)
+# Unicode typing via clipboard-independent SendInput avoided: type with VkKeyScanW.
+for ch in 'R:\\evidence\\c1-preflight-20261101\\openmv_threshold_compare.py':
+ code=u.VkKeyScanW(ord(ch));vk=code&255;shift=(code>>8)&1
+ if shift:key(16)
+ key(vk);key(vk,True)
+ if shift:key(16,True)
+ time.sleep(.005)
+click(1020,778);time.sleep(1)
+from PIL import ImageGrab
+ImageGrab.grab().save('R:/evidence/c1-preflight-20261101/ide-loaded.png')

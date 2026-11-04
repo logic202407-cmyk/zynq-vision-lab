@@ -1,0 +1,18 @@
+import sys,json,time
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+from elftools.elf.elffile import ELFFile
+out=Path(__file__).parent;fw=out.parent/'c1-vision-qualification-20261102/arm/latest-usart3-s1ack1-c1-loop'
+with (fw/'skystar_tracking.axf').open('rb') as f:address=ELFFile(f).get_section_by_name('.symtab').get_symbol_by_name('guardian')[0]['st_value']
+probes=STLinkUSBInterface.get_all_connected_devices();assert len(probes)==1
+l=STLink(probes[0]);l.open();l.set_swd_frequency(1000000);l.enter_debug(STLink.Protocol.SWD)
+def read(a):return int.from_bytes(bytes(l.read_mem32(a,4,0,0)),'little')
+try:
+ samples=[]
+ for i in range(5000):samples.append(read(0x40020010));time.sleep(.002)
+ guardian=read(address);ccer=read(0x40000820)
+ result=dict(scope='Read-only GPIO/safety samples; no reset, command, halt or writes',samples=len(samples),pa0_high=sum(bool(x&1) for x in samples),pa3_high=sum(bool(x&8) for x in samples),state=guardian&255,reason=(guardian>>8)&255,ccer=ccer)
+ (out/'key-monitor-5000.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
+finally:l.close()

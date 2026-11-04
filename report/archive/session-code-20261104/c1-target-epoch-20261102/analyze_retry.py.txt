@@ -1,0 +1,40 @@
+import csv,json,os,statistics
+from pathlib import Path
+stage=Path(__file__).parent
+# Prepare monitoring independently of numeric analysis, always from original +1 matcher.
+source=(stage/'verify_stop.py').read_text(encoding='utf-8')
+source=source.replace('stop-result.json','retry-stop-result.json').replace('stop-wire-private.bin','retry-stop-wire-private.bin')
+(stage/'verify_retry_stop.py').write_text(source,encoding='utf-8')
+data=json.loads((stage/'papermove02-two-camera-result-private.json').read_text())
+samples=data['samples'];valid=[s for s in samples if s['count'] and s['openmv_valid'] and s['fresh']]
+xs=[s['sum_x']/s['count'] for s in valid];ys=[s['openmv_dx'] for s in valid]
+result=dict(status='PAPER_MOVEMENT_OBSERVED',sample_count=len(samples),valid_samples=len(valid),
+    fpga_cx_range=[min(xs),max(xs)],fpga_cy_range=[min(s['centroid'][1] for s in valid),max(s['centroid'][1] for s in valid)],
+    openmv_dx_range=[min(ys),max(ys)],openmv_dy_range=[min(s['openmv_dy'] for s in valid),max(s['openmv_dy'] for s in valid)],
+    zero_lag_x_correlation=statistics.correlation(xs,ys) if len(set(xs))>1 and len(set(ys))>1 else None,
+    mechanical_calibration=False,cross_camera_transform_verified=False,servo_motion=False,
+    note='Both streams responded to manual paper motion. Vertical movement/viewpoint change prevents pure horizontal calibration; no axis sign inferred.')
+(stage/'retry-analysis.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+with (stage/'retry-trajectory.csv').open('w',newline='',encoding='utf-8') as stream:
+    writer=csv.writer(stream);writer.writerow(['seconds','fpga_cx','fpga_cy','openmv_dx','openmv_dy','openmv_valid','ccer'])
+    for s in samples:writer.writerow([s['host_seconds'],*s['centroid'],s['openmv_dx'],s['openmv_dy'],s['openmv_valid'],s['ccer']])
+try:
+    os.environ['MPLCONFIGDIR']=str(stage/'temp/matplotlib')
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    figure,axes=plt.subplots(2,1,sharex=True,figsize=(9,5.5),layout='constrained')
+    t=[s['host_seconds'] for s in samples]
+    axes[0].plot(t,[s['centroid'][0] for s in samples],label='OV5640 centroid X')
+    axes[0].plot(t,[s['centroid'][1] for s in samples],label='OV5640 centroid Y')
+    axes[0].set_ylabel('640x480 image pixels');axes[0].legend()
+    axes[1].plot(t,[s['openmv_dx'] if s['openmv_valid'] else float('nan') for s in samples],label='OpenMV dx')
+    axes[1].plot(t,[s['openmv_dy'] if s['openmv_valid'] else float('nan') for s in samples],label='OpenMV dy')
+    axes[1].set_ylabel('160x120 image offset');axes[1].set_xlabel('Capture time (s)');axes[1].legend()
+    figure.suptitle('Manual paper movement; actuators unpowered; no joint angles measured')
+    figure.savefig(stage/'retry-trajectory.png',dpi=150);plt.close(figure)
+    result['trajectory_plot']='retry-trajectory.png'
+except ImportError:
+    result['trajectory_plot']='Unavailable: matplotlib missing; CSV retained'
+(stage/'retry-analysis.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+print(json.dumps(result))

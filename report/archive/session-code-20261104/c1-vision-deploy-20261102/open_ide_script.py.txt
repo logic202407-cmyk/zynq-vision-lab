@@ -1,0 +1,21 @@
+import ctypes,time
+from ctypes import wintypes
+u=ctypes.windll.user32
+u.GetForegroundWindow.restype=wintypes.HWND
+h=u.GetForegroundWindow();pid=wintypes.DWORD();u.GetWindowThreadProcessId(h,ctypes.byref(pid))
+title=ctypes.create_unicode_buffer(512);u.GetWindowTextW(h,title,512)
+assert pid.value==19988 and title.value.endswith('OpenMV IDE'), 'OpenMV IDE not foreground; no keys sent'
+def key(k,up=False):u.keybd_event(k,0,2 if up else 0,0)
+key(0x11);key(0x4f);key(0x4f,True);key(0x11,True);time.sleep(0.8)
+h2=u.GetForegroundWindow();pid2=wintypes.DWORD();u.GetWindowThreadProcessId(h2,ctypes.byref(pid2))
+name=ctypes.create_unicode_buffer(512);u.GetWindowTextW(h2,name,512)
+assert pid2.value==19988 and ('Open' in name.value or '打开' in name.value), 'Unexpected file dialog; no path sent'
+path='R:\\evidence\\c1-vision-deploy-20261102\\openmv_quality_feedback_90s_ram.py'
+for ch in path:
+    v=u.VkKeyScanW(ord(ch));assert v!=-1
+    vk=v&255;shift=(v>>8)&1
+    if shift:key(0x10)
+    key(vk);key(vk,True)
+    if shift:key(0x10,True)
+key(0x0d);key(0x0d,True);time.sleep(1)
+print('OPEN_DIALOG_PATH_SENT')

@@ -1,0 +1,3 @@
+webserver -start -port 18883 -key none
+puts "VIVADO_2024_2_LOCAL_MCP_READY"
+vwait ::local_mcp_exit

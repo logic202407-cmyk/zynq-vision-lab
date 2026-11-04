@@ -1,0 +1,25 @@
+import hashlib,json,sys
+from pathlib import Path
+sys.path.insert(0,'D:/Codex/tools/stm32-bench')
+from pyocd.probe.stlink.usb import STLinkUSBInterface
+from pyocd.probe.stlink.stlink import STLink
+devices=STLinkUSBInterface.get_all_connected_devices()
+if len(devices)!=1: raise RuntimeError('Expected exactly one ST-Link')
+link=STLink(devices[0]);link.open()
+try:
+    link.set_swd_frequency(1000000);link.enter_debug(STLink.Protocol.SWD)
+    def rd(address,count): return bytes(link.read_mem32(address,count,0,0))
+    def word(address): return int.from_bytes(rd(address,4),'little')
+    size=(word(0x1fff7a20)>>16)&0xffff
+    if size!=512: raise RuntimeError('Unexpected Flash capacity')
+    actual=bytearray()
+    for offset in range(0,size*1024,1024): actual.extend(rd(0x08000000+offset,1024))
+    expected=Path('R:/evidence/c1-live-preflight-20261102/deployed-full-flash.bin').read_bytes()
+    result=dict(flash_matches_restored_image=bytes(actual)==expected,
+        full_flash_sha256=hashlib.sha256(actual).hexdigest(),flash_kib=size,
+        tim4_ccer=word(0x40000820),core_halted=bool(word(0xe000edf0)&(1<<17)),
+        scope='SWD reads only; no halt, reset, memory writes, ARM or motion commands')
+    (Path(__file__).parent/'preflight.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+    print(json.dumps(result))
+    assert result['flash_matches_restored_image'] and result['tim4_ccer']==0 and not result['core_halted']
+finally: link.close()
