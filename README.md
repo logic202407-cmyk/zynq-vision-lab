@@ -48,6 +48,8 @@ python -m unittest discover -s tests -v
 
 ## 天空星接口资料（2026-10-27）
 
+**2026-11-04 接线配置更新：**[三套云台接线与准备](board/skystar_f407/three_gimbal_wiring.md)已固定第二套 C07 RX + D14/D15、第三套 D02 RX + E09/E11，并保留第一套和 USART3 FPGA 链路。配置与离线冲突检查已提供；新增串口/PWM 驱动及新增两套实物验收尚未完成。接线时使用[验收记录模板](board/skystar_f407/three_gimbal_bench_checklist.md)。
+
 新增[天空星 F407 接线与资料](board/skystar_f407/README.md)：两套二维云台的四路 PWM、独立动力供电、H1 十针调试口、USB-TTL 日志及 ST-Link SWD。包含原创重绘接线图、原厂来源与版本指纹、固件离线检查摘要和下次上板步骤。当前尚未收到烧录及实际动作成功结果，三套视觉协作仍属后续候选。
 
 

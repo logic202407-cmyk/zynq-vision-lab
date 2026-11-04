@@ -1,5 +1,7 @@
 # SkyStar F407 + OpenMV single-marker tracking
 
+**2026-11-04 wiring preparation:** the [approved three-gimbal map](../../../board/skystar_f407/three_gimbal_wiring.md) adds USART6 PC7 and UART5 PD2 RX assignments, PD14/PD15 and PE9/PE11 PWM metadata. This does not implement their drivers or enable additional devices. The C registry retains `installed=0` for IDs 1 and 2.
+
 **2026-11-02 quality candidate:** the [new observation-quality candidate](../../../docs/c1_vision_qualification.md)
 supersedes the largest-blob selection described in the historical bench notes below.
 It rejects multiple eligible blobs and clipped targets, and requires stable acquisition.

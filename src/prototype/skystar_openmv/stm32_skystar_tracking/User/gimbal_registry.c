@@ -1,9 +1,18 @@
 #include "gimbal_registry.h"
 #include <string.h>
 const gimbal_pwm_resource_t gimbal_pwm_resources[6]={
- {0,0,1,1,"PD12","TIM4",1},{0,1,1,1,"PD13","TIM4",2},
- {1,0,1,0,"PD14","TIM4",3},{1,1,1,0,"PD15","TIM4",4},
- {2,0,0,0,"UNKNOWN","UNKNOWN",0},{2,1,0,0,"UNKNOWN","UNKNOWN",0}
+#define GIMBAL_PWM(id, axis, pin, timer, channel, af) {id,axis,1,1,#pin,#timer,channel,af},
+#define GIMBAL_RX(id, pin, uart, af)
+#include "gimbal_wiring.def"
+#undef GIMBAL_PWM
+#undef GIMBAL_RX
+};
+const gimbal_rx_resource_t gimbal_rx_resources[GIMBAL_COUNT]={
+#define GIMBAL_PWM(id, axis, pin, timer, channel, af)
+#define GIMBAL_RX(id, pin, uart, af) {id,#pin,#uart,af},
+#include "gimbal_wiring.def"
+#undef GIMBAL_PWM
+#undef GIMBAL_RX
 };
 void gimbal_registry_init(gimbal_registry_t *r){
  unsigned i;memset(r,0,sizeof(*r));

@@ -21,5 +21,16 @@ jobs:
         run: python3 tools/check_repository.py
       - name: Test repository tooling
         run: python3 -m unittest discover -s tests -v
+      - name: Check SkyStar wiring metadata
+        run: python3 tools/check_skystar_wiring.py
+      - name: Compile and test host-only gimbal registry
+        shell: bash
+        run: |
+          fw=src/prototype/skystar_openmv/stm32_skystar_tracking/User
+          pid=src/prototype/skystar_openmv/stm32_project/User
+          gcc -std=c99 -Wall -Wextra -Werror -O2 -I"$fw" -I"$pid" \
+            sim/c1/registry_checks.c "$fw/gimbal_registry.c" \
+            "$fw/tracking.c" "$fw/safety.c" "$pid/pid.c" -lm -o "$RUNNER_TEMP/registry-check"
+          "$RUNNER_TEMP/registry-check"
       - name: Clarify verification boundary
         run: echo 'Repository checks only. No FPGA simulation, implementation or board test has run.'
