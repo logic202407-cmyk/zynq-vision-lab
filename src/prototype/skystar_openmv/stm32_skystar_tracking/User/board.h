@@ -20,6 +20,13 @@ int board_pc_timed_byte(uint8_t *byte, uint32_t *received);
 void board_flush_pc(void);
 void board_flush_vision(void);
 int board_take_fault(void);
+/* First UART receive fault since board_init; snapshot is read-only and may be
+ * called only from foreground with interrupts enabled, never from an ISR. */
+typedef struct {
+    uint32_t time_ms;
+    uint8_t valid, port, sr_errors, queue_full;
+} board_uart_fault_t;
+int board_uart_fault_snapshot(board_uart_fault_t *out);
 int board_button(void);
 void board_outputs(int enabled, uint16_t pan, uint16_t tilt);
 /* Main context; profile builds additionally require live guard and enabled PWM. */

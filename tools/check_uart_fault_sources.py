@@ -31,19 +31,24 @@ def main():
         raise RuntimeError('compiler exit %d' % p.returncode)
     lib = c.CDLL(str(dll)); lib.model_reg.argtypes = [c.c_uint]; lib.model_reg.restype = c.c_uint
     lib.inject_uart.argtypes = [c.c_uint, c.c_uint, c.c_uint]
+    lib.uart_fault_field.argtypes = [c.c_uint]; lib.uart_fault_field.restype = c.c_uint
     cases = []
     for port in (2, 3):
         for name, flags in (('parity', 1), ('framing', 2), ('noise', 4), ('overrun', 8)):
-            lib.model_init(); lib.inject_uart(port, flags | 32, 0x55)
+            lib.model_init(); assert lib.uart_fault_field(0) == 0xffffffff
+            lib.model_tick(); lib.inject_uart(port, flags | 32, 0x55)
             assert lib.model_reg(0x40000820) == 0
+            assert [lib.uart_fault_field(i) for i in range(4)] == [port, flags, 0, 1]
             lib.model_foreground()
             assert lib.model_state() == 4 and lib.model_reason() == 6
-            lib.inject_uart(port, 32, 0x55); lib.model_foreground()
+            lib.inject_uart(3 if port == 2 else 2, 40, 0x55); lib.model_foreground()
             assert lib.model_state() == 4 and lib.model_reg(0x40000820) == 0
+            assert [lib.uart_fault_field(i) for i in range(4)] == [port, flags, 0, 1]
             cases.append('usart%d_%s_latched' % (port, name))
         lib.model_init()
         for _ in range(256):
             lib.inject_uart(port, 32, 0x55)
+        assert [lib.uart_fault_field(i) for i in range(3)] == [port, 0, 1]
         lib.model_foreground()
         assert lib.model_state() == 4 and lib.model_reason() == 6
         lib.inject_uart(port, 32, 0x55); lib.model_foreground()

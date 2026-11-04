@@ -36,6 +36,7 @@ typedef struct {
 static rx_queue_t vision, pc;
 static volatile uint32_t milliseconds;
 static volatile uint8_t fault;
+static volatile board_uart_fault_t uart_first_fault;
 static char tx[512];
 static uint16_t tx_head, tx_tail;
 static int pwm_enabled;
@@ -57,6 +58,7 @@ void board_init(void)
 {
     volatile uint32_t dummy;
     guard_active=guard_event=fault=0; pwm_enabled=0;
+    uart_first_fault.valid=0;
     milliseconds=0; vision.head=vision.tail=pc.head=pc.tail=0;
     tx_head=tx_tail=0;
 #ifdef SKYSTAR_TEAM_PROFILE
@@ -145,7 +147,17 @@ static void receive(uint32_t uart, rx_queue_t *q)
         uint8_t byte=(uint8_t)R(uart+4);
         uint16_t next=(uint16_t)((q->head+1)&255u);
         if ((status&15u) || next==q->tail) {
-            fault=1; guard_fail(BOARD_GUARD_UART); return;
+            fault=1; guard_fail(BOARD_GUARD_UART);
+            /* Shutdown precedes diagnostics. USART IRQs use equal priority;
+             * only these handlers write this record. Publish valid last. */
+            if (!uart_first_fault.valid) {
+                uart_first_fault.time_ms=milliseconds;
+                uart_first_fault.port=(uint8_t)(uart==U2 ? 2u : (uart==U3 ? 3u : 1u));
+                uart_first_fault.sr_errors=(uint8_t)(status&15u);
+                uart_first_fault.queue_full=(uint8_t)(next==q->tail);
+                __schedule_barrier(); uart_first_fault.valid=1;
+            }
+            return;
         }
         q->bytes[q->head]=byte; q->times[q->head]=milliseconds;
         __schedule_barrier();
@@ -175,6 +187,20 @@ static int pop(rx_queue_t *q, uint8_t *byte, uint32_t *time)
 int board_vision_byte(uint8_t *byte, uint32_t *received) { return pop(&vision,byte,received); }
 int board_pc_byte(uint8_t *byte) { uint32_t time; return pop(&pc,byte,&time); }
 int board_pc_timed_byte(uint8_t *byte, uint32_t *time) { return pop(&pc,byte,time); }
+int board_uart_fault_snapshot(board_uart_fault_t *out)
+{
+    int valid;
+    if (!out) return 0;
+    __disable_irq();
+    valid=uart_first_fault.valid;
+    if (valid) {
+        out->time_ms=uart_first_fault.time_ms; out->port=uart_first_fault.port;
+        out->sr_errors=uart_first_fault.sr_errors; out->queue_full=uart_first_fault.queue_full;
+        out->valid=1;
+    }
+    __enable_irq();
+    return valid;
+}
 void board_flush_pc(void)
 {
     __disable_irq(); pc.tail=pc.head; __enable_irq();
