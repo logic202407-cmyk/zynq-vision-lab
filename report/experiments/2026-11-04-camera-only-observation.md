@@ -15,3 +15,5 @@
 用户手动调整固定相机或纸靶后，确认两台画面均完整看到红色纸靶，OpenMV 红框框住纸靶；此为人工确认，不是自动跨相机身份匹配。重新查询并绑定观测会话，65 秒快照记录 1704 完整帧、3 不完整帧、1 异常包；保护帧 CRC 错误 0。OpenMV 脚本启动前有无效 F1，启动后记录到有效 F1；结束时关联 STOP ACK 正确，PWM 报告掩码 0。本次没有 ARM 或运动命令，舵机动力由用户确认保持开启。
 
 用户说明 OpenMV 画面倒置。根据 [OpenMV 摄像头方向说明](https://docs.openmv.io/dev/openmvcam/tutorial/vision/csi/sensor-knobs.html)，在 D 盘现有 RAM 脚本副本中设置水平和垂直翻转，目标识别及 dx/dy 均基于翻转后的图像计算。该候选 `R:/evidence/c1-pd12-board-20261104/openmv-team-upright-ram90.py` 语法编译通过；IDE 打开对话框已填入路径，但截至本记录仍等待用户确认打开、运行及画面效果，不宣称相机实测通过。未写 OpenMV Flash，设备重启不会自动保留该临时脚本。翻转改变图像坐标方向，不推断实际两轴控制正负或机械限位。
+
+随后用户更正画面仍然倒置；IDE 实际仍在原始脚本。打开翻转版并运行后，用户确认画面正常。随后 UART 采集收到 235 条有效 F1、CRC 错误 0，最后一条 dx=-62、dy=-25；这是实际串口观测，未证明目标移动响应或伺服方向。观察结束发送 STOP，关联应答 CRC 正确，固件报告 PWM 掩码 0，VIO 状态 `012e0050`；此期间不发 ARM/运动命令。运行的本地脚本 SHA-256 `9a7ba8d835ca85c30a03cc46796a62a2467b0eafd2aea1550d7104672b7bab46`；仓库保存的 `src/prototype/skystar_openmv/openmv_upright_ram90.py` SHA-256 `14388fc56a65009f41b6d1396fa3079c0ffdb7bed4e69e2a3224fcefe1660e5d`，仅调整注释和尾部空格。相机 Flash 未写入。原始日志在 D 盘 `capture-20261104-110412` 和 `capture-20261104-110435`，不上传。
