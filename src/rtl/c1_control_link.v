@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 // Explicit operator ARM/AUTO, one fixed paper-target bench. No boot motion.
 // AUTO executes the MCU-local OpenMV controller under FPGA lease supervision.
-module c1_control_link #(parameter CLOCK_HZ=50000000,LOCAL_RESETS=1)(
+module c1_control_link #(parameter CLOCK_HZ=50000000,LOCAL_RESETS=1,CONTINUOUS_AUTO=0)(
  input wire clk,reset_n,camera_clk,camera_reset_n,
  input wire acquire,query,configure,stop_request,authorize,start_auto,
  input wire[127:0] query_id,input wire[63:0] logging_session,
@@ -10,7 +10,7 @@ module c1_control_link #(parameter CLOCK_HZ=50000000,LOCAL_RESETS=1)(
  output wire[3:0] state,output wire[31:0] camera_dropped,measurement_dropped,
  output wire[1:0] pwm_mask,output wire[31:0] accepted_count);
  wire[15:0] pan,tilt;
- zynq_vision_link #(.CLOCK_HZ(CLOCK_HZ),.LOCAL_RESETS(LOCAL_RESETS),.ALLOW_AUTO(1)) link(
+ zynq_vision_link #(.CLOCK_HZ(CLOCK_HZ),.LOCAL_RESETS(LOCAL_RESETS),.ALLOW_AUTO(1),.CONTINUOUS_AUTO(CONTINUOUS_AUTO)) link(
  .clk(clk),.reset_n(reset_n),.camera_clk(camera_clk),.camera_reset_n(camera_reset_n),
  .query(query),.authorize(authorize&&session_active),.command(start_auto&&session_active),.stop_request(stop_request),
  .axis(2'b11),.pulse_us(16'd0),.epoch(query_id),.request_local(acquire),

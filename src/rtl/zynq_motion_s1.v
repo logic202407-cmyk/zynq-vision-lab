@@ -4,7 +4,7 @@
 module zynq_motion_s1 #(
  parameter integer CLOCK_HZ=100000000, BAUD=115200,
  parameter integer ACK_MS=100, HEARTBEAT_MS=100, AUTH_MS=30000, TX_MS=10,
- parameter integer ALLOW_AUTO=0
+ parameter integer ALLOW_AUTO=0, CONTINUOUS_AUTO=0
 )(
  input wire clk,reset_n,query,authorize,command,stop_request,
  input wire [1:0] axis, // 0 pan, 1 tlt, 2 home; opt-in 3/zero pulse AUTO
@@ -195,7 +195,7 @@ module zynq_motion_s1 #(
  if(CONFIG_OK&&!owner&&request_local&&pc_quiet_ack&&idle_clocks==12*DIV&&state==IDLE) owner<=1;
  if(owner&&!request_local&&stop_confirmed&&state==IDLE&&idle_clocks==12*DIV) owner<=0;
  if(se || (owner&&(!request_local||!pc_quiet_ack)&&!stop_confirmed&&op!=OP_STOP) ||
- (authorized&&now_ms-auth_at>=AUTH_MS)) begin authorized<=0;cancel_pending<=1;end
+ (authorized&&!(CONTINUOUS_AUTO&&ALLOW_AUTO&&auto_mode)&&now_ms-auth_at>=AUTH_MS)) begin authorized<=0;cancel_pending<=1;end
  if(re&&owner&&state!=IDLE&&state!=FAULT) begin
  authorized<=0;fault<=1;
  if(op!=OP_STOP) cancel_pending<=1;
