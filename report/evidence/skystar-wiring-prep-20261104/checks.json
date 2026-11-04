@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-04",
+  "base_commit": "dce6a84ac18a9c70ed44c2e0546144b2b9e9754a",
+  "scope": "wiring/configuration metadata preparation only",
+  "python": "3.12.7",
+  "host_compiler": "GCC 16.1.0 MSYS2 UCRT64",
+  "arm_compiler": "Arm Compiler for Embedded 6.21 (registry object only)",
+  "checks": {
+    "wiring_validator": "pass",
+    "sdio_negative_exit_code": 1,
+    "python_suite": {
+      "passed": 117,
+      "failed": 0,
+      "skipped": 0
+    },
+    "host_registry": "C1_REGISTRY_PASS",
+    "arm_registry_object": "pass; -Wall -Wextra -Werror; no diagnostics",
+    "team_register_model": {
+      "verdict": "PASS",
+      "cases": [
+        "boot_inactive_team_gains",
+        "vision_cannot_self_arm",
+        "bound_OpenMV_packet_produces_CRC_valid_F1",
+        "explicit_ARM_AUTO_valid_frame_enables_PWM_and_PE2",
+        "positive_axis_sign_and_travel_limits",
+        "invalid_target_disables_outputs",
+        "vision_timeout_disables_outputs",
+        "correlated_STOP_disables_outputs",
+        "KEY_ISR_disables_without_foreground",
+        "UART_error_ISR_disables_without_foreground",
+        "lease_ISR_disables_without_foreground"
+      ],
+      "count": 11,
+      "qid_guard": false,
+      "scope": "offline actual C and register model; not physical validation"
+    }
+  },
+  "source_sha256": {
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_wiring.def": "0a8da7b60c89f9c6c8a998dcb8aef246d30dd71191e71c0f5f0787e09bd7dbe8",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.c": "9da6caeee803f76863eca04b5987355cab73dd54577852afec1dab3dd43263b3",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.h": "00d3a1121af85587b05c61d6f301bc23aa8cde512e82426cd89fe88372957b58",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/build.py": "0804267d0ab1c00c826304a6e5f11a53f0db725c8130cc645c5e5f73710093b8",
+    "sim/c1/registry_checks.c": "41d9a1960951a8472adb7cab1d5e155004fcdd218a9c88d2e9920740868717e2",
+    "tools/check_skystar_wiring.py": "f7e9d63d5e214dd83fa3ade590879783c9459e3d35366394a7b25ac0945a574d",
+    "tests/test_skystar_wiring.py": "a5c5940eb9299969db8d7f8c488fa709a798675342e7aa6ba3798c8e2c10b1ff"
+  },
+  "new_drivers_implemented": false,
+  "new_firmware_programmed": false,
+  "hardware_accessed": false,
+  "new_gimbals_hardware_tested": false,
+  "source_hash_basis": "source_sha256 records exact local tested bytes (may include CRLF); git_blob_sha256 records canonical committed source bytes",
+  "git_blob_sha256": {
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_wiring.def": "0a8da7b60c89f9c6c8a998dcb8aef246d30dd71191e71c0f5f0787e09bd7dbe8",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.c": "78d340db6845da2c859c549d5c7d0d9d78f9cb4730ccdd85a47c78d1d39e2e67",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/User/gimbal_registry.h": "8f76d38ca3b9e65455514e3bacd9d5cca2c142d914f151aa86f19184f01fed2f",
+    "src/prototype/skystar_openmv/stm32_skystar_tracking/build.py": "7e4cb289b912919ab3f5201e0ec1631af2ba6d08741d91fac7e62cbc6752f5f5",
+    "sim/c1/registry_checks.c": "e2699b6dc2c76d32e674d6b5e468c10e6b3d2ec4c9ec3484e4b9b56b3254c839",
+    "tools/check_skystar_wiring.py": "f7e9d63d5e214dd83fa3ade590879783c9459e3d35366394a7b25ac0945a574d",
+    "tests/test_skystar_wiring.py": "a5c5940eb9299969db8d7f8c488fa709a798675342e7aa6ba3798c8e2c10b1ff"
+  }
+}

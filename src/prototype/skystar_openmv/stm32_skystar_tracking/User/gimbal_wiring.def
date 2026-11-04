@@ -1,0 +1,15 @@
+/* Approved wiring preparation, 2026-11-04. Metadata only: no GPIO writes.
+ * IDs 0/1/2 mean physical gimbals 1/2/3; axis 0=PAN, 1=TILT.
+ * PWM: id, axis, pin, timer, channel, alternate function.
+ * RX: id, pin, UART, alternate function. 115200 8N1, 3.3V TTL.
+ * Standalone STM32F407VET6 core board; TF/SDIO disabled.
+ */
+GIMBAL_PWM(0, 0, PD12, TIM4, 1, 2)
+GIMBAL_PWM(0, 1, PD13, TIM4, 2, 2)
+GIMBAL_PWM(1, 0, PD14, TIM4, 3, 2)
+GIMBAL_PWM(1, 1, PD15, TIM4, 4, 2)
+GIMBAL_PWM(2, 0, PE9, TIM1, 1, 1)
+GIMBAL_PWM(2, 1, PE11, TIM1, 2, 1)
+GIMBAL_RX(0, PA3, USART2, 7)
+GIMBAL_RX(1, PC7, USART6, 8)
+GIMBAL_RX(2, PD2, UART5, 8)

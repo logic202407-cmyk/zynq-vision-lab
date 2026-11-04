@@ -16,11 +16,18 @@ typedef struct {
 } gimbal_context_t;
 typedef struct { gimbal_context_t devices[GIMBAL_COUNT]; } gimbal_registry_t;
 typedef struct {
+    /* Selection/approval of the wiring plan, NOT board acceptance or enable. */
     uint8_t gimbal, axis, mapped, confirmed_for_preparation;
     const char *pin, *timer;
-    uint8_t channel;
+    uint8_t channel, alternate_function;
 } gimbal_pwm_resource_t;
+typedef struct {
+    uint8_t gimbal;
+    const char *pin, *uart;
+    uint8_t alternate_function;
+} gimbal_rx_resource_t;
 extern const gimbal_pwm_resource_t gimbal_pwm_resources[6];
+extern const gimbal_rx_resource_t gimbal_rx_resources[GIMBAL_COUNT];
 void gimbal_registry_init(gimbal_registry_t *r);
 /* Records desired software values only; cannot enable any output. */
 int gimbal_record_targets(gimbal_registry_t *r,unsigned id,unsigned pan,unsigned tilt);
