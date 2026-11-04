@@ -8,6 +8,8 @@
 
 两个 CDC-10 分别从以太网域 `transfer_flag` 和相机域 `img_vsync_d1` 指向厂商视频 FIFO 复位相关结构。该厂商 RTL 将帧同步边沿与传输标志组合形成 FIFO reset，复位 busy 输出未在实例处使用。这是依据源代码和报告的定位，尚未完成复位脉宽、busy 时序、各域握手及修复验证；不得通过添加 false-path 或删除告警冒充修复。私有厂商源代码不进入仓库。
 
+补充检查当前 FIFO IP 配置：独立时钟 Block RAM、异步复位、复位同步开启、full reset 值为 1。AMD [FIFO Generator v13.2 PG057](https://docs.amd.com/api/khub/documents/Ds0JjAYlvIFpRMxJMOrbRw/content) 对此配置要求复位脉冲至少覆盖较慢读写时钟的一个周期，两个时钟复位期间需持续运行；复位期间不应执行读写。现有实例未连接的 busy 端口以及复位表达式都需要结合该具体配置做时序验证，现有观测不能证明实际发生了违规。修复必须考虑两域忙状态、复位重复请求与停钟恢复，不能简单增加固定时长或假设两时钟频率。
+
 `python -m unittest discover -s tests -p test_audit_pd12_cdc.py -v`：3 项通过；覆盖严重告警锁定、端点不匹配与重复、负 skew。`python -m unittest discover -s tests -v`：103 项通过；`python tools/check_repository.py`：通过，退出均 0。UART 首故障候选重新执行 `python tools/check_uart_fault_sources.py --stage R:/evidence/c1-pd12-uart-review-20261104`：10 项通过、退出 0；仅为真实 C 与主机寄存器模型测试，不能追溯历史故障来源，也不能证明中断时序，候选未烧录。
 
 同启动单调 QID 候选仍不能阻止 FPGA 和 MCU 跨复位时旧会话重放；本地双日志不能证明共同回滚或设备克隆时的唯一性。当前没有已证实的持久防回滚锚点，因而仍是运动前阻塞。现有现场候选的无动力查询和 STOP 不等于已验证运动授权或安全失联停机。
