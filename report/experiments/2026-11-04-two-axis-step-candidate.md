@@ -21,3 +21,5 @@ RTL SHA-256：`c1_two_axis_step_gate.v` `0ef450f7f1f478ffc7d32c59a3fdc3ee60ae9cf
 ## 经授权的只观测加载
 
 用户随后确认两只舵机动力物理断开、激光拆除断电，并授权仅临时 JTAG 加载、视频和通信核验。重新核对 BIT/LTX 哈希，加载成功、DONE=1，VIO 三个输出初值均为 0；未写 FPGA 或 STM32 Flash。采集的 30 秒快照有 787 个完整视频帧、0 不完整帧、1 异常包，捕获 S1SYNC 1 条、CRC 正确。首次绑定未收到 V2A，VIO 会话标志未置位；保留失败，具体原因未确定。将观测会话值调整后重试，捕获 V2A 1 条、CRC 正确，会话标志置位；不单凭此断定首次原因。最后发 STOP，关联 ACK 报告 `ACCEPT/REG`、stopped、PWM 掩码 0 且 CRC 正确，VIO 最终状态 `00010050`。未发 ARM、PAN 或 TLT，没有启动自动跟踪；PWM 掩码不是电源断开或实测波形证明。原始私有日志位于 `R:/evidence/c1-pd12-board-20261104/capture-20261104-113220` 和 `capture-20261104-113318`。
+
+进一步比较历史串口：重新配置 FPGA 前后 S1SYNC 的 MCU nonce 相同，首次拟用观测会话编号小于此前成功绑定值，重试值较大。`main.c` 在同一 nonce 下拒绝回退的已绑定会话号；`safety.c` 在已停止状态接收 STOP 不旋转 nonce。`python tools/check_observation_rebind.py --model-stage R:/evidence/c1-two-axis-link-20261104-02 --output R:/evidence/c1-two-axis-link-20261104-02/rebind-result.json`：真实 TEAM C 主机模型 3 项通过、退出 0，复现已停止时 nonce 不变、低会话无 V2A、高会话有 V2A。这是与现场现象一致的解释，不是对首次 FPGA 实际发送字节或 MCU 内存状态的证明。首次编写该回归调用了 TEAM 适配器未导出的 `c1_bound` 而退出 1；已改用实际 V2A 与状态接口，保留该失败记录，不改变固件。测试脚本 SHA-256 `d3cb51d5074f707a2be4f02d68cd27a5672466277f247894124b8668eb804285`。
