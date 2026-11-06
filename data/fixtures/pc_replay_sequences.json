@@ -1,0 +1,252 @@
+{
+  "schema_version": "pc-replay-sequences/1",
+  "source": "Synthetic expectations only. Receiver timeout and controller transitions require team confirmation.",
+  "sequences": [
+    {
+      "sequence_id": "acquire_loss_reacquire",
+      "events": [
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 0,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 33,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 66,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 99,
+          "session": "a"
+        },
+        {
+          "case_id": "no_target",
+          "timestamp_ms": 132,
+          "session": "a"
+        },
+        {
+          "case_id": "no_target",
+          "timestamp_ms": 165,
+          "session": "a"
+        },
+        {
+          "case_id": "no_target",
+          "timestamp_ms": 198,
+          "session": "a"
+        },
+        {
+          "case_id": "no_target",
+          "timestamp_ms": 231,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 264,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 297,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 330,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 363,
+          "session": "a"
+        }
+      ]
+    },
+    {
+      "sequence_id": "edge_scan",
+      "events": [
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 0,
+          "session": "a"
+        },
+        {
+          "case_id": "left_edge",
+          "timestamp_ms": 33,
+          "session": "a"
+        },
+        {
+          "case_id": "right_edge",
+          "timestamp_ms": 66,
+          "session": "a"
+        },
+        {
+          "case_id": "top_edge",
+          "timestamp_ms": 99,
+          "session": "a"
+        },
+        {
+          "case_id": "bottom_edge",
+          "timestamp_ms": 132,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 165,
+          "session": "a"
+        }
+      ]
+    },
+    {
+      "sequence_id": "noise_small",
+      "events": [
+        {
+          "case_id": "no_target",
+          "timestamp_ms": 0,
+          "session": "a"
+        },
+        {
+          "case_id": "single_pixel",
+          "timestamp_ms": 33,
+          "session": "a"
+        },
+        {
+          "case_id": "tiny_2x2",
+          "timestamp_ms": 66,
+          "session": "a"
+        },
+        {
+          "case_id": "five_vote_cross",
+          "timestamp_ms": 99,
+          "session": "a"
+        },
+        {
+          "case_id": "patch_plus_speck",
+          "timestamp_ms": 132,
+          "session": "a"
+        },
+        {
+          "case_id": "patch_with_hole",
+          "timestamp_ms": 165,
+          "session": "a"
+        },
+        {
+          "case_id": "no_target",
+          "timestamp_ms": 198,
+          "session": "a"
+        }
+      ]
+    },
+    {
+      "sequence_id": "receive_pause",
+      "events": [
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 0,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 33,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 66,
+          "session": "a"
+        },
+        {
+          "case_id": "no_target",
+          "timestamp_ms": 666,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 699,
+          "session": "a"
+        }
+      ]
+    },
+    {
+      "sequence_id": "session_restart",
+      "events": [
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 0,
+          "session": "a"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 33,
+          "session": "a"
+        },
+        {
+          "case_id": "no_target",
+          "timestamp_ms": 66,
+          "session": "a"
+        },
+        {
+          "case_id": "no_target",
+          "timestamp_ms": 0,
+          "session": "b"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 33,
+          "session": "b"
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 66,
+          "session": "b"
+        }
+      ]
+    },
+    {
+      "sequence_id": "config_change",
+      "events": [
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 0,
+          "session": "a",
+          "mask_version": 1
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 33,
+          "session": "a",
+          "mask_version": 1
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 66,
+          "session": "a",
+          "mask_version": 1
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 99,
+          "session": "a",
+          "mask_version": 2
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 132,
+          "session": "a",
+          "mask_version": 2
+        },
+        {
+          "case_id": "center_patch",
+          "timestamp_ms": 165,
+          "session": "a",
+          "mask_version": 2
+        }
+      ]
+    }
+  ]
+}

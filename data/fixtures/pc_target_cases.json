@@ -1,0 +1,505 @@
+{
+  "schema_version": "pc-pixel-fixtures/1",
+  "source": "team-authored synthetic RGB565 masks; analytical expectations, not camera observations",
+  "width": 640,
+  "height": 480,
+  "cases": [
+    {
+      "case_id": "no_target",
+      "red_rectangles": [],
+      "expected": {
+        "1": {
+          "valid": false,
+          "count": 0,
+          "sum_x": 0,
+          "sum_y": 0,
+          "bbox": null,
+          "centroid_mask_floor": null
+        },
+        "2": {
+          "valid": false,
+          "count": 0,
+          "sum_x": 0,
+          "sum_y": 0,
+          "bbox": null,
+          "centroid_mask_floor": null
+        }
+      },
+      "oracle": "No pixels; both modes must clear current coordinates."
+    },
+    {
+      "case_id": "center_patch",
+      "red_rectangles": [
+        [
+          318,
+          238,
+          322,
+          242
+        ]
+      ],
+      "expected": {
+        "1": {
+          "valid": true,
+          "count": 25,
+          "sum_x": 8000,
+          "sum_y": 6000,
+          "bbox": [
+            318,
+            238,
+            322,
+            242
+          ],
+          "centroid_mask_floor": [
+            320,
+            240
+          ]
+        },
+        "2": {
+          "valid": true,
+          "count": 21,
+          "sum_x": 6720,
+          "sum_y": 5040,
+          "bbox": [
+            318,
+            238,
+            322,
+            242
+          ],
+          "centroid_mask_floor": [
+            320,
+            240
+          ]
+        }
+      },
+      "oracle": "5x5: 25 raw pixels; majority retains 21, excluding four corners."
+    },
+    {
+      "case_id": "left_edge",
+      "red_rectangles": [
+        [
+          0,
+          238,
+          4,
+          242
+        ]
+      ],
+      "expected": {
+        "1": {
+          "valid": true,
+          "count": 25,
+          "sum_x": 50,
+          "sum_y": 6000,
+          "bbox": [
+            0,
+            238,
+            4,
+            242
+          ],
+          "centroid_mask_floor": [
+            2,
+            240
+          ]
+        },
+        "2": {
+          "valid": true,
+          "count": 18,
+          "sum_x": 42,
+          "sum_y": 4320,
+          "bbox": [
+            1,
+            238,
+            4,
+            242
+          ],
+          "centroid_mask_floor": [
+            2,
+            240
+          ]
+        }
+      },
+      "oracle": "Image border excluded; 18 retained pixels."
+    },
+    {
+      "case_id": "right_edge",
+      "red_rectangles": [
+        [
+          635,
+          238,
+          639,
+          242
+        ]
+      ],
+      "expected": {
+        "1": {
+          "valid": true,
+          "count": 25,
+          "sum_x": 15925,
+          "sum_y": 6000,
+          "bbox": [
+            635,
+            238,
+            639,
+            242
+          ],
+          "centroid_mask_floor": [
+            637,
+            240
+          ]
+        },
+        "2": {
+          "valid": true,
+          "count": 18,
+          "sum_x": 11460,
+          "sum_y": 4320,
+          "bbox": [
+            635,
+            238,
+            638,
+            242
+          ],
+          "centroid_mask_floor": [
+            636,
+            240
+          ]
+        }
+      },
+      "oracle": "Mirror of left edge."
+    },
+    {
+      "case_id": "top_edge",
+      "red_rectangles": [
+        [
+          318,
+          0,
+          322,
+          4
+        ]
+      ],
+      "expected": {
+        "1": {
+          "valid": true,
+          "count": 25,
+          "sum_x": 8000,
+          "sum_y": 50,
+          "bbox": [
+            318,
+            0,
+            322,
+            4
+          ],
+          "centroid_mask_floor": [
+            320,
+            2
+          ]
+        },
+        "2": {
+          "valid": true,
+          "count": 18,
+          "sum_x": 5760,
+          "sum_y": 42,
+          "bbox": [
+            318,
+            1,
+            322,
+            4
+          ],
+          "centroid_mask_floor": [
+            320,
+            2
+          ]
+        }
+      },
+      "oracle": "Image border excluded; 18 retained pixels."
+    },
+    {
+      "case_id": "bottom_edge",
+      "red_rectangles": [
+        [
+          318,
+          475,
+          322,
+          479
+        ]
+      ],
+      "expected": {
+        "1": {
+          "valid": true,
+          "count": 25,
+          "sum_x": 8000,
+          "sum_y": 11925,
+          "bbox": [
+            318,
+            475,
+            322,
+            479
+          ],
+          "centroid_mask_floor": [
+            320,
+            477
+          ]
+        },
+        "2": {
+          "valid": true,
+          "count": 18,
+          "sum_x": 5760,
+          "sum_y": 8580,
+          "bbox": [
+            318,
+            475,
+            322,
+            478
+          ],
+          "centroid_mask_floor": [
+            320,
+            476
+          ]
+        }
+      },
+      "oracle": "Mirror of top edge."
+    },
+    {
+      "case_id": "single_pixel",
+      "red_rectangles": [
+        [
+          320,
+          240,
+          320,
+          240
+        ]
+      ],
+      "expected": {
+        "1": {
+          "valid": true,
+          "count": 1,
+          "sum_x": 320,
+          "sum_y": 240,
+          "bbox": [
+            320,
+            240,
+            320,
+            240
+          ],
+          "centroid_mask_floor": [
+            320,
+            240
+          ]
+        },
+        "2": {
+          "valid": false,
+          "count": 0,
+          "sum_x": 0,
+          "sum_y": 0,
+          "bbox": null,
+          "centroid_mask_floor": null
+        }
+      },
+      "oracle": "One vote cannot meet five-of-nine."
+    },
+    {
+      "case_id": "tiny_2x2",
+      "red_rectangles": [
+        [
+          320,
+          240,
+          321,
+          241
+        ]
+      ],
+      "expected": {
+        "1": {
+          "valid": true,
+          "count": 4,
+          "sum_x": 1282,
+          "sum_y": 962,
+          "bbox": [
+            320,
+            240,
+            321,
+            241
+          ],
+          "centroid_mask_floor": [
+            320,
+            240
+          ]
+        },
+        "2": {
+          "valid": false,
+          "count": 0,
+          "sum_x": 0,
+          "sum_y": 0,
+          "bbox": null,
+          "centroid_mask_floor": null
+        }
+      },
+      "oracle": "At most four votes; target disappears."
+    },
+    {
+      "case_id": "patch_plus_speck",
+      "red_rectangles": [
+        [
+          318,
+          238,
+          322,
+          242
+        ],
+        [
+          30,
+          20,
+          30,
+          20
+        ]
+      ],
+      "expected": {
+        "1": {
+          "valid": true,
+          "count": 26,
+          "sum_x": 8030,
+          "sum_y": 6020,
+          "bbox": [
+            30,
+            20,
+            322,
+            242
+          ],
+          "centroid_mask_floor": [
+            308,
+            231
+          ]
+        },
+        "2": {
+          "valid": true,
+          "count": 21,
+          "sum_x": 6720,
+          "sum_y": 5040,
+          "bbox": [
+            318,
+            238,
+            322,
+            242
+          ],
+          "centroid_mask_floor": [
+            320,
+            240
+          ]
+        }
+      },
+      "oracle": "Remote single speck enlarges raw box, but filtered mask equals center_patch."
+    },
+    {
+      "case_id": "five_vote_cross",
+      "red_rectangles": [
+        [
+          319,
+          240,
+          321,
+          240
+        ],
+        [
+          320,
+          239,
+          320,
+          241
+        ]
+      ],
+      "expected": {
+        "1": {
+          "valid": true,
+          "count": 5,
+          "sum_x": 1600,
+          "sum_y": 1200,
+          "bbox": [
+            319,
+            239,
+            321,
+            241
+          ],
+          "centroid_mask_floor": [
+            320,
+            240
+          ]
+        },
+        "2": {
+          "valid": true,
+          "count": 1,
+          "sum_x": 320,
+          "sum_y": 240,
+          "bbox": [
+            320,
+            240,
+            320,
+            240
+          ],
+          "centroid_mask_floor": [
+            320,
+            240
+          ]
+        }
+      },
+      "oracle": "Exactly five votes at center; all arm windows have four votes."
+    },
+    {
+      "case_id": "patch_with_hole",
+      "red_rectangles": [
+        [
+          318,
+          238,
+          322,
+          239
+        ],
+        [
+          318,
+          241,
+          322,
+          242
+        ],
+        [
+          318,
+          240,
+          319,
+          240
+        ],
+        [
+          321,
+          240,
+          322,
+          240
+        ]
+      ],
+      "expected": {
+        "1": {
+          "valid": true,
+          "count": 24,
+          "sum_x": 7680,
+          "sum_y": 5760,
+          "bbox": [
+            318,
+            238,
+            322,
+            242
+          ],
+          "centroid_mask_floor": [
+            320,
+            240
+          ]
+        },
+        "2": {
+          "valid": true,
+          "count": 21,
+          "sum_x": 6720,
+          "sum_y": 5040,
+          "bbox": [
+            318,
+            238,
+            322,
+            242
+          ],
+          "centroid_mask_floor": [
+            320,
+            240
+          ]
+        }
+      },
+      "oracle": "The center hole fills, four outer corners disappear: filtered count 21 versus raw 24."
+    }
+  ]
+}
